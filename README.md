@@ -1,2 +1,2 @@
-# neptune-docs
+# docs
 Neptune documentation
