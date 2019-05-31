@@ -1,9 +1,11 @@
-Welcome to neptune-documentation's documentation!
-=================================================
+Neptune documentation
+=====================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Notebooks
+
+   Introduction <notebooks/introduction.rst>
 
 
 
