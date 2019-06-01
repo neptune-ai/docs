@@ -6,6 +6,7 @@ Neptune documentation
    :caption: Notebooks
 
    Introduction <notebooks/introduction.rst>
+   Troubleshoot <notebooks/troubleshoot.rst>
 
 
 
