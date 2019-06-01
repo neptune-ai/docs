@@ -7,8 +7,7 @@ Neptune documentation
 
    Introduction <notebooks/introduction.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
-
-
+   Installation and configuration <notebooks/install-configure.rst>
 
 Indices and tables
 ==================
