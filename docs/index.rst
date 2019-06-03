@@ -57,10 +57,10 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 1
-   :titlesonly:
    :caption: How-to guides
 
-   how-to.rst
+   how-to/track.rst
+   how-to/organize.rst
 
 .. toctree::
    :maxdepth: 1
