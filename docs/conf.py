@@ -24,6 +24,8 @@ author = 'neptune-ml team'
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'
 
+# The default language to highlight source code in
+highlight_language = 'python3'
 
 # -- General configuration ---------------------------------------------------
 

@@ -1,6 +1,32 @@
 Organize
 ========
 
+How to download experiment output?
+----------------------------------
+I ran an experiment and send some data. How can I download it to my local computer?
+
+Solution
+^^^^^^^^
+**Using web application**
+
+Go to you experiment and click on the ``Output`` section on the left. Then download the data by clicking on the icon next to the file you are interested in.
+
+.. image:: ../_images/how-to/ht-output-download-1.png
+   :target: ../_images/how-to/ht-output-download-1.png
+   :alt: image
+
+**Using Neptune client library**
+
+Use ``download_artifact('output_file', 'destination/path')`` like presented below:
+
+.. code-block::
+
+   import neptune
+
+   with neptune.create_experiment():
+       ...
+       neptune.download_artifact('forest_results.pkl', '.')
+
 How to add tags to experiments?
 -------------------------------
 I want to add tags to the experiments. What are the options?
@@ -11,7 +37,7 @@ Solution
 
 You can add or remove tags directly from your script.
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 
@@ -101,3 +127,44 @@ You can always add new charts by clicking on the ``New chart`` button on the top
    :alt: image
 
 Neptune will remember your chart set for this project so all your experiments charts can be now organized in the same way!
+
+How to change project in Python code?
+-------------------------------------
+I created new project in Neptune, now I want to switch to it. How can I change that in my Python code?
+
+Solution
+^^^^^^^^
+
+Use ``project_qualified_name`` - it consist of two pieces: *organization_name* and *project_name* like in example below:
+
+.. code-block::
+
+   import neptune
+
+   # This function assumes that NEPTUNE_API_TOKEN environment variable is defined.
+   neptune.init(project_qualified_name='username/my_project')
+
+   with neptune.create_experiment() as exp:
+       ...
+
+How to find my Neptune API Token?
+---------------------------------
+I don't know where to find my Neptune API token. How can I get it?
+
+Solution
+^^^^^^^^
+Neptune API Token is located under your User menu (top right side of the screen, like on the image below):
+
+.. image:: https://gist.githubusercontent.com/kamil-kaczmarek/b3b939797fb39752c45fdadfedba3ed9/raw/410d2db447ab852aca99f22c565f665b297c4a6f/token.png
+
+.. warning:: Always keep your API token secret - it is like password to the application.
+
+**Important note**
+
+For the best experience, it is recommended to put token in the ``NEPTUNE_API_TOKEN`` environmental variable. Assign your API token to the bash environment variable:
+
+.. code:: bash
+
+    export NEPTUNE_API_TOKEN='YOUR_API_TOKEN'
+
+or append this line to your ``~/.bashrc`` or ``~/.bash_profile`` files.

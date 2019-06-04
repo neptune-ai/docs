@@ -7,7 +7,7 @@ Neptune is lightweight
 ----------------------
 Neptune team builds the platform with single design principle is mind: *lightweightness*. What it means?
 
-* fast&easy new user onboarding (check yourself: :doc:`get-started <tutorials/tutorial-1>`).
+* fast and easy new user onboarding (check yourself: :doc:`get-started <tutorials/tutorial-1>`).
 * 20 minutes deployment: use SaaS or deploy on any cloud or on your hardware.
 * Neptune fits in any workflow ranging from data exploration & analysis, decision science to machine learning and deep learning.
 * Neptune support your techstack: Notebooks, Python scripts, R.
@@ -21,7 +21,7 @@ Track
 -----
 Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. Snipped below, presents example integration with Python code.
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 

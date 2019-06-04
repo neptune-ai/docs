@@ -11,7 +11,7 @@ Solution
 
 Say your training script looks like this:
 
-.. code-block:: python
+.. code-block::
 
    import keras
    from keras import backend as K
@@ -36,7 +36,7 @@ Say your training script looks like this:
 
 Now let's use Keras Callback
 
-.. code-block:: python
+.. code-block::
 
    from keras.callbacks import Callback
 
@@ -49,7 +49,7 @@ Now let's use Keras Callback
 
 Instantiate it and add it to your callbacks list:
 
-.. code-block:: python
+.. code-block::
 
    with neptune.create_experiment():
        neptune_monitor = NeptuneMonitor()
@@ -69,7 +69,7 @@ Solution
 ^^^^^^^^
 Say your training script looks like this:
 
-.. code-block:: python
+.. code-block::
 
    import torch
    import torch.nn as nn
@@ -126,7 +126,7 @@ Say your training script looks like this:
 
 Add a snippet to the training loop, that sends your loss or metric to Neptune:
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 
@@ -151,7 +151,7 @@ Solution
 ^^^^^^^^
 Say your training script looks like this:
 
-.. code-block:: python
+.. code-block::
 
    import lightgbm as lgb
    from sklearn.model_selection import train_test_split
@@ -185,7 +185,7 @@ Now, you need to use lightGBM callbacks to pass log metrics to Neptune:
 
 Take this callback:
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 
@@ -202,7 +202,7 @@ Take this callback:
 
 Pass it to ``lgb.train`` object via ``callbacks`` parameter:
 
-.. code-block:: python
+.. code-block::
 
    gbm = lgb.train(params,
                    lgb_train,
@@ -228,7 +228,7 @@ Solution
 
 Create matplotlib figure
 
-.. code-block:: python
+.. code-block::
 
    import matplotlib.pyplot as plt
    import seaborn as sns
@@ -242,7 +242,7 @@ Convert your matplotlib figure object into PIL image.
 
 For example you could use the following function, taken from `here <http://www.icare.univ-lille1.fr/wiki/index.php/How_to_convert_a_matplotlib_figure_to_a_numpy_array_or_a_PIL_image>`_, and adjusted slightly:
 
-.. code-block:: python
+.. code-block::
 
    import numpy as np
    from PIL import Image
@@ -264,7 +264,7 @@ For example you could use the following function, taken from `here <http://www.i
 
 Send it to Neptune!
 
-.. code-block:: python
+.. code-block::
 
    neptune.create_experiment()
    neptune.send_image('distplot', pil_image)
@@ -279,6 +279,27 @@ Explore it in the browser:
 
 .. image:: ../_images/how-to/ht-matplotlib-2.png
    :target: ../_images/how-to/ht-matplotlib-2.png
+   :alt: image
+
+How to save experiment output?
+------------------------------
+I can run my experiment but I am struggling to save the model weights and the ``csv`` file with the results when it completes. How can I do that in Neptune?
+
+Solution
+^^^^^^^^
+Save everything as you go! For example:
+
+.. code-block::
+
+   with neptune.create_experiment() as exp:
+       exp.send_artifact('/path/to/model_weights.h5')
+       ...
+       exp.send_artifact('/path/to/results.csv')
+
+Your results will be available for you to download in the ``Output`` section of your experiment.
+
+.. image:: ../_images/how-to/ht-output-download-1.png
+   :target: ../_images/how-to/ht-output-download-1.png
    :alt: image
 
 How specify experiment parameters?
@@ -321,7 +342,7 @@ Solution
 
 Create PIL image that you want to log. For example:
 
-.. code-block:: python
+.. code-block::
 
    import imgaug as ia
    from PIL import Image
@@ -331,7 +352,7 @@ Create PIL image that you want to log. For example:
 
 Log it to Neptune:
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 
@@ -351,7 +372,7 @@ As a result, quokka image is associated with the experiment
 
 You can log images in a loop. For example, you can augment your image and log it to Neptune:
 
-.. code-block:: python
+.. code-block::
 
    from imgaug import augmenters as iaa
 
@@ -382,7 +403,7 @@ Solution
 
 In order to log metrics to Neptune, you simply need to:
 
-.. code-block:: python
+.. code-block::
 
    import neptune
 
@@ -403,3 +424,91 @@ Another option is to log `key: value` pair like this:
 **Step 2: Analyze**
 
 Browse and analyse your metrics on the dashboard (`example <https://app.neptune.ml/neptune-ml/Home-Credit-Default-Risk/experiments>`_) or in the particular experiment (`example experiment <https://app.neptune.ml/neptune-ml/Home-Credit-Default-Risk/e/HC-11860/channels>`_).
+
+How to version datasets?
+------------------------
+When working on a project, it is not unusual that I change the datasets on which I train my models. How can I keep track of that in Neptune?
+
+Solution
+^^^^^^^^
+Under many circumstances it is possible to calculate a hash of your dataset. Even if you are working with large image datasets, you have some sort of a smaller metadata file, that points to image paths. If this is the case you should:
+
+**Step 1**
+
+Create hashing function. For example:
+
+.. code-block::
+
+   import hashlib
+
+   def md5(fname):
+       hash_md5 = hashlib.md5()
+       with open(fname, "rb") as f:
+           for chunk in iter(lambda: f.read(4096), b""):
+               hash_md5.update(chunk)
+       return hash_md5.hexdigest()
+
+**Step 2**
+
+Calculate the hash of your training data and send it to Neptune as text:
+
+.. code-block::
+
+   TRAIN_FILEPATH = 'PATH/TO/TRAIN/DATA'
+   train_hash = md5(TRAIN_FILEPATH)
+
+   neptune.send_text('train_data_version', train_hash)
+   ...
+
+**Step 3**
+
+Add data version column to your project dashboard:
+
+.. image:: ../_images/how-to/ht-data-version-1.png
+   :target: ../_images/how-to/ht-data-version-1.png
+   :alt: image
+
+.. note:: If your dataset is too large for fast hashing you could think about rearranging your data to have a light-weight metadata file.
+
+How to keep my code private?
+----------------------------
+My code is proprietary, so I do not want to send any sources to Neptune, while training locally. How to do it?
+
+Solution
+^^^^^^^^
+All you need to do it to pass empty list ``[]`` to the ``upload_source_files`` parameter, like this:
+
+.. code-block::
+
+   import neptune
+
+   # This function assumes that NEPTUNE_API_TOKEN environment variable is defined.
+   neptune.init(project_qualified_name='shared/onboarding')
+
+   with neptune.create_experiment(upload_source_files=[]) as exp:
+       ...
+
+As a result you will not send sources to Neptune, so they will not be available in the Source Code tab in the Web app.
+
+How to upload notebook checkpoint?
+----------------------------------
+I want to add Notebook checkpoint to my project. How to do it?
+
+Solution
+^^^^^^^^
+Go to your Jupyter, where you can see two Neptune buttons:
+
+* **n** button is for configuration changes
+* **Upload** button is for making checkpoint in Neptune
+
+.. image:: ../_images/notebooks/buttons_02_1.png
+   :target: ../_images/notebooks/buttons_02_1.png
+   :alt: image
+
+Click **Upload**, whenever you want to create new checkpoint in Neptune. You will see tooltip with link as a confirmation.
+
+.. image:: ../_images/notebooks/buttons_03_1.png
+   :target: ../_images/notebooks/buttons_03_1.png
+   :alt: image
+
+.. note:: You can use **Upload** as many times as you want.
