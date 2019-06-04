@@ -3,8 +3,8 @@ R support
 
 You can interact with Neptune from R without any trouble and get the same functionality that is available in Python.
 
-**Install packages**
-
+Install packages
+----------------
 R ecosystem has this amazing library reticulate, which makes it possible to use neptune-client library from Python to log our experiments.
 Go to your terminal and run:
 
@@ -20,8 +20,8 @@ Go to your R console and install reticulate:
    
 .. image:: _images/r_support/r_integration_installation.gif
 
-**Initialize Neptune**
-
+Initialize Neptune
+------------------
 Toward the top of your script insert the following snippet.
 
 .. code:: R
@@ -46,7 +46,8 @@ Put your API token in the environment variable and inject it to your R code when
                  api_token=Sys.getenv('NEPTUNE_API_TOKEN')
     )
    
-**Create experiment**
+Create experiment
+-----------------
 
 To start tracking you need to create an experiment. 
 I like to name my experiments and add tags to them so that my work is organized and I can find relevant experiments quickly. 
@@ -64,7 +65,8 @@ When you are done tracking make sure to stop your experiment:
 
     neptune$stop()
 
-**Track hyperparameters**
+Track hyperparameters
+---------------------
 
 In order to track hyperparameters, you need to pass a named list to the create_experiment() method.
 
@@ -85,8 +87,8 @@ When you do that, Neptune creates theparameters section in the app that let’s 
 
 .. image:: _images/r_support/r_integration_hyperparams.gif
 
-**Track data versions and other properties**
-
+Track data versions and other properties
+----------------------------------------
 Keeping track of your data is an important part of the job. With Neptune you can log a fingerprint (hash) of your data for every experiment. 
 By doing so you will make sure that you are comparing apples to apples.
 
@@ -115,9 +117,9 @@ or if you want to add a property (data version or other key:value pairs), when t
 
 .. image:: _images/r_support/r_integration_data_versions.gif
 
-**Track code**
-
-Neptune automatically tracks your .git version control if you have it in your project. But if you often forget to commit your code, or simply don’t feel like doing so 😃, you can tell Neptune to make code snapshots for you! Just specify those files in the upload_source_files argument.
+Track code
+----------
+Neptune automatically tracks your .git version control if you have it in your project. But if you often forget to commit your code, or simply don’t feel like doing so, you can tell Neptune to make code snapshots for you! Just specify those files in the upload_source_files argument.
 
 .. code:: R
 
@@ -128,8 +130,8 @@ Now, you can explore your code in the app:
 
 .. image:: _images/r_support/r_integration_code.gif
 
-**Track metrics**
-
+Track metrics
+-------------
 Tracking evaluation metrics is as simple as logging. 
 You can track a single metric by using the neptune$send_metric() method. 
 Just define your logging channel name and metric value. 
@@ -158,8 +160,8 @@ You can sort your experiments by metrics you care about and take a look at the c
 
 .. image:: _images/r_support/r_integration_metrics.gif
 
-**Track artifacts**
-
+Track artifacts
+---------------
 You can also save your model weights, pdf report files or other objects in Neptune. All you need to do is pass the filepath to the neptune$send_artifact() method and it will be attached to your experiment.
 
 .. code:: R
@@ -171,8 +173,8 @@ Once it is logged, sharing it with your colleagues or collaborators is super eas
 
 .. image:: _images/r_support/r_integration_artifacts.gif
 
-**Track images and charts**
-
+Track images and charts
+-----------------------
 Logging images and charts to Neptune is very simple as well. Just use the neptune$send_image() method that takes the nameof the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things, just send another image to the same channel.
 
 .. code:: R
@@ -185,7 +187,8 @@ and you can view it in the app:
 
 .. image:: _images/r_support/r_integration_charts.gif
 
-**Full tracking script**
+Full tracking script
+--------------------
 
 .. code:: R
 

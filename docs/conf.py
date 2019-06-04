@@ -50,7 +50,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'navigation_depth': 1,
+    'navigation_depth': 2,
     'prev_next_buttons_location': 'bottom',
 }
 
