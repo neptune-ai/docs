@@ -51,13 +51,13 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Tutorials
+   :caption: User Guide
 
    Get started <tutorials/tutorial-1.rst>
 
 .. toctree::
    :maxdepth: 1
-   :caption: How-to guides
+   :caption: How-to?
 
    how-to/track.rst
    how-to/organize.rst
