@@ -1,9 +1,7 @@
 R support
 =========
 
-You can interact with Neptune from R without any trouble and 
-get the same functionality that is available in Python.
-
+You can interact with Neptune from R without any trouble and get the same functionality that is available in Python.
 
 **Install packages**
 
@@ -14,15 +12,14 @@ Go to your terminal and run:
 
     pip install neptune-client --user
 
-Go to your R console and install reticulate :
+Go to your R console and install reticulate:
 
 .. code:: R
 
     install.packages('reticulate')
    
 .. image:: _images/r_support/r_integration_installation.gif
- 
- 
+
 **Initialize Neptune**
 
 Toward the top of your script insert the following snippet.
@@ -32,9 +29,8 @@ Toward the top of your script insert the following snippet.
     neptune$init(project_qualified_name='shared/r-integration',
                  api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBz'
     )
-    
-It “connects” your script to neptune.ml hub. The first argument project_qualified_name specifies the project to which you want to log your experiments and the api_token is your login credentials.
 
+It “connects” your script to neptune.ml hub. The first argument project_qualified_name specifies the project to which you want to log your experiments and the api_token is your login credentials.
 
 .. warning:: Always keep your API token secret - it is like password to the application.
 
@@ -98,6 +94,7 @@ To do so, you need to add a property to your experiment.
 You can do it directly at in the neptune$create_experiment():
 
 .. code:: R
+
     library(digest)
 
     # Load data
@@ -110,6 +107,7 @@ You can do it directly at in the neptune$create_experiment():
 or if you want to add a property (data version or other key:value pairs), when the experiment is running:
 
 .. code:: R
+
     neptune$create_experiment()
 
     neptune$set_property('data_version', digest(dataset)))
@@ -122,6 +120,7 @@ or if you want to add a property (data version or other key:value pairs), when t
 Neptune automatically tracks your .git version control if you have it in your project. But if you often forget to commit your code, or simply don’t feel like doing so 😃, you can tell Neptune to make code snapshots for you! Just specify those files in the upload_source_files argument.
 
 .. code:: R
+
     neptune$create_experiment(upload_source_files=list('train_random_forest.R')
     )
 
