@@ -1,18 +1,19 @@
 What is Neptune?
 ================
-
 `Neptune <https://neptune.ml/>`_ is data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, model training curves or meeting notes, Neptune got you covered.
 
 Neptune is lightweight
 ----------------------
-Neptune team builds the platform with single design principle is mind: *lightweightness*. What it means?
+Neptune team builds the platform with single design principle is mind: *lightweightness*. What does it mean in practise?
 
-* fast and easy new user onboarding (check yourself: :doc:`get-started <tutorials/tutorial-1>`).
-* 20 minutes deployment: use SaaS or deploy on any cloud or on your hardware.
-* Neptune fits in any workflow ranging from data exploration & analysis, decision science to machine learning and deep learning.
-* Neptune support your techstack: Notebooks, Python scripts, R.
-* Open Source extensions (use if you need)
+* easy user onboarding
+* 20 minutes deployment: use SaaS, deploy on any cloud or on your hardware.
+* Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
+* Neptune work with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
+* Neptune integrates with other tools like `MLflow <https://mlflow.org/>`_ and `TensorBoard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_.
 
+Neptune's focus: tack, organize and collaborate
+-----------------------------------------------
 Neptune's focus is put on three aspects of data science / machine learning project: :ref:`track <track>`, :ref:`organize <organize>` and :ref:`collaborate <collaborate>`.
 
 .. _track:
@@ -48,12 +49,6 @@ Collaborate in the team share, compare, comment and communicate your work.
 
 Documentation contents
 ----------------------
-
-.. toctree::
-   :maxdepth: 1
-   :caption: User Guide
-
-   Get started <tutorials/tutorial-1.rst>
 
 .. toctree::
    :maxdepth: 1

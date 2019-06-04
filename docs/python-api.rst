@@ -9,9 +9,7 @@ Neptune comes with open source Python library: `neptune-client <https://github.c
 
 Python API documentation
 ------------------------
-Neptune client has own `documentation <https://neptune-client.readthedocs.io/en/latest>`_.
-
-Contents of neptune-client docs:
+Neptune client has own `documentation <https://neptune-client.readthedocs.io/en/latest>`_ with following contents:
 
 * API reference
 * tutorials
