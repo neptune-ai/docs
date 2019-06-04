@@ -1,26 +1,29 @@
 What is Neptune?
 ================
-`Neptune <https://neptune.ml/>`_ is data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, model training curves or meeting notes, Neptune got you covered.
+`Neptune <https://neptune.ml/>`_ is a data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, jupyter notebooks, model training curves or meeting notes, Neptune got you covered.
+
+.. image:: _images/overview/quick_overview.gif
 
 Neptune is lightweight
 ----------------------
-Neptune team builds the platform with single design principle is mind: *lightweightness*. What does it mean in practise?
+Neptune is built with the single design principle in mind: *lightweightness*. What does it mean in practice?
 
-* easy user onboarding
-* 20 minutes deployment: use SaaS, deploy on any cloud or on your hardware.
+* easy user onboarding: if you know how to use print() you will learn how to use it in no time.
+* 20-minute deployment: use SaaS, deploy on any cloud or on your hardware.
 * Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
-* Neptune work with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
+* Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
 * Neptune integrates with other tools like `MLflow <https://mlflow.org/>`_ and `TensorBoard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_.
 
-Neptune's focus: tack, organize and collaborate
+Neptune's focus: track, organize and collaborate
 -----------------------------------------------
-Neptune's focus is put on three aspects of data science / machine learning project: :ref:`track <track>`, :ref:`organize <organize>` and :ref:`collaborate <collaborate>`.
+We put focus on three aspects of the team work on data science projects: :ref:`track <track>`, :ref:`organize <organize>` and :ref:`collaborate <collaborate>`.
 
 .. _track:
 
 Track
 -----
-Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. Snipped below, presents example integration with Python code.
+Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. 
+Snippet below, presents example integration with Python code.
 
 .. code-block::
 
@@ -39,13 +42,32 @@ Track all objects in the data science or machine learning project. It can be mod
 
 Organize
 --------
-Organize structure of your project: meeting notes, reports, notebooks, experiment - everything is in one place.
+Organize structure of your project: 
+
+* code
+* notebooks
+* experiment results
+* model weights
+* meeting notes, 
+* reports
+
+Everything is in one place, accessible from the app or programatically!
+
 
 .. _collaborate:
 
 Collaborate
 -----------
-Collaborate in the team share, compare, comment and communicate your work.
+Collaborate in the team:
+
+* share your experiments
+* compare results
+* comment and communicate your work.
+* interactive widgets focused on data science
+
+Speak Your language in our data-science focused interactive wiki!
+
+.. image:: _images/overview/wiki.gif
 
 Documentation contents
 ----------------------
