@@ -15,13 +15,13 @@ Neptune is built with the single design principle in mind: *lightweightness*. Wh
 * Neptune integrates with other tools like `MLflow <https://mlflow.org/>`_ and `TensorBoard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_.
 
 Neptune's focus: track, organize and collaborate
------------------------------------------------
+------------------------------------------------
 We put focus on three aspects of the team work on data science projects: :ref:`track <track>`, :ref:`organize <organize>` and :ref:`collaborate <collaborate>`.
 
 .. _track:
 
 Track
------
+^^^^^
 Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. 
 Snippet below, presents example integration with Python code.
 
@@ -41,7 +41,7 @@ Snippet below, presents example integration with Python code.
 .. _organize:
 
 Organize
---------
+^^^^^^^^
 Organize structure of your project: 
 
 * code
@@ -57,7 +57,7 @@ Everything is in one place, accessible from the app or programatically!
 .. _collaborate:
 
 Collaborate
------------
+^^^^^^^^^^^
 Collaborate in the team:
 
 * share your experiments

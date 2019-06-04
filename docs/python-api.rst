@@ -1,5 +1,8 @@
 Python API
 ==========
+
+Overview
+--------
 Neptune implements client-server architecture. Because of that you can log and access your results from many different devices:
 
 * laptops
@@ -16,8 +19,8 @@ Neptune comes with open source Python library: `neptune-client <https://github.c
 * downloading files associated with experiment
 * downloading experiments data and project related data
 
-Python API documentation
-------------------------
+API documentation
+-----------------
 Neptune client has own `documentation <https://neptune-client.readthedocs.io/en/latest>`_ with following contents:
 
 * API reference
