@@ -10,7 +10,9 @@ Neptune implements client-server architecture. Because of that you can log and a
 * cloud services
 * phone (to check the results)
 
-.. image:: _images/python_api/server_client_arch.png
+.. image:: ./_static/images/python_api/server_client_arch.png
+   :target: ./_static/images/python_api/server_client_arch.png
+   :alt: image
 
 Neptune comes with open source Python library: `neptune-client <https://github.com/neptune-ml/neptune-client>`_. The overall goal of the Neptune-client is to allow Users to log metadata of their Python scripts to Neptune server. In particular, this tool supports handful of use cases:
 

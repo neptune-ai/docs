@@ -55,8 +55,8 @@ Where is *NEPTUNE_API_TOKEN*?
 #. Log in to `neptune <https://neptune.ml/login>`_.
 #. Click on your avatar (top-right part of the screen) and select **Get API Token**
 
-.. image:: ../_images/notebooks/token.png
-   :target: ../_images/notebooks/token.png
+.. image:: ../_static/images/notebooks/token.png
+   :target: ../_static/images/notebooks/token.png
    :alt: image
 
 .. _t-005:
@@ -67,6 +67,6 @@ Most likely, you restarted kernel. Here is a solution:
 #. Go to configuration (**n** button).
 #. Click **Integrate**.
 
-.. image:: ../_images/notebooks/integration_01.png
-   :target: ../_images/notebooks/integration_01.png
+.. image:: ../_static/images/notebooks/integration_01.png
+   :target: ../_static/images/notebooks/integration_01.png
    :alt: image

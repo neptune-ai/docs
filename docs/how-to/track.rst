@@ -57,8 +57,8 @@ Instantiate it and add it to your callbacks list:
 
 All your metrics are now logged to Neptune:
 
-.. image:: ../_images/how-to/ht-log-keras-1.png
-   :target: ../_images/how-to/ht-log-keras-1.png
+.. image:: ../_static/images/how-to/ht-log-keras-1.png
+   :target: ../_static/images/how-to/ht-log-keras-1.png
    :alt: image
 
 How to log PyTorch metrics?
@@ -139,8 +139,8 @@ Add a snippet to the training loop, that sends your loss or metric to Neptune:
 
 Your loss is now logged to Neptune:
 
-.. image:: ../_images/how-to/ht-log-pytorch-1.png
-   :target: ../_images/how-to/ht-log-pytorch-1.png
+.. image:: ../_static/images/how-to/ht-log-pytorch-1.png
+   :target: ../_static/images/how-to/ht-log-pytorch-1.png
    :alt: image
 
 How to log LightGBM metrics?
@@ -214,8 +214,8 @@ Pass it to ``lgb.train`` object via ``callbacks`` parameter:
 
 All your metrics are now logged to Neptune
 
-.. image:: ../_images/how-to/ht-log-lightgbm-1.png
-   :target: ../_images/how-to/ht-log-lightgbm-1.png
+.. image:: ../_static/images/how-to/ht-log-lightgbm-1.png
+   :target: ../_static/images/how-to/ht-log-lightgbm-1.png
    :alt: image
 
 How to log matplotlib figure to Neptune?
@@ -273,12 +273,12 @@ Send it to Neptune!
 
 Explore it in the browser:
 
-.. image:: ../_images/how-to/ht-matplotlib-1.png
-   :target: ../_images/how-to/ht-matplotlib-1.png
+.. image:: ../_static/images/how-to/ht-matplotlib-1.png
+   :target: ../_static/images/how-to/ht-matplotlib-1.png
    :alt: image
 
-.. image:: ../_images/how-to/ht-matplotlib-2.png
-   :target: ../_images/how-to/ht-matplotlib-2.png
+.. image:: ../_static/images/how-to/ht-matplotlib-2.png
+   :target: ../_static/images/how-to/ht-matplotlib-2.png
    :alt: image
 
 How to save experiment output?
@@ -298,16 +298,16 @@ Save everything as you go! For example:
 
 Your results will be available for you to download in the ``Output`` section of your experiment.
 
-.. image:: ../_images/how-to/ht-output-download-1.png
-   :target: ../_images/how-to/ht-output-download-1.png
+.. image:: ../_static/images/how-to/ht-output-download-1.png
+   :target: ../_static/images/how-to/ht-output-download-1.png
    :alt: image
 
 How specify experiment parameters?
 ----------------------------------
 I saw that Neptune logs experiment parameters.
 
-.. image:: ../_images/how-to/ht-specify-params-1.png
-   :target: ../_images/how-to/ht-specify-params-1.png
+.. image:: ../_static/images/how-to/ht-specify-params-1.png
+   :target: ../_static/images/how-to/ht-specify-params-1.png
    :alt: image
 
 But I don't know how to specify parameters for my experiments.
@@ -364,8 +364,8 @@ Log it to Neptune:
 
 As a result, quokka image is associated with the experiment
 
-.. image:: ../_images/how-to/ht-img-channel-1.png
-   :target: ../_images/how-to/ht-img-channel-1.png
+.. image:: ../_static/images/how-to/ht-img-channel-1.png
+   :target: ../_static/images/how-to/ht-img-channel-1.png
    :alt: image
 
 **Log multiple images to neptune**
@@ -389,8 +389,8 @@ You can log images in a loop. For example, you can augment your image and log it
 
    exp2.close()
 
-.. image:: ../_images/how-to/ht-img-channel-2.png
-   :target: ../_images/how-to/ht-img-channel-2.png
+.. image:: ../_static/images/how-to/ht-img-channel-2.png
+   :target: ../_static/images/how-to/ht-img-channel-2.png
    :alt: image
 
 How to log metrics to Neptune?
@@ -464,8 +464,8 @@ Calculate the hash of your training data and send it to Neptune as text:
 
 Add data version column to your project dashboard:
 
-.. image:: ../_images/how-to/ht-data-version-1.png
-   :target: ../_images/how-to/ht-data-version-1.png
+.. image:: ../_static/images/how-to/ht-data-version-1.png
+   :target: ../_static/images/how-to/ht-data-version-1.png
    :alt: image
 
 .. note:: If your dataset is too large for fast hashing you could think about rearranging your data to have a light-weight metadata file.
@@ -501,14 +501,14 @@ Go to your Jupyter, where you can see two Neptune buttons:
 * **n** button is for configuration changes
 * **Upload** button is for making checkpoint in Neptune
 
-.. image:: ../_images/notebooks/buttons_02_1.png
-   :target: ../_images/notebooks/buttons_02_1.png
+.. image:: ../_static/images/notebooks/buttons_02_1.png
+   :target: ../_static/images/notebooks/buttons_02_1.png
    :alt: image
 
 Click **Upload**, whenever you want to create new checkpoint in Neptune. You will see tooltip with link as a confirmation.
 
-.. image:: ../_images/notebooks/buttons_03_1.png
-   :target: ../_images/notebooks/buttons_03_1.png
+.. image:: ../_static/images/notebooks/buttons_03_1.png
+   :target: ../_static/images/notebooks/buttons_03_1.png
    :alt: image
 
 .. note:: You can use **Upload** as many times as you want.

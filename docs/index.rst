@@ -2,7 +2,9 @@ What is Neptune?
 ================
 `Neptune <https://neptune.ml/>`_ is a data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, jupyter notebooks, model training curves or meeting notes, Neptune got you covered.
 
-.. image:: _images/overview/quick_overview.gif
+.. image:: ./_static/images/overview/quick_overview.gif
+   :target: ./_static/images/overview/quick_overview.gif
+   :alt: image
 
 Neptune is lightweight
 ----------------------
@@ -67,7 +69,9 @@ Collaborate in the team:
 
 Speak Your language in our data-science focused interactive wiki!
 
-.. image:: _images/overview/wiki.gif
+.. image:: ./_static/images/overview/wiki.gif
+   :target: ./_static/images/overview/wiki.gif
+   :alt: image
 
 Documentation contents
 ----------------------

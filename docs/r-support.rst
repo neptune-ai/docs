@@ -17,8 +17,10 @@ Go to your R console and install reticulate:
 .. code:: R
 
     install.packages('reticulate')
-   
-.. image:: _images/r_support/r_integration_installation.gif
+
+.. image:: ./_static/images/r_support/r_integration_installation.gif
+   :target: ./_static/images/r_support/r_integration_installation.gif
+   :alt: image
 
 Initialize Neptune
 ------------------
@@ -85,7 +87,9 @@ In order to track hyperparameters, you need to pass a named list to the create_e
 
 When you do that, Neptune creates theparameters section in the app that let’s you see hyperparameters quickly and compare them between experiments.
 
-.. image:: _images/r_support/r_integration_hyperparams.gif
+.. image:: ./_static/images/r_support/r_integration_hyperparams.gif
+   :target: ./_static/images/r_support/r_integration_hyperparams.gif
+   :alt: image
 
 Track data versions and other properties
 ----------------------------------------
@@ -114,8 +118,9 @@ or if you want to add a property (data version or other key:value pairs), when t
 
     neptune$set_property('data_version', digest(dataset)))
 
-
-.. image:: _images/r_support/r_integration_data_versions.gif
+.. image:: ./_static/images/r_support/r_integration_data_versions.gif
+   :target: ./_static/images/r_support/r_integration_data_versions.gif
+   :alt: image
 
 Track code
 ----------
@@ -128,7 +133,9 @@ Neptune automatically tracks your .git version control if you have it in your pr
 
 Now, you can explore your code in the app:
 
-.. image:: _images/r_support/r_integration_code.gif
+.. image:: ./_static/images/r_support/r_integration_code.gif
+   :target: ./_static/images/r_support/r_integration_code.gif
+   :alt: image
 
 Track metrics
 -------------
@@ -158,7 +165,9 @@ Neptune will automatically create charts for you!
 
 You can sort your experiments by metrics you care about and take a look at the charts in the application:
 
-.. image:: _images/r_support/r_integration_metrics.gif
+.. image:: ./_static/images/r_support/r_integration_metrics.gif
+   :target: ./_static/images/r_support/r_integration_metrics.gif
+   :alt: image
 
 Track artifacts
 ---------------
@@ -171,7 +180,9 @@ You can also save your model weights, pdf report files or other objects in Neptu
 
 Once it is logged, sharing it with your colleagues or collaborators is super easy.
 
-.. image:: _images/r_support/r_integration_artifacts.gif
+.. image:: ./_static/images/r_support/r_integration_artifacts.gif
+   :target: ./_static/images/r_support/r_integration_artifacts.gif
+   :alt: image
 
 Track images and charts
 -----------------------
@@ -185,7 +196,9 @@ Logging images and charts to Neptune is very simple as well. Just use the neptun
 
 and you can view it in the app:
 
-.. image:: _images/r_support/r_integration_charts.gif
+.. image:: ./_static/images/r_support/r_integration_charts.gif
+   :target: ./_static/images/r_support/r_integration_charts.gif
+   :alt: image
 
 Full tracking script
 --------------------
