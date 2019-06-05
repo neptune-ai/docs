@@ -32,8 +32,8 @@ Notebooks view
 * Review details and checkpoints associated with Notebook.
 * Share, compare or download notebook.
 
-.. image:: ../_images/notebooks/nb-view-1.png
-    :target: ../_images/notebooks/nb-view-1.png
+.. image:: ../_static/images/notebooks/nb-view-1.png
+    :target: ../_static/images/notebooks/nb-view-1.png
     :alt: image
 
 Notebook contents
@@ -43,16 +43,16 @@ Once you entered notebook, you can see all its content, that is: code and markdo
 * Look at the snapshot of the work with notebook.
 * Download, share or compare this checkpoint.
 
-.. image:: ../_images/notebooks/nb-view-2.png
-    :target: ../_images/notebooks/nb-view-2.png
+.. image:: ../_static/images/notebooks/nb-view-2.png
+    :target: ../_static/images/notebooks/nb-view-2.png
     :alt: image
 
 Notebooks comparison
 ~~~~~~~~~~~~~~~~~~~~
 Select two notebooks and compare their contents - code and markdown cells, outputs and execution count - side-by-side just like source code. `Compare view <https://ui.neptune.ml/shared/onboarding/compare-notebooks>`_ let you look at diff between checkpoints of the same notebook, or two entirely different notebooks (Try yourself `here <https://ui.neptune.ml/shared/onboarding/compare-notebooks>`_).
 
-.. image:: ../_images/notebooks/nb-view-cmp-1.png
-    :target: ../_images/notebooks/nb-view-cmp-1.png
+.. image:: ../_static/images/notebooks/nb-view-cmp-1.png
+    :target: ../_static/images/notebooks/nb-view-cmp-1.png
     :alt: image
 
 * Code, markdown, output and execution count differences highlighted.
@@ -65,13 +65,13 @@ Once `configured <nb-install-configure.md>`_\ , you can see two Neptune buttons.
 * - **n** button is for configuration changes
 * - **Upload** button is for making checkpoint in Neptune (*see below*)
 
-.. image:: ../_images/notebooks/buttons_02_1.png
-    :target: ../_images/notebooks/buttons_02_1.png
+.. image:: ../_static/images/notebooks/buttons_02_1.png
+    :target: ../_static/images/notebooks/buttons_02_1.png
     :alt: image
 
 * - Click **Upload**\ , whenever you want to create new checkpoint in Neptune.
 * - You will see tooltip with link as a confirmation.
 
-.. image:: ../_images/notebooks/buttons_03_1.png
-    :target: ../_images/notebooks/buttons_03_1.png
+.. image:: ../_static/images/notebooks/buttons_03_1.png
+    :target: ../_static/images/notebooks/buttons_03_1.png
     :alt: image
