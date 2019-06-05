@@ -88,7 +88,7 @@ stages:
     - tags
     - web
   only:
-    - add-cicd
+    - master
 
 .publish_component_anchor: &publish_component |
   registry="$REGISTRY_URL_CICD"

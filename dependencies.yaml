@@ -1,13 +1,5 @@
-apps:
-  docs:
-    - "docs"
-deployment:
-  neptune-docs:
-    - "docs"
 environment:
   stage:
-    source: "gcloud"
     templates: "cicd/templates/stage"
   prod:
-    source: "tags"
     templates: "cicd/templates/prod"
