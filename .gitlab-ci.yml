@@ -108,7 +108,7 @@ stages:
   echo ""
   echo "Pushing dockers to target registry"
   echo ""
-  docker pull "$REGISTRY_URL_CICD/docs:$version
+  docker pull "$REGISTRY_URL_CICD/docs:$version"
   docker tag "$REGISTRY_URL_CICD/docs:$version" "$registry/docs:$version"
   docker push "$registry/docs:$version"
 
