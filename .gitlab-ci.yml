@@ -22,10 +22,10 @@ stages:
   variables:
     CI_SERVER_URL: https://gitlab.com
     TERM: xterm-color
-    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
-    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
     DOCKER_HOST: docker:2375
-  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
   services:
     - docker:dind
   before_script:
@@ -37,9 +37,9 @@ stages:
   variables:
     CI_SERVER_URL: https://gitlab.com
     TERM: xterm-color
-    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
-    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
-  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
   before_script:
     - echo $HOSTNAME
     - date
@@ -50,9 +50,9 @@ stages:
   variables:
     CI_SERVER_URL: https://gitlab.com
     TERM: xterm-color
-    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
-    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
-  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
   before_script:
     - echo $HOSTNAME
     - date

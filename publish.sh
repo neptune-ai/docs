@@ -1,5 +1,5 @@
 #!/bin/bash
-DEFAULT_TAG="docker-repo.deepsense.codilime.com/deepsense/neptune/docs:dev"
+DEFAULT_TAG="eu.gcr.io/neptune-cicd/neptune/docs:dev"
 set -e
 
 virtualenv -p python3 venv

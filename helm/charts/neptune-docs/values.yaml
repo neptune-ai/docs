@@ -8,13 +8,13 @@ global:
   # Setting to "false" disables Sentry and HotJar tracking
   # Possible values: [ "true", "false" ]
   production: "false"
-  registry: "eu.gcr.io/neptune-poc/deepsense/neptune"
+  registry: ""
   analytics:
     port: "8086"
 
 
 docs:
-  image: "2.8.18"
+  image: ""
   domain: "docs"
   port: "80"
   resource_requests: "0.1"
