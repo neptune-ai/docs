@@ -1,0 +1,6 @@
+Neptune documentation
+
+Ingress host:
+    {{ .Values.docs.domain }}.{{ .Values.global.domain }}
+Docker Image used:
+    {{ .Values.docs.image }}

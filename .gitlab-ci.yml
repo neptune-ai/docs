@@ -1,0 +1,220 @@
+stages:
+  - docker
+  - prepare_stage
+  - dev
+  - stage
+  - delete
+  - prepare_release
+  - deploy_prod
+
+###############################################################################
+# ANCHORS
+###############################################################################
+
+.configure_gcloud_anchor: &configure_gcloud |
+  echo "$GITLAB_GCR_PUSH_SERVICE_ACCOUNT" > /root/gcp.json
+  gcloud auth activate-service-account --key-file /root/gcp.json
+  export GOOGLE_APPLICATION_CREDENTIALS=/root/gcp.json
+  gcloud auth configure-docker
+
+
+.base_anchor: &base
+  variables:
+    CI_SERVER_URL: https://gitlab.com
+    TERM: xterm-color
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
+    DOCKER_HOST: docker:2375
+  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+  services:
+    - docker:dind
+  before_script:
+    - echo $HOSTNAME
+    - date
+    - *configure_gcloud
+
+.base_anchor_stage: &base_stage
+  variables:
+    CI_SERVER_URL: https://gitlab.com
+    TERM: xterm-color
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
+  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+  before_script:
+    - echo $HOSTNAME
+    - date
+    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_RUNNER_KUBERNETES_STAGE}"
+    - *configure_gcloud
+
+.base_anchor_prod: &base_prod
+  variables:
+    CI_SERVER_URL: https://gitlab.com
+    TERM: xterm-color
+    REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/deepsense/neptune
+    REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/deepsense/neptune
+  image: eu.gcr.io/neptune-cicd/deepsense/neptune/build-image-base:0.0.8
+  before_script:
+    - echo $HOSTNAME
+    - date
+
+.docker_build_job:
+  <<: *base
+  stage: docker
+  tags:
+    - build
+  only:
+    - branches
+    - tags
+  except:
+    - web
+
+
+.deploy_prod_job:
+  <<: *base_prod
+  stage: deploy_prod
+  tags:
+    - deploy-prod
+  only:
+    - tags
+  except:
+    - branches
+
+.deploy_stage_job:
+  <<: *base_stage
+  stage: stage
+  tags:
+    - deploy-stage
+  except:
+    - tags
+    - web
+  only:
+    - master
+
+.publish_component_anchor: &publish_component |
+  registry="$REGISTRY_URL_CICD"
+  if [ "$CI_COMMIT_TAG" == "" ]; then
+    version="${CI_COMMIT_SHA:0:8}"
+  else
+    version="${CI_COMMIT_TAG}"
+  fi
+  ./publish.sh $registry/docs:$version
+
+.setup_release: &setup_release |
+  environment="prod"
+  version=$CI_COMMIT_TAG
+  registry="${REGISTRY_URL_PROD}"
+
+.discover_all_release_tags: &discover_all_release_tags |
+  echo ""
+  echo "Pushing dockers to target registry"
+  echo ""
+  docker pull "$REGISTRY_URL_CICD/docs:$version
+  docker tag "$REGISTRY_URL_CICD/docs:$version" "$registry/docs:$version"
+  docker push "$registry/docs:$version"
+
+
+.helm_release_artifacts: &helm_release_artifacts |
+  pip3 install Jinja2
+  mkdir -p cicd-release
+  ./cicd/get_config.py "stage" "$registry" "$version" >deployment-values.yaml
+  cp deployment-values.yaml cicd-release/values.yaml
+  helm package -u --app-version $version helm/charts/neptune-docs -d cicd-release/
+  cd cicd-release
+  tar -zcvf ../$version.tar.gz .
+  cd ..
+  gsutil cp "$version.tar.gz" gs://helm-releases/neptune-docs/
+  cp cicd-release/*.tgz "neptune-docs.tgz"
+  gsutil cp "neptune-docs.tgz" gs://helm-releases/neptune-docs/dist/$version/neptune-docs.tgz
+
+.release_prod: &release_prod |
+  echo "Checking kubectl connection"
+  helm list
+  echo ""
+  echo "Values:"
+  echo ""
+  cat cicd-release/values.yaml
+  echo ""
+  FILE_NAME=$(ls cicd-release/ | grep neptune-docs)
+
+  if helm status "neptune-docs" &>/dev/null ; then
+    helm upgrade \
+      --timeout 600 \
+      neptune-docs \
+      ./cicd-release/$FILE_NAME \
+      --values=cicd-release/values.yaml
+  else
+    helm install \
+      --timeout 600 \
+      --name neptune-docs  \
+      --namespace neptune \
+      ./cicd-release/$FILE_NAME \
+      --values=cicd-release/values.yaml
+  fi
+
+.deploy_script: &deploy |
+  pip3 install Jinja2
+  echo "Generating values file for stage deployment"
+  ./cicd/get_config.py "stage" "${REGISTRY_URL_CICD}" "${CI_COMMIT_SHA:0:8}" >deployment-values.yaml
+
+  cat deployment-values.yaml
+
+  if helm status "neptune-docs" &>/dev/null ; then
+    helm upgrade \
+      --timeout 600 \
+      "neptune-docs" \
+      ./helm/charts/neptune-docs \
+      --values=deployment-values.yaml
+  else
+    helm install \
+      --timeout 600 \
+      --name "neptune-docs"  \
+      --namespace "neptune" \
+      ./helm/charts/neptune-docs \
+      --values=deployment-values.yaml
+  fi
+
+###############################################################################
+# BUILDS
+###############################################################################
+
+###############################################################################
+# docs
+###############################################################################
+
+build:
+  extends: .docker_build_job
+  script:
+    - *publish_component
+
+###############################################################################
+# STAGE DEPLOY
+###############################################################################
+
+deploy_stage:
+  extends: .deploy_stage_job
+  environment:
+    name: stage-docs
+    url: https://docs.stage.neptune.ml
+  script:
+    - *deploy
+
+###############################################################################
+# PROD DEPLOY
+###############################################################################
+
+deploy_prod:
+  extends: .deploy_prod_job
+  allow_failure: false
+  script:
+    - *setup_release
+    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_GCR_PULL_CICD_PUSH_POC}"
+    - *configure_gcloud
+    - *discover_all_release_tags
+    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_RUNNER_KUBERNETES_PROD}"
+    - *configure_gcloud
+    - *helm_release_artifacts
+    - *release_prod
+  artifacts:
+    paths:
+      - cicd-release
+

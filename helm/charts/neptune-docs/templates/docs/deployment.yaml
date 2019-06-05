@@ -1,0 +1,44 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "chart.fullname" . }}-docs
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.docs.replicas }}
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      component: docs
+      app: {{ template "chart.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        component: docs
+        app: {{ template "chart.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      restartPolicy: Always
+      {{- with .Values.docs.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 -}}
+      {{- end }}
+      containers:
+      - name: nginx
+        image: "{{ .Values.global.registry }}/docs:{{ .Values.docs.image }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: {{ .Values.docs.port }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.docs.port }}
+        resources:
+          requests:
+            cpu: "{{ .Values.docs.resource_requests }}"
