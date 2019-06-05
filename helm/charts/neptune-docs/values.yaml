@@ -1,0 +1,23 @@
+
+global:
+  domain: ""
+  # Used by ingresses - forces http -> https redirect
+  # Possible values: [ "true", "false" ]
+  force_ssl_redirect: "true"
+  # Set to "true" only for main production environment.
+  # Setting to "false" disables Sentry and HotJar tracking
+  # Possible values: [ "true", "false" ]
+  production: "false"
+  registry: ""
+  analytics:
+    port: "8086"
+
+
+docs:
+  image: ""
+  domain: "docs"
+  port: "80"
+  resource_requests: "0.1"
+  replicas: 1
+  nodeSelector:
+    neptune.type: instance

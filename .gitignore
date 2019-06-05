@@ -1,0 +1,9 @@
+.idea
+*.pyc
+venv
+cicd-release
+deployment-values.yaml
+neptune-docs.tgz
+docs/_build
+*.tar.gz
+requirements.lock

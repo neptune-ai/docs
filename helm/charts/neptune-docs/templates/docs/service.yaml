@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "chart.fullname" . }}-docs
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    component: docs
+    app: {{ template "chart.name" . }}
+    release: {{ .Release.Name }}
+  ports:
+    - port: {{ .Values.docs.port }}
+      targetPort: {{ .Values.docs.port }}
+      protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "chart.fullname" . }}-analytics
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    component: analytics
+  ports:
+    - name: ws
+      port: {{ .Values.global.analytics.port }}
+      protocol: TCP
+      targetPort: {{ .Values.global.analytics.port }}

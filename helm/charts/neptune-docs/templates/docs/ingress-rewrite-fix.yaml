@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "chart.fullname" . }}-rewrite
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+    ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+    nginx.ingress.kubernetes.io/rewrite-target: /cli/overview/
+    ingress.kubernetes.io/rewrite-target: /cli/overview/
+spec:
+  rules:
+  - host: {{ .Values.docs.domain }}.{{ .Values.global.domain }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ template "chart.fullname" . }}-docs
+          servicePort: {{ .Values.docs.port }}
+        path: /cli/neptune/

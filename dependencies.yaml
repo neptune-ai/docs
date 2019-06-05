@@ -1,0 +1,5 @@
+environment:
+  stage:
+    templates: "cicd/templates/stage"
+  prod:
+    templates: "cicd/templates/prod"
