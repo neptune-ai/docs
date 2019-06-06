@@ -125,9 +125,7 @@ stages:
   cd cicd-release
   tar -zcvf ../$version.tar.gz .
   cd ..
-  gsutil cp "$version.tar.gz" gs://helm-releases/neptune-docs/
   cp cicd-release/*.tgz "neptune-docs.tgz"
-  gsutil cp "neptune-docs.tgz" gs://helm-releases/neptune-docs/dist/$version/neptune-docs.tgz
 
   echo "Checking kubectl connection"
   helm list
