@@ -52,13 +52,12 @@ stages:
     TERM: xterm-color
     REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
     REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
-    DOCKER_HOST: docker:2375
   image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
-  services:
-    - docker:dind
   before_script:
     - echo $HOSTNAME
     - date
+    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_RUNNER_KUBERNETES_PROD}"
+    - *configure_gcloud
 
 .docker_build_job:
   <<: *base
@@ -97,26 +96,27 @@ stages:
   registry="$REGISTRY_URL_CICD"
   if [ "$CI_COMMIT_TAG" == "" ]; then
     version="${CI_COMMIT_SHA:0:8}"
+    ./publish.sh $registry/docs:$version
   else
     version="${CI_COMMIT_TAG}"
+    ./publish.sh $registry/docs:$version
+    echo ""
+    echo "Pushing docker to prod registry"
+    echo ""
+    docker tag "$registry/docs:$version" "$REGISTRY_URL_PROD/docs:$version"
+    GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_GCR_PULL_CICD_PUSH_POC}"
+    echo "$GITLAB_GCR_PUSH_SERVICE_ACCOUNT" > /root/gcp.json
+    gcloud auth activate-service-account --key-file /root/gcp.json
+    export GOOGLE_APPLICATION_CREDENTIALS=/root/gcp.json
+    gcloud auth configure-docker
+    docker push "$registry/docs:$version"
   fi
-  ./publish.sh $registry/docs:$version
 
-.setup_release: &setup_release |
+.release_prod: &release_prod |
   environment="prod"
   version=$CI_COMMIT_TAG
   registry="${REGISTRY_URL_PROD}"
 
-.discover_all_release_tags: &discover_all_release_tags |
-  echo ""
-  echo "Pushing dockers to target registry"
-  echo ""
-  docker pull "$REGISTRY_URL_CICD/docs:$version"
-  docker tag "$REGISTRY_URL_CICD/docs:$version" "$registry/docs:$version"
-  docker push "$registry/docs:$version"
-
-
-.helm_release_artifacts: &helm_release_artifacts |
   pip3 install Jinja2
   mkdir -p cicd-release
   ./cicd/get_config.py "stage" "$registry" "$version" >deployment-values.yaml
@@ -129,7 +129,6 @@ stages:
   cp cicd-release/*.tgz "neptune-docs.tgz"
   gsutil cp "neptune-docs.tgz" gs://helm-releases/neptune-docs/dist/$version/neptune-docs.tgz
 
-.release_prod: &release_prod |
   echo "Checking kubectl connection"
   helm list
   echo ""
@@ -209,13 +208,6 @@ deploy_prod:
   extends: .deploy_prod_job
   allow_failure: false
   script:
-    - *setup_release
-    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_GCR_PULL_CICD_PUSH_POC}"
-    - *configure_gcloud
-    - *discover_all_release_tags
-    - GITLAB_GCR_PUSH_SERVICE_ACCOUNT="${GITLAB_RUNNER_KUBERNETES_PROD}"
-    - *configure_gcloud
-    - *helm_release_artifacts
     - *release_prod
   artifacts:
     paths:
