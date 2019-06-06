@@ -109,7 +109,7 @@ stages:
     gcloud auth activate-service-account --key-file /root/gcp.json
     export GOOGLE_APPLICATION_CREDENTIALS=/root/gcp.json
     gcloud auth configure-docker
-    docker push "REGISTRY_URL_PROD/docs:$version"
+    docker push "$REGISTRY_URL_PROD/docs:$version"
   fi
 
 .release_prod: &release_prod |
