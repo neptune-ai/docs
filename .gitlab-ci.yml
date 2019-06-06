@@ -113,13 +113,12 @@ stages:
   fi
 
 .release_prod: &release_prod |
-  environment="prod"
   version=$CI_COMMIT_TAG
   registry="${REGISTRY_URL_PROD}"
 
   pip3 install Jinja2
   mkdir -p cicd-release
-  ./cicd/get_config.py "stage" "$registry" "$version" >deployment-values.yaml
+  ./cicd/get_config.py "prod" "$registry" "$version" >deployment-values.yaml
   cp deployment-values.yaml cicd-release/values.yaml
   helm package -u --app-version $version helm/charts/neptune-docs -d cicd-release/
   cd cicd-release
