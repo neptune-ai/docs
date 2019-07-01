@@ -82,6 +82,7 @@ Documentation contents
 
    how-to/track.rst
    how-to/organize.rst
+   how-to/run_on_cloud.rst
 
 .. toctree::
    :maxdepth: 1
