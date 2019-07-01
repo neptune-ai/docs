@@ -522,7 +522,7 @@ Solution
 ^^^^^^^^
 **Register to AWS**
 
-Follow the `registrations instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
+Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
 
 **Start EC2 instance**
 
