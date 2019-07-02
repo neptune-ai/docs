@@ -684,7 +684,7 @@ Delete this cell.
 .. code-block:: Python
 
     import neptune
-    neptune.init('USER_NAME/'PROJECT_NAME')
+    neptune.init('USER_NAME/PROJECT_NAME')
 
     with neptune.create_experiment():
         neptune.send_metric('auc', 0.92)
