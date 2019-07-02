@@ -513,8 +513,8 @@ Click **Upload**, whenever you want to create new checkpoint in Neptune. You wil
 
 .. note:: You can use **Upload** as many times as you want.
 
-How to setup Neptune-enabled jupyterlab on AWS?
---------------------------------------------------
+How to setup Neptune-enabled JupyterLab on AWS?
+-----------------------------------------------
 I would like to run Neptune and track experiments that I run on AWS cloud.
 How do I do that?
 
@@ -526,8 +526,7 @@ Follow the `registration instructions <https://aws.amazon.com/premiumsupport/kno
 
 **Start EC2 instance**
 
-Start a new EC2 instance.
-Select `ubuntu` as your instance type and choose a worker type you need.
+Start a new EC2 instance. Select `ubuntu` as your instance type and choose a worker type you need.
 You can go with `t2.micro` just to test it out.
 
 **ssh to your instance**
@@ -538,9 +537,11 @@ Connect to your instance by going to the terminal and running:
 
     ssh -i /path_to_key/my_key.pem ubuntu@public_dns_name
 
+*(make sure that you put correct key and public_dns_name)*
+
 **Install docker**
 
-Create a new file `install_docker.sh`
+Create a new file `install_docker.sh`:
 
 .. code-block:: Bash
 
@@ -574,9 +575,8 @@ Run the installation script:
 
 **Define your secrets**
 
-Go to Neptune app, get you Neptune API token and copy it.
-Create a password for your jupyterlab server.
-Set those two secrets to your environment variables `NEPTUNE_API_TOKEN`  and `JUPYTERLAB_PASSWORD`
+| Go to Neptune web app, get your ``NEPTUNE_API_TOKEN`` and copy it. Then, create a password for your JupyterLab server.
+| Set those two secrets to your environment variables ``NEPTUNE_API_TOKEN`` and ``JUPYTERLAB_PASSWORD``, like below:
 
 .. code-block:: Bash
 
@@ -585,7 +585,7 @@ Set those two secrets to your environment variables `NEPTUNE_API_TOKEN`  and `JU
 
 **Build docker image**
 
-Create a new file `Dockerfile`.
+Create a new file `Dockerfile`:
 
 .. code-block:: Bash
 
@@ -616,16 +616,17 @@ Copy insights of the following `Dockerfile` to your newly created file:
     ADD . /mnt/workdir
     WORKDIR /mnt/workdir
 
-If you want to run on GPU make sure to change your `Dockerfile` to start from nvidia docker images.
-Build your docker image:
+| *(If you want to run on GPU make sure to change your `Dockerfile` to start from nvidia docker images)*.
+
+Run following command to build your docker image:
 
 .. code-block:: Bash
 
     sudo docker build -t jupyterlab --build-arg NEPTUNE_API_TOKEN=$NEPTUNE_API_TOKEN .
 
-**Start jupyterlab server**
+**Start JupyterLab server**
 
-Spin up jupyterlab server with docker:
+Spin up JupyterLab server with docker:
 
 .. code-block:: Bash
 
@@ -634,15 +635,18 @@ Spin up jupyterlab server with docker:
 
 **Forward ports via ssh tunnel**
 
-Open a new terminal on your machine and run:
+Open a new terminal on your local machine and run:
 
 .. code-block:: Bash
 
     ssh -L 8888:localhost:8888 ubuntu@public_dns_name &
 
-**Open jupyterlab server in your browser**
+*(make sure that you put correct public_dns_name)*
 
-Go to `localhost:8888` and enjoy your jupyterlab server with Neptune!
+**Open JupyterLab server in your browser**
 
-Neptune extensions are enabled and NEPTUNE_API_TOKEN is already in the environment variable so you
-can run you experiments with no problems.
+Go to `localhost:8888` and enjoy your JupyterLab server with Neptune!
+
+**Final result**
+
+Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with Notebooks and run experiments with no problems.
