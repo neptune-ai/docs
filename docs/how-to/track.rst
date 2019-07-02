@@ -650,3 +650,43 @@ Go to `localhost:8888` and enjoy your JupyterLab server with Neptune!
 **Final result**
 
 Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with Notebooks and run experiments with no problems.
+
+How to track Google Colab experiments with Neptune?
+-----------------------------------------------
+I would like to run my experiments on google colab and track them with Neptune.
+How do I do that?
+
+Solution
+^^^^^^^^
+**Install Neptune client**
+
+Go to your first cell and install `neptune-client`:
+
+.. code-block:: Bash
+
+    ! pip install neptune-client
+
+**Set Neptune API token**
+
+Go to Neptune app and get your API token.
+Set it to the environment variable `NEPTUNE_API_TOKEN`:
+
+.. code-block:: Bash
+
+    ! export NEPTUNE_API_TOKEN='your_private_neptune_api_token=='
+
+Delete this cell.
+
+.. warning::
+
+    It is very important that you delete this cell not to share your private token with anyone.
+
+**Run your training script with Neptune**
+
+.. code-block:: Bash
+
+    import neptune
+    neptune.init('USER_NAME/'PROJECT_NAME')
+
+    with neptune.create_experiment():
+        neptune.send_metric('auc', 0.92)
