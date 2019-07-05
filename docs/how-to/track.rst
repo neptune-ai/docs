@@ -671,7 +671,7 @@ Go to Neptune web app and get your API token. Set it to the environment variable
 
 .. code-block:: Bash
 
-    ! export NEPTUNE_API_TOKEN='your_private_neptune_api_token=='
+    % env NEPTUNE_API_TOKEN='your_private_neptune_api_token=='
 
 Delete this cell.
 
