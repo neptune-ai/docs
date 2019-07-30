@@ -24,6 +24,7 @@ stages:
     TERM: xterm-color
     REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
     REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
+    DOCKER_TLS_CERTDIR: ""
     DOCKER_HOST: docker:2375
   image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
   services:
