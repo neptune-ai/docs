@@ -652,15 +652,15 @@ Go to `localhost:8888` and enjoy your JupyterLab server with Neptune!
 Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with Notebooks and run experiments with no problems.
 
 How to setup Neptune-enabled AWS SageMaker Jupyter instance?
------------------------------------------------
-I would like to run Neptune and track experiments that I run on AWS SageMaker.
+------------------------------------------------------------
+I would like to use Neptune to track experiments that I run on AWS SageMaker.
 How do I do that?
 
 Solution
 ^^^^^^^^
 **Register to AWS**
 
-Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
+Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official website to create your AWS account.
 
 **Create Lifecycle configuration**
 
