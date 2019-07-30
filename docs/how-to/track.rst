@@ -651,6 +651,101 @@ Go to `localhost:8888` and enjoy your JupyterLab server with Neptune!
 
 Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with Notebooks and run experiments with no problems.
 
+How to setup Neptune-enabled AWS SageMaker Jupyter instance?
+-----------------------------------------------
+I would like to run Neptune and track experiments that I run on AWS SageMaker.
+How do I do that?
+
+Solution
+^^^^^^^^
+**Register to AWS**
+
+Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
+
+**Create Lifecycle configuration**
+
+Go to SageMaker *Lifecycle configurations* and click on *Create configuration*.
+
+.. image:: ../_static/images/how-to/ht-sagemaker-create_configuration.png
+   :target: ../_static/images/how-to/ht-sagemaker-create_configuration.png
+   :alt: image
+
+You can choose whatever name you want just make sure to remember it.
+
+Now, you should modify the *Create notebook* script to run it only once at creation of your SageMaker notebook instance.
+
+.. image:: ../_static/images/how-to/ht-sagemaker-config_specs.png
+   :target: ../_static/images/how-to/ht-sagemaker-config_specs.png
+   :alt: image
+   
+Copy and paste the script below to your *Create notebook* tab. 
+Choose in which environments you want to install *neptune-client* in the *PARAMETERS* section.
+
+.. code-block:: Bash
+
+    #!/bin/bash
+
+    set -e
+
+    sudo -u ec2-user -i <<'EOF'
+
+    # PARAMETERS
+    ENVS=(
+      python3
+      pytorch_p36
+    )
+
+    # Install Neptune client library
+    for env in $ENVS; do
+        source /home/ec2-user/anaconda3/bin/activate $env
+        pip install neptune-client
+        source /home/ec2-user/anaconda3/bin/deactivate
+    done
+
+    # Install jupyter extension
+    source /home/ec2-user/anaconda3/bin/activate JupyterSystemEnv
+    pip install neptune-notebooks
+    jupyter nbextension enable --py neptune-notebooks --sys-prefix
+    jupyter labextension install neptune-notebooks
+    source /home/ec2-user/anaconda3/bin/deactivate
+
+    EOF
+
+**Create notebook instance**
+
+Go to SageMaker *Notebook instances* and click on *Create notebook instance*.
+
+.. image:: ../_static/images/how-to/ht-sagemaker-create_instance.png
+   :target: ../_static/images/how-to/ht-sagemaker-create_instance.png
+   :alt: image
+
+Select an *instance name* and click on *Additional configuration* to add the *Lifecycle configuration* you have just created: 
+
+.. image:: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
+   :target: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
+   :alt: image
+   
+You can now click *Create notebook instance* instance at the bottom to start your instance.
+
+.. image:: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
+   :target: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
+   :alt: image
+
+**Start notebook**
+
+If everything went well your AWS SageMaker instance should be *InService* and you can now open Jupyter Notebook or Jupyter lab with Neptune notebook-versioning enabled!
+
+.. image:: ../_static/images/how-to/ht-sagemaker-notebook_run.png
+   :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
+   :alt: image
+   
+You can now version your notebooks and track experiments in Amazon SageMaker with Neptune!
+
+.. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs.png
+   :target: ../_static/images/how-to/ht-sagemaker-notebook_runs.png
+   :alt: image
+
+
 How to track Google Colab experiments with Neptune?
 ---------------------------------------------------
 I would like to run my experiments on Google Colab and track them with Neptune. How do I do that?
