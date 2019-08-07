@@ -5,6 +5,10 @@ How to log keras metrics?
 -------------------------
 I have a training script written in `keras <https://keras.io>`_. How do I adjust it to log metrics to Neptune?
 
+.. image:: ../_static/images/others/keras_neptuneml.png
+   :target: ../_static/images/others/keras_neptuneml.png
+   :alt: Keras neptune.ml integration
+   
 Solution
 ^^^^^^^^
 **Step 1**
@@ -65,6 +69,10 @@ How to log PyTorch metrics?
 ---------------------------
 I have a training script written in `PyTorch <https://pytorch.org>`_. How do I adjust it to log metrics to Neptune?
 
+.. image:: ../_static/images/others/pytorch_neptuneml.png
+   :target: ../_static/images/others/pytorch_neptuneml.png
+   :alt: Pytorch neptune.ml integration
+   
 Solution
 ^^^^^^^^
 Say your training script looks like this:
@@ -147,6 +155,10 @@ How to log LightGBM metrics?
 ----------------------------
 I have a training script written in `LightGBM <https://lightgbm.readthedocs.io>`_. How do I adjust it to log metrics to Neptune?
 
+.. image:: ../_static/images/others/lightgbm_neptuneml.png
+   :target: ../_static/images/others/lightgbm_neptuneml.png
+   :alt: lightGBM neptune.ml integration
+   
 Solution
 ^^^^^^^^
 Say your training script looks like this:
@@ -222,6 +234,10 @@ How to log matplotlib figure to Neptune?
 ----------------------------------------
 How to log charts generated in `matplotlib <https://matplotlib.org/>`_, like confusion matrix or distribution in Neptune?
 
+.. image:: ../_static/images/others/matplotlib_neptuneml.png
+   :target: ../_static/images/others/matplotlib_neptuneml.png
+   :alt: matplotlib neptune.ml integration
+   
 Solution
 ^^^^^^^^
 **Step 1**
@@ -238,27 +254,11 @@ Create matplotlib figure
 
 **Step 2**
 
-Convert your matplotlib figure object into PIL image.
-
-For example you could use the following function, taken from `here <http://www.icare.univ-lille1.fr/wiki/index.php/How_to_convert_a_matplotlib_figure_to_a_numpy_array_or_a_PIL_image>`_, and adjusted slightly:
+Save it to file. You can use a temporary file if you want to
 
 .. code-block::
 
-   import numpy as np
-   from PIL import Image
-
-   def fig2pil(fig):
-       fig.canvas.draw()
-
-       w, h = fig.canvas.get_width_height()
-       buf = np.fromstring(fig.canvas.tostring_argb(), dtype=np.uint8)
-       buf.shape = (w, h, 4)
-       buf = np.roll(buf, 3, axis=2)
-
-       w, h, d = buf.shape
-       return Image.frombytes("RGBA", (w, h), buf.tostring())
-
-   pil_image = fig2pil(fig)
+   fig.savefig('figure.png')
 
 **Step 3**
 
@@ -267,9 +267,9 @@ Send it to Neptune!
 .. code-block::
 
    neptune.create_experiment()
-   neptune.send_image('distplot', pil_image)
+   neptune.send_image('distplot', 'figure.png')
 
-**Step 5**
+**Step 4**
 
 Explore it in the browser:
 
@@ -518,6 +518,10 @@ How to setup Neptune-enabled JupyterLab on AWS?
 I would like to run Neptune and track experiments that I run on AWS cloud.
 How do I do that?
 
+.. image:: ../_static/images/others/aws_neptuneml.png
+   :target: ../_static/images/others/aws_neptuneml.png
+   :alt: AWS neptune.ml integration
+   
 Solution
 ^^^^^^^^
 **Register to AWS**
@@ -656,6 +660,10 @@ How to setup Neptune-enabled AWS SageMaker Jupyter instance?
 I would like to use Neptune to track experiments that I run on AWS SageMaker.
 How do I do that?
 
+.. image:: ../_static/images/others/sagemaker_neptuneml.png
+   :target: ../_static/images/others/sagemaker_neptuneml.png
+   :alt: Amazon SageMaker neptune.ml integration
+
 Solution
 ^^^^^^^^
 **Register to AWS**
@@ -749,6 +757,10 @@ You can now version your notebooks and track experiments in Amazon SageMaker wit
 How to track Google Colab experiments with Neptune?
 ---------------------------------------------------
 I would like to run my experiments on Google Colab and track them with Neptune. How do I do that?
+
+.. image:: ../_static/images/others/colab_neptuneml.png
+   :target: ../_static/images/others/colab_neptuneml.png
+   :alt: Google Colaboratory neptune.ml integration
 
 Solution
 ^^^^^^^^
