@@ -254,7 +254,7 @@ Create matplotlib figure
 
 **Step 2**
 
-Save it to file. You can use a temporary file if you want to
+Save it to file. You can use a temporary file if you want to.
 
 .. code-block::
 
@@ -267,7 +267,7 @@ Send it to Neptune!
 .. code-block::
 
    neptune.create_experiment()
-   neptune.send_image('distplot', 'figure.png')
+   neptune.log_image('distplot', 'figure.png')
 
 **Step 4**
 
