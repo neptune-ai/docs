@@ -16,6 +16,7 @@ global:
 docs:
   image: ""
   domain: "docs"
+  redirect_domain: "documentation"
   port: "80"
   resource_requests: "0.1"
   replicas: 1

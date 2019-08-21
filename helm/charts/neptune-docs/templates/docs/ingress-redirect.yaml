@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "chart.fullname" . }}-documentation
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+    ingress.kubernetes.io/configuration-snippet: |
+      return 302 https://{{ .Values.docs.domain }}.{{ .Values.global.domain }}/;
+    nginx.ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      return 302 https://{{ .Values.docs.domain }}.{{ .Values.global.domain }}/;
+spec:
+  rules:
+  - host: {{ .Values.docs.redirect_domain }}.{{ .Values.global.domain }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "chart.fullname" . }}-docs
+          servicePort: {{ .Values.docs.port }}
