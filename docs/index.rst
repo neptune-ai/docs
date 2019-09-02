@@ -31,7 +31,8 @@ Snippet below, presents example integration with Python code.
 
    import neptune
 
-   neptune.init('shared/onboarding')
+   neptune.init('shared/onboarding',
+                api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==')
    with neptune.create_experiment():
        neptune.append_tag('minimal-example')
        n = 117
@@ -39,6 +40,8 @@ Snippet below, presents example integration with Python code.
            neptune.send_metric('iteration', i)
            neptune.send_metric('loss', 1/i**0.5)
        neptune.set_property('n_iterations', n)
+
+``api_token`` belongs to the public user `Neptuner <https://ui.neptune.ml/o/shared/neptuner>`_. So, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ml/o/shared/org/onboarding/experiments>`_.
 
 .. _organize:
 
