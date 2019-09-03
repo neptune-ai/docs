@@ -92,8 +92,9 @@ Documentation contents
    :caption: Notebooks
 
    Introduction <notebooks/introduction.rst>
-   Install and configure <notebooks/install-configure.rst>
-   Integrations (AWS, SageMaker, Colab) <notebooks/nb-integrations.rst>
+   Installation for Jupyer and JupyerLab <notebooks/installation.rst>
+   Configuration <notebooks/configuration.rst>
+   Integrations (AWS, SageMaker, Colab) <notebooks/integrations.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::

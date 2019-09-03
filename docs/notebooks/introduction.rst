@@ -64,7 +64,7 @@ Select two notebooks and compare their contents - code and markdown cells, outpu
 
 Upload notebook checkpoint
 --------------------------
-Once `configured <nb-install-configure.md>`_\ , you can see two Neptune buttons.
+Once `configured <configuration.html>`_\ , you can see two Neptune buttons.
 
 * - **n** button is for configuration changes
 * - **Upload** button is for making checkpoint in Neptune (*see below*)
