@@ -92,7 +92,7 @@ Documentation contents
    :caption: Notebooks
 
    Introduction <notebooks/introduction.rst>
-   Installation and configuration <notebooks/install-configure.rst>
+   Install and configure <notebooks/install-configure.rst>
    Integrations (AWS, SageMaker, Colab) <notebooks/nb-integrations.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
 
@@ -104,13 +104,13 @@ Documentation contents
    R support <r-support.rst>
 
 .. toctree::
+   :titlesonly:
+   :caption: Frameworks
+
+   Frameworks <frameworks.rst>
+
+.. toctree::
    :maxdepth: 1
    :caption: Integrations
 
    Integrations <integrations.rst>
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Frameworks
-
-   Frameworks <frameworks.rst>
