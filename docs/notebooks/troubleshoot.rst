@@ -64,6 +64,7 @@ Where is *NEPTUNE_API_TOKEN*?
 My integration does not work, but it worked well previously. What do to?
 ------------------------------------------------------------------------
 Most likely, you restarted kernel. Here is a solution:
+
 #. Go to configuration (**n** button).
 #. Click **Integrate**.
 

@@ -1,8 +1,8 @@
-Installation for Jupyer and JupyerLab
-=====================================
+Installation for Jupyter and JupyterLab
+=======================================
 
-Jupyer
-------
+Jupyter
+-------
 Install `neptune-notebooks extension <https://github.com/neptune-ml/neptune-notebooks>`_:
 
 .. code-block:: bash
@@ -21,8 +21,8 @@ Remember to install Neptune-client, if you did not do so already:
 
    pip install neptune-client
 
-JupyerLab
----------
+JupyterLab
+----------
 Install `neptune-notebooks <https://www.npmjs.com/package/neptune-notebooks>`_ in your JupyerLab. In terminal run:
 
 .. code-block:: bash
