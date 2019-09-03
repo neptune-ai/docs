@@ -8,9 +8,9 @@ What is Neptune?
 
 Neptune is lightweight
 ----------------------
-Neptune is built with the single design principle in mind: *lightweightness*. What does it mean in practice?
+Neptune is built with the single design principle in mind: *being lightweight*. What does it mean in practice?
 
-* easy user onboarding: if you know how to use print() you will learn how to use it in no time.
+* easy user onboarding: if you know how to use ``print()`` you will learn how to use it in no time.
 * 20-minute deployment: use SaaS, deploy on any cloud or on your hardware.
 * Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
 * Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
@@ -80,11 +80,21 @@ Documentation contents
 ----------------------
 
 .. toctree::
-   :maxdepth: 1
-   :caption: How-to?
+   :maxdepth: 2
+   :caption: How-to guides
 
    how-to/track.rst
    how-to/organize.rst
+   how-to/team-management.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Notebooks
+
+   Introduction <notebooks/introduction.rst>
+   Installation and configuration <notebooks/install-configure.rst>
+   Integrations (AWS, SageMaker, Colab) <notebooks/nb-integrations.rst>
+   Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::
    :maxdepth: 1
@@ -95,14 +105,12 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Notebooks in Neptune
-
-   Introduction <notebooks/introduction.rst>
-   Installation and configuration <notebooks/install-configure.rst>
-   Troubleshoot <notebooks/troubleshoot.rst>
-
-.. toctree::
-   :maxdepth: 1
    :caption: Integrations
 
    Integrations <integrations.rst>
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Frameworks
+
+   Frameworks <frameworks.rst>
