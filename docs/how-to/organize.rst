@@ -1,87 +1,8 @@
 Organize
 ========
 
-How to download experiment output?
-----------------------------------
-I ran an experiment and send some data. How can I download it to my local computer?
-
-Solution
-^^^^^^^^
-**Using web application**
-
-Go to you experiment and click on the ``Output`` section on the left. Then download the data by clicking on the icon next to the file you are interested in.
-
-.. image:: ../_static/images/how-to/ht-output-download-1.png
-   :target: ../_static/images/how-to/ht-output-download-1.png
-   :alt: image
-
-**Using Neptune client library**
-
-Use ``download_artifact('output_file', 'destination/path')`` like presented below:
-
-.. code-block::
-
-   import neptune
-
-   with neptune.create_experiment():
-       ...
-       neptune.download_artifact('forest_results.pkl', '.')
-
-How to add tags to experiments?
--------------------------------
-I want to add tags to the experiments. What are the options?
-
-Solution
-^^^^^^^^
-**In the code**
-
-You can add or remove tags directly from your script.
-
-.. code-block::
-
-   import neptune
-
-   # This function assumes that NEPTUNE_API_TOKEN environment variable is defined.
-   neptune.init(project_qualified_name='shared/onboadring')
-
-   with neptune.create_experiment() as exp:
-       exp.append_tag('resnet18')
-       exp.append_tag('dev_mode')
-
-**Web application**
-
-Finally, you can always go to your project dashboard, and add/remove tags by clicking on a chosen cell.
-
-.. image:: ../_static/images/how-to/ht-tags-1.png
-   :target: ../_static/images/how-to/ht-tags-1.png
-   :alt: tags management in web application
-
-How to sort experiments dashboard?
-----------------------------------
-How can I sort experiments dashboard by a chosen metric?
-
-Solution
-^^^^^^^^
-**Step 1**
-
-Add a column for the chosen metric by searching for it in the ``Manage columns`` section on the right.
-
-.. image:: ../_static/images/how-to/ht-sorting-metric-1.png
-   :target: ../_static/images/how-to/ht-sorting-metric-1.png
-   :alt: image
-
-**Step 2**
-
-Sort the chosen column by using the arrow buttons:
-
-.. image:: ../_static/images/how-to/ht-sorting-metric-2.png
-   :target: ../_static/images/how-to/ht-sorting-metric-2.png
-   :alt: image
-
-You can now explore the best/worst experiments.
-
-How to organize charts?
------------------------
+Organize charts
+---------------
 I am creating many charts for my experiments but they all end up in the ``Basic`` group like this:
 
 .. image:: ../_static/images/how-to/ht-chartsets-basic-1.png
@@ -128,8 +49,87 @@ You can always add new charts by clicking on the ``New chart`` button on the top
 
 Neptune will remember your chart set for this project so all your experiments charts can be now organized in the same way!
 
-How to change project in Python code?
--------------------------------------
+Download experiment output
+--------------------------
+I ran an experiment and send some data. How can I download it to my local computer?
+
+Solution
+^^^^^^^^
+**Using web application**
+
+Go to you experiment and click on the ``Output`` section on the left. Then download the data by clicking on the icon next to the file you are interested in.
+
+.. image:: ../_static/images/how-to/ht-output-download-1.png
+   :target: ../_static/images/how-to/ht-output-download-1.png
+   :alt: image
+
+**Using Neptune client library**
+
+Use ``download_artifact('output_file', 'destination/path')`` like presented below:
+
+.. code-block::
+
+   import neptune
+
+   with neptune.create_experiment():
+       ...
+       neptune.download_artifact('forest_results.pkl', '.')
+
+Add tags to experiments
+-----------------------
+I want to add tags to the experiments. What are the options?
+
+Solution
+^^^^^^^^
+**In the code**
+
+You can add or remove tags directly from your script.
+
+.. code-block::
+
+   import neptune
+
+   # This function assumes that NEPTUNE_API_TOKEN environment variable is defined.
+   neptune.init(project_qualified_name='shared/onboadring')
+
+   with neptune.create_experiment() as exp:
+       exp.append_tag('resnet18')
+       exp.append_tag('dev_mode')
+
+**Web application**
+
+Finally, you can always go to your project dashboard, and add/remove tags by clicking on a chosen cell.
+
+.. image:: ../_static/images/how-to/ht-tags-1.png
+   :target: ../_static/images/how-to/ht-tags-1.png
+   :alt: tags management in web application
+
+Sort experiments dashboard
+--------------------------
+How can I sort experiments dashboard by a chosen metric?
+
+Solution
+^^^^^^^^
+**Step 1**
+
+Add a column for the chosen metric by searching for it in the ``Manage columns`` section on the right.
+
+.. image:: ../_static/images/how-to/ht-sorting-metric-1.png
+   :target: ../_static/images/how-to/ht-sorting-metric-1.png
+   :alt: image
+
+**Step 2**
+
+Sort the chosen column by using the arrow buttons:
+
+.. image:: ../_static/images/how-to/ht-sorting-metric-2.png
+   :target: ../_static/images/how-to/ht-sorting-metric-2.png
+   :alt: image
+
+You can now explore the best/worst experiments.
+
+Change project in Python code
+-----------------------------
 I created new project in Neptune, now I want to switch to it. How can I change that in my Python code?
 
 Solution
@@ -147,8 +147,21 @@ Use ``project_qualified_name`` - it consist of two pieces: *organization_name* a
    with neptune.create_experiment() as exp:
        ...
 
-How to find my Neptune API Token?
----------------------------------
+Check usage limits
+------------------
+I’m interested in knowing how much of storage and experiments I have used already. Is it close to the limit? Where can I check that?
+
+Solution
+^^^^^^^^
+| Open project **Settings** and enter Usage tab. There you can see number of experiments and storage used in a project.
+| Learn more about `limits <https://neptune-client.readthedocs.io/en/latest/limits.html#limits>`_.
+
+.. image:: ../_static/images/how-to/team-management/usage-1.png
+   :target: ../_static/images/how-to/team-management/usage-1.png
+   :alt: Check resources usage
+
+Find my Neptune API Token
+-------------------------
 I don't know where to find my Neptune API token. How can I get it?
 
 Solution

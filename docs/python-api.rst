@@ -21,8 +21,8 @@ Neptune comes with open source Python library: `neptune-client <https://github.c
 * downloading files associated with experiment
 * downloading experiments data and project related data
 
-API documentation
------------------
+`API documentation <https://neptune-client.readthedocs.io/en/latest>`_
+----------------------------------------------------------------------
 Neptune client has own `documentation <https://neptune-client.readthedocs.io/en/latest>`_ with following contents:
 
 * API reference
