@@ -21,6 +21,10 @@ Admin
 
    You can access organization settings by clicking blue button "Settings".
 
+.. note::
+
+    Organization must have at least one Admin, so last Admin cannot be removed from the organization.
+
 Member
 ^^^^^^
 * No access to organization settings

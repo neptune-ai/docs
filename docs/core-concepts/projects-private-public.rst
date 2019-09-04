@@ -15,6 +15,6 @@ Example view, where project Owner can manage project members
 
 Public
 ------
-Public project is freely available to view by Everyone who has access to the Internet.
+Public project is freely available to view by everyone who has access to the Internet.
 Examples are: `credit default prediction <https://ui.neptune.ml/neptune-ml/credit-default-prediction>`_ and
 `binary classification metrics <https://ui.neptune.ml/neptune-ml/binary-classification-metrics>`_.
