@@ -80,7 +80,14 @@ Documentation contents
 ----------------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Core concepts
+
+   core-concepts/user-roles.rst
+   core-concepts/projects-private-public.rst
+
+.. toctree::
+   :maxdepth: 1
    :caption: How-to guides
 
    how-to/track.rst
