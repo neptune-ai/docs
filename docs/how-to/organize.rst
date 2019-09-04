@@ -147,6 +147,19 @@ Use ``project_qualified_name`` - it consist of two pieces: *organization_name* a
    with neptune.create_experiment() as exp:
        ...
 
+Check usage limits
+------------------
+I’m interested in knowing how much of storage and experiments I have used already. Is it close to the limit? Where can I check that?
+
+Solution
+^^^^^^^^
+| Open project **Settings** and enter Usage tab. There you can see number of experiments and storage used in a project.
+| Learn more about `limits <https://neptune-client.readthedocs.io/en/latest/limits.html#limits>`_.
+
+.. image:: ../_static/images/how-to/team-management/usage-1.png
+   :target: ../_static/images/how-to/team-management/usage-1.png
+   :alt: Check resources usage
+
 Find my Neptune API Token
 -------------------------
 I don't know where to find my Neptune API token. How can I get it?

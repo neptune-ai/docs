@@ -1,5 +1,5 @@
-Team Management
-===============
+Team, project and user management
+=================================
 
 .. _how-to_team-management_create-organization:
 
@@ -111,16 +111,3 @@ Solution
 | If it is project created in team organization, user is assigned to project immediately.
 | If it is project created in the individual account, user is invited to the project via mail.
   User needs to accept invite, before you can see such person on the list above.
-
-Check usage limits
-------------------
-I’m interested in knowing how much of storage and experiments I have used already. Is it close to the limit? Where can I check that?
-
-Solution
-^^^^^^^^
-| Open project **Settings** and enter Usage tab. There you can see number of experiments and storage used in a project.
-| Learn more about `limits <https://neptune-client.readthedocs.io/en/latest/limits.html#limits>`_.
-
-.. image:: ../_static/images/how-to/team-management/usage-1.png
-   :target: ../_static/images/how-to/team-management/usage-1.png
-   :alt: Check resources usage
