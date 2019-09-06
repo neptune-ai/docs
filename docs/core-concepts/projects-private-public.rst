@@ -1,7 +1,7 @@
 Project types
 =============
 
-.. _project-types:
+.. _core-concepts_project-types:
 
 Private
 -------

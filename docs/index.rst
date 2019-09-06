@@ -11,7 +11,7 @@ Neptune is lightweight
 Neptune is built with the single design principle in mind: *being lightweight*. What does it mean in practice?
 
 * easy user onboarding: if you know how to use ``print()`` you will learn how to use it in no time.
-* 20-minute deployment: use SaaS, deploy on any cloud or on your hardware.
+* 20-minute deployment: use SaaS, deploy on any cloud or own hardware (`contact us <contact@neptune.ml>`_ to learn more).
 * Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
 * Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
 * Neptune integrates with other tools like `MLflow <https://mlflow.org/>`_ and `TensorBoard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_.
@@ -49,15 +49,15 @@ Organize
 ^^^^^^^^
 Organize structure of your project: 
 
-* code
-* notebooks
-* experiment results
-* model weights
+* code,
+* notebooks,
+* experiment results,
+* model weights,
 * meeting notes, 
-* reports
+* reports.
 
-Everything is in one place, accessible from the app or programatically!
-
+Everything is in one place, accessible from the app or programmatically.
+Neptune exposes `Query API <https://neptune-client.readthedocs.io/en/latest/technical_reference/project.html#neptune.projects.Project.get_experiments>`_, that allows users to access their Neptune data right from the Python code.
 
 .. _collaborate:
 
@@ -65,10 +65,10 @@ Collaborate
 ^^^^^^^^^^^
 Collaborate in the team:
 
-* share your experiments
-* compare results
-* comment and communicate your work.
-* interactive widgets focused on data science
+* share your experiments,
+* compare results,
+* comment and communicate your work,
+* use widgets and mentions to show your progress.
 
 Speak Your language in our data-science focused interactive wiki!
 
@@ -85,6 +85,7 @@ Documentation contents
 
    core-concepts/user-roles.rst
    core-concepts/projects-private-public.rst
+   core-concepts/organization-types.rst
 
 .. toctree::
    :maxdepth: 1

@@ -44,7 +44,7 @@ I want to invite my teammates to the organization. How can I do that?
 Solution
 ^^^^^^^^
 .. note::
-    Only :ref:`organization owner <core-concepts_user-roles_organization-owner>` can invite new users to organization.
+    Only :ref:`organization admin <core-concepts_user-roles_organization-admin>` can invite new users to organization.
 
 **Step 1**
 
@@ -83,13 +83,15 @@ Go to **Projects** view (link at the top bar on the left side) and click on **Ne
 
 **Step 2**
 
-Now you can set a name, color, description and project type *Public* or *Private* (:ref:`learn more <project-types>`).
+Now you can set a name, color, description and project type *Public* or *Private* (:ref:`learn more <core-concepts_project-types>`).
 
 .. image:: ../_static/images/how-to/team-management/create-project-2.png
    :target: ../_static/images/how-to/team-management/create-project-2.png
    :alt: Create new project
 
 When you click "Apply" - new project is created.
+
+.. _how-to_team-management_invite-to-project:
 
 Add user to project
 -------------------
