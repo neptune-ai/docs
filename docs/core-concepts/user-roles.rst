@@ -1,12 +1,14 @@
 User roles
 ==========
 
+.. _core-concepts_user-roles:
+
 Roles in organization
 ---------------------
 If you have an organization (check how to :ref:`create one <how-to_team-management_create-organization>`),
 you can invite people to it. Two roles are available:
 
-.. _core-concepts_user-roles_organization-owner:
+.. _core-concepts_user-roles_organization-admin:
 
 Admin
 ^^^^^
