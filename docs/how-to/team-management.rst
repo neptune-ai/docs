@@ -44,7 +44,7 @@ I want to invite my teammates to the organization. How can I do that?
 Solution
 ^^^^^^^^
 .. note::
-    Only :ref:`organization owner <core-concepts_user-roles_organization-admin>` can invite new users to organization.
+    Only :ref:`organization admin <core-concepts_user-roles_organization-admin>` can invite new users to organization.
 
 **Step 1**
 
