@@ -123,3 +123,11 @@ Documentation contents
    :caption: Integrations
 
    Integrations <integrations.rst>
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+   :caption: neptune-client
+
+   neptune-client/docs/**
+

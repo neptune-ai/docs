@@ -1,0 +1,3 @@
+[submodule "docs/neptune-client"]
+	path = docs/neptune-client
+	url = git@github.com:neptune-ml/neptune-client.git
