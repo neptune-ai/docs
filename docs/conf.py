@@ -52,10 +52,10 @@ html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ml/',
-    'navigation_depth': 2,
+    'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
     'sticky_navigation': True,
-    'titles_only': True,
+    'titles_only': False,
     'logo_only': False,
 }
 
