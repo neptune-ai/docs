@@ -1,6 +1,6 @@
 What is Neptune?
 ================
-`Neptune <https://neptune.ml/>`_ is a data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, jupyter notebooks, model training curves or meeting notes, Neptune got you covered.
+|Neptune| is a data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, jupyter notebooks, model training curves or meeting notes, Neptune got you covered.
 
 .. image:: ./_static/images/overview/quick_overview.gif
    :target: ./_static/images/overview/quick_overview.gif
@@ -11,10 +11,10 @@ Neptune is lightweight
 Neptune is built with the single design principle in mind: *being lightweight*. What does it mean in practice?
 
 * easy user onboarding: if you know how to use ``print()`` you will learn how to use it in no time.
-* 20-minute deployment: use SaaS, deploy on any cloud or own hardware (`contact us <contact@neptune.ml>`_ to learn more).
+* 20-minute deployment: use SaaS, deploy on any cloud or own hardware (|contact us| to learn more).
 * Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
-* Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, `R <https://www.r-project.org/>`_.
-* Neptune integrates with other tools like `MLflow <https://mlflow.org/>`_ and `TensorBoard <https://www.tensorflow.org/guide/summaries_and_tensorboard>`_.
+* Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, R.
+* Neptune integrates with other tools like |MLflow| and |TensorBoard|.
 
 Neptune's focus: track, organize and collaborate
 ------------------------------------------------
@@ -41,7 +41,7 @@ Snippet below, presents example integration with Python code.
            neptune.send_metric('loss', 1/i**0.5)
        neptune.set_property('n_iterations', n)
 
-``api_token`` belongs to the public user `Neptuner <https://ui.neptune.ml/o/shared/neptuner>`_. So, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ml/o/shared/org/onboarding/experiments>`_.
+``api_token`` belongs to the public user |Neptuner|. So, when started you can see your experiment at the top of |experiments view|.
 
 .. _organize:
 
@@ -80,7 +80,7 @@ Documentation contents
 ----------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Core concepts
 
    core-concepts/user-roles.rst
@@ -88,7 +88,14 @@ Documentation contents
    core-concepts/organization-types.rst
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :caption: Resources
+
+   resources/usage-limits.rst
+   resources/FAQ.rst
+
+.. toctree::
+   :maxdepth: 2
    :caption: How-to guides
 
    how-to/track.rst
@@ -96,7 +103,7 @@ Documentation contents
    how-to/team-management.rst
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Notebooks
 
    Introduction <notebooks/introduction.rst>
@@ -106,7 +113,7 @@ Documentation contents
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Supported languages
 
    Python API <python-api.rst>
@@ -119,7 +126,33 @@ Documentation contents
    Frameworks <frameworks.rst>
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Integrations
 
    Integrations <integrations.rst>
+
+.. External links below
+
+.. |Neptune| raw:: html
+
+    <a href="https://neptune.ml/" target="_blank">Neptune</a>
+
+.. |contact us| raw:: html
+
+    <a href="mailto:contact@neptune.ml" target="_blank">contact us</a>
+
+.. |MLflow| raw:: html
+
+    <a href="https://mlflow.org/" target="_blank">MLflow</a>
+
+.. |TensorBoard| raw:: html
+
+    <a href="https://www.tensorflow.org/guide/summaries_and_tensorboard" target="_blank">TensorBoard</a>
+
+.. |Neptuner| raw:: html
+
+    <a href="https://ui.neptune.ml/o/shared/neptuner" target="_blank">Neptuner</a>
+
+.. |experiments view| raw:: html
+
+    <a href="https://ui.neptune.ml/o/shared/org/onboarding/experiments" target="_blank">experiments view</a>
