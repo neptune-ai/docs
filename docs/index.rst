@@ -108,6 +108,13 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 2
+   :glob:
+   :caption: neptune-client
+
+   neptune-client/docs/**
+
+.. toctree::
+   :maxdepth: 2
    :caption: How-to guides
 
    how-to/track.rst
@@ -123,7 +130,6 @@ Documentation contents
    TensorBoard <integrations/tensorboard.rst>
    MLflow <integrations/mlflow.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
-
 
 .. External links
 
