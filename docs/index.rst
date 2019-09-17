@@ -81,26 +81,10 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Core concepts
+   :caption: Learn about Neptune
 
-   core-concepts/user-roles.rst
-   core-concepts/projects-private-public.rst
-   core-concepts/organization-types.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Resources
-
-   resources/usage-limits.rst
-   resources/FAQ.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: How-to guides
-
-   how-to/track.rst
-   how-to/organize.rst
-   how-to/team-management.rst
+   core-concepts.rst
+   resources.rst
 
 .. toctree::
    :maxdepth: 2
@@ -114,24 +98,34 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Supported languages
+   :caption: Python Library
 
-   Python API <python-api.rst>
-   R support <r-support.rst>
+   python-api/introduction.rst
+   python-api/api-reference.rst
+   python-api/query-api.rst
+   python-api/tutorials.rst
+   python-api/how-to-guides.rst
 
 .. toctree::
-   :titlesonly:
-   :caption: Frameworks
+   :maxdepth: 2
+   :caption: How-to guides
 
-   Frameworks <frameworks.rst>
+   how-to/track.rst
+   how-to/organize.rst
+   how-to/team-management.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: Integrations
 
-   Integrations <integrations.rst>
+   Frameworks <frameworks.rst>
+   R <integrations/r-support.rst>
+   TensorBoard <integrations/tensorboard.rst>
+   MLflow <integrations/mlflow.rst>
+   Neptune Contrib <integrations/neptune-contrib.rst>
 
-.. External links below
+
+.. External links
 
 .. |Neptune| raw:: html
 
