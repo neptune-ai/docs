@@ -1,6 +1,14 @@
 Core concepts
 =============
 
+Basic things
+------------
+Experiment
+Experiments table
+Notebook
+Checkpoint
+Wiki and Wiki page
+
 User roles
 ----------
 .. _core-concepts_user-roles:
@@ -99,5 +107,15 @@ Example view, where project Owner can manage project members
 Public
 ^^^^^^
 Public project is freely available to view by everyone who has access to the Internet.
-Examples are: `credit default prediction <https://ui.neptune.ml/neptune-ml/credit-default-prediction>`_ and
-`binary classification metrics <https://ui.neptune.ml/neptune-ml/binary-classification-metrics>`_.
+Examples are: |credit-default-prediction| and |binary-classification-metrics|.
+
+.. External links
+
+.. |credit-default-prediction| raw:: html
+
+    <a href="https://ui.neptune.ml/neptune-ml/credit-default-prediction" target="_blank">Credit default prediction</a>
+
+
+.. |binary-classification-metrics| raw:: html
+
+    <a href="https://ui.neptune.ml/neptune-ml/binary-classification-metrics" target="_blank">Binary classification metrics</a>
