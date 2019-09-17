@@ -5,7 +5,7 @@ Neptune Contrib
 Resources
 ---------
 * Project on GitHub: |neptune-contrib|
-* Project `docs <https://neptune-contrib.readthedocs.io>`_
+* Project `documentation <https://neptune-contrib.readthedocs.io>`_
 
 Example tools:
 
