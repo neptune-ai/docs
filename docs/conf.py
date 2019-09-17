@@ -22,7 +22,7 @@ copyright = '2019, neptune-ml team'
 author = 'neptune-ml team'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '2.0.0'
 
 # The default language to highlight source code in
 highlight_language = 'python3'
@@ -55,10 +55,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'navigation_depth': 2,
+    'canonical_url': 'https://docs.neptune.ml/',
+    'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
+    'sticky_navigation': True,
+    'titles_only': False,
+    'logo_only': False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
