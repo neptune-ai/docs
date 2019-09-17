@@ -22,7 +22,7 @@ copyright = '2019, neptune-ml team'
 author = 'neptune-ml team'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '2.0.0'
 
 # The default language to highlight source code in
 highlight_language = 'python3'
