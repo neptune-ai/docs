@@ -1,12 +1,17 @@
 Organize
 ========
 
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
 Organize charts
 ---------------
 I am creating many charts for my experiments but they all end up in the ``Basic`` group like this:
 
-.. image:: ../_static/images/how-to/ht-chartsets-basic-1.png
-   :target: ../_static/images/how-to/ht-chartsets-basic-1.png
+.. image:: ../../_static/images/how-to/ht-chartsets-basic-1.png
+   :target: ../../_static/images/how-to/ht-chartsets-basic-1.png
    :alt: image
 
 How can I organize my charts?
@@ -19,32 +24,32 @@ You can organize your charts by creating different groups/views of charts, calle
 
 Click on ``+ Add charts' set`` on the left and choose a name for it.
 
-.. image:: ../_static/images/how-to/ht-chartsets-basic-2.png
-   :target: ../_static/images/how-to/ht-chartsets-basic-2.png
+.. image:: ../../_static/images/how-to/ht-chartsets-basic-2.png
+   :target: ../../_static/images/how-to/ht-chartsets-basic-2.png
    :alt: image
 
 **Step 2**
 
 Click on ``New chart`` button on the top and choose series which you want to plot on one chart.
 
-.. image:: ../_static/images/how-to/ht-chartsets-basic-3.png
-   :target: ../_static/images/how-to/ht-chartsets-basic-3.png
+.. image:: ../../_static/images/how-to/ht-chartsets-basic-3.png
+   :target: ../../_static/images/how-to/ht-chartsets-basic-3.png
    :alt: image
 
 **Step 3**
 
 Click on ``create`` and you have your first chart ready!
 
-.. image:: ../_static/images/how-to/ht-chartsets-basic-4.png
-   :target: ../_static/images/how-to/ht-chartsets-basic-4.png
+.. image:: ../../_static/images/how-to/ht-chartsets-basic-4.png
+   :target: ../../_static/images/how-to/ht-chartsets-basic-4.png
    :alt: image
 
 **Step 4**
 
 You can always add new charts by clicking on the ``New chart`` button on the top.
 
-.. image:: ../_static/images/how-to/ht-chartsets-basic-5.png
-   :target: ../_static/images/how-to/ht-chartsets-basic-5.png
+.. image:: ../../_static/images/how-to/ht-chartsets-basic-5.png
+   :target: ../../_static/images/how-to/ht-chartsets-basic-5.png
    :alt: image
 
 Neptune will remember your chart set for this project so all your experiments charts can be now organized in the same way!
@@ -59,8 +64,8 @@ Solution
 
 Go to you experiment and click on the ``Output`` section on the left. Then download the data by clicking on the icon next to the file you are interested in.
 
-.. image:: ../_static/images/how-to/ht-output-download-1.png
-   :target: ../_static/images/how-to/ht-output-download-1.png
+.. image:: ../../_static/images/how-to/ht-output-download-1.png
+   :target: ../../_static/images/how-to/ht-output-download-1.png
    :alt: image
 
 **Using Neptune client library**
@@ -100,8 +105,8 @@ You can add or remove tags directly from your script.
 
 Finally, you can always go to your project dashboard, and add/remove tags by clicking on a chosen cell.
 
-.. image:: ../_static/images/how-to/ht-tags-1.png
-   :target: ../_static/images/how-to/ht-tags-1.png
+.. image:: ../../_static/images/how-to/ht-tags-1.png
+   :target: ../../_static/images/how-to/ht-tags-1.png
    :alt: tags management in web application
 
 Sort experiments dashboard
@@ -114,16 +119,16 @@ Solution
 
 Add a column for the chosen metric by searching for it in the ``Manage columns`` section on the right.
 
-.. image:: ../_static/images/how-to/ht-sorting-metric-1.png
-   :target: ../_static/images/how-to/ht-sorting-metric-1.png
+.. image:: ../../_static/images/how-to/ht-sorting-metric-1.png
+   :target: ../../_static/images/how-to/ht-sorting-metric-1.png
    :alt: image
 
 **Step 2**
 
 Sort the chosen column by using the arrow buttons:
 
-.. image:: ../_static/images/how-to/ht-sorting-metric-2.png
-   :target: ../_static/images/how-to/ht-sorting-metric-2.png
+.. image:: ../../_static/images/how-to/ht-sorting-metric-2.png
+   :target: ../../_static/images/how-to/ht-sorting-metric-2.png
    :alt: image
 
 You can now explore the best/worst experiments.
@@ -156,8 +161,8 @@ Solution
 | Open project **Settings** and enter Usage tab. There you can see number of experiments and storage used in a project.
 | Learn more about `limits <https://neptune-client.readthedocs.io/en/latest/limits.html#limits>`_.
 
-.. image:: ../_static/images/how-to/team-management/usage-1.png
-   :target: ../_static/images/how-to/team-management/usage-1.png
+.. image:: ../../_static/images/how-to/team-management/usage-1.png
+   :target: ../../_static/images/how-to/team-management/usage-1.png
    :alt: Check resources usage
 
 Find my Neptune API Token

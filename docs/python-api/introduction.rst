@@ -1,8 +1,5 @@
 Introduction
 ============
-
-Overview
---------
 Neptune implements client-server architecture. Because of that you can log and access your results from many different devices:
 
 * laptops
