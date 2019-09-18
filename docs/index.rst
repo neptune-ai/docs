@@ -1,6 +1,10 @@
 What is Neptune?
 ================
-|Neptune| is a data science collaboration hub. With Neptune, teams can work together efficiently and keep all aspects of their workflow in a single place. Whether it is source code, jupyter notebooks, model training curves or meeting notes, Neptune got you covered.
+|Neptune| is a collaboration hub for data science / machine learning teams. that focuses on three areas:
+
+* :ref:`Track <track>`: all metrics and outputs in your data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on.
+* :ref:`Organize <organize>`: automatically transform tracked data into a knowledge repository.
+* :ref:`Collaborate <collaborate>`: share, compare and discuss your work across data science project.
 
 .. image:: ./_static/images/overview/quick_overview.gif
    :target: ./_static/images/overview/quick_overview.gif
@@ -18,7 +22,6 @@ Neptune is built with the single design principle in mind: *being lightweight*. 
 
 Neptune's focus: track, organize and collaborate
 ------------------------------------------------
-We put focus on three aspects of the team work on data science projects: :ref:`track <track>`, :ref:`organize <organize>` and :ref:`collaborate <collaborate>`.
 
 .. _track:
 
@@ -83,8 +86,9 @@ Documentation contents
    :maxdepth: 2
    :caption: Learn about Neptune
 
-   core-concepts.rst
-   resources.rst
+   learn-about-neptune/core-concepts.rst
+   learn-about-neptune/team-management.rst
+   learn-about-neptune/faq.rst
 
 .. toctree::
    :maxdepth: 2
@@ -105,27 +109,13 @@ Documentation contents
    python-api/query-api.rst
    python-api/tutorials.rst
    python-api/how-to-guides.rst
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-   :caption: neptune-client
-
-   neptune-client/docs/**
-
-.. toctree::
-   :maxdepth: 2
-   :caption: How-to guides
-
-   how-to/track.rst
-   how-to/organize.rst
-   how-to/team-management.rst
+   python-api/cheatsheet.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: Integrations
 
-   Frameworks <frameworks.rst>
+   Frameworks <integrations/frameworks.rst>
    R <integrations/r-support.rst>
    TensorBoard <integrations/tensorboard.rst>
    MLflow <integrations/mlflow.rst>
