@@ -59,7 +59,7 @@ Organize structure of your project:
 * reports.
 
 Everything is in one place, accessible from the app or programmatically.
-Neptune exposes `Query API <https://neptune-client.readthedocs.io/en/latest/technical_reference/project.html#neptune.projects.Project.get_experiments>`_, that allows users to access their Neptune data right from the Python code.
+Neptune exposes :ref:`Query API <query-api>`, that allows users to access their Neptune data right from the Python code.
 
 .. _collaborate:
 

@@ -6,9 +6,9 @@ text
    :maxdepth: 1
    :caption: API reference
 
-   Neptune <../neptune-client/docs/technical_reference/neptune.rst>
-   Session <../neptune-client/docs/technical_reference/session.rst>
-   Project <../neptune-client/docs/technical_reference/project.rst>
-   Experiment <../neptune-client/docs/technical_reference/experiment.rst>
-   Notebook <../neptune-client/docs/technical_reference/notebook.rst>
-   Utils <../neptune-client/docs/technical_reference/utils.rst>
+   Neptune <../neptune-client/api-reference/neptune.rst>
+   Session <../neptune-client/api-reference/session.rst>
+   Project <../neptune-client/api-reference/project.rst>
+   Experiment <../neptune-client/api-reference/experiment.rst>
+   Notebook <../neptune-client/api-reference/notebook.rst>
+   Utils <../neptune-client/api-reference/utils.rst>
