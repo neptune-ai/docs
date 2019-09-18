@@ -22,7 +22,6 @@ Neptune is built with the single design principle in mind: *being lightweight*. 
 
 Neptune's focus: track, organize and collaborate
 ------------------------------------------------
-
 .. _track:
 
 Track

@@ -18,6 +18,8 @@ Neptune implements client-server architecture. Because of that you can log and a
    :target: ../_static/images/python_api/server_client_arch.png
    :alt: basic architecture
 
+.. _installation:
+
 Installation
 ------------
 .. code:: bash
@@ -42,6 +44,8 @@ Example
            neptune.log_metric('loss', 1/i**0.5)
            neptune.log_text('magic values', 'magic value {}'.format(0.95*i**2))
        neptune.set_property('n_iterations', n)
+
+.. note:: Install :ref:`neptune-client <installation>`, save the code as ``main.py``, and run like this: ``python main.py``.
 
 Example above creates Neptune experiment in the project: |onboarding| and logs *iteration* and *loss* metrics to Neptune in real time. It also presents common use case for Neptune client, that is tracking progress of machine learning experiments.
 
