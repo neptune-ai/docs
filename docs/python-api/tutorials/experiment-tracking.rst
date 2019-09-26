@@ -1,5 +1,5 @@
-Advanced example
-================
+Experiment tracking capabilities
+================================
 This example uses |get-started-TF| as a base. It contains more features that neptune-client has to offer and put them in single script. Specifically, you will see several methods in action:
 
 * :meth:`~neptune.experiments.Experiment.log_metric`
