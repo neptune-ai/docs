@@ -1,10 +1,8 @@
 API reference
 =============
-text
 
 .. toctree::
    :maxdepth: 1
-   :caption: API reference
 
    Neptune <../neptune-client/api-reference/neptune.rst>
    Session <../neptune-client/api-reference/session.rst>

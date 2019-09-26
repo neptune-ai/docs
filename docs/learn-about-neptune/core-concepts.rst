@@ -1,14 +1,6 @@
 Core concepts
 =============
 
-Basic things
-------------
-Experiment
-Experiments table
-Notebook
-Checkpoint
-Wiki and Wiki page
-
 User roles
 ----------
 .. _core-concepts_user-roles:
