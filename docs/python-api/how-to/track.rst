@@ -36,7 +36,7 @@ Another option is to log `key: value` pair like this:
 
 **Step 2: Analyze**
 
-Browse and analyse your metrics on the dashboard (`example <https://app.neptune.ml/neptune-ml/Home-Credit-Default-Risk/experiments>`_) or in the particular experiment (`example experiment <https://app.neptune.ml/neptune-ml/Home-Credit-Default-Risk/e/HC-11860/channels>`_).
+Browse and analyse your metrics on the dashboard (`example <https://ui.neptune.ml/neptune-ml/Home-Credit-Default-Risk/experiments>`_) or in the particular experiment (`example experiment <https://ui.neptune.ml/neptune-ml/Home-Credit-Default-Risk/e/HC-11860/logs>`_).
 
 Log images to Neptune
 ---------------------
