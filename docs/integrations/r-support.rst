@@ -28,6 +28,8 @@ Toward the top of your script insert the following snippet.
 
 .. code:: R
 
+    library("reticulate")
+    neptune <- import("neptune")
     neptune$init(project_qualified_name='shared/r-integration',
                  api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBz'
     )
