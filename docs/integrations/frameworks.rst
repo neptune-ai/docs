@@ -5,8 +5,8 @@ Log keras metrics
 -----------------
 I have a training script written in `keras <https://keras.io>`_. How do I adjust it to log metrics to Neptune?
 
-.. image:: ./_static/images/others/keras_neptuneml.png
-   :target: ./_static/images/others/keras_neptuneml.png
+.. image:: ../_static/images/others/keras_neptuneml.png
+   :target: ../_static/images/others/keras_neptuneml.png
    :alt: Keras neptune.ml integration
 
 Solution
@@ -61,8 +61,8 @@ Instantiate it and add it to your callbacks list:
 
 All your metrics are now logged to Neptune:
 
-.. image:: _static/images/how-to/ht-log-keras-1.png
-   :target: ./_static/images/how-to/ht-log-keras-1.png
+.. image:: ../_static/images/how-to/ht-log-keras-1.png
+   :target: ../_static/images/how-to/ht-log-keras-1.png
    :alt: image
 
 PyTorch
@@ -72,8 +72,8 @@ Log PyTorch metrics
 -------------------
 I have a training script written in `PyTorch <https://pytorch.org>`_. How do I adjust it to log metrics to Neptune?
 
-.. image:: ./_static/images/others/pytorch_neptuneml.png
-   :target: ./_static/images/others/pytorch_neptuneml.png
+.. image:: ../_static/images/others/pytorch_neptuneml.png
+   :target: ../_static/images/others/pytorch_neptuneml.png
    :alt: Pytorch neptune.ml integration
 
 Solution
@@ -150,8 +150,8 @@ Add a snippet to the training loop, that sends your loss or metric to Neptune:
 
 Your loss is now logged to Neptune:
 
-.. image:: ./_static/images/how-to/ht-log-pytorch-1.png
-   :target: ./_static/images/how-to/ht-log-pytorch-1.png
+.. image:: ../_static/images/how-to/ht-log-pytorch-1.png
+   :target: ../_static/images/how-to/ht-log-pytorch-1.png
    :alt: image
 
 LightGBM
@@ -161,8 +161,8 @@ Log LightGBM metrics
 --------------------
 I have a training script written in `LightGBM <https://lightgbm.readthedocs.io>`_. How do I adjust it to log metrics to Neptune?
 
-.. image:: ./_static/images/others/lightgbm_neptuneml.png
-   :target: ./_static/images/others/lightgbm_neptuneml.png
+.. image:: ../_static/images/others/lightgbm_neptuneml.png
+   :target: ../_static/images/others/lightgbm_neptuneml.png
    :alt: lightGBM neptune.ml integration
 
 Solution
@@ -232,8 +232,8 @@ Pass it to ``lgb.train`` object via ``callbacks`` parameter:
 
 All your metrics are now logged to Neptune
 
-.. image:: ./_static/images/how-to/ht-log-lightgbm-1.png
-   :target: ./_static/images/how-to/ht-log-lightgbm-1.png
+.. image:: ../_static/images/how-to/ht-log-lightgbm-1.png
+   :target: ../_static/images/how-to/ht-log-lightgbm-1.png
    :alt: image
 
 Matplotlib
@@ -243,8 +243,8 @@ Log matplotlib figure to Neptune
 --------------------------------
 How to log charts generated in `matplotlib <https://matplotlib.org/>`_, like confusion matrix or distribution in Neptune?
 
-.. image:: ./_static/images/others/matplotlib_neptuneml.png
-   :target: ./_static/images/others/matplotlib_neptuneml.png
+.. image:: ../_static/images/others/matplotlib_neptuneml.png
+   :target: ../_static/images/others/matplotlib_neptuneml.png
    :alt: matplotlib neptune.ml integration
 
 Solution
@@ -282,10 +282,10 @@ Neptune-client supports logging matplotlib figures. Examples:
 
 Explore it in the browser:
 
-.. image:: ./_static/images/how-to/ht-matplotlib-1.png
-   :target: ./_static/images/how-to/ht-matplotlib-1.png
+.. image:: ../_static/images/how-to/ht-matplotlib-1.png
+   :target: ../_static/images/how-to/ht-matplotlib-1.png
    :alt: image
 
-.. image:: ./_static/images/how-to/ht-matplotlib-2.png
-   :target: ./_static/images/how-to/ht-matplotlib-2.png
+.. image:: ../_static/images/how-to/ht-matplotlib-2.png
+   :target: ../_static/images/how-to/ht-matplotlib-2.png
    :alt: image

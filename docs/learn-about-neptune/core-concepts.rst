@@ -1,14 +1,6 @@
 Core concepts
 =============
 
-Basic things
-------------
-Experiment
-Experiments table
-Notebook
-Checkpoint
-Wiki and Wiki page
-
 User roles
 ----------
 .. _core-concepts_user-roles:
@@ -27,8 +19,8 @@ you can invite people to it. Two roles are available:
 * On the *people* panel can add / remove people from organization.
 * By default admin is an *Owner* of all projects (editable option).
 
-.. figure:: _static/images/core-concepts/org-settings.png
-   :target: _static/images/core-concepts/org-settings.png
+.. figure:: ../_static/images/core-concepts/org-settings.png
+   :target: ../_static/images/core-concepts/org-settings.png
    :alt: organization settings button
 
    You can access organization settings by clicking blue button "Settings".
@@ -72,6 +64,9 @@ Roles in project
 
 Organization types
 ------------------
+
+.. _core-concepts_organization-types:
+
 Organization is a way to centrally manage projects, users (and billing). Neptune has two organization types.
 
 Individual
@@ -100,8 +95,8 @@ Only people added to the project can see it. Project :ref:`owner <core-concepts_
 
 Example view, where project Owner can manage project members
 
-.. image:: _static/images/core-concepts/invite-to-project.png
-   :target: _static/images/core-concepts/invite-to-project.png
+.. image:: ../_static/images/core-concepts/invite-to-project.png
+   :target: ../_static/images/core-concepts/invite-to-project.png
    :alt: Invite user to the project
 
 Public

@@ -14,7 +14,7 @@ Click **Configure** button (if you cannot see it, just hit **F5**).
 
 You see **Configure connection to Neptune**. Paste API Token first, then select project:
 
-* *API Token* - take one from your account. `Check this <troubleshoot.html#t-004>`_\, if you do not know where *API Token* is located. This field is validated automatically.
+* *API Token* - take one from your account. :ref:`Check this <token-location>`, if you do not know where *API Token* is located. This field is validated automatically.
 * *Select project* - pick one from the drop down list.
 * Click **Create notebook**.
 

@@ -1,15 +1,16 @@
 Team, project and user management
 =================================
 
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
 .. _how-to_team-management_create-organization:
 
 Create organization
 -------------------
-I have a team working on projects together. How can I create an organization account in Neptune?
-
-Solution
-^^^^^^^^
-Organization is a space for teams to collaborate in projects. To create a new organization:
+I have a team working on projects together. How can I create an :ref:`organization <core-concepts_organization-types>` account in Neptune?
 
 **Step 1**
 
@@ -41,8 +42,6 @@ Invite user to organization
 ---------------------------
 I want to invite my teammates to the organization. How can I do that?
 
-Solution
-^^^^^^^^
 .. note::
     Only :ref:`organization admin <core-concepts_user-roles_organization-admin>` can invite new users to organization.
 
@@ -67,11 +66,7 @@ Users will be invited via email to join your organization.
 
 Create project
 --------------
-
 How to create a new project?
-
-Solution
-^^^^^^^^
 
 **Step 1**
 
@@ -95,13 +90,10 @@ When you click "Apply" - new project is created.
 
 Add user to project
 -------------------
-
 .. note::
 
     Only project Owner can invite new users to the project. Learn more about :ref:`project roles <core-concepts_user-roles_project-owner>`.
 
-Solution
-^^^^^^^^
 | Go to Project **Settings**, then to **People** tab. There is a list of project members.
 | Type email or username (in case they already have an account in Neptune) of user you want to invite / add.
 | Set a role and click **Invite** / **Assign**.
