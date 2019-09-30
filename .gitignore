@@ -7,3 +7,4 @@ neptune-docs.tgz
 docs/_build
 *.tar.gz
 requirements.lock
+*.swp

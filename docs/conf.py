@@ -58,16 +58,24 @@ html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ml/',
+    'collapse_navigation': False,
+    'style_external_links': True,
     'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
-    'sticky_navigation': True,
+    'sticky_navigation': False,
     'titles_only': False,
-    'logo_only': False,
+    'logo_only': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+    'css/custom.css'
+]
 
 html_favicon = '_static/images/others/favicon.ico'
