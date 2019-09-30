@@ -10,8 +10,6 @@ How do I do that?
    :target: ../_static/images/others/aws_neptuneml.png
    :alt: AWS neptune.ml integration
 
-Solution
-^^^^^^^^
 **Register to AWS**
 
 Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
@@ -152,8 +150,6 @@ How do I do that?
    :target: ../_static/images/others/sagemaker_neptuneml.png
    :alt: Amazon SageMaker neptune.ml integration
 
-Solution
-^^^^^^^^
 **Register to AWS**
 
 Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official website to create your AWS account.
@@ -250,8 +246,6 @@ I would like to run my experiments on Google Colab and track them with Neptune. 
    :target: ../_static/images/others/colab_neptuneml.png
    :alt: Google Colaboratory neptune.ml integration
 
-Solution
-^^^^^^^^
 **Install Neptune client**
 
 Go to your first cell in Google Colab and install `neptune-client`:

@@ -9,8 +9,6 @@ I have a training script written in `keras <https://keras.io>`_. How do I adjust
    :target: ../_static/images/others/keras_neptuneml.png
    :alt: Keras neptune.ml integration
 
-Solution
-^^^^^^^^
 **Step 1**
 
 Say your training script looks like this:
@@ -76,8 +74,6 @@ I have a training script written in `PyTorch <https://pytorch.org>`_. How do I a
    :target: ../_static/images/others/pytorch_neptuneml.png
    :alt: Pytorch neptune.ml integration
 
-Solution
-^^^^^^^^
 Say your training script looks like this:
 
 .. code-block::
@@ -165,8 +161,6 @@ I have a training script written in `LightGBM <https://lightgbm.readthedocs.io>`
    :target: ../_static/images/others/lightgbm_neptuneml.png
    :alt: lightGBM neptune.ml integration
 
-Solution
-^^^^^^^^
 Say your training script looks like this:
 
 .. code-block::
@@ -247,8 +241,6 @@ How to log charts generated in `matplotlib <https://matplotlib.org/>`_, like con
    :target: ../_static/images/others/matplotlib_neptuneml.png
    :alt: matplotlib neptune.ml integration
 
-Solution
-^^^^^^^^
 **Step 1**
 
 Neptune-client supports logging matplotlib figures. Examples:
