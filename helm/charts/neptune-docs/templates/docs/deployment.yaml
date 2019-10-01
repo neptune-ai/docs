@@ -35,6 +35,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: {{ .Values.docs.port }}
+        env:
+        - name: IS_PRODUCTION
+          value: "{{ .Values.global.production }}"
         readinessProbe:
           httpGet:
             path: /
