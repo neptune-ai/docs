@@ -87,6 +87,7 @@ Documentation contents
 
    learn-about-neptune/core-concepts.rst
    learn-about-neptune/team-management.rst
+   learn-about-neptune/nql.rst
    learn-about-neptune/faq.rst
 
 .. toctree::
