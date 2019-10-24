@@ -52,6 +52,7 @@ Advanced examples
 
 ToDo:
 - show tag, tags, numeric column, ranges, exp owner, system columns, parameters, properties
+- explain how to use tags in query
 - focus on working examples - give short explanation.
 
 How does it relates to SQL queries?
