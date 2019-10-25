@@ -4,23 +4,13 @@ FAQ
 
 Q: What are storage limits?
 ---------------------------
-According to the |pricing|, storage is set per **project**:
-
-* individual users - 5GB,
-* teams - 50GB.
-
-If you hit the limit, you can: start new project, or contact us directly at `contact@neptune.ml <contact@neptune.ml>`_.
+Please consult |pricing| page, where storage limits are listed.
 
 ----
 
-Q: What is the number of experiments limit?
--------------------------------------------
-According to the |pricing|, there is such limit per **project**:
-
-* individual users - 5k,
-* teams - 50k.
-
-If you hit the limit, you can: start new project, or contact us directly at `contact@neptune.ml <contact@neptune.ml>`_.
+Q: What is the number of experiments or notebooks limit?
+--------------------------------------------------------
+There are no limits. You can have as many experiments and notebooks as you wish.
 
 ----
 
@@ -36,4 +26,4 @@ Q: What is the API calls rate limits?
 
 .. |pricing| raw:: html
 
-    <a href="https://neptune.ml/#pricing" target="_blank">pricing</a>
+    <a href="https://neptune.ml/pricing" target="_blank">pricing</a>
