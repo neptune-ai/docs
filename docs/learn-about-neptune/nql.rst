@@ -10,8 +10,8 @@ Neptune Query Language (NQL) is a tool that enables you to apply complex filters
    :target: ../_static/images/others/nql_01.png
    :alt: experiments view with advanced search
 
-Basics with examples
---------------------
+Tutorial
+--------
 Let's assume that you want to see experiments where ``precision`` metric is higher than ``0.9``.
 In other words, you are looking for experiments, where:
 
@@ -29,8 +29,7 @@ Statement above is called *clause* and follows the following format (see :ref:`N
 
     field-name operator value
 
-Notice that it is required for field name to bo on the left side of an operator,
-so it is not possible to compare values of two different columns.
+Note that it is required for field name to bo on the left side of an operator.
 
 Now, imagine that a single clause is not enough, since you are looking for experiments where ``precision`` metric is higher than ``0.9``
 and, at the same time, ``learning_rate`` parameter is smaller or equal ``0.005``:
@@ -49,11 +48,9 @@ either ``learning_rate`` parameter is smaller or equal ``0.005``, or ``encoder``
 
     precision > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
 
-
 Advanced examples
 -----------------
-
-Fetching specific experiments by its ids:
+Fetching specific experiments by ids:
 
 .. code-block:: mysql
 
@@ -89,136 +86,162 @@ NQL reference
 
 Clause
 ^^^^^^
-Clause consist of three elements:
+Clause consists of three elements:
 
 .. code-block:: mysql
 
     field-name operator value
 
-1. ``field-name`` is one of the following:
+**Field-name**
 
-  * ``id``
-      Example:
+Field-names are case insensitive, so you can write both *state* and *State* or even *STATE*.
+It can be one of the following:
 
-      .. code-block:: mysql
+* ``metric`` name
 
-          id = SAN-12
+  Only last value in the metric is taken into account.
 
-  * ``state``
-      The following values are possible for this field:
+  Example:
 
-        - ``running``
-        - ``succeeded``
-        - ``aborted``
-        - ``failed``
+  .. code-block:: mysql
 
-      Values of this field are case insensitive.
+      precision > 0.9
 
-      Examples:
+* ``parameter`` name
 
-      .. code-block:: mysql
+  Example:
 
-          state = running
-          state = Failed
-          state = ABORTED
+  .. code-block:: mysql
 
-  * ``owner``
-      Example:
+      learning_rate <= 0.005
 
-      .. code-block:: mysql
+* ``tags``
 
-          owner = Fred
+  Can be used only with the ``CONTAINS`` operator. Condition is fulfilled if experiment contains a specific tag.
 
-  * ``name``
-      Example:
+  Example:
 
-      .. code-block:: mysql
+  .. code-block:: mysql
 
-          name = Approach-1
+      tags CONTAINS example-tag
 
-  * ``description``
-      Example:
+* ``property`` name
 
-      .. code-block:: mysql
+  Example:
 
-          description = "My first experiment"
+  .. code-block:: mysql
 
-  * ``size``
-      Without any unit bytes are assumed, however following units are supported and are case insensitive: ``kb``, ``mb``, ``gb``.
-      If there is a space between the number and its unit, the whole value needs to be enclosed in quotation marks.
-      Comparison of this field works on its corresponding value, not on strings.
+      train_data_path = "data/train.csv"
+      train_data_path = train.csv
 
-      Examples:
+* ``text log`` name
 
-      .. code-block:: mysql
+  Only last value in the log is taken into account.
 
-          size > 20MB
-          size < 100
-          size >= "35 kb"
+  Example:
 
-  * ``hostname``
-      Example:
+  .. code-block:: mysql
 
-      .. code-block:: mysql
+      stderr = "example text in log file"
 
-          hostname = my-server-1
+* ``id``
 
-  * ``tags``
-      Can be used only with the ``CONTAINS`` operator. Condition is fulfilled if experiment contains a specific tag.
+  Example:
 
-      Example:
+  .. code-block:: mysql
 
-      .. code-block:: mysql
+      id = SAN-12
 
-          tags CONTAINS test
-  * parameter name
-      Example:
+* ``state``
 
-      .. code-block:: mysql
+  The following values are possible for this field:
 
-          learning_rate <= 0.005
-  * metric name
-      Only last value in the metric is taken into account.
+    - ``running``
+    - ``succeeded``
+    - ``aborted``
+    - ``failed``
 
-      Example:
+  Values of this field are case insensitive.
 
-      .. code-block:: mysql
+  Examples:
 
-          precision > 0.9
-  * text log name
-      Only last value in the log is taken into account.
+  .. code-block:: mysql
 
-      Example:
+      state = running
+      state = failed
+      state = aborted
 
-      .. code-block:: mysql
+* ``owner``
 
-          stderr = "ERROR: Currupted input data"
-  * property name
-      Example:
+  Example:
 
-      .. code-block:: mysql
+  .. code-block:: mysql
 
-          train_data_path = "data/train.csv"
-          train_data_path = train.csv
+      owner = Fred
 
-  Notice that field names are case insensitive, so you can write both *state* and *State* or even *STATE*.
-  However, with some exceptions (like `state`), values are case sensitive.
+* ``name``
 
-2. ``operator`` is on of relational operators that let's you specify what you look for.
-   See the :ref:`table <core-concepts_nql_syntax_reference>` below for list of all operators.
+  Example:
 
-3. ``value`` is a specific value within given column, like ``0.95`` or ``ResNet101``.
-   Two types of values are supported: numbers and strings. The type of a field is is guessed based on its name.
-   Numbers are compared based on its values, however strings are compared lexicographically basing on ASCII codes.
-   Some fields, like ``size`` and ``state`` are exceptions to this rule.
+  .. code-block:: mysql
 
+      name = Approach-1
 
-Complex queries
+* ``description``
+
+  Example:
+
+  .. code-block:: mysql
+
+      description = "My first experiment"
+
+* ``size``
+
+  Without any unit bytes are assumed, however following units are supported and are case insensitive: ``kb``, ``mb``, ``gb``.
+  If there is a space between the number and its unit, the whole value needs to be enclosed in quotation marks.
+  Comparison of this field works on its corresponding value, not on strings.
+
+  Examples:
+
+  .. code-block:: mysql
+
+      size > 20MB
+      size < 100
+      size >= "35 kb"
+
+* ``hostname``
+
+  Example:
+
+  .. code-block:: mysql
+
+      hostname = my-server-1
+
+----
+
+**Operator**
+
+It is one of the relational operators that let's you specify what you look for.
+See the :ref:`operators table <core-concepts_nql_operators_reference>` below for list of all operators.
+
+----
+
+**Value**
+
+Value is a specific value within given column, like ``0.95`` or ``ResNet101``. Values are case sensitive.
+Two types of values are supported:
+
+* numbers
+* strings
+
+Numbers are compared based on its values, however strings are compared lexicographically basing on ASCII codes.
+Some fields, like ``size`` and ``state`` are exceptions to this rule.
+
+Complex query
 ^^^^^^^^^^^^^^^
-
 **AND and OR operators**
 
-NQL query consists of a number of clauses connected with logical operators. For exmpale:
+NQL query consists of a number of clauses connected with logical operators. For example:
 
 .. code-block:: mysql
 
@@ -265,11 +288,9 @@ but they are different from:
 
 Logical operators are case insensitive.
 
-
-Syntax reference
-^^^^^^^^^^^^^^^^
-
-.. _core-concepts_nql_syntax_reference:
+Operators reference
+^^^^^^^^^^^^^^^^^^^
+.. _core-concepts_nql_operators_reference:
 
 ==================== ===============================================================
 Syntax elements
@@ -282,7 +303,6 @@ Quotation marks      ``""``, ``````
 
 Precedence order
 ^^^^^^^^^^^^^^^^
-
 If there are any field name collisions the following order precedence is applied:
 
   * system column
@@ -302,31 +322,39 @@ created by Fred, but no experiments of other users which have parameter called `
 Quotes
 ^^^^^^
 
-There are two types of quotation marks in NQL: ``""`` and ``````.
-A double quote (``""``) is used with values and a back quote (``````) is used with field identifiers.
-While in most cases it is not required to use quotation marks, there are some cases when it is necessary.
+There are two types of quotation marks in NQL: ``""`` and ``````:
+
+* A double quote (``""``) is used with values,
+* back quote (``````) is used with field-names.
+
+While in most cases it is not required to use quotation marks, there are some cases when it is necessary. See below.
 
 **Special characters**
 
-Typically, field name and string values can consist of letters of english alphabet, digits, dots (``.``), underscores (``_``) and dashes (``-``).
-However it is possible to write a query using strings containing any unicode character. For this purpose you will need to use quotation marks:
+Typically, field name and string values can consist of letters of English alphabet, digits, dots (``.``), underscores (``_``) and dashes (``-``).
+However, it is possible to write a query using strings containing any unicode character. For this purpose you will need to use quotation marks:
 
 .. code-block:: mysql
 
     name = "my first experiment"
+
     `!@#$%^&*()_+` <= 0.005
+
     tags CONTAINS "Déjà vu"
 
-Notice: if your field name contains a back quote character (`````) you will need to escape it using a backslash (``\``).
-Similarly, double quote character (``"``) has to be escaped in case of quote enclosed string value.
-Backslash character has to be preceded by another backslash in both cases - field names nad string values. For example:
 
-.. code-block:: mysql
+.. note::
 
-    windows_path = "tmp\\dir\\file"
-    text_with_quote = "And then he said: \"Hi!\""
-    `\`backquoted_parameter_name\`` > 55
-    `long\\parameter\\name\\with\\backslashes` > 55
+    If your field name contains a back quote character (`````) you will need to escape it using a backslash (``\``).
+    Similarly, double quote character (``"``) has to be escaped in case of quote enclosed string value.
+    Backslash character has to be preceded by another backslash in both cases - field names nad string values. For example:
+
+    .. code-block:: mysql
+
+        windows_path = "tmp\\dir\\file"
+        text_with_quote = "And then he said: \"Hi!\""
+        `\`backquoted_parameter_name\`` > 55
+        `long\\parameter\\name\\with\\backslashes` > 55
 
 **Keywords**
 
