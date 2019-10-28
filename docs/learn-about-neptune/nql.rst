@@ -12,12 +12,12 @@ Neptune Query Language (NQL) is a tool that enables you to apply complex filters
 
 Tutorial
 --------
-Let's assume that you want to see experiments where ``precision`` metric is higher than ``0.9``.
+Let's assume that you want to see experiments where ``recall`` metric is higher than ``0.9``.
 In other words, you are looking for experiments, where:
 
 .. code-block:: mysql
 
-    precision > 0.9
+    recall > 0.9
 
 The condition above is a basic example of NQL.
 
@@ -31,22 +31,22 @@ Statement above is called *clause* and follows the following format (see :ref:`N
 
 Note that it is required for field name to bo on the left side of an operator.
 
-Now, imagine that a single clause is not enough, since you are looking for experiments where ``precision`` metric is higher than ``0.9``
+Now, imagine that a single clause is not enough, since you are looking for experiments where ``recall`` metric is higher than ``0.9``
 and, at the same time, ``learning_rate`` parameter is smaller or equal ``0.005``:
 
 .. code-block:: mysql
 
-    precision > 0.9 AND learning_rate <= 0.005
+    recall > 0.9 AND learning_rate <= 0.005
 
 In this example two clauses are joined together using logical operator (check :ref:`NQL reference <core-concepts_nql_reference>` for more details).
 
 In a similar way you can build more complex queries.
-The example below yields experiments where ``precision`` metric is higher than ``0.9`` and at least one of two conditions is satisfied:
+The example below yields experiments where ``recall`` metric is higher than ``0.9`` and at least one of two conditions is satisfied:
 either ``learning_rate`` parameter is smaller or equal ``0.005``, or ``encoder`` (a text log) is ``ResNet101``.
 
 .. code-block:: mysql
 
-    precision > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
+    recall > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
 
 Advanced examples
 -----------------
@@ -60,7 +60,7 @@ Complex logical experession:
 
 .. code-block:: mysql
 
-    ((param1 = 5 AND precision >= 0.9) OR (param1 < 5 AND param1 > 2 AND precision >= 0.7)) AND owner = Fred AND NOT status = Succeeded
+    ((param1 = 5 AND recall >= 0.9) OR (param1 < 5 AND param1 > 2 AND recall >= 0.7)) AND owner = Fred AND NOT status = Succeeded
 
 Fetching experiments containing three specific tags:
 
@@ -105,7 +105,7 @@ It can be one of the following:
 
   .. code-block:: mysql
 
-      precision > 0.9
+      recall > 0.9
 
 * ``parameter`` name
 
@@ -245,21 +245,21 @@ NQL query consists of a number of clauses connected with logical operators. For 
 
 .. code-block:: mysql
 
-    precision > 0.9 AND learning_rate <= 0.005 AND encoder = ResNet101
+    recall > 0.9 AND learning_rate <= 0.005 AND encoder = ResNet101
 
 Additionally brackets can be used to control logical operators precedence:
 
 .. code-block:: mysql
 
-    precision > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
+    recall > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
 
 Notice: ``AND`` operator has a higher precedence than ``OR`` so two following queries are identical:
 
 
 .. code-block:: mysql
 
-    learning_rate <= 0.005 OR encoder = ResNet101 AND precision > 0.9
-    learning_rate <= 0.005 OR (encoder = ResNet101 AND precision > 0.9)
+    learning_rate <= 0.005 OR encoder = ResNet101 AND recall > 0.9
+    learning_rate <= 0.005 OR (encoder = ResNet101 AND recall > 0.9)
 
 **NOT operator**
 
@@ -276,15 +276,15 @@ So following queries are equal:
 
 .. code-block:: mysql
 
-    precision > 0.9 AND NOT learning_rate <= 0.005 OR encoder = ResNet101
-    precision > 0.9 AND NOT (learning_rate <= 0.005) OR encoder = ResNet101
-    precision > 0.9 AND (NOT learning_rate <= 0.005) OR encoder = ResNet101
+    recall > 0.9 AND NOT learning_rate <= 0.005 OR encoder = ResNet101
+    recall > 0.9 AND NOT (learning_rate <= 0.005) OR encoder = ResNet101
+    recall > 0.9 AND (NOT learning_rate <= 0.005) OR encoder = ResNet101
 
 but they are different from:
 
 .. code-block:: mysql
 
-    precision > 0.9 AND NOT (learning_rate <= 0.005 OR encoder = ResNet101)
+    recall > 0.9 AND NOT (learning_rate <= 0.005 OR encoder = ResNet101)
 
 Logical operators are case insensitive.
 
