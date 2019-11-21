@@ -5,7 +5,7 @@ Below is the smallest possible example that follows the theme: *from zero to fir
 
 Register
 --------
-Go here: https://neptune.ml/register *(registration is free of charge)*.
+Go here: https://neptune.ml/register to create free account.
 
 Copy API token
 --------------
@@ -27,40 +27,51 @@ or append this line to your ``~/.bashrc`` or ``~/.bash_profile`` files **(recomm
 
 Install neptune-client
 ----------------------
-
 .. code:: bash
 
     pip install neptune-client
 
-Install `psutil <https://psutil.readthedocs.io/en/latest/>`_ to see hardware monitoring charts:
+Install `psutil <https://psutil.readthedocs.io/en/latest/>`_ to see hardware monitoring charts
+(please check psutil `documentation <https://psutil.readthedocs.io/en/latest/>`_ in case of installation problems):
 
 .. code-block:: bash
 
-    pip3 install psutil
-
-*(please check psutil* `documentation <https://psutil.readthedocs.io/en/latest/>`_ *in case of installation problems)*
+    pip install psutil
 
 Run Python script
 -----------------
-Save script below as ``start.py`` and run it like any other Python file: ``python start.py``. Will see link to the experiment printed to the standard output.
+Save script below as ``minimal-example.py`` and run it like any other Python file: ``python minimal-example.py``.
+You will see link to the experiment printed to the stdout.
+
+.. tip::
+    Make sure that you change ``USERNAME/example-project`` (line 4 in the snippet below), to you username, that you picked at registration.
 
 .. code:: Python
 
     import neptune
+    import numpy as np
 
-    # pick project, provide API token
-    neptune.init('USERNAME/PROJECT_NAME')
+    # select project
+    neptune.init('USERNAME/example-project')
 
     # create experiment
-    neptune.create_experiment()
+    neptune.create_experiment(name='get-started-example-from-docs')
 
     # send some metrics
-    n = 117
-    for i in range(1, n):
-        neptune.send_metric('iteration', i)
-        neptune.send_metric('loss', 1/i**0.5)
+    for i in range(1, 117):
+        neptune.log_metric('iteration', i)
+        neptune.log_metric('loss', 1/i**0.5)
+        neptune.log_text('magic values', 'magic value {}'.format(0.95*i**2))
 
-    neptune.set_property('n_iterations', n)
+    neptune.set_property('n_iterations', 117)
+
+    # send some images
+    for j in range(0, 5):
+        array = np.random.rand(10, 10, 3)*255
+        array = np.repeat(array, 30, 0)
+        array = np.repeat(array, 30, 1)
+        neptune.log_image('mosaics', array)
+
     neptune.stop()
 
 Congrats! You just ran your first Neptune experiment and checked results online.
