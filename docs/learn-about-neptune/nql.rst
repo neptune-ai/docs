@@ -74,11 +74,13 @@ Fetching experiments containing at least one of specific tags:
 
     tags CONTAINS some_tag_1 OR tags CONTAINS some_tag_2 OR tags CONTAINS another_tag
 
-Fetching experiments containing tag ``expected`` but not containing tag ``unexpected``:
+Two following queries are equal and they fetch experiments containing tag ``expected`` but not containing tag ``unexpected``:
 
 .. code-block:: mysql
 
     tags CONTAINS expected AND NOT tags CONTAINS unexpected
+
+    tags CONTAINS expected AND tags NOT CONTAINS unexpected
 
 Fetching experiments with name containing specific substring:
 
@@ -92,11 +94,24 @@ NQL reference
 
 Clause
 ^^^^^^
-Clause consists of three elements:
+A clause can take one of the follwing forms:
+
+1. A relation consisting of three elements"
 
 .. code-block:: mysql
 
-    field-name operator value
+    field-name OPERATOR value
+
+2. A search term consisting of a single string value:
+
+.. code-block:: mysql
+
+    some_string_value
+
+    "some string value"
+
+Relation clauses
+""""""""""""""""
 
 **Field-name**
 
@@ -138,7 +153,9 @@ It can be one of the following:
   .. code-block:: mysql
 
       train_data_path = "data/train.csv"
+
       train_data_path = train.csv
+
       train_data_path CONTAINS .csv
 
 * ``text log`` name
@@ -150,6 +167,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       stderr = "example text in log file"
+
       stderr CONTAINS error
 
 * ``id``
@@ -159,6 +177,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       id = SAN-12
+
       id CONTAINS 12
 
 * ``state``
@@ -177,7 +196,9 @@ It can be one of the following:
   .. code-block:: mysql
 
       state = running
+
       state = failed
+
       state = aborted
 
 * ``owner``
@@ -195,6 +216,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       name = Approach-1
+
       name CONTAINS test
 
 * ``description``
@@ -204,6 +226,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       description = "My first experiment"
+
       description CONTAINS test
 
 * ``size``
@@ -217,7 +240,9 @@ It can be one of the following:
   .. code-block:: mysql
 
       size > 20MB
+
       size < 100
+
       size >= "35 kb"
 
 * ``hostname``
@@ -227,6 +252,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       hostname = my-server-1
+
       hostname CONTAINS server
 
 ----
@@ -254,6 +280,29 @@ Two types of values are supported:
 Numbers are compared based on its values, however strings are compared lexicographically basing on ASCII codes.
 Some fields, like ``size`` and ``state`` are exceptions to this rule.
 
+Search term clauses
+"""""""""""""""""""
+
+A clause consisting of a single string value will be treated as a search term.
+Such query matches all experiments that contains given string in its name, description, id.
+Moreover search terms are case insensitive and some typos are automatically recognized.
+
+Examples:
+
+.. code-block:: mysql
+
+          Untitled
+
+          "Untitld"
+
+          Untiitled
+
+          "Untitlad"
+
+          uNTItleD
+
+          "untitled Test"
+
 Complex query
 ^^^^^^^^^^^^^^^
 **AND and OR operators**
@@ -276,6 +325,7 @@ Notice: ``AND`` operator has a higher precedence than ``OR`` so two following qu
 .. code-block:: mysql
 
     learning_rate <= 0.005 OR encoder = ResNet101 AND recall > 0.9
+
     learning_rate <= 0.005 OR (encoder = ResNet101 AND recall > 0.9)
 
 **NOT operator**
@@ -294,7 +344,9 @@ So following queries are equal:
 .. code-block:: mysql
 
     recall > 0.9 AND NOT learning_rate <= 0.005 OR encoder = ResNet101
+
     recall > 0.9 AND NOT (learning_rate <= 0.005) OR encoder = ResNet101
+
     recall > 0.9 AND (NOT learning_rate <= 0.005) OR encoder = ResNet101
 
 but they are different from:
@@ -302,6 +354,13 @@ but they are different from:
 .. code-block:: mysql
 
     recall > 0.9 AND NOT (learning_rate <= 0.005 OR encoder = ResNet101)
+
+Moreover you can use ``NOT`` operator with ``CONTAINS`` operator like this:
+
+.. code-block:: sql
+
+    description NOT CONTAINS test
+    tags NOT CONTAINS test
 
 Logical operators are case insensitive.
 
@@ -369,8 +428,11 @@ However, it is possible to write a query using strings containing any unicode ch
     .. code-block:: mysql
 
         windows_path = "tmp\\dir\\file"
+
         text_with_quote = "And then he said: \"Hi!\""
+
         `\`backquoted_parameter_name\`` > 55
+
         `long\\parameter\\name\\with\\backslashes` > 55
 
 **Keywords**
@@ -382,7 +444,9 @@ Execution of one of the following queries will result in a syntax error:
 .. code-block:: mysql
 
     AND = some_string
+
     name = CONTAINS
+
     tags CONTAINS CONTAINS
 
 You can handle such situations by escaping the name of the column with back quotes (`````) and value of the field with quotes (``"``).
@@ -390,5 +454,7 @@ You can handle such situations by escaping the name of the column with back quot
 .. code-block:: mysql
 
     `AND` = some_string
+
     name = "CONTAINS"
+
     tags CONTAINS "CONTAINS"
