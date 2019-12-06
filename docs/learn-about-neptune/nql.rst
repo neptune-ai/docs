@@ -80,6 +80,12 @@ Fetching experiments containing tag ``expected`` but not containing tag ``unexpe
 
     tags CONTAINS expected AND NOT tags CONTAINS unexpected
 
+Fetching experiments with name containing specific substring:
+
+.. code-block:: mysql
+
+    name CONTAINS some_substring
+
 NQL reference
 -------------
 .. _core-concepts_nql_reference:
@@ -133,6 +139,7 @@ It can be one of the following:
 
       train_data_path = "data/train.csv"
       train_data_path = train.csv
+      train_data_path CONTAINS .csv
 
 * ``text log`` name
 
@@ -143,6 +150,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       stderr = "example text in log file"
+      stderr CONTAINS error
 
 * ``id``
 
@@ -151,6 +159,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       id = SAN-12
+      id CONTAINS 12
 
 * ``state``
 
@@ -186,6 +195,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       name = Approach-1
+      name CONTAINS test
 
 * ``description``
 
@@ -194,6 +204,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       description = "My first experiment"
+      description CONTAINS test
 
 * ``size``
 
@@ -216,6 +227,7 @@ It can be one of the following:
   .. code-block:: mysql
 
       hostname = my-server-1
+      hostname CONTAINS server
 
 ----
 
@@ -223,6 +235,11 @@ It can be one of the following:
 
 It is one of the relational operators that let's you specify what you look for.
 See the :ref:`operators table <core-concepts_nql_operators_reference>` below for list of all operators.
+
+.. note::
+
+    Operator ``CONTAINS`` can be used only with text parameters, text logs, properties,
+    tags, id, name, description, hostname and owner.
 
 ----
 
