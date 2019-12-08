@@ -102,7 +102,7 @@ A clause can take one of the follwing forms:
 
     field-name OPERATOR value
 
-2. A search term consisting of a single string value:
+2. A search term consisting of a single string value (few words in quotes are considered single string):
 
 .. code-block:: mysql
 
