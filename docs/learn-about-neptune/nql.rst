@@ -284,7 +284,7 @@ Search term clauses
 """""""""""""""""""
 
 A clause consisting of a single string value will be treated as a search term.
-Such query matches all experiments that contains given string in its name, description, id.
+Such query matches all experiments that contains given string in its name, description or experiment id.
 Moreover search terms are case insensitive and some typos are automatically recognized.
 
 Examples:
