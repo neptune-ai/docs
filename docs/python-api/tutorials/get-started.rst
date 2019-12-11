@@ -44,7 +44,7 @@ Save script below as ``minimal-example.py`` and run it like any other Python fil
 You will see link to the experiment printed to the stdout.
 
 .. tip::
-    Make sure that you change ``USERNAME/example-project`` (line 4 in the snippet below), to you username, that you picked at registration.
+    Make sure that you change ``USERNAME/sandbox`` (line 4 in the snippet below), to your username, that you picked at registration.
 
 .. code:: Python
 
@@ -52,10 +52,11 @@ You will see link to the experiment printed to the stdout.
     import numpy as np
 
     # select project
-    neptune.init('USERNAME/example-project')
+    neptune.init('USERNAME/sandbox')
 
     # create experiment
-    neptune.create_experiment(name='get-started-example-from-docs')
+    neptune.create_experiment(name='get-started-example-from-docs',
+                              params={'n_iterations': 117})
 
     # send some metrics
     for i in range(1, 117):
@@ -63,7 +64,7 @@ You will see link to the experiment printed to the stdout.
         neptune.log_metric('loss', 1/i**0.5)
         neptune.log_text('magic values', 'magic value {}'.format(0.95*i**2))
 
-    neptune.set_property('n_iterations', 117)
+    neptune.set_property('model', 'lightGBM')
 
     # send some images
     for j in range(0, 5):
