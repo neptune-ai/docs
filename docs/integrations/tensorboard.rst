@@ -6,8 +6,12 @@ TensorBoard
    :alt: organize TensorBoard experiments in Neptune
 
 |neptune-tensorboard| is an open source project curated by Neptune team, that integrates |tensorboard| with Neptune to let you get the best of both worlds.
+We support two major use cases:
 
-With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune.
+1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune (see example: `TensorBoard runs comparison <tensorboard/tensorboard_runs_comparison.html>`_).
+2. You can use ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune (see example: `Integrate with TensorBoard logging <tensorboard/tensorboard_integrate.html>`_).
+
+Check example project in Neptune: |tensorboard-integration|.
 
 Quick-start
 -----------
@@ -41,22 +45,17 @@ and compare your TensorBoard runs,
 
 and share your work with others by sending an |experiment-link|.
 
+Examples
+----------
 .. toctree::
    :maxdepth: 1
-   :caption: Examples
 
-   Sync and compare TensorBoard runs <tensorboard/tensorboard_compare.rst>
+   Sync and compare TensorBoard runs <tensorboard/tensorboard_runs_comparison.rst>
    Integrate TensorBoard logging with Neptune <tensorboard/tensorboard_integrate.rst>
 
-Contribute
-----------
-Neptune-tensorboard is an open source project hosted on |GitHub|.
+Support
+-------
 If you find yourself in any trouble drop an issue or talk to us directly on the |support-chat|.
-
-Resources
----------
-* Project on GitHub: |neptune-tensorboard|
-* Example project in Neptune: |tensorboard-integration|.
 
 .. External links
 

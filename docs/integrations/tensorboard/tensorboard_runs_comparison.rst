@@ -58,7 +58,7 @@ Change parameters and run a few different experiments to see what works best.
 
 Sync TensorBoard logdir with Neptune
 ------------------------------------
-You can now sync your logs directory with Neptune.
+You can now **sync your logs directory with Neptune**.
 
 .. code-block:: bash
 
@@ -70,7 +70,7 @@ and be able to organize and collaborate on |your-experiments|.
    :target: ../../_static/images/tensorboard/tensorboard_1.png
    :alt: organize TensorBoard experiments in Neptune
 
-You can also compare runs just like in TensorBoard:
+You can also **compare runs just like in TensorBoard**:
 
 .. image:: ../../_static/images/tensorboard/tensorboard_2.png
    :target: ../../_static/images/tensorboard/tensorboard_2.png
