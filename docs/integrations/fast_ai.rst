@@ -8,12 +8,12 @@ Prerequisites
 -------------
 Integration with |fast-ai| framework is introduced as a part of |neptune-contrib| - open source project curated by Neptune team.
 
+Please install it before you continue. Check the `docs <neptune-contrib.html>`_ if you need more info.
+
 .. code-block:: bash
 
     pip install neptune-contrib
     pip install neptune-contrib[monitoring]
-
-Please install it before you continue - here are the `docs <neptune-contrib.html>`_ if you need more info.
 
 Create your databunch
 ---------------------
