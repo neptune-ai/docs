@@ -6,8 +6,14 @@ Log fast.ai metrics to neptune
 
 Prerequisites
 -------------
-Integration with fast.ai framework is introduced as a part of |neptune-contrib| - open source project curated by Neptune team.
-Please install it before you continue - here are the `docs <neptune-contrib.html>`_.
+Integration with |fast-ai| framework is introduced as a part of |neptune-contrib| - open source project curated by Neptune team.
+
+.. code-block:: bash
+
+    pip install neptune-contrib
+    pip install neptune-contrib[monitoring]
+
+Please install it before you continue - here are the `docs <neptune-contrib.html>`_ if you need more info.
 
 Create your databunch
 ---------------------
@@ -78,6 +84,10 @@ Simply copy and paste it to ``fastai_example.py`` and run.
         learn.fit_one_cycle(20, 1e-2)
 
 .. External links
+
+.. |fast-ai| raw:: html
+
+    <a href="https://github.com/fastai/fastai" target="_blank">fast.ai</a>
 
 .. |neptune-contrib| raw:: html
 
