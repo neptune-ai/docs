@@ -4,6 +4,11 @@ Log fast.ai metrics to neptune
    :target: ../_static/images/others/fastai_neptuneml.png
    :alt: fast.ai neptune.ml integration
 
+Prerequisites
+-------------
+Integration with fast.ai framework is introduced as a part of |neptune-contrib| - open source project curated by Neptune team.
+Please install it before you continue - here are the `docs <neptune-contrib.html>`_.
+
 Create your databunch
 ---------------------
 .. code-block:: python3
@@ -71,3 +76,9 @@ Simply copy and paste it to ``fastai_example.py`` and run.
     with neptune.create_experiment(params={'lr': 1e-2}):
         learn.callbacks.append(NeptuneMonitor())
         learn.fit_one_cycle(20, 1e-2)
+
+.. External links
+
+.. |neptune-contrib| raw:: html
+
+    <a href="https://github.com/neptune-ml/neptune-contrib" target="_blank">Neptune-contrib</a>
