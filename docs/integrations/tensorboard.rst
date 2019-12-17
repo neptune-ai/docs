@@ -1,6 +1,5 @@
 TensorBoard
 ===========
-
 .. image:: ../_static/images/tensorboard/tensorboard_neptuneml.png
    :target: ../_static/images/tensorboard/tensorboard_neptuneml.png
    :alt: organize TensorBoard experiments in Neptune
