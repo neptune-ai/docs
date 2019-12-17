@@ -35,14 +35,14 @@ Alternatively you can point to MLflow project directory:
 
 .. note:: That's it! You can now browse and collaborate on your MLflow runs in Neptune.
 
-Organize your mlflow experiments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Organize your mlflow experiments**
+
 .. image:: ../_static/images/mlflow/mlflow_1.png
    :target: ../_static/images/mlflow/mlflow_1.png
    :alt: organize MLflow experiments in Neptune
 
-Share you work with others
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Share you work with others**
+
 .. image:: ../_static/images/mlflow/mlflow_2.png
    :target: ../_static/images/mlflow/mlflow_2.png
    :alt: share artifacts logged during MLflow run
