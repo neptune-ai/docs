@@ -119,6 +119,7 @@ Documentation contents
    R <integrations/r-support.rst>
    TensorBoard <integrations/tensorboard.rst>
    MLflow <integrations/mlflow.rst>
+   Fast.ai <integrations/fast_ai.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
 
 .. External links

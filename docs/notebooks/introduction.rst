@@ -19,8 +19,8 @@ Notebooks in Neptune - key features:
 
 Quick-start
 -----------
-* To start working with notebooks in Neptune, `install and configure <nb-install-configure.md>`_ open source extension for Jupyter or JupyterLab. When you have it done, you can start working with notebooks immediately.
-* To try it now, without registering to Neptune, look at example notebooks in public project `onboarding <https://ui.neptune.ml/shared/onboarding/notebooks>`_. Use public user's API token (username: *neptuner*) to upload some snapshots to this project (you still need to `install and configure <nb-install-configure.md>`_ Jupyter extension).
+* To start working with notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ open source extension for Jupyter or JupyterLab. When you have it done, you can start working with notebooks immediately.
+* To try it now, without registering to Neptune, look at example notebooks in public project `onboarding <https://ui.neptune.ml/shared/onboarding/notebooks>`_. Use public user's API token (username: *neptuner*) to upload some snapshots to this project (you still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension).
 
 .. code-block:: bash
 
