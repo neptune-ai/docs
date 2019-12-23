@@ -7,7 +7,7 @@ I have a training script written in `keras <https://keras.io>`_. How do I adjust
 
 .. image:: ../_static/images/others/keras_neptuneml.png
    :target: ../_static/images/others/keras_neptuneml.png
-   :alt: Keras neptune.ml integration
+   :alt: Keras neptune.ai integration
 
 **Step 1**
 
@@ -72,7 +72,7 @@ I have a training script written in `PyTorch <https://pytorch.org>`_. How do I a
 
 .. image:: ../_static/images/others/pytorch_neptuneml.png
    :target: ../_static/images/others/pytorch_neptuneml.png
-   :alt: Pytorch neptune.ml integration
+   :alt: Pytorch neptune.ai integration
 
 Say your training script looks like this:
 
@@ -159,7 +159,7 @@ I have a training script written in `LightGBM <https://lightgbm.readthedocs.io>`
 
 .. image:: ../_static/images/others/lightgbm_neptuneml.png
    :target: ../_static/images/others/lightgbm_neptuneml.png
-   :alt: lightGBM neptune.ml integration
+   :alt: lightGBM neptune.ai integration
 
 Say your training script looks like this:
 
@@ -239,7 +239,7 @@ How to log charts generated in `matplotlib <https://matplotlib.org/>`_, like con
 
 .. image:: ../_static/images/others/matplotlib_neptuneml.png
    :target: ../_static/images/others/matplotlib_neptuneml.png
-   :alt: matplotlib neptune.ml integration
+   :alt: matplotlib neptune.ai integration
 
 **Step 1**
 

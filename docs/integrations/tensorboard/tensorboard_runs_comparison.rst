@@ -80,4 +80,4 @@ You can also **compare runs just like in TensorBoard**:
 
 .. |your-experiments| raw:: html
 
-    <a href="https://ui.neptune.ml/jakub-czakon/tensorboard-integration/experiments?filterId=bcef6881-128a-4126-a582-31b179bebf67" target="_blank">your experiments</a>
+    <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/experiments?filterId=bcef6881-128a-4126-a582-31b179bebf67" target="_blank">your experiments</a>

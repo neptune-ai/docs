@@ -45,7 +45,7 @@ I do not know where my notebook was uploaded. How to check it?
 
 Where is *NEPTUNE_API_TOKEN*?
 -----------------------------
-#. Log in to `neptune <https://neptune.ml/login>`_.
+#. Log in to `neptune <https://neptune.ai/login>`_.
 #. Click on your avatar (top-right part of the screen) and select **Get API Token**
 
 .. image:: ../_static/images/notebooks/token.png

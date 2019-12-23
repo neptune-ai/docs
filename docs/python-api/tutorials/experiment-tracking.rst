@@ -8,7 +8,7 @@ This example uses |get-started-TF| as a base. It contains more features that nep
 * :meth:`~neptune.experiments.Experiment.append_tag`
 * :meth:`~neptune.experiments.Experiment.set_property`
 
-Copy it and save as *example.py*, then run it as usual: ``python example.py``. In this tutorial we make use of the public ``NEPTUNE_API_TOKEN`` of the public user `Neptuner <https://ui.neptune.ml/o/shared/neptuner>`_. Thus, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ml/o/shared/org/onboarding/experiments>`_.
+Copy it and save as *example.py*, then run it as usual: ``python example.py``. In this tutorial we make use of the public ``NEPTUNE_API_TOKEN`` of the public user `Neptuner <https://ui.neptune.ai/o/shared/neptuner>`_. Thus, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ai/o/shared/org/onboarding/experiments>`_.
 
 .. code:: Python
 
@@ -122,4 +122,4 @@ Run this code and observe results |online|.
 
 .. |online|  raw:: html
 
-    <a href="https://ui.neptune.ml/o/shared/org/onboarding/experiments" target="_blank">online</a>
+    <a href="https://ui.neptune.ai/o/shared/org/onboarding/experiments" target="_blank">online</a>

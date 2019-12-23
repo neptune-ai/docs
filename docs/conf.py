@@ -17,8 +17,8 @@ sys.path.insert(0, os.path.abspath('./neptune-client/'))
 # -- Project information -----------------------------------------------------
 
 project = 'Neptune docs'
-copyright = '2019, neptune-ml team'
-author = 'neptune-ml team'
+copyright = '2020, neptune-ai team'
+author = 'neptune-ai team'
 
 # The full version, including alpha/beta/rc tags
 release = '2.0.0'
@@ -57,7 +57,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'canonical_url': 'https://docs.neptune.ml/',
+    'canonical_url': 'https://docs.neptune.ai/',
     'collapse_navigation': False,
     'style_external_links': False,
     'navigation_depth': 3,

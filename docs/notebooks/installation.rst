@@ -3,7 +3,7 @@ Installation for Jupyter and JupyterLab
 
 Jupyter
 -------
-Install `neptune-notebooks extension <https://github.com/neptune-ml/neptune-notebooks>`_:
+Install `neptune-notebooks extension <https://github.com/neptune-ai/neptune-notebooks>`_:
 
 .. code-block:: bash
 

@@ -4,7 +4,7 @@ version: 1.3.4
 description: Neptune docs component
 maintainers: # (optional)
   - name: Neptune
-    email: contact@neptune.ml
-    url: https://neptune.ml
+    email: contact@neptune.ai
+    url: https://neptune.ai
 engine: gotpl
 appVersion: 2.8.18

@@ -108,9 +108,9 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
 .. |credit-default-prediction| raw:: html
 
-    <a href="https://ui.neptune.ml/neptune-ml/credit-default-prediction" target="_blank">Credit default prediction</a>
+    <a href="https://ui.neptune.ai/neptune-ai/credit-default-prediction" target="_blank">Credit default prediction</a>
 
 
 .. |binary-classification-metrics| raw:: html
 
-    <a href="https://ui.neptune.ml/neptune-ml/binary-classification-metrics" target="_blank">Binary classification metrics</a>
+    <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>

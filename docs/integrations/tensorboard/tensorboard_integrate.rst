@@ -78,7 +78,7 @@ I like to have everything in the with statement if possible, to enforce auto-cle
 Explore your experiment in Neptune
 ----------------------------------
 By adding a few lines of code, your experiment is now logged to Neptune.
-You can go see it in your dashboard and share it with anyone just as share it with you `here <https://ui.neptune.ml/jakub-czakon/tensorboard-integration/e/TEN-41/charts>`_
+You can go see it in your dashboard and share it with anyone just as share it with you `here <https://ui.neptune.ai/jakub-czakon/tensorboard-integration/e/TEN-41/charts>`_
 
 Overview
 ^^^^^^^^
