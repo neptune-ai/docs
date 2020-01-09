@@ -5,7 +5,7 @@ Below is the smallest possible example that follows the theme: *from zero to fir
 
 Register
 --------
-Go here: https://neptune.ml/register to create free account.
+Go here: https://neptune.ai/register to create free account.
 
 Copy API token
 --------------

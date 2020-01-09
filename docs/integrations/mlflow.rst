@@ -63,7 +63,7 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |neptune-mlflow| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-mlflow" target="_blank">Neptune-mlflow</a>
+    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">Neptune-mlflow</a>
 
 .. |mlflow| raw:: html
 
@@ -71,7 +71,7 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |mlflow-integration| raw:: html
 
-    <a href="https://ui.neptune.ml/jakub-czakon/mlflow-integration/experiments" target="_blank">MLflow integration</a>
+    <a href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments" target="_blank">MLflow integration</a>
 
 .. |support-chat| raw:: html
 

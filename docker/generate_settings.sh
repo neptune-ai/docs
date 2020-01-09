@@ -1,5 +1,5 @@
 #! /bin/bash
-# Copyright (c) 2019, Neptune Labs
+# Copyright (c) 2020, Neptune Labs
 #
 # Sets various options from environemnt variables to docker-config.js
 #

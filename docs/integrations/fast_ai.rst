@@ -2,7 +2,7 @@ Log fast.ai metrics to neptune
 ==============================
 .. image:: ../_static/images/others/fastai_neptuneml.png
    :target: ../_static/images/others/fastai_neptuneml.png
-   :alt: fast.ai neptune.ml integration
+   :alt: fast.ai neptune.ai integration
 
 Prerequisites
 -------------
@@ -91,4 +91,4 @@ Simply copy and paste it to ``fastai_example.py`` and run.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-contrib" target="_blank">Neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">Neptune-contrib</a>

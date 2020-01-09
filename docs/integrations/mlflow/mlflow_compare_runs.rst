@@ -70,7 +70,7 @@ You can now sync your ML runs directory with Neptune.
 
     neptune mlflow --project USER_NAME/PROJECT_NAME
 
-**Organize and collaborate** on `your experiments <https://ui.neptune.ml/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
+**Organize and collaborate** on `your experiments <https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
 
 .. image:: ../../_static/images/mlflow/mlflow_1.png
    :target: ../../_static/images/mlflow/mlflow_1.png

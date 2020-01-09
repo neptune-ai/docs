@@ -197,7 +197,7 @@ deploy_stage:
   extends: .deploy_stage_job
   environment:
     name: stage-docs
-    url: https://docs.stage.neptune.ml
+    url: https://docs.stage.neptune.ai
   script:
     - *deploy
 

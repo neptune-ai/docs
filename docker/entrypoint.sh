@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# Copyright (c) 2019, Neptune Labs
+# Copyright (c) 2020, Neptune Labs
 #
 
 set -e

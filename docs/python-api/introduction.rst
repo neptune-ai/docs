@@ -57,19 +57,19 @@ If you like to suggest feature or improvement simply drop an issue on |github-is
 
 .. |neptune-client-github| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-client" target="_blank">Neptune client</a>
+    <a href="https://github.com/neptune-ai/neptune-client" target="_blank">Neptune client</a>
 
 .. |neptune| raw:: html
 
-    <a href="https://neptune.ml/register" target="_blank">Neptune</a>
+    <a href="https://neptune.ai/register" target="_blank">Neptune</a>
 
 .. |onboarding| raw:: html
 
-    <a href="https://ui.neptune.ml/shared/onboarding/experiments" target="_blank">shared/onboarding</a>
+    <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">shared/onboarding</a>
 
 .. |github-issues| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-client/issues" target="_blank">GitHub issues</a>
+    <a href="https://github.com/neptune-ai/neptune-client/issues" target="_blank">GitHub issues</a>
 
 .. |spectrum| raw:: html
 

@@ -3,7 +3,7 @@ Notebooks in Neptune
 
 .. image:: ../_static/images/others/notebooks_neptuneml.png
    :target: ../_static/images/others/notebooks_neptuneml.png
-   :alt: Jupyter notebooks neptune.ml integration
+   :alt: Jupyter notebooks neptune.ai integration
    
 Introduction
 ------------
@@ -13,14 +13,14 @@ Notebooks in Neptune - key features:
 
 * In Neptune, each notebook consist of collection of checkpoints that you upload directly from the Jupyter User interface.
 * In the project, unlimited number of notebooks and checkpoints is allowed.
-* Browse checkpoints history across all `notebooks in the project <https://ui.neptune.ml/shared/onboarding/notebooks>`_,
-* `Share <https://ui.neptune.ml/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ notebook as a link,
-* `Compare <https://ui.neptune.ml/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb>`_ two notebooks side-by-side like source code.
+* Browse checkpoints history across all `notebooks in the project <https://ui.neptune.ai/shared/onboarding/notebooks>`_,
+* `Share <https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ notebook as a link,
+* `Compare <https://ui.neptune.ai/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb>`_ two notebooks side-by-side like source code.
 
 Quick-start
 -----------
 * To start working with notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ open source extension for Jupyter or JupyterLab. When you have it done, you can start working with notebooks immediately.
-* To try it now, without registering to Neptune, look at example notebooks in public project `onboarding <https://ui.neptune.ml/shared/onboarding/notebooks>`_. Use public user's API token (username: *neptuner*) to upload some snapshots to this project (you still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension).
+* To try it now, without registering to Neptune, look at example notebooks in public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_. Use public user's API token (username: *neptuner*) to upload some snapshots to this project (you still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension).
 
 .. code-block:: bash
 
@@ -28,7 +28,7 @@ Quick-start
 
 Tour
 ----
-`Notebooks view <https://ui.neptune.ml/shared/onboarding/notebooks>`_ is a collection of all notebooks in the project - each can have multiple checkpoints.
+`Notebooks view <https://ui.neptune.ai/shared/onboarding/notebooks>`_ is a collection of all notebooks in the project - each can have multiple checkpoints.
 
 Notebooks view
 ~~~~~~~~~~~~~~
@@ -53,7 +53,7 @@ Once you entered notebook, you can see all its content, that is: code and markdo
 
 Notebooks comparison
 ~~~~~~~~~~~~~~~~~~~~
-Select two notebooks and compare their contents - code and markdown cells, outputs and execution count - side-by-side just like source code. `Compare view <https://ui.neptune.ml/shared/onboarding/compare-notebooks>`_ let you look at diff between checkpoints of the same notebook, or two entirely different notebooks (Try yourself `here <https://ui.neptune.ml/shared/onboarding/compare-notebooks>`_).
+Select two notebooks and compare their contents - code and markdown cells, outputs and execution count - side-by-side just like source code. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at diff between checkpoints of the same notebook, or two entirely different notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
 
 .. image:: ../_static/images/notebooks/nb-view-cmp-1.png
     :target: ../_static/images/notebooks/nb-view-cmp-1.png

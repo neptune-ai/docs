@@ -60,7 +60,7 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |GitHub| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-tensorboard" target="_blank">GitHub</a>
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">GitHub</a>
 
 
 .. |support-chat| raw:: html
@@ -70,7 +70,7 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |neptune-tensorboard| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-tensorboard" target="_blank">Neptune-TensorBoard</a>
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">Neptune-TensorBoard</a>
 
 
 .. |tensorboard| raw:: html
@@ -80,9 +80,9 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |tensorboard-integration| raw:: html
 
-    <a href="https://ui.neptune.ml/jakub-czakon/tensorboard-integration/experiments" target="_blank">TensorBoard project</a>
+    <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/experiments" target="_blank">TensorBoard project</a>
 
 
 .. |experiment-link| raw:: html
 
-    <a href="https://ui.neptune.ml/jakub-czakon/tensorboard-integration/compare?shortId=%5B%22TEN-41%22%2C%22TEN-40%22%2C%22TEN-39%22%2C%22TEN-38%22%2C%22TEN-37%22%2C%22TEN-36%22%2C%22TEN-35%22%2C%22TEN-34%22%2C%22TEN-33%22%2C%22TEN-32%22%5D" target="_blank">experiment link</a>
+    <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/compare?shortId=%5B%22TEN-41%22%2C%22TEN-40%22%2C%22TEN-39%22%2C%22TEN-38%22%2C%22TEN-37%22%2C%22TEN-36%22%2C%22TEN-35%22%2C%22TEN-34%22%2C%22TEN-33%22%2C%22TEN-32%22%5D" target="_blank">experiment link</a>

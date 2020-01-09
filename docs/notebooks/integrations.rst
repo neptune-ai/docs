@@ -8,7 +8,7 @@ How do I do that?
 
 .. image:: ../_static/images/others/aws_neptuneml.png
    :target: ../_static/images/others/aws_neptuneml.png
-   :alt: AWS neptune.ml integration
+   :alt: AWS neptune.ai integration
 
 **Register to AWS**
 
@@ -148,7 +148,7 @@ How do I do that?
 
 .. image:: ../_static/images/others/sagemaker_neptuneml.png
    :target: ../_static/images/others/sagemaker_neptuneml.png
-   :alt: Amazon SageMaker neptune.ml integration
+   :alt: Amazon SageMaker neptune.ai integration
 
 **Register to AWS**
 
@@ -244,7 +244,7 @@ I would like to run my experiments on Google Colab and track them with Neptune. 
 
 .. image:: ../_static/images/others/colab_neptuneml.png
    :target: ../_static/images/others/colab_neptuneml.png
-   :alt: Google Colaboratory neptune.ml integration
+   :alt: Google Colaboratory neptune.ai integration
 
 **Install Neptune client**
 

@@ -55,7 +55,7 @@ You can now sync your ML runs directory with Neptune.
     neptune mlflow --project USER_NAME/PROJECT_NAME
 
 Now you can share your **experiment artifacts**
-(see: example here) `your experiments <https://ui.neptune.ml/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
+(see: example here) `your experiments <https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
 
 .. image:: ../../_static/images/mlflow/mlflow_2.png
    :target: ../../_static/images/mlflow/mlflow_2.png

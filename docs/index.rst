@@ -126,11 +126,11 @@ Documentation contents
 
 .. |Neptune| raw:: html
 
-    <a href="https://neptune.ml/" target="_blank">Neptune</a>
+    <a href="https://neptune.ai/" target="_blank">Neptune</a>
 
 .. |contact us| raw:: html
 
-    <a href="mailto:contact@neptune.ml" target="_blank">contact us</a>
+    <a href="mailto:contact@neptune.ai" target="_blank">contact us</a>
 
 .. |MLflow| raw:: html
 
@@ -142,8 +142,8 @@ Documentation contents
 
 .. |Neptuner| raw:: html
 
-    <a href="https://ui.neptune.ml/o/shared/neptuner" target="_blank">Neptuner</a>
+    <a href="https://ui.neptune.ai/o/shared/neptuner" target="_blank">Neptuner</a>
 
 .. |experiments view| raw:: html
 
-    <a href="https://ui.neptune.ml/o/shared/org/onboarding/experiments" target="_blank">experiments view</a>
+    <a href="https://ui.neptune.ai/o/shared/org/onboarding/experiments" target="_blank">experiments view</a>

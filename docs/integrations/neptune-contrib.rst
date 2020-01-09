@@ -27,4 +27,4 @@ Quick-start
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-contrib" target="_blank">Neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">Neptune-contrib</a>

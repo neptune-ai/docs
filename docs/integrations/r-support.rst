@@ -34,7 +34,7 @@ Toward the top of your script insert the following snippet.
                  api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBz'
     )
 
-It “connects” your script to neptune.ml hub. The first argument project_qualified_name specifies the project to which you want to log your experiments and the api_token is your login credentials.
+It “connects” your script to neptune.ai hub. The first argument project_qualified_name specifies the project to which you want to log your experiments and the api_token is your login credentials.
 
 .. warning:: Always keep your API token secret - it is like password to the application.
 
