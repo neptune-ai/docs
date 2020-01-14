@@ -1,7 +1,7 @@
 Log PyTorchLightning metrics to neptune
 =======================================
-.. image:: ../_static/images/others/pytorchlightning_neptuneai.png
-   :target: ../_static/images/others/pytorchlightning_neptuneai.png
+.. image:: ../_static/images/others/pytorchlightning_neptuneml.png
+   :target: ../_static/images/others/pytorchlightning_neptuneml.png
    :alt: PyTorchLightning neptune.ai integration
 
 Prerequisites
