@@ -27,7 +27,7 @@ stages:
     DOCKER_TLS_CERTDIR: ""
     DOCKER_HOST: docker:2375
     GIT_SUBMODULE_STRATEGY: recursive
-  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.11
   services:
     - docker:dind
   before_script:
@@ -42,7 +42,7 @@ stages:
     REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
     REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
     GIT_SUBMODULE_STRATEGY: recursive
-  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.11
   before_script:
     - echo $HOSTNAME
     - date
@@ -56,7 +56,7 @@ stages:
     REGISTRY_URL_CICD: eu.gcr.io/neptune-cicd/neptune
     REGISTRY_URL_PROD: eu.gcr.io/neptune-poc/neptune
     GIT_SUBMODULE_STRATEGY: recursive
-  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.8
+  image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.11
   before_script:
     - echo $HOSTNAME
     - date
@@ -116,11 +116,15 @@ stages:
     docker push "$REGISTRY_URL_PROD/docs:$version"
   fi
 
+.setup_helm: &setup |
+  helm repo add stable https://kubernetes-charts.storage.googleapis.com
+  helm repo update
+  kubectl create namespace neptune || true
+
 .release_prod: &release_prod |
   version=$CI_COMMIT_TAG
   registry="${REGISTRY_URL_PROD}"
 
-  pip3 install Jinja2
   mkdir -p cicd-release
   ./cicd/get_config.py "prod" "$registry" "$version" >deployment-values.yaml
   cp deployment-values.yaml cicd-release/values.yaml
@@ -155,23 +159,23 @@ stages:
   fi
 
 .deploy_script: &deploy |
-  pip3 install Jinja2
   echo "Generating values file for stage deployment"
   ./cicd/get_config.py "stage" "${REGISTRY_URL_CICD}" "${CI_COMMIT_SHA:0:8}" >deployment-values.yaml
 
   cat deployment-values.yaml
 
-  if helm status "neptune-docs" &>/dev/null ; then
+  if helm status "neptune-docs" -n neptune &>/dev/null ; then
     helm upgrade \
-      --timeout 600 \
+      -n neptune \
+      --timeout 600s \
       "neptune-docs" \
       ./helm/charts/neptune-docs \
       --values=deployment-values.yaml
   else
     helm install \
-      --timeout 600 \
-      --name "neptune-docs"  \
+      --timeout 600s \
       --namespace "neptune" \
+      "neptune-docs"  \
       ./helm/charts/neptune-docs \
       --values=deployment-values.yaml
   fi
@@ -199,6 +203,7 @@ deploy_stage:
     name: stage-docs
     url: https://docs.stage.neptune.ai
   script:
+    - *setup
     - *deploy
 
 ###############################################################################
@@ -209,6 +214,7 @@ deploy_prod:
   extends: .deploy_prod_job
   allow_failure: false
   script:
+    - *setup
     - *release_prod
   artifacts:
     paths:
