@@ -29,7 +29,7 @@ stages:
     GIT_SUBMODULE_STRATEGY: recursive
   image: eu.gcr.io/neptune-cicd/neptune/build-image-base:0.0.11
   services:
-    - docker:dind
+    - docker:18.09.7-dind
   before_script:
     - echo $HOSTNAME
     - date
