@@ -145,15 +145,16 @@ stages:
 
   if helm status "neptune-docs" &>/dev/null ; then
     helm upgrade \
-      --timeout 600 \
+      -n neptune \
+      --timeout 600s \
       neptune-docs \
       ./cicd-release/$FILE_NAME \
       --values=cicd-release/values.yaml
   else
     helm install \
-      --timeout 600 \
-      --name neptune-docs  \
+      --timeout 600s \
       --namespace neptune \
+      "neptune-docs" \
       ./cicd-release/$FILE_NAME \
       --values=cicd-release/values.yaml
   fi
