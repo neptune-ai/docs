@@ -85,7 +85,7 @@ In order to track hyperparameters, you need to pass a named list to the create_e
                   cvRepeats=1)
     
     # Create experiment
-    neptune$create_experiment(params=paramsd)
+    neptune$create_experiment(params=params)
 
 When you do that, Neptune creates theparameters section in the app that let’s you see hyperparameters quickly and compare them between experiments.
 
