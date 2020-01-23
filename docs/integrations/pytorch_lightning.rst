@@ -204,4 +204,4 @@ Remember to change your credentials in the **NeptuneLogger**:
 
 .. |neptune-client| raw:: html
 
-    <a href="https://github.com/neptune-ml/neptune-client" target="_blank">neptune-client</a>
+    <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
