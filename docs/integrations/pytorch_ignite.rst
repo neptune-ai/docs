@@ -119,7 +119,7 @@ Remember to change your credentials in the **NeptuneLogger**:
 
 .. code-block:: python3
 
-    npt_logger = NeptuneLogger(api_token=os.getenv('NEPTUNE_API_TOKEN'), # put your api tkoen in environment variable
+    npt_logger = NeptuneLogger(api_token=os.getenv('NEPTUNE_API_TOKEN'), # put your api token in environment variable
                                project_name='neptune-ai/pytorch-ignite-integration', # change it to your project
                                ...)
 
