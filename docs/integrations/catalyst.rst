@@ -44,6 +44,8 @@ Monitor your Catalyst training in Neptune
 -----------------------------------------
 Now you can watch your Catalyst model training in neptune!
 
+Check out this |example experiment|.
+
 .. image:: ../_static/images/catalyst/catalyst_monitoring.gif
    :target: ../_static/images/catalyst/catalyst_monitoring.gif
    :alt: Catalyst monitoring in neptune
@@ -154,6 +156,10 @@ Remember to change your credentials in the **runner.train()**:
 .. |Catalyst| raw:: html
 
     <a href="https://github.com/catalyst-team/catalyst" target="_blank">Catalyst</a>
+
+.. |example experiment| raw:: html
+
+    <a href="https://ui.neptune.ai/o/neptune-ai/org/catalyst-integration/e/CAT-6/charts" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
