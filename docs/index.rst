@@ -121,6 +121,7 @@ Documentation contents
    MLflow <integrations/mlflow.rst>
    Fast.ai <integrations/fast_ai.rst>
    PyTorchLightning <integrations/pytorch_lightning.rst>
+   Catalyst <integrations/catalyst.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
 
 .. External links
