@@ -1,92 +1,93 @@
-Neptune Query Language (NQL)
-============================
+Neptune Query Language
+======================
 .. _core-concepts_nql:
 
-Introduction
-------------
-Neptune Query Language (NQL) is a tool that enables you to apply complex filters to your experiments view (example below).
+Neptune Query Language (NQL) enables you to apply complex filters to your experiments view.
+You can build NQL queries in the query editor inside the Neptune dashboard.
 
 .. figure:: ../_static/images/others/nql_01.png
    :target: ../_static/images/others/nql_01.png
    :alt: experiments view with advanced search
 
-Tutorial
+Examples
 --------
-Let's assume that you want to see experiments where ``recall`` metric is higher than ``0.9``.
+Let's assume that you want to see experiments where the ``recall`` metric is higher than ``0.9``.
 In other words, you are looking for experiments, where:
 
 .. code-block:: mysql
 
     recall > 0.9
 
-The condition above is a basic example of NQL.
+The statement above is called a *clause* and follows the following format:
 
-----
 
-Statement above is called *clause* and follows the following format (see :ref:`NQL reference <core-concepts_nql_reference>` for details):
 
 .. code-block:: mysql
 
     field-name operator value
 
-Note that it is required for field name to bo on the left side of an operator.
+Note that a field name must be on the left side of an operator.
 
-Now, imagine that a single clause is not enough, since you are looking for experiments where ``recall`` metric is higher than ``0.9``
-and, at the same time, ``learning_rate`` parameter is smaller or equal ``0.005``:
+Now, imagine you are looking for experiments where the ``recall`` metric is higher than ``0.9``
+and, at the same time, the ``learning_rate`` parameter is smaller or equal to ``0.005``. 
+
+In this example, two clauses are joined together using a logical operator. Specify:
 
 .. code-block:: mysql
 
     recall > 0.9 AND learning_rate <= 0.005
 
-In this example two clauses are joined together using logical operator (check :ref:`NQL reference <core-concepts_nql_reference>` for more details).
+In a similar way, you can build even more complex queries.
 
-In a similar way you can build more complex queries.
-The example below yields experiments where ``recall`` metric is higher than ``0.9`` and at least one of two conditions is satisfied:
-either ``learning_rate`` parameter is smaller or equal ``0.005``, or ``encoder`` (a text log) is ``ResNet101``.
-
+The example below yields experiments where the ``recall`` metric is higher than ``0.9`` and at least one of two conditions is satisfied:
+either the ``learning_rate`` parameter is smaller or equal to ``0.005``, or ``encoder`` (a text log) is ``ResNet101``.
 .. code-block:: mysql
 
     recall > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
 
+For more information, see :ref:`NQL reference <core-concepts_nql_reference>`.
+
 Advanced examples
 -----------------
-Fetching specific experiments by ids:
+- Fetching specific experiments by ids:
 
-.. code-block:: mysql
+    .. code-block:: mysql
 
-    id = SAN-3 OR id = SAN-5 OR id = SAN-43
+        id = SAN-3 OR id = SAN-5 OR id = SAN-43
 
-Complex logical experession:
+- Fetching experiments by using a complex logical expression:
 
-.. code-block:: mysql
+    .. code-block:: mysql
 
-    ((param1 = 5 AND recall >= 0.9) OR (param1 < 5 AND param1 > 2 AND recall >= 0.7)) AND owner = Fred AND NOT status = Succeeded
+        ((param1 = 5 AND recall >= 0.9) OR (param1 < 5 AND param1 > 2 AND recall >= 0.7)) AND owner = Fred AND NOT status = Succeeded
 
-Fetching experiments containing three specific tags:
+- Fetching experiments that contain three specific tags:
 
-.. code-block:: mysql
+    .. code-block:: mysql
 
-    tags CONTAINS some_tag_1 AND tags CONTAINS some_tag_2 AND tags CONTAINS another_tag
+        tags CONTAINS some_tag_1 AND tags CONTAINS some_tag_2 AND tags CONTAINS another_tag
 
-Fetching experiments containing at least one of specific tags:
+- Fetching experiments that contain at least one of the specific tags:
 
-.. code-block:: mysql
+    .. code-block:: mysql
 
-    tags CONTAINS some_tag_1 OR tags CONTAINS some_tag_2 OR tags CONTAINS another_tag
+        tags CONTAINS some_tag_1 OR tags CONTAINS some_tag_2 OR tags CONTAINS another_tag
 
-Two following queries are equal and they fetch experiments containing tag ``expected`` but not containing tag ``unexpected``:
+- Fetching experiments that contain the tag ``expected`` but do not contain the tag ``unexpected``.
+  Use either of the following queries:
+  
+    .. code-block:: mysql
 
-.. code-block:: mysql
+        tags CONTAINS expected AND NOT tags CONTAINS unexpected
 
-    tags CONTAINS expected AND NOT tags CONTAINS unexpected
+        tags CONTAINS expected AND tags NOT CONTAINS unexpected
 
-    tags CONTAINS expected AND tags NOT CONTAINS unexpected
+- Fetching experiments with a name that contains a specific substring:
 
-Fetching experiments with name containing specific substring:
+    .. code-block:: mysql
 
-.. code-block:: mysql
+        name CONTAINS some_substring
 
-    name CONTAINS some_substring
 
 NQL reference
 -------------
@@ -94,15 +95,15 @@ NQL reference
 
 Clause
 ^^^^^^
-A clause can take one of the follwing forms:
+A clause can take one of the following forms:
 
-1. A relation consisting of three elements"
+1. A relation consisting of three elements:
 
 .. code-block:: mysql
 
     field-name OPERATOR value
 
-2. A search term consisting of a single string value (few words in quotes are considered single string):
+2. A search term consisting of a single string value (a few words in quotes are considered a single string):
 
 .. code-block:: mysql
 
@@ -259,7 +260,7 @@ It can be one of the following:
 
 **Operator**
 
-It is one of the relational operators that let's you specify what you look for.
+It is one of the relational operators that lets you specify what you are looking for.
 See the :ref:`operators table <core-concepts_nql_operators_reference>` below for list of all operators.
 
 .. note::
@@ -271,21 +272,21 @@ See the :ref:`operators table <core-concepts_nql_operators_reference>` below for
 
 **Value**
 
-Value is a specific value within given column, like ``0.95`` or ``ResNet101``. Values are case sensitive.
+Value is a specific value within a given column, like ``0.95`` or ``ResNet101``. Values are case sensitive.
 Two types of values are supported:
 
-* numbers
-* strings
+* Numbers
+* Strings
 
-Numbers are compared based on its values, however strings are compared lexicographically basing on ASCII codes.
+Numbers are compared based on values, however strings are compared lexicographically basing on ASCII codes.
 Some fields, like ``size`` and ``state`` are exceptions to this rule.
 
 Search term clauses
 """""""""""""""""""
 
 A clause consisting of a single string value will be treated as a search term.
-Such query matches all experiments that contains given string in its name, description or experiment id.
-Moreover search terms are case insensitive and some typos are automatically recognized.
+Such query matches all experiments that contain a given string in their names, description or experiment id.
+Search terms are case insensitive and some typos are automatically recognized.
 
 Examples:
 
@@ -307,19 +308,19 @@ Complex query
 ^^^^^^^^^^^^^^^
 **AND and OR operators**
 
-NQL query consists of a number of clauses connected with logical operators. For example:
+An NQL query consists of a number of clauses connected with logical operators. For example:
 
 .. code-block:: mysql
 
     recall > 0.9 AND learning_rate <= 0.005 AND encoder = ResNet101
 
-Additionally brackets can be used to control logical operators precedence:
+Additionally, brackets can be used to control logical operators precedence:
 
 .. code-block:: mysql
 
     recall > 0.9 AND (learning_rate <= 0.005 OR encoder = ResNet101)
 
-Notice: ``AND`` operator has a higher precedence than ``OR`` so two following queries are identical:
+Note: The ``AND`` operator has a higher precedence than ``OR``, so the following two queries are identical:
 
 
 .. code-block:: mysql
@@ -330,16 +331,16 @@ Notice: ``AND`` operator has a higher precedence than ``OR`` so two following qu
 
 **NOT operator**
 
-There is also a ``NOT`` operator which can be used to negate a single clause or a whole sub-query.
-For example if you want to find all experiments which are not owned by Fred you can use either of the following queries:
+The ``NOT`` operator can be used to negate a single clause or an entire sub-query.
+For example, if you want to find all experiments that are not owned by Fred, you can use either of the following queries:
 
 .. code-block:: mysql
 
     NOT owner = Fred
     owner != Fred
 
-``NOT`` operator has higher precedence then ``AND`` and ``OR``, but lower precedence then relational operators.
-So following queries are equal:
+The ``NOT`` operator has a higher precedence than ``AND`` and ``OR`` but a lower precedence than relational operators.
+So, the following queries are identical:
 
 .. code-block:: mysql
 
@@ -355,7 +356,7 @@ but they are different from:
 
     recall > 0.9 AND NOT (learning_rate <= 0.005 OR encoder = ResNet101)
 
-Moreover you can use ``NOT`` operator with ``CONTAINS`` operator like this:
+In addition, you can use the ``NOT`` operator with the ``CONTAINS`` operator like this:
 
 .. code-block:: sql
 
@@ -379,7 +380,7 @@ Quotation marks      ``""``, ``````
 
 Precedence order
 ^^^^^^^^^^^^^^^^
-If there are any field name collisions the following order precedence is applied:
+If there are any field name collisions, the following order precedence is applied:
 
   * system column
   * parameter
@@ -387,8 +388,8 @@ If there are any field name collisions the following order precedence is applied
   * text log
   * property
 
-For example, if there is a metric and parameter called ``owner``, a following query will return only experiments
-created by Fred, but no experiments of other users which have parameter called ``owner`` with value ``Fred``:
+For example, if there is a metric and a parameter called ``owner``, the following query will return only experiments
+created by Fred, but no experiments of other users who have a parameter called ``owner`` with value ``Fred``:
 
 .. code-block:: mysql
 
@@ -398,12 +399,12 @@ created by Fred, but no experiments of other users which have parameter called `
 Quotes
 ^^^^^^
 
-There are two types of quotation marks in NQL: ``""`` and ``````:
+There are two types of quotation marks in NQL:
 
 * A double quote (``""``) is used with values,
-* back quote (``````) is used with field-names.
+* back quote (``````) is used with field names.
 
-While in most cases it is not required to use quotation marks, there are some cases when it is necessary. See below.
+While in most cases it is not required to use quotation marks, there are some cases when it is necessary.
 
 **Special characters**
 
@@ -449,7 +450,7 @@ Execution of one of the following queries will result in a syntax error:
 
     tags CONTAINS CONTAINS
 
-You can handle such situations by escaping the name of the column with back quotes (`````) and value of the field with quotes (``"``).
+You can handle such situations by escaping the name of the column with back quotes (`````) and the value of the field with quotes (``"``).
 
 .. code-block:: mysql
 
