@@ -89,7 +89,7 @@ Log additional information
 --------------------------
 
 You can log any additional information directly to neptune experiment.
-It can be accessed via *npt_logger.experiment*.
+It can be accessed via **npt_logger.experiment**.
 
 .. code-block:: python3
 
@@ -105,6 +105,7 @@ Close the logger after you are finished tracking
 Monitor your PyTorch Ignite training in Neptune
 --------------------------------------------------
 Now you can watch your pytorch-ignite model training in neptune!
+
 Check this |example experiment|.
 
 .. image:: ../_static/images/pytorch_ignite/pytorch_ignite_monitoring.gif
