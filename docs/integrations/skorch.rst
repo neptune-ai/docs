@@ -15,11 +15,16 @@ Integration with |Skorch| framework is introduced as a part of logging module so
 
 Create an **Experiment**
 ------------------------
+
+.. note:: I am using a shared, anonymous token but you can change to your user api token.
+
 .. code-block:: python3
 
     import neptune
 
-    neptune.init('neptune-ai/skorch-integration')
+    neptune.init(
+        api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==',
+        project_qualified_name='shared/skorch-integration')
 
     experiment = neptune.create_experiment(name='skorch-basic-example',
                                            params={'max_epochs': 20,
