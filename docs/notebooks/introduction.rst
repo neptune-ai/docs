@@ -1,81 +1,170 @@
-Notebooks in Neptune
-====================
+Using Jupyter Notebooks in Neptune
+==================================
 
 .. image:: ../_static/images/others/notebooks_neptuneml.png
    :target: ../_static/images/others/notebooks_neptuneml.png
    :alt: Jupyter notebooks neptune.ai integration
    
-Introduction
+
+Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization. 
+They allow data scientists to work interactively, keeping code and results - like visualizations - in a single document. 
+
+While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let 
+you track Jupyter Notebooks.
+
+Key Features
 ------------
-Notebooks are essential tool for data scientists, regardless their area of specialization. They allow data scientists to work interactively, keeping code and results - like visualizations - in a single document. Neptune builds on top of this experience and comes with Jupyter and JupyterLab extensions that let you track Notebooks in Neptune.
 
-Notebooks in Neptune - key features:
+* In Neptune, each Notebook consist of a collection of checkpoints that you upload directly from the Jupyter user interface.
+* In any project, an unlimited number of Notebooks and checkpoints is allowed.
+* You can browse checkpoints history across all `Notebooks in the project <https://ui.neptune.ai/shared/onboarding/notebooks>`_.
+* You can `share <https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ a notebook as a link.
+* You can `compare <https://ui.neptune.ai/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb>`_ two Notebooks side-by-side, like source code.
 
-* In Neptune, each notebook consist of collection of checkpoints that you upload directly from the Jupyter User interface.
-* In the project, unlimited number of notebooks and checkpoints is allowed.
-* Browse checkpoints history across all `notebooks in the project <https://ui.neptune.ai/shared/onboarding/notebooks>`_,
-* `Share <https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ notebook as a link,
-* `Compare <https://ui.neptune.ai/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb>`_ two notebooks side-by-side like source code.
 
-Quick-start
+Quick Start
 -----------
-* To start working with notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ open source extension for Jupyter or JupyterLab. When you have it done, you can start working with notebooks immediately.
-* To try it now, without registering to Neptune, look at example notebooks in public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_. Use public user's API token (username: *neptuner*) to upload some snapshots to this project (you still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension).
+To start working with notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ the open 
+source extension for Jupyter or JupyterLab. When you are done, you can start working with Notebooks immediately.
+
+To try it now, without registering to Neptune, look at the sample notebooks in the public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_. 
+Use the public user's API token that appears below, and the username *neptuner* to upload some snapshots to this project. 
+You still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension.
+
+**Public user’s API token**:
 
 .. code-block:: bash
 
     eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==
 
-Tour
-----
-`Notebooks view <https://ui.neptune.ai/shared/onboarding/notebooks>`_ is a collection of all notebooks in the project - each can have multiple checkpoints.
+Notebook UI
+-----------
+The `Notebooks tab <https://ui.neptune.ai/shared/onboarding/notebooks>`_ in the Neptune UI provides a table of all the Notebooks in the current project.
 
-Notebooks view
-~~~~~~~~~~~~~~
-* See what your team members are working on now.
-* Review details and checkpoints associated with Notebook.
-* Share, compare or download notebook.
-
-.. image:: ../_static/images/notebooks/nb-view-1.png
-    :target: ../_static/images/notebooks/nb-view-1.png
+.. image:: ../_static/images/notebooks/nb-view-11.png
+    :target: ../_static/images/notebooks/nb-view-11.png
     :alt: image
+
+
+This view lets you see what your team members are working on, review details and checkpoints associated with a Notebook, as well as share or download a Notebook and compare two or more Notebooks.
+
+The Notebook data is arranged in the following columns:
+
+* Name
+* Owner
+* Latest checkpoint
+* Description
+
+In addition, for each Notebook, there are buttons for downloading the Notebook, comparing it with another Notebook, or for sharing a link to it.
+
+A **Compare** button at the top right displays a Notebooks Comparison pane. See `Compare Notebooks <introduction.html#id3>`_. 
 
 Notebook contents
 ~~~~~~~~~~~~~~~~~
-Once you entered notebook, you can see all its content, that is: code and markdown cells, outputs and execution count.
+Once you select a Notebook, you can see all its contents, that is: code and markdown cells, outputs and execution count.
 
-* Look at the snapshot of the work with notebook.
-* Download, share or compare this checkpoint.
+There are two tabs on the right:
 
-.. image:: ../_static/images/notebooks/nb-view-2.png
-    :target: ../_static/images/notebooks/nb-view-2.png
+- **Details**: Here are shown the ID, size, creation date, latest checkpoint, owner, description and associated experiments of the selected Notebook.
+- **Checkpoints**: Here are listed all the checkpoints of the Notebook. Click a checkpoint to see the details in the main pane. From this tab, you can also access the experiments that are associated with the checkpoint. 
+You can also view snapshots of the work with the Notebook, as well as download, share or compare this checkpoint with another checkpoint.
+
+.. image:: ../_static/images/notebooks/nb-view-22.png  
+    :target: ../_static/images/notebooks/nb-view-22.png
     :alt: image
 
-Notebooks comparison
-~~~~~~~~~~~~~~~~~~~~
-Select two notebooks and compare their contents - code and markdown cells, outputs and execution count - side-by-side just like source code. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at diff between checkpoints of the same notebook, or two entirely different notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
+Compare Notebooks 
+~~~~~~~~~~~~~~~~~
+
+The Notebooks Comparison pane lets you compare Notebook checkpoints.
+
+You display the pane by clicking the **Compare** button anywhere it is visible in the Notebooks pane.
+
+.. image:: ../_static/images/notebooks/compare.png
+    :target: ../_static/images/notebooks/compare.png
+    :alt: image
+
+In the Notebooks Comparison pane, select two Notebook checkpoints, then click **Compare** to see a side-by-side comparison, just like source code. 
+
+.. Commented out. Doesn't seem to be working.
+.. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at the difference between checkpoints of the same Notebook, or two entirely different Notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
+
+
+* Differences in code, markdown, output and execution count are highlighted.
+* Summary information about the differences is displayed at the top of the pane.
 
 .. image:: ../_static/images/notebooks/nb-view-cmp-1.png
     :target: ../_static/images/notebooks/nb-view-cmp-1.png
     :alt: image
 
-* Code, markdown, output and execution count differences highlighted.
-* Top bar displays summary information about diff.
 
-Upload notebook checkpoint
---------------------------
-Once `configured <configuration.html>`_\ , you can see two Neptune buttons.
+Upload and Downloading Notebook Checkpoints
+-------------------------------------------
 
-* - **n** button is for configuration changes
-* - **Upload** button is for making checkpoint in Neptune (*see below*)
+Notebooks are stored as files on your computer.
 
-.. image:: ../_static/images/notebooks/buttons_02_1.png
-    :target: ../_static/images/notebooks/buttons_02_1.png
-    :alt: image
+Each Notebook file (.ipynb) is a JSON containing everything that the user can see in a Notebook and some metadata.
+Neptune uses metadata to associate particular files with Notebook entities on Notebook servers. That means that after a Notebook 
+is uploaded to Neptune, the file on disk is changed to include the ID of the entity on the Neptune server.
 
-* - Click **Upload**\ , whenever you want to create new checkpoint in Neptune.
-* - You will see tooltip with link as a confirmation.
+**Name changes**
 
-.. image:: ../_static/images/notebooks/buttons_03_1.png
-    :target: ../_static/images/notebooks/buttons_03_1.png
-    :alt: image
+If you copy a Notebook file (let’s call it "Notebook A") and 
+edit it with the intention of creating something completely separate from Notebook A, 
+the association with Notebook A on the Neptune server remains. If the name of the Notebook changes from "Notebook A", 
+you will be warned.     
+
+.. image:: ../_static/images/notebooks/upload_dialog.png
+    :target: ../_static/images/notebook/upload_dialog.png
+    :alt: Upload Notebook dialog
+
+
+**Global accessibility**
+
+When you download a Notebook checkpoint, the ID in the metadata is preserved, so that when, after some work, 
+you click **Upload**, Neptune knows that this may be another checkpoint in a particular Notebook.
+You can do some work, upload some intermediate snapshot, go to another computer 
+(or another SageMaker instance, and so on), download the Notebook and keep on working on it.
+
+The capability is comparable to Google Docs in that there’s a place where you store your work and you can access 
+it easily from wherever you choose.
+
+**Collaboration**
+
+Members of a project can view and download all Notebooks (and their checkpoints) in the project.
+Members of a project can upload new Notebooks to the project. 
+
+When uploading a new Notebook, a user becomes the author/owner of this Notebook. Only the owner of a Notebook can upload 
+new checkpoints of this Notebook. 
+
+.. image:: ../_static/images/notebooks/link_new_notebook.png
+    :target: ../_static/images/notebook/link_new_notebook.png
+    :alt: Link new Notebook dialog
+
+Uploading a Notebook
+~~~~~~~~~~~~~~~~~~~~
+
+You can upload Notebook checkpoints from Jupyter to Neptune.
+
+**To upload the current Notebook as a checkpoint**:
+
+1. Click **Upload**.
+2. In the dialog that is displayed, select a project from the list.
+3. (Optional) Type in a checkpoint name and description.
+4. Click **Create notebook**.
+
+A confirmation message is displayed. You can click the link in the message to open the Notebook in Neptune.
+
+Downloading a Notebook
+~~~~~~~~~~~~~~~~~~~~~~
+
+You can download a specific Notebook checkpoint from Neptune to Jupyter.
+
+**To download a Notebook checkpoint**:
+
+1. Click **Upload**.
+2. In the dialog that is displayed, select the following from the respective lists:
+  - Project
+  - Notebook
+  - Checkpoint
+3. Click **Download**.

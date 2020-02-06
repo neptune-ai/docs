@@ -92,7 +92,7 @@ Documentation contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Notebooks
+   :caption: Jupyter Notebooks in Neptune
 
    Introduction <notebooks/introduction.rst>
    Installation for Jupyter and JupyterLab <notebooks/installation.rst>

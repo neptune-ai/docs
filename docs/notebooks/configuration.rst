@@ -1,46 +1,42 @@
-Configuration
-=============
-Simple configuration wizard lets you to setup your work with Neptune.
+Connecting the Jupyter Extension to Your Neptune Account
+========================================================
 
-**Step 1**
+After you have successfully `installed the Jupyter extension for Neptune <installation.html>`_, 
+you connect it to your Neptune account.
 
-Click **Configure** button (if you cannot see it, just hit **F5**).
+**Procedure**
 
-.. image:: ../_static/images/notebooks/buttons_01_1.png
-   :target: ../_static/images/notebooks/buttons_01_1.png
+1. In Jupyter, click **Connect to Neptune**.
+
+.. image:: ../_static/images/notebooks/connect_button.png
+   :target: ../_static/images/notebooks/connect_button.png
    :alt: image
 
-**Step 2**
 
-You see **Configure connection to Neptune**. Paste API Token first, then select project:
+The **Configure your connection to Neptune** dialog appears. 
 
-* *API Token* - take one from your account. :ref:`Check this <token-location>`, if you do not know where *API Token* is located. This field is validated automatically.
-* *Select project* - pick one from the drop down list.
-* Click **Create notebook**.
+.. image:: ../_static/images/notebooks/configure_connect.png
+   :target: ../_static/images/notebooks/configure_connect.png
+   :alt: image
+
+
+2. Leave the dialog open and switch to the Neptune UI.
+
+3. In the Neptune UI, obtain your API Token and copy it to the clipboard.
+
+   a. Next to your user name, click the avatar, and then click **Get API Token**.
+   
+    .. image:: ../_static/images/notebooks/get_api_token.png
+        :target: ../_static/images/notebooks/get_api_token.png
+        :alt: image
+
+   b. In the dialog that appears, click the **Copy to clipboard** button on the right. Then click **Close**.
+
+4. Switch back to Jupyter. In the dialog you left open, paste the token you copied to the cipboard. Click **Connect**.
+
+   A confirmation message is displayed. It contains a link through which you can go directly to this Notebook in Neptune.
 
 .. warning:: Your *API Token* is private and unique. Never share it. It's like sharing password.
 
-.. image:: ../_static/images/notebooks/checkpoint_01.png
-   :target: ../_static/images/notebooks/checkpoint_01.png
-   :alt: image
 
-.. image:: ../_static/images/notebooks/checkpoint_02.png
-   :target: ../_static/images/notebooks/checkpoint_02.png
-   :alt: image
-
-.. image:: ../_static/images/notebooks/checkpoint_03.png
-   :target: ../_static/images/notebooks/checkpoint_03.png
-   :alt: image
-
-.. note:: Success! You just created new notebook with first checkpoint in the project you selected.
-
-**Step 3**
-
-* You can use *this link* at the top, to go directly to this notebook in Neptune.
-* Click **Integrate** button to run environment variables export. It allows Neptune to checkpoint your work correctly. Moreover, you will be able to run Neptune experiments directly from notebook.
-
-.. image:: ../_static/images/notebooks/integration_01.png
-   :target: ../_static/images/notebooks/integration_01.png
-   :alt: image
-
-.. note:: Re-run **Integrate** each time you reset or restart your kernel.
+5. To conclude, in Jupyter, activate the configuration to create Neptune experiments and see them all linked to this Notebook. Click **Activate**. In the dialog that appears, click **Activate**.

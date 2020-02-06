@@ -1,77 +1,167 @@
-Installation for Jupyter and JupyterLab
-=======================================
+Installing neptune-notebooks 
+============================
+This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension. 
 
-Jupyter
--------
-Install `neptune-notebooks extension <https://github.com/neptune-ai/neptune-notebooks>`_:
+The extension integrates between Neptune and Jupyter or JupyterLab. When the extension is successfully installed, 
+you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks, 
+and track experiments and metrics directly from the Jupyter UI. 
+Neptune versions the Notebook automatically once an experiment has started.
+
+About neptune-notebooks
+^^^^^^^^^^^^^^^^^^^^^^^
+
+neptune-notebooks is a Python package hosted `here <https://pypi.org/project/neptune-notebooks>`_. It includes:
+
+- A very basic CLI (command line interface) for uploading notebooks.
+- Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.
+- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. 
+It is hosted `here <https://www.npmjs.com/package/neptune-notebooks>`_.
+
+
+For Jupyter
+-----------
+
+1. Install `neptune-notebooks extension <https://github.com/neptune-ai/neptune-notebooks>`_:
 
 .. code-block:: bash
 
    pip install neptune-notebooks
 
-Then enable extension for your Jupyter:
+2. Enable the extension for Jupyter:
 
 .. code-block:: bash
 
    jupyter nbextension enable --py neptune-notebooks
 
-Remember to install Neptune-client, if you did not do so already:
+3. Install Neptune client, if you did not do so already:
 
 .. code-block:: bash
 
    pip install neptune-client
 
-JupyterLab
-----------
 
-Requirements
-^^^^^^^^^^^^
-`Node.js <https://nodejs.org/en>`_ and `npm <https://www.npmjs.com/get-npm>`_ are required.
+For JupyterLab
+---------------
 
-To check if you have Node.js installed, run this command in your terminal:
+JupyterLab is the next-generation web-based UI for Project Jupyter. 
+
+When you install JupyterLab using ``pip install jupyterlab``, the standard Jupyter is also installed, as a dependency.
+
+
+Installation methods
+^^^^^^^^^^^^^^^^^^^^
+You can install the extension using any of the following three methods:
+
+- Through the command line (full neptune-notebooks package)
+- Through the command line (JupyterLab extension only)
+- Using the Extension Manager (JupyterLab extension only)
+
+**Requirements**
+
+Irrespective of which method you use, the following must be preinstalled on your system before you begin.
+
+- `Node.js <https://nodejs.org/en>`_ 
+- `npm <https://www.npmjs.com/get-npm>`_
+- `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`_
+
+.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_. 
+
+
+Method 1: Install the full neptune-notebooks package through the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Pros**
+
+This is the most comprehensive type of installation:
+
+- It includes extensions for both standard Jupyter and JupyterLab. 
+- It also installs a CLI for uploading Notebook files.
+- The the neptune-client package is a dependency.
+
+**Cons**
+
+- After the installation, you still have to perform some manual actions in JupyterLab. 
+- This method is not the preferred way of installing extensions in JupyterLab.
+
+**Procedure**
+
+1. In the console, run:
 
 .. code-block:: bash
 
-    node -v
+    pip install neptune-notebooks
 
-
-To confirm that you have npm installed you can run this command in your terminal:
+2. Start JupyterLab by running:
 
 .. code-block:: bash
 
-    npm -v
+    jupyter lab
 
-If you do not have them, please refer to: `installation instructions <https://www.npmjs.com/get-npm>`_.
+3. In the "Build Recommended" notification that is displayed, click **Build**.
+4. In the "Build Complete" notification that is displayed, click **Reload**.
 
-Using command line
-^^^^^^^^^^^^^^^^^^
-Install `neptune-notebooks <https://www.npmjs.com/package/neptune-notebooks>`_ for your JupyterLab. In terminal run:
+The extension is loaded.
+
+Method 2: Install the JupyterLab extension only through the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This method installs only the extension to JupyterLab.
+
+**Cons**
+
+The neptune-notebooks pip package, neptune-client pip package and extension to the standard Jupyter are not installed.
+
+**Pros**
+
+This method gives you more flexibility. For example, the extension can be running on a 
+different machine than your code that is executed from the Notebook.
+
+**Procedure**
+
+1. In the console, run:
 
 .. code-block:: bash
 
     jupyter labextension install neptune-notebooks
 
-Remember to install Neptune-client, if you did not do so already:
+2. Start JupyterLab by running:
 
 .. code-block:: bash
 
-   pip install neptune-client
+    jupyter lab
 
-Using JupyterLab extension manager (alternative)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3. In the "Build Recommended" notification that is displayed, click **Build**.
+4. In the "Build Complete" notification that is displayed, click **Reload**.
 
-**Step 1**
 
-Enable extension manager. Select "Commands" (third icon on left panel), then click on "Enable Extension Manager (experimental)"
+Method 3: Install the JupyterLab extension only, using the JupyterLab Extension Manager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../_static/images/notebooks/ext-manager-1.png
-   :target: ../_static/images/notebooks/ext-manager-1.png
-   :alt: enable extension manager
+**Procedure**
 
-**Step 2**
+1. In JupyterLab, enable Extension Manager, by clicking **Settings** > **Enable Extension Manager (experimental)**.
 
-Go to "Extension Manager" (third icon on left panel) and search for "neptune-notebooks". Click "Install", then "Enable".
+.. image:: ../_static/images/notebooks/extension_manager.png
+   :target: ../_static/images/notebooks/extension_manager.png
+   :alt: Enable extension manager
+
+2. Find neptune-notebooks and click **Install**.
 
 .. image:: ../_static/images/notebooks/ext-manager-2.png
    :target: ../_static/images/notebooks/ext-manager-2.png
    :alt: go to extension manager and search for neptune-notebooks
+
+
+Checking if installation was successful
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Provided you have `configured <configuration.html>`_ Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:
+
+.. image:: ../_static/images/notebooks/buttons_11.png
+    :target: ../_static/images/notebooks/buttons_11.png
+    :alt: image
+
+- **Neptune**: For modifying configuration.
+- **Upload**: For creating a new checkpoint in Neptune.
+- **Download**: For downloading a specific checkpoint from Neptune.
+- **Activate**: For activating the Python kernel.
