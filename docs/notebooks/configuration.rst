@@ -24,7 +24,7 @@ The **Configure your connection to Neptune** dialog appears.
 
 3. In the Neptune UI, obtain your API Token and copy it to the clipboard.
 
-   a. Next to your user name, click the avatar, and then click **Get API Token**.
+   a. In the upper right corner, click the avatar, and then click **Get API Token**.
    
     .. image:: ../_static/images/notebooks/get_api_token.png
         :target: ../_static/images/notebooks/get_api_token.png
@@ -32,11 +32,13 @@ The **Configure your connection to Neptune** dialog appears.
 
    b. In the dialog that appears, click the **Copy to clipboard** button on the right. Then click **Close**.
 
-4. Switch back to Jupyter. In the dialog you left open, paste the token you copied to the cipboard. Click **Connect**.
+4. Switch back to Jupyter. In the dialog you left open, paste the token you copied to the clipboard. Click **Connect**.
 
    A confirmation message is displayed. It contains a link through which you can go directly to this Notebook in Neptune.
 
 .. warning:: Your *API Token* is private and unique. Never share it. It's like sharing password.
 
 
-5. To conclude, in Jupyter, activate the configuration to create Neptune experiments and see them all linked to this Notebook. Click **Activate**. In the dialog that appears, click **Activate**.
+5. To conclude, to see experiments that you will run associated with this Notebook, click **Activate**. 
+In the dialog that appears, click **Activate**.
+

@@ -3,7 +3,7 @@ Using Jupyter Notebooks in Neptune
 
 .. image:: ../_static/images/others/notebooks_neptuneml.png
    :target: ../_static/images/others/notebooks_neptuneml.png
-   :alt: Jupyter notebooks neptune.ai integration
+   :alt: Jupyter Notebooks neptune.ai integration
    
 
 Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization. 
@@ -15,7 +15,7 @@ you track Jupyter Notebooks.
 Key Features
 ------------
 
-* In Neptune, each Notebook consist of a collection of checkpoints that you upload directly from the Jupyter user interface.
+* In Neptune, each Notebook consists of a collection of checkpoints that you upload directly from the Jupyter user interface.
 * In any project, an unlimited number of Notebooks and checkpoints is allowed.
 * You can browse checkpoints history across all `Notebooks in the project <https://ui.neptune.ai/shared/onboarding/notebooks>`_.
 * You can `share <https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ a notebook as a link.
@@ -24,10 +24,10 @@ Key Features
 
 Quick Start
 -----------
-To start working with notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ the open 
+To start working with Notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ the open 
 source extension for Jupyter or JupyterLab. When you are done, you can start working with Notebooks immediately.
 
-To try it now, without registering to Neptune, look at the sample notebooks in the public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_. 
+To try it now, without registering to Neptune, look at the sample Notebooks in the public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_. 
 Use the public user's API token that appears below, and the username *neptuner* to upload some snapshots to this project. 
 You still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension.
 
@@ -35,7 +35,7 @@ You still need to `install <installation.html>`_ and `configure <configuration.h
 
 .. code-block:: bash
 
-    eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==
+    eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==
 
 Notebook UI
 -----------
@@ -98,13 +98,13 @@ In the Notebooks Comparison pane, select two Notebook checkpoints, then click **
     :alt: image
 
 
-Upload and Downloading Notebook Checkpoints
+Uploading and Downloading Notebook Checkpoints
 -------------------------------------------
 
 Notebooks are stored as files on your computer.
 
 Each Notebook file (.ipynb) is a JSON containing everything that the user can see in a Notebook and some metadata.
-Neptune uses metadata to associate particular files with Notebook entities on Notebook servers. That means that after a Notebook 
+Neptune uses metadata to associate particular files with Notebook entities on Neptune servers. That means that after a Notebook 
 is uploaded to Neptune, the file on disk is changed to include the ID of the entity on the Neptune server.
 
 **Name changes**
@@ -113,10 +113,6 @@ If you copy a Notebook file (let’s call it "Notebook A") and
 edit it with the intention of creating something completely separate from Notebook A, 
 the association with Notebook A on the Neptune server remains. If the name of the Notebook changes from "Notebook A", 
 you will be warned.     
-
-.. image:: ../_static/images/notebooks/upload_dialog.png
-    :target: ../_static/images/notebook/upload_dialog.png
-    :alt: Upload Notebook dialog
 
 
 **Global accessibility**
@@ -131,15 +127,13 @@ it easily from wherever you choose.
 
 **Collaboration**
 
-Members of a project can view and download all Notebooks (and their checkpoints) in the project.
-Members of a project can upload new Notebooks to the project. 
+Depending on their roles, members of a project can view and download all Notebooks (and their checkpoints) in the project.
 
-When uploading a new Notebook, a user becomes the author/owner of this Notebook. Only the owner of a Notebook can upload 
+- Viewers can download Notebooks.
+- Contributors and Owners can also upload them.
+
+When uploading a new Notebook, a user becomes the owner of this Notebook. Only the owner of a Notebook can upload 
 new checkpoints of this Notebook. 
-
-.. image:: ../_static/images/notebooks/link_new_notebook.png
-    :target: ../_static/images/notebook/link_new_notebook.png
-    :alt: Link new Notebook dialog
 
 Uploading a Notebook
 ~~~~~~~~~~~~~~~~~~~~
@@ -149,9 +143,15 @@ You can upload Notebook checkpoints from Jupyter to Neptune.
 **To upload the current Notebook as a checkpoint**:
 
 1. Click **Upload**.
+
+    .. image:: ../_static/images/notebooks/upload_dialog.png
+        :target: ../_static/images/notebooks/upload_dialog.png
+        :width: 450
+        :alt: Upload Notebook dialog
+    
 2. In the dialog that is displayed, select a project from the list.
 3. (Optional) Type in a checkpoint name and description.
-4. Click **Create notebook**.
+4. Click **Upload checkpoint**.
 
 A confirmation message is displayed. You can click the link in the message to open the Notebook in Neptune.
 
@@ -162,7 +162,13 @@ You can download a specific Notebook checkpoint from Neptune to Jupyter.
 
 **To download a Notebook checkpoint**:
 
-1. Click **Upload**.
+1. Click **Download**.
+
+    .. image:: ../_static/images/notebooks/download_dialog.png
+        :target: ../_static/images/notebooks/download_dialog.png
+        :width: 450
+        :alt: Download Notebook dialog
+
 2. In the dialog that is displayed, select the following from the respective lists:
   - Project
   - Notebook

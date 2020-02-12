@@ -1,8 +1,8 @@
 Integrations with AWS and SageMaker
 ===================================
 
-Setting up Neptune-enabled JupyterLab on AWS
----------------------------------------------
+Setting up a Neptune-enabled JupyterLab on AWS
+----------------------------------------------
 You can run Neptune and track experiments that you run on AWS cloud.
 
 
@@ -12,16 +12,16 @@ You can run Neptune and track experiments that you run on AWS cloud.
 
 1. Register to AWS.
 
-    Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official webpage to create your AWS account.
+    Follow the `instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ to create your AWS account.
 
 2. Start an EC2 instance.
 
-    Start a new EC2 instance. Select `ubuntu` as your instance type and choose a worker type you need.
-    You can go with `t2.micro` just to test it out.
+    Select ``ubuntu`` as your instance type and choose the worker type you need.
+    You can use ``t2.micro`` just to test it out.
 
 3. SSH to your instance.
 
-    Connect to your instance by going to the terminal and running:
+    From the terminal, run:
 
     .. code-block:: Bash
 
@@ -31,7 +31,7 @@ You can run Neptune and track experiments that you run on AWS cloud.
 
 4. Install Docker.
 
-    a. Create a new file `install_docker.sh`:
+    a. Create a new file ``install_docker.sh``:
 
     .. code-block:: Bash
 
@@ -65,8 +65,9 @@ You can run Neptune and track experiments that you run on AWS cloud.
 
 5. Define your secrets.
 
-    Go to Neptune web app, get your ``NEPTUNE_API_TOKEN`` and copy it. Then, create a password for your JupyterLab server.
-    Set those two secrets to your environment variables ``NEPTUNE_API_TOKEN`` and ``JUPYTERLAB_PASSWORD``, as shown:
+    a. Go to Neptune, `get your NEPTUNE_API_TOKEN <troubleshoot.html#where-is-neptune-api-token>`_ and copy it to the clipboard. 
+    b. Create a password for your JupyterLab server.
+    c. Set the following two secrets to your environment variables, ``NEPTUNE_API_TOKEN`` and ``JUPYTERLAB_PASSWORD``:
 
         .. code-block:: Bash
 
@@ -75,13 +76,13 @@ You can run Neptune and track experiments that you run on AWS cloud.
 
 6. Build the Docker image.
 
-    a. Create a new file `Dockerfile`:
+    a. Create a new file ``Dockerfile``:
 
     .. code-block:: Bash
 
         nano Dockerfile
 
-    b. Copy insights of the following `Dockerfile` to your newly created file:
+    b. Copy insights of the following Dockerfile to your newly created file:
 
     .. code-block:: Docker
 
@@ -89,8 +90,8 @@ You can run Neptune and track experiments that you run on AWS cloud.
         FROM continuumio/miniconda3
 
         # Installation of jupyterlab and extensions
-        RUN pip install jupyterlab==0.35.6  && \
-            pip install jupyterlab-server==0.2.0  && \
+        RUN pip install jupyterlab==1.2.6  && \
+            pip install jupyterlab-server==1.0.6  && \
             conda install -c conda-forge nodejs
 
         # Installation of Neptune and enabling neptune extension
@@ -106,15 +107,15 @@ You can run Neptune and track experiments that you run on AWS cloud.
         ADD . /mnt/workdir
         WORKDIR /mnt/workdir
 
-    If you want to run on a GPU, make sure to change your `Dockerfile` to start from nvidia docker images.
+    If you want to run on a GPU, make sure to change your Dockerfile to start from Nvidia Docker images.
 
-    c. Run following command to build your Docker image:
+    c. Run the following command to build your Docker image:
 
     .. code-block:: Bash
 
         sudo docker build -t jupyterlab --build-arg NEPTUNE_API_TOKEN=$NEPTUNE_API_TOKEN .
 
-7. Start the JupyterLab server. Spin up a JupyterLab server with Docker:
+7. Spin up a JupyterLab server with Docker:
 
     .. code-block:: Bash
 
@@ -148,27 +149,30 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
 
 1. Register to AWS.
 
-    Follow the `registration instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ from official website to create your AWS account.
+    Follow the `instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ to create your AWS account.
 
 2. Create Lifecycle configuration.
 
-    Go to SageMaker *Lifecycle configurations* and click *Create configuration*.
+    a. Go to SageMaker **Lifecycle configurations** and click **Create configuration**.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-create_configuration.png
        :target: ../_static/images/how-to/ht-sagemaker-create_configuration.png
        :alt: image
+    |   
 
-    You can choose whatever name you want just make sure to remember it.
+         You can choose whatever name you want -- just make sure to remember it.
 
-    Now, you should modify the *Create notebook* script to run it only once at the creation of your SageMaker notebook instance.
+    b. Modify the **Create Notebook** script to run it only once at the creation of your SageMaker Notebook instance.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-config_specs.png
        :target: ../_static/images/how-to/ht-sagemaker-config_specs.png
        :alt: image
 
+    |
     
-    Copy and paste the script below to your *Create notebook* tab.
-    Choose in which environments you want to install *neptune-client* in the *PARAMETERS* section.
+    c. Copy and paste the script below to your **Create Notebook** tab.
+
+        In the **PARAMETERS** section, choose in which environments you want to install neptune-client.
 
     .. code-block:: Bash
 
@@ -200,39 +204,42 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
 
         EOF
 
-3. Create a notebook instance.
+3. Create a Notebook instance.
 
-    Go to SageMaker *Notebook instances* and click on *Create notebook instance*.
+    a. Go to SageMaker **Notebook instances** and click **Create notebook instance**.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-create_instance.png
          :target: ../_static/images/how-to/ht-sagemaker-create_instance.png
          :alt: image
 
-    
-    Select an *instance name* and click on *Additional configuration* to add the *Lifecycle configuration* you have just created:
+    |
+
+    b. Type in an instance name and click **Additional configuration** to add the Lifecycle configuration you have just created.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
          :target: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
          :alt: image
 
-    
-    You can now click *Create notebook instance* instance at the bottom to start your instance.
+    |
+
+    c. Click **Create notebook instance** at the bottom to start your instance.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
          :target: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
          :alt: image
 
-4. Start notebook.
+4. Start Notebook.
 
-    If everything went well, your AWS SageMaker instance should be *InService* and you can now open Jupyter Notebook or JupyterLab 
-    with Neptune notebook-versioning enabled!
+    If everything went well, your AWS SageMaker instance should have *InService* status and you can open a Jupyter Notebook or JupyterLab 
+    with Neptune Notebook versioning enabled.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :alt: image
 
-    You can now version your notebooks and track experiments in Amazon SageMaker with Neptune!
+    
+You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs.png
-          :target: ../_static/images/how-to/ht-sagemaker-notebook_runs.png
+    .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
+          :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :alt: image

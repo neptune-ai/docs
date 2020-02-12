@@ -97,7 +97,7 @@ Documentation contents
    Introduction <notebooks/introduction.rst>
    Installation for Jupyter and JupyterLab <notebooks/installation.rst>
    Configuration <notebooks/configuration.rst>
-   Integrations (AWS, SageMaker, Colab) <notebooks/integrations.rst>
+   Integrations with AWS and SageMaker <notebooks/integrations.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::

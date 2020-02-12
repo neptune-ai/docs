@@ -2,24 +2,29 @@ Installing neptune-notebooks
 ============================
 This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension. 
 
-The extension integrates between Neptune and Jupyter or JupyterLab. When the extension is successfully installed, 
+The extension enables the integration of Neptune and Jupyter or JupyterLab.
+
+When the extension is successfully installed, 
 you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks, 
 and track experiments and metrics directly from the Jupyter UI. 
 Neptune versions the Notebook automatically once an experiment has started.
 
 About neptune-notebooks
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 neptune-notebooks is a Python package hosted `here <https://pypi.org/project/neptune-notebooks>`_. It includes:
 
 - A very basic CLI (command line interface) for uploading notebooks.
 - Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.
-- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. 
-It is hosted `here <https://www.npmjs.com/package/neptune-notebooks>`_.
+- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted `here <https://www.npmjs.com/package/neptune-notebooks>`_.
 
 
-For Jupyter
------------
+Installation for Jupyter
+------------------------
+
+.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_. 
+
+Procedure
 
 1. Install `neptune-notebooks extension <https://github.com/neptune-ai/neptune-notebooks>`_:
 
@@ -40,21 +45,23 @@ For Jupyter
    pip install neptune-client
 
 
-For JupyterLab
----------------
+Installation for JupyterLab
+---------------------------
 
 JupyterLab is the next-generation web-based UI for Project Jupyter. 
 
 When you install JupyterLab using ``pip install jupyterlab``, the standard Jupyter is also installed, as a dependency.
 
 
-Installation methods
-^^^^^^^^^^^^^^^^^^^^
+**Installation methods**
+
 You can install the extension using any of the following three methods:
 
 - Through the command line (full neptune-notebooks package)
 - Through the command line (JupyterLab extension only)
 - Using the Extension Manager (JupyterLab extension only)
+
+Details for these methods follow below.
 
 **Requirements**
 
@@ -81,7 +88,7 @@ This is the most comprehensive type of installation:
 **Cons**
 
 - After the installation, you still have to perform some manual actions in JupyterLab. 
-- This method is not the preferred way of installing extensions in JupyterLab.
+- This method may not be the easiest way of installing extensions in JupyterLab.
 
 **Procedure**
 
@@ -98,6 +105,9 @@ This is the most comprehensive type of installation:
     jupyter lab
 
 3. In the "Build Recommended" notification that is displayed, click **Build**.
+
+.. note:: The build process takes up to several minutes.
+
 4. In the "Build Complete" notification that is displayed, click **Reload**.
 
 The extension is loaded.
@@ -152,8 +162,8 @@ Method 3: Install the JupyterLab extension only, using the JupyterLab Extension 
    :alt: go to extension manager and search for neptune-notebooks
 
 
-Checking if installation was successful
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Checking if the Installation was Successful
+-------------------------------------------
 
 Provided you have `configured <configuration.html>`_ Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:
 
@@ -164,4 +174,4 @@ Provided you have `configured <configuration.html>`_ Jupyter correctly, the foll
 - **Neptune**: For modifying configuration.
 - **Upload**: For creating a new checkpoint in Neptune.
 - **Download**: For downloading a specific checkpoint from Neptune.
-- **Activate**: For activating the Python kernel.
+- **Activate**: Associates experiments you will be running with this Notebook.
