@@ -222,14 +222,9 @@ deploy_stage:
 
 deploy_chart:
   extends: .release_chart_job
-  stage: prepare_release
   script:
     - *setup
     - *release_chart
-  only:
-    - tags
-  except:
-    - branches
 
 deploy_prod:
   extends: .deploy_prod_job
