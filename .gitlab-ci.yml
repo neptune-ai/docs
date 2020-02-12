@@ -3,7 +3,6 @@ stages:
   - prepare_stage
   - dev
   - stage
-  - delete
   - prepare_release
   - deploy_prod
 
@@ -74,6 +73,16 @@ stages:
   except:
     - web
 
+.release_chart_job:
+  <<: *base
+  stage: prepare_release
+  tags:
+    - deploy-prod
+  only:
+    - tags
+  except:
+    - branches
+
 
 .deploy_prod_job:
   <<: *base_prod
@@ -118,8 +127,21 @@ stages:
 
 .setup_helm: &setup |
   helm repo add stable https://kubernetes-charts.storage.googleapis.com
+  helm repo add neptune-charts "$CHART_REPO_URL" --username "$CHART_REPO_USER" --password "$CHART_REPO_PASS"
   helm repo update
   kubectl create namespace neptune || true
+
+
+.release_chart: &release_chart |
+  version=$CI_COMMIT_TAG
+  registry="${REGISTRY_URL_PROD}"
+  mkdir -p cicd-release
+
+  helm package -u --app-version $version helm/charts/neptune-docs -d cicd-release/ --version $version
+
+  helm plugin install https://github.com/chartmuseum/helm-push
+
+  helm push cicd-release/neptune-docs-$version.tgz neptune-charts
 
 .release_prod: &release_prod |
   version=$CI_COMMIT_TAG
@@ -128,11 +150,6 @@ stages:
   mkdir -p cicd-release
   ./cicd/get_config.py "prod" "$registry" "$version" >deployment-values.yaml
   cp deployment-values.yaml cicd-release/values.yaml
-  helm package -u --app-version $version helm/charts/neptune-docs -d cicd-release/
-  cd cicd-release
-  tar -zcvf ../$version.tar.gz .
-  cd ..
-  cp cicd-release/*.tgz "neptune-docs.tgz"
 
   echo "Checking kubectl connection"
   helm list
@@ -143,21 +160,13 @@ stages:
   echo ""
   FILE_NAME=$(ls cicd-release/ | grep neptune-docs)
 
-  if helm status "neptune-docs" -n neptune &>/dev/null ; then
-    helm upgrade \
-      -n neptune \
-      --timeout 600s \
-      neptune-docs \
-      ./cicd-release/$FILE_NAME \
-      --values=cicd-release/values.yaml
-  else
-    helm install \
-      --timeout 600s \
-      --namespace neptune \
-      "neptune-docs" \
-      ./cicd-release/$FILE_NAME \
-      --values=cicd-release/values.yaml
-  fi
+  helm upgrade -i \
+    neptune-docs \
+    neptune-charts/neptune-docs \
+    --timeout 600s \
+    --version $version \
+    --namespace neptune \
+    --values=cicd-release/values.yaml
 
 .deploy_script: &deploy |
   echo "Generating values file for stage deployment"
@@ -210,6 +219,17 @@ deploy_stage:
 ###############################################################################
 # PROD DEPLOY
 ###############################################################################
+
+deploy_chart:
+  extends: .release_chart_job
+  stage: prepare_release
+  script:
+    - *setup
+    - *release_chart
+  only:
+    - tags
+  except:
+    - branches
 
 deploy_prod:
   extends: .deploy_prod_job
