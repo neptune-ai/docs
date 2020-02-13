@@ -31,7 +31,7 @@ spec:
       {{- end }}
       containers:
       - name: nginx
-        image: "{{ .Values.global.registry }}/docs:{{ .Values.docs.image }}"
+        image: "{{ .Values.global.registry }}/docs:{{ if .Values.docs.image }}{{ .Values.docs.image }}{{ else }}{{ .Chart.Version }}{{ end }}"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: {{ .Values.docs.port }}
