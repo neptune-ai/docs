@@ -12,6 +12,8 @@ global:
   analytics:
     port: "8086"
 
+ingress:
+  enabled: true
 
 docs:
   image: ""
