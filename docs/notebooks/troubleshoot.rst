@@ -1,6 +1,6 @@
 Troubleshoot
 ============
-You may experience issues while working with Jupyter Notebooks and Neptune. 
+You may experience issues while working with Jupyter Notebooks and Neptune.
 The following presents possible solutions to some of the issues.
 
 .. contents::
@@ -22,7 +22,7 @@ then enable the extension for your Jupyter:
 
    jupyter nbextension enable --py neptune-notebooks
 
-Don't forget to install Neptune client: 
+Don't forget to install Neptune client:
 
 .. code-block:: bash
 
@@ -57,10 +57,10 @@ Where is *NEPTUNE_API_TOKEN*?
 
 
 My integration does not work, but it worked well previously. What do I do?
-------------------------------------------------------------------------
-Most likely, you restarted the kernel. 
+--------------------------------------------------------------------------
+Most likely, you restarted the kernel.
 
-If that is the case, the experiments are not associated with the notebook. 
+If that is the case, the experiments are not associated with the notebook.
 
 In Jupyter, click **Activate**.
 
