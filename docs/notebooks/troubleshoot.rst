@@ -1,21 +1,22 @@
 Troubleshoot
 ============
-Typical problems with notebooks, together with their solutions are listed here.
+You may experience issues while working with Jupyter Notebooks and Neptune. 
+The following presents possible solutions to some of the issues.
 
 .. contents::
     :local:
     :depth: 1
     :backlinks: top
 
-I can't see 'configure' button. What to do?
--------------------------------------------
-Make sure to install notebook extension:
+I can't see the **Connect to Neptune** button. What do I do?
+------------------------------------------------------------
+Make sure you have installed the Notebook extension:
 
 .. code-block:: bash
 
    pip install neptune-notebooks
 
-then enable extension for your Jupyter:
+then enable the extension for your Jupyter:
 
 .. code-block:: bash
 
@@ -27,38 +28,43 @@ Don't forget to install Neptune client:
 
    pip install neptune-client
 
-How to enable notebook extension in my jupyter?
------------------------------------------------
-Enable extension for your jupyter:
+For more details, see  `Installing neptune-notebooks <installation.html>`_.
+
+How do I enable the Notebook extension in my Jupyter?
+-----------------------------------------------------
+Enable extension for your Jupyter:
 
 .. code-block:: bash
 
    jupyter nbextension enable --py neptune-notebooks
 
-I do not know where my notebook was uploaded. How to check it?
---------------------------------------------------------------
-#. Click on the **n** button in your jupyter menu.
-#. Click on **Checkpoint**.
+I do not know where my Notebook was uploaded. How do I check it?
+----------------------------------------------------------------
+#. In Jupyter, click **Connect to Neptune**.
+#. Click **Checkpoint**.
 #. Bottom drop-down is your current project.
 
 .. _token-location:
 
 Where is *NEPTUNE_API_TOKEN*?
 -----------------------------
-#. Log in to `neptune <https://neptune.ai/login>`_.
-#. Click on your avatar (top-right part of the screen) and select **Get API Token**
+#. `Log in <https://neptune.ai/login>`_ to Neptune.
+#. In the upper right corner of the UI, click the avatar, and then click **Get API Token** to copy the token to the clipboard.
 
 .. image:: ../_static/images/notebooks/token.png
    :target: ../_static/images/notebooks/token.png
    :alt: image
 
-My integration does not work, but it worked well previously. What do to?
+
+My integration does not work, but it worked well previously. What do I do?
 ------------------------------------------------------------------------
-Most likely, you restarted kernel. Here is a solution:
+Most likely, you restarted the kernel. 
 
-#. Go to configuration (**n** button).
-#. Click **Integrate**.
+If that is the case, the experiments are not associated with the notebook. 
 
-.. image:: ../_static/images/notebooks/integration_01.png
-   :target: ../_static/images/notebooks/integration_01.png
+In Jupyter, click **Activate**.
+
+
+.. image:: ../_static/images/notebooks/activate_button.png
+   :target: ../_static/images/notebooks/activate_button.png
    :alt: image
