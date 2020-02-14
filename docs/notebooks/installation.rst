@@ -1,12 +1,12 @@
-Installing neptune-notebooks 
+Installing neptune-notebooks
 ============================
-This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension. 
+This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension.
 
 The extension enables the integration of Neptune and Jupyter or JupyterLab.
 
-When the extension is successfully installed, 
-you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks, 
-and track experiments and metrics directly from the Jupyter UI. 
+When the extension is successfully installed,
+you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks,
+and track experiments and metrics directly from the Jupyter UI.
 Neptune versions the Notebook automatically once an experiment has started.
 
 About neptune-notebooks
@@ -22,7 +22,7 @@ neptune-notebooks is a Python package hosted `here <https://pypi.org/project/nep
 Installation for Jupyter
 ------------------------
 
-.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_. 
+.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_.
 
 Procedure
 
@@ -48,7 +48,7 @@ Procedure
 Installation for JupyterLab
 ---------------------------
 
-JupyterLab is the next-generation web-based UI for Project Jupyter. 
+JupyterLab is the next-generation web-based UI for Project Jupyter.
 
 When you install JupyterLab using ``pip install jupyterlab``, the standard Jupyter is also installed, as a dependency.
 
@@ -67,11 +67,11 @@ Details for these methods follow below.
 
 Irrespective of which method you use, the following must be preinstalled on your system before you begin.
 
-- `Node.js <https://nodejs.org/en>`_ 
+- `Node.js <https://nodejs.org/en>`_
 - `npm <https://www.npmjs.com/get-npm>`_
 - `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`_
 
-.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_. 
+.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_.
 
 
 Method 1: Install the full neptune-notebooks package through the command line
@@ -81,13 +81,13 @@ Method 1: Install the full neptune-notebooks package through the command line
 
 This is the most comprehensive type of installation:
 
-- It includes extensions for both standard Jupyter and JupyterLab. 
+- It includes extensions for both standard Jupyter and JupyterLab.
 - It also installs a CLI for uploading Notebook files.
 - The the neptune-client package is a dependency.
 
 **Cons**
 
-- After the installation, you still have to perform some manual actions in JupyterLab. 
+- After the installation, you still have to perform some manual actions in JupyterLab.
 - This method may not be the easiest way of installing extensions in JupyterLab.
 
 **Procedure**
@@ -123,7 +123,7 @@ The neptune-notebooks pip package, neptune-client pip package and extension to t
 
 **Pros**
 
-This method gives you more flexibility. For example, the extension can be running on a 
+This method gives you more flexibility. For example, the extension can be running on a
 different machine than your code that is executed from the Notebook.
 
 **Procedure**
