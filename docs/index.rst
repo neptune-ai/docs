@@ -51,12 +51,12 @@ Organize
 ^^^^^^^^
 Organize structure of your project: 
 
-* code,
-* notebooks,
-* experiment results,
-* model weights,
-* meeting notes, 
-* reports.
+* Code
+* Notebooks
+* Experiment results
+* Model weights
+* Meeting notes 
+* Reports
 
 Everything is in one place, accessible from the app or programmatically.
 Neptune exposes :ref:`Query API <query-api>`, that allows users to access their Neptune data right from the Python code.

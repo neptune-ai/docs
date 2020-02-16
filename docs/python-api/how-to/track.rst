@@ -8,7 +8,7 @@ Track
 
 Log metrics to Neptune
 ----------------------
-How to track multiple metrics (loss, scores) in the experiment?
+How to track multiple metrics (loss, scores) in the experiment:
 
 Solution
 ^^^^^^^^
@@ -36,7 +36,7 @@ Another option is to log `key: value` pair like this:
 
 **Step 2: Analyze**
 
-Browse and analyse your metrics on the dashboard (`example <https://ui.neptune.ai/neptune-ai/Home-Credit-Default-Risk/experiments>`_) or in the particular experiment (`example experiment <https://ui.neptune.ai/neptune-ai/Home-Credit-Default-Risk/e/HC-11860/logs>`_).
+Browse and analyze your metrics on the dashboard (`example <https://ui.neptune.ai/neptune-ai/Home-Credit-Default-Risk/experiments>`_) or in the particular experiment (`example experiment <https://ui.neptune.ai/neptune-ai/Home-Credit-Default-Risk/e/HC-11860/logs>`_).
 
 Log images to Neptune
 ---------------------
@@ -68,7 +68,7 @@ Log it to Neptune:
    with neptune.create_experiment() as exp:
        exp.send_image('quokka', img_pil)
 
-As a result, quokka image is associated with the experiment
+As a result, a quokka image is associated with the experiment:
 
 .. image:: ../../_static/images/how-to/ht-img-channel-1.png
    :target: ../../_static/images/how-to/ht-img-channel-1.png
@@ -101,7 +101,8 @@ You can log images in a loop. For example, you can augment your image and log it
 
 Save experiment output
 ----------------------
-I can run my experiment but I am struggling to save the model weights and the ``csv`` file with the results when it completes. How can I do that in Neptune?
+I can run my experiment but I am struggling to save the model weights and the ``csv`` file with the results when it completes. 
+How can I do that in Neptune?
 
 Solution
 ^^^^^^^^
@@ -114,7 +115,7 @@ Save everything as you go! For example:
        ...
        exp.send_artifact('/path/to/results.csv')
 
-Your results will be available for you to download in the ``Output`` section of your experiment.
+Your results will be available for you to download in the Output section of your experiment.
 
 .. image:: ../../_static/images/how-to/ht-output-download-1.png
    :target: ../../_static/images/how-to/ht-output-download-1.png
@@ -156,7 +157,7 @@ When working on a project, it is not unusual that I change the datasets on which
 
 Solution
 ^^^^^^^^
-Under many circumstances it is possible to calculate a hash of your dataset. Even if you are working with large image datasets, you have some sort of a smaller metadata file, that points to image paths. If this is the case you should:
+Under many circumstances, it is possible to calculate a hash of your dataset. Even if you are working with large image datasets, you have some sort of a smaller metadata file, that points to image paths. If this is the case you should:
 
 **Step 1**
 
@@ -187,7 +188,7 @@ Calculate the hash of your training data and send it to Neptune as text:
 
 **Step 3**
 
-Add data version column to your project dashboard:
+Add a data version column to your project dashboard:
 
 .. image:: ../../_static/images/how-to/ht-data-version-1.png
    :target: ../../_static/images/how-to/ht-data-version-1.png
@@ -197,7 +198,7 @@ Add data version column to your project dashboard:
 
 Keep my code private
 --------------------
-My code is proprietary, so I do not want to send any sources to Neptune, while training locally. How to do it?
+My code is proprietary, so I do not want to send any sources to Neptune, while training locally. How do I manage this?
 
 Solution
 ^^^^^^^^
@@ -215,26 +216,26 @@ All you need to do it to pass empty list ``[]`` to the ``upload_source_files`` p
 
 As a result you will not send sources to Neptune, so they will not be available in the Source Code tab in the Web app.
 
-Upload notebook checkpoint
+Upload Notebook checkpoint
 --------------------------
-I want to add Notebook checkpoint to my project. How to do it?
+I want to add a Notebook checkpoint to my project.
 
 Solution
 ^^^^^^^^
-Go to your Jupyter, where you can see two Neptune buttons:
+Go to your Jupyter, where you see two Neptune buttons:
 
-* **n** button is for configuration changes
-* **Upload** button is for making checkpoint in Neptune
+* **Connect to Neptune** is for configuration changes.
+* **Upload** is for making a checkpoint in Neptune.
 
 .. image:: ../../_static/images/notebooks/buttons_02_1.png
    :target: ../../_static/images/notebooks/buttons_02_1.png
    :alt: image
 
-Click **Upload**, whenever you want to create new checkpoint in Neptune. You will see tooltip with link as a confirmation.
+Click **Upload** whenever you want to create a new checkpoint in Neptune. 
+A notification containing a link appears as confirmation.
 
 .. image:: ../../_static/images/notebooks/buttons_03_1.png
    :target: ../../_static/images/notebooks/buttons_03_1.png
    :alt: image
 
 .. note:: You can use **Upload** as many times as you want.
-

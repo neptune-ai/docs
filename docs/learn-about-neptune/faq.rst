@@ -34,7 +34,7 @@ Please consult |pricing| page, where storage limits are listed.
 
 ----
 
-Q: What is the number of experiments or notebooks limit?
+Q: What is the number of experiments or Notebooks limit?
 --------------------------------------------------------
-There are no limits. You can have as many experiments and notebooks as you wish.
+There are no limits. You can have as many experiments and Notebooks as you wish.
 
