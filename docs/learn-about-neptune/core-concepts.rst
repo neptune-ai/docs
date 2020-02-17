@@ -11,26 +11,29 @@ This page familiarizes you with the Neptune platform by describing some of its c
 Projects
 --------
 
-A Neptune project is the space in which you hold everything related to a specific machine learning problem or domain. 
-You work and collaborate on projects.
+A Neptune project is a collection of experiments.  
 
-A project includes Notebooks, experiments and a Wiki. For any project, you can make settings.
+In addition to experiments, a project includes `Notebooks <../notebooks/introduction.html>`_ and a Wiki. 
+
+Project settings are accessible from the **Settings** tab in the Project view.
 
 Project types
 ^^^^^^^^^^^^^
 
-There are two project types: private and public.
+A Project is either private or public.
+
+You can set a project’s public/private visibility in the **Properties** tab under **Settings**.
 
 .. _core-concepts_project-types:
 
-Private
-"""""""
+Private projects
+""""""""""""""""
 Only people who have been added to a private project can see it. 
 The Project :ref:`Owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the Settings tab.
 
 
-Public
-""""""
+Public projects
+"""""""""""""""
 Public projects are freely available to view by anyone who has access to the Internet.
 Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
@@ -46,6 +49,14 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
     <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>
 
 
+Learn more
+^^^^^^^^^^
+
+- `Create a project <team-management.html#create-a-project>`_
+- `Add users to a project <team-management.html#add-users-to-a-project>`_
+
+----------------------------------------------------------------------------------------------
+
 Organizations
 -------------
 
@@ -58,19 +69,26 @@ Organization types
 
 Neptune has two organization types: Individual and Team
 
-Individual
-""""""""""
+Individual organizations
+""""""""""""""""""""""""
 * Each user is assigned individual organization with ``username`` as an organization name.
 * User is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
 * User can create unlimited number of projects in the individual organization.
 
-Team
-""""
+Team organizations
+""""""""""""""""""
 * Team organizations comes in handy when an entire team needs to be managed centrally.
 * Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
 * Only users who joined team organizations can browse its content, subject to their assigned :ref:`roles <core-concepts_user-roles>` in the organization or project.
 
-Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
+
+Learn more
+^^^^^^^^^^
+
+- `Create an organization <team-management.html#create-an-organization>`_
+- `Invite users to an organization <team-management.html#invite-users-to-an-organization>`_
+
+----------------------------------------------------------------------------------------------
 
 User Roles
 ----------
