@@ -9,7 +9,7 @@ Team, project and user management
 .. _how-to_team-management_create-organization:
 
 Create an organization
--------------------
+----------------------
 Neptune lets you create an :ref:`organization <core-concepts_organization-types>`.
 
 1. Click the **Context Switcher** at the upper-right corner and click **Create new organization**.
@@ -45,14 +45,14 @@ After you have :ref:`created an organization <how-to_team-management_create-orga
    :target: ../_static/images/how-to/team-management/create-org-1.png
    :alt: Go to settings to invite user to organization
 
-2. In the panel that appears, click the **People** tab. 
+2. In the panel that appears, click the **People** tab.
 
 .. image:: ../_static/images/how-to/team-management/invite-to-org-2.png
    :target: ../_static/images/how-to/team-management/invite-to-org-2.png
    :alt: Invite user to organization
 
 - The tab displays the list of users who already belong to the organization or whose membership is pending.
-- Above the list is a field in which you can type an email or username  of people you want to invite. Neptune identifies names and emails for people who already have an account. 
+- Above the list is a field in which you can type an email or username  of people you want to invite. Neptune identifies names and emails for people who already have an account.
 
 3. Specify a name, set a role (Admin or Member) and click **Invite**.
 
@@ -88,11 +88,11 @@ Add users to a project
 
     Only a project Owner can invite new users to the project. Learn more about :ref:`project roles <core-concepts_user-roles_project-owner>`.
 
-1. In the Project pane, click **Settings**, then click the **People** tab. 
+1. In the Project pane, click **Settings**, then click the **People** tab.
 
 
 - The tab displays the list of project members who already belong to the project.
-- Above the list is a field in which you can type an email or username of people you want to invite. Neptune identifies names and emails for people who already have an account. 
+- Above the list is a field in which you can type an email or username of people you want to invite. Neptune identifies names and emails for people who already have an account.
 
 2. Specify an email or username of a user you want to add.
 
@@ -105,6 +105,6 @@ Add users to a project
 
 .. note::
 
-    - If the project is created in a team organization, the user is assigned to the project immediately.
-    - If the project is created in an individual account, the user is invited to the project by email.
-    - The invited user must accept the invitation in order to appear in the list of project members.
+    - If the project is created in a team organization, the user is assigned to the project immediately and notified by email.
+    - If the project is created in an individual account, you can add users only to a public project. The user is notified by email and must accept the invitation to be added.
+    You cannot add users to a private project.

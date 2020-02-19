@@ -101,7 +101,7 @@ You can log images in a loop. For example, you can augment your image and log it
 
 Save experiment output
 ----------------------
-I can run my experiment but I am struggling to save the model weights and the ``csv`` file with the results when it completes. 
+I can run my experiment but I am struggling to save the model weights and the ``csv`` file with the results when it completes.
 How can I do that in Neptune?
 
 Solution
@@ -222,20 +222,19 @@ I want to add a Notebook checkpoint to my project.
 
 Solution
 ^^^^^^^^
-Go to your Jupyter, where you see two Neptune buttons:
+Go to your Jupyter UI, where you see several Neptune buttons:
 
-* **Connect to Neptune** is for configuration changes.
-* **Upload** is for making a checkpoint in Neptune.
+.. image:: ../../_static/images/notebooks/buttons_11.png
+    :target: ../../_static/images/notebooks/buttons_11.png
+    :alt: image
 
-.. image:: ../../_static/images/notebooks/buttons_02_1.png
-   :target: ../../_static/images/notebooks/buttons_02_1.png
-   :alt: image
+- **Neptune**: For modifying configuration.
+- **Upload**: For creating a new checkpoint in Neptune.
+- **Download**: For downloading a specific checkpoint from Neptune.
+- **Activate**: Associates experiments you will be running with this Notebook.
 
-Click **Upload** whenever you want to create a new checkpoint in Neptune. 
+Click **Upload** whenever you want to create a new checkpoint in Neptune.
 A notification containing a link appears as confirmation.
 
-.. image:: ../../_static/images/notebooks/buttons_03_1.png
-   :target: ../../_static/images/notebooks/buttons_03_1.png
-   :alt: image
 
 .. note:: You can use **Upload** as many times as you want.

@@ -71,9 +71,9 @@ Neptune has two organization types: Individual and Team
 
 Individual organizations
 """"""""""""""""""""""""
-* Each user is assigned individual organization with ``username`` as an organization name.
-* User is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
-* User can create unlimited number of projects in the individual organization.
+* Each user is assigned an individual organization with ``username`` as the organization name.
+* The user is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
+* The user can create an unlimited number of projects in the individual organization.
 
 Team organizations
 """"""""""""""""""
@@ -111,7 +111,7 @@ If so, you can invite people to join it. You can assign the members one of two r
 
     An organization must have at least one Admin.
 
-By default, an Admin is the Owner of all projects (this setting is editable).
+By default, an Admin is the Owner of all projects.
 
 Admins have edit permissions for organization settings, which they can access by
 clicking **Settings** for the relevant organization.
@@ -150,8 +150,8 @@ Members of projects can be one of three types: Owner, Contributor or Viewer.
 
 **Contributor**
 
-* Has edit access to his or her own experiments and Notebooks.
-* Has view access to all his or her experiments and Notebooks.
+* Has edit access to all experiments and Notebooks.
+* Has edit access to project settings.
 * Can run experiments.
 * Can add Notebooks and make checkpoints.
 * In the Settings tab, has view-only access to people in a project.
