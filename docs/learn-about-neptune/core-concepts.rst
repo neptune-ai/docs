@@ -11,9 +11,9 @@ This page familiarizes you with the Neptune platform by describing some of its c
 Projects
 --------
 
-A Neptune project is a collection of experiments.  
+A Neptune project is a collection of experiments.
 
-In addition to experiments, a project includes `Notebooks <../notebooks/introduction.html>`_ and a Wiki. 
+In addition to experiments, a project includes `Notebooks <../notebooks/introduction.html>`_ and a Wiki.
 
 Project settings are accessible from the **Settings** tab in the Project view.
 
@@ -28,7 +28,7 @@ You can set a project’s public/private visibility in the **Properties** tab un
 
 Private projects
 """"""""""""""""
-Only people who have been added to a private project can see it. 
+Only people who have been added to a private project can see it.
 The Project :ref:`Owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the Settings tab.
 
 
@@ -60,7 +60,7 @@ Learn more
 Organizations
 -------------
 
-An Organization is a way to centrally manage projects, users and subscription. 
+An Organization is a way to centrally manage projects, users and subscription.
 
 Organization types
 ^^^^^^^^^^^^^^^^^^
@@ -78,7 +78,7 @@ Individual organizations
 Team organizations
 """"""""""""""""""
 * Team organizations comes in handy when an entire team needs to be managed centrally.
-* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
+* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This includes users and subscription.
 * Only users who joined team organizations can browse its content, subject to their assigned :ref:`roles <core-concepts_user-roles>` in the organization or project.
 
 
@@ -94,7 +94,7 @@ User Roles
 ----------
 .. _core-concepts_user-roles:
 
-Subject to their roles, users belong to organizations and collaborate on projects. 
+Subject to their roles, users belong to organizations and collaborate on projects.
 The roles in an organization are different from the roles in a project.
 
 Roles in an organization
@@ -113,7 +113,7 @@ If so, you can invite people to join it. You can assign the members one of two r
 
 By default, an Admin is the Owner of all projects (this setting is editable).
 
-Admins have edit permissions for organization settings, which they can access by 
+Admins have edit permissions for organization settings, which they can access by
 clicking **Settings** for the relevant organization.
 
 .. image:: ../_static/images/core-concepts/org-settings.png
@@ -131,7 +131,7 @@ Settings include people and subscription:
 
 **Member**
 
-Regular members have no access to organization settings. For projects created in an organization, a member can be 
+Regular members have no access to organization settings. For projects created in an organization, a member can be
 assigned by the project Owner.
 
 Roles in a project
