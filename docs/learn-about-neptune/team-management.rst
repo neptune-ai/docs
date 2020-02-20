@@ -8,29 +8,23 @@ Team, project and user management
 
 .. _how-to_team-management_create-organization:
 
-Create organization
--------------------
-I have a team working on projects together. How can I create an :ref:`organization <core-concepts_organization-types>` account in Neptune?
+Create an organization
+----------------------
+Neptune lets you create an :ref:`organization <core-concepts_organization-types>`.
 
-**Step 1**
-
-Click on **Context Switcher** at the upper-right corner and click **Create new organization**.
+1. Click the **Context Switcher** at the upper-right corner and click **Create new organization**.
 
 .. image:: ../_static/images/how-to/team-management/create-org-1.png
    :target: ../_static/images/how-to/team-management/create-org-1.png
    :alt: create new organization
 
-**Step 2**
-
-Now, set a name and click **Create organization**.
+2. Type in a name and click **Create organization**.
 
 .. image:: ../_static/images/how-to/team-management/create-org-2.png
    :target: ../_static/images/how-to/team-management/create-org-2.png
    :alt: type name for new organization
 
-**Step 3**
-
-Once organization is created, you can start :ref:`inviting people <invite-to-organization>` to your organization.
+3. Once the organization has been created, you can :ref:`invite people <invite-to-organization>` to your organization.
 
 .. image:: ../_static/images/how-to/team-management/create-org-3.png
    :target: ../_static/images/how-to/team-management/create-org-3.png
@@ -38,70 +32,79 @@ Once organization is created, you can start :ref:`inviting people <invite-to-org
 
 .. _invite-to-organization:
 
-Invite user to organization
----------------------------
-I want to invite my teammates to the organization. How can I do that?
+Invite users to an organization
+-------------------------------
+After you have :ref:`created an organization <how-to_team-management_create-organization>`, you can invite members to join it.
 
 .. note::
-    Only :ref:`organization admin <core-concepts_user-roles_organization-admin>` can invite new users to organization.
+    Only :ref:`an organization Admin <core-concepts_user-roles_organization-admin>` can invite new users to an organization.
 
-**Step 1**
-
-Go to **Context Switcher** at the upper-right corner and click **Settings** button.
+1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant organization.
 
 .. image:: ../_static/images/how-to/team-management/create-org-1.png
    :target: ../_static/images/how-to/team-management/create-org-1.png
    :alt: Go to settings to invite user to organization
 
-**Step 2**
-
-Go to **People** tab. You can see list of users and text-field where you can type email or username
-(in case they already have an account in Neptune) of people you want to invite. Set a role and click **Invite**.
+2. In the panel that appears, click the **People** tab.
 
 .. image:: ../_static/images/how-to/team-management/invite-to-org-2.png
    :target: ../_static/images/how-to/team-management/invite-to-org-2.png
    :alt: Invite user to organization
 
-Users will be invited via email to join your organization.
+- The tab displays the list of users who already belong to the organization or whose membership is pending.
+- Above the list is a field in which you can type an email or username  of people you want to invite. Neptune identifies names and emails for people who already have an account.
 
-Create project
---------------
-How to create a new project?
+3. Specify a name, set a role (Admin or Member) and click **Invite**.
 
-**Step 1**
+The users you invite will be invited via email to join your organization. Until they join, their status is marked as "Pending invitation".
 
-Go to **Projects** view (link at the top bar on the left side) and click on **New project** button.
+Create a project
+----------------
+Neptune lets you create a project.
+
+1. Click **Project** at the top-left of the window.
+
+2. In the pane that appears, click **New project**.
 
 .. image:: ../_static/images/how-to/team-management/create-project-1.png
    :target: ../_static/images/how-to/team-management/create-project-1.png
    :alt: Go to new project panel
 
-**Step 2**
-
-Now you can set a name, color, description and project type *Public* or *Private* (:ref:`learn more <core-concepts_project-types>`).
+3. Set a name, color, description and :ref:`project type <core-concepts_project-types>` (Public or Private).
 
 .. image:: ../_static/images/how-to/team-management/create-project-2.png
    :target: ../_static/images/how-to/team-management/create-project-2.png
    :alt: Create new project
 
-When you click "Apply" - new project is created.
+4. Click **Apply**.
+
+The new project is created.
 
 .. _how-to_team-management_invite-to-project:
 
-Add user to project
--------------------
+Add users to a project
+----------------------
 .. note::
 
-    Only project Owner can invite new users to the project. Learn more about :ref:`project roles <core-concepts_user-roles_project-owner>`.
+    Only a project Owner can invite new users to the project. Learn more about :ref:`project roles <core-concepts_user-roles_project-owner>`.
 
-| Go to Project **Settings**, then to **People** tab. There is a list of project members.
-| Type email or username (in case they already have an account in Neptune) of user you want to invite / add.
-| Set a role and click **Invite** / **Assign**.
+1. In the Project pane, click **Settings**, then click the **People** tab.
+
+
+- The tab displays the list of project members who already belong to the project.
+- Above the list is a field in which you can type an email or username of people you want to invite. Neptune identifies names and emails for people who already have an account.
+
+2. Specify an email or username of a user you want to add.
+
+3. Set a role and click **Invite**.
 
 .. image:: ../_static/images/how-to/team-management/add-user-1.png
    :target: ../_static/images/how-to/team-management/add-user-1.png
    :alt: Add users to project
 
-| If it is project created in team organization, user is assigned to project immediately.
-| If it is project created in the individual account, user is invited to the project via mail.
-  User needs to accept invite, before you can see such person on the list above.
+
+.. note::
+
+    - If the project is created in a team organization, the user is assigned to the project immediately and notified by email.
+    - If the project is created in an individual account, you can only add users to a public project. The user is notified by email and must accept the invitation to be added.
+    You cannot add users to a private project.
