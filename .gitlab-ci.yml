@@ -158,7 +158,6 @@ stages:
   echo ""
   cat cicd-release/values.yaml
   echo ""
-  FILE_NAME=$(ls cicd-release/ | grep neptune-docs)
 
   helm upgrade -i \
     neptune-docs \
