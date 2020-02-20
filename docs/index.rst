@@ -97,7 +97,6 @@ Documentation contents
    Introduction <notebooks/introduction.rst>
    Installation for Jupyter and JupyterLab <notebooks/installation.rst>
    Configuration <notebooks/configuration.rst>
-   Integrations with AWS and SageMaker <notebooks/integrations.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::
@@ -124,6 +123,7 @@ Documentation contents
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
+   AWS and SageMaker for Notebooks <notebooks/integrations.rst>
 
 .. External links
 
