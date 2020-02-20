@@ -65,7 +65,7 @@ You can run Neptune and track experiments that you run on AWS cloud.
 
 5. Define your secrets.
 
-    a. Go to Neptune, `get your NEPTUNE_API_TOKEN <troubleshoot.html#where-is-neptune-api-token>`_ and copy it to the clipboard. 
+    a. Go to Neptune, `get your NEPTUNE_API_TOKEN <troubleshoot.html#where-is-neptune-api-token>`_ and copy it to the clipboard.
     b. Create a password for your JupyterLab server.
     c. Set the following two secrets to your environment variables, ``NEPTUNE_API_TOKEN`` and ``JUPYTERLAB_PASSWORD``:
 
@@ -133,10 +133,10 @@ You can run Neptune and track experiments that you run on AWS cloud.
 9. Open the JupyterLab server in your browser.
 
     Go to `localhost:8888`.
-    
+
 Enjoy your JupyterLab server with Neptune.
 
-Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with 
+Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with
 Notebooks and run experiments with no problem.
 
 Setting up a Neptune-enabled AWS SageMaker Jupyter instance
@@ -158,7 +158,8 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
     .. image:: ../_static/images/how-to/ht-sagemaker-create_configuration.png
        :target: ../_static/images/how-to/ht-sagemaker-create_configuration.png
        :alt: image
-    |   
+
+    |
 
          You can choose whatever name you want -- just make sure to remember it.
 
@@ -169,7 +170,7 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
        :alt: image
 
     |
-    
+
     c. Copy and paste the script below to your **Create Notebook** tab.
 
         In the **PARAMETERS** section, choose in which environments you want to install neptune-client.
@@ -201,7 +202,6 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
         jupyter nbextension enable --py neptune-notebooks --sys-prefix
         jupyter labextension install neptune-notebooks
         source /home/ec2-user/anaconda3/bin/deactivate
-
         EOF
 
 3. Create a Notebook instance.
@@ -230,16 +230,16 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
 
 4. Start Notebook.
 
-    If everything went well, your AWS SageMaker instance should have *InService* status and you can open a Jupyter Notebook or JupyterLab 
+    If everything went well, your AWS SageMaker instance should have *InService* status and you can open a Jupyter Notebook or JupyterLab
     with Neptune Notebook versioning enabled.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :alt: image
 
-    
 You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
+
           :alt: image

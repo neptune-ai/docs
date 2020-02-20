@@ -123,6 +123,7 @@ Documentation contents
    PyTorchLightning <integrations/pytorch_lightning.rst>
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
+   Skorch <integrations/skorch.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
 
 .. External links
