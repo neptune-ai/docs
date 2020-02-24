@@ -32,7 +32,7 @@ Create an **Experiment**
                                            upload_source_files=['skorch_example.py'])
 
 Create **NeptuneLogger** callback
---------------------------------
+---------------------------------
 Pass the experiment object as first argument.
 
 .. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``
@@ -43,7 +43,7 @@ Pass the experiment object as first argument.
     neptune_logger = NeptuneLogger(experiment, close_after_train=False)
 
 Pass **neptune_logger** to **NeuralNetClassifier**
--------------------------------------------------
+--------------------------------------------------
 .. code-block:: python3
 
     net = NeuralNetClassifier(
