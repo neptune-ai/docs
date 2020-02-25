@@ -118,6 +118,7 @@ Documentation contents
    Frameworks <integrations/frameworks.rst>
    R <integrations/r-support.rst>
    TensorBoard <integrations/tensorboard.rst>
+   Parallel plots <integrations/hiplot.rst>
    MLflow <integrations/mlflow.rst>
    Fast.ai <integrations/fast_ai.rst>
    PyTorchLightning <integrations/pytorch_lightning.rst>
