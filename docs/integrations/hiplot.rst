@@ -79,9 +79,14 @@ Inspect experiments lineage
 
 Learn more
 ----------
+Learn more about the |parallel-plot|.
 
-#. Learn more about the |parallel-plot|,
-#. Check this |notebook-example| for ready to use example.
+Check example notebooks in Neptune
+----------------------------------
+#. |credit-default-prediction|
+#. |example-project|
+
+These notebooks are tracked in Neptune public projects. Feel free to play with the plots - they are interactive.
 
 .. External links
 
@@ -101,6 +106,10 @@ Learn more
 
     <a href="https://neptune-contrib.readthedocs.io/user_guide/viz/parallel_coordinates_plot.html" target="_blank">parallel coordinates plot</a>
 
-.. |notebook-example| raw:: html
+.. |example-project| raw:: html
 
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1" target="_blank">Example notebook</a>
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/n/parallel-plot-cb5394cc-edce-41e3-9a25-7970865c66ad/59377976-6651-40ed-b3c3-eb0fa5aa79bc" target="_blank">example-project</a>
+
+.. |credit-default-prediction| raw:: html
+
+    <a href="https://ui.neptune.ai/neptune-ai/credit-default-prediction/n/parallel-plot-04e5c379-0837-42ff-a11c-a8861ca4a408/c486644a-a356-4317-b397-6cdae86b7575" target="_blank">credit-default-prediction</a>

@@ -16,7 +16,7 @@ neptune-notebooks is a Python package hosted `here <https://pypi.org/project/nep
 
 - A very basic CLI (command line interface) for uploading notebooks.
 - Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.
-- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted `here <https://www.npmjs.com/package/neptune-notebooks>`_.
+- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted `on the npm <https://www.npmjs.com/package/neptune-notebooks>`_.
 
 
 Installation for Jupyter
