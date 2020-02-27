@@ -1,5 +1,5 @@
-Use parallel coordinates plot to analyse multiple experiments
-=============================================================
+Use HiPlot integration to analyse multiple experiments
+======================================================
 
 .. image:: ../_static/images/hiplot/example_hiplot_0.png
    :target: ../_static/images/hiplot/example_hiplot_0.png
@@ -55,7 +55,6 @@ Generate parallel coordinates plot
 
 Customize visualization to your need
 ------------------------------------
-
 #. Set axes order,
 #. Drop unused axes,
 #. Apply coloring to axis,
@@ -68,7 +67,6 @@ Customize visualization to your need
 
 Inspect experiments lineage
 ---------------------------
-
 #. Right-click on the axis name,
 #. Use options 'Set as X axis' and 'Set as Y axis' (in the menu XY group at the bottom),
 #. When both are selected, you will see lineage plot below parallel coordinates plot.
@@ -77,16 +75,16 @@ Inspect experiments lineage
    :target: ../_static/images/hiplot/example_hiplot_2.gif
    :alt: experiments lineage
 
-Learn more
-----------
-Learn more about the |parallel-plot|.
-
 Check example notebooks in Neptune
 ----------------------------------
 #. |credit-default-prediction|
 #. |example-project|
 
 These notebooks are tracked in Neptune public projects. Feel free to play with the plots - they are interactive.
+
+Learn more
+----------
+Check integration |documentation| for more details.
 
 .. External links
 
@@ -102,9 +100,9 @@ These notebooks are tracked in Neptune public projects. Feel free to play with t
 
     <a href="https://docs.neptune.ai/integrations/neptune-contrib.html" target="_blank">neptune-contrib</a>
 
-.. |parallel-plot| raw:: html
+.. |documentation| raw:: html
 
-    <a href="https://neptune-contrib.readthedocs.io/user_guide/viz/parallel_coordinates_plot.html" target="_blank">parallel coordinates plot</a>
+    <a href="https://neptune-contrib.readthedocs.io/user_guide/viz/parallel_coordinates_plot.html" target="_blank">documentation</a>
 
 .. |example-project| raw:: html
 
