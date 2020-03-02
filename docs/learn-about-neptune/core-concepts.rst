@@ -1,99 +1,113 @@
-Core concepts
+Core Concepts
 =============
+This page presents several key concepts as they are used in the Neptune UI and documentation set.
 
-User roles
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
+
+User Roles
 ----------
 .. _core-concepts_user-roles:
 
-Roles in organization
-^^^^^^^^^^^^^^^^^^^^^
-If you have an organization (check how to :ref:`create one <how-to_team-management_create-organization>`),
-you can invite people to it. Two roles are available:
+There are roles in projects and in organizations.
+
+
+Roles in an organization
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _core-concepts_user-roles_organization-admin:
 
-**Admin**
+If you have :ref:`created an organization <how-to_team-management_create-organization>`,
+you can invite people to it. Two roles are available: Admin and Member.
 
-* Has edit access to organization settings, that is *billing* and *people*.
-* On the *billing* panel can edit payment options and plans and access to invoice data.
-* On the *people* panel can add / remove people from organization.
-* By default admin is an *Owner* of all projects (editable option).
+The following table summarizes the permissions available for the organization roles.
+
+.. csv-table::
+   :header: "Permission","Admin","Member"
+   :widths: 20, 20, 20
+
+    Access level in Organization settings: Subscription and People tabs,edit,none
+    Access to invoice data,edit,none
+    On the People tab can add and remove people from organization,edit,none
+
+
+You can access organization settings by clicking **Settings**.
 
 .. figure:: ../_static/images/core-concepts/org-settings.png
    :target: ../_static/images/core-concepts/org-settings.png
    :alt: organization settings button
 
-   You can access organization settings by clicking blue button "Settings".
 
 .. note::
 
-    Organization must have at least one Admin, so last Admin cannot be removed from the organization.
+    - An Admin of an organization is also the Owner of all projects, by default.
+    - Project Owners can grant project ownership to anyone in the organization.
+    - An organization must have at least one Admin, so the last remaining Admin cannot be removed from the organization.
 
-**Member**
-
-* Has no access to organization settings.
-* For projects created in organization: member can be assigned to such project by project Owner.
-
-Roles in project
-^^^^^^^^^^^^^^^^
+Roles in a project
+^^^^^^^^^^^^^^^^^^
 .. _core-concepts_user-roles_project-owner:
 
-**Owner**
+The following table summarizes the permissions available for the three project roles: Owner, Contributor and Viewer.
 
-* Has edit access to all experiments and notebooks.
-* Has edit access to project settings.
-* Can remove project.
-* Project creator is by default project owner.
+.. csv-table::
+   :header: "Permission","Owner","Contributor","Viewer"
+   :widths: 20, 20, 20, 20
 
-**Contributor**
+    Access level in project settings,edit,none,none
+    Access level to own experiments and notebooks,edit,edit,view *
+    Access level to all experiments Notebooks and Wiki,edit,edit,view
+    Access to people in project (under Settings tab),yes,view,view
+    Can run experiments,yes,yes,no
+    Can add notebooks and make checkpoints,yes,yes,no
+    Can leave project,yes,yes/no ^,yes/no ^
+    Can remove project,yes,no,no
 
-* Has edit access to own experiments and notebooks.
-* Has view access to all experiments and notebooks.
-* Can run experiments.
-* Can add notebooks and make checkpoints.
-* In the settings tab, have view-only access to people in project.
-* Can leave project.
+\* A Viewer can own experiments if (s)he was a contributor earlier.
 
-**Viewer**
-
-* Has view-only access to experiments, notebooks and Wiki.
-* Cannot run experiments, make notebook checkpoints.
-* Has no access to project settings.
+^ Depends on organization type. Can leave public project in individual organization; cannot leave project in team organization.
 
 ====
 
-Organization types
+Organization Types
 ------------------
 
 .. _core-concepts_organization-types:
 
-Organization is a way to centrally manage projects, users (and billing). Neptune has two organization types.
+An organization is a way to centrally manage projects, users and subscriptions. 
+
+Neptune has two organization types: individual and team.
 
 Individual
 ^^^^^^^^^^
 * Each user is assigned individual organization with ``username`` as an organization name.
-* User is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
-* User can create unlimited number of projects in the individual organization.
+* The user is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
+* The user can create an unlimited number of projects in the individual organization.
 
 Team
 ^^^^
-* Team organization comes handy when entire team needs to be managed centrally.
-* Once :ref:`created <how-to_team-management_create-organization>`, team organization can be managed by :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and billing.
-* Only Users who joined team organization can browse its content, subject to assigned :ref:`role <core-concepts_user-roles>` in the organization or project.
+* A team organization comes in handy when an entire team needs to be managed centrally.
+* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by the :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
+* Only users who joined team organization can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the organization or project.
 
 Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
 
 ====
 
-Project types
+Project Types
 -------------
 .. _core-concepts_project-types:
 
+There are private and public projects.
+
 Private
 ^^^^^^^
-Only people added to the project can see it. Project :ref:`owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the settings view.
+Only people added to the project can see it. The project :ref:`Owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the Settings view.
 
-Example view, where project Owner can manage project members
+Here is an example view, where the project Owner can manage project members:
 
 .. image:: ../_static/images/core-concepts/invite-to-project.png
    :target: ../_static/images/core-concepts/invite-to-project.png
@@ -101,7 +115,7 @@ Example view, where project Owner can manage project members
 
 Public
 ^^^^^^
-Public project is freely available to view by everyone who has access to the Internet.
+Public projects are freely available to view by everyone who has access to the Internet.
 Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
 .. External links

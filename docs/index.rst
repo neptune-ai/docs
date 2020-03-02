@@ -87,6 +87,7 @@ Documentation contents
 
    learn-about-neptune/core-concepts.rst
    learn-about-neptune/team-management.rst
+   learn-about-neptune/collaborate.rst
    learn-about-neptune/nql.rst
    learn-about-neptune/faq.rst
 
@@ -97,7 +98,6 @@ Documentation contents
    Introduction <notebooks/introduction.rst>
    Installation for Jupyter and JupyterLab <notebooks/installation.rst>
    Configuration <notebooks/configuration.rst>
-   Integrations with AWS and SageMaker <notebooks/integrations.rst>
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::
@@ -125,6 +125,7 @@ Documentation contents
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Skorch <integrations/skorch.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
+   Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
 
 .. External links
 
