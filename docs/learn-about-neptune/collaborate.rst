@@ -1,12 +1,10 @@
 Collaborating in Neptune
 ========================
 
-As an experiment tracking hub, Neptune provides several features for enabling knowledge sharing and collaboration among members 
+As an experiment tracking hub, Neptune provides several features for enabling knowledge sharing and collaboration among members
 of your data science team.
 
-The sections below describe these.
-
-In multiple places in Neptune, there is “copy” icon: , click on it to copy the content.
+To share a view on a project or any of its parts, you simply copy and paste the URL to it.
 
 .. contents::
     :local:
@@ -21,36 +19,44 @@ About Access to Organizations and Projects
 
 For more information about user permissions in organizations and projects, see :ref:`user roles <core-concepts_user-roles>`.
 
-Sharing with Teammates
-----------------------
-Neptune lets you share details of experiments, Notebooks, and projects.
+Link Structure
+--------------
 
-.. contents::
-    :local:
-    :depth: 1
-    :backlinks: top
+Links to organizations in Neptune.ai are in the following format:
+neptune.ai/*ORGANIZATION_NAME*/*PROJECT_NAME*
+
+There are three parts:
+
+- The Neptune domain: https://ui.neptune.ai
+
+- /*ORGANIZATION_NAME*
+
+  - In the case of a team project, the organization name is used.
+  - In the case of a single-user project, the username is used.
+
+- /*PROJECT_NAME*
+
+**Examples**
+
+- https://ui.neptune.ai/USERNAME/example-project is an example of a team project.
+- https://ui.neptune.ai/jakub-czakon/r-integration is an example of a single-user project.
 
 
-Experiment details
-^^^^^^^^^^^^^^^^^^
+.. note:: You can also fetch these experiment details programmatically. For more information, see `Query API <../python-api/query-api.html>`_.
 
-You can share experiment details with your teammates.
+Additions to the project URL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Each link to the experiment is unique, so you can send it using your favorite communication medium. 
-Example: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-21. This link will guide you to the experiment charts.
+The URL requires additional subdirectories to access a specific experiment.
 
-Share experiment short ID
-In the experiment details tab, there is a metadata section that allows users to copy experiment short ID. 
-It is a unique experiment identifier within the project.
+**Example**
 
-Example https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-21/details
+https://ui.neptune.ai/USERNAME/org/example-project/e/HELLO-191
 
-Experiment charts and other resources
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can share experiment charts and other resources with your teammates.
+Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
+Each presents specific content logged to Neptune for the particular experiment.
 
-Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details. 
-Each present specific content logged to Neptune for the experiment in question. Each tab has a separate link, for example:
+Each tab has a specific URL, for example:
 
 - Charts: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-191/charts
 - Logs: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-191/logs
@@ -60,93 +66,234 @@ Each present specific content logged to Neptune for the experiment in question. 
 - Parameters: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters
 - Details: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details
 
-Note:
-You can also fetch these experiment details programmatically. For more information, see Query API.
+
+Sharing Links with Teammates
+----------------------------
+Neptune lets you share views of experiments, Notebooks, and projects by sharing the URL to a specific view.
+
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
+
+There are two ways to get the URL you need for sharing:
+
+- Clicking the **Copy** button.
+
+   Copy the current URL to the clipboard by clicking any **Copy** button that appears. After copying the link, you can paste it, as needed, in an email message, message or other medium.
+
+   **Example**
+
+    .. image:: ../_static/images/core-concepts/metadata_copy.png
+        :target: ../_static/images/core-concepts/metadata_copy.png
+        :alt: Copy URL
+
+- Copying the URL from the address bar.
+
+Details of the URL composition appear in `Link Structure <collaborate.html#link-structure>`_, above.
+
+Experiment details
+^^^^^^^^^^^^^^^^^^
+
+You can share short experiment IDs. An experiment ID is a unique identifier within the project.
+
+In the **Experiment Details** tab, under the **Metadata** section, click the **Copy** button in the ID field.
+
+**Example**
+
+https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-21/details
+
+Experiment charts and other resources
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can share experiment charts and other resources.
+
+Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
+Each displays specific content that is logged to Neptune for the specific experiment.
+`Each tab has a unique URL <collaborate.html#additions-to-the-project-url>`_.
 
 Projects
 ^^^^^^^^
-You can share projects with your teammates.
+You can share projects.
 
-Links to projects are unique, they consist of two pieces: https://ui.neptune.ai then project name for example: https://ui.neptune.ai/USERNAME/example-project or https://ui.neptune.ai/jakub-czakon/r-integration.
-Share experiments view
-Views on the experiment table are associated with a unique id in the URL. It means that you can share a link to a particular view, for example: https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=d7f80ebe-5bfe-4d12-97c1-2b1e6184a2ed
-Just to remind you, you switch between experiment views using drop-down menu, depicted below:
+**Example**
+
+https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=d7f80ebe-5bfe-4d12-97c1-2b1e6184a2ed
+
 
 Experiment comparisons
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You can share experiment comparisons with your teammates.
+When you compare experiments in the UI, Neptune assigns it a unique URL. Share the URL to show your teammates the exact comparison
+you made.
 
-When you compare experiments on the compare you, note that the URL in your browser contains experiments IDs. In this way, 
-you can point your team members to some comparison view that has specific experiments.
+**Example**
 
-Example compare view is like this.
-
-It is available under this link:
 https://ui.neptune.ai/o/USERNAME/org/example-project/compare?shortId=%5B%22HELLO-191%22%2C%22HELLO-197%22%2C%22HELLO-176%22%2C%22HELLO-177%22%2C%22HELLO-123%22%5D&viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9
+
+
+
+    .. image:: ../_static/images/core-concepts/compare_experiments.png
+        :target: ../_static/images/core-concepts/compare_experiments.png
+        :alt: Compare experiments
+
 
 
 Notebook checkpoints
 ^^^^^^^^^^^^^^^^^^^^
-You can share a Notebook checkpoint with your teammates.
 
-Every time you make a Notebook checkpoint, Neptune assigns it a unique ID. 
+Every time you make a Notebook checkpoint, Neptune assigns it a unique ID.
 Similarly to other views in Neptune, you can share a link to the particular Notebook checkpoint.
-Example link: https://ui.neptune.ai/o/USERNAME/org/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1
-You can either copy the link from the address bar in the browser or click **Share** in the checkpoint actions menu. See below:
 
-Then you are ready to click “copy” icon:
+**Example**
+
+https://ui.neptune.ai/o/USERNAME/org/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1
+
+1. Click **Share** in the checkpoint actions menu:
+
+    .. image:: ../_static/images/core-concepts/notebook_checkpoint.png
+        :target: ../_static/images/core-concepts/notebook_checkpoint.png
+        :alt: Notebook checkpoint
+        :width: 400
+
+2. Click **Copy**.
 
 Notebook comparisons
 ^^^^^^^^^^^^^^^^^^^^
 You can share a Notebook comparison with your teammates.
 
-The Notebook comparison feature lets you compares two checkpoints site-by-site, like source code. The comparison has a unique link, as well. 
+The Notebook comparison feature lets you compares two checkpoints site-by-site, like source code. The comparison has a unique link, as well.
 You can copy the link in either of the following ways:
-- Copy the link from the address bar in the browser
-- Click the **Share** icon in the Notebook comparison view, then, in the dialog that pops up, click the copy icon.
+
+- Copy the link from the address bar in the browser.
+- Click the **Share** button in the Notebook comparison view, then, in the dialog that appears, click **Copy**.
+
+**Example**
+
+https://ui.neptune.ai/o/USERNAME/org/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848
 
 
-Example link: https://ui.neptune.ai/o/USERNAME/org/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848
+    .. image:: ../_static/images/core-concepts/notebook_comparison.png
+        :target: ../_static/images/core-concepts/notebook_comparison.png
+        :alt: Notebook comparison
+        :width: 900
 
+Working with the Project Wiki
+-----------------------------
 
-Using the Project Wiki
-----------------------
-
-Each Neptune project has a built-in Wiki. The Wiki is a great place for developing and sharing reports, insights, and remarks 
+Each Neptune project has a built-in Wiki. The Wiki is a collabortive space for developing and sharing reports, insights, and remarks
 about the project's progress, experiments and data exploration Notebooks.
 
-Create page
-Click “+” icon
+Create a Wiki page
+^^^^^^^^^^^^^^^^^^
 
-Now, write down the name of the page and click “Save” to create a page.
+1. Enter the relevant project.
+2. Click the **Wiki** tab.
+3. Click the **+** button.
 
-Make comment
-When you hover on any content in the Wiki page you see the “Comment” icon on the right side. Click on it to make a comment. See below:
+    .. image:: ../_static/images/core-concepts/new_wiki_page.png
+        :target: ../_static/images/core-concepts/new_wiki_page.png
+        :alt: Create new Wiki page
+        :width: 200
 
-Alternatively, you can select text and use the context menu, like depicted below:
+4. Type in the name of the new page.
+5. Click **Save**.
 
-Share page
-Click on the “Share” button to share the link to the page:
+Insert a comment
+^^^^^^^^^^^^^^^^
+When you hover on any content in the Wiki page, the **Comment** icon appears on the right side. Click it to make a comment.
+
+    .. image:: ../_static/images/core-concepts/new_wiki_comment.png
+        :target: ../_static/images/core-concepts/new_wiki_comment.png
+        :alt: New Wiki comment
+        :width: 800
 
 
-Now, you can click “copy” button:
-
-Actions
-When you select some text, you can see contextual actions for text formatting:
+Alternatively, select existing text and click the comment button in the context menu that appears:
 
 
-Mentions
-On the Wiki page the slash “/” triggers menu with widgets that you can add to the page contents:
+    .. image:: ../_static/images/core-concepts/new_wiki_comment_menu.png
+        :target: ../_static/images/core-concepts/new_wiki_comment_menu.png
+        :alt: New Wiki comment
+        :width: 600
 
-Alternatively, you can access this menu by clicking on the “” icon:
+
+Share a Wiki page
+^^^^^^^^^^^^^^^^^
+
+1. Enter the Wiki page you want to share.
+2. Click the **Share** button:
+
+    .. image:: ../_static/images/core-concepts/share_wiki_page.png
+        :target: ../_static/images/core-concepts/share_wiki_page.png
+        :alt: Share Wiki page
+        :width: 600
+
+3. In the dialog that appears, click **Copy** to send the link to the clipboard. From there, paste it as needed.
+
+Formatting text, adding links and more
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you select existing text in a Wiki page, a contextual menu appears, presenting actions for formatting the selected text:
+
+    .. image:: ../_static/images/core-concepts/wiki_context_menu.png
+        :target: ../_static/images/core-concepts/wiki_context_menu.png
+        :alt: Format Wiki text
+        :width: 450
+
+
+Formatting headings and adding mentions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+While in a Wiki page, you can display a menu for formatting a heading or adding a mention of a person or experiment:
+
+   .. image:: ../_static/images/core-concepts/wiki_commands.png
+        :target: ../_static/images/core-concepts/wiki_commands.png
+        :alt: Wiki commands
+        :width: 450
+
+There are two ways to display the menu. Either:
+
+- Type  **/**
+
+  or
+
+- Hover with the mouse until the **+** icon appears. Then click it.
+
 
 Collaborative editing
-You can edit wiki pages collaboratively (think Google Docs).
-In the example below, there are four users editing the Wiki page simultaneously. Their avatars are displayed next to the title page. Note that each user has one color associated. For example, a user who has a green color associated, and she highlighted “Project” word, so that it is also highlighted in green. Another example, is blue user: her prompt is next to the word “progress”. See below:
+^^^^^^^^^^^^^^^^^^^^^
 
-Avatars’ details
-Hover on the avatars to see user details:
+You can edit Wiki pages collaboratively (think Google Docs).
+In the figure shown here, four users are editing the Wiki page simultaneously. 
+Their avatars are displayed next to the title page. 
+Note that each user has one color associated with them. 
+
+
+    .. image:: ../_static/images/core-concepts/wiki_collaborative_editing.png
+        :target: ../_static/images/core-concepts/wiki_collaborative_editing.png
+        :alt: Copy URL
+
+In the example, the user who has a green color, has highlighted the word “Project”, 
+so that it is also highlighted in green. 
+Another example, is the blue user -- her mouse cursor is next to the word “progress”.
+
+
+Avatar details
+""""""""""""""
+
+Hover on an avatar to see user details:
+
+    .. image:: ../_static/images/core-concepts/avatar_highlight.png
+        :target: ../_static/images/core-concepts/avatar_highlight.png
+        :alt: Avatar details
+        :width: 250
 
 Highlighted text
+""""""""""""""""
+
 Hover on the highlighted text to see who highlighted it:
+
+    .. image:: ../_static/images/core-concepts/editor_details.png
+        :target: ../_static/images/core-concepts/editor_details.png
+        :alt: Editor details
+        :width: 250
