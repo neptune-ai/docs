@@ -29,8 +29,8 @@ Create the **SupervisedNeptuneRunner** and run .train
         num_epochs=10,
         verbose=True,
         monitoring_params={
-            "init": {"project_qualified_name": "neptune-ai/catalyst-integration",
-                     "api_token": None, # api key, keep in NEPTUNE_API_TOKEN
+            "init": {"project_qualified_name": "shared/catalyst-integration",
+                     "api_token": "ANONYMOUS", # api key, keep in NEPTUNE_API_TOKEN
                     },
             "create_experiment": {"name": "catalyst-example", # experiment name
                                   "params": {"epoch_nr":10}, # immutable
@@ -138,8 +138,8 @@ Remember to change your credentials in the **runner.train()**:
         num_epochs=10,
         verbose=True,
         monitoring_params={
-            "init": {"project_qualified_name": "neptune-ai/catalyst-integration",
-                     "api_token": None, # api key, keep in NEPTUNE_API_TOKEN
+            "init": {"project_qualified_name": "shared/catalyst-integration",
+                     "api_token": "ANONYMOUS", # api key, keep in NEPTUNE_API_TOKEN
                     },
             "create_experiment": {"name": "catalyst-example", # experiment name
                                   "params": {"epoch_nr":10,

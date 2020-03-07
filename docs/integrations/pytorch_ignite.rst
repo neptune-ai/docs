@@ -19,8 +19,8 @@ Create the **NeptuneLogger** with all the information you want to track
 
     from ignite.contrib.handlers.neptune_logger import *
 
-    npt_logger = NeptuneLogger(api_token=os.getenv('NEPTUNE_API_TOKEN'),
-                               project_name='neptune-ai/pytorch-ignite-integration',
+    npt_logger = NeptuneLogger(api_token="ANONYMOUS",
+                               project_name='shared/pytorch-ignite-integration',
                                name='ignite-mnist-example',
                                params={'train_batch_size': train_batch_size,
                                        'val_batch_size': val_batch_size,
@@ -78,6 +78,22 @@ There are many handlers that you can attach to track your training.
     npt_logger.attach(trainer,
                       log_handler=GradsScalarHandler(model),
                       event_name=Events.ITERATION_COMPLETED(every=100))
+
+**NeptuneSaver** for logging model checkpoints during training.
+
+.. code-block:: python3
+
+    from ignite.handlers import Checkpoint
+
+    def score_function(engine):
+        return engine.state.metrics['accuracy']
+
+    to_save = {'model': model}
+    handler = Checkpoint(to_save, NeptuneSaver(npt_logger), n_saved=2,
+                         filename_prefix='best', score_function=score_function,
+                         score_name="validation_accuracy",
+                         global_step_transform=global_step_from_engine(trainer))
+    validation_evaluator.add_event_handler(Events.COMPLETED, handler)
 
 Run trainer
 -----------
