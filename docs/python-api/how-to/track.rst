@@ -232,4 +232,4 @@ Go to your Jupyter UI, where you will see several Neptune buttons:
 - **Download**: For downloading a specific checkpoint from Neptune.
 - **Activate**: Associates experiments you will be running with this Notebook.
 
-Click **Upload** whenever you want to create new checkpoint in Neptune. As confirmation, Neptune displays a notification with a link.
+Click **Upload** whenever you want to create new checkpoint in Neptune. As confirmation, Neptune displays a notification with a link. If the **Activate** button was clicked, checkpoints will be created automatically after every experiment creation.

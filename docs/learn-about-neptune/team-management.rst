@@ -56,7 +56,8 @@ After you have :ref:`created an organization <how-to_team-management_create-orga
 
 3. Specify a name, set a role (Admin or Member) and click **Invite**.
 
-The users you invite will be invited via email to join your organization. Until they join, their status is marked as "Pending invitation".
+The users you invite will be invited via email to join your organization (in case of already registered users, through an in-app notification).
+Until they join, their status is marked as "Pending invitation".
 
 Create a project
 ----------------
@@ -105,6 +106,5 @@ Add users to a project
 
 .. note::
 
-    - If the project is created in a team organization, the user is assigned to the project immediately and notified by email.
-    - If the project is created in an individual account, you can only add users to a public project. The user is notified by email and must accept the invitation to be added.
-    You cannot add users to a private project.
+    - The user is invited to the project by email. The user needs to accept the invitation, before that user appears in the list.
+    - If the project is created in an individual account, you can only add users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
