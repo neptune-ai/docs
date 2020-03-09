@@ -88,6 +88,34 @@ Advanced examples
 
         name CONTAINS some_substring
 
+- Fetching experiments containing channel, parameter or property with given name and non-null value:
+
+    .. code-block:: mysql
+
+        some_column_name EXISTS
+
+- Fetching experiments not containing channel, parameter or property with given name:
+
+    .. code-block:: mysql
+
+        some_column_name NOT EXISTS
+
+        NOT some_column_name EXISTS
+
+- Fetching finished experiments:
+
+    .. code-block:: mysql
+
+        timeOfCompletion EXISTS
+
+        finished EXISTS
+
+- Fetching experiments created in notebook:
+
+    .. code-block:: mysql
+
+        notebookName EXISTS
+
 
 NQL reference
 -------------
@@ -256,6 +284,44 @@ It can be one of the following:
 
       hostname CONTAINS server
 
+      hostname EXISTS
+
+* ``commitId``
+
+  Example:
+
+  .. code-block:: mysql
+
+      commitId = 381ed1e25230cc1a08e0b901b90ecb00a8f5fd41
+
+      commitId CONTAINS 381ed1e25
+
+      commitId EXISTS
+
+* ``notebookName``
+
+  Example:
+
+  .. code-block:: mysql
+
+      notebookName = my_notebook
+
+      notebookName CONTAINS note
+
+      notebookName EXISTS
+
+* ``checkpointName``
+
+  Example:
+
+  .. code-block:: mysql
+
+      checkpointName = my_checkpoint
+
+      checkpointName CONTAINS check
+
+      checkpointName EXISTS
+
 ----
 
 **Operator**
@@ -266,7 +332,7 @@ See the :ref:`operators table <core-concepts_nql_operators_reference>` below for
 .. note::
 
     Operator ``CONTAINS`` can be used only with text parameters, text logs, properties,
-    tags, id, name, description, hostname and owner.
+    tags, id, name, description, hostname, commitId, notebookName, checkpointName and owner.
 
 ----
 
@@ -369,14 +435,14 @@ Operators reference
 ^^^^^^^^^^^^^^^^^^^
 .. _core-concepts_nql_operators_reference:
 
-==================== =================================================================
+==================== =============================================================================
 Syntax elements
-==================== =================================================================
+==================== =============================================================================
 Logical operators    ``AND``, ``OR``, ``NOT``
-Relational operators ``=``, ``==``, ``!=``, ``>``, ``>=``, ``<``, ``<=``, ``CONTAINS``
+Relational operators ``=``, ``==``, ``!=``, ``>``, ``>=``, ``<``, ``<=``, ``CONTAINS``, ``EXISTS``
 Brackets             ``(``, ``)``
 Quotation marks      ``""``, ``````
-==================== =================================================================
+==================== =============================================================================
 
 Precedence order
 ^^^^^^^^^^^^^^^^
