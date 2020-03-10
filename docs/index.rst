@@ -120,6 +120,7 @@ Documentation contents
    TensorBoard <integrations/tensorboard.rst>
    HiPlot <integrations/hiplot.rst>
    MLflow <integrations/mlflow.rst>
+   Sacred <integrations/sacred.rst>
    Fast.ai <integrations/fast_ai.rst>
    PyTorchLightning <integrations/pytorch_lightning.rst>
    Catalyst <integrations/catalyst.rst>
