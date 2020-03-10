@@ -125,6 +125,8 @@ Documentation contents
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Skorch <integrations/skorch.rst>
+   Scikit Optimize <integrations/skopt.rst>
+   Optuna <integrations/optuna.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
 
 .. External links

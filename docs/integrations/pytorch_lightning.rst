@@ -18,7 +18,100 @@ Create the **LightningModule**
 .. code-block:: python3
 
     import os
+import torch
+from torch import nn
+import torch.nn.functional as F
 
+torch.manual_seed(0)
+
+# create data
+import numpy as np
+from sklearn.datasets import make_classification
+
+X, y = make_classification(1000, 20, n_informative=10, random_state=0)
+X = X.astype(np.float32)
+
+
+# create pytorch module
+class ClassifierModule(nn.Module):
+    def __init__(
+            self,
+            num_units=10,
+            nonlin=F.relu,
+            dropout=0.5,
+    ):
+        super(ClassifierModule, self).__init__()
+        self.num_units = num_units
+        self.nonlin = nonlin
+        self.dropout = dropout
+
+        self.dense0 = nn.Linear(20, num_units)
+        self.nonlin = nonlin
+        self.dropout = nn.Dropout(dropout)
+        self.dense1 = nn.Linear(num_units, 10)
+        self.output = nn.Linear(10, 2)
+
+    def forward(self, X, **kwargs):
+        X = self.nonlin(self.dense0(X))
+        X = self.dropout(X)
+        X = F.relu(self.dense1(X))
+        X = F.softmax(self.output(X), dim=-1)
+        return X
+
+
+# create neptune logger and pass it to NeuralNetClassifier
+from skorch import NeuralNetClassifier
+import neptune
+from skorch.callbacks.logging import NeptuneLogger
+
+neptune.init('neptune-ai/skorch-integration')
+experiment = neptune.create_experiment(
+    name='skorch-basic-example',
+    params={'max_epochs': 20,
+            'lr': 0.1},
+    upload_source_files=['skorch_example.py'])
+neptune_logger = NeptuneLogger(experiment, close_after_train=False)
+
+net = NeuralNetClassifier(
+    ClassifierModule,
+    max_epochs=20,
+    lr=0.1,
+    callbacks=[neptune_logger]
+)
+
+# run training
+net.fit(X, y)
+
+# log score after training
+from sklearn.metrics import roc_auc_score
+
+y_pred = net.predict_proba(X)
+auc = roc_auc_score(y, y_pred[:, 1])
+
+neptune_logger.experiment.log_metric('roc_auc_score', auc)
+
+# log confusion matrix
+from scikitplot.metrics import plot_roc
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(16, 12))
+plot_roc(y, y_pred, ax=ax)
+neptune_logger.experiment.log_image('roc_curve', fig)
+
+# log model after training
+net.save_params(f_params='basic_model.pkl')
+neptune_logger.experiment.log_artifact('basic_model.pkl')
+
+# close experiment
+neptune_logger.experiment.stop()
+
+"""
+Added Neptune logger that:
+
+- logs metrics `on_batch_end`
+- logs metrics  `on_epoch_end`
+- logs any additional information directly to `neptune_logger.experiment.log_whatever_neptune_allows` if used with `close_after_train=False`
+"""
     import torch
     from torch.nn import functional as F
     from torch.utils.data import DataLoader
