@@ -16,7 +16,7 @@ Integration with |Sacred| framework is introduced as a part of logging module so
 Create an **Experiment**
 ------------------------
 
-.. note:: I am using a shared, anonymous token but you can change to your user api token.
+.. note:: I am using a shared, anonymous token but you can change to your private ``NEPTUNE_API_TOKEN``.
 
 .. code-block:: python3
 
