@@ -8,7 +8,7 @@ Track
 
 Log metrics to Neptune
 ----------------------
-How to track multiple metrics (loss, scores) in the experiment?
+How do I track multiple metrics (loss, scores) in the experiment?
 
 Solution
 ^^^^^^^^
@@ -197,7 +197,7 @@ Add data version column to your project dashboard:
 
 Keep my code private
 --------------------
-My code is proprietary, so I do not want to send any sources to Neptune, while training locally. How to do it?
+My code is proprietary, so I do not want to send any sources to Neptune, while training locally. How can I do that?
 
 Solution
 ^^^^^^^^
@@ -217,24 +217,19 @@ As a result you will not send sources to Neptune, so they will not be available 
 
 Upload notebook checkpoint
 --------------------------
-I want to add Notebook checkpoint to my project. How to do it?
+I want to add a Notebook checkpoint to my project. How do I do that?
 
 Solution
 ^^^^^^^^
-Go to your Jupyter, where you can see two Neptune buttons:
+Go to your Jupyter UI, where you will see several Neptune buttons:
 
-* **n** button is for configuration changes
-* **Upload** button is for making checkpoint in Neptune
+.. image:: ../../_static/images/notebooks/buttons_11.png
+    :target: ../../_static/images/notebooks/buttons_11.png
+    :alt: image
 
-.. image:: ../../_static/images/notebooks/buttons_02_1.png
-   :target: ../../_static/images/notebooks/buttons_02_1.png
-   :alt: image
+- **Neptune**: For modifying configuration.
+- **Upload**: For creating a new checkpoint in Neptune.
+- **Download**: For downloading a specific checkpoint from Neptune.
+- **Activate**: Associates experiments you will be running with this Notebook.
 
-Click **Upload**, whenever you want to create new checkpoint in Neptune. You will see tooltip with link as a confirmation.
-
-.. image:: ../../_static/images/notebooks/buttons_03_1.png
-   :target: ../../_static/images/notebooks/buttons_03_1.png
-   :alt: image
-
-.. note:: You can use **Upload** as many times as you want.
-
+Click **Upload** whenever you want to create new checkpoint in Neptune. As confirmation, Neptune displays a notification with a link. If the **Activate** button was clicked, checkpoints will be created automatically after every experiment creation.

@@ -29,7 +29,7 @@ The statement above is called a *clause* and follows the following format:
 Note that a field name must be on the left side of an operator.
 
 Now, imagine you are looking for experiments where the ``recall`` metric is higher than ``0.9``
-and, at the same time, the ``learning_rate`` parameter is smaller or equal to ``0.005``. 
+and, at the same time, the ``learning_rate`` parameter is smaller or equal to ``0.005``.
 
 In this example, two clauses are joined together using a logical operator. Specify:
 
@@ -75,7 +75,7 @@ Advanced examples
 
 - Fetching experiments that contain the tag ``expected`` but do not contain the tag ``unexpected``.
   Use either of the following queries:
-  
+
     .. code-block:: mysql
 
         tags CONTAINS expected AND NOT tags CONTAINS unexpected

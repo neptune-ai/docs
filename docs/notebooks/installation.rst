@@ -1,5 +1,7 @@
+
 Installing neptune-notebooks
 ============================
+
 This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension.
 
 The extension enables the integration of Neptune and Jupyter or JupyterLab.
@@ -7,6 +9,7 @@ The extension enables the integration of Neptune and Jupyter or JupyterLab.
 When the extension is successfully installed,
 you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks,
 and track experiments and metrics directly from the Jupyter UI.
+
 Neptune versions the Notebook automatically once an experiment has started.
 
 About neptune-notebooks
@@ -50,6 +53,7 @@ Installation for JupyterLab
 
 JupyterLab is the next-generation web-based UI for Project Jupyter.
 
+
 When you install JupyterLab using ``pip install jupyterlab``, the standard Jupyter is also installed, as a dependency.
 
 
@@ -66,6 +70,7 @@ Details for these methods follow below.
 **Requirements**
 
 Irrespective of which method you use, the following must be preinstalled on your system before you begin.
+
 
 - `Node.js <https://nodejs.org/en>`_
 - `npm <https://www.npmjs.com/get-npm>`_
@@ -122,6 +127,7 @@ This method installs only the extension to JupyterLab.
 The neptune-notebooks pip package, neptune-client pip package and extension to the standard Jupyter are not installed.
 
 **Pros**
+
 
 This method gives you more flexibility. For example, the extension can be running on a
 different machine than your code that is executed from the Notebook.

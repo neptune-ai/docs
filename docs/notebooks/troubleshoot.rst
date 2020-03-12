@@ -1,6 +1,8 @@
 Troubleshoot
 ============
+
 You may experience issues while working with Jupyter Notebooks and Neptune.
+
 The following presents possible solutions to some of the issues.
 
 .. contents::

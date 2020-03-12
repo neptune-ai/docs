@@ -1,7 +1,7 @@
 Connecting the Jupyter Extension to Your Neptune Account
 ========================================================
 
-After you have successfully `installed the Jupyter extension for Neptune <installation.html>`_, 
+After you have successfully `installed the Jupyter extension for Neptune <installation.html>`_,
 you connect it to your Neptune account.
 
 **Procedure**
@@ -13,7 +13,7 @@ you connect it to your Neptune account.
    :alt: image
 
 
-The **Configure your connection to Neptune** dialog appears. 
+The **Configure your connection to Neptune** dialog appears.
 
 .. image:: ../_static/images/notebooks/configure_connect.png
    :target: ../_static/images/notebooks/configure_connect.png
@@ -25,7 +25,7 @@ The **Configure your connection to Neptune** dialog appears.
 3. In the Neptune UI, obtain your API Token and copy it to the clipboard.
 
    a. In the upper right corner, click the avatar, and then click **Get API Token**.
-   
+
     .. image:: ../_static/images/notebooks/get_api_token.png
         :target: ../_static/images/notebooks/get_api_token.png
         :alt: image
@@ -39,6 +39,6 @@ The **Configure your connection to Neptune** dialog appears.
 .. warning:: Your *API Token* is private and unique. Never share it. It's like sharing password.
 
 
-5. To conclude, to see experiments that you will run associated with this Notebook, click **Activate**. 
+5. To conclude, to see experiments that you will run associated with this Notebook, click **Activate**.
 In the dialog that appears, click **Activate**.
 

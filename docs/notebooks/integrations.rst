@@ -202,7 +202,6 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
         jupyter nbextension enable --py neptune-notebooks --sys-prefix
         jupyter labextension install neptune-notebooks
         source /home/ec2-user/anaconda3/bin/deactivate
-
         EOF
 
 3. Create a Notebook instance.
@@ -238,9 +237,9 @@ You can use Neptune to track experiments that you run on AWS SageMaker.
           :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :alt: image
 
-
 You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune.
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
+
           :alt: image

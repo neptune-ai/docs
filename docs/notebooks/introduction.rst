@@ -5,7 +5,6 @@ Using Jupyter Notebooks in Neptune
    :target: ../_static/images/others/notebooks_neptuneml.png
    :alt: Jupyter Notebooks neptune.ai integration
 
-
 Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization.
 They allow data scientists to work interactively, keeping code and results - like visualizations - in a single document.
 
@@ -24,6 +23,7 @@ Key Features
 
 Quick Start
 -----------
+
 To start working with Notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ the open
 source extension for Jupyter or JupyterLab. When you are done, you can start working with Notebooks immediately.
 
@@ -59,6 +59,7 @@ In addition, for each Notebook, there are buttons for downloading the Notebook, 
 
 A **Compare** button at the top right displays a Notebooks Comparison pane. See `Compare Notebooks <introduction.html#id3>`_.
 
+
 Notebook contents
 ~~~~~~~~~~~~~~~~~
 Once you select a Notebook, you can see all its contents, that is: code and markdown cells, outputs and execution count.
@@ -75,6 +76,7 @@ You can also view snapshots of the work with the Notebook, as well as download, 
     :alt: image
 
 Compare Notebooks
+
 ~~~~~~~~~~~~~~~~~
 
 The Notebooks Comparison pane lets you compare Notebook checkpoints.
@@ -86,6 +88,7 @@ You display the pane by clicking the **Compare** button anywhere it is visible i
     :alt: image
 
 In the Notebooks Comparison pane, select two Notebook checkpoints, then click **Compare** to see a side-by-side comparison, just like source code.
+
 
 .. Commented out. Doesn't seem to be working.
 .. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at the difference between checkpoints of the same Notebook, or two entirely different Notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
@@ -102,10 +105,13 @@ In the Notebooks Comparison pane, select two Notebook checkpoints, then click **
 Uploading and Downloading Notebook Checkpoints
 ----------------------------------------------
 
+
 Notebooks are stored as files on your computer.
 
 Each Notebook file (.ipynb) is a JSON containing everything that the user can see in a Notebook and some metadata.
+
 Neptune uses metadata to associate particular files with Notebook entities on Neptune servers. That means that after a Notebook
+
 is uploaded to Neptune, the file on disk is changed to include the ID of the entity on the Neptune server.
 
 **Name changes**
@@ -124,6 +130,7 @@ You can do some work, upload some intermediate snapshot, go to another computer
 (or another SageMaker instance, and so on), download the Notebook and keep on working on it.
 
 The capability is comparable to Google Docs in that there’s a place where you store your work and you can access
+
 it easily from wherever you choose.
 
 **Collaboration**
@@ -175,5 +182,6 @@ You can download a specific Notebook checkpoint from Neptune to Jupyter.
   - Project
   - Notebook
   - Checkpoint
+
 
 3. Click **Download**.
