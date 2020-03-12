@@ -39,8 +39,8 @@ After you have :ref:`created an organization <how-to_team-management_create-orga
 
 .. note::
     - Only :ref:`an organization Admin <core-concepts_user-roles_organization-admin>` can invite new users to an organization.
-    - In case of a team organization, as soon as a user is added, s(he) is added automatically.
-    - In case of an individual organization, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects which they joined at any time.
+    - In case of a team organization, as soon as a user is added, s(he) is listed automatically.
+    - In case of an individual organization, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
     - Only organization members can be added to Projects in team organizations.
 
 1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant organization.

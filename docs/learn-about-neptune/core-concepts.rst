@@ -86,12 +86,10 @@ The following table summarizes the permissions available for the three project r
 
     Access level in project settings,edit,none,none
     Access level to all experiments Notebooks and Wiki,edit,edit,view
-    Access level to people in project (under Settings tab),yes,view,view
+    Access level to people in project (under Settings tab),edit,view,view
     Can run experiments,yes,yes,no
     Can add notebooks and make checkpoints,yes,yes,no
     Can remove project,yes,no,no
-
-^ Depends on organization type. Can leave public project in individual organization; cannot leave project in team organization.
 
 ====
 
@@ -115,7 +113,8 @@ Here is an example view, where the project Owner can manage project members:
 Public
 ^^^^^^
 Public projects are freely available to view by everyone who has access to the Internet.
-Also, you can invite collaborators to public projects only.
+
+Also, in case of individual organizations, you can invite collaborators to public projects only.
 Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
 .. External links
