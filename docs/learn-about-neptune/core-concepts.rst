@@ -8,6 +8,31 @@ This page presents several key concepts as they are used in the Neptune UI and d
     :backlinks: top
 
 
+Organization Types
+------------------
+
+.. _core-concepts_organization-types:
+
+An organization is a way to centrally manage projects, users and subscriptions.
+
+Neptune has two organization types: individual and team.
+
+Individual
+^^^^^^^^^^
+* Each user is assigned individual organization with ``username`` as an organization name.
+* The user is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
+* The user can create an unlimited number of projects in the individual organization.
+
+Team
+^^^^
+* A team organization comes in handy when an entire team needs to be managed centrally.
+* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by the :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
+* Only users who joined team organization can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the organization or project.
+
+Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
+
+=======
+
 User Roles
 ----------
 
@@ -16,6 +41,8 @@ There are roles in projects and in organizations.
 
 Roles in an organization
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Organization roles apply only to team organizations.
 
 .. _core-concepts_user-roles_organization-admin:
 
@@ -28,9 +55,10 @@ The following table summarizes the permissions available for the organization ro
    :header: "Permission","Admin","Member"
    :widths: 20, 20, 20
 
-    Access level in Organization settings: Subscription and People tabs,edit,none
+    Access level in subscription management,edit,none
+    Access level in organization members,edit,none
     Access to invoice data,edit,none
-    On the People tab can add and remove people from organization,edit,none
+    Access level for creating Projects,edit,none
 
 
 You can access organization settings by clicking **Settings**.
@@ -57,44 +85,16 @@ The following table summarizes the permissions available for the three project r
    :widths: 20, 20, 20, 20
 
     Access level in project settings,edit,none,none
-    Access level to own experiments and notebooks,edit,edit,view *
     Access level to all experiments Notebooks and Wiki,edit,edit,view
-    Access to people in project (under Settings tab),yes,view,view
+    Access level to people in project (under Settings tab),yes,view,view
     Can run experiments,yes,yes,no
     Can add notebooks and make checkpoints,yes,yes,no
-    Can leave project,yes,yes/no ^,yes/no ^
     Can remove project,yes,no,no
-
-\* A Viewer can own experiments if (s)he was a contributor earlier.
 
 ^ Depends on organization type. Can leave public project in individual organization; cannot leave project in team organization.
 
 ====
 
-Organization Types
-------------------
-
-.. _core-concepts_organization-types:
-
-An organization is a way to centrally manage projects, users and subscriptions.
-
-Neptune has two organization types: individual and team.
-
-Individual
-^^^^^^^^^^
-* Each user is assigned individual organization with ``username`` as an organization name.
-* The user is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
-* The user can create an unlimited number of projects in the individual organization.
-
-Team
-^^^^
-* A team organization comes in handy when an entire team needs to be managed centrally.
-* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by the :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
-* Only users who joined team organization can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the organization or project.
-
-Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
-
-====
 
 Project Types
 -------------

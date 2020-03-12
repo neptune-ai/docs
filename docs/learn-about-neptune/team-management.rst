@@ -36,8 +36,12 @@ Invite users to an organization
 -------------------------------
 After you have :ref:`created an organization <how-to_team-management_create-organization>`, you can invite members to join it.
 
+
 .. note::
-    Only :ref:`an organization Admin <core-concepts_user-roles_organization-admin>` can invite new users to an organization.
+    - Only :ref:`an organization Admin <core-concepts_user-roles_organization-admin>` can invite new users to an organization.
+    - In case of a team organization, as soon as a user is added, s(he) is added automatically.
+    - In case of an individual organization, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects which they joined at any time.
+    - Only organization members can be added to Projects in team organizations.
 
 1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant organization.
 
@@ -106,5 +110,5 @@ Add users to a project
 
 .. note::
 
-    - The user is invited to the project by email. The user needs to accept the invitation, before that user appears in the list.
-    - If the project is created in an individual account, you can only add users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
+    - If a user is registered in Neptune.ai, s(he) can be added from the UI, under **Project Settings** > **People**. If the user is not yet registered in Neptune.ai, s(he) can be invited by email. In any case, the user needs to accept the invitation, before s(he) appears in the list.
+    - If the project is created in an individual organization, you can only invite users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
