@@ -26,7 +26,7 @@ Neptune's focus: track, organize and collaborate
 
 Track
 ^^^^^
-Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. 
+Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on.
 Snippet below, presents example integration with Python code.
 
 .. code-block::
@@ -49,13 +49,13 @@ Snippet below, presents example integration with Python code.
 
 Organize
 ^^^^^^^^
-Organize structure of your project: 
+Organize structure of your project:
 
 * code,
 * notebooks,
 * experiment results,
 * model weights,
-* meeting notes, 
+* meeting notes,
 * reports.
 
 Everything is in one place, accessible from the app or programmatically.
@@ -118,12 +118,16 @@ Documentation contents
    Frameworks <integrations/frameworks.rst>
    R <integrations/r-support.rst>
    TensorBoard <integrations/tensorboard.rst>
+   HiPlot <integrations/hiplot.rst>
    MLflow <integrations/mlflow.rst>
+   Sacred <integrations/sacred.rst>
    Fast.ai <integrations/fast_ai.rst>
    PyTorchLightning <integrations/pytorch_lightning.rst>
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Skorch <integrations/skorch.rst>
+   Scikit Optimize <integrations/skopt.rst>
+   Optuna <integrations/optuna.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
    Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
 
