@@ -16,7 +16,7 @@ Create the **NeptuneLogger**
 ----------------------------
 .. code-block:: python3
     
-    from catalyst.contrib.callbacks.neptune import NeptuneLogger
+    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
                         api_token='ANONYMOUS',  # your Neptune token
@@ -79,6 +79,8 @@ Remember to change your credentials in the **NeptuneLogger**:
 
     batch_size = 32
     num_workers = 4
+    num_epochs = 4
+    logdir = 'exps'
 
     data_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -107,6 +109,7 @@ Remember to change your credentials in the **NeptuneLogger**:
     import torch.nn as nn
     import torch.nn.functional as F
 
+
     class Net(nn.Module):
         def __init__(self):
             super().__init__()
@@ -126,22 +129,23 @@ Remember to change your credentials in the **NeptuneLogger**:
             x = self.fc3(x)
             return x
 
+
     model = Net()
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters())
 
-    from catalyst.contrib.callbacks.neptune import NeptuneLogger
+    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
-                        api_token='ANONYMOUS',  # your Neptune token
-                        project_name='shared/catalyst-integration',
-                        offline_mode=False,  # turn off neptune for debug
-                        name='catalyst-example',
-                        params={'epoch_nr': 10},  # your hyperparameters, immutable
-                        properties={'data_source': 'cifar10'},  # mutable
-                        tags=['resnet', 'no-augmentations'],  # tags
-                        upload_source_files=['*.py'],  # files to save, grep-like
-                        )
+                    api_token= 'ANONYMOUS',  # your Neptune token
+                    project_name= 'shared/catalyst-integration',
+                    offline_mode= False,  # turn off neptune for debug
+                    name= 'catalyst-example',
+                    params= {'epoch_nr': num_epochs},  # your hyperparameters, immutable
+                    properties= {'data_source': 'cifar10'},  # mutable
+                    tags= ['resnet', 'no-augmentations'],  # tags
+                    upload_source_files= ['*.py'],  # files to save, grep-like
+                    )
 
     from catalyst.dl import SupervisedRunner
 
@@ -155,7 +159,7 @@ Remember to change your credentials in the **NeptuneLogger**:
         num_epochs=num_epochs,
         verbose=True,
         callbacks=[neptune_logger]
-         )
+    )
 
 .. External links
 
