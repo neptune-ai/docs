@@ -6,7 +6,7 @@ Log Catalyst metrics to neptune
 
 Prerequisites
 -------------
-Integration with |Catalyst| framework is introduced as a part of as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
+Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
 
 .. code-block:: bash
 
@@ -173,7 +173,7 @@ Remember to change your credentials in the **NeptuneLogger**:
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/o/neptune-ai/org/catalyst-integration/e/CAT-13/charts" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/catalyst-integration/e/CAT-13/charts" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
