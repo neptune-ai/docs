@@ -52,13 +52,21 @@ You can share experiment charts and other resources.
 Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
 Each displays specific content that is logged to Neptune for the specific experiment. Each tab has a unique URL.
 
+- Charts: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/charts
+- Logs: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/logs
+- Monitoring: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/monitoring
+- Artifacts: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/artifacts
+- Source code: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/source-code
+- Parameters: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters
+- Details: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details
+
 Projects
 ^^^^^^^^
 You can share projects.
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project
+https://ui.neptune.ai/USERNAME/example-project
 
 
 Experiment comparisons
@@ -101,7 +109,7 @@ Notebook comparisons
 ^^^^^^^^^^^^^^^^^^^^
 You can share a Notebook comparison with your teammates.
 
-The Notebook comparison feature lets you compares two checkpoints side-by-side, like source code. The comparison has a unique link, as well.
+The Notebook comparison feature lets you compare two checkpoints side-by-side, like source code. The comparison has a unique link, as well.
 You can copy the link in either of the following ways:
 
 - Copy the link from the address bar in the browser.
