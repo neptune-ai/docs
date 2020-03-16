@@ -19,56 +19,9 @@ About Access to Organizations and Projects
 
 For more information about user permissions in organizations and projects, see :ref:`user roles <core-concepts_user-roles>`.
 
-Link Structure
---------------
+Sharing View Links with Teammates
+---------------------------------
 
-Links to organizations in Neptune.ai are in the following format:
-neptune.ai/*ORGANIZATION_NAME*/*PROJECT_NAME*
-
-There are three parts:
-
-- The Neptune domain: https://ui.neptune.ai
-
-- /*ORGANIZATION_NAME*
-
-  - In the case of a team project, the organization name is used.
-  - In the case of a single-user project, the username is used.
-
-- /*PROJECT_NAME*
-
-**Examples**
-
-- https://ui.neptune.ai/USERNAME/example-project is an example of a team project.
-- https://ui.neptune.ai/jakub-czakon/r-integration is an example of a single-user project.
-
-
-.. note:: You can also fetch these experiment details programmatically. For more information, see `Query API <../python-api/query-api.html>`_.
-
-Additions to the project URL
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The URL requires additional subdirectories to access a specific experiment.
-
-**Example**
-
-https://ui.neptune.ai/USERNAME/org/example-project/e/HELLO-191
-
-Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
-Each presents specific content logged to Neptune for the particular experiment.
-
-Each tab has a specific URL, for example:
-
-- Charts: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-191/charts
-- Logs: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-191/logs
-- Monitoring: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/monitoring
-- Artifacts: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/artifacts
-- Source code: https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-191/source-code
-- Parameters: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters
-- Details: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details
-
-
-Sharing Links with Teammates
-----------------------------
 Neptune lets you share views of experiments, Notebooks, and projects by sharing the URL to a specific view.
 
 .. contents::
@@ -77,21 +30,9 @@ Neptune lets you share views of experiments, Notebooks, and projects by sharing 
     :backlinks: top
 
 
-There are two ways to get the URL you need for sharing:
+To get the URL you need for sharing, copy the URL from the address bar.
 
-- Clicking the **Copy** button.
-
-   Copy the current URL to the clipboard by clicking any **Copy** button that appears. After copying the link, you can paste it, as needed, in an email message, message or other medium.
-
-   **Example**
-
-    .. image:: ../_static/images/core-concepts/metadata_copy.png
-        :target: ../_static/images/core-concepts/metadata_copy.png
-        :alt: Copy URL
-
-- Copying the URL from the address bar.
-
-Details of the URL composition appear in `Link Structure <collaborate.html#link-structure>`_, above.
+The URL changes in accordance with the particular view you are in. Details are provided below.
 
 Experiment details
 ^^^^^^^^^^^^^^^^^^
@@ -109,8 +50,7 @@ Experiment charts and other resources
 You can share experiment charts and other resources.
 
 Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
-Each displays specific content that is logged to Neptune for the specific experiment.
-`Each tab has a unique URL <collaborate.html#additions-to-the-project-url>`_.
+Each displays specific content that is logged to Neptune for the specific experiment. Each tab has a unique URL.
 
 Projects
 ^^^^^^^^
@@ -118,7 +58,7 @@ You can share projects.
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=d7f80ebe-5bfe-4d12-97c1-2b1e6184a2ed
+https://ui.neptune.ai/o/USERNAME/org/example-project
 
 
 Experiment comparisons
@@ -129,8 +69,7 @@ you made.
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project/compare?shortId=%5B%22HELLO-191%22%2C%22HELLO-197%22%2C%22HELLO-176%22%2C%22HELLO-177%22%2C%22HELLO-123%22%5D&viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9
-
+https://ui.neptune.ai/USERNAME/example-project/compare?shortId=%5B%22HELLO-191%22%2C%22HELLO-197%22%2C%22HELLO-176%22%2C%22HELLO-177%22%2C%22HELLO-123%22%5D&viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9
 
 
     .. image:: ../_static/images/core-concepts/compare_experiments.png
@@ -147,7 +86,7 @@ Similarly to other views in Neptune, you can share a link to the particular Note
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1
+https://ui.neptune.ai/USERNAME/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1
 
 1. Click **Share** in the checkpoint actions menu:
 
@@ -162,7 +101,7 @@ Notebook comparisons
 ^^^^^^^^^^^^^^^^^^^^
 You can share a Notebook comparison with your teammates.
 
-The Notebook comparison feature lets you compares two checkpoints site-by-site, like source code. The comparison has a unique link, as well.
+The Notebook comparison feature lets you compares two checkpoints side-by-side, like source code. The comparison has a unique link, as well.
 You can copy the link in either of the following ways:
 
 - Copy the link from the address bar in the browser.
@@ -170,7 +109,7 @@ You can copy the link in either of the following ways:
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848
+https://ui.neptune.ai/USERNAME/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848
 
 
     .. image:: ../_static/images/core-concepts/notebook_comparison.png
@@ -264,17 +203,17 @@ Collaborative editing
 ^^^^^^^^^^^^^^^^^^^^^
 
 You can edit Wiki pages collaboratively (think Google Docs).
-In the figure shown here, four users are editing the Wiki page simultaneously. 
-Their avatars are displayed next to the title page. 
-Note that each user has one color associated with them. 
+In the figure shown here, four users are editing the Wiki page simultaneously.
+Their avatars are displayed next to the title page.
+Note that each user has one color associated with them.
 
 
     .. image:: ../_static/images/core-concepts/wiki_collaborative_editing.png
         :target: ../_static/images/core-concepts/wiki_collaborative_editing.png
         :alt: Copy URL
 
-In the example, the user who has a green color, has highlighted the word “Project”, 
-so that it is also highlighted in green. 
+In the example, the user who has a green color, has highlighted the word “Project”,
+so that it is also highlighted in green.
 Another example, is the blue user -- her mouse cursor is next to the word “progress”.
 
 
