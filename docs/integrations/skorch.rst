@@ -22,9 +22,8 @@ Create an **Experiment**
 
     import neptune
 
-    neptune.init(
-        api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5haSIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==',
-        project_qualified_name='shared/skorch-integration')
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/skorch-integration')
 
     experiment = neptune.create_experiment(name='skorch-basic-example',
                                            params={'max_epochs': 20,
@@ -163,7 +162,8 @@ Remember to change your credentials in **neptune.init()**:
     import neptune
     from skorch.callbacks.logging import NeptuneLogger
 
-    neptune.init('neptune-ai/skorch-integration')
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/skorch-integration')
     experiment = neptune.create_experiment(
         name='skorch-basic-example',
         params={'max_epochs': 20,

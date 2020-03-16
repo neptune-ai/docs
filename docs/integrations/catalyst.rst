@@ -6,39 +6,46 @@ Log Catalyst metrics to neptune
 
 Prerequisites
 -------------
-Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client| installed.
+Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
 
 .. code-block:: bash
 
-    pip install neptune-client
+    pip install neptune-client neptune-contrib['monitoring']
 
+Create the **NeptuneLogger**
+----------------------------
+.. code-block:: python3
+    
+    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
 
-Create the **SupervisedNeptuneRunner** and run .train
------------------------------------------------------
+    neptune_logger = NeptuneLogger(
+                        api_token='ANONYMOUS',  # your Neptune token
+                        project_name='shared/catalyst-integration',
+                        offline_mode=False,  # turn off neptune for debug
+                        name='catalyst-example',
+                        params={'epoch_nr': 10},  # your hyperparameters, immutable
+                        properties={'data_source': 'cifar10'},  # mutable
+                        tags=['resnet', 'no-augmentations'],  # tags
+                        upload_source_files=['*.py'],  # files to save, grep-like
+                        )
+
+Pass the **neptune_logger** to the **runner.train** callbacks argument
+----------------------------------------------------------------------
 .. code-block:: python3
 
-    from catalyst.contrib.dl.runner.neptune import SupervisedNeptuneRunner
-    runner = SupervisedNeptuneRunner()
+    from catalyst.dl import SupervisedRunner
 
+    runner = SupervisedRunner()
     runner.train(
         model=model,
         criterion=criterion,
         optimizer=optimizer,
-        logdir="./logs/neptune_example-1",
         loaders=loaders,
-        num_epochs=10,
+        logdir=logdir,
+        num_epochs=num_epochs,
         verbose=True,
-        monitoring_params={
-            "init": {"project_qualified_name": "neptune-ai/catalyst-integration",
-                     "api_token": None, # api key, keep in NEPTUNE_API_TOKEN
-                    },
-            "create_experiment": {"name": "catalyst-example", # experiment name
-                                  "params": {"epoch_nr":10}, # immutable
-                                  "properties": {"data_source": "cifar10"} , # mutable
-                                  "tags": ["resnet", "no-augmentations"],
-                                  "upload_source_files": ["**/*.py"] # grep-like
-                                  }
-                           })
+        callbacks=[neptune_logger]
+         )
 
 Monitor your Catalyst training in Neptune
 -----------------------------------------
@@ -53,18 +60,15 @@ Check out this |example experiment|.
 Full Catalyst monitor script
 ----------------------------
 Simply copy and paste it to ``catalyst_example.py`` and run.
-Remember to change your credentials in the **runner.train()**:
+Remember to change your credentials in the **NeptuneLogger**:
 
 .. code-block:: python3
 
-    runner.train(
-        ...
-        monitoring_params={
-            "init": {"project_qualified_name": "neptune-ai/catalyst-integration",
-                     "api_token": None, # api key, keep in NEPTUNE_API_TOKEN
-                     },
-        ...
-        )
+    neptune_logger = NeptuneLogger(
+                        'api_token': 'ANONYMOUS', # your Neptune token
+                        'project_name': 'shared/catalyst-integration',
+                        ...
+                         )
 
 .. code-block:: python3
 
@@ -73,8 +77,10 @@ Remember to change your credentials in the **runner.train()**:
     import torchvision
     import torchvision.transforms as transforms
 
-    batch_size = 32
+    batch_size = 16
     num_workers = 4
+    num_epochs =12
+    logdir = 'exps'
 
     data_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -96,12 +102,13 @@ Remember to change your credentials in the **runner.train()**:
         testset, batch_size=batch_size,
         shuffle=False, num_workers=num_workers)
 
-    loaders["train"] = trainloader
-    loaders["valid"] = testloader
+    loaders['train'] = trainloader
+    loaders['valid'] = testloader
 
     import torch
     import torch.nn as nn
     import torch.nn.functional as F
+
 
     class Net(nn.Module):
         def __init__(self):
@@ -122,34 +129,41 @@ Remember to change your credentials in the **runner.train()**:
             x = self.fc3(x)
             return x
 
+
     model = Net()
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters())
 
-    from catalyst.contrib.dl.runner.neptune import SupervisedNeptuneRunner
-    runner = SupervisedNeptuneRunner()
+    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
 
+    neptune_logger = NeptuneLogger(
+        api_token='ANONYMOUS',  # your Neptune token
+        project_name='shared/catalyst-integration',
+        offline_mode=False,  # turn off neptune for debug
+        name='catalyst-example',
+        params={'batch_size': batch_size,
+                'epoch_nr': num_epochs,
+                'num_workers': num_workers},  # your hyperparameters, immutable
+        properties={'data_source': 'cifar10'},  # mutable
+        tags=['resnet', 'no-augmentations'],  # tags
+        upload_source_files=['catalyst_example.py'],  # files to save, grep-like
+    )
+
+    from catalyst.dl import SupervisedRunner
+
+    runner = SupervisedRunner()
     runner.train(
         model=model,
         criterion=criterion,
         optimizer=optimizer,
         loaders=loaders,
-        logdir="./logs/neptune_example-1",
-        num_epochs=10,
+        logdir=logdir,
+        num_epochs=num_epochs,
         verbose=True,
-        monitoring_params={
-            "init": {"project_qualified_name": "neptune-ai/catalyst-integration",
-                     "api_token": None, # api key, keep in NEPTUNE_API_TOKEN
-                    },
-            "create_experiment": {"name": "catalyst-example", # experiment name
-                                  "params": {"epoch_nr":10,
-                                             "batch_size":32,
-                                             "num_workers":4}, # immutable
-                                  "properties": {"data_source": "cifar10"} , # mutable
-                                  "tags": ["resnet", "no-augmentations"],
-                                  "upload_source_files": ["catalyst_example.py"] # grep-like
-                                   }
-        })
+        callbacks=[neptune_logger]
+    )
+
+
 
 .. External links
 
@@ -159,8 +173,12 @@ Remember to change your credentials in the **runner.train()**:
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/o/neptune-ai/org/catalyst-integration/e/CAT-6/charts" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/catalyst-integration/e/CAT-13/charts" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
+
+.. |neptune-contrib| raw:: html
+
+    <a href="https://neptune-contrib.readthedocs.io/_modules/neptunecontrib/monitoring/skopt.html#log_results" target="_blank">neptune-contrib</a>

@@ -174,8 +174,8 @@ Create the **NeptuneLogger** with all the information you want to track
     from pytorch_lightning.logging.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
-        api_key=os.environ["NEPTUNE_API_TOKEN"],
-        project_name="jakub-czakon/examples",
+        api_key="ANONYMOUS",
+        project_name="shared/pytorch-lightning-integration",
         experiment_name="default",  # Optional,
         params={"max_epochs": 10,
                 "batch_size": 32},  # Optional,
@@ -188,8 +188,71 @@ Create the **Trainer** and pass **neptune_logger** to logger
 
     from pytorch_lightning import Trainer
 
+    model = CoolSystem()
     trainer = Trainer(max_epochs=10, logger=neptune_logger)
-    trainer.fit(CoolSystem())
+
+    trainer.fit(model)
+
+Log additional information after the **.fit** loop ends
+-------------------------------------------------------
+
+You can log additional metrics, images, model binaries or other things after the `.fit` loop is over.
+You just need to specify `close_after_fit=False` in `NeptuneLogger` initialization.
+
+.. code-block:: python3
+
+    neptune_logger = NeptuneLogger(
+        api_key="ANONYMOUS",
+        project_name="shared/pytorch-lightning-integration",
+        close_after_fit=False,
+        ...
+    )
+
+**Log test metrics**
+
+.. code-block:: python3
+
+    trainer.test(model)
+
+**Log additional metrics**
+
+.. code-block:: python3
+
+    from sklearn.metrics import accuracy_score
+    ...
+    accuracy = accuracy_score(y_true, y_pred)
+
+    neptune_logger.experiment.log_metric('test_accuracy', accuracy)
+
+**Log performance charts**
+
+.. code-block:: python3
+
+    from scikitplot.metrics import plot_confusion_matrix
+    import matplotlib.pyplot as plt
+    ...
+    fig, ax = plt.subplots(figsize=(16, 12))
+    plot_confusion_matrix(y_true, y_pred, ax=ax)
+
+    neptune_logger.experiment.log_image('confusion_matrix', fig)
+
+**Save checkpoints folder after training**
+
+.. code-block:: python3
+
+    model_checkpoint = pl.callbacks.ModelCheckpoint(filepath='my/checkpoints')
+
+    trainer = Trainer(logger=neptune_logger,
+                      checkpoint_callback=model_checkpoint)
+    trainer.fit(model)
+
+    neptune_logger.experiment.log_artifact('my/checkpoints')
+
+**Explicitly close the logger** it is optional but you may want to close it and than do something after.
+
+.. code-block:: python3
+
+    neptune_logger.experiment.stop()
 
 Monitor your PyTorchLightning training in Neptune
 --------------------------------------------------
@@ -202,13 +265,13 @@ Now you can watch your pytorch-lightning model training in neptune!
 Full PyTorchLightning monitor script
 ------------------------------------
 Simply copy and paste it to ``pytorch_lightning_example.py`` and run.
-Remember to change your credentials in the **NeptuneLogger**:
+You can change your credentials in the **NeptuneLogger** or run some tests as anonymous user:
 
 .. code-block:: python3
 
     neptune_logger = NeptuneLogger(
-        api_key=os.environ["NEPTUNE_API_TOKEN"],
-        project_name="USERNAME/PROJECT_NAME",
+        api_key="ANONYMOUS",
+        project_name="shared/pytorch-lightning-integration",
         ...
         )
 
@@ -275,8 +338,8 @@ Remember to change your credentials in the **NeptuneLogger**:
     from pytorch_lightning.logging.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
-        api_key=os.environ["NEPTUNE_API_TOKEN"],
-        project_name="USERNAME/PROJECT_NAME",
+        api_key="ANONYMOUS",
+        project_name="shared/pytorch-lightning-integration",
         experiment_name="default",  # Optional,
         params={"max_epochs": 4,
                 "batch_size": 32},  # Optional,
