@@ -1,5 +1,5 @@
-Monitor Scikit Optimize hyperparameter optimization in Neptune
-==============================================================
+Monitor Optuna hyperparameter optimization in Neptune
+=====================================================
 .. image:: ../_static/images/others/optuna_neptuneai.png
    :target: ../_static/images/others/optuna_neptuneai.png
    :alt: Optuna Neptune integration
