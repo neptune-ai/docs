@@ -43,7 +43,8 @@ In the **Experiment Details** tab, under the **Metadata** section, click the **C
 
 **Example**
 
-https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-21/details
+https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/details
+
 
 Experiment charts and other resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,6 +60,7 @@ Each displays specific content that is logged to Neptune for the specific experi
 - Source code: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/source-code
 - Parameters: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters
 - Details: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details
+
 
 Projects
 ^^^^^^^^
