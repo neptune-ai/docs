@@ -1,89 +1,117 @@
-What is Neptune?
-================
-|Neptune| is a collaboration hub for data science / machine learning teams. that focuses on three areas:
+Welcome to Neptune!
+===================
 
-* :ref:`Track <track>`: all metrics and outputs in your data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on.
-* :ref:`Organize <organize>`: automatically transform tracked data into a knowledge repository.
-* :ref:`Collaborate <collaborate>`: share, compare and discuss your work across data science project.
+Neptune is a light-weight experiment management tool that helps you keep track of your machine learning experiments.
+
+Use Neptune to log hyperparameters and output metrics from your runs, then visualize and compare results. Automatically transform tracked data into a knowledge repository, then share and discuss your work with colleagues.
+
+- Neptune fits in any workflow, ranging from data exploration and analysis, decision science to machine learning and deep learning.
+- Neptune works with common technologies in the data science domain: Python, `Jupyter Notebooks <https://docs.neptune.ai/notebooks/introduction.html>`_, and `R <https://docs.neptune.ai/integrations/r-support.html>`_, to mention a few.
+- It integrates with other tracking tools such as `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or `Sacred <https://neptune-contrib.readthedocs.io/examples/observer_sacred.html>`_ and many other machine learning and deep learning frameworks.
+- It integrates seamlessly with your machine learning infrastructure, be it AWS, GCP, Kubernetes, Azure, or on-prem machines.
+- `Neptune client <https://github.com/neptune-ai/neptune-client>`_ is an open source Python library that allows you to integrate your Python scripts with Neptune. Neptune client supports the following cases:
+
+    - Creating and tracking experiments
+    - Managing running experiment
+    - Querying experiments and projects (search/download)
+
+Get Started
+===========
+
+- New user? `Register <https://neptune.ai/register>`_ and climb aboard.
+- Registered already? Log in `here <https://neptune.ai/login>`_.
+
+
+Track, Organize, Collaborate
+============================
 
 .. image:: ./_static/images/overview/quick_overview.gif
    :target: ./_static/images/overview/quick_overview.gif
    :alt: image
 
-Neptune is lightweight
-----------------------
-Neptune is built with the single design principle in mind: *being lightweight*. What does it mean in practice?
 
-* easy user onboarding: if you know how to use ``print()`` you will learn how to use it in no time.
-* 20-minute deployment: use SaaS, deploy on any cloud or own hardware (|contact us| to learn more).
-* Neptune fits in any workflow, ranging from data exploration & analysis, decision science to machine learning and deep learning.
-* Neptune works with common technologies in data science domain: Python 2 and 3, Jupyter Notebooks, R.
-* Neptune integrates with other tools like |MLflow| and |TensorBoard|.
+The Neptune workflow comprises three iterative phases:
 
-Neptune's focus: track, organize and collaborate
-------------------------------------------------
-.. _track:
+- **Track** all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. The snippet below presents an example of integration with Python code.
 
-Track
-^^^^^
-Track all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on.
-Snippet below, presents example integration with Python code.
+    .. code-block:: python
 
-.. code-block::
+        import neptune
 
-   import neptune
+        neptune.init('shared/onboarding', api_token='ANONYMOUS')
 
-   neptune.init('shared/onboarding',
-                api_token='eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==')
-   with neptune.create_experiment():
-       neptune.append_tag('minimal-example')
-       n = 117
-       for i in range(1, n):
-           neptune.send_metric('iteration', i)
-           neptune.send_metric('loss', 1/i**0.5)
-       neptune.set_property('n_iterations', n)
+        neptune.append_tag('minimal-example')
+        n = 117
+        for i in range(1, n):
+            neptune.send_metric('iteration', i)
+            neptune.send_metric('loss', 1/i**0.5)
+            neptune.set_property('n_iterations', n)
 
-``api_token`` belongs to the public user |Neptuner|. So, when started you can see your experiment at the top of |experiments view|.
+    .. note::
+        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear `here <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
-.. _organize:
+    For more information, see the `Tracking How To Guide <https://docs.neptune.ai/python-api/how-to/track.html>`_.
 
-Organize
-^^^^^^^^
-Organize structure of your project:
+- **Organize** the structure of your project:
 
-* code,
-* notebooks,
-* experiment results,
-* model weights,
-* meeting notes,
-* reports.
+    - Code
+    - Notebooks
+    - Experiment results
+    - Model weights
+    - Meeting notes
+    - Reports
 
-Everything is in one place, accessible from the app or programmatically.
-Neptune exposes :ref:`Query API <query-api>`, that allows users to access their Neptune data right from the Python code.
+    Everything is in one place, accessible from the application or programmatically. Neptune exposes a Query API, that allows users to access their Neptune data right from the Python code.
 
-.. _collaborate:
+    For more information, see the `Organize How To Guide <https://docs.neptune.ai/python-api/how-to/organize.html>`_.
 
-Collaborate
-^^^^^^^^^^^
-Collaborate in the team:
+- **Collaborate** in the team:
 
-* share your experiments,
-* compare results,
-* comment and communicate your work,
-* use widgets and mentions to show your progress.
+    - Share your experiments
+    - Compare results
+    - Comment and communicate your work
+    - Use widgets and mentions to show your progress
+    - Speak your language in our data-science focused interactive wiki!
 
-Speak Your language in our data-science focused interactive wiki!
+        .. image:: ./_static/images/overview/wiki.gif
+           :target: ./_static/images/overview/wiki.gif
+           :alt: image
 
-.. image:: ./_static/images/overview/wiki.gif
-   :target: ./_static/images/overview/wiki.gif
-   :alt: image
+    For more information, see `Collaborating in Neptune <learn-about-neptune/collaborate.html>`_.
 
-Documentation contents
-----------------------
+
+image
+
+More Resources
+==============
+
+In addition to this documentation set, check out the following resources:
+
+- `Hands-on tutorial <https://ui.neptune.ai/o/USERNAME/org/example-project/wiki/1-Intro-89a74d1e-c71d-4764-912a-63312c3e885c>`_: Covers installation, experiment tracking and comparison, data tracking, and Notebook use.
+- Sample projects like: a `comparison of binary classification metrics <https://ui.neptune.ai/neptune-ai/binary-classification-metrics/wiki/README-12ff3437-42e3-48c9-af34-957822849559>`_ applied to fraud detection, `research on hyperparameter optimization strategies <https://ui.neptune.ai/jakub-czakon/blog-hpo/wiki/Skopt-forest-51912822-7a61-42ad-87d1-108998739c73>`_, or a `step-by-step experiment tracking tutorial <https://ui.neptune.ai/USERNAME/example-project/wiki/1-Intro-89a74d1e-c71d-4764-912a-63312c3e885c>`_.
+- `YouTube channel <https://www.youtube.com/channel/UCvOJU-ubyUqxGSDRN7xK4Ng>`_: Provides hands-on videos that showcase key Neptune features.
+- `Blog <https://neptune.ai/blog>`_: Provides in-depth articles about best practices and trends in machine learning.
+- `Neptune user community <https://spectrum.chat/neptune-community?tab=posts>`_: Meet other Neptune users and developers and start a discussion.
+- Presentations, talks, podcasts
+- `Product hunt <https://www.producthunt.com/posts/neptune-ai>`_: A review helps other people find our product.
+- Technical support: Should you require further support, or have feature requests, reach out at contact@neptune.ai or click the chat icon in the bottom right corner of the Neptune UI.
+
+Spread the Love
+===============
+
+Go ahead and mention us on social media!
+
+- `Twitter <https://twitter.com/neptune_ai>`_: Tweet us. Our handle is @neptune.ai.
+- Product feedback: File an issue in our `GitHub repo <https://github.com/neptune-ai/neptune-client>`_.
+
+
+.. ----------------------
+.. Documentation contents
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
-   :caption: Learn about Neptune
+   :caption: Getting Started with Neptune
 
    learn-about-neptune/core-concepts.rst
    learn-about-neptune/team-management.rst
@@ -92,6 +120,7 @@ Documentation contents
    learn-about-neptune/faq.rst
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Jupyter Notebooks in Neptune
 
@@ -101,6 +130,7 @@ Documentation contents
    Troubleshoot <notebooks/troubleshoot.rst>
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Python Library
 
@@ -112,6 +142,7 @@ Documentation contents
    python-api/cheatsheet.rst
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Integrations
 
