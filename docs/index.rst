@@ -146,7 +146,10 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
-   Frameworks <integrations/frameworks.rst>
+   Keras <integrations/keras.rst>
+   PyTorch <integrations/pytorch.rst>
+   LightGBM <integrations/lightgbm.rst>
+   Matplotlib <integrations/matplotlib.rst>
    R <integrations/r-support.rst>
    Any language <integrations/any-language-support.rst>
    TensorBoard <integrations/tensorboard.rst>

@@ -3,7 +3,7 @@ FAQ
 .. _core-concepts_limits-top:
 
 What is the API calls rate limit?
--------------------------------------
+---------------------------------
 `neptune-client <https://neptune.ai>`_ uses Python API to communicate with Neptune servers.
 Users are restricted to 1 thousand requests per minute. If more requests are placed, neptune-client will retry sending the
 data in the future (when usage does not approach the limit). In such case, users may notice some delay between the actual state of the
@@ -41,11 +41,11 @@ So, if you lose Internet access for less than 34 minutes at a time and you don't
 you will not lose any data - everything will be safely stored in Neptune.
 
 What are the storage limits?
----------------------------
+----------------------------
 Please consult the |Pricing| page, where storage limits are listed.
 
 ----
 
 What is the number of experiments or Notebooks limit?
---------------------------------------------------------
+-----------------------------------------------------
 There are no limits. You can have as many experiments and Notebooks as you wish.
