@@ -7,7 +7,7 @@ Use Neptune to log hyperparameters and output metrics from your runs, then visua
 
 - Neptune fits in any workflow, ranging from data exploration and analysis, decision science to machine learning and deep learning.
 - Neptune works with common technologies in the data science domain: Python, `Jupyter Notebooks <https://docs.neptune.ai/notebooks/introduction.html>`_, and `R <https://docs.neptune.ai/integrations/r-support.html>`_, to mention a few.
-- It integrates with other tools like `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or `Sacred <https://neptune-contrib.readthedocs.io/examples/observer_sacred.html>`_.
+- It integrates with other tracking tools such as `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or `Sacred <https://neptune-contrib.readthedocs.io/examples/observer_sacred.html>`_ and many other machine learning and deep learning frameworks.
 - It integrates seamlessly with your machine learning infrastructure, be it AWS, GCP, Kubernetes, Azure, or on-prem machines.
 - `Neptune client <https://github.com/neptune-ai/neptune-client>`_ is an open source Python library that allows you to integrate your Python scripts with Neptune. Neptune client supports the following cases:
 
@@ -48,7 +48,7 @@ The Neptune workflow comprises three iterative phases:
             neptune.set_property('n_iterations', n)
 
     .. note::
-        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear here: https://ui.neptune.ai/shared/onboarding/experiments.
+        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear `here <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
     For more information, see the `Tracking How To Guide <https://docs.neptune.ai/python-api/how-to/track.html>`_.
 
@@ -93,7 +93,8 @@ In addition to this documentation set, check out the following resources:
 - `Blog <https://neptune.ai/blog>`_: Provides in-depth articles about best practices and trends in machine learning.
 - `Neptune user community <https://spectrum.chat/neptune-community?tab=posts>`_: Meet other Neptune users and developers and start a discussion.
 - Presentations, talks, podcasts
-- Technical Support: Should you require further support, or have feature requests, reach out at contact@neptune.ai or click the chat icon in the bottom right corner of the Neptune UI.
+- Product hunt: a review helps other people find our product.
+- Technical support: Should you require further support, or have feature requests, reach out at contact@neptune.ai or click the chat icon in the bottom right corner of the Neptune UI.
 
 Spread the Love
 ===============
