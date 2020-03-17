@@ -93,7 +93,7 @@ In addition to this documentation set, check out the following resources:
 - `Blog <https://neptune.ai/blog>`_: Provides in-depth articles about best practices and trends in machine learning.
 - `Neptune user community <https://spectrum.chat/neptune-community?tab=posts>`_: Meet other Neptune users and developers and start a discussion.
 - Presentations, talks, podcasts
-- Product hunt: a review helps other people find our product.
+- `Product hunt <https://www.producthunt.com/posts/neptune-ai>`_: A review helps other people find our product.
 - Technical support: Should you require further support, or have feature requests, reach out at contact@neptune.ai or click the chat icon in the bottom right corner of the Neptune UI.
 
 Spread the Love
