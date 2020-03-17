@@ -148,6 +148,7 @@ Go ahead and mention us on social media!
 
    Frameworks <integrations/frameworks.rst>
    R <integrations/r-support.rst>
+   Any language <integrations/any-language-support.rst>
    TensorBoard <integrations/tensorboard.rst>
    HiPlot <integrations/hiplot.rst>
    MLflow <integrations/mlflow.rst>
@@ -159,6 +160,7 @@ Go ahead and mention us on social media!
    Skorch <integrations/skorch.rst>
    Scikit Optimize <integrations/skopt.rst>
    Optuna <integrations/optuna.rst>
+   Telegram <integrations/telegram.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
    Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
 

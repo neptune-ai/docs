@@ -91,4 +91,4 @@ Simply copy and paste it to ``fastai_example.py`` and run.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">Neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>

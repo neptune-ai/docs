@@ -6,11 +6,11 @@ Log Catalyst metrics to neptune
 
 Prerequisites
 -------------
-Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
+Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client|.
 
 .. code-block:: bash
 
-    pip install neptune-client neptune-contrib['monitoring']
+    pip install neptune-client
 
 Create the **NeptuneLogger**
 ----------------------------
@@ -178,7 +178,3 @@ Remember to change your credentials in the **NeptuneLogger**:
 .. |neptune-client| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
-
-.. |neptune-contrib| raw:: html
-
-    <a href="https://neptune-contrib.readthedocs.io/_modules/neptunecontrib/monitoring/skopt.html#log_results" target="_blank">neptune-contrib</a>

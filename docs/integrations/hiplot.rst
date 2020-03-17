@@ -98,7 +98,7 @@ Check integration |documentation| for more details.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://docs.neptune.ai/integrations/neptune-contrib.html" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
 
 .. |documentation| raw:: html
 
