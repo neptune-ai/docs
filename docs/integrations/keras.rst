@@ -4,9 +4,9 @@ Keras
    :target: ../_static/images/others/keras_neptuneml.png
    :alt: Keras neptune.ai integration
 
-Automatically log keras metrics to neptune
-------------------------------------------
-Integration with keras is introduced via |neptune-tensorboard| package.
+Log keras metrics and loss
+--------------------------
+Integration with keras is introduced via |neptune-tensorboard| package. It lets you automatically tracks metrics and losses (on *batch end* and *epoch end*).
 
 Installation
 ^^^^^^^^^^^^
@@ -16,7 +16,7 @@ Installation
 
 Usage
 ^^^^^
-From now on you can use automatic integration with Keras, that tracks metrics and losses (on *batch end* and *epoch end*). Integration snippet is presented below. It should be executed before you create neptune experiment, using |neptune.create_experiment| method.
+From now on you can use integration with Keras. Integration snippet is presented below. It should be executed before you create neptune experiment, using |neptune.create_experiment| method.
 
 .. code-block:: python3
 
