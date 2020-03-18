@@ -42,7 +42,8 @@ Full script
     from torchvision import datasets, transforms
 
     # set project
-    neptune.init(project_qualified_name='shared/pytorch-integration')
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/pytorch-integration')
 
     PARAMS = {'DEVICE': torch.device("cuda" if torch.cuda.is_available() else "cpu"),
               'ITERATIONS': 1000,
