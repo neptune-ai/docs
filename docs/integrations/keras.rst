@@ -29,7 +29,9 @@ As a result, all metrics and losses are automatically tracked in Neptune.
    :target: ../_static/images/how-to/ht-log-keras-1.png
    :alt: image
 
-Check for more example in the |keras-integration| project.
+.. note::
+
+    Check for more example in the |keras-integration| project.
 
 Full script
 ^^^^^^^^^^^
