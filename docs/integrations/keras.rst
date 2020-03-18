@@ -1,64 +1,96 @@
 Keras
 =====
-
-Log keras metrics
------------------
-I have a training script written in `keras <https://keras.io>`_. How do I adjust it to log metrics to Neptune?
-
 .. image:: ../_static/images/others/keras_neptuneml.png
    :target: ../_static/images/others/keras_neptuneml.png
    :alt: Keras neptune.ai integration
 
-**Step 1**
+Automatically log keras metrics to neptune
+------------------------------------------
+Integration with keras is introduced via |neptune-tensorboard| package.
 
-Say your training script looks like this:
+Installation
+^^^^^^^^^^^^
+.. code-block:: bash
 
-.. code-block::
+    pip install neptune-tensorboard
 
-   import keras
-   from keras import backend as K
+Usage
+^^^^^
+From now on you can use automatic integration with Keras, that tracks metrics and losses (on *batch end* and *epoch end*). Integration snippet is presented below. It should be executed before you create neptune experiment, using |neptune.create_experiment| method.
 
-   mnist = keras.datasets.mnist
-   (x_train, y_train),(x_test, y_test) = mnist.load_data()
-   x_train, x_test = x_train / 255.0, x_test / 255.0
+.. code-block:: python3
 
-   model = keras.models.Sequential([
-     keras.layers.Flatten(),
-     keras.layers.Dense(512, activation=K.relu),
-     keras.layers.Dropout(0.2),
-     keras.layers.Dense(10, activation=K.softmax)
-   ])
-   model.compile(optimizer='adam',
-                 loss='sparse_categorical_crossentropy',
-                 metrics=['accuracy'])
+    import neptune_tensorboard as neptune_tb
+    neptune_tb.integrate_with_keras()
 
-   model.fit(x_train, y_train, epochs=5)
-
-**Step 2**
-
-Now let's use Keras Callback
-
-.. code-block::
-
-   from keras.callbacks import Callback
-
-   class NeptuneMonitor(Callback):
-       def on_epoch_end(self, epoch, logs={}):
-           innovative_metric = logs['acc'] - 2 * logs['loss']
-           neptune.send_metric('innovative_metric', epoch, innovative_metric)
-
-**Step 3**
-
-Instantiate it and add it to your callbacks list:
-
-.. code-block::
-
-   with neptune.create_experiment():
-       neptune_monitor = NeptuneMonitor()
-       model.fit(x_train, y_train, epochs=5, callbacks=[neptune_monitor])
-
-All your metrics are now logged to Neptune:
+As a result, all metrics and losses are automatically tracked in Neptune.
 
 .. image:: ../_static/images/how-to/ht-log-keras-1.png
    :target: ../_static/images/how-to/ht-log-keras-1.png
    :alt: image
+
+Check for more example in the |keras-integration| project.
+
+Full script
+^^^^^^^^^^^
+.. code-block:: python3
+
+    # imports
+    import random
+    import neptune
+    import keras
+    import neptune_tensorboard as neptune_tb
+
+    # set project and start integration with keras
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/keras-integration')
+    neptune_tb.integrate_with_keras()
+
+    # parameters
+    PARAMS = {'epoch_nr': 5,
+              'batch_size': 256,
+              'lr': 0.005,
+              'momentum': 0.4,
+              'use_nesterov': True,
+              'unit_nr': 256,
+              'dropout': 0.05}
+
+    # start experiment
+    neptune.create_experiment(name='keras-integration-example', params=PARAMS)
+
+    mnist = keras.datasets.mnist
+    (x_train, y_train),(x_test, y_test) = mnist.load_data()
+    x_train, x_test = x_train / 255.0, x_test / 255.0
+
+    model = keras.models.Sequential([
+      keras.layers.Flatten(),
+      keras.layers.Dense(PARAMS['unit_nr'], activation=keras.activations.relu),
+      keras.layers.Dropout(PARAMS['dropout']),
+      keras.layers.Dense(10, activation=keras.activations.softmax)
+    ])
+
+    optimizer = keras.optimizers.SGD(lr=PARAMS['lr'],
+                                     momentum=PARAMS['momentum'],
+                                     nesterov=PARAMS['use_nesterov'],)
+
+    model.compile(optimizer=optimizer,
+                  loss='sparse_categorical_crossentropy',
+                  metrics=['accuracy'])
+
+    model.fit(x_train, y_train,
+              epochs=PARAMS['epoch_nr'],
+              batch_size=PARAMS['batch_size'])
+
+.. External links
+
+.. |neptune-tensorboard| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/tensorboard.html" target="_blank">neptune-tensorboard</a>
+
+.. |neptune.create_experiment| raw:: html
+
+    <a href="https://docs.neptune.ai/neptune-client/docs/project.html#neptune.projects.Project.create_experiment" target="_blank">neptune.create_experiment</a>
+
+.. |keras-integration| raw:: html
+
+    <a href="https://ui.neptune.ai/shared/keras-integration/experiments" target="_blank">keras-integration</a>
