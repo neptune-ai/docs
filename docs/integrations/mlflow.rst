@@ -21,6 +21,12 @@ Quick-start
 
 **Sync your MLruns with Neptune**
 
+Set your ``NEPTUNE_API_TOKEN``:
+
+.. code-block:: bash
+
+    export NEPTUNE_API_TOKEN="YOUR_NEPTUNE_API_TOKEN"
+
 Navigate to your MLflow project in your directory and run:
 
 .. code-block:: bash
