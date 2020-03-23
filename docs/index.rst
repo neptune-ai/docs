@@ -39,6 +39,7 @@ The Neptune workflow comprises three iterative phases:
         import neptune
 
         neptune.init('shared/onboarding', api_token='ANONYMOUS')
+        neptune.create_experiment()
 
         neptune.append_tag('minimal-example')
         n = 117
