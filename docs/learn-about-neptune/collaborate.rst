@@ -130,7 +130,7 @@ https://ui.neptune.ai/USERNAME/example-project/compare-notebooks?sourceNotebookI
 Working with the Project Wiki
 -----------------------------
 
-Each Neptune project has a built-in Wiki. The Wiki is a collabortive space for developing and sharing reports, insights, and remarks
+Each Neptune project has a built-in Wiki. The Wiki is a collaborative space for developing and sharing reports, insights, and remarks
 about the project's progress, experiments and data exploration Notebooks.
 
 Create a Wiki page
@@ -138,7 +138,7 @@ Create a Wiki page
 
 1. Enter the relevant project.
 2. Click the **Wiki** tab.
-3. Click the **+** button.
+3. Click the **+** button:
 
     .. image:: ../_static/images/core-concepts/new_wiki_page.png
         :target: ../_static/images/core-concepts/new_wiki_page.png
@@ -150,7 +150,7 @@ Create a Wiki page
 
 Insert a comment
 ^^^^^^^^^^^^^^^^
-When you hover on any content in the Wiki page, the **Comment** icon appears on the right side. Click it to make a comment.
+When you hover on any content in the Wiki page, the **Comment** icon appears on the right side. Click it to make a comment:
 
     .. image:: ../_static/images/core-concepts/new_wiki_comment.png
         :target: ../_static/images/core-concepts/new_wiki_comment.png
