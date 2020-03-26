@@ -114,6 +114,7 @@ Go ahead and mention us on social media!
    :caption: Getting Started with Neptune
 
    learn-about-neptune/core-concepts.rst
+   learn-about-neptune/ui.rst
    learn-about-neptune/team-management.rst
    learn-about-neptune/collaborate.rst
    learn-about-neptune/nql.rst
