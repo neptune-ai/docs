@@ -11,6 +11,11 @@ They allow data scientists to work interactively, keeping code and results - lik
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let
 you track Jupyter Notebooks.
 
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
 Key Features
 ------------
 
@@ -185,3 +190,42 @@ You can download a specific Notebook checkpoint from Neptune to Jupyter.
 
 
 3. Click **Download**.
+
+Using the Neptune CLI
+---------------------
+
+You can create Notebooks and update Notebook checkpoints in Neptune from the command line.
+
+Using CLI commands is an alternative if you prefer not to use the `neptune-notebooks extensions <installation.html>`_ in Jupyter or JupyterLab.
+
+.. note:: Syncing Notebook checkpoints using the neptune-notebooks extension is highly recommended!
+
+
+Create a new Notebook
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    neptune notebook sync --project USERNAME/PROJECT_NAME your_notebook.ipynb --new
+
+
+Send a new Notebook checkpoint to an existing Notebook
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    neptune notebook sync --project USERNAME/PROJECT_NAME your_notebook.ipynb --update
+
+CLI Flags
+~~~~~~~~~
+
+-**--new**: Takes the user's Notebook `user_notebook.ipynb` and creates a new Notebook object in Neptune.
+
+-**--update**: Updates the user's Notebook `user_notebook.ipynb` in Neptune by adding a checkpoint to it.
+
+About syncing
+~~~~~~~~~~~~~
+
+Syncing is used in Neptune Notebooks, `Neptune MLflow <../integrations/mlflow.html>`_, and `Neptune TensorBoard <../integrations/tensorboard.html>`_ packages.
+
+It converts the experiment from the user's format to a Neptune experiment or Notebook format and sends it to Neptune.
