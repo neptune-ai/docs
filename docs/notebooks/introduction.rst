@@ -208,6 +208,8 @@ Create a new Notebook
 
     neptune notebook sync --project USERNAME/PROJECT_NAME your_notebook.ipynb --new
 
+-**--new**: Takes the user's Notebook `user_notebook.ipynb` and creates a new Notebook object in Neptune.
+
 
 Send a new Notebook checkpoint to an existing Notebook
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,10 +218,6 @@ Send a new Notebook checkpoint to an existing Notebook
 
     neptune notebook sync --project USERNAME/PROJECT_NAME your_notebook.ipynb --update
 
-CLI Flags
-~~~~~~~~~
-
--**--new**: Takes the user's Notebook `user_notebook.ipynb` and creates a new Notebook object in Neptune.
 
 -**--update**: Updates the user's Notebook `user_notebook.ipynb` in Neptune by adding a checkpoint to it.
 
