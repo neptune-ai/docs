@@ -1,8 +1,8 @@
 Using Jupyter Notebooks in Neptune
 ==================================
 
-.. image:: ../_static/images/others/notebooks_neptuneml.png
-   :target: ../_static/images/others/notebooks_neptuneml.png
+.. image:: ../_static/images/notebooks/opening.png
+   :target: ../_static/images/notebooks/opening.png
    :alt: Jupyter Notebooks neptune.ai integration
 
 Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization.
@@ -10,6 +10,12 @@ They allow data scientists to work interactively, keeping code and results - lik
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let
 you track Jupyter Notebooks.
+
+.. contents::
+    :local:
+    :depth: 1
+    :backlinks: top
+
 
 Key Features
 ------------
@@ -76,7 +82,6 @@ You can also view snapshots of the work with the Notebook, as well as download, 
     :alt: image
 
 Compare Notebooks
-
 ~~~~~~~~~~~~~~~~~
 
 The Notebooks Comparison pane lets you compare Notebook checkpoints.
