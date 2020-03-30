@@ -1,7 +1,7 @@
 Working with the Neptune UI
 ===========================
 
-The Neptune is a browser-enabled app that lets you visualize and browse experiments.
+Neptune is a browser-enabled app that lets you visualize and browse experiments.
 
 
    .. image:: /_static/images/core-concepts/experiment_general_view.png
