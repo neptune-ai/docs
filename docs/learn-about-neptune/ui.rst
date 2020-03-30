@@ -92,8 +92,8 @@ Simply select experiments and click **Compare**:
 
 - **Overlaid charts**: In the comparison view, all metrics with the same name are placed on a single chart with one curve per experiment. The customizable legend lets you select additional metrics and/or parameters to display. When hovering withe the mouse over a particular area, the values for the selected metrics are displayed below:
 
-   .. image:: /_static/images/core-concepts/charts_legend.png
-      :target: /_static/images/core-concepts/charts_legend.png
+   .. image:: /_static/images/core-concepts/charts_legend_mouseover.png
+      :target: /_static/images/core-concepts/charts_legend_mouseover.png
       :alt: Charts legend
       :width: 600
 
