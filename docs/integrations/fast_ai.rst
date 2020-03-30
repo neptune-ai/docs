@@ -47,7 +47,8 @@ Create an experiment and add **neptune_monitor** callback
     neptune.init(project_qualified_name='USER_NAME/PROJECT_NAME')
 
     with neptune.create_experiment(params={'lr': 1e-2}):
-        learn.callbacks.append(NeptuneMonitor())
+        learn = cnn_learner(data, models.resnet18, metrics=accuracy,
+                            callback_fns=[NeptuneMonitor])
         learn.fit_one_cycle(20, 1e-2)
 
 Monitor your fast.ai training in Neptune
@@ -80,7 +81,8 @@ Simply copy and paste it to ``fastai_example.py`` and run.
     learn.recorder.plot()
 
     with neptune.create_experiment(params={'lr': 1e-2}):
-        learn.callbacks.append(NeptuneMonitor())
+        learn = cnn_learner(data, models.resnet18, metrics=accuracy,
+                            callback_fns=[NeptuneMonitor])
         learn.fit_one_cycle(20, 1e-2)
 
 .. External links
