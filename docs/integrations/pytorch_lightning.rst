@@ -43,7 +43,7 @@ Nothing changes here, just your typicall ``LightningModule`` structure.
             ...
 
 Create the **NeptuneLogger** with all the information you want to track
-------------------------------------------------------------------------
+-----------------------------------------------------------------------
 .. code-block:: python3
 
     from pytorch_lightning.logging.neptune import NeptuneLogger
