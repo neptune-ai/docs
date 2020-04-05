@@ -49,7 +49,7 @@ The Neptune workflow comprises three iterative phases:
             neptune.set_property('n_iterations', n)
 
     .. note::
-        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear `here <https://ui.neptune.ai/shared/onboarding/experiments>`_.
+        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear on the experiments `dashboard <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
     For more information, see the `Tracking How To Guide <https://docs.neptune.ai/python-api/how-to/track.html>`_.
 
