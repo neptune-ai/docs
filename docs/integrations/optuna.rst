@@ -23,7 +23,7 @@ Initialize Neptune and create an experiment
     neptune.create_experiment(name='optuna sweep')
 
 Create **NeptuneMonitor** callback
----------------------------------
+----------------------------------
 Pass the experiment object as first argument.
 
 .. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``

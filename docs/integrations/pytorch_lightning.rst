@@ -168,7 +168,7 @@ Added Neptune logger that:
             return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=32)
 
 Create the **NeptuneLogger** with all the information you want to track
-------------------------------------------------------------------------
+-----------------------------------------------------------------------
 .. code-block:: python3
 
     from pytorch_lightning.logging.neptune import NeptuneLogger
