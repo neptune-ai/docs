@@ -1,7 +1,9 @@
 Experiment tracking capabilities
 ================================
-This example uses |get-started-TF| as a base. It contains more features that neptune-client has to offer and put them in single script. Specifically, you will see several methods in action:
+This example shows more features that Neptune offers and put them in single script. Specifically, you will see several methods in action:
 
+* :meth:`~neptune.init`
+* :meth:`~neptune.projects.Project.create_experiment`
 * :meth:`~neptune.experiments.Experiment.log_metric`
 * :meth:`~neptune.experiments.Experiment.log_text`
 * :meth:`~neptune.experiments.Experiment.log_artifact`
@@ -10,109 +12,145 @@ This example uses |get-started-TF| as a base. It contains more features that nep
 
 Copy it and save as *example.py*, then run it as usual: ``python example.py``. In this tutorial we make use of the public ``NEPTUNE_API_TOKEN`` of the public user `Neptuner <https://ui.neptune.ai/o/shared/neptuner>`_. Thus, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ai/o/shared/org/onboarding/experiments>`_.
 
+Make sure you have all dependencies installed. Simply run this command.
+
+.. code:: bash
+
+    pip install matplotlib neptune-client numpy tensorflow
+
+TensorFlow code example
+-----------------------
+Run this code and observe results |online|.
+
 .. code:: Python
 
-    from hashlib import sha1
+    import hashlib
+    import os
+    import tempfile
 
-    import keras
+    import matplotlib.pyplot as plt
     import neptune
-    from keras import backend as K
-    from keras.callbacks import Callback
+    import numpy as np
+    import tensorflow as tf
+    from tensorflow import keras
 
-    PARAMS = {'lr': 0.0001,
-              'dropout': 0.2,
-              'batch_size': 64,
-              'optimizer': 'adam',
-              'loss': 'sparse_categorical_crossentropy',
-              'metrics': 'accuracy',
-              'n_epochs': 5,
+
+    def log_data(logs):
+        neptune.log_metric('epoch_accuracy', logs['accuracy'])
+        neptune.log_metric('epoch_loss', logs['loss'])
+
+
+    def lr_scheduler(epoch):
+        if epoch < 10:
+            new_lr = PARAMS['learning_rate']
+        else:
+            new_lr = PARAMS['learning_rate'] * np.exp(0.1 * ((epoch//50)*50 - epoch))
+
+        neptune.log_metric('learning_rate', new_lr)
+        return new_lr
+
+
+    # Select project
+    neptune.init('shared/onboarding',
+                 api_token='ANONYMOUS')
+
+    # Define parameters
+    PARAMS = {'batch_size': 64,
+              'n_epochs': 100,
+              'shuffle': True,
+              'activation': 'elu',
+              'dense_units': 128,
+              'learning_rate': 0.001,
+              'early_stopping': 10,
+              'optimizer': 'Adam',
               }
 
-    # prepare Keras callback to track training progress in Neptune
-    class NeptuneMonitor(Callback):
-        def __init__(self, neptune_experiment, n_batch):
-            super().__init__()
-            self.exp = neptune_experiment
-            self.n = n_batch
-            self.current_epoch = 0
+    # Create experiment
+    neptune.create_experiment(name='classification_example',
+                              description='neural net trained on the FashionMNIST',
+                              tags=['classification', 'FashionMNIST'],
+                              params=PARAMS)
+    # Dataset
+    fashion_mnist = keras.datasets.fashion_mnist
+    (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+    train_images = train_images / 255.0
+    test_images = test_images / 255.0
 
-        def on_batch_end(self, batch, logs=None):
-            x = (self.current_epoch * self.n) + batch
-            self.exp.send_metric(channel_name='batch end accuracy', x=x, y=logs['acc'])
-            self.exp.send_metric(channel_name='batch end loss', x=x, y=logs['loss'])
+    neptune.set_property('train_images_version', hashlib.md5(train_images).hexdigest())
+    neptune.set_property('train_labels_version', hashlib.md5(train_labels).hexdigest())
+    neptune.set_property('test_images_version', hashlib.md5(test_images).hexdigest())
+    neptune.set_property('test_labels_version', hashlib.md5(test_labels).hexdigest())
 
-        def on_epoch_end(self, epoch, logs=None):
-            self.exp.send_metric('epoch end accuracy', logs['acc'])
-            self.exp.send_metric('epoch end loss', logs['loss'])
+    class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+                   'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-            innovative_metric = logs['acc'] - 2 * logs['loss']
-            self.exp.send_metric(channel_name='innovative_metric', x=epoch, y=innovative_metric)
+    neptune.set_property('class_names', class_names)
 
-            msg_acc = 'End of epoch {}, accuracy is {:.4f}'.format(epoch, logs['acc'])
-            self.exp.send_text(channel_name='accuracy information', x=epoch, y=msg_acc)
+    for j, class_name in enumerate(class_names):
+        plt.figure(figsize=(10, 10))
+        label_ = np.where(train_labels == j)
+        for i in range(9):
+            plt.subplot(3, 3, i + 1)
+            plt.xticks([])
+            plt.yticks([])
+            plt.grid(False)
+            plt.imshow(train_images[label_[0][i]], cmap=plt.cm.binary)
+            plt.xlabel(class_names[j])
+        neptune.log_image('example_images', plt.gcf())
 
-            msg_loss = 'End of epoch {}, categorical crossentropy loss is {:.4f}'.format(epoch, logs['loss'])
-            self.exp.send_text(channel_name='loss information', x=epoch, y=msg_loss)
+    # Model
+    model = keras.Sequential([
+        keras.layers.Flatten(input_shape=(28, 28)),
+        keras.layers.Dense(PARAMS['dense_units'], activation=PARAMS['activation']),
+        keras.layers.Dense(PARAMS['dense_units'], activation=PARAMS['activation']),
+        keras.layers.Dense(PARAMS['dense_units'], activation=PARAMS['activation']),
+        keras.layers.Dense(10, activation='softmax')
+    ])
 
-            self.current_epoch += 1
+    if PARAMS['optimizer'] == 'Adam':
+        optimizer = tf.keras.optimizers.Adam(
+            learning_rate=PARAMS['learning_rate'],
+        )
+    elif PARAMS['optimizer'] == 'Nadam':
+        optimizer = tf.keras.optimizers.Nadam(
+            learning_rate=PARAMS['learning_rate'],
+        )
+    elif PARAMS['optimizer'] == 'SGD':
+        optimizer = tf.keras.optimizers.SGD(
+            learning_rate=PARAMS['learning_rate'],
+        )
 
-    # retrieve project
-    project = neptune.Session('eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==')\
-        .get_project('shared/onboarding')
+    model.compile(optimizer=optimizer,
+                  loss='sparse_categorical_crossentropy',
+                  metrics=['accuracy'])
 
-    # create context with 'npt_exp', so you do not need to remember to close it at the end
-    with project.create_experiment(name='neural-net-mnist',
-                                   params=PARAMS,
-                                   description='neural net trained on MNIST',
-                                   upload_source_files=['example.py']) as npt_exp:
+    # Log model summary
+    model.summary(print_fn=lambda x: neptune.log_text('model_summary', x))
 
-        # prepare data
-        mnist = keras.datasets.mnist
-        (x_train, y_train), (x_test, y_test) = mnist.load_data()
-        x_train, x_test = x_train / 255.0, x_test / 255.0
+    # Train model
+    model.fit(train_images, train_labels,
+              batch_size=PARAMS['batch_size'],
+              epochs=PARAMS['n_epochs'],
+              shuffle=PARAMS['shuffle'],
+              callbacks=[keras.callbacks.LambdaCallback(on_epoch_end=lambda epoch, logs: log_data(logs)),
+                         keras.callbacks.EarlyStopping(patience=PARAMS['early_stopping'],
+                                                       monitor='accuracy',
+                                                       restore_best_weights=True),
+                         keras.callbacks.LearningRateScheduler(lr_scheduler)]
+              )
 
-        # calculate number of batches per epoch and track it in Neptune
-        n_batches = x_train.shape[0] // npt_exp.get_parameters()['batch_size'] + 1
-        npt_exp.set_property('n_batches', n_batches)
+    # Log model weights
+    with tempfile.TemporaryDirectory(dir='.') as d:
+        prefix = os.path.join(d, 'model_weights')
+        model.save_weights(os.path.join(prefix, 'model'))
+        for item in os.listdir(prefix):
+            neptune.log_artifact(os.path.join(prefix, item),
+                                 os.path.join('model_weights', item))
 
-        # calculate train / test data hash and track it in Neptune
-        train_sha = sha1(x_train).hexdigest()
-        test_sha = sha1(x_test).hexdigest()
-        npt_exp.send_text('train_version', train_sha)
-        npt_exp.send_text('test_version', test_sha)
-
-        # prepare model that use dropout parameter from Neptune
-        model = keras.models.Sequential([
-            keras.layers.Flatten(),
-            keras.layers.Dense(512, activation=K.relu),
-            keras.layers.Dropout(npt_exp.get_parameters()['dropout']),
-            keras.layers.Dense(10, activation=K.softmax)
-        ])
-
-        # compile model using use parameters from Neptune
-        model.compile(optimizer=npt_exp.get_parameters()['optimizer'],
-                      loss=npt_exp.get_parameters()['loss'],
-                      metrics=[npt_exp.get_parameters()['metrics']])
-
-        # fit the model to data, using NeptuneMonitor callback
-        model.fit(x_train, y_train,
-                  epochs=PARAMS['n_epochs'],
-                  batch_size=PARAMS['batch_size'],
-                  callbacks=[NeptuneMonitor(npt_exp, n_batches)])
-
-        # evaluate model on test data and track it in Neptune
-        names = model.metrics_names
-        values = model.evaluate(x_test, y_test)
-        npt_exp.set_property(names[0], values[0])
-        npt_exp.set_property(names[1], values[1])
-
-        # save model in Neptune
-        model.save_weights('model_weights.h5')
-        npt_exp.send_artifact('model_weights.h5')
-        npt_exp.append_tag('large lr')
-        npt_exp.append_tag('compare')
-
-Run this code and observe results |online|.
+    # Evaluate model
+    eval_metrics = model.evaluate(test_images, test_labels, verbose=0)
+    for j, metric in enumerate(eval_metrics):
+        neptune.log_metric('eval_' + model.metrics_names[j], metric)
 
 .. External links
 
