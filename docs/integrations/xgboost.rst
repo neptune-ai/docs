@@ -45,6 +45,38 @@ Here is how to use Neptune-XGBoost integration:
 
 Example results: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-41/charts
 
+Logged metrics
+^^^^^^^^^^^^^^
+They are logged for train and eval (or whatever you defined in watchlist) after each boosting iteration.
+
+.. image:: ../_static/images/xgboost/xgboost_metrics.png
+   :target: ../_static/images/xgboost/xgboost_metrics.png
+   :alt: XGBoost overview
+
+Logged model
+^^^^^^^^^^^^
+The model (Booster) is logged to Neptune after last boosting iteration. If you run cross validation, you get model for each fold.
+
+.. image:: ../_static/images/xgboost/xgboost_model.png
+   :target: ../_static/images/xgboost/xgboost_model.png
+   :alt: XGBoost overview
+
+Logged feature importance
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Very useful chart showing feature importance is logged to Neptune as image after last boosting iteration. If you run cross validation, you get feature importance chart for each folds' model.
+
+.. image:: ../_static/images/xgboost/xgboost_importance.png
+   :target: ../_static/images/xgboost/xgboost_importance.png
+   :alt: XGBoost overview
+
+Logged visualized trees
+^^^^^^^^^^^^^^^^^^^^^^^
+Selected trees are logged to Neptune as image after last boosting iteration. If you run cross validation, you get trees visualization for each folds' model independently.
+
+.. image:: ../_static/images/xgboost/xgboost_trees.png
+   :target: ../_static/images/xgboost/xgboost_trees.png
+   :alt: XGBoost overview
+
 Resources
 ---------
 * Open source implementation is on |github-project|,
@@ -53,8 +85,8 @@ Resources
 
 Notebooks with examples
 -----------------------
-* Notebook logged to Neptune: |xgboost-integration-demo|. This notebook is tracked in the |neptune-project| public project. Feel free to download it and try yourself.
 * Try integration right away with this |google-colab|.
+* Notebook logged to Neptune: |xgboost-integration-demo|. Feel free to download it and try yourself.
 
 Full script
 -----------
