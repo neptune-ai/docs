@@ -158,6 +158,7 @@ Go ahead and mention us on social media!
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Skorch <integrations/skorch.rst>
+   XGBoost <integrations/xgboost.rst>
    Scikit Optimize <integrations/skopt.rst>
    Optuna <integrations/optuna.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
