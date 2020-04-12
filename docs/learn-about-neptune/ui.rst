@@ -13,26 +13,26 @@ Neptune is a browser-enabled app that lets you visualize and browse experiments.
     :depth: 1
     :backlinks: top
 
-Supported browsers
+Supported Browsers
 ------------------
 
 Neptune supports Chrome and Firefox, on all major operating systems.
 
-Log in to the app
+Log in to the App
 -----------------
 1. In a web browser, navigate to ``ui.neptune.ai`` or, in the case of an on-prem deployment, to your Neptune instance address.
-2. Click **Login** in the upper right corner.
+2. In the window that appears, click **Login** in the upper right corner.
+
+3. In the Sign-in dialog that appears, either:
+
+   - Click the Facebook, Google, or GitHub icon and sign in.
+
+   - Type in your user name and password, then click **Sign in**.
 
    .. image:: /_static/images/core-concepts/login.png
       :target: /_static/images/core-concepts/login.png
       :alt: Login screen
       :width: 350
-
-3. Either:
-
-   - Click the Facebook, Google, or GitHub icon.
-
-   - Type in your user name and password, then click **Sign in**.
 
 Experiments View
 ----------------
@@ -72,7 +72,7 @@ There are several ways to organize your experiments:
 
 - **Choose columns**: You can configure several data types logged to Neptune so that they are displayed as columns in the dashboard. They are metrics, text logs, properties and parameters. However, **all** data can be seen in the **single** experiment view.
 
-- **Group experiments**: You can group experiments by one or more column(s). The dashboard displays the selected columns, allowing you to make in-group and across-groups analysis of the experiments.
+- **Group experiments**: You can group experiments by one or more column(s). The dashboard displays the selected columns, allowing you to make in-group and across-groups analysis of the experiments. Each group is represented by the first experiment that appears according to the sorting order. After opening it, each group shows at most 10 experiments - all experiments can be viewed by clicking **Show all**.
 
    .. image:: /_static/images/core-concepts/group_by.png
       :target: /_static/images/core-concepts/group_by.png
@@ -90,7 +90,7 @@ Simply select experiments and click **Compare**:
       :alt: Compare experiments table
 
 
-- **Overlaid charts**: In the comparison view, all metrics with the same name are placed on a single chart with one curve per experiment. The customizable legend lets you select additional metrics and/or parameters to display. When hovering withe the mouse over a particular area, the values for the selected metrics are displayed below:
+- **Overlaid charts**: In the comparison view, all metrics with the same name are placed on a single chart with one curve per experiment. The customizable legend lets you select additional metrics and/or parameters to display. When hovering with the mouse over a particular area, the values for the selected metrics are displayed below:
 
    .. image:: /_static/images/core-concepts/charts_legend_mouseover.png
       :target: /_static/images/core-concepts/charts_legend_mouseover.png
