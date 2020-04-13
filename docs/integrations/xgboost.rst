@@ -21,7 +21,7 @@ Make sure you have all dependencies installed. You can use bash command below:
 
 .. code-block:: bash
 
-    pip install neptune-client pandas xgboost scikit-learn matplotlib graphviz neptune-contrib[monitoring]
+    pip install 'neptune-contrib[monitoring]>=0.18.4'
 
 Basic example
 -------------
