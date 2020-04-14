@@ -59,10 +59,9 @@ The following table summarizes the permissions available for the organization ro
    :header: "Permission","Admin","Member"
    :widths: 20, 20, 20
 
-    Access level in subscription management,edit,none
-    Access level in organization members,edit,none
-    Access to invoice data,edit,none
-    Access level for creating Projects,edit,none
+      Managing subscription (including invoice data),yes,no
+      Managing organization members,yes,no
+      Creating and deleting projects,yes,no
 
 
 You can access organization settings by clicking **Settings**.
@@ -74,7 +73,7 @@ You can access organization settings by clicking **Settings**.
 
 .. note::
 
-    - An Admin of an organization is also the Owner of all projects, by default.
+    - An Admin of an organization is also the Owner of all projects and can grant organization ownership to anyone in the organization.
     - Project Owners can grant project ownership to anyone in the organization.
     - An organization must have at least one Admin, so the last remaining Admin cannot be removed from the organization.
 
@@ -84,16 +83,18 @@ Roles in a project
 
 The following table summarizes the permissions available for the three project roles: Owner, Contributor and Viewer.
 
+
 .. csv-table::
    :header: "Permission","Owner","Contributor","Viewer"
-   :widths: 20, 20, 20, 20
+   :widths: 10, 10, 10, 10
+   :delim: #
 
-    Access level in project settings,edit,none,none
-    Access level to all experiments Notebooks and Wiki,edit,edit,view
-    Access level to people in project (under Settings tab),edit,view,view
-    Can run experiments,yes,yes,no
-    Can add notebooks and make checkpoints,yes,yes,no
-    Can remove project,yes,no,no
+      Viewing project content#yes#yes#yes
+      Editing project content (running experiments, creating Notebooks, modifying previously stored data)#yes#yes#no
+      Viewing project members#yes#yes#yes
+      Editing project members (inviting, changing roles)#yes#no#no
+      Viewing or editing of project settings and properties (such as making projects private or public)#yes#no#no
+
 
 ====
 
