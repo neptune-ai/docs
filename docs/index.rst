@@ -81,8 +81,6 @@ The Neptune workflow comprises three iterative phases:
     For more information, see `Collaborating in Neptune <learn-about-neptune/collaborate.html>`_.
 
 
-image
-
 More Resources
 ==============
 
@@ -114,7 +112,9 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Getting Started with Neptune
 
-   learn-about-neptune/ui.rst
+   learn-about-neptune/core-concepts.rst
+   learn-about-neptune/deployment.rst
+   learn-about-neptune/experiment_tracking.rst
    learn-about-neptune/team-management.rst
    learn-about-neptune/collaborate.rst
    learn-about-neptune/nql.rst
