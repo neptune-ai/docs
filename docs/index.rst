@@ -114,7 +114,7 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Getting Started with Neptune
 
-   learn-about-neptune/core-concepts.rst
+   learn-about-neptune/ui.rst
    learn-about-neptune/team-management.rst
    learn-about-neptune/collaborate.rst
    learn-about-neptune/nql.rst
@@ -158,6 +158,7 @@ Go ahead and mention us on social media!
    Catalyst <integrations/catalyst.rst>
    PyTorch Ignite <integrations/pytorch_ignite.rst>
    Skorch <integrations/skorch.rst>
+   XGBoost <integrations/xgboost.rst>
    Scikit Optimize <integrations/skopt.rst>
    Optuna <integrations/optuna.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>

@@ -24,7 +24,7 @@ Initialize Neptune and create an experiment
 
 
 Create **NeptuneMonitor** callback
----------------------------------
+----------------------------------
 Pass the experiment object as first argument.
 
 .. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``
@@ -58,7 +58,7 @@ It will log the following things to Neptune:
     sk_utils.log_results(results)
 
 Monitor your Scikit Optimize training in Neptune
----------------------------------------
+------------------------------------------------
 Now you can watch your Scikit Optimize hyperparameter optimization in Neptune!
 
 Check out this |example experiment|.
