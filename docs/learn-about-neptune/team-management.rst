@@ -83,18 +83,20 @@ Roles in a project
 
 The following table summarizes the permissions available for the three project roles: Owner, Contributor and Viewer.
 
+- **Content** permissions refer to running experiments, creating Notebooks, and modifying previously stored data.
+- **Project member** permissions are those for inviting members and change their roles.
+- **Project settings** permissions refer to the definition of a project as private or public.
 
 .. csv-table::
    :header: "Permission","Owner","Contributor","Viewer"
-   :widths: 10, 10, 10, 10
+   :widths: 15, 15, 15, 55
    :delim: #
 
       Viewing project content#yes#yes#yes
-      Editing project content (running experiments, creating Notebooks, modifying previously stored data)#yes#yes#no
+      Editing project content#yes#yes#no
       Viewing project members#yes#yes#yes
-      Editing project members (inviting, changing roles)#yes#no#no
-      Viewing or editing of project settings and properties (such as making projects private or public)#yes#no#no
-
+      Editing project members#yes#no#no
+      Viewing or editing of project settings and properties#yes#no#no
 
 ====
 
