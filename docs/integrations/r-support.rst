@@ -210,7 +210,7 @@ Full tracking script
     install.packages('neptune', dependencies = TRUE)
 
     # install other packages for this tutorial
-    install.packages(c('caret','digest', 'mlbench', 'randomForest'), dependencies = TRUE)
+    install.packages(c('digest', 'mlbench', 'randomForest'), dependencies = TRUE)
 
 **Run experiment with tracking script**
 
@@ -219,6 +219,7 @@ Full tracking script
     # load libraries,
     library(neptune)
     library(digest)
+    library(mlbench)
     library(randomForest)
 
     SEED=1234
