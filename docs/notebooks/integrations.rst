@@ -241,5 +241,4 @@ You can now version your Notebooks and track experiments in Amazon SageMaker wit
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
-
           :alt: image
