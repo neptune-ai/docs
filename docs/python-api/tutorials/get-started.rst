@@ -23,7 +23,7 @@ Assign it to the bash environment variable:
 
 or append this line to your ``~/.bashrc`` or ``~/.bash_profile`` files **(recommended)**.
 
-.. warning:: Always keep your API token secret - it is like password to the application. It is recommended to append "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile`` files.
+.. warning:: Always keep your API token secret - it is like a password to the application. Appending the "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile`` file is the recommended method to ensure it remains secret.
 
 Install neptune-client
 ----------------------
