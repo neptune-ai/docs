@@ -125,7 +125,7 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Jupyter Notebooks in Neptune
 
-   Introduction <notebooks/introduction.rst>
+   Using Jupyter Notebooks <notebooks/introduction.rst>
    Installation for Jupyter and JupyterLab <notebooks/installation.rst>
    Configuration <notebooks/configuration.rst>
    Troubleshoot <notebooks/troubleshoot.rst>

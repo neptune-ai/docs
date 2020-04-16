@@ -190,3 +190,67 @@ You can download a specific Notebook checkpoint from Neptune to Jupyter.
 
 
 3. Click **Download**.
+
+Managing Notebooks in Neptune using the CLI
+-------------------------------------------
+
+
+You can create Notebooks and update Notebook checkpoints in Neptune from the command line, using Neptune's `notebook sync` command.
+
+Using CLI commands is an alternative if you prefer not to use the `neptune-notebooks extensions <installation.html>`_ in Jupyter or JupyterLab.
+
+.. tip:: Syncing Notebook checkpoints using the neptune-notebooks extension is highly recommended!
+
+
+There is a single - yet powerful - CLI command:
+
+.. code:: bash
+
+    neptune notebook sync --project ENTITY_NAME/PROJECT_NAME your_notebook.ipynb
+
+`ENTITY_NAME` is either your organization name in the case of a team account or a username in the case of an individual account.
+
+
+Parameters
+~~~~~~~~~~
+
+``--project`` *(optional)*
+
+Project to which to log Notebook or checkpoint. If the `NEPTUNE_PROJECT` environment variable is set, then this command overwrites the environment variable.
+
+``--new`` *(optional)*
+
+* Takes the user's Notebook `user_notebook.ipynb` and creates a new Notebook object in Neptune.
+* If the Notebook is not known to Neptune, it will be created. In such a case, you do not need to use this flag.
+
+.. code-block:: bash
+
+    neptune notebook sync --project ENTITY_NAME/PROJECT_NAME your_notebook.ipynb --new
+
+``--update`` *(optional)*
+
+* Updates the user's Notebook `user_notebook.ipynb` in Neptune by adding a new checkpoint to it.
+* If the Notebook is known to Neptune it will be updated. In such a case, you do not need to use this flag.
+
+.. code-block:: bash
+
+    neptune notebook sync --project ENTITY_NAME/PROJECT_NAME your_notebook.ipynb --update
+
+
+Setup
+~~~~~
+
+To use the CLI command, you must export your `NEPTUNE_API_TOKEN` as an environment variable. You can do this in either of two ways:
+
+- Use this command:
+
+    .. code:: bash
+
+        export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'
+
+OR
+
+- Append the line above to your ``~/.bashrc`` or ``~/.bash_profile`` file.
+
+
+.. warning:: Always keep your API token secret - it is like a password to the application. Appending the "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile`` file is the recommended method to ensure it remains secret.
