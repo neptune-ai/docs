@@ -6,7 +6,7 @@ You can interact with Neptune from R without any trouble and get the same functi
 Installation
 ------------
 
-Neptune integration with R is available as a CRAN package.
+Neptune integration with R is available as a |CRAN package| and a |Github project|.
 You can install it by running:
 
 .. code:: R
@@ -280,3 +280,11 @@ Full tracking script
 .. |shared/r-integration public project| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d" target="_blank">shared/r-integration public project</a>
+
+.. |CRAN package| raw:: html
+
+    <a href="https://cran.r-project.org/web/packages/neptune/index.html" target="_blank">CRAN package</a>
+
+.. |Github project| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-r" target="_blank">Github project</a>
