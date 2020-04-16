@@ -56,31 +56,39 @@ Once this is added you can start logging your experiment data to Neptune.
 
 * Python
 
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS'
-                 python='python',
-                 python_path='/usr/bin/python3')
+    .. code:: R
+
+        init_neptune(project_name = 'shared/r-integration',
+                     api_token = 'ANONYMOUS'
+                     python='python',
+                     python_path='/usr/bin/python3')
 
 * venv
 
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS'
-                 python='venv',
-                 python_path='my_venv')
+    .. code:: R
+
+        init_neptune(project_name = 'shared/r-integration',
+                     api_token = 'ANONYMOUS'
+                     python='venv',
+                     python_path='my_venv')
 
 * conda
 
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS'
-                 python='conda',
-                 python_path='my_conda_env')
+    .. code:: R
+
+        init_neptune(project_name = 'shared/r-integration',
+                     api_token = 'ANONYMOUS'
+                     python='conda',
+                     python_path='my_conda_env')
 
 * miniconda
 
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS'
-                 python='miniconda',
-                 python_path='my_miniconda_env')
+    .. code:: R
+
+        init_neptune(project_name = 'shared/r-integration',
+                     api_token = 'ANONYMOUS'
+                     python='miniconda',
+                     python_path='my_miniconda_env')
 
 Create experiment
 -----------------
