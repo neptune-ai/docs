@@ -116,7 +116,6 @@ Notebooks are stored as files on your computer.
 Each Notebook file (.ipynb) is a JSON containing everything that the user can see in a Notebook and some metadata.
 
 Neptune uses metadata to associate particular files with Notebook entities on Neptune servers. That means that after a Notebook
-
 is uploaded to Neptune, the file on disk is changed to include the ID of the entity on the Neptune server.
 
 **Name changes**
