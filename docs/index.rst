@@ -49,7 +49,7 @@ The Neptune workflow comprises three iterative phases:
             neptune.set_property('n_iterations', n)
 
     .. note::
-        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear `here <https://ui.neptune.ai/shared/onboarding/experiments>`_.
+        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear on the experiments `dashboard <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
     For more information, see the `Tracking How To Guide <https://docs.neptune.ai/python-api/how-to/track.html>`_.
 
@@ -147,8 +147,12 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
-   Frameworks <integrations/frameworks.rst>
+   Keras <integrations/keras.rst>
+   PyTorch <integrations/pytorch.rst>
+   LightGBM <integrations/lightgbm.rst>
+   Matplotlib <integrations/matplotlib.rst>
    R <integrations/r-support.rst>
+   Any language <integrations/any-language-support.rst>
    TensorBoard <integrations/tensorboard.rst>
    HiPlot <integrations/hiplot.rst>
    MLflow <integrations/mlflow.rst>
@@ -161,6 +165,7 @@ Go ahead and mention us on social media!
    XGBoost <integrations/xgboost.rst>
    Scikit Optimize <integrations/skopt.rst>
    Optuna <integrations/optuna.rst>
+   Telegram <integrations/telegram.rst>
    Neptune Contrib <integrations/neptune-contrib.rst>
    Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
 

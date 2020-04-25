@@ -6,11 +6,11 @@ Log Sacred experiments to neptune
 
 Prerequisites
 -------------
-Integration with |Sacred| framework is introduced as a part of logging module so just need to have |neptune-client| installed.
+Integration with |Sacred| framework is introduced as a part of logging module so just need to have |neptune-client|.
 
 .. code-block:: bash
 
-    pip install neptune-client neptune-contrib['monitoring']
+    pip install neptune-client
 
 
 Create an **Experiment**
