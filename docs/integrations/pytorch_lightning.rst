@@ -16,7 +16,7 @@ Integration with |PyTorchLightning| framework is introduced as a part of logging
 Create the **LightningModule**
 ------------------------------
 
-Nothing changes here, just your typicall ``LightningModule`` structure.
+Nothing changes here, just your typical ``LightningModule`` structure.
 
 .. code-block:: python3
 
