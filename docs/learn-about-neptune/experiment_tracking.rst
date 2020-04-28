@@ -59,7 +59,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
 
 
-- **Artifacts**: You can send any data type as a file artifact in Neptune. It can be a model binary, validation prediction, model checkpoint or anything else. Simply tell Neptune which file you want to log. `Example <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts>`_.
+- **Artifacts**: You can send any data type as a file artifact in Neptune. It can be a model binary, validation prediction, model checkpoint or anything else. Simply tell Neptune which file you want to log. `Example: <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts>`_.
 - **Hardware consumption**: Neptune automatically saves your hardware consumption data if the psutil library has been installed. Hardware types are:
 
     - GPU utilization, information from the `nvidia-smi` command - works both for single and multi-GPU setups.
@@ -69,7 +69,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
     `Here is an example <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring>`_.
 
-- **Terminal outputs**: Neptune automatically saves everything that is printed to your terminal and groups it into stdout (output) and stderr (error messages). `Example <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring>`_.
+- **Terminal outputs**: Neptune automatically saves everything that is printed to your terminal and groups it into stdout (output) and stderr (error messages). `Example is here <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring>`_.
 
 - **Properties**: You can log your experiment information like status, data version, or anything else as a name:value (text) pair. Neptune properties are mutable - you can change them later. See the lower section in `this example <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/details>`_.
 
@@ -77,7 +77,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
 - **Code**: The following methods are available for versioning your code in Neptune. Whatever method you use, whenever you create an experiment, the code is versioned.
 
-    - **Git**: Neptune automatically fetches your Git information, like ``commit id`` or ``commit message``. If you have a Git repo (meaning, a `.git` in the directory from which you are starting an experiment), then Neptune automatically shows a Git reference in the experiment details. The same is true if the `.git` repo is above, in the directory tree from which you start an experiment. `Example <https://ui.neptune.ai/o/neptune-ai/org/fastai2-integration/e/FAI-3/details>`_.
+    - **Git**: Neptune automatically fetches your Git information, like ``commit id`` or ``commit message``. If you have a Git repo (meaning, a `.git` in the directory from which you are starting an experiment), then Neptune automatically shows a Git reference in the experiment details. The same is true if the `.git` repo is above, in the directory tree from which you start an experiment. `Example git reference <https://ui.neptune.ai/o/neptune-ai/org/fastai2-integration/e/FAI-3/details>`_.
 
     - **Code snapshots**: You can specify files, directories or use `regexp` to choose files you want to snapshot and log directly to Neptune. `Example <https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py>`_.
 
