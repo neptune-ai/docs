@@ -16,7 +16,7 @@ There are various ways of connecting Neptune to your experiments.
 
 - **Python neptune-client**: Neptune provides an open-source library that lets you connect your experiments directly from your scripts.
 
-    For more information, see `Python Library <../python-api/introduction.html>`_.
+    For more information, see `Python Library <../python-api/introduction.html>`_ and `Get Started <../python-api/tutorials/get-started.html>`_.
 
 - **Jupyter Notebook extension**: (package: neptune-notebooks): With this extension, you can version all the exploratory work or experimentation done in Jupyter Notebooks. ``.ipynb`` checkpoints are sent to the Neptune server and can be commented, shared, compared and downloaded by anyone on your project.
 
