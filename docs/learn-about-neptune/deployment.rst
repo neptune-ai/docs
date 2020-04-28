@@ -3,18 +3,18 @@ Deployment Options
 
 Depending on the way you deploy your system, your experiment data can be hosted in Neptune servers or stored on your premises or cloud provider.
 
-Hosted deployment
+Hosted Deployment
 -----------------
 
 Using this configuration, you run your experiments wherever you want but send experiment logs to our servers on `neptune.ai`. This follows common SaaS platform practise. 
 
 To get started, just register at http://neptune.ai/register and follow the onboarding instructions.
 
-On-premises deployment
+On-premises Deployment
 ----------------------
 
-In this configuration, we deploy application on your infrastructure of your choice, including the backend, the frontend, and all your experiment data. In this mode, data never leaves your organization.
+In this configuration, we deploy the application on the infrastructure of your choice, including the backend, the frontend, and all your experiment data. In this mode, data never leaves your organization.
 
-You can deploy Neptune on local servers or in any cloud (AWS, GCP, Azure, custom hardware).
+You can deploy Neptune on local servers or in any cloud (AWS, GCP, Azure or custom hardware).
 
 To get started, reach out by email to: contact@neptune.ai.
