@@ -8,15 +8,13 @@ Neptune was designed to let you track whatever you need, wherever you run it.
     :depth: 1
     :backlinks: top
 
-Supported programming languages and platforms
+Supported Programming Languages and Platforms
 ---------------------------------------------
 
 There are various ways of connecting Neptune to your experiments.
 
-.. note::
-    You connect Neptune directly from your scripts - No CLI, or third-party platform is needed.
 
-- **Python neptune-client**: Python is the primary language of Neptune. After package installation, you simply paste a snippet on top of your scripts and start logging.
+- **Python neptune-client**: Neptune provides an open-source library that lets you connect your experiments directly from your scripts.
 
     For more information, see: `Python Library <../python-api/introduction.html>`_
 
@@ -31,26 +29,6 @@ There are various ways of connecting Neptune to your experiments.
 - **Any other programming language**: For any other language, you can save your experiment data to a JSON file, which can be synced with the Neptune server. In this way, you can log any experiment, no matter how complicated, multi-staged or multi-lingual. Use Neptune API methods to parse the JSON file and upload it as an experiment.
 
     For more information, see: `Sync experiments with Neptune via JSON file <https://neptune-contrib.readthedocs.io/user_guide/sync/with_json.html>`_.
-
-Main Python Objects
--------------------
-.. I want to use the name of the API - not "Python". What is best to call it?
-
-There are several key objects in the client library that let you interact with your Neptune projects or experiment data:
-
-- `Project <../neptune-client/docs/project.html>`_: This is the Neptune project to which you want to log things. You need to create it in the application. This is a place where you can create experiments. You can create new ones and update or download information from the existing one.
-
-- `Experiment <../neptune-client/docs/experiment.html>`_:  This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a Singleton dictionary object. Neptune gives you all the freedom: You simply log metrics, images, text and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can reinstantiate the experiments you have created in the past and update them.
-
-- `Session <../neptune-client/docs/session.html>`_: When you are creating a Neptune session you identify yourself (with an API token) so that the client knows which projects you have access to.
-
-    - ``backend`` argument in `neptune.init() <../neptune-client/docs/neptune.html#neptune.init>`_: For the `backend` argument of the `neptune.init()` function, you specify where your experiment data should go.
-
-    - ``backend`` argument in `neptune.sessions.Session() <../neptune-client/docs/session.html#neptune.sessions.Session>`_: This mode lets you run experiments while disconnected from the Neptune backend. It's useful, for example, when you want to quickly check something and not send data to Neptune. For the `backend` argument of the `neptune.sessions.Session()` function, you specify where your experiment data should go.
-
-    - `Hosted <../neptune-client/docs/hosted.html>`_: In this mode, the Neptune backend is fully connected to your experiment execution and you send information to the application. You need to have an account created to do that.
-
-- `neptune.init() <../neptune-client/docs/neptune.html#neptune.init>`_: A utility that creates a Session and fetches Project information from Neptune.
 
 
 Logging to Neptune
@@ -78,6 +56,8 @@ There are various object types that you can log to Neptune. Some of them are log
         - Image files (PNG, JPG, and so on) on disk
 
     For more information, see the `log_image() <../neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_image>`_ method.
+
+    
 
 - **Artifacts**: You can send any data type as a file artifact in Neptune. It can be a model binary, validation prediction, model checkpoint or anything else. Simply tell Neptune which file you want to log.
 
@@ -111,17 +91,29 @@ There are various object types that you can log to Neptune. Some of them are log
 Fetching Experiments from Neptune
 ---------------------------------
 
-Every piece of information that is logged to Neptune can be easily retrieved programmatically using the `Query API <../python-api/query-api.html>`_. Additionally, all Notebook checkpoints that were logged can be downloaded directly into your Jupyter Notebook or Jupyter Lab using the neptune-notebooks extension. It is useful when you want to explore experiment results in Jupyter Notebooks, fetch information for CI/CD pipelines, or integrate Neptune with your internal dashboards.
+Every piece of information that is logged to Neptune can be easily retrieved programmatically using the `Query API <../python-api/query-api.html>`_. 
 
 Experiment dashboard
 """"""""""""""""""""
-The `get_leaderboard() method <../neptune-client/docs/project.html#neptune.projects.Project.get_leaderboard>`_ lets you fetch the entire experiment dashboard or use filters to query only parts of it that you care about.
+You can fetch data on the Project level. One example is the `get_leaderboard() method <../neptune-client/docs/project.html#neptune.projects.Project.get_leaderboard>`_, which lets you fetch the entire experiment dashboard or use filters to query only parts of it that you care about.
 
 Single experiment
 """""""""""""""""
-The `get_experiment() method <../neptune-client/docs/project.html#neptune.projects.Project.get_experiments>`_ lets you fetch existing experiments and then access information like parameters, metrics, properties or artifacts from that experiment.
-You can update existing experiment information like metrics, properties or artifacts after they have finished.
+Alternatively, you can fetch data relating to a specific experiment. One example is the `get_experiment() method <../neptune-client/docs/project.html#neptune.projects.Project.get_experiments>`_, which lets you fetch existing experiments and then access information like the parameters, metrics, properties or artifacts of that experiment.
 
-Notebooks extension
-^^^^^^^^^^^^^^^^^^^
-Lets you download Notebook checkpoints from Notebooks previously logged to Neptune. These could be yours or one of your teammate's. See `Uploading and Downloading Notebook Checkpoints <../notebooks/introduction.html#uploading-and-downloading-notebook-checkpoints>`_.
+
+If you are running experiments in Jupyter Notebooks, you can download all checkpoints from Notebooks previously logged to Neptune. These could be yours or one of your teammate's. See `Uploading and Downloading Notebook Checkpoints <../notebooks/introduction.html#uploading-and-downloading-notebook-checkpoints>`_.
+
+Main Python Objects
+-------------------
+.. I want to use the name of the API - not "Python". What is best to call it?
+
+There are several key objects in the client library that let you interact with your Neptune projects or experiment data:
+
+- `Neptune <../neptune-client/docs/neptune.html>`_: A global object that provides the convenience of doing most of the logging using a single `neptune` global variable, similar to Numpy's ``import numpy as np`` statement - in Neptune, write ``import neptune``.
+
+- `Project <../neptune-client/docs/project.html>`_: This is the Neptune project to which you want to log things. You need to create it in the application. This is a place where you can create experiments. You can create new ones and update or download information from the existing one.
+
+- `Experiment <../neptune-client/docs/experiment.html>`_:  This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a Singleton dictionary object. Neptune gives you all the freedom: You simply log metrics, images, text and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can reinstantiate the experiments you have created in the past and update them.
+
+- `Session <../neptune-client/docs/session.html>`_: When you are creating a Neptune session you identify yourself (with an API token) so that the client knows which projects you have access to.
