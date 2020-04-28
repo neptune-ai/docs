@@ -36,7 +36,7 @@ Logging to Neptune
 
 There are various object types that you can log to Neptune. Some of them are logged automatically; some you need to specify explicitly. There is a place in the UI associated with every logging object type defined below.
 
-- **Parameters**: You can log your experiment hyperparameters, such as learning rate, tree depth or regularization by passing them in as a dictionary during experiment creation. Note that Neptune parameters are immutable - you cannot change them later.
+- **Parameters**: You can log your experiment hyper-parameters, such as learning rate, tree depth or regularization by passing them in as a dictionary during experiment creation. Note that Neptune parameters are immutable - you cannot change them later.
 
     For more information, see the `create_experiment() <../neptune-client/docs/project.html#neptune.projects.Project.create_experiment>`_ method.
 
@@ -48,12 +48,12 @@ There are various object types that you can log to Neptune. Some of them are log
 
     For more information, see the `log_text() <../neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_text>`_ method.
 
-- **Images**: You can send image data like ROC AUC charts, object detection predictions after every epoch, or anything else.  It can be one image (like a test confusion matrix) or multiple images (like validation predictions after every epoch). Simply tell Neptune the name of the log and what images you want to send.  You must first save the image file on disk and then send the file to Neptune. The following image types are supported:
+- **Images**: You can send image data like ROC AUC charts, object detection predictions after every epoch, or anything else.  It can be one image (like a test confusion matrix) or multiple images (like validation predictions after every epoch). Simply tell Neptune the name of the log and what images you want to send.  You must first save the image file on disk and then send the file to Neptune. The following data types are supported:
 
-        - PIL
-        - Matplotlib
-        - Numpy
-        - Image files (PNG, JPG, and so on) on disk
+        - PIL,
+        - Matplotlib,
+        - Numpy,
+        - Image files (PNG, JPG, and so on) on disk.
 
     For more information, see the `log_image() <../neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_image>`_ method.
 
