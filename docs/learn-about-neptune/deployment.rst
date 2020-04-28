@@ -8,13 +8,13 @@ Hosted deployment
 
 Using this configuration, you run your experiments wherever you want but send experiment logs to our servers on `neptune.ai`. This follows common SaaS platform practise. 
 
-To get started, just register at neptune.ai/register and follow the onboarding instructions.
+To get started, just register at http://neptune.ai/register and follow the onboarding instructions.
 
 On-premises deployment
 ----------------------
 
-In this configuration, Neptune deploys applications on your infrastructure of your choice, including the backend, the frontend, and all your experiment data. In this mode, data never leaves your organization.
+In this configuration, we deploy application on your infrastructure of your choice, including the backend, the frontend, and all your experiment data. In this mode, data never leaves your organization.
 
-You can deploy Neptune on local servers or in any cloud (AWS, GCP, Azure).
+You can deploy Neptune on local servers or in any cloud (AWS, GCP, Azure, custom hardware).
 
 To get started, reach out by email to: contact@neptune.ai.
