@@ -142,10 +142,10 @@ Go ahead and mention us on social media!
    :caption: Python Library
 
    python-api/introduction.rst
-   python-api/api-reference.rst
    python-api/query-api.rst
    python-api/sample_project.rst
    python-api/cheatsheet.rst
+   python-api/api-reference.rst
 
 .. toctree::
    :hidden:
