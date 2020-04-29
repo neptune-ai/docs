@@ -1,35 +1,35 @@
-Introduction
-============
-|neptune-client-github| is open source Python library that allows you to integrate your Python scripts with Neptune. Neptune client supports handful of use cases:
+About neptune-client
+--------------------
 
-* creating and tracking experiments
-* managing running experiment
-* querying experiments and projects (search/download)
+|neptune-client-github|
+is an open source Python library that lets you integrate your Python scripts with Neptune so that you can more easily track and organize your experiments in the rich Neptune `dashboard <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
-.. note:: Make sure to register to |neptune|, to use it.
+Once you have integrated with Neptune, you can also:
 
-Neptune implements client-server architecture. Because of that you can log and access your results from many different devices:
+* Create experiments. `Example <https://ui.neptune.ai/USERNAME/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py>`_.
+* Manage running experiments. `Example <https://ui.neptune.ai/USERNAME/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py>`_.
+* Query experiments and projects. `Example <https://ui.neptune.ai/USERNAME/example-project/n/Experiments-analysis-with-Query-API-and-Seaborn-31510158-04e2-47a5-a823-1cd97a0d8fcd/91350522-2b98-482d-bc14-a6ff5c061b6b>`_.
 
-* laptops
-* cluster of machines
-* cloud services
+The `Neptune Python Library reference <api-reference.html>`_ provides a complete description of these capabilities.
 
-.. image:: ../_static/images/python_api/server_client_arch.png
-   :target: ../_static/images/python_api/server_client_arch.png
-   :alt: basic architecture
+.. note:: You must register with |neptune| to use neptune-client.
 
 .. _installation:
 
 Installation
-------------
+============
+
 .. code:: bash
 
     pip install neptune-client
 
-Once installed, ``import neptune`` in your code to use it.
+Once installed, add ``import neptune`` to your code to use neptune-client capabilities.
 
 Example
--------
+=======
+
+The following code creates a Neptune experiment in the project |onboarding| and logs *iteration* and *loss* metrics to Neptune in real time. It also showcases a common use case for Neptune client, that is, tracking progress of machine learning experiments.
+
 .. code-block::
 
    import neptune
@@ -45,13 +45,7 @@ Example
            neptune.log_text('magic values', 'magic value {}'.format(0.95*i**2))
        neptune.set_property('n_iterations', n)
 
-.. note:: Install :ref:`neptune-client <installation>`, save the code as ``main.py``, and run like this: ``python main.py``.
-
-Example above creates Neptune experiment in the project: |onboarding| and logs *iteration* and *loss* metrics to Neptune in real time. It also presents common use case for Neptune client, that is tracking progress of machine learning experiments.
-
-Questions and feature requests
-------------------------------
-If you like to suggest feature or improvement simply drop an issue on |github-issues|, or ask us on the |spectrum| chat.
+.. note:: Save the code as ``main.py`` and run it using the command: ``python main.py``.
 
 .. External links
 

@@ -116,33 +116,15 @@ Click a line in the experiments table to see details of that experiment.
 
 Inside the experiment, there are tabs in the left sidebar. Each displays specific content that is logged to Neptune for the specific experiment. Each tab has a unique URL.
 
-- **Charts**: All metrics (numeric type of data) are visualized as charts. You can build your own subset of charts. Once created, they are available for all experiments.
-
-- **Logs**: Logs are data that can be logged or tracked to the experiment. There are multiple types:
-
-   - **Numeric**: Float or int type.
-   - **Text**: String type.
-   - **Image**: Images (image files, numpy array, matplotlib)
-
-- **Monitoring**: Displays information about hardware utilization.
-
-   - **Hardware utilization**: If psutil is installed, you can see utilization of the memory, CPU and GPU (utilization and memory).
-
-   - **Terminal outputs**: Both stdout and stderr are logged.
-
+- **Charts**: All metrics (numeric type of data) are visualized as charts.
+- **Logs**: Logs are data that can be logged or tracked to the experiment. There are multiple types: Numeric, text, and images.
+- **Monitoring**: Displays information about utilization of the memory, CPU and GPU, as well as stdout and stderr.
 - **Artifacts**: Displays files uploaded to the experiment.
-
 - **Source code**: Displays sources uploaded to the experiment.
+- **Parameters**: Displays parameters uploaded to the experiment during experiment creation.
+- **Details**: Displays additional metadata information.
 
-- **Parameters**: Displays parameters uploaded to the experiment (during experiment creation).
-
-- **Details**: Displays additional metadata information:
-
-   - **Metadata**: Additional information like experiment owner, creation and completion date, tags, description and more.
-   - **Neptune metadata**: Neptune client version.
-   - **Source summary**: Meta description of the source code.
-   - **Git reference**: If you use Git version control, then extra information about Git is displayed (commit message, commit author, and more).
-   - **Properties**: Experiment properties are displayed here (if set during experiment execution).
+For more information about the experiment data that is logged, see `Logging to Neptune <../learn-about-neptune/experiment_tracking.html#logging-to-neptune>`_.
 
 Notebooks
 ---------

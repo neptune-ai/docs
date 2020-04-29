@@ -1,12 +1,15 @@
-API reference
-=============
+Neptune Python Library Reference
+--------------------------------
 
 .. toctree::
    :maxdepth: 1
 
-   Neptune <../neptune-client/docs/neptune.rst>
-   Session <../neptune-client/docs/session.rst>
-   Project <../neptune-client/docs/project.rst>
-   Experiment <../neptune-client/docs/experiment.rst>
-   Notebook <../neptune-client/docs/notebook.rst>
-   Utils <../neptune-client/docs/utils.rst>
+
+The following are the main classes in the `Neptune Python Library <introduction.html>`_:
+
+-   `Neptune <../neptune-client/docs/neptune.html>`_: A global object that provides the convenience of doing most of the logging using a single neptune global variable, similar to Numpy’s ``import numpy as np`` statement - in Neptune, write ``import neptune``.
+-   `Session <../neptune-client/docs/session.html>`_: When you are creating a Neptune session, you identify yourself with an API token so that the client knows which projects you have access to.
+-   `Project <../neptune-client/docs/project.html>`_: This is the Neptune project to which you want to log things. You need to create it in the application. This is a place where you can create experiments. You can create new ones and update or download information from the existing one.
+-   `Experiment <../neptune-client/docs/experiment.html>`_: This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a Singleton dictionary object. Neptune gives you all the freedom: You simply log metrics, images, text and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can reinstantiate the experiments you have created in the past and update them.
+-   `Notebook <../neptune-client/docs/notebook.html>`_: Contains all the information about a Neptune Jupyter Notebook.
+-   `Utils <../neptune-client/docs/utils.html>`_: Keeps information about the Git repository in an experiment.

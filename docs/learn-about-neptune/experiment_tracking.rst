@@ -50,10 +50,10 @@ There are various object types that you can log to Neptune. Some of them are log
 
 - **Images**: You can send image data like ROC AUC charts, object detection predictions after every epoch, or anything else.  It can be one image (like a test confusion matrix) or multiple images (like validation predictions after every epoch). Simply tell Neptune the name of the log and what images you want to send.  You must first save the image file on disk and then send the file to Neptune. The following data types are supported:
 
-        - PIL,
-        - Matplotlib,
-        - Numpy,
-        - Image files (PNG, JPG, and so on) on disk.
+        - PIL
+        - Matplotlib
+        - Numpy
+        - Image files (PNG, JPG, and so on) on disk
 
     For more information, see the `log_image() <../neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_image>`_ method.
 
@@ -109,12 +109,6 @@ Main Python Objects
 -------------------
 .. I want to use the name of the API - not "Python". What is best to call it?
 
-There are several key objects in the client library that let you interact with your Neptune projects or experiment data:
+There are several key objects in the client library that let you interact with your Neptune projects or experiment data.
 
-- `Neptune <../neptune-client/docs/neptune.html>`_: A global object that provides the convenience of doing most of the logging using a single `neptune` global variable, similar to Numpy's ``import numpy as np`` statement - in Neptune, write ``import neptune``.
-
-- `Project <../neptune-client/docs/project.html>`_: This is the Neptune project to which you want to log things. You need to create it in the application. This is a place where you can create experiments. You can create new ones and update or download information from the existing one.
-
-- `Experiment <../neptune-client/docs/experiment.html>`_:  This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a Singleton dictionary object. Neptune gives you all the freedom: You simply log metrics, images, text and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can reinstantiate the experiments you have created in the past and update them.
-
-- `Session <../neptune-client/docs/session.html>`_: When you are creating a Neptune session you identify yourself (with an API token) so that the client knows which projects you have access to.
+For more information, see `API Reference <../python-api/api-reference.html>`_.

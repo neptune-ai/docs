@@ -57,7 +57,7 @@ The Neptune workflow comprises three iterative phases:
     .. note::
         The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear on the experiments `dashboard <https://ui.neptune.ai/shared/onboarding/experiments>`_.
 
-    For more information, see the `Tracking How To Guide <https://docs.neptune.ai/python-api/how-to/track.html>`_.
+    For more information, see `Experiment Tracking <learn-about-neptune/experiment_tracking.html>`_.
 
 - **Organize** the structure of your project:
 
@@ -70,7 +70,7 @@ The Neptune workflow comprises three iterative phases:
 
     Everything is in one place, accessible from the application or programmatically. Neptune exposes a Query API, that allows users to access their Neptune data right from the Python code.
 
-    For more information, see the `Organize How To Guide <https://docs.neptune.ai/python-api/how-to/organize.html>`_.
+    For more information, see `Experiments View <learn-about-neptune/ui.html#experiments-view>`_.
 
 - **Collaborate** in the team:
 
@@ -108,8 +108,7 @@ Spread the Love
 Go ahead and mention us on social media!
 
 - `Twitter <https://twitter.com/neptune_ai>`_: Tweet us. Our handle is @neptune.ai.
-- Product feedback: File an issue in our `GitHub repo <https://github.com/neptune-ai/neptune-client>`_.
-
+- Product feedback: File an issue or suggest a feature or improvement in our `GitHub repo <https://github.com/neptune-ai/neptune-client/issues>`_.
 
 .. ----------------------
 .. Documentation contents
