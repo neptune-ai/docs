@@ -41,34 +41,28 @@ You can share short experiment IDs. An experiment ID is a unique identifier with
 
 In the **Experiment Details** tab, under the **Metadata** section, click the **Copy** button in the ID field.
 
-**Example**
-
-https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/details
-
+|experiment details| is an example showing experiment details.
 
 Experiment charts and other resources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You can share experiment charts and other resources.
 
-Inside the experiment, there are tabs on the left side: Charts, Logs, Monitoring, Artifacts, Source code, Parameters, Details.
-Each displays specific content that is logged to Neptune for the specific experiment. Each tab has a unique URL.
+Inside the experiment, there are tabs on the left side:
 
-- Charts: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/charts
-- Logs: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/logs
-- Monitoring: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/monitoring
-- Artifacts: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/artifacts
-- Source code: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/source-code
-- Parameters: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters
-- Details: https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details
+- |Charts|
+- |Logs|
+- |Monitoring|
+- |Artifacts|
+- |Source code|
+- |Parameters|
+- |Details|
+
+Each displays specific content that is logged to Neptune for the specific experiment. Each tab has a unique URL, corresponding to the type of data.
 
 
 Projects
 ^^^^^^^^
-You can share projects.
-
-**Example**
-
-https://ui.neptune.ai/USERNAME/example-project
+You can share projects. |example Project|.
 
 
 Experiment comparisons
@@ -77,9 +71,8 @@ Experiment comparisons
 When you compare experiments in the UI, Neptune assigns it a unique URL. Share the URL to show your teammates the exact comparison
 you made.
 
-**Example**
+A comparison between experiments is shown |experiment comparison|.
 
-https://ui.neptune.ai/USERNAME/example-project/compare?shortId=%5B%22HELLO-191%22%2C%22HELLO-197%22%2C%22HELLO-176%22%2C%22HELLO-177%22%2C%22HELLO-123%22%5D&viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9
 
 
     .. image:: ../_static/images/core-concepts/compare_experiments.png
@@ -94,18 +87,17 @@ Notebook checkpoints
 Every time you make a Notebook checkpoint, Neptune assigns it a unique ID.
 Similarly to other views in Neptune, you can share a link to the particular Notebook checkpoint.
 
-**Example**
+1. View this |Notebook checkpoint|.
 
-https://ui.neptune.ai/USERNAME/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1
 
-1. Click **Share** in the checkpoint actions menu:
+2. Click **Share** in the checkpoint actions menu:
 
     .. image:: ../_static/images/core-concepts/notebook_checkpoint.png
         :target: ../_static/images/core-concepts/notebook_checkpoint.png
         :alt: Notebook checkpoint
         :width: 400
 
-2. Click **Copy**.
+3. Click **Copy**.
 
 Notebook comparisons
 ^^^^^^^^^^^^^^^^^^^^
@@ -117,10 +109,7 @@ You can copy the link in either of the following ways:
 - Copy the link from the address bar in the browser.
 - Click the **Share** button in the Notebook comparison view, then, in the dialog that appears, click **Copy**.
 
-**Example**
-
-https://ui.neptune.ai/USERNAME/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848
-
+|Notebook comparison|
 
     .. image:: ../_static/images/core-concepts/notebook_comparison.png
         :target: ../_static/images/core-concepts/notebook_comparison.png
@@ -246,3 +235,58 @@ Hover on the highlighted text to see who highlighted it:
         :target: ../_static/images/core-concepts/editor_details.png
         :alt: Editor details
         :width: 250
+
+
+
+.. External Links
+
+.. |Charts| raw:: html
+
+     <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/charts" target="_blank">Charts</a>
+
+.. |Logs| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/logs" target="_blank">Logs</a>
+
+.. |Monitoring| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/monitoring" target="_blank">Monitoring</a>
+
+.. |Artifacts| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/artifacts" target="_blank">Artifacts</a>
+
+.. |Source code| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/source-code" target="_blank">Source code</a>
+
+
+.. |Parameters| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/parameters" target="_blank">Parameters</a>
+
+.. |Details| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-191/details" target="_blank">Details</a>
+
+.. |example Project| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project" target="_blank">Study this one, for example</a>
+
+
+.. |experiment details| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/details" target="_blank">Here</a>
+
+.. |experiment comparison| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/compare?shortId=%5B%22HELLO-191%22%2C%22HELLO-197%22%2C%22HELLO-176%22%2C%22HELLO-177%22%2C%22HELLO-123%22%5D&viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9" target="_blank">here</a>
+
+
+.. |Notebook checkpoint| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/n/HPO-analysis-with-HiPlot-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1" target="_blank">sample Notebook checkpoint in Neptune</a>
+
+.. |Notebook comparison| raw:: html
+
+    <a href="https://ui.neptune.ai/USERNAME/example-project/compare-notebooks?sourceNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&sourceCheckpointId=289b0afa-41ba-4dbe-a9be-40ae8f03711a&targetNotebookId=d311a774-7235-4f25-96eb-a5750eb6a1dc&targetCheckpointId=eb59b83e-836e-4378-a326-1401dd499848" target="_blank">Example comparison</a>    

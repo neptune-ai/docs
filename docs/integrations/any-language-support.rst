@@ -106,4 +106,4 @@ Check out this |example experiment|.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
+    <a href="s://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
