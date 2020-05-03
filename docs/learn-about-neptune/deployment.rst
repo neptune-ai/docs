@@ -6,7 +6,7 @@ Depending on the way you deploy your system, your experiment data can be hosted 
 Hosted Deployment
 -----------------
 
-Using this configuration, you run your experiments wherever you want but send experiment logs to our servers on `neptune.ai`. This follows common SaaS platform practise. 
+Using this configuration, you run your experiments wherever you want but send experiment logs to our servers on `neptune.ai`. This follows common SaaS platform practise.
 
 To get started, just |register| and follow the onboarding instructions.
 

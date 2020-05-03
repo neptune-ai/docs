@@ -89,7 +89,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
     For more information, see `Uploading and Downloading Notebook Checkpoints <../notebooks/introduction.html#uploading-and-downloading-notebook-checkpoints>`_.
 
-- **Integrations**: We have created loggers for many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above. Learn more about the `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or |Sacred| integrations, for example.
+- **Integrations**: We have created loggers for many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above. Learn more about the `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or `Sacred <integrations/sacred.html>`_ integrations, for example.
 
 Fetching Experiments from Neptune
 ---------------------------------
@@ -129,11 +129,11 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
 
 .. |See this example| raw:: html
 
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts" target="_blank">See this example</a>  
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts" target="_blank">See this example</a>
 
 .. |Here is an example| raw:: html
 
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>    
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>
 
 
 .. |See this example| raw:: html
@@ -141,7 +141,7 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
      <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">See this example</a>
 
 
-.. |in this example| raw:: html 
+.. |in this example| raw:: html
 
      <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/details" target="_blank">in this example</a>
 
@@ -153,7 +153,3 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
 .. |Example| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py" target="_blank">Example</a>
-
-.. |Sacred| raw:: html
-
-    <a href="https://neptune-contrib.readthedocs.io/examples/observer_sacred.html" target="_blank">Sacred</a>

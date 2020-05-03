@@ -13,7 +13,7 @@ Use Neptune to log hyperparameters and output metrics from your runs, then visua
 
     - Create and track experiments
     - Manage and run experiments
-    - Query experiments and projects
+    - Fetching experiment and project data
 
 Get Started
 ===========
