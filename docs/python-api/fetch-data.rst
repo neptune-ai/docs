@@ -1,4 +1,4 @@
-.. _query-api:
+.. _fetch_data:
 
 Fetching Data From Neptune
 --------------------------

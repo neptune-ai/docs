@@ -29,5 +29,5 @@ Downloading Project and Experiment Data from Neptune
 
 A subset of the Neptune Python Library provides methods for downloading project and experiment data from Neptune.
 
-For more information, see `Fetching Data From Neptune <query-api.html>`_.
+For more information, see `Fetching Data From Neptune <fetch-data.html>`_.
 

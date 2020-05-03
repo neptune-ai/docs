@@ -138,12 +138,13 @@ Go ahead and mention us on social media!
 
 .. toctree::
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Python Library
 
    python-api/introduction.rst
-   python-api/query-api.rst
    python-api/sample_project.rst
+   python-api/tutorials.rst
+   python-api/fetch-data.rst   
    python-api/cheatsheet.rst
    python-api/api-reference.rst
 

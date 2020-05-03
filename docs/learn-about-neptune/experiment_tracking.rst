@@ -94,7 +94,7 @@ There are various object types that you can log to Neptune. Some of them are log
 Fetching Experiments from Neptune
 ---------------------------------
 
-Every piece of information that is logged to Neptune can be easily retrieved programmatically using the dedicated methods in the Neptune Python Library. For more information, see `Fetching Data From Neptune <../python-api/query-api.html>`_.
+Every piece of information that is logged to Neptune can be easily retrieved programmatically using the dedicated methods in the Neptune Python Library. For more information, see `Fetching Data From Neptune <../python-api/fetch-data.html>`_.
 
 Experiment dashboard
 """"""""""""""""""""

@@ -1,6 +1,6 @@
 Experiment tracking capabilities
 ================================
-This example shows more features that Neptune offers and put them in single script. Specifically, you will see several methods in action:
+This example shows more features that Neptune offers and combines them in a single script. Specifically, you will see several methods in action:
 
 * :meth:`~neptune.init`
 * :meth:`~neptune.projects.Project.create_experiment`
@@ -10,9 +10,11 @@ This example shows more features that Neptune offers and put them in single scri
 * :meth:`~neptune.experiments.Experiment.append_tag`
 * :meth:`~neptune.experiments.Experiment.set_property`
 
-Copy it and save as *example.py*, then run it as usual: ``python example.py``. In this tutorial we make use of the public ``NEPTUNE_API_TOKEN`` of the public user `Neptuner <https://ui.neptune.ai/o/shared/neptuner>`_. Thus, when started you can see your experiment at the top of `experiments view <https://ui.neptune.ai/o/shared/org/onboarding/experiments>`_.
+Copy the code snippet and save it as *example.py*, then run it as usual: ``python example.py``. In this tutorial, we make use of the public ``NEPTUNE_API_TOKEN`` of the public user |Neptuner|. Thus, when started, you can see your experiment at the top of |Experiments view|.
 
-Make sure you have all dependencies installed. Simply run this command.
+Make sure you have all the dependencies installed. 
+
+Simply run this command:
 
 .. code:: bash
 
@@ -161,3 +163,11 @@ Run this code and observe results |online|.
 .. |online|  raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/onboarding/experiments" target="_blank">online</a>
+
+.. |Experiments view|  raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/onboarding/experiments" target="_blank">Experiments view</a>
+
+.. |Neptuner|  raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/neptuner>" target="_blank">Neptuner</a>
