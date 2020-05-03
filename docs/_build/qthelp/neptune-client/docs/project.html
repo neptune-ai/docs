@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Project</title>
+    <link rel="stylesheet" href="../../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-neptune.projects">
+<span id="project"></span><h1>Project</h1>
+<dl class="class">
+<dt id="neptune.projects.Project">
+<em class="property">class </em><code class="descclassname">neptune.projects.</code><code class="descname">Project</code><span class="sig-paren">(</span><em>backend</em>, <em>internal_id</em>, <em>namespace</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for storing information and managing Neptune project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>backend</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Backend</span></code>, required) – A Backend object.</p></li>
+<li><p><strong>internal_id</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, required) – UUID of the project.</p></li>
+<li><p><strong>namespace</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, required) – It can either be your organization or user name.</p></li>
+<li><p><strong>name</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, required) – project name.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">namespace</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> joined together with <code class="docutils literal notranslate"><span class="pre">/</span></code> form <code class="docutils literal notranslate"><span class="pre">project_qualified_name</span></code>.</p>
+</div>
+<dl class="method">
+<dt id="neptune.projects.Project.create_experiment">
+<code class="descname">create_experiment</code><span class="sig-paren">(</span><em>name=None</em>, <em>description=None</em>, <em>params=None</em>, <em>properties=None</em>, <em>tags=None</em>, <em>upload_source_files=None</em>, <em>abort_callback=None</em>, <em>logger=None</em>, <em>upload_stdout=True</em>, <em>upload_stderr=True</em>, <em>send_hardware_metrics=True</em>, <em>run_monitoring_thread=True</em>, <em>handle_uncaught_exceptions=True</em>, <em>git_info=None</em>, <em>hostname=None</em>, <em>notebook_id=None</em>, <em>notebook_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.create_experiment"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Create and start Neptune experiment.</p>
+<p>Create experiment, set its status to <cite>running</cite> and append it to the top of the experiments view.
+All parameters are optional, hence minimal invocation: <code class="docutils literal notranslate"><span class="pre">neptune.create_experiment()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">'Untitled'</span></code>) – Editable name of the experiment.
+Name is displayed in the experiment’s <cite>Details</cite> (<cite>Metadata</cite> section)
+and in <cite>experiments view</cite> as a column.</p></li>
+<li><p><strong>description</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">''</span></code>) – Editable description of the experiment.
+Description is displayed in the experiment’s <cite>Details</cite> (<cite>Metadata</cite> section)
+and can be displayed in the <cite>experiments view</cite> as a column.</p></li>
+<li><p><strong>params</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">{}</span></code>) – Parameters of the experiment.
+After experiment creation <code class="docutils literal notranslate"><span class="pre">params</span></code> are read-only
+(see: <a class="reference internal" href="experiment.html#neptune.experiments.Experiment.get_parameters" title="neptune.experiments.Experiment.get_parameters"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_parameters()</span></code></a>).
+Parameters are displayed in the experiment’s <cite>Details</cite> (<cite>Parameters</cite> section)
+and each key-value pair can be viewed in <cite>experiments view</cite> as a column.</p></li>
+<li><p><strong>properties</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">{}</span></code>) – Properties of the experiment.
+They are editable after experiment is created.
+Properties are displayed in the experiment’s <cite>Details</cite> (<cite>Properties</cite> section)
+and each key-value pair can be viewed in <cite>experiments view</cite> as a column.</p></li>
+<li><p><strong>tags</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">[]</span></code>) – Must be list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>. Tags of the experiment.
+They are editable after experiment is created
+(see: <a class="reference internal" href="experiment.html#neptune.experiments.Experiment.append_tag" title="neptune.experiments.Experiment.append_tag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">append_tag()</span></code></a>
+and <a class="reference internal" href="experiment.html#neptune.experiments.Experiment.remove_tag" title="neptune.experiments.Experiment.remove_tag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_tag()</span></code></a>).
+Tags are displayed in the experiment’s <cite>Details</cite> (<cite>Metadata</cite> section)
+and can be viewed in <cite>experiments view</cite> as a column.</p></li>
+<li><p><strong>upload_source_files</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>List of source files to be uploaded. Must be list of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or single <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>.
+Uploaded sources are displayed in the experiment’s <cite>Source code</cite> tab.</p>
+<div class="line-block">
+<div class="line">If <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed, Python file from which experiment was created will be uploaded.</div>
+<div class="line">Pass empty list (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) to upload no files.</div>
+<div class="line">Unix style pathname pattern expansion is supported. For example, you can pass <code class="docutils literal notranslate"><span class="pre">'*.py'</span></code> to upload
+all python source files from the current directory.
+For Python 3.5 or later, paths of uploaded files on server are resolved as relative to the</div>
+<div class="line">calculated common root of all uploaded source  files. For older Python versions, paths on server are</div>
+<div class="line">resolved always as relative to the current directory.
+For recursion lookup use <code class="docutils literal notranslate"><span class="pre">'**/*.py'</span></code> (for Python 3.5 and later).
+For more information see <a class="reference external" href="https://docs.python.org/3/library/glob.html">glob library</a>.</div>
+</div>
+</p></li>
+<li><p><strong>abort_callback</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">callable</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <p>Callback that defines how <cite>abort experiment</cite> action in the Web application should work.
+Actual behavior depends on your setup:</p>
+<blockquote>
+<div><ul>
+<li><p>(default) If <code class="docutils literal notranslate"><span class="pre">abort_callback=None</span></code> and <a class="reference external" href="https://psutil.readthedocs.io/en/latest/">psutil</a>
+is installed, then current process and it’s children are aborted by sending <cite>SIGTERM</cite>.
+If, after grace period, processes are not terminated, <cite>SIGKILL</cite> is sent.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">abort_callback=None</span></code> and <a class="reference external" href="https://psutil.readthedocs.io/en/latest/">psutil</a>
+is <strong>not</strong> installed, then <cite>abort experiment</cite> action just marks experiment as <em>aborted</em>
+in the Web application. No action is performed on the current process.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">abort_callback=callable</span></code>, then <code class="docutils literal notranslate"><span class="pre">callable</span></code> is executed when <cite>abort experiment</cite> action
+in the Web application is triggered.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>logger</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">logging.handlers</span></code> or <cite>None</cite>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If <a class="reference external" href="https://docs.python.org/3.6/library/logging.handlers.html">handler</a>
+to <cite>Python logger</cite> is passed, new experiment’s <cite>text log</cite>
+(see: <a class="reference internal" href="experiment.html#neptune.experiments.Experiment.log_text" title="neptune.experiments.Experiment.log_text"><code class="xref py py-meth docutils literal notranslate"><span class="pre">log_text()</span></code></a>) with name <cite>“logger”</cite> is created.
+Each time <cite>Python logger</cite> logs new data, it is automatically sent to the <cite>“logger”</cite> in experiment.
+As a results all data from <cite>Python logger</cite> are in the <cite>Logs</cite> tab in the experiment.</p></li>
+<li><p><strong>upload_stdout</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether to send stdout to experiment’s <em>Monitoring</em>.</p></li>
+<li><p><strong>upload_stderr</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether to send stderr to experiment’s <em>Monitoring</em>.</p></li>
+<li><p><strong>send_hardware_metrics</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether to send hardware monitoring logs (CPU, GPU, Memory utilization) to experiment’s <em>Monitoring</em>.</p></li>
+<li><p><strong>run_monitoring_thread</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Whether to run thread that pings Neptune server in order to determine if experiment is responsive.</p></li>
+<li><p><strong>handle_uncaught_exceptions</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">True</span></code>) – <p>Two options <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> are possible:</p>
+<blockquote>
+<div><ul>
+<li><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and uncaught exception occurs, then Neptune automatically place
+<cite>Traceback</cite> in the experiment’s <cite>Details</cite> and change experiment status to <cite>Failed</cite>.</p></li>
+<li><p>If set to <code class="docutils literal notranslate"><span class="pre">False</span></code> and uncaught exception occurs, then no action is performed
+in the Web application. As a consequence, experiment’s status is <cite>running</cite> or <cite>not responding</cite>.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>git_info</strong> (<a class="reference internal" href="utils.html#neptune.git_info.GitInfo" title="neptune.git_info.GitInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">GitInfo</span></code></a>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">Instance of the class <a class="reference internal" href="utils.html#neptune.git_info.GitInfo" title="neptune.git_info.GitInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">GitInfo</span></code></a> that provides information about
+the git repository from which experiment was started.</div>
+<div class="line">If <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed,
+system attempts to automatically extract information about git repository in the following way:</div>
+</div>
+<blockquote>
+<div><ul>
+<li><p>System looks for <cite>.git</cite> file in the current directory and, if not found,
+goes up recursively until <cite>.git</cite> file will be found
+(see: <a class="reference internal" href="utils.html#neptune.utils.get_git_info" title="neptune.utils.get_git_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_git_info()</span></code></a>).</p></li>
+<li><p>If there is no git repository,
+then no information about git is displayed in experiment details in Neptune web application.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>hostname</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, neptune automatically get <cite>hostname</cite> information.
+User can also set <cite>hostname</cite> directly by passing <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="experiment.html#neptune.experiments.Experiment" title="neptune.experiments.Experiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Experiment</span></code></a> object that is used to manage experiment and log data to it.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ExperimentValidationError</strong> – When provided arguments are invalid.</p></li>
+<li><p><strong>ExperimentLimitReached</strong> – When experiment limit in the project has been reached.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># minimal invoke</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">()</span>
+
+<span class="c1"># explicitly return experiment object</span>
+<span class="n">experiment</span> <span class="o">=</span> <span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">()</span>
+
+<span class="c1"># create experiment with name and two parameters</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;first-pytorch-ever&#39;</span><span class="p">,</span>
+                          <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.0005</span><span class="p">,</span>
+                                  <span class="s1">&#39;dropout&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">})</span>
+
+<span class="c1"># create experiment with name and description, and no sources files uploaded</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;neural-net-mnist&#39;</span><span class="p">,</span>
+                          <span class="n">description</span><span class="o">=</span><span class="s1">&#39;neural net trained on MNIST&#39;</span><span class="p">,</span>
+                          <span class="n">upload_source_files</span><span class="o">=</span><span class="p">[])</span>
+
+<span class="c1"># Send all py files in cwd (excluding hidden files with names beginning with a dot)</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="s1">&#39;*.py&#39;</span><span class="p">)</span>
+
+<span class="c1"># Send all py files from all subdirectories (excluding hidden files with names beginning with a dot)</span>
+<span class="c1"># Supported on Python 3.5 and later.</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="s1">&#39;**/*.py&#39;</span><span class="p">)</span>
+
+<span class="c1"># Send all files and directories in cwd (excluding hidden files with names beginning with a dot)</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+
+<span class="c1"># Send all files and directories in cwd including hidden files</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;.*&#39;</span><span class="p">])</span>
+
+<span class="c1"># Send files with names being a single character followed by &#39;.py&#39; extension.</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="s1">&#39;?.py&#39;</span><span class="p">)</span>
+
+<span class="c1"># larger example</span>
+<span class="n">neptune</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;first-pytorch-ever&#39;</span><span class="p">,</span>
+                          <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.0005</span><span class="p">,</span>
+                                  <span class="s1">&#39;dropout&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">},</span>
+                          <span class="n">properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                                      <span class="s1">&#39;key3&#39;</span><span class="p">:</span> <span class="s1">&#39;other-value&#39;</span><span class="p">},</span>
+                          <span class="n">description</span><span class="o">=</span><span class="s1">&#39;write longer description here&#39;</span><span class="p">,</span>
+                          <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;list-of&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="s1">&#39;goes-here&#39;</span><span class="p">,</span> <span class="s1">&#39;as-list-of-strings&#39;</span><span class="p">],</span>
+                          <span class="n">upload_source_files</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;training_with_pytorch.py&#39;</span><span class="p">,</span> <span class="s1">&#39;net.py&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="neptune.projects.Project.create_notebook">
+<code class="descname">create_notebook</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.create_notebook"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Create a new notebook object and return corresponding <a class="reference internal" href="notebook.html#neptune.notebook.Notebook" title="neptune.notebook.Notebook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notebook</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="notebook.html#neptune.notebook.Notebook" title="neptune.notebook.Notebook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notebook</span></code></a> object.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate a session and fetch a project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">neptune</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># Create a notebook in Neptune</span>
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="neptune.projects.Project.full_id">
+<code class="descname">full_id</code></dt>
+<dd><p>Project qualified name as <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, for example <cite>john/sandbox</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="neptune.projects.Project.get_experiments">
+<code class="descname">get_experiments</code><span class="sig-paren">(</span><em>id=None</em>, <em>state=None</em>, <em>owner=None</em>, <em>tag=None</em>, <em>min_running_time=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.get_experiments"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Retrieve list of experiments matching the specified criteria.</p>
+<p>All parameters are optional, each of them specifies a single criterion.
+Only experiments matching all of the criteria will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment id like <code class="docutils literal notranslate"><span class="pre">'SAN-1'</span></code> or list of ids like <code class="docutils literal notranslate"><span class="pre">['SAN-1',</span> <span class="pre">'SAN-2']</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>state</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment state like <code class="docutils literal notranslate"><span class="pre">'succeeded'</span></code> or list of states like <code class="docutils literal notranslate"><span class="pre">['succeeded',</span> <span class="pre">'running']</span></code>.</div>
+<div class="line">Possible values: <code class="docutils literal notranslate"><span class="pre">'running'</span></code>, <code class="docutils literal notranslate"><span class="pre">'succeeded'</span></code>, <code class="docutils literal notranslate"><span class="pre">'failed'</span></code>, <code class="docutils literal notranslate"><span class="pre">'aborted'</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>owner</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line"><em>Username</em> of the experiment owner (User who created experiment is an owner) like <code class="docutils literal notranslate"><span class="pre">'josh'</span></code>
+or list of owners like <code class="docutils literal notranslate"><span class="pre">['frederic',</span> <span class="pre">'josh']</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>tag</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment tag like <code class="docutils literal notranslate"><span class="pre">'lightGBM'</span></code> or list of tags like <code class="docutils literal notranslate"><span class="pre">['pytorch',</span> <span class="pre">'cycleLR']</span></code>.</div>
+<div class="line">Only experiments that have all specified tags will match this criterion.</div>
+</div>
+</p></li>
+<li><p><strong>min_running_time</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Minimum running time of an experiment in seconds, like <code class="docutils literal notranslate"><span class="pre">2000</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <a class="reference internal" href="experiment.html#neptune.experiments.Experiment" title="neptune.experiments.Experiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">Experiment</span></code></a> objects.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch a project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_projects</span><span class="p">(</span><span class="s1">&#39;neptune-ai&#39;</span><span class="p">)[</span><span class="s1">&#39;neptune-ai/Salt-Detection&#39;</span><span class="p">]</span>
+
+<span class="c1"># Get list of experiments</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_experiments</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;aborted&#39;</span><span class="p">],</span> <span class="n">owner</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neyo&#39;</span><span class="p">],</span> <span class="n">min_running_time</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+
+<span class="c1"># Example output:</span>
+<span class="c1"># [Experiment(SAL-1609),</span>
+<span class="c1">#  Experiment(SAL-1765),</span>
+<span class="c1">#  Experiment(SAL-1941),</span>
+<span class="c1">#  Experiment(SAL-1960),</span>
+<span class="c1">#  Experiment(SAL-2025)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="neptune.projects.Project.get_leaderboard">
+<code class="descname">get_leaderboard</code><span class="sig-paren">(</span><em>id=None</em>, <em>state=None</em>, <em>owner=None</em>, <em>tag=None</em>, <em>min_running_time=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.get_leaderboard"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Fetch Neptune experiments view as pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p><strong>returned DataFrame</strong></p>
+<div class="line-block">
+<div class="line">In the returned <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> each <em>row</em> is an experiment and <em>columns</em> represent all system properties,
+numeric and text logs, parameters and properties in these experiments.</div>
+<div class="line">Note that, returned <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> does not contain all columns across the entire project.</div>
+<div class="line">Some columns may be empty, since experiments may define various logs, properties, etc.</div>
+<div class="line">For each log at most one (the last one) value is returned per experiment.</div>
+<div class="line">Text values are trimmed to 255 characters.</div>
+</div>
+<p><strong>about parameters</strong></p>
+<p>All parameters are optional, each of them specifies a single criterion.
+Only experiments matching all of the criteria will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment id like <code class="docutils literal notranslate"><span class="pre">'SAN-1'</span></code> or list of ids like <code class="docutils literal notranslate"><span class="pre">['SAN-1',</span> <span class="pre">'SAN-2']</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>state</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment state like <code class="docutils literal notranslate"><span class="pre">'succeeded'</span></code> or list of states like <code class="docutils literal notranslate"><span class="pre">['succeeded',</span> <span class="pre">'running']</span></code>.</div>
+<div class="line">Possible values: <code class="docutils literal notranslate"><span class="pre">'running'</span></code>, <code class="docutils literal notranslate"><span class="pre">'succeeded'</span></code>, <code class="docutils literal notranslate"><span class="pre">'failed'</span></code>, <code class="docutils literal notranslate"><span class="pre">'aborted'</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>owner</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line"><em>Username</em> of the experiment owner (User who created experiment is an owner) like <code class="docutils literal notranslate"><span class="pre">'josh'</span></code>
+or list of owners like <code class="docutils literal notranslate"><span class="pre">['frederic',</span> <span class="pre">'josh']</span></code>.</div>
+<div class="line">Matching any element of the list is sufficient to pass criterion.</div>
+</div>
+</p></li>
+<li><p><strong>tag</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – <div class="line-block">
+<div class="line">An experiment tag like <code class="docutils literal notranslate"><span class="pre">'lightGBM'</span></code> or list of tags like <code class="docutils literal notranslate"><span class="pre">['pytorch',</span> <span class="pre">'cycleLR']</span></code>.</div>
+<div class="line">Only experiments that have all specified tags will match this criterion.</div>
+</div>
+</p></li>
+<li><p><strong>min_running_time</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>, optional, default is <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Minimum running time of an experiment in seconds, like <code class="docutils literal notranslate"><span class="pre">2000</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> - Fetched Neptune experiments view.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch a project.</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_projects</span><span class="p">(</span><span class="s1">&#39;neptune-ai&#39;</span><span class="p">)[</span><span class="s1">&#39;neptune-ai/Salt-Detection&#39;</span><span class="p">]</span>
+
+<span class="c1"># Get DataFrame that resembles experiment view.</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_leaderboard</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;aborted&#39;</span><span class="p">],</span> <span class="n">owner</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neyo&#39;</span><span class="p">],</span> <span class="n">min_running_time</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="neptune.projects.Project.get_members">
+<code class="descname">get_members</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.get_members"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Retrieve a list of project members.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code> - A list of usernames of project members.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get_projects</span><span class="p">(</span><span class="s1">&#39;neptune-ai&#39;</span><span class="p">)[</span><span class="s1">&#39;neptune-ai/Salt-Detection&#39;</span><span class="p">]</span>
+<span class="n">project</span><span class="o">.</span><span class="n">get_members</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="neptune.projects.Project.get_notebook">
+<code class="descname">get_notebook</code><span class="sig-paren">(</span><em>notebook_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/neptune/projects.html#Project.get_notebook"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Get a <a class="reference internal" href="notebook.html#neptune.notebook.Notebook" title="neptune.notebook.Notebook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notebook</span></code></a> object with given <code class="docutils literal notranslate"><span class="pre">notebook_id</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="notebook.html#neptune.notebook.Notebook" title="neptune.notebook.Notebook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Notebook</span></code></a> object.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate a session and fetch a project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">neptune</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="c1"># Get a notebook object</span>
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_notebook</span><span class="p">(</span><span class="s1">&#39;d1c1b494-0620-4e54-93d5-29f4e848a51a&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Integrations with AWS and SageMaker</title>
+    <link rel="stylesheet" href="../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="integrations-with-aws-and-sagemaker">
+<h1>Integrations with AWS and SageMaker</h1>
+<div class="section" id="setting-up-a-neptune-enabled-jupyterlab-on-aws">
+<h2>Setting up a Neptune-enabled JupyterLab on AWS</h2>
+<p>You can run Neptune and track experiments that you run on AWS cloud.</p>
+<a class="reference external image-reference" href="../_static/images/others/aws_neptuneml.png"><img alt="AWS neptune.ai integration" src="../_images/aws_neptuneml.png" /></a>
+<ol class="arabic">
+<li><p>Register to AWS.</p>
+<blockquote>
+<div><p>Follow the <a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">instructions</a> to create your AWS account.</p>
+</div></blockquote>
+</li>
+<li><p>Start an EC2 instance.</p>
+<blockquote>
+<div><p>Select <code class="docutils literal notranslate"><span class="pre">ubuntu</span></code> as your instance type and choose the worker type you need.
+You can use <code class="docutils literal notranslate"><span class="pre">t2.micro</span></code> just to test it out.</p>
+</div></blockquote>
+</li>
+<li><p>SSH to your instance.</p>
+<blockquote>
+<div><p>From the terminal, run:</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>ssh -i /path_to_key/my_key.pem ubuntu@public_dns_name
+</pre></div>
+</div>
+<p>Make sure that you specify the correct key and public_dns_name.</p>
+</div></blockquote>
+</li>
+<li><p>Install Docker.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Create a new file <code class="docutils literal notranslate"><span class="pre">install_docker.sh</span></code>:</p></li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>nano install_docker.sh
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>Copy the following commands to it:</p></li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install <span class="se">\</span>
+    apt-transport-https <span class="se">\</span>
+    ca-certificates <span class="se">\</span>
+    curl <span class="se">\</span>
+    gnupg-agent <span class="se">\</span>
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository <span class="se">\</span>
+<span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
+<span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \</span>
+<span class="s2">stable&quot;</span>
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="3">
+<li><p>Run the installation script:</p></li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> install_docker.sh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Define your secrets.</p>
+<blockquote>
+<div><ol class="loweralpha">
+<li><p>Go to Neptune, <a class="reference external" href="troubleshoot.html#where-is-neptune-api-token">get your NEPTUNE_API_TOKEN</a> and copy it to the clipboard.</p></li>
+<li><p>Create a password for your JupyterLab server.</p></li>
+<li><p>Set the following two secrets to your environment variables, <code class="docutils literal notranslate"><span class="pre">NEPTUNE_API_TOKEN</span></code> and <code class="docutils literal notranslate"><span class="pre">JUPYTERLAB_PASSWORD</span></code>:</p>
+<blockquote>
+<div><div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">NEPTUNE_API_TOKEN</span><span class="o">=</span><span class="s1">&#39;your_api_token==&#39;</span>
+<span class="nb">export</span> <span class="nv">JUPYTERLAB_PASSWORD</span><span class="o">=</span><span class="s1">&#39;difficult_password&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Build the Docker image.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Create a new file <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>:</p></li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>nano Dockerfile
+</pre></div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>Copy insights of the following Dockerfile to your newly created file:</p></li>
+</ol>
+<div class="highlight-Docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Use a miniconda3 as base image</span>
+<span class="k">FROM</span><span class="s"> continuumio/miniconda3</span>
+
+<span class="c"># Installation of jupyterlab and extensions</span>
+<span class="k">RUN</span> pip install <span class="nv">jupyterlab</span><span class="o">==</span><span class="m">1</span>.2.6  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pip install jupyterlab-server<span class="o">==</span><span class="m">1</span>.0.6  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    conda install -c conda-forge nodejs
+
+<span class="c"># Installation of Neptune and enabling neptune extension</span>
+<span class="k">RUN</span> pip install neptune-client  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    pip install neptune-notebooks  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    jupyter labextension install neptune-notebooks
+
+<span class="c"># Setting up Neptune API token as env variable</span>
+<span class="k">ARG</span> NEPTUNE_API_TOKEN
+<span class="k">ENV</span> <span class="nv">NEPTUNE_API_TOKEN</span><span class="o">=</span><span class="nv">$NEPTUNE_API_TOKEN</span>
+
+<span class="c"># Adding current directory to container</span>
+<span class="k">ADD</span> . /mnt/workdir
+<span class="k">WORKDIR</span><span class="s"> /mnt/workdir</span>
+</pre></div>
+</div>
+<p>If you want to run on a GPU, make sure to change your Dockerfile to start from Nvidia Docker images.</p>
+<ol class="loweralpha simple" start="3">
+<li><p>Run the following command to build your Docker image:</p></li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>sudo docker build -t jupyterlab --build-arg <span class="nv">NEPTUNE_API_TOKEN</span><span class="o">=</span><span class="nv">$NEPTUNE_API_TOKEN</span> .
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Spin up a JupyterLab server with Docker:</p>
+<blockquote>
+<div><div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>sudo docker run --rm -v <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/work/output -p <span class="m">8888</span>:8888 jupyterlab:latest <span class="se">\</span>
+/opt/conda/bin/jupyter lab --allow-root --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --port<span class="o">=</span><span class="m">8888</span> --NotebookApp.token<span class="o">=</span><span class="nv">$JUPYTERLAB_PASSWORD</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Forward ports via SSH tunnel. Open a new terminal on your local machine and run:</p>
+<blockquote>
+<div><div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span>ssh -L <span class="m">8888</span>:localhost:8888 ubuntu@public_dns_name <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Make sure that you specify the correct public_dns_name.</p>
+</div></blockquote>
+</li>
+<li><p>Open the JupyterLab server in your browser.</p>
+<blockquote>
+<div><p>Go to <cite>localhost:8888</cite>.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>Enjoy your JupyterLab server with Neptune.</p>
+<p>Neptune extensions are enabled and <code class="docutils literal notranslate"><span class="pre">NEPTUNE_API_TOKEN</span></code> is already in the environment variable so you can work with
+Notebooks and run experiments with no problem.</p>
+</div>
+<div class="section" id="setting-up-a-neptune-enabled-aws-sagemaker-jupyter-instance">
+<h2>Setting up a Neptune-enabled AWS SageMaker Jupyter instance</h2>
+<p>You can use Neptune to track experiments that you run on AWS SageMaker.</p>
+<a class="reference external image-reference" href="../_static/images/others/sagemaker_neptuneml.png"><img alt="Amazon SageMaker neptune.ai integration" src="../_images/sagemaker_neptuneml.png" /></a>
+<ol class="arabic">
+<li><p>Register to AWS.</p>
+<blockquote>
+<div><p>Follow the <a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">instructions</a> to create your AWS account.</p>
+</div></blockquote>
+</li>
+<li><p>Create Lifecycle configuration.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to SageMaker <strong>Lifecycle configurations</strong> and click <strong>Create configuration</strong>.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-create_configuration.png"><img alt="image" src="../_images/ht-sagemaker-create_configuration.png" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p>You can choose whatever name you want – just make sure to remember it.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Modify the <strong>Create Notebook</strong> script to run it only once at the creation of your SageMaker Notebook instance.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-config_specs.png"><img alt="image" src="../_images/ht-sagemaker-config_specs.png" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="loweralpha" start="3">
+<li><p>Copy and paste the script below to your <strong>Create Notebook</strong> tab.</p>
+<blockquote>
+<div><p>In the <strong>PARAMETERS</strong> section, choose in which environments you want to install neptune-client.</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">set</span> -e
+
+sudo -u ec2-user -i <span class="s">&lt;&lt;&#39;EOF&#39;</span>
+
+<span class="s"># PARAMETERS</span>
+<span class="s">ENVS=(</span>
+<span class="s">python3</span>
+<span class="s">pytorch_p36</span>
+<span class="s">)</span>
+
+<span class="s"># Install Neptune client library</span>
+<span class="s">for env in $ENVS; do</span>
+<span class="s">    source /home/ec2-user/anaconda3/bin/activate $env</span>
+<span class="s">    pip install neptune-client</span>
+<span class="s">    source /home/ec2-user/anaconda3/bin/deactivate</span>
+<span class="s">done</span>
+
+<span class="s"># Install jupyter extension</span>
+<span class="s">source /home/ec2-user/anaconda3/bin/activate JupyterSystemEnv</span>
+<span class="s">pip install neptune-notebooks</span>
+<span class="s">jupyter nbextension enable --py neptune-notebooks --sys-prefix</span>
+<span class="s">jupyter labextension install neptune-notebooks</span>
+<span class="s">source /home/ec2-user/anaconda3/bin/deactivate</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a Notebook instance.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Go to SageMaker <strong>Notebook instances</strong> and click <strong>Create notebook instance</strong>.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-create_instance.png"><img alt="image" src="../_images/ht-sagemaker-create_instance.png" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>Type in an instance name and click <strong>Additional configuration</strong> to add the Lifecycle configuration you have just created.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-create_instance_specs.png"><img alt="image" src="../_images/ht-sagemaker-create_instance_specs.png" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ol class="loweralpha simple" start="3">
+<li><p>Click <strong>Create notebook instance</strong> at the bottom to start your instance.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-create_notebook_run.png"><img alt="image" src="../_images/ht-sagemaker-create_notebook_run.png" /></a>
+</div></blockquote>
+</li>
+<li><p>Start Notebook.</p>
+<blockquote>
+<div><p>If everything went well, your AWS SageMaker instance should have <em>InService</em> status and you can open a Jupyter Notebook or JupyterLab
+with Neptune Notebook versioning enabled.</p>
+<a class="reference external image-reference" href="../_static/images/how-to/ht-sagemaker-notebook_run.png"><img alt="image" src="../_images/ht-sagemaker-notebook_run.png" /></a>
+</div></blockquote>
+</li>
+</ol>
+<p>You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

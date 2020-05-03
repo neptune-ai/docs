@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QHelpCollectionProject version="1.0">
+    <assistant>
+        <title>Neptune docs 2.0.0 documentation</title>
+        <homePage>qthelp://org.sphinx.neptunedocs/doc/index.html</homePage>
+        <startPage>qthelp://org.sphinx.neptunedocs/doc/index.html</startPage>
+    </assistant>
+    <docFiles>
+        <generate>
+            <file>
+                <input>Neptunedocs.qhp</input>
+                <output>Neptunedocs.qch</output>
+            </file>
+        </generate>
+        <register>
+            <file>Neptunedocs.qch</file>
+        </register>
+    </docFiles>
+</QHelpCollectionProject>

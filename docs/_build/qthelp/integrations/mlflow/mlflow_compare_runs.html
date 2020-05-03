@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sync and compare runs</title>
+    <link rel="stylesheet" href="../../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sync-and-compare-runs">
+<h1>Sync and compare runs</h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>Let’s import libraries and define hyper-parameters. Of course, you can pass hyper-parameters from <code class="docutils literal notranslate"><span class="pre">argparse</span></code> or <code class="docutils literal notranslate"><span class="pre">click</span></code> as well.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">mlflow</span>
+
+<span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;epoch_nr&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span>
+    <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="s1">&#39;use_nesterov&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;unit_nr&#39;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="s1">&#39;dropout&#39;</span><span class="p">:</span> <span class="mf">0.25</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-experiment-and-log-hyper-parameters">
+<h2>Start experiment and log hyper-parameters</h2>
+<p>I like to have everything in the with statement if possible, to enforce auto-clean once experiment is completed.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">PARAMS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="train-your-model-and-log-metrics">
+<h2>Train your model and log metrics</h2>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">=</span> <span class="n">x_train</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;unit_nr&#39;</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;dropout&#39;</span><span class="p">]),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">],</span>
+                                    <span class="n">momentum</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">],</span>
+                                    <span class="n">nesterov</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;use_nesterov&#39;</span><span class="p">],)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+          <span class="n">epochs</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;epoch_nr&#39;</span><span class="p">],</span>
+          <span class="n">batch_size</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">])</span>
+
+<span class="c1"># log metrics</span>
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;test_loss&quot;</span><span class="p">,</span> <span class="n">test_loss</span><span class="p">)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;test_accuracy&quot;</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sync-mlruns-with-neptune">
+<h2>Sync mlruns with Neptune</h2>
+<p>You can now sync your ML runs directory with Neptune.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span> <span class="n">mlflow</span> <span class="o">--</span><span class="n">project</span> <span class="n">USER_NAME</span><span class="o">/</span><span class="n">PROJECT_NAME</span>
+</pre></div>
+</div>
+<p><strong>Organize and collaborate</strong> on <a class="reference external" href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083">your experiments</a>:</p>
+<a class="reference external image-reference" href="../../_static/images/mlflow/mlflow_1.png"><img alt="organize MLflow experiments in Neptune" src="../../_images/mlflow_11.png" /></a>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>R support</title>
+    <link rel="stylesheet" href="../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="r-support">
+<h1>R support</h1>
+<p>You can interact with Neptune from R without any trouble and get the same functionality that is available in Python.</p>
+<div class="section" id="install-packages">
+<h2>Install packages</h2>
+<p>R ecosystem has this amazing library reticulate, which makes it possible to use neptune-client library from Python to log our experiments.
+Go to your terminal and run:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">neptune</span><span class="o">-</span><span class="n">client</span> <span class="o">--</span><span class="n">user</span>
+</pre></div>
+</div>
+<p>Go to your R console and install reticulate:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;reticulate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_installation.gif"><img alt="image" src="../_images/r_integration_installation.gif" /></a>
+</div>
+<div class="section" id="initialize-neptune">
+<h2>Initialize Neptune</h2>
+<p>Toward the top of your script insert the following snippet.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;reticulate&quot;</span><span class="p">)</span>
+<span class="n">neptune</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&quot;neptune&quot;</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">init</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="o">=</span><span class="s">&#39;shared/r-integration&#39;</span><span class="p">,</span>
+             <span class="n">api_token</span><span class="o">=</span><span class="s">&#39;eyJhcGlfYWRkcmVzcyI6Imh0dHBz&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>It “connects” your script to neptune.ai hub. The first argument project_qualified_name specifies the project to which you want to log your experiments and the api_token is your login credentials.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always keep your API token secret - it is like password to the application.</p>
+</div>
+<p>Put your API token in the environment variable and inject it to your R code when you need it.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sys</span><span class="o">.</span><span class="n">setenv</span><span class="p">(</span><span class="s1">&#39;NEPTUNE_API_TOKEN&#39;</span><span class="o">=</span><span class="s1">&#39;eyJhcGlfYWRkcmVzcyI6Imh0dHBz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span><span class="o">$</span><span class="nf">init</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="o">=</span><span class="s">&#39;shared/r-integration&#39;</span><span class="p">,</span>
+             <span class="n">api_token</span><span class="o">=</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&#39;NEPTUNE_API_TOKEN&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-experiment">
+<h2>Create experiment</h2>
+<p>To start tracking you need to create an experiment.
+I like to name my experiments and add tags to them so that my work is organized and I can find relevant experiments quickly.
+Create an experiment by running:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;training on Sonar&#39;</span><span class="p">,</span>
+                          <span class="n">tags</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;random-forest&#39;</span><span class="p">,</span><span class="s">&#39;sonar&#39;</span><span class="p">,</span> <span class="s">&#39;caret&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>When you are done tracking make sure to stop your experiment:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span><span class="o">$</span><span class="nf">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="track-hyperparameters">
+<h2>Track hyperparameters</h2>
+<p>In order to track hyperparameters, you need to pass a named list to the create_experiment() method.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s">&quot;Accuracy&quot;</span><span class="p">,</span>
+              <span class="n">tuneLength</span><span class="o">=</span><span class="m">100</span><span class="p">,</span>
+              <span class="n">model</span><span class="o">=</span><span class="s">&quot;rf&quot;</span><span class="p">,</span>
+              <span class="n">searchMethod</span><span class="o">=</span><span class="s">&quot;random&quot;</span><span class="p">,</span>
+              <span class="n">cvMethod</span><span class="o">=</span><span class="s">&quot;repeatedcv&quot;</span><span class="p">,</span>
+              <span class="n">cvFolds</span><span class="o">=</span><span class="m">2</span><span class="p">,</span>
+              <span class="n">cvRepeats</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># Create experiment</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When you do that, Neptune creates theparameters section in the app that let’s you see hyperparameters quickly and compare them between experiments.</p>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_hyperparams.gif"><img alt="image" src="../_images/r_integration_hyperparams.gif" /></a>
+</div>
+<div class="section" id="track-data-versions-and-other-properties">
+<h2>Track data versions and other properties</h2>
+<p>Keeping track of your data is an important part of the job. With Neptune you can log a fingerprint (hash) of your data for every experiment.
+By doing so you will make sure that you are comparing apples to apples.</p>
+<p>To do so, you need to add a property to your experiment.
+You can do it directly at in the neptune$create_experiment():</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+
+<span class="c1"># Load data</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">Sonar</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">&lt;-</span> <span class="n">Sonar</span>
+
+<span class="c1"># Create experiment</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">data_version</span><span class="o">=</span><span class="nf">digest</span><span class="p">(</span><span class="n">dataset</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>or if you want to add a property (data version or other key:value pairs), when the experiment is running:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">()</span>
+
+<span class="n">neptune</span><span class="o">$</span><span class="nf">set_property</span><span class="p">(</span><span class="s">&#39;data_version&#39;</span><span class="p">,</span> <span class="nf">digest</span><span class="p">(</span><span class="n">dataset</span><span class="p">)))</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_data_versions.gif"><img alt="image" src="../_images/r_integration_data_versions.gif" /></a>
+</div>
+<div class="section" id="track-code">
+<h2>Track code</h2>
+<p>Neptune automatically tracks your .git version control if you have it in your project. But if you often forget to commit your code, or simply don’t feel like doing so, you can tell Neptune to make code snapshots for you! Just specify those files in the upload_source_files argument.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">(</span><span class="n">upload_source_files</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&#39;train_random_forest.R&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, you can explore your code in the app:</p>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_code.gif"><img alt="image" src="../_images/r_integration_code.gif" /></a>
+</div>
+<div class="section" id="track-metrics">
+<h2>Track metrics</h2>
+<p>Tracking evaluation metrics is as simple as logging.
+You can track a single metric by using the neptune$send_metric() method.
+Just define your logging channel name and metric value.
+For example:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">&lt;-</span> <span class="nf">getTrainPerf</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Train Accuracy&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="o">$</span><span class="n">TrainAccuracy</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Train Kappa&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="o">$</span><span class="n">TrainKappa</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to log multiple values to a single logging channel just call neptune$send_metric() method multiple times for the same channel name.
+Neptune will automatically create charts for you!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">acc</span> <span class="n">in</span> <span class="n">model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">){</span>
+  <span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">kappa</span> <span class="n">in</span> <span class="n">model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Kappa</span><span class="p">){</span>
+  <span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Kappa&#39;</span><span class="p">,</span> <span class="n">kappa</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can sort your experiments by metrics you care about and take a look at the charts in the application:</p>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_metrics.gif"><img alt="image" src="../_images/r_integration_metrics.gif" /></a>
+</div>
+<div class="section" id="track-artifacts">
+<h2>Track artifacts</h2>
+<p>You can also save your model weights, pdf report files or other objects in Neptune. All you need to do is pass the filepath to the neptune$send_artifact() method and it will be attached to your experiment.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">save</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;model.Rdata&quot;</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_artifact</span><span class="p">(</span><span class="s">&#39;model.Rdata&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once it is logged, sharing it with your colleagues or collaborators is super easy.</p>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_artifacts.gif"><img alt="image" src="../_images/r_integration_artifacts.gif" /></a>
+</div>
+<div class="section" id="track-images-and-charts">
+<h2>Track images and charts</h2>
+<p>Logging images and charts to Neptune is very simple as well. Just use the neptune$send_image() method that takes the nameof the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things, just send another image to the same channel.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;steelblue&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">ggsave</span><span class="p">(</span><span class="s">&#39;param_plot.jpeg&#39;</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_image</span><span class="p">(</span><span class="s">&#39;parameter_search&#39;</span><span class="p">,</span> <span class="s">&#39;param_plot.jpeg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and you can view it in the app:</p>
+<a class="reference external image-reference" href="../_static/images/r_support/r_integration_charts.gif"><img alt="image" src="../_images/r_integration_charts.gif" /></a>
+</div>
+<div class="section" id="full-tracking-script">
+<h2>Full tracking script</h2>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">mlbench</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">randomForest</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">reticulate</span><span class="p">)</span>
+<span class="n">neptune</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#39;neptune&#39;</span><span class="p">)</span>
+
+<span class="n">neptune</span><span class="o">$</span><span class="nf">init</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="o">=</span><span class="s">&#39;shared/r-integration&#39;</span><span class="p">,</span>
+             <span class="n">api_token</span><span class="o">=</span><span class="s">&#39;eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vdWkubmVwdHVuZS5tbCIsImFwaV9rZXkiOiJiNzA2YmM4Zi03NmY5LTRjMmUtOTM5ZC00YmEwMzZmOTMyZTQifQ==&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># load dataset</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">Sonar</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">&lt;-</span> <span class="n">Sonar</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">dataset[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">60</span><span class="n">]</span>   <span class="c1"># predictors</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">dataset[</span><span class="p">,</span><span class="m">61</span><span class="n">]</span>     <span class="c1"># labels</span>
+
+<span class="n">SEED</span><span class="o">=</span><span class="m">1234</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s">&quot;Accuracy&quot;</span><span class="p">,</span>
+              <span class="n">tuneLength</span><span class="o">=</span><span class="m">100</span><span class="p">,</span>
+              <span class="n">model</span><span class="o">=</span><span class="s">&quot;rf&quot;</span><span class="p">,</span>
+              <span class="n">searchMethod</span><span class="o">=</span><span class="s">&quot;random&quot;</span><span class="p">,</span>
+              <span class="n">cvMethod</span><span class="o">=</span><span class="s">&quot;repeatedcv&quot;</span><span class="p">,</span>
+              <span class="n">cvFolds</span><span class="o">=</span><span class="m">2</span><span class="p">,</span>
+              <span class="n">cvRepeats</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># Create experiment</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">create_experiment</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;training on Sonar&#39;</span><span class="p">,</span>
+                          <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+                          <span class="n">properties</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span>
+                                          <span class="n">data_version</span><span class="o">=</span><span class="nf">digest</span><span class="p">(</span><span class="n">dataset</span><span class="p">)),</span>
+                          <span class="n">tags</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;random-forest&#39;</span><span class="p">,</span><span class="s">&#39;sonar&#39;</span><span class="p">,</span> <span class="s">&#39;caret&#39;</span><span class="p">),</span>
+                          <span class="n">upload_source_files</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="s">&#39;train_random_forest.R&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">control</span> <span class="o">&lt;-</span> <span class="nf">trainControl</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">cvMethod</span><span class="p">,</span>
+                        <span class="n">number</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">cvFolds</span><span class="p">,</span>
+                        <span class="n">repeats</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">cvRepeats</span><span class="p">,</span>
+                        <span class="n">search</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">searchMethod</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">Class</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+               <span class="n">method</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">model</span><span class="p">,</span>
+               <span class="n">metric</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">metric</span><span class="p">,</span>
+               <span class="n">tuneLength</span><span class="o">=</span><span class="n">params</span><span class="o">$</span><span class="n">tuneLength</span><span class="p">,</span>
+               <span class="n">trControl</span><span class="o">=</span><span class="n">control</span><span class="p">)</span>
+
+<span class="c1"># Log metrics</span>
+<span class="n">scores</span> <span class="o">&lt;-</span> <span class="nf">getTrainPerf</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Train Accuracy&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="o">$</span><span class="n">TrainAccuracy</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Train Kappa&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="o">$</span><span class="n">TrainKappa</span><span class="p">)</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">name</span> <span class="n">in</span> <span class="nf">names</span><span class="p">(</span><span class="n">model</span><span class="o">$</span><span class="n">bestTune</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">neptune</span><span class="o">$</span><span class="nf">set_property</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">model</span><span class="o">$</span><span class="n">bestTune[[name]]</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">acc</span> <span class="n">in</span> <span class="n">model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Accuracy</span><span class="p">){</span>
+  <span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">kappa</span> <span class="n">in</span> <span class="n">model</span><span class="o">$</span><span class="n">results</span><span class="o">$</span><span class="n">Kappa</span><span class="p">){</span>
+  <span class="n">neptune</span><span class="o">$</span><span class="nf">send_metric</span><span class="p">(</span><span class="s">&#39;Kappa&#39;</span><span class="p">,</span> <span class="n">kappa</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Log artifact</span>
+<span class="nf">save</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&quot;model.Rdata&quot;</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_artifact</span><span class="p">(</span><span class="s">&#39;model.Rdata&#39;</span><span class="p">)</span>
+
+<span class="c1"># Log image</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;steelblue&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">ggsave</span><span class="p">(</span><span class="s">&#39;param_plot.jpeg&#39;</span><span class="p">)</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">send_image</span><span class="p">(</span><span class="s">&#39;parameter_search&#39;</span><span class="p">,</span> <span class="s">&#39;param_plot.jpeg&#39;</span><span class="p">)</span>
+
+<span class="c1"># Stop Experiment</span>
+<span class="n">neptune</span><span class="o">$</span><span class="nf">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

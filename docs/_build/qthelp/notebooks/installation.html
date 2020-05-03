@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Installing neptune-notebooks</title>
+    <link rel="stylesheet" href="../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="installing-neptune-notebooks">
+<h1>Installing neptune-notebooks</h1>
+<p>This page provides instructions for installing neptune-notebooks – the Neptune Jupyter extension.</p>
+<p>The extension enables the integration of Neptune and Jupyter or JupyterLab.</p>
+<p>When the extension is successfully installed,
+you will be able to upload notebooks to Neptune, check out previously uploaded Notebooks,
+and track experiments and metrics directly from the Jupyter UI.</p>
+<p>Neptune versions the Notebook automatically once an experiment has started.</p>
+<div class="section" id="about-neptune-notebooks">
+<h2>About neptune-notebooks</h2>
+<p>neptune-notebooks is a Python package hosted <a class="reference external" href="https://pypi.org/project/neptune-notebooks">here</a>. It includes:</p>
+<ul class="simple">
+<li><p>A very basic CLI (command line interface) for uploading notebooks.</p></li>
+<li><p>Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.</p></li>
+<li><p>JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted <a class="reference external" href="https://www.npmjs.com/package/neptune-notebooks">on the npm</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="installation-for-jupyter">
+<h2>Installation for Jupyter</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When installing Python packages, it is best practice to work in a <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtual environment</a>.</p>
+</div>
+<p>Procedure</p>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://github.com/neptune-ai/neptune-notebooks">neptune-notebooks extension</a>:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install neptune-notebooks
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Enable the extension for Jupyter:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter nbextension <span class="nb">enable</span> --py neptune-notebooks
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install Neptune client, if you did not do so already:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install neptune-client
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-for-jupyterlab">
+<h2>Installation for JupyterLab</h2>
+<p>JupyterLab is the next-generation web-based UI for Project Jupyter.</p>
+<p>When you install JupyterLab using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code>, the standard Jupyter is also installed, as a dependency.</p>
+<p><strong>Installation methods</strong></p>
+<p>You can install the extension using any of the following three methods:</p>
+<ul class="simple">
+<li><p>Through the command line (full neptune-notebooks package)</p></li>
+<li><p>Through the command line (JupyterLab extension only)</p></li>
+<li><p>Using the Extension Manager (JupyterLab extension only)</p></li>
+</ul>
+<p>Details for these methods follow below.</p>
+<p><strong>Requirements</strong></p>
+<p>Irrespective of which method you use, the following must be preinstalled on your system before you begin.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nodejs.org/en">Node.js</a></p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/get-npm">npm</a></p></li>
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html">JupyterLab</a></p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When installing Python packages, it is best practice to work in a <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtual environment</a>.</p>
+</div>
+<div class="section" id="method-1-install-the-full-neptune-notebooks-package-through-the-command-line">
+<h3>Method 1: Install the full neptune-notebooks package through the command line</h3>
+<p><strong>Pros</strong></p>
+<p>This is the most comprehensive type of installation:</p>
+<ul class="simple">
+<li><p>It includes extensions for both standard Jupyter and JupyterLab.</p></li>
+<li><p>It also installs a CLI for uploading Notebook files.</p></li>
+<li><p>The the neptune-client package is a dependency.</p></li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul class="simple">
+<li><p>After the installation, you still have to perform some manual actions in JupyterLab.</p></li>
+<li><p>This method may not be the easiest way of installing extensions in JupyterLab.</p></li>
+</ul>
+<p><strong>Procedure</strong></p>
+<ol class="arabic simple">
+<li><p>In the console, run:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install neptune-notebooks
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Start JupyterLab by running:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter lab
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>In the “Build Recommended” notification that is displayed, click <strong>Build</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The build process takes up to several minutes.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>In the “Build Complete” notification that is displayed, click <strong>Reload</strong>.</p></li>
+</ol>
+<p>The extension is loaded.</p>
+</div>
+<div class="section" id="method-2-install-the-jupyterlab-extension-only-through-the-command-line">
+<h3>Method 2: Install the JupyterLab extension only through the command line</h3>
+<p>This method installs only the extension to JupyterLab.</p>
+<p><strong>Cons</strong></p>
+<p>The neptune-notebooks pip package, neptune-client pip package and extension to the standard Jupyter are not installed.</p>
+<p><strong>Pros</strong></p>
+<p>This method gives you more flexibility. For example, the extension can be running on a
+different machine than your code that is executed from the Notebook.</p>
+<p><strong>Procedure</strong></p>
+<ol class="arabic simple">
+<li><p>In the console, run:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter labextension install neptune-notebooks
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Start JupyterLab by running:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter lab
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>In the “Build Recommended” notification that is displayed, click <strong>Build</strong>.</p></li>
+<li><p>In the “Build Complete” notification that is displayed, click <strong>Reload</strong>.</p></li>
+</ol>
+</div>
+<div class="section" id="method-3-install-the-jupyterlab-extension-only-using-the-jupyterlab-extension-manager">
+<h3>Method 3: Install the JupyterLab extension only, using the JupyterLab Extension Manager</h3>
+<p><strong>Procedure</strong></p>
+<ol class="arabic simple">
+<li><p>In JupyterLab, enable Extension Manager, by clicking <strong>Settings</strong> &gt; <strong>Enable Extension Manager (experimental)</strong>.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/notebooks/extension_manager.png"><img alt="Enable extension manager" src="../_images/extension_manager.png" /></a>
+<ol class="arabic simple" start="2">
+<li><p>Find neptune-notebooks and click <strong>Install</strong>.</p></li>
+</ol>
+<a class="reference external image-reference" href="../_static/images/notebooks/ext-manager-2.png"><img alt="go to extension manager and search for neptune-notebooks" src="../_images/ext-manager-2.png" /></a>
+</div>
+</div>
+<div class="section" id="checking-if-the-installation-was-successful">
+<h2>Checking if the Installation was Successful</h2>
+<p>Provided you have <a class="reference external" href="configuration.html">configured</a> Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:</p>
+<a class="reference external image-reference" href="../_static/images/notebooks/buttons_11.png"><img alt="image" src="../_images/buttons_11.png" /></a>
+<ul class="simple">
+<li><p><strong>Neptune</strong>: For modifying configuration.</p></li>
+<li><p><strong>Upload</strong>: For creating a new checkpoint in Neptune.</p></li>
+<li><p><strong>Download</strong>: For downloading a specific checkpoint from Neptune.</p></li>
+<li><p><strong>Activate</strong>: Associates experiments you will be running with this Notebook.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

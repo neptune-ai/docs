@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Core Concepts</title>
+    <link rel="stylesheet" href="../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="core-concepts">
+<h1>Core Concepts</h1>
+<p>This page presents several key concepts as they are used in the Neptune UI and documentation set.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#organization-types" id="id1">Organization Types</a></p></li>
+<li><p><a class="reference internal" href="#user-roles" id="id2">User Roles</a></p></li>
+<li><p><a class="reference internal" href="#project-types" id="id3">Project Types</a></p></li>
+</ul>
+</div>
+<div class="section" id="organization-types">
+<h2><a class="toc-backref" href="#contents">Organization Types</a></h2>
+<p id="core-concepts-organization-types">An organization is a way to centrally manage projects, users and subscriptions.</p>
+<p>Neptune has two organization types: individual and team.</p>
+<div class="section" id="individual">
+<h3>Individual</h3>
+<ul class="simple">
+<li><p>Each user is assigned individual organization with <code class="docutils literal notranslate"><span class="pre">username</span></code> as an organization name.</p></li>
+<li><p>The user is the only member of this organization but may <a class="reference internal" href="team-management.html#how-to-team-management-invite-to-project"><span class="std std-ref">invite collaborators</span></a> to projects.</p></li>
+<li><p>The user can create an unlimited number of projects in the individual organization.</p></li>
+</ul>
+</div>
+<div class="section" id="team">
+<h3>Team</h3>
+<ul class="simple">
+<li><p>A team organization comes in handy when an entire team needs to be managed centrally.</p></li>
+<li><p>Once <a class="reference internal" href="team-management.html#how-to-team-management-create-organization"><span class="std std-ref">created</span></a>, a team organization can be managed by the <a class="reference internal" href="#core-concepts-user-roles-organization-admin"><span class="std std-ref">organization Admin</span></a>. This include users and subscription.</p></li>
+<li><p>Only users who joined team organization can browse its content, subject to the assigned <a class="reference internal" href="#core-concepts-user-roles"><span class="std std-ref">role</span></a> in the organization or project.</p></li>
+</ul>
+<p>Learn more about <a class="reference internal" href="#core-concepts-project-types"><span class="std std-ref">project types</span></a> and <a class="reference internal" href="#core-concepts-user-roles"><span class="std std-ref">user roles</span></a>.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="user-roles">
+<h2><a class="toc-backref" href="#contents">User Roles</a></h2>
+<p id="core-concepts-user-roles">There are roles in projects and in organizations.</p>
+<div class="section" id="roles-in-an-organization">
+<h3>Roles in an organization</h3>
+<p>Organization roles apply only to team organizations.</p>
+<p id="core-concepts-user-roles-organization-admin">If you have <a class="reference internal" href="team-management.html#how-to-team-management-create-organization"><span class="std std-ref">created an organization</span></a>,
+you can invite people to it. Two roles are available: Admin and Member.</p>
+<p>The following table summarizes the permissions available for the organization roles.</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Permission</p></th>
+<th class="head"><p>Admin</p></th>
+<th class="head"><p>Member</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Access level in subscription management</p></td>
+<td><p>edit</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access level in organization members</p></td>
+<td><p>edit</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-even"><td><p>Access to invoice data</p></td>
+<td><p>edit</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access level for creating Projects</p></td>
+<td><p>edit</p></td>
+<td><p>none</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can access organization settings by clicking <strong>Settings</strong>.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../_static/images/core-concepts/org-settings.png"><img alt="organization settings button" src="../_images/org-settings.png" /></a>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>An Admin of an organization is also the Owner of all projects, by default.</p></li>
+<li><p>Project Owners can grant project ownership to anyone in the organization.</p></li>
+<li><p>An organization must have at least one Admin, so the last remaining Admin cannot be removed from the organization.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="roles-in-a-project">
+<h3>Roles in a project</h3>
+<p id="core-concepts-user-roles-project-owner">The following table summarizes the permissions available for the three project roles: Owner, Contributor and Viewer.</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Permission</p></th>
+<th class="head"><p>Owner</p></th>
+<th class="head"><p>Contributor</p></th>
+<th class="head"><p>Viewer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Access level in project settings</p></td>
+<td><p>edit</p></td>
+<td><p>none</p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p>Access level to all experiments Notebooks and Wiki</p></td>
+<td><p>edit</p></td>
+<td><p>edit</p></td>
+<td><p>view</p></td>
+</tr>
+<tr class="row-even"><td><p>Access level to people in project (under Settings tab)</p></td>
+<td><p>edit</p></td>
+<td><p>view</p></td>
+<td><p>view</p></td>
+</tr>
+<tr class="row-odd"><td><p>Can run experiments</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p>Can add notebooks and make checkpoints</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>Can remove project</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="project-types">
+<h2><a class="toc-backref" href="#contents">Project Types</a></h2>
+<p id="core-concepts-project-types">There are private and public projects.</p>
+<div class="section" id="private">
+<h3>Private</h3>
+<p>Only people added to the project can see it. The project <a class="reference internal" href="#core-concepts-user-roles-project-owner"><span class="std std-ref">Owner</span></a> can manage who has access to the project in the Settings view.</p>
+<p>Here is an example view, where the project Owner can manage project members:</p>
+<a class="reference external image-reference" href="../_static/images/core-concepts/invite-to-project.png"><img alt="Invite user to the project" src="../_images/invite-to-project.png" /></a>
+</div>
+<div class="section" id="public">
+<h3>Public</h3>
+<p>Public projects are freely available to view by everyone who has access to the Internet.</p>
+<p>Also, in case of individual organizations, you can invite collaborators to public projects only.
+Examples are: <a href="https://ui.neptune.ai/neptune-ai/credit-default-prediction" target="_blank">Credit default prediction</a> and <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

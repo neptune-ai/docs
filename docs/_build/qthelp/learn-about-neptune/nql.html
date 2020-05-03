@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Neptune Query Language</title>
+    <link rel="stylesheet" href="../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="neptune-query-language">
+<h1>Neptune Query Language</h1>
+<p id="core-concepts-nql">Neptune Query Language (NQL) enables you to apply complex filters to your experiments view.
+You can build NQL queries in the query editor inside the Neptune dashboard.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../_static/images/others/nql_01.png"><img alt="experiments view with advanced search" src="../_images/nql_01.png" /></a>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>Let’s assume that you want to see experiments where the <code class="docutils literal notranslate"><span class="pre">recall</span></code> metric is higher than <code class="docutils literal notranslate"><span class="pre">0.9</span></code>.
+In other words, you are looking for experiments, where:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span>
+</pre></div>
+</div>
+<p>The statement above is called a <em>clause</em> and follows the following format:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">field</span><span class="o">-</span><span class="n">name</span> <span class="n">operator</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Note that a field name must be on the left side of an operator.</p>
+<p>Now, imagine you are looking for experiments where the <code class="docutils literal notranslate"><span class="pre">recall</span></code> metric is higher than <code class="docutils literal notranslate"><span class="pre">0.9</span></code>
+and, at the same time, the <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> parameter is smaller or equal to <code class="docutils literal notranslate"><span class="pre">0.005</span></code>.</p>
+<p>In this example, two clauses are joined together using a logical operator. Specify:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span>
+</pre></div>
+</div>
+<p>In a similar way, you can build even more complex queries.</p>
+<p>The example below yields experiments where the <code class="docutils literal notranslate"><span class="pre">recall</span></code> metric is higher than <code class="docutils literal notranslate"><span class="pre">0.9</span></code> and at least one of two conditions is satisfied:
+either the <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> parameter is smaller or equal to <code class="docutils literal notranslate"><span class="pre">0.005</span></code>, or <code class="docutils literal notranslate"><span class="pre">encoder</span></code> (a text log) is <code class="docutils literal notranslate"><span class="pre">ResNet101</span></code>.
+.. code-block:: mysql</p>
+<blockquote>
+<div><p>recall &gt; 0.9 AND (learning_rate &lt;= 0.005 OR encoder = ResNet101)</p>
+</div></blockquote>
+<p>For more information, see <a class="reference internal" href="#core-concepts-nql-reference"><span class="std std-ref">NQL reference</span></a>.</p>
+</div>
+<div class="section" id="advanced-examples">
+<h2>Advanced examples</h2>
+<ul>
+<li><p>Fetching specific experiments by ids:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">id</span> <span class="o">=</span> <span class="n">SAN</span><span class="o">-</span><span class="mi">3</span> <span class="k">OR</span> <span class="n">id</span> <span class="o">=</span> <span class="n">SAN</span><span class="o">-</span><span class="mi">5</span> <span class="k">OR</span> <span class="n">id</span> <span class="o">=</span> <span class="n">SAN</span><span class="o">-</span><span class="mi">43</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments by using a complex logical expression:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="n">param1</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">AND</span> <span class="n">recall</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span> <span class="k">OR</span> <span class="p">(</span><span class="n">param1</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="k">AND</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">AND</span> <span class="n">recall</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">))</span> <span class="k">AND</span> <span class="n">owner</span> <span class="o">=</span> <span class="n">Fred</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">status</span> <span class="o">=</span> <span class="n">Succeeded</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments that contain three specific tags:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">some_tag_1</span> <span class="k">AND</span> <span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">some_tag_2</span> <span class="k">AND</span> <span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">another_tag</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments that contain at least one of the specific tags:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">some_tag_1</span> <span class="k">OR</span> <span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">some_tag_2</span> <span class="k">OR</span> <span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">another_tag</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments that contain the tag <code class="docutils literal notranslate"><span class="pre">expected</span></code> but do not contain the tag <code class="docutils literal notranslate"><span class="pre">unexpected</span></code>.
+Use either of the following queries:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">expected</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">unexpected</span>
+
+<span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">expected</span> <span class="k">AND</span> <span class="n">tags</span> <span class="k">NOT</span> <span class="n">CONTAINS</span> <span class="n">unexpected</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments with a name that contains a specific substring:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="n">CONTAINS</span> <span class="n">some_substring</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments containing channel, parameter or property with given name and non-null value:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">some_column_name</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments not containing channel, parameter or property with given name:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">some_column_name</span> <span class="k">NOT</span> <span class="k">EXISTS</span>
+
+<span class="k">NOT</span> <span class="n">some_column_name</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching finished experiments:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">timeOfCompletion</span> <span class="k">EXISTS</span>
+
+<span class="n">finished</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetching experiments created in notebook:</p>
+<blockquote>
+<div><div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">notebookName</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="nql-reference">
+<h2>NQL reference</h2>
+<div class="section" id="clause">
+<span id="core-concepts-nql-reference"></span><h3>Clause</h3>
+<p>A clause can take one of the following forms:</p>
+<ol class="arabic simple">
+<li><p>A relation consisting of three elements:</p></li>
+</ol>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">field</span><span class="o">-</span><span class="n">name</span> <span class="n">OPERATOR</span> <span class="n">value</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>A search term consisting of a single string value (a few words in quotes are considered a single string):</p></li>
+</ol>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">some_string_value</span>
+
+<span class="s2">&quot;some string value&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="relation-clauses">
+<h4>Relation clauses</h4>
+<p><strong>Field-name</strong></p>
+<p>Field-names are case insensitive, so you can write both <em>state</em> and <em>State</em> or even <em>STATE</em>.
+It can be one of the following:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">metric</span></code> name</p>
+<p>Only last value in the metric is taken into account.</p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameter</span></code> name</p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tags</span></code></p>
+<p>Can be used only with the <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code> operator. Condition is fulfilled if experiment contains a specific tag.</p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">example</span><span class="o">-</span><span class="n">tag</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">property</span></code> name</p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">train_data_path</span> <span class="o">=</span> <span class="s2">&quot;data/train.csv&quot;</span>
+
+<span class="n">train_data_path</span> <span class="o">=</span> <span class="n">train</span><span class="p">.</span><span class="n">csv</span>
+
+<span class="n">train_data_path</span> <span class="n">CONTAINS</span> <span class="p">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">log</span></code> name</p>
+<p>Only last value in the log is taken into account.</p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">stderr</span> <span class="o">=</span> <span class="s2">&quot;example text in log file&quot;</span>
+
+<span class="n">stderr</span> <span class="n">CONTAINS</span> <span class="n">error</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">id</span> <span class="o">=</span> <span class="n">SAN</span><span class="o">-</span><span class="mi">12</span>
+
+<span class="n">id</span> <span class="n">CONTAINS</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">state</span></code></p>
+<p>The following values are possible for this field:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">running</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">succeeded</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aborted</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">failed</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Values of this field are case insensitive.</p>
+<p>Examples:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">state</span> <span class="o">=</span> <span class="n">running</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">failed</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">aborted</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">owner</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">owner</span> <span class="o">=</span> <span class="n">Fred</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">Approach</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="n">name</span> <span class="n">CONTAINS</span> <span class="n">test</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;My first experiment&quot;</span>
+
+<span class="n">description</span> <span class="n">CONTAINS</span> <span class="n">test</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p>
+<p>Without any unit bytes are assumed, however following units are supported and are case insensitive: <code class="docutils literal notranslate"><span class="pre">kb</span></code>, <code class="docutils literal notranslate"><span class="pre">mb</span></code>, <code class="docutils literal notranslate"><span class="pre">gb</span></code>.
+If there is a space between the number and its unit, the whole value needs to be enclosed in quotation marks.
+Comparison of this field works on its corresponding value, not on strings.</p>
+<p>Examples:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="n">MB</span>
+
+<span class="n">size</span> <span class="o">&lt;</span> <span class="mi">100</span>
+
+<span class="n">size</span> <span class="o">&gt;=</span> <span class="s2">&quot;35 kb&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hostname</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">hostname</span> <span class="o">=</span> <span class="n">my</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="n">hostname</span> <span class="n">CONTAINS</span> <span class="n">server</span>
+
+<span class="n">hostname</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">commitId</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">commitId</span> <span class="o">=</span> <span class="mi">381</span><span class="n">ed1e25230cc1a08e0b901b90ecb00a8f5fd41</span>
+
+<span class="n">commitId</span> <span class="n">CONTAINS</span> <span class="mi">381</span><span class="n">ed1e25</span>
+
+<span class="n">commitId</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">notebookName</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">notebookName</span> <span class="o">=</span> <span class="n">my_notebook</span>
+
+<span class="n">notebookName</span> <span class="n">CONTAINS</span> <span class="n">note</span>
+
+<span class="n">notebookName</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpointName</span></code></p>
+<p>Example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">checkpointName</span> <span class="o">=</span> <span class="n">my_checkpoint</span>
+
+<span class="n">checkpointName</span> <span class="n">CONTAINS</span> <span class="k">check</span>
+
+<span class="n">checkpointName</span> <span class="k">EXISTS</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>Operator</strong></p>
+<p>It is one of the relational operators that lets you specify what you are looking for.
+See the <a class="reference internal" href="#core-concepts-nql-operators-reference"><span class="std std-ref">operators table</span></a> below for list of all operators.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Operator <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code> can be used only with text parameters, text logs, properties,
+tags, id, name, description, hostname, commitId, notebookName, checkpointName and owner.</p>
+</div>
+<hr class="docutils" />
+<p><strong>Value</strong></p>
+<p>Value is a specific value within a given column, like <code class="docutils literal notranslate"><span class="pre">0.95</span></code> or <code class="docutils literal notranslate"><span class="pre">ResNet101</span></code>. Values are case sensitive.
+Two types of values are supported:</p>
+<ul class="simple">
+<li><p>Numbers</p></li>
+<li><p>Strings</p></li>
+</ul>
+<p>Numbers are compared based on values, however strings are compared lexicographically basing on ASCII codes.
+Some fields, like <code class="docutils literal notranslate"><span class="pre">size</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> are exceptions to this rule.</p>
+</div>
+<div class="section" id="search-term-clauses">
+<h4>Search term clauses</h4>
+<p>A clause consisting of a single string value will be treated as a search term.
+Such query matches all experiments that contain a given string in their names, description or experiment id.
+Search terms are case insensitive and some typos are automatically recognized.</p>
+<p>Examples:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">Untitled</span>
+
+<span class="s2">&quot;Untitld&quot;</span>
+
+<span class="n">Untiitled</span>
+
+<span class="s2">&quot;Untitlad&quot;</span>
+
+<span class="n">uNTItleD</span>
+
+<span class="s2">&quot;untitled Test&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="complex-query">
+<h3>Complex query</h3>
+<p><strong>AND and OR operators</strong></p>
+<p>An NQL query consists of a number of clauses connected with logical operators. For example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">AND</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span>
+</pre></div>
+</div>
+<p>Additionally, brackets can be used to control logical operators precedence:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="p">(</span><span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: The <code class="docutils literal notranslate"><span class="pre">AND</span></code> operator has a higher precedence than <code class="docutils literal notranslate"><span class="pre">OR</span></code>, so the following two queries are identical:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span> <span class="k">AND</span> <span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span>
+
+<span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">OR</span> <span class="p">(</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span> <span class="k">AND</span> <span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>NOT operator</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">NOT</span></code> operator can be used to negate a single clause or an entire sub-query.
+For example, if you want to find all experiments that are not owned by Fred, you can use either of the following queries:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">NOT</span> <span class="n">owner</span> <span class="o">=</span> <span class="n">Fred</span>
+<span class="n">owner</span> <span class="o">!=</span> <span class="n">Fred</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">NOT</span></code> operator has a higher precedence than <code class="docutils literal notranslate"><span class="pre">AND</span></code> and <code class="docutils literal notranslate"><span class="pre">OR</span></code> but a lower precedence than relational operators.
+So, the following queries are identical:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span>
+
+<span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="p">(</span><span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span><span class="p">)</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span>
+
+<span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="p">(</span><span class="k">NOT</span> <span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span><span class="p">)</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span>
+</pre></div>
+</div>
+<p>but they are different from:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">recall</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">9</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="p">(</span><span class="n">learning_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span> <span class="k">OR</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">ResNet101</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition, you can use the <code class="docutils literal notranslate"><span class="pre">NOT</span></code> operator with the <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code> operator like this:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">description</span> <span class="k">NOT</span> <span class="k">CONTAINS</span> <span class="n">test</span>
+<span class="n">tags</span> <span class="k">NOT</span> <span class="k">CONTAINS</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>Logical operators are case insensitive.</p>
+</div>
+<div class="section" id="operators-reference">
+<h3>Operators reference</h3>
+<table class="docutils align-center" id="core-concepts-nql-operators-reference">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax elements</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Logical operators</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Relational operators</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code>, <code class="docutils literal notranslate"><span class="pre">EXISTS</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Brackets</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Quotation marks</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">``</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="precedence-order">
+<h3>Precedence order</h3>
+<p>If there are any field name collisions, the following order precedence is applied:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>system column</p></li>
+<li><p>parameter</p></li>
+<li><p>metric</p></li>
+<li><p>text log</p></li>
+<li><p>property</p></li>
+</ul>
+</div></blockquote>
+<p>For example, if there is a metric and a parameter called <code class="docutils literal notranslate"><span class="pre">owner</span></code>, the following query will return only experiments
+created by Fred, but no experiments of other users who have a parameter called <code class="docutils literal notranslate"><span class="pre">owner</span></code> with value <code class="docutils literal notranslate"><span class="pre">Fred</span></code>:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">owner</span> <span class="o">=</span> <span class="n">Fred</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="quotes">
+<h3>Quotes</h3>
+<p>There are two types of quotation marks in NQL:</p>
+<ul class="simple">
+<li><p>A double quote (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) is used with values,</p></li>
+<li><p>back quote (<code class="docutils literal notranslate"><span class="pre">``</span></code>) is used with field names.</p></li>
+</ul>
+<p>While in most cases it is not required to use quotation marks, there are some cases when it is necessary.</p>
+<p><strong>Special characters</strong></p>
+<p>Typically, field name and string values can consist of letters of English alphabet, digits, dots (<code class="docutils literal notranslate"><span class="pre">.</span></code>), underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>).
+However, it is possible to write a query using strings containing any unicode character. For this purpose you will need to use quotation marks:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;my first experiment&quot;</span>
+
+<span class="ss">`!@#$%^&amp;*()_+`</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">005</span>
+
+<span class="n">tags</span> <span class="n">CONTAINS</span> <span class="s2">&quot;Déjà vu&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your field name contains a back quote character (<code class="docutils literal notranslate"><span class="pre">`</span></code>) you will need to escape it using a backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>).
+Similarly, double quote character (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) has to be escaped in case of quote enclosed string value.
+Backslash character has to be preceded by another backslash in both cases - field names nad string values. For example:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="n">windows_path</span> <span class="o">=</span> <span class="s2">&quot;tmp\\dir\\file&quot;</span>
+
+<span class="n">text_with_quote</span> <span class="o">=</span> <span class="s2">&quot;And then he said: \&quot;Hi!\&quot;&quot;</span>
+
+<span class="ss">`\`backquoted_parameter_name\``</span> <span class="o">&gt;</span> <span class="mi">55</span>
+
+<span class="ss">`long\\parameter\\name\\with\\backslashes`</span> <span class="o">&gt;</span> <span class="mi">55</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Keywords</strong></p>
+<p>There are four reserved keywords in NQL: <code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code> and <code class="docutils literal notranslate"><span class="pre">CONTAINS</span></code>.
+They can not be simply used as fields or values.
+Execution of one of the following queries will result in a syntax error:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">AND</span> <span class="o">=</span> <span class="n">some_string</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="n">CONTAINS</span>
+
+<span class="n">tags</span> <span class="n">CONTAINS</span> <span class="n">CONTAINS</span>
+</pre></div>
+</div>
+<p>You can handle such situations by escaping the name of the column with back quotes (<code class="docutils literal notranslate"><span class="pre">`</span></code>) and the value of the field with quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>).</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="ss">`AND`</span> <span class="o">=</span> <span class="n">some_string</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;CONTAINS&quot;</span>
+
+<span class="n">tags</span> <span class="n">CONTAINS</span> <span class="s2">&quot;CONTAINS&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

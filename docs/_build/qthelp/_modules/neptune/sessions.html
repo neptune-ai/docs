@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>neptune.sessions</title>
+    <link rel="stylesheet" href="../../_static/nonav.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for neptune.sessions</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2019, Neptune Labs Sp. z o.o.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">neptune.api_exceptions</span> <span class="k">import</span> <span class="n">ProjectNotFound</span>
+<span class="kn">from</span> <span class="nn">neptune.internal.backends.hosted_neptune_backend</span> <span class="k">import</span> <span class="n">HostedNeptuneBackend</span>
+<span class="kn">from</span> <span class="nn">neptune.exceptions</span> <span class="k">import</span> <span class="n">IncorrectProjectQualifiedName</span>
+<span class="kn">from</span> <span class="nn">neptune.patterns</span> <span class="k">import</span> <span class="n">PROJECT_QUALIFIED_NAME_PATTERN</span>
+<span class="kn">from</span> <span class="nn">neptune.projects</span> <span class="k">import</span> <span class="n">Project</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Session"><a class="viewcode-back" href="../../neptune-client/docs/session.html#neptune.sessions.Session">[docs]</a><span class="k">class</span> <span class="nc">Session</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class for running communication with Neptune.</span>
+
+<span class="sd">    In order to query Neptune experiments you need to instantiate this object first.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        backend (:class:`~neptune.backend.Backend`, optional, default is ``None``):</span>
+<span class="sd">            By default, Neptune client library sends logs, metrics, images, etc to Neptune servers:</span>
+<span class="sd">            either publicly available SaaS, or an on-premises installation.</span>
+
+<span class="sd">            You can pass the default backend instance explicitly to specify its parameters:</span>
+
+<span class="sd">            .. code :: python3</span>
+
+<span class="sd">                from neptune import Session, HostedNeptuneBackend</span>
+<span class="sd">                session = Session(backend=HostedNeptuneBackend(...))</span>
+
+<span class="sd">            Passing an instance of :class:`~neptune.OfflineBackend` makes your code run without communicating</span>
+<span class="sd">            with Neptune servers.</span>
+
+<span class="sd">            .. code :: python3</span>
+
+<span class="sd">                from neptune import Session, OfflineBackend</span>
+<span class="sd">                session = Session(backend=OfflineBackend())</span>
+
+<span class="sd">        api_token (:obj:`str`, optional, default is ``None``):</span>
+<span class="sd">            User&#39;s API token. If ``None``, the value of ``NEPTUNE_API_TOKEN`` environment variable will be taken.</span>
+<span class="sd">            Parameter is ignored if ``backend`` is passed.</span>
+
+<span class="sd">            .. deprecated :: 0.4.4</span>
+
+<span class="sd">            Instead, use:</span>
+
+<span class="sd">            .. code :: python3</span>
+
+<span class="sd">                from neptune import Session</span>
+<span class="sd">                session = Session.with_default_backend(api_token=&#39;...&#39;)</span>
+
+<span class="sd">        proxies (:obj:`str`, optional, default is ``None``):</span>
+<span class="sd">            Argument passed to HTTP calls made via the `Requests &lt;https://2.python-requests.org/en/master/&gt;`_ library.</span>
+<span class="sd">            For more information see their proxies</span>
+<span class="sd">            `section &lt;https://2.python-requests.org/en/master/user/advanced/#proxies&gt;`_.</span>
+<span class="sd">            Parameter is ignored if ``backend`` is passed.</span>
+
+<span class="sd">            .. deprecated :: 0.4.4</span>
+
+<span class="sd">            Instead, use:</span>
+
+<span class="sd">            .. code :: python3</span>
+
+<span class="sd">                from neptune import Session, HostedNeptuneBackend</span>
+<span class="sd">                session = Session(backend=HostedNeptuneBackend(proxies=...))</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">        Create session, assuming you have created an environment variable ``NEPTUNE_API_TOKEN``</span>
+
+<span class="sd">        .. code:: python3</span>
+
+<span class="sd">            from neptune import Session</span>
+<span class="sd">            session = Session.with_default_backend()</span>
+
+<span class="sd">        Create session and pass ``api_token``</span>
+
+<span class="sd">        .. code:: python3</span>
+
+<span class="sd">            from neptune import Session</span>
+<span class="sd">            session = Session.with_default_backend(api_token=&#39;...&#39;)</span>
+
+<span class="sd">        Create an offline session</span>
+
+<span class="sd">        .. code:: python3</span>
+
+<span class="sd">            from neptune import Session, OfflineBackend</span>
+<span class="sd">            session = Session(backend=OfflineBackend())</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_token</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">=</span> <span class="n">backend</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;WARNING: Instantiating Session without specifying a backend is deprecated &#39;</span>
+                            <span class="s1">&#39;and will be removed in future versions. For current behaviour &#39;</span>
+                            <span class="s1">&#39;use `neptune.init(...)` or `Session.with_default_backend(...)&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">=</span> <span class="n">HostedNeptuneBackend</span><span class="p">(</span><span class="n">api_token</span><span class="p">,</span> <span class="n">proxies</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Session.with_default_backend"><a class="viewcode-back" href="../../neptune-client/docs/session.html#neptune.sessions.Session.with_default_backend">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">with_default_backend</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">api_token</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The simplest way to instantiate a ``Session``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            api_token (:obj:`str`):</span>
+<span class="sd">                User&#39;s API token.</span>
+<span class="sd">                If ``None``, the value of ``NEPTUNE_API_TOKEN`` environment variable will be taken.</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            .. code :: python3</span>
+
+<span class="sd">                from neptune import Session</span>
+<span class="sd">                session = Session.with_default_backend()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="n">HostedNeptuneBackend</span><span class="p">(</span><span class="n">api_token</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Session.get_project"><a class="viewcode-back" href="../../neptune-client/docs/session.html#neptune.sessions.Session.get_project">[docs]</a>    <span class="k">def</span> <span class="nf">get_project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_qualified_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a project with given ``project_qualified_name``.</span>
+
+<span class="sd">        In order to access experiments data one needs to get a :class:`~neptune.projects.Project` object first.</span>
+<span class="sd">        This method gives you the ability to do that.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            project_qualified_name (:obj:`str`):</span>
+<span class="sd">                Qualified name of a project in a form of ``namespace/project_name``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`~neptune.projects.Project` object.</span>
+
+<span class="sd">        Raise:</span>
+<span class="sd">            :class:`~neptune.api_exceptions.ProjectNotFound`: When a project with given name does not exist.</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            .. code:: python3</span>
+
+<span class="sd">                # Create a Session instance</span>
+<span class="sd">                from neptune.sessions import Session</span>
+<span class="sd">                session = Session()</span>
+
+<span class="sd">                # Get a project by it&#39;s ``project_qualified_name``:</span>
+<span class="sd">                my_project = session.get_project(&#39;namespace/project_name&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">project_qualified_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ProjectNotFound</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">PROJECT_QUALIFIED_NAME_PATTERN</span><span class="p">,</span> <span class="n">project_qualified_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">IncorrectProjectQualifiedName</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="n">project_qualified_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Session.get_projects"><a class="viewcode-back" href="../../neptune-client/docs/session.html#neptune.sessions.Session.get_projects">[docs]</a>    <span class="k">def</span> <span class="nf">get_projects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">namespace</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get all projects that you have permissions to see in given organization</span>
+
+<span class="sd">        | This method gets you all available projects names and their</span>
+<span class="sd">          corresponding :class:`~neptune.projects.Project` objects.</span>
+<span class="sd">        | Both private and public projects may be returned for the organization.</span>
+<span class="sd">          If you have role in private project, it is included.</span>
+<span class="sd">        | You can retrieve all the public projects that belong to any user or organization,</span>
+<span class="sd">          as long as you know their username or organization name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            namespace (:obj:`str`): It can either be name of the organization or username.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :obj:`OrderedDict`</span>
+<span class="sd">                | **keys** are ``project_qualified_name`` that is: *&#39;organization/project_name&#39;*</span>
+<span class="sd">                | **values** are corresponding :class:`~neptune.projects.Project` objects.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            `NamespaceNotFound`: When the given namespace does not exist.</span>
+
+<span class="sd">        Examples:</span>
+
+<span class="sd">            .. code:: python3</span>
+
+<span class="sd">                # create Session</span>
+<span class="sd">                from neptune.sessions import Session</span>
+<span class="sd">                session = Session()</span>
+
+<span class="sd">                # Now, you can list all the projects available for a selected namespace.</span>
+<span class="sd">                # You can use `YOUR_NAMESPACE` which is your organization or user name.</span>
+<span class="sd">                # You can also list public projects created by other organizations.</span>
+<span class="sd">                # For example you can use the `neptune-ai` namespace.</span>
+
+<span class="sd">                session.get_projects(&#39;neptune-ai&#39;)</span>
+
+<span class="sd">                # Example output:</span>
+<span class="sd">                # OrderedDict([(&#39;neptune-ai/credit-default-prediction&#39;,</span>
+<span class="sd">                #               Project(neptune-ai/credit-default-prediction)),</span>
+<span class="sd">                #              (&#39;neptune-ai/GStore-Customer-Revenue-Prediction&#39;,</span>
+<span class="sd">                #               Project(neptune-ai/GStore-Customer-Revenue-Prediction)),</span>
+<span class="sd">                #              (&#39;neptune-ai/human-protein-atlas&#39;,</span>
+<span class="sd">                #               Project(neptune-ai/human-protein-atlas)),</span>
+<span class="sd">                #              (&#39;neptune-ai/Ships&#39;,</span>
+<span class="sd">                #               Project(neptune-ai/Ships)),</span>
+<span class="sd">                #              (&#39;neptune-ai/Mapping-Challenge&#39;,</span>
+<span class="sd">                #               Project(neptune-ai/Mapping-Challenge))</span>
+<span class="sd">                #              ])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">projects</span> <span class="o">=</span> <span class="p">[</span><span class="n">Project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">get_projects</span><span class="p">(</span><span class="n">namespace</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">((</span><span class="n">p</span><span class="o">.</span><span class="n">full_id</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">projects</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+
+  <script src="/docker-config.js"></script>
+  <script>
+    /* !
+     * JavaScript Cookie v2.2.1
+     * https://github.com/js-cookie/js-cookie
+     *
+     * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+     * Released under the MIT license
+     *
+     * Minified by jsDelivr using Terser v3.14.1.
+     * Original file: /npm/js-cookie@2.2.1/src/js.cookie.js
+     *
+     * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+     */
+    !function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function e(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function n(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function t(o){function r(){}function i(n,t,i){if("undefined"!=typeof document){"number"==typeof(i=e({path:"/"},r.defaults,i)).expires&&(i.expires=new Date(1*new Date+864e5*i.expires)),i.expires=i.expires?i.expires.toUTCString():"";try{var c=JSON.stringify(t);/^[\{\[]/.test(c)&&(t=c)}catch(e){}t=o.write?o.write(t,n):encodeURIComponent(String(t)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),n=encodeURIComponent(String(n)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var f="";for(var u in i)i[u]&&(f+="; "+u,!0!==i[u]&&(f+="="+i[u].split(";")[0]));return document.cookie=n+"="+t+f}}function c(e,t){if("undefined"!=typeof document){for(var r={},i=document.cookie?document.cookie.split("; "):[],c=0;c<i.length;c++){var f=i[c].split("="),u=f.slice(1).join("=");t||'"'!==u.charAt(0)||(u=u.slice(1,-1));try{var a=n(f[0]);if(u=(o.read||o)(u,a)||n(u),t)try{u=JSON.parse(u)}catch(e){}if(r[a]=u,e===a)break}catch(e){}}return e?r[e]:r}}return r.set=i,r.get=function(e){return c(e,!1)},r.getJSON=function(e){return c(e,!0)},r.remove=function(n,t){i(n,"",e(t,{expires:-1}))},r.defaults={},r.withConverter=t,r}(function(){})});
+  </script>
+
+  <script>
+    function initGA(isProduction) {
+      if (!isProduction) {
+        // eslint-disable-next-line no-console
+        console.warn('GA will not load in development mode');
+        return;
+      }
+
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-102823704-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+
+    initGA(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    /* global heap, hj */
+
+    var options = {
+      devel: {
+        appId: 569758,
+      },
+      prod: {
+        appId: 569747,
+      },
+    };
+
+    function initHotJar(isProduction) {
+      var appId = getAppId(isProduction);
+
+      appendHotJarScript(appId);
+      tagRecording();
+    }
+
+    function appendHotJarScript(appId) {
+      (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {hjid: appId, hjsv: 5};
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+    }
+
+    function getAppId(isProduction) {
+      return isProduction ? options.prod.appId : options.devel.appId;
+    }
+
+    function tagRecording() {
+      var TAG_RECORDING_DELAY = 5 * 1000;
+
+      if (canSafelyTagRecording()) {
+        hj('tagRecording', [ heap.identity ]);
+      } else {
+
+        // try until all needed libs and data is available
+        window.setTimeout(tagRecording, TAG_RECORDING_DELAY);
+      }
+    }
+
+    function canSafelyTagRecording() {
+      return (
+        typeof hj === 'function'
+        && typeof heap === 'object'
+        && typeof heap.identity === 'string'
+        && heap.identity.length > 0
+      );
+    }
+
+    initHotJar(window.dockerConfig.isProduction);
+  </script>
+
+  <script>
+    function initIntercom(isProduction) {
+      var options = {
+        devel: {
+          appId: 'wqilukic',
+        },
+        prod: {
+          appId: 'yoy39he9',
+        },
+      };
+
+      var username = window.Cookies.get('neptune-uid');
+
+      window.intercomSettings = {
+        app_id: getAppId(isProduction),
+      };
+
+      var isUsernamePreserved = typeof username === 'string' && username.length > 0;
+      if (isUsernamePreserved) {
+        window.intercomSettings.user_id = username;
+      }
+
+      function getAppId(isProduction) {
+        return isProduction ? options.prod.appId : options.devel.appId;
+      }
+
+
+      // Intercom official integration code
+      // eslint-disable-next-line
+      (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/wqilukic';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+      // Intercom official integration code
+    }
+
+    initIntercom(window.dockerConfig.isProduction);
+  </script>
+
+
+  </body>
+</html>

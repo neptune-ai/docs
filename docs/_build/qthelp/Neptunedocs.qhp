@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QtHelpProject version="1.0">
+    <namespace>org.sphinx.neptunedocs</namespace>
+    <virtualFolder>doc</virtualFolder>
+    <customFilter name="Neptune docs ">
+        <filterAttribute>Neptunedocs</filterAttribute>
+        <filterAttribute></filterAttribute>
+    </customFilter>
+    <filterSection>
+        <filterAttribute>Neptunedocs</filterAttribute>
+        <filterAttribute></filterAttribute>
+        <toc>
+            <section title="Neptune docs 2.0.0 documentation" ref="index.html">
+                <section title="Python Module Index" ref="py-modindex.html"/>
+            </section>
+        </toc>
+        <keywords>
+            <keyword name="add_checkpoint() (neptune.notebook.Notebook method)" id="neptune.notebook.Notebook.add_checkpoint" ref="neptune-client/docs/notebook.html#neptune.notebook.Notebook.add_checkpoint"/>
+            <keyword name="append_tag() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.append_tag"/>
+            <keyword name="append_tag() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.append_tag" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.append_tag"/>
+            <keyword name="append_tags() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.append_tags"/>
+            <keyword name="append_tags() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.append_tags" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.append_tags"/>
+            <keyword name="create_experiment() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.create_experiment"/>
+            <keyword name="create_experiment() (neptune.projects.Project method)" id="neptune.projects.Project.create_experiment" ref="neptune-client/docs/project.html#neptune.projects.Project.create_experiment"/>
+            <keyword name="create_notebook() (neptune.projects.Project method)" id="neptune.projects.Project.create_notebook" ref="neptune-client/docs/project.html#neptune.projects.Project.create_notebook"/>
+            <keyword name="delete_artifacts() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.delete_artifacts"/>
+            <keyword name="delete_artifacts() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.delete_artifacts" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.delete_artifacts"/>
+            <keyword name="download_artifact() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.download_artifact" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.download_artifact"/>
+            <keyword name="download_artifacts() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.download_artifacts" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.download_artifacts"/>
+            <keyword name="download_sources() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.download_sources" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.download_sources"/>
+            <keyword name="Experiment (class in neptune.experiments)" id="neptune.experiments.Experiment" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment"/>
+            <keyword name="full_id (neptune.projects.Project attribute)" id="neptune.projects.Project.full_id" ref="neptune-client/docs/project.html#neptune.projects.Project.full_id"/>
+            <keyword name="get_channels() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_channels" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_channels"/>
+            <keyword name="get_experiments() (neptune.projects.Project method)" id="neptune.projects.Project.get_experiments" ref="neptune-client/docs/project.html#neptune.projects.Project.get_experiments"/>
+            <keyword name="get_git_info() (in module neptune.utils)" ref="neptune-client/docs/utils.html#neptune.utils.get_git_info"/>
+            <keyword name="get_hardware_utilization() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_hardware_utilization" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_hardware_utilization"/>
+            <keyword name="get_leaderboard() (neptune.projects.Project method)" id="neptune.projects.Project.get_leaderboard" ref="neptune-client/docs/project.html#neptune.projects.Project.get_leaderboard"/>
+            <keyword name="get_logs() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_logs" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_logs"/>
+            <keyword name="get_members() (neptune.projects.Project method)" id="neptune.projects.Project.get_members" ref="neptune-client/docs/project.html#neptune.projects.Project.get_members"/>
+            <keyword name="get_name() (neptune.notebook.Notebook method)" id="neptune.notebook.Notebook.get_name" ref="neptune-client/docs/notebook.html#neptune.notebook.Notebook.get_name"/>
+            <keyword name="get_notebook() (neptune.projects.Project method)" id="neptune.projects.Project.get_notebook" ref="neptune-client/docs/project.html#neptune.projects.Project.get_notebook"/>
+            <keyword name="get_numeric_channels_values() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_numeric_channels_values" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_numeric_channels_values"/>
+            <keyword name="get_parameters() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_parameters" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_parameters"/>
+            <keyword name="get_path() (neptune.notebook.Notebook method)" id="neptune.notebook.Notebook.get_path" ref="neptune-client/docs/notebook.html#neptune.notebook.Notebook.get_path"/>
+            <keyword name="get_project() (neptune.sessions.Session method)" id="neptune.sessions.Session.get_project" ref="neptune-client/docs/session.html#neptune.sessions.Session.get_project"/>
+            <keyword name="get_projects() (neptune.sessions.Session method)" id="neptune.sessions.Session.get_projects" ref="neptune-client/docs/session.html#neptune.sessions.Session.get_projects"/>
+            <keyword name="get_properties() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_properties" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_properties"/>
+            <keyword name="get_system_properties() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_system_properties" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_system_properties"/>
+            <keyword name="get_tags() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.get_tags" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.get_tags"/>
+            <keyword name="GitInfo (class in neptune.git_info)" id="neptune.git_info.GitInfo" ref="neptune-client/docs/utils.html#neptune.git_info.GitInfo"/>
+            <keyword name="id (neptune.experiments.Experiment attribute)" id="neptune.experiments.Experiment.id" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.id"/>
+            <keyword name="init() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.init"/>
+            <keyword name="log_artifact() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.log_artifact"/>
+            <keyword name="log_artifact() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.log_artifact" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_artifact"/>
+            <keyword name="log_image() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.log_image"/>
+            <keyword name="log_image() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.log_image" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_image"/>
+            <keyword name="log_metric() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.log_metric"/>
+            <keyword name="log_metric() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.log_metric" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_metric"/>
+            <keyword name="log_text() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.log_text"/>
+            <keyword name="log_text() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.log_text" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.log_text"/>
+            <keyword name="name (neptune.experiments.Experiment attribute)" id="neptune.experiments.Experiment.name" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.name"/>
+            <keyword name="neptune (module)" id="module.neptune" ref="neptune-client/docs/neptune.html#module-neptune"/>
+            <keyword name="neptune.experiments (module)" id="module.neptune.experiments" ref="neptune-client/docs/experiment.html#module-neptune.experiments"/>
+            <keyword name="neptune.git_info (module)" id="module.neptune.git_info" ref="neptune-client/docs/utils.html#module-neptune.git_info"/>
+            <keyword name="neptune.notebook (module)" id="module.neptune.notebook" ref="neptune-client/docs/notebook.html#module-neptune.notebook"/>
+            <keyword name="neptune.projects (module)" id="module.neptune.projects" ref="neptune-client/docs/project.html#module-neptune.projects"/>
+            <keyword name="neptune.sessions (module)" id="module.neptune.sessions" ref="neptune-client/docs/session.html#module-neptune.sessions"/>
+            <keyword name="neptune.utils (module)" id="module.neptune.utils" ref="neptune-client/docs/utils.html#module-neptune.utils"/>
+            <keyword name="Notebook (class in neptune.notebook)" id="neptune.notebook.Notebook" ref="neptune-client/docs/notebook.html#neptune.notebook.Notebook"/>
+            <keyword name="Project (class in neptune.projects)" id="neptune.projects.Project" ref="neptune-client/docs/project.html#neptune.projects.Project"/>
+            <keyword name="remove_property() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.remove_property"/>
+            <keyword name="remove_property() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.remove_property" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.remove_property"/>
+            <keyword name="remove_tag() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.remove_tag"/>
+            <keyword name="remove_tag() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.remove_tag" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.remove_tag"/>
+            <keyword name="reset_log() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.reset_log" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.reset_log"/>
+            <keyword name="send_artifact() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.send_artifact"/>
+            <keyword name="send_artifact() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.send_artifact" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.send_artifact"/>
+            <keyword name="send_image() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.send_image"/>
+            <keyword name="send_image() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.send_image" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.send_image"/>
+            <keyword name="send_metric() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.send_metric"/>
+            <keyword name="send_metric() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.send_metric" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.send_metric"/>
+            <keyword name="send_text() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.send_text"/>
+            <keyword name="send_text() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.send_text" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.send_text"/>
+            <keyword name="Session (class in neptune.sessions)" id="neptune.sessions.Session" ref="neptune-client/docs/session.html#neptune.sessions.Session"/>
+            <keyword name="set_project() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.set_project"/>
+            <keyword name="set_property() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.set_property"/>
+            <keyword name="set_property() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.set_property" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.set_property"/>
+            <keyword name="state (neptune.experiments.Experiment attribute)" id="neptune.experiments.Experiment.state" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.state"/>
+            <keyword name="stop() (in module neptune)" ref="neptune-client/docs/neptune.html#neptune.stop"/>
+            <keyword name="stop() (neptune.experiments.Experiment method)" id="neptune.experiments.Experiment.stop" ref="neptune-client/docs/experiment.html#neptune.experiments.Experiment.stop"/>
+            <keyword name="with_default_backend() (neptune.sessions.Session class method)" ref="neptune-client/docs/session.html#neptune.sessions.Session.with_default_backend"/>
+        </keywords>
+        <files>
+            <file>genindex.html</file>
+            <file>index.html</file>
+            <file>py-modindex.html</file>
+            <file>integrations/catalyst.html</file>
+            <file>integrations/fast_ai.html</file>
+            <file>integrations/frameworks.html</file>
+            <file>integrations/hiplot.html</file>
+            <file>integrations/mlflow.html</file>
+            <file>integrations/neptune-contrib.html</file>
+            <file>integrations/optuna.html</file>
+            <file>integrations/pytorch_ignite.html</file>
+            <file>integrations/pytorch_lightning.html</file>
+            <file>integrations/r-support.html</file>
+            <file>integrations/sacred.html</file>
+            <file>integrations/skopt.html</file>
+            <file>integrations/skorch.html</file>
+            <file>integrations/tensorboard.html</file>
+            <file>integrations/mlflow/mlflow_compare_runs.html</file>
+            <file>integrations/mlflow/mlflow_sync_runs_and_share_model.html</file>
+            <file>integrations/tensorboard/tensorboard_integrate.html</file>
+            <file>integrations/tensorboard/tensorboard_runs_comparison.html</file>
+            <file>learn-about-neptune/collaborate.html</file>
+            <file>learn-about-neptune/core-concepts.html</file>
+            <file>learn-about-neptune/deployment.html</file>
+            <file>learn-about-neptune/experiment_tracking.html</file>
+            <file>learn-about-neptune/faq.html</file>
+            <file>learn-about-neptune/nql.html</file>
+            <file>learn-about-neptune/team-management.html</file>
+            <file>learn-about-neptune/ui.html</file>
+            <file>neptune-client/docs/404.html</file>
+            <file>neptune-client/docs/experiment.html</file>
+            <file>neptune-client/docs/neptune.html</file>
+            <file>neptune-client/docs/notebook.html</file>
+            <file>neptune-client/docs/project.html</file>
+            <file>neptune-client/docs/session.html</file>
+            <file>neptune-client/docs/utils.html</file>
+            <file>notebooks/configuration.html</file>
+            <file>notebooks/installation.html</file>
+            <file>notebooks/integrations.html</file>
+            <file>notebooks/introduction.html</file>
+            <file>notebooks/troubleshoot.html</file>
+            <file>python-api/api-reference.html</file>
+            <file>python-api/cheatsheet.html</file>
+            <file>python-api/how-to-guides.html</file>
+            <file>python-api/introduction.html</file>
+            <file>python-api/query-api.html</file>
+            <file>python-api/tutorials.html</file>
+            <file>python-api/how-to/organize.html</file>
+            <file>python-api/how-to/track.html</file>
+            <file>python-api/tutorials/experiment-tracking.html</file>
+            <file>python-api/tutorials/get-started.html</file>
+            <file>python-api/tutorials/session-and-experiment.html</file>
+            <file>_images/activate_button.png</file>
+            <file>_images/add-user-1.png</file>
+            <file>_images/avatar_highlight.png</file>
+            <file>_images/aws_neptuneml.png</file>
+            <file>_images/buttons_11.png</file>
+            <file>_images/buttons_111.png</file>
+            <file>_images/catalyst_monitoring.gif</file>
+            <file>_images/catalyst_neptuneai.png</file>
+            <file>_images/compare.png</file>
+            <file>_images/compare_experiments.png</file>
+            <file>_images/configure_connect.png</file>
+            <file>_images/connect_button.png</file>
+            <file>_images/create-org-1.png</file>
+            <file>_images/create-org-2.png</file>
+            <file>_images/create-org-3.png</file>
+            <file>_images/create-project-1.png</file>
+            <file>_images/create-project-2.png</file>
+            <file>_images/create_experiment_basic.gif</file>
+            <file>_images/download_dialog.png</file>
+            <file>_images/editor_details.png</file>
+            <file>_images/example_hiplot_0.png</file>
+            <file>_images/example_hiplot_1.gif</file>
+            <file>_images/example_hiplot_1.png</file>
+            <file>_images/example_hiplot_2.gif</file>
+            <file>_images/ext-manager-2.png</file>
+            <file>_images/extension_manager.png</file>
+            <file>_images/fast_ai_1.png</file>
+            <file>_images/fast_ai_2.png</file>
+            <file>_images/fastai_neptuneml.png</file>
+            <file>_images/get_api_token.png</file>
+            <file>_images/ht-chartsets-basic-1.png</file>
+            <file>_images/ht-chartsets-basic-2.png</file>
+            <file>_images/ht-chartsets-basic-3.png</file>
+            <file>_images/ht-chartsets-basic-4.png</file>
+            <file>_images/ht-chartsets-basic-5.png</file>
+            <file>_images/ht-data-version-1.png</file>
+            <file>_images/ht-img-channel-1.png</file>
+            <file>_images/ht-img-channel-2.png</file>
+            <file>_images/ht-log-keras-1.png</file>
+            <file>_images/ht-log-lightgbm-1.png</file>
+            <file>_images/ht-log-pytorch-1.png</file>
+            <file>_images/ht-matplotlib-1.png</file>
+            <file>_images/ht-matplotlib-2.png</file>
+            <file>_images/ht-output-download-1.png</file>
+            <file>_images/ht-sagemaker-config_specs.png</file>
+            <file>_images/ht-sagemaker-create_configuration.png</file>
+            <file>_images/ht-sagemaker-create_instance.png</file>
+            <file>_images/ht-sagemaker-create_instance_specs.png</file>
+            <file>_images/ht-sagemaker-create_notebook_run.png</file>
+            <file>_images/ht-sagemaker-notebook_run.png</file>
+            <file>_images/ht-sorting-metric-1.png</file>
+            <file>_images/ht-sorting-metric-2.png</file>
+            <file>_images/ht-specify-params-1.png</file>
+            <file>_images/ht-tags-1.png</file>
+            <file>_images/ignite_neptuneai.png</file>
+            <file>_images/invite-to-org-2.png</file>
+            <file>_images/invite-to-project.png</file>
+            <file>_images/keras_neptuneml.png</file>
+            <file>_images/lightgbm_neptuneml.png</file>
+            <file>_images/login.png</file>
+            <file>_images/matplotlib_neptuneml.png</file>
+            <file>_images/mlflow_1.png</file>
+            <file>_images/mlflow_11.png</file>
+            <file>_images/mlflow_2.png</file>
+            <file>_images/mlflow_21.png</file>
+            <file>_images/mlflow_neptuneml.png</file>
+            <file>_images/nb-view-11.png</file>
+            <file>_images/nb-view-22.png</file>
+            <file>_images/nb-view-cmp-1.png</file>
+            <file>_images/new_wiki_comment.png</file>
+            <file>_images/new_wiki_comment_menu.png</file>
+            <file>_images/new_wiki_page.png</file>
+            <file>_images/notebook_checkpoint.png</file>
+            <file>_images/notebook_comparison.png</file>
+            <file>_images/notebooks_neptuneml.png</file>
+            <file>_images/nql_01.png</file>
+            <file>_images/optuna_monitoring.gif</file>
+            <file>_images/optuna_neptuneai.png</file>
+            <file>_images/org-settings.png</file>
+            <file>_images/pytorch_ignite_monitoring.gif</file>
+            <file>_images/pytorch_lightning_monitoring.gif</file>
+            <file>_images/pytorch_neptuneml.png</file>
+            <file>_images/pytorchlightning_neptuneml.png</file>
+            <file>_images/quick_overview.gif</file>
+            <file>_images/r_integration_artifacts.gif</file>
+            <file>_images/r_integration_charts.gif</file>
+            <file>_images/r_integration_code.gif</file>
+            <file>_images/r_integration_data_versions.gif</file>
+            <file>_images/r_integration_hyperparams.gif</file>
+            <file>_images/r_integration_installation.gif</file>
+            <file>_images/r_integration_metrics.gif</file>
+            <file>_images/sacred_monitoring.png</file>
+            <file>_images/sacred_neptuneai.png</file>
+            <file>_images/sagemaker_neptuneml.png</file>
+            <file>_images/server_client_arch.png</file>
+            <file>_images/share_wiki_page.png</file>
+            <file>_images/skopt_monitoring.gif</file>
+            <file>_images/skopt_neptuneai.png</file>
+            <file>_images/skorch_monitoring.gif</file>
+            <file>_images/skorch_neptuneai.png</file>
+            <file>_images/tensorboard_1.png</file>
+            <file>_images/tensorboard_11.png</file>
+            <file>_images/tensorboard_2.png</file>
+            <file>_images/tensorboard_21.png</file>
+            <file>_images/tensorboard_example_1.png</file>
+            <file>_images/tensorboard_example_2.png</file>
+            <file>_images/tensorboard_example_3.png</file>
+            <file>_images/tensorboard_example_4.png</file>
+            <file>_images/tensorboard_neptuneml.png</file>
+            <file>_images/token.png</file>
+            <file>_images/token1.png</file>
+            <file>_images/upload_dialog.png</file>
+            <file>_images/usage-1.png</file>
+            <file>_images/wiki.gif</file>
+            <file>_images/wiki_collaborative_editing.png</file>
+            <file>_images/wiki_commands.png</file>
+            <file>_images/wiki_context_menu.png</file>
+            <file>_modules/index.html</file>
+            <file>_modules/neptune.html</file>
+            <file>_modules/neptune/experiments.html</file>
+            <file>_modules/neptune/git_info.html</file>
+            <file>_modules/neptune/notebook.html</file>
+            <file>_modules/neptune/projects.html</file>
+            <file>_modules/neptune/sessions.html</file>
+            <file>_modules/neptune/utils.html</file>
+            <file>_static/basic.css</file>
+            <file>_static/favicon.ico</file>
+            <file>_static/file.png</file>
+            <file>_static/logo-horizontal.png</file>
+            <file>_static/minus.png</file>
+            <file>_static/nonav.css</file>
+            <file>_static/plus.png</file>
+            <file>_static/pygments.css</file>
+            <file>_static/css/custom.css</file>
+            <file>_static/images/catalyst/catalyst_monitoring.gif</file>
+            <file>_static/images/core-concepts/avatar_highlight.png</file>
+            <file>_static/images/core-concepts/compare_experiments.png</file>
+            <file>_static/images/core-concepts/copy_button.png</file>
+            <file>_static/images/core-concepts/editor_details.png</file>
+            <file>_static/images/core-concepts/experiment_list.PNG</file>
+            <file>_static/images/core-concepts/invite-to-project.png</file>
+            <file>_static/images/core-concepts/login.png</file>
+            <file>_static/images/core-concepts/metadata_copy.png</file>
+            <file>_static/images/core-concepts/new_wiki_comment.png</file>
+            <file>_static/images/core-concepts/new_wiki_comment_menu.png</file>
+            <file>_static/images/core-concepts/new_wiki_page.png</file>
+            <file>_static/images/core-concepts/notebook_checkpoint.png</file>
+            <file>_static/images/core-concepts/notebook_comparison.png</file>
+            <file>_static/images/core-concepts/org-settings.png</file>
+            <file>_static/images/core-concepts/share_wiki_page.png</file>
+            <file>_static/images/core-concepts/wiki_collaborative_editing.png</file>
+            <file>_static/images/core-concepts/wiki_commands.png</file>
+            <file>_static/images/core-concepts/wiki_context_menu.png</file>
+            <file>_static/images/fast_ai/fast_ai_1.png</file>
+            <file>_static/images/fast_ai/fast_ai_2.png</file>
+            <file>_static/images/hiplot/example_hiplot_0.png</file>
+            <file>_static/images/hiplot/example_hiplot_1.gif</file>
+            <file>_static/images/hiplot/example_hiplot_1.png</file>
+            <file>_static/images/hiplot/example_hiplot_2.gif</file>
+            <file>_static/images/how-to/ht-chartsets-basic-1.png</file>
+            <file>_static/images/how-to/ht-chartsets-basic-2.png</file>
+            <file>_static/images/how-to/ht-chartsets-basic-3.png</file>
+            <file>_static/images/how-to/ht-chartsets-basic-4.png</file>
+            <file>_static/images/how-to/ht-chartsets-basic-5.png</file>
+            <file>_static/images/how-to/ht-data-version-1.png</file>
+            <file>_static/images/how-to/ht-img-channel-1.png</file>
+            <file>_static/images/how-to/ht-img-channel-2.png</file>
+            <file>_static/images/how-to/ht-log-keras-1.png</file>
+            <file>_static/images/how-to/ht-log-lightgbm-1.png</file>
+            <file>_static/images/how-to/ht-log-pytorch-1.png</file>
+            <file>_static/images/how-to/ht-matplotlib-1.png</file>
+            <file>_static/images/how-to/ht-matplotlib-2.png</file>
+            <file>_static/images/how-to/ht-output-download-1.png</file>
+            <file>_static/images/how-to/ht-sagemaker-config_specs.png</file>
+            <file>_static/images/how-to/ht-sagemaker-create_configuration.png</file>
+            <file>_static/images/how-to/ht-sagemaker-create_instance.png</file>
+            <file>_static/images/how-to/ht-sagemaker-create_instance_specs.png</file>
+            <file>_static/images/how-to/ht-sagemaker-create_notebook_run.png</file>
+            <file>_static/images/how-to/ht-sagemaker-notebook_run.png</file>
+            <file>_static/images/how-to/ht-sagemaker-notebook_runs.png</file>
+            <file>_static/images/how-to/ht-sagemaker-notebook_runs_01.png</file>
+            <file>_static/images/how-to/ht-sorting-metric-1.png</file>
+            <file>_static/images/how-to/ht-sorting-metric-2.png</file>
+            <file>_static/images/how-to/ht-specify-params-1.png</file>
+            <file>_static/images/how-to/ht-tags-1.png</file>
+            <file>_static/images/how-to/team-management/add-user-1.png</file>
+            <file>_static/images/how-to/team-management/create-org-1.png</file>
+            <file>_static/images/how-to/team-management/create-org-2.png</file>
+            <file>_static/images/how-to/team-management/create-org-3.png</file>
+            <file>_static/images/how-to/team-management/create-project-1.png</file>
+            <file>_static/images/how-to/team-management/create-project-2.png</file>
+            <file>_static/images/how-to/team-management/invite-to-org-2.png</file>
+            <file>_static/images/how-to/team-management/usage-1.png</file>
+            <file>_static/images/mlflow/mlflow_1.png</file>
+            <file>_static/images/mlflow/mlflow_2.png</file>
+            <file>_static/images/notebooks/activate_button.png</file>
+            <file>_static/images/notebooks/buttons_01_1.png</file>
+            <file>_static/images/notebooks/buttons_02_1.png</file>
+            <file>_static/images/notebooks/buttons_03_1.png</file>
+            <file>_static/images/notebooks/buttons_11.png</file>
+            <file>_static/images/notebooks/checkpoint_01.png</file>
+            <file>_static/images/notebooks/checkpoint_02.png</file>
+            <file>_static/images/notebooks/checkpoint_03.png</file>
+            <file>_static/images/notebooks/compare.png</file>
+            <file>_static/images/notebooks/configure_connect.png</file>
+            <file>_static/images/notebooks/connect_button.png</file>
+            <file>_static/images/notebooks/download_dialog.png</file>
+            <file>_static/images/notebooks/ext-manager-1.png</file>
+            <file>_static/images/notebooks/ext-manager-2.png</file>
+            <file>_static/images/notebooks/extension_manager.png</file>
+            <file>_static/images/notebooks/get_api_token.png</file>
+            <file>_static/images/notebooks/integration_01.png</file>
+            <file>_static/images/notebooks/link_new_notebook.png</file>
+            <file>_static/images/notebooks/nb-view-1.png</file>
+            <file>_static/images/notebooks/nb-view-11.png</file>
+            <file>_static/images/notebooks/nb-view-2.png</file>
+            <file>_static/images/notebooks/nb-view-22.png</file>
+            <file>_static/images/notebooks/nb-view-cmp-1.png</file>
+            <file>_static/images/notebooks/token.png</file>
+            <file>_static/images/notebooks/upload_dialog.png</file>
+            <file>_static/images/optuna/optuna_monitoring.gif</file>
+            <file>_static/images/others/aws_neptuneml.png</file>
+            <file>_static/images/others/catalyst_neptuneai.png</file>
+            <file>_static/images/others/colab_neptuneml.png</file>
+            <file>_static/images/others/fastai_neptuneml.png</file>
+            <file>_static/images/others/favicon.ico</file>
+            <file>_static/images/others/ignite_neptuneai.png</file>
+            <file>_static/images/others/keras_neptuneml.png</file>
+            <file>_static/images/others/lightgbm_neptuneml.png</file>
+            <file>_static/images/others/logo-horizontal.png</file>
+            <file>_static/images/others/matplotlib_neptuneml.png</file>
+            <file>_static/images/others/mlflow_neptuneml.png</file>
+            <file>_static/images/others/notebooks_neptuneml.png</file>
+            <file>_static/images/others/nql_01.png</file>
+            <file>_static/images/others/optuna_neptuneai.png</file>
+            <file>_static/images/others/pytorch_neptuneml.png</file>
+            <file>_static/images/others/pytorchlightning_neptuneml.png</file>
+            <file>_static/images/others/sacred_neptuneai.png</file>
+            <file>_static/images/others/sagemaker_neptuneml.png</file>
+            <file>_static/images/others/skopt_neptuneai.png</file>
+            <file>_static/images/others/skorch_neptuneai.png</file>
+            <file>_static/images/overview/quick_overview.gif</file>
+            <file>_static/images/overview/wiki.gif</file>
+            <file>_static/images/python_api/server_client_arch.png</file>
+            <file>_static/images/pytorch_ignite/pytorch_ignite_monitoring.gif</file>
+            <file>_static/images/pytorch_lightning/pytorch_lightning_monitoring.gif</file>
+            <file>_static/images/r_support/r_integration_artifacts.gif</file>
+            <file>_static/images/r_support/r_integration_charts.gif</file>
+            <file>_static/images/r_support/r_integration_code.gif</file>
+            <file>_static/images/r_support/r_integration_data_versions.gif</file>
+            <file>_static/images/r_support/r_integration_hyperparams.gif</file>
+            <file>_static/images/r_support/r_integration_installation.gif</file>
+            <file>_static/images/r_support/r_integration_metrics.gif</file>
+            <file>_static/images/sacred/sacred_monitoring.png</file>
+            <file>_static/images/skopt/skopt_monitoring.gif</file>
+            <file>_static/images/skorch/skorch_monitoring.gif</file>
+            <file>_static/images/tensorboard/tensorboard_1.png</file>
+            <file>_static/images/tensorboard/tensorboard_2.png</file>
+            <file>_static/images/tensorboard/tensorboard_example_1.png</file>
+            <file>_static/images/tensorboard/tensorboard_example_2.png</file>
+            <file>_static/images/tensorboard/tensorboard_example_3.png</file>
+            <file>_static/images/tensorboard/tensorboard_example_4.png</file>
+            <file>_static/images/tensorboard/tensorboard_neptuneml.png</file>
+            <file>_static/images/tutorials/create_experiment_basic.gif</file>
+            <file>_static/images/tutorials/token.png</file>
+        </files>
+    </filterSection>
+</QtHelpProject>
