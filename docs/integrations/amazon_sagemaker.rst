@@ -3,16 +3,15 @@ Amazon SageMaker
 
 You can use Neptune to track experiments that you run on Amazon SageMaker.
 
-Setting up a Neptune-enabled Amazon SageMaker Jupyter instance
---------------------------------------------------------------
-
 .. image:: ../_static/images/others/sagemaker_neptuneml.png
    :target: ../_static/images/others/sagemaker_neptuneml.png
    :alt: Amazon SageMaker neptune.ai integration
 
+To set up, perform the following steps:
+
 1. Register to AWS.
 
-    Follow the `instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ to create your AWS account.
+    Follow the |instructions| to create your AWS account.
 
 2. Create Lifecycle configuration.
 
@@ -105,3 +104,9 @@ You can now version your Notebooks and track experiments in Amazon SageMaker wit
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :alt: image
+
+.. External links
+
+.. |instructions| raw:: html
+
+   <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/" target="_blank">instructions</a>
