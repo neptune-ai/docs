@@ -147,27 +147,16 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
-   Keras <integrations/keras.rst>
-   PyTorch <integrations/pytorch.rst>
-   LightGBM <integrations/lightgbm.rst>
-   Matplotlib <integrations/matplotlib.rst>
-   R <integrations/r-support.rst>
-   Any language <integrations/any-language-support.rst>
-   TensorBoard <integrations/tensorboard.rst>
-   HiPlot <integrations/hiplot.rst>
-   MLflow <integrations/mlflow.rst>
-   Sacred <integrations/sacred.rst>
-   Fast.ai <integrations/fast_ai.rst>
-   PyTorchLightning <integrations/pytorch_lightning.rst>
-   Catalyst <integrations/catalyst.rst>
-   PyTorch Ignite <integrations/pytorch_ignite.rst>
-   Skorch <integrations/skorch.rst>
-   XGBoost <integrations/xgboost.rst>
-   Scikit Optimize <integrations/skopt.rst>
-   Optuna <integrations/optuna.rst>
-   Telegram <integrations/telegram.rst>
-   Neptune Contrib <integrations/neptune-contrib.rst>
-   Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
+   Deep Learning Frameworks <integrations/deep_learning_frameworks.rst>
+   Machine Learning Frameworks <integrations/machine_learning_frameworks.rst>
+   Hyperparmeter Optimization Frameworks <integrations/hyperparams_opt_frameworks.rst>
+   Visualization Tools <integrations/visualization_tools.rst>
+   Messaging Systems <integrations/messaging_systems.rst>
+   Experiment Tracking Frameworks <integrations/experiment_tracking_frmwks.rst>
+   Languages <integrations/languages.rst>
+   Cloud providers <integrations/cloud_providers.rst>
+
+
 
 .. External links
 
