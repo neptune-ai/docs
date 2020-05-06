@@ -38,15 +38,15 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
     # select project
     neptune.init('shared/onboarding',
-                api_token='ANONYMOUS')
+                 api_token='ANONYMOUS')
 
     # define parameters
     PARAMS = {'decay_factor': 0.7,
-            'n_iterations': 117}
+              'n_iterations': 117}
 
     # create experiment
     neptune.create_experiment(name='quick_start_example',
-                            params=PARAMS)
+                              params=PARAMS)
 
     # log some metrics
     for i in range(1, PARAMS['n_iterations']):
@@ -87,8 +87,6 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 .. |spectrum| raw:: html
 
     <a href="https://spectrum.chat/neptune-community" target="_blank">spectrum</a>
-
-.. External Links
 
 .. |Example1| raw:: html
 
