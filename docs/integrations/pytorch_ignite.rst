@@ -1,12 +1,17 @@
-Log PyTorch Ignite metrics to neptune
-=======================================
+Neptune-PyTorch Ignite Integration
+==================================
+
+The integration enables you to log |PyTorch Ignite| metrics to Neptune.
+
+
 .. image:: ../_static/images/others/ignite_neptuneai.png
    :target: ../_static/images/others/ignite_neptuneai.png
    :alt: PyTorch Ignite neptune.ai integration
 
-Prerequisites
--------------
-Integration with |PyTorch Ignite| framework is introduced as a part of logging module so just need to have |neptune-client| installed.
+Requirements
+------------
+Integration with the PyTorch Ignite framework is enabled as part of the Neptune logging module, so all you need is to have |neptune-client| installed.
+
 
 .. code-block:: bash
 
@@ -31,9 +36,9 @@ Create the **NeptuneLogger** with all the information you want to track
 Attach handlers to **npt_logger**
 ---------------------------------
 
-There are many handlers that you can attach to track your training.
+There are many handlers that you can attach to track your training. The following showcase some capabilities:
 
-**OutputHandler** for tracking losses and metrics
+- ``OutputHandler`` tracks losses and metrics:
 
 .. code-block:: python3
 
@@ -55,7 +60,7 @@ There are many handlers that you can attach to track your training.
                                                 another_engine=trainer),
                       event_name=Events.EPOCH_COMPLETED)
 
-**OptimizerParamsHandler** for tracking optimizer parameters like learning rate and momentum.
+- ``OptimizerParamsHandler`` for tracking optimizer parameters like learning rate and momentum:
 
 .. code-block:: python3
 
@@ -63,7 +68,7 @@ There are many handlers that you can attach to track your training.
                       log_handler=OptimizerParamsHandler(optimizer),
                       event_name=Events.ITERATION_COMPLETED(every=100))
 
-**WeightsScalarHandler** for tracking the norm of model weights per layer.
+- ``WeightsScalarHandler`` for tracking the norm of model weights per layer:
 
 .. code-block:: python3
 
@@ -71,7 +76,7 @@ There are many handlers that you can attach to track your training.
                       log_handler=WeightsScalarHandler(model),
                       event_name=Events.ITERATION_COMPLETED(every=100))
 
-**GradsScalarHandler** for tracking the norm of gradients per layer.
+- ``GradsScalarHandler`` for tracking the norm of gradients per layer:
 
 .. code-block:: python3
 
@@ -79,7 +84,7 @@ There are many handlers that you can attach to track your training.
                       log_handler=GradsScalarHandler(model),
                       event_name=Events.ITERATION_COMPLETED(every=100))
 
-**NeptuneSaver** for logging model checkpoints during training.
+- ``NeptuneSaver`` for logging model checkpoints during training:
 
 .. code-block:: python3
 
@@ -105,22 +110,22 @@ Log additional information
 --------------------------
 
 You can log any additional information directly to neptune experiment.
-It can be accessed via **npt_logger.experiment**.
+It can be accessed via ``npt_logger.experiment``.
 
 .. code-block:: python3
 
     torch.save(model.state_dict(), 'model.pth')
     npt_logger.experiment.log_artifact('model.pth')
 
-Close the logger after you are finished tracking
-------------------------------------------------
+Close the logger after you have finished tracking
+-------------------------------------------------
 .. code-block:: python3
 
     npt_logger.close()
 
 Monitor your PyTorch Ignite training in Neptune
---------------------------------------------------
-Now you can watch your pytorch-ignite model training in neptune!
+-----------------------------------------------
+Now you can watch your pytorch-ignite model training in Neptune!
 
 Check this |example experiment|.
 
@@ -129,9 +134,9 @@ Check this |example experiment|.
    :alt: PyTorch Ignite logging in neptune
 
 Full PyTorch Ignite monitor script
-------------------------------------
+----------------------------------
 Simply copy and paste it to ``ignite_example.py`` and run.
-Remember to change your credentials in the **NeptuneLogger**:
+Remember to change your credentials in the ``NeptuneLogger``:
 
 .. code-block:: python3
 

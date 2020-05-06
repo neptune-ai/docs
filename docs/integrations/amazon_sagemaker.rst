@@ -1,5 +1,5 @@
-Amazon SageMaker
-================
+Neptune-Amazon SageMaker Integration
+====================================
 
 You can use Neptune to track experiments that you run on Amazon SageMaker.
 
@@ -7,7 +7,7 @@ You can use Neptune to track experiments that you run on Amazon SageMaker.
    :target: ../_static/images/others/sagemaker_neptuneml.png
    :alt: Amazon SageMaker neptune.ai integration
 
-To set up, perform the following steps:
+To set this up, perform the following steps:
 
 1. Register to AWS.
 
@@ -99,7 +99,7 @@ To set up, perform the following steps:
           :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
           :alt: image
 
-You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune.
+**You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune!**
 
     .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
           :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png

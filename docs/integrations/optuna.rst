@@ -1,12 +1,15 @@
-Monitor Optuna hyperparameter optimization in Neptune
-=====================================================
+Neptune-Optuna Integration
+==========================
+
+This integration enables you to monitor |Optuna| hyperparameter optimization in Neptune.
+
 .. image:: ../_static/images/others/optuna_neptuneai.png
    :target: ../_static/images/others/optuna_neptuneai.png
    :alt: Optuna Neptune integration
 
-Prerequisites
--------------
-Integration with |Optuna| framework is introduced as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
+Requirements
+------------
+Integration with the Optuna framework is enabled as a part of the logging module, so all you need to have installed is |neptune-client| and |neptune-contrib|.
 
 .. code-block:: bash
 
@@ -24,9 +27,9 @@ Initialize Neptune and create an experiment
 
 Create **NeptuneMonitor** callback
 ----------------------------------
-Pass the experiment object as first argument.
+Pass the experiment object as the first argument.
 
-.. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``
+.. note:: To be able to log information after the ``.fit()`` method finishes, remember to pass ``close_after_train=False``.
 
 .. code-block:: python3
 
@@ -35,7 +38,7 @@ Pass the experiment object as first argument.
 
 Pass **neptune_monitor** to **study.optimize**
 ----------------------------------------------
-It will monitor the metrics and parameters checked at each run.
+Monitor the metrics and parameters checked at each run:
 
 .. code-block:: python3
 
@@ -44,9 +47,11 @@ It will monitor the metrics and parameters checked at each run.
 
 Log all results
 ---------------
-It will log the following things to Neptune:
-* best score
-* best parameters
+
+The script logs the following to Neptune:
+
+* Best score
+* Best parameters
 * plot_convergence figure
 * plot_evaluations figure
 * plot_objective figure

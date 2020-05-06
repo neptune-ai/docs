@@ -5,8 +5,8 @@ Use Telegram Bot to access experiment information
    :target: ../_static/images/others/telegram_neptuneai.png
    :alt: Telegram integration with Neptune
 
-Prerequisites
--------------
+Requirements
+------------
 
 You need to install |neptune-client| and |neptune-contrib|.
 

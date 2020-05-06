@@ -1,12 +1,16 @@
-Log Skorch metrics to neptune
-=============================
+
+Neptune-skorch Integration
+==========================
+
+The integration enables you to log |skorch| metrics to Neptune.
+
 .. image:: ../_static/images/others/skorch_neptuneai.png
    :target: ../_static/images/others/skorch_neptuneai.png
    :alt: Skorch neptune.ai integration
 
-Prerequisites
--------------
-Integration with |Skorch| framework is introduced as a part of logging module so just need to have |neptune-client| installed.
+Requirements
+------------
+Integration with the skorch framework is enabled as part of the Neptune logging module, so all you need is to have |neptune-client| installed.
 
 .. code-block:: bash
 
@@ -16,7 +20,7 @@ Integration with |Skorch| framework is introduced as a part of logging module so
 Create an **Experiment**
 ------------------------
 
-.. note:: I am using a shared, anonymous token but you can change to your user api token.
+.. note:: The snippet uses a shared, anonymous token but you can change to your user API token.
 
 .. code-block:: python3
 
@@ -32,9 +36,9 @@ Create an **Experiment**
 
 Create **NeptuneLogger** callback
 ---------------------------------
-Pass the experiment object as first argument.
+Pass the experiment object as the first argument.
 
-.. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``
+.. note:: To be able to log information after the ``.fit()`` method finishes, remember to pass ``close_after_train=False``.
 
 .. code-block:: python3
 
@@ -86,9 +90,9 @@ Log additional information
     net.save_params(f_params='basic_model.pkl')
     neptune_logger.experiment.log_artifact('basic_model.pkl')
 
-Monitor your Skorch training in Neptune
+Monitor your skorch training in Neptune
 ---------------------------------------
-Now you can watch your Skorch model training in neptune!
+Now you can watch your skorch model training in Neptune!
 
 Check out this |example experiment|.
 
@@ -98,16 +102,16 @@ Check out this |example experiment|.
 
 Close experiment
 ----------------
-If you passed ``close_after_train=False`` to ``NeptuneLogger`` you may want to close your experiment when you are done logging.
+If you passed ``close_after_train=False`` to ``NeptuneLogger``, you may want to close your experiment when you are done logging.
 
 .. code-block:: python3
 
     neptune_logger.experiment.stop()
 
-Full Skorch monitoring script
+Full skorch monitoring script
 -----------------------------
 Simply copy and paste it to ``skorch_example.py`` and run.
-Remember to change your credentials in **neptune.init()**:
+Remember to change your credentials in ``neptune.init()``:
 
 .. code-block:: python3
 
@@ -207,9 +211,9 @@ Remember to change your credentials in **neptune.init()**:
 
 .. External links
 
-.. |Skorch| raw:: html
+.. |skorch| raw:: html
 
-    <a href="https://github.com/skorch-dev/skorch" target="_blank">Skorch</a>
+    <a href="https://github.com/skorch-dev/skorch" target="_blank">skorch</a>
 
 .. |example experiment| raw:: html
 

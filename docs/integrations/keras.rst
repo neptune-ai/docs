@@ -1,12 +1,15 @@
-Keras
-=====
+Neptune-Keras Integration
+=========================
+
+Neptune has implemented an integration with the Keras neural-network library.
+
+Integration with Keras is enabled through the |neptune-tensorboard| package. It lets you automatically track metrics and losses (on *batch end* and *epoch end*).
+
+
 .. image:: ../_static/images/others/keras_neptuneml.png
    :target: ../_static/images/others/keras_neptuneml.png
    :alt: Keras neptune.ai integration
 
-Log keras metrics and loss
---------------------------
-Integration with keras is introduced via |neptune-tensorboard| package. It lets you automatically tracks metrics and losses (on *batch end* and *epoch end*).
 
 Installation
 ^^^^^^^^^^^^
@@ -16,7 +19,7 @@ Installation
 
 Usage
 ^^^^^
-From now on you can use integration with Keras. Integration snippet is presented below. It should be executed before you create neptune experiment, using |neptune.create_experiment| method.
+From now on, you can integrate with Keras. An integration snippet is presented below. It should be executed before you create a Neptune experiment, using the :meth:`~neptune.projects.Project.create_experiment` method.
 
 .. code-block:: python3
 
@@ -31,7 +34,7 @@ As a result, all metrics and losses are automatically tracked in Neptune.
 
 .. note::
 
-    Check for more example in the |keras-integration| project.
+    Check for more examples in the |keras-integration| Neptune project.
 
 Full script
 ^^^^^^^^^^^
@@ -88,10 +91,6 @@ Full script
 .. |neptune-tensorboard| raw:: html
 
     <a href="https://docs.neptune.ai/integrations/tensorboard.html" target="_blank">neptune-tensorboard</a>
-
-.. |neptune.create_experiment| raw:: html
-
-    <a href="https://docs.neptune.ai/neptune-client/docs/project.html#neptune.projects.Project.create_experiment" target="_blank">neptune.create_experiment</a>
 
 .. |keras-integration| raw:: html
 

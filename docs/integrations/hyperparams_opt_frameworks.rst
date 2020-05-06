@@ -7,4 +7,4 @@ Neptune provides integrations with the following hyperparameter optimization fra
    :maxdepth: 1
 
    Optuna <optuna.rst>
-   Scikit Optimize <skopt.rst>
+   Scikit-Optimize <skopt.rst>

@@ -1,12 +1,17 @@
-Log Catalyst metrics to neptune
-=======================================
+Neptune-Catalyst Integration
+============================
+
+The integration enables you to log |Catalyst| metrics to Neptune.
+
+
 .. image:: ../_static/images/others/catalyst_neptuneai.png
    :target: ../_static/images/others/catalyst_neptuneai.png
    :alt: Catalyst neptune.ai integration
 
-Prerequisites
--------------
-Integration with |Catalyst| framework is introduced as a part of logging module so just need to have |neptune-client|.
+
+Requirements
+------------
+Integration with the Catalyst framework is enabled as part of the Neptune logging module, so all you need is to have |neptune-client| installed.
 
 .. code-block:: bash
 
@@ -15,7 +20,7 @@ Integration with |Catalyst| framework is introduced as a part of logging module 
 Create the **NeptuneLogger**
 ----------------------------
 .. code-block:: python3
-    
+
     from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
@@ -49,7 +54,7 @@ Pass the **neptune_logger** to the **runner.train** callbacks argument
 
 Monitor your Catalyst training in Neptune
 -----------------------------------------
-Now you can watch your Catalyst model training in neptune!
+Now you can watch your Catalyst model training in Neptune!
 
 Check out this |example experiment|.
 
@@ -60,7 +65,7 @@ Check out this |example experiment|.
 Full Catalyst monitor script
 ----------------------------
 Simply copy and paste it to ``catalyst_example.py`` and run.
-Remember to change your credentials in the **NeptuneLogger**:
+Remember to change your credentials in the ``NeptuneLogger``:
 
 .. code-block:: python3
 

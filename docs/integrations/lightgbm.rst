@@ -1,9 +1,8 @@
-LightGBM
-========
+Neptune-LightGBM Integration
+============================
 
-Log LightGBM metrics
---------------------
-I have a training script written in `LightGBM <https://lightgbm.readthedocs.io>`_. How do I adjust it to log metrics to Neptune?
+This integration lets you customize training scripts written in |LightGBM| to log metrics to Neptune.
+
 
 .. image:: ../_static/images/others/lightgbm_neptuneml.png
    :target: ../_static/images/others/lightgbm_neptuneml.png
@@ -39,11 +38,9 @@ Say your training script looks like this:
                    valid_names=['train','valid'],
                    )
 
-Now, you need to use lightGBM callbacks to pass log metrics to Neptune:
+Add LightGBM callbacks to pass log metrics to Neptune, so:
 
-**Step 1**
-
-Take this callback:
+1. Take this callback:
 
 .. code-block::
 
@@ -58,9 +55,7 @@ Take this callback:
                neptune.send_metric('{}_{}'.format(name, loss_name), x=env.iteration, y=loss_value)
        return callback
 
-**Step 2**
-
-Pass it to ``lgb.train`` object via ``callbacks`` parameter:
+2. Pass it to ``lgb.train`` object using the ``callbacks`` parameter:
 
 .. code-block::
 
@@ -72,8 +67,14 @@ Pass it to ``lgb.train`` object via ``callbacks`` parameter:
                    callbacks=[neptune_monitor()],
                    )
 
-All your metrics are now logged to Neptune
+All your metrics are now logged to Neptune:
 
 .. image:: ../_static/images/how-to/ht-log-lightgbm-1.png
    :target: ../_static/images/how-to/ht-log-lightgbm-1.png
    :alt: image
+
+.. External links
+
+.. |LightGBM| raw:: html
+
+   <a href="https://lightgbm.readthedocs.io/en/latest/#" target="_blank">LightGBM</a>

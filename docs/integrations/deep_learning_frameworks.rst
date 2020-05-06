@@ -12,5 +12,5 @@ Neptune provides integrations with the following deep learning frameworks:
    PyTorch Lightning <pytorch_lightning.rst>
    PyTorch Ignite <pytorch_ignite.rst>
    Catalyst <catalyst.rst>
-   fast.ai <fast_ai.rst>
-   Skorch <skorch.rst>
+   fastai <fast_ai.rst>
+   skorch <skorch.rst>

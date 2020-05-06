@@ -1,26 +1,29 @@
-TensorBoard
-===========
+Neptune-TensorBoard Integration
+===============================
+
+|neptune-tensorboard|, an open source project curated by the Neptune team, integrates |tensorboard| with Neptune to let you enjoy the best of both worlds.
+
 .. image:: ../_static/images/tensorboard/tensorboard_neptuneml.png
    :target: ../_static/images/tensorboard/tensorboard_neptuneml.png
    :alt: organize TensorBoard experiments in Neptune
 
-|neptune-tensorboard| is an open source project curated by Neptune team, that integrates |tensorboard| with Neptune to let you get the best of both worlds.
-We support two major use cases:
+Neptune supports two major use cases:
 
-1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune (see example: `TensorBoard runs comparison <tensorboard/tensorboard_runs_comparison.html>`_).
-2. You can use ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune (see example: `Integrate with TensorBoard logging <tensorboard/tensorboard_integrate.html>`_).
+1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune. For example, `TensorBoard runs comparison <tensorboard/tensorboard_runs_comparison.html>`_.
+2. You can use the ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune. For example, `Integrate with TensorBoard logging <tensorboard/tensorboard_integrate.html>`_.
 
-Check example project in Neptune: |tensorboard-integration|.
+Check the example |tensorboard-integration| project in Neptune.
 
-Quick-start
------------
-**Installation**
+
+Installation
+------------
 
 .. code-block:: bash
 
     pip install neptune-tensorboard
 
-**Sync TensorBoard logdir with Neptune**
+Sync TensorBoard logdir with Neptune
+------------------------------------
 
 Point Neptune to your TensorBoard logs directory:
 
@@ -28,21 +31,22 @@ Point Neptune to your TensorBoard logs directory:
 
     neptune tensorboard /PATH/TO/TensorBoard_logdir --project USER_NAME/PROJECT_NAME
 
-.. note:: That's it! You can now browse and collaborate on your TensorBoard runs in Neptune.
 
-You can now organize your TensorBoard experiments:
+**That's it! You can now browse and collaborate on your TensorBoard runs in Neptune.**
+
+- Organize your TensorBoard experiments:
 
 .. image:: ../_static/images/tensorboard/tensorboard_1.png
    :target: ../_static/images/tensorboard/tensorboard_1.png
    :alt: organize TensorBoard experiments in Neptune
 
-and compare your TensorBoard runs,
+- Compare your TensorBoard runs:
 
 .. image:: ../_static/images/tensorboard/tensorboard_2.png
    :target: ../_static/images/tensorboard/tensorboard_2.png
    :alt: compare TensorBoard runs in Neptune
 
-and share your work with others by sending an |experiment-link|.
+- Share your work with others by sending an |experiment-link|.
 
 Examples
 ----------
@@ -54,7 +58,8 @@ Examples
 
 Support
 -------
-If you find yourself in any trouble drop an issue or talk to us directly on the |support-chat|.
+If you need assistance, report an issue in Git, or talk to us directly in a |support-chat|.
+
 
 .. External links
 
@@ -70,7 +75,7 @@ If you find yourself in any trouble drop an issue or talk to us directly on the 
 
 .. |neptune-tensorboard| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">Neptune-TensorBoard</a>
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
 
 
 .. |tensorboard| raw:: html

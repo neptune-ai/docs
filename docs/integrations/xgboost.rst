@@ -1,23 +1,27 @@
-Automatic logging of the XGBoost training
-=========================================
+Neptune-XGBoost Integration
+===========================
+
+XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. The integration with Neptune lets you log multiple training artifacts with no further customization.
+
 .. image:: ../_static/images/xgboost/xgboost_0.png
    :target: ../_static/images/xgboost/xgboost_0.png
    :alt: XGBoost overview
 
-XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. Integration with |Neptune| lets you log multiple training artifacts out-of-the-box. It is implemented as XGBoost callback and includes:
+
+The integration is implemented as an XGBoost callback and provides the following capabilities:
 
 * |metrics| (train and eval) after each boosting iteration.
-* |model| (Booster) to Neptune after last boosting iteration.
-* |feature| to Neptune as image after last boosting iteration.
-* |tree| to Neptune as images after last boosting iteration.
+* |model| (booster) to Neptune after the last boosting iteration.
+* |feature| to Neptune as an image after the last boosting iteration.
+* |tree| to Neptune as images after the last boosting iteration.
 
-.. tip:: Try integration right away with this |google-colab|.
+.. tip:: Try the integration right away with this |google-colab|.
 
-Prerequisites
--------------
-This integration makes use of the XGBoost library and is part of the |neptune-contrib|.
+Requirements
+------------
+This integration makes use of the XGBoost library and is part of |neptune-contrib|.
 
-Make sure you have all dependencies installed. You can use bash command below:
+Make sure you have all dependencies installed. You can use the bash command below:
 
 .. code-block:: bash
 
@@ -25,9 +29,9 @@ Make sure you have all dependencies installed. You can use bash command below:
 
 Basic example
 -------------
-Make sure you created an experiment before you start XGBoost training. Use |create-experiment|.
+Make sure you have created an experiment before you start XGBoost training. Use the :meth:`~neptune.projects.Project.create_experiment` method to do this.
 
-Here is how to use Neptune-XGBoost integration:
+Here is how to use the Neptune-XGBoost integration:
 
 .. code-block:: python3
 
@@ -43,11 +47,11 @@ Here is how to use Neptune-XGBoost integration:
     xgb.train(params, dtrain, num_round, watchlist,
               callbacks=[neptune_callback()])  # neptune_callback is here
 
-Example results: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-41/charts
+|Example results|
 
 Logged metrics
 ^^^^^^^^^^^^^^
-They are logged for train and eval (or whatever you defined in watchlist) after each boosting iteration.
+These are logged for train and eval (or whatever you defined in the watchlist) after each boosting iteration.
 
 .. image:: ../_static/images/xgboost/xgboost_metrics.png
    :target: ../_static/images/xgboost/xgboost_metrics.png
@@ -55,7 +59,7 @@ They are logged for train and eval (or whatever you defined in watchlist) after 
 
 Logged model
 ^^^^^^^^^^^^
-The model (Booster) is logged to Neptune after last boosting iteration. If you run cross validation, you get model for each fold.
+The model (Booster) is logged to Neptune after the last boosting iteration. If you run cross-validation, you get a model for each fold.
 
 .. image:: ../_static/images/xgboost/xgboost_model.png
    :target: ../_static/images/xgboost/xgboost_model.png
@@ -63,7 +67,7 @@ The model (Booster) is logged to Neptune after last boosting iteration. If you r
 
 Logged feature importance
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Very useful chart showing feature importance is logged to Neptune as image after last boosting iteration. If you run cross validation, you get feature importance chart for each folds' model.
+This is a very useful chart, as it shows feature importance. It is logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a feature importance chart for each fold's model.
 
 .. image:: ../_static/images/xgboost/xgboost_importance.png
    :target: ../_static/images/xgboost/xgboost_importance.png
@@ -71,7 +75,7 @@ Very useful chart showing feature importance is logged to Neptune as image after
 
 Logged visualized trees
 ^^^^^^^^^^^^^^^^^^^^^^^
-Selected trees are logged to Neptune as image after last boosting iteration. If you run cross validation, you get trees visualization for each folds' model independently.
+Selected trees are logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a tree visualization for each fold's model, independently.
 
 .. image:: ../_static/images/xgboost/xgboost_trees.png
    :target: ../_static/images/xgboost/xgboost_trees.png
@@ -79,18 +83,19 @@ Selected trees are logged to Neptune as image after last boosting iteration. If 
 
 Resources
 ---------
-* Open source implementation is on |github-project|,
-* Docstrings / reference documentation is |docstrings|,
+* Open source implementation is on |github-project|.
+* Docstrings/reference documentation is |docstrings|.
 * Example Neptune project: |neptune-project|.
 
 Notebooks with examples
 -----------------------
-* Try integration right away with this |google-colab|.
-* Notebook logged to Neptune: |xgboost-integration-demo|. Feel free to download it and try yourself.
+* Try the integration right away with this |google-colab|.
+* Notebook logged to Neptune: |xgboost-integration-demo|. Feel free to download it and try it yourself.
 
 Full script
 -----------
-Example result: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-64
+
+|Example results|
 
 .. code-block:: python3
 
@@ -146,19 +151,19 @@ Example result: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-64
 
 .. |metrics| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-42/charts">Log metrics</a>
+    <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-42/charts" target="_blank">Log metrics</a>
 
 .. |model| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-42/artifacts">Log model</a>
+    <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-42/artifacts" target="_blank">Log model</a>
 
 .. |feature| raw:: html
 
-    <a href="https://ui.neptune.ai/api/leaderboard/v1/images/b15cefdc-7272-4ad8-85a9-2859c3841f6c/d53b5bb7-d75f-4d7c-bc6c-f878e66ef37f/15414e28-dde2-4c30-8dd9-4fbb2f71f22a.PNG">Log feature importance</a>
+    <a href="https://ui.neptune.ai/api/leaderboard/v1/images/b15cefdc-7272-4ad8-85a9-2859c3841f6c/d53b5bb7-d75f-4d7c-bc6c-f878e66ef37f/15414e28-dde2-4c30-8dd9-4fbb2f71f22a.PNG" target="_blank">Log feature importance</a>
 
 .. |tree| raw:: html
 
-    <a href="https://ui.neptune.ai/api/leaderboard/v1/images/b15cefdc-7272-4ad8-85a9-2859c3841f6c/94dcef8f-b0a4-42a9-86df-4ea325757283/95b8c689-a2c5-47d6-bd17-4155dae1b189.PNG">Log visualized trees</a>
+    <a href="https://ui.neptune.ai/api/leaderboard/v1/images/b15cefdc-7272-4ad8-85a9-2859c3841f6c/94dcef8f-b0a4-42a9-86df-4ea325757283/95b8c689-a2c5-47d6-bd17-4155dae1b189.PNG" target="_blank">Log visualized trees</a>
 
 .. |neptune-contrib| raw:: html
 
@@ -187,3 +192,7 @@ Example result: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-64
 .. |create-experiment| raw:: html
 
     <a href="https://docs.neptune.ai/neptune-client/docs/project.html#neptune.projects.Project.create_experiment" target="_blank">neptune.create_experiment()</a>
+
+.. |Example results| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-41/charts" target="_blank">Example results</a>

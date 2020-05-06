@@ -1,18 +1,17 @@
-AWS E2
-======
+Neptune-AWS EC2 Integration
+===========================
 
 You can run Neptune and track experiments that you run on AWS cloud.
-
-Setting up a Neptune-enabled JupyterLab on AWS
-----------------------------------------------
 
 .. image:: ../_static/images/others/aws_neptuneml.png
    :target: ../_static/images/others/aws_neptuneml.png
    :alt: AWS neptune.ai integration
 
+To set this up, perform the following steps:
+
 1. Register to AWS.
 
-    Follow the `instructions <https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/>`_ to create your AWS account.
+    Follow the |instructions| to create your AWS account.
 
 2. Start an EC2 instance.
 
@@ -65,7 +64,7 @@ Setting up a Neptune-enabled JupyterLab on AWS
 
 5. Define your secrets.
 
-    a. Go to Neptune, `get your NEPTUNE_API_TOKEN <troubleshoot.html#where-is-neptune-api-token>`_ and copy it to the clipboard.
+    a. Go to Neptune, `get your NEPTUNE_API_TOKEN <../python-api/how-to/organize.html#find-my-neptune-api-token>`_ and copy it to the clipboard.
     b. Create a password for your JupyterLab server.
     c. Set the following two secrets to your environment variables, ``NEPTUNE_API_TOKEN`` and ``JUPYTERLAB_PASSWORD``:
 
@@ -82,7 +81,7 @@ Setting up a Neptune-enabled JupyterLab on AWS
 
         nano Dockerfile
 
-    b. Copy insights of the following Dockerfile to your newly created file:
+    b. Copy insights of the following Dockerfile to your newly created file. (If you want to run on a GPU, make sure to change your Dockerfile to start from Nvidia Docker images.)
 
     .. code-block:: Docker
 
@@ -107,7 +106,6 @@ Setting up a Neptune-enabled JupyterLab on AWS
         ADD . /mnt/workdir
         WORKDIR /mnt/workdir
 
-    If you want to run on a GPU, make sure to change your Dockerfile to start from Nvidia Docker images.
 
     c. Run the following command to build your Docker image:
 
@@ -134,7 +132,18 @@ Setting up a Neptune-enabled JupyterLab on AWS
 
     Go to `localhost:8888`.
 
-Enjoy your JupyterLab server with Neptune.
+**Enjoy your JupyterLab server with Neptune!**
 
 Neptune extensions are enabled and ``NEPTUNE_API_TOKEN`` is already in the environment variable so you can work with
 Notebooks and run experiments with no problem.
+
+.. External Links
+
+.. |neptune-contrib| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/neptune-contrib.html" target="_blank">neptune-contrib</a>
+
+
+.. |instructions|  raw:: html
+
+    <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account" target="_blank">instructions</a>
