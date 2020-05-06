@@ -1,5 +1,5 @@
-AWS E2
-======
+AWS EC2
+=======
 
 You can run Neptune and track experiments that you run on AWS cloud.
 
