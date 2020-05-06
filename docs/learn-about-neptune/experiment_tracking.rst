@@ -126,7 +126,6 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
 
     <a href="https://neptune-contrib.readthedocs.io/user_guide/sync/with_json.html" target="_blank">Sync experiments with Neptune using a JSON file</a>
 
-
 .. |artifacts| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts" target="_blank">See this example</a>
@@ -134,7 +133,6 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
 .. |Here is an example| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>
-
 
 .. |monitoring| raw:: html
 
