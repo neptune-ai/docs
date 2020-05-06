@@ -61,7 +61,7 @@ There are various object types that you can log to Neptune. Some of them are log
     For more information, see the :meth:`~neptune.experiments.Experiment.log_image` method.
 
 
-- **Artifacts**: You can send any data type as a file artifact in Neptune. It can be a model binary, validation prediction, model checkpoint or anything else. Simply tell Neptune which file you want to log. |See this example|.
+- **Artifacts**: You can send any data type as a file artifact in Neptune. It can be a model binary, validation prediction, model checkpoint or anything else. Simply tell Neptune which file you want to log. |artifacts|.
 - **Hardware consumption**: Neptune automatically saves your hardware consumption data if the psutil library has been installed. Hardware types are:
 
     - GPU utilization, information from the `nvidia-smi` command - works both for single and multi-GPU setups.
@@ -71,9 +71,9 @@ There are various object types that you can log to Neptune. Some of them are log
 
     |Here is an example|.
 
-- **Terminal outputs**: Neptune automatically saves everything that is printed to your terminal and groups it into stdout (output) and stderr (error messages). |See this example|.
+- **Terminal outputs**: Neptune automatically saves everything that is printed to your terminal and groups it into stdout (output) and stderr (error messages). |monitoring|.
 
-- **Properties**: You can log your experiment information like status, data version, or anything else as a name:value (text) pair. Neptune properties are mutable - you can change them later. See the lower section in |this example|.
+- **Properties**: You can log your experiment information like status, data version, or anything else as a name:value (text) pair. Neptune properties are mutable - you can change them later. See the lower section in |properties|.
 
 - **Tags**: You can attach tags (text) to every experiment to make the experiment organization easier. For more information, see `Organize experiments <../learn-about-neptune/ui.html#organize-experiments>`_.
 
@@ -127,7 +127,7 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
     <a href="https://neptune-contrib.readthedocs.io/user_guide/sync/with_json.html" target="_blank">Sync experiments with Neptune using a JSON file</a>
 
 
-.. |See this example| raw:: html
+.. |artifacts| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts" target="_blank">See this example</a>
 
@@ -136,10 +136,13 @@ For more information, see `Neptune Python Library Reference <../python-api/api-r
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>
 
 
-.. |See this example| raw:: html
+.. |monitoring| raw:: html
 
      <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">See this example</a>
 
+.. |properties| raw:: html
+
+     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/details" target="_blank">in this experiment</a>
 
 .. |in this example| raw:: html
 
