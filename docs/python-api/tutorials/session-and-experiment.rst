@@ -51,8 +51,8 @@ Returned ``experiment`` lets you invoke all methods that you know from the previ
 
     experiment = project.create_experiment()
 
-    experiment.send_metric('iteration', i)
-    experiment.send_metric('loss', 1/i**0.5)
+    experiment.log_metric('iteration', i)
+    experiment.log_metric('loss', 1/i**0.5)
     experiment.set_property('n_iterations', 117)
 
 Experiment
@@ -64,7 +64,7 @@ As you remember in the minimal example, we started an experiment, logged somethi
 .. code:: Python
 
     neptune.create_experiment()
-    neptune.send_metric('auc', 0.93)
+    neptune.log_metric('auc', 0.93)
     neptune.stop()
 
 You can make it cleaner and create your experiments in **with statement** blocks:
@@ -72,7 +72,7 @@ You can make it cleaner and create your experiments in **with statement** blocks
 .. code-block::
 
     with neptune.create_experiment() as exp:
-        exp.send_metric('auc', 0.93)
+        exp.log_metric('auc', 0.93)
 
 By doing so, you will never forget to stop your experiments. We recommend you use this option.
 Also, if you are creating more than one experiment, this approach keeps things organized.
