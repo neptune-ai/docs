@@ -1,5 +1,7 @@
 Tutorials
-=========
+---------
+
+Follow these tutorials to familiarize yourself with the capabilities provided in the `Neptune Python Library <introduction.html>`_:
 
 .. toctree::
    :maxdepth: 1

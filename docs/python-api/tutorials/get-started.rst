@@ -1,15 +1,15 @@
 Minimal example
 ===============
 
-Below is the smallest possible example that follows the theme: *from zero to first Neptune experiment*.
+Below is the smallest possible example - *from zero to first Neptune experiment*.
 
 Register
 --------
-Go here: https://neptune.ai/register to create free account.
+|Register| to create a free account.
 
 Copy API token
 --------------
-``NEPTUNE_API_TOKEN`` is located under your User menu (top right side of the screen, like on the image below):
+``NEPTUNE_API_TOKEN`` is located under your user menu (top right side of the screen):
 
 .. image:: ../../_static/images/tutorials/token.png
    :target: ../../_static/images/tutorials/token.png
@@ -31,8 +31,7 @@ Install neptune-client
 
     pip install neptune-client
 
-Install `psutil <https://psutil.readthedocs.io/en/latest/>`_ to see hardware monitoring charts
-(please check psutil `documentation <https://psutil.readthedocs.io/en/latest/>`_ in case of installation problems):
+Install |psutil| to see hardware monitoring charts.
 
 .. code-block:: bash
 
@@ -41,10 +40,10 @@ Install `psutil <https://psutil.readthedocs.io/en/latest/>`_ to see hardware mon
 Run Python script
 -----------------
 Save script below as ``minimal-example.py`` and run it like any other Python file: ``python minimal-example.py``.
-You will see link to the experiment printed to the stdout.
+You will see a link to the experiment printed to the stdout.
 
 .. tip::
-    Make sure that you change ``USERNAME/sandbox`` (line 4 in the snippet below), to your username, that you picked at registration.
+    Make sure that you change ``USERNAME/sandbox`` (line 4 in the snippet below), to your username, that you selected at registration.
 
 .. code:: Python
 
@@ -77,8 +76,19 @@ You will see link to the experiment printed to the stdout.
 
 Congrats! You just ran your first Neptune experiment and checked results online.
 
-.. note:: What did you just learn? Few concepts:
+.. note:: What did you just learn? A few concepts:
 
-    * how to run Neptune experiment
-    * how to track it online
-    * how to use basic Neptune client features, like *create_experiment()* and *send_metric()*
+    * How to run Neptune experiment
+    * How to track it online
+    * How to use basic Neptune client features, like ``create_experiment()`` and ``send_metric()``
+
+.. External links
+
+.. |psutil| raw:: html
+
+    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">psutil</a>
+
+
+.. |Register| raw:: html
+
+    <a href="https://neptune.ai/register" target="_blank">Register</a>    

@@ -14,7 +14,7 @@ Installation
 
     pip install neptune-client
 
-**Install** `psutil <https://psutil.readthedocs.io/en/latest/>`_ **to see hardware monitoring charts**
+**Install** |psutil| **to see hardware monitoring charts**
 
 .. code-block:: bash
 
@@ -59,7 +59,7 @@ Basic
 
 Auto clean-up
 ^^^^^^^^^^^^^
-Make use of the ``with`` statement to ensure that clean-up code is executed - no need to invoke ``neptune.stop()``.
+Make use of the ``with`` statement to ensure that clean-up code is executed. There is no need to invoke ``neptune.stop()``.
 
 .. code-block::
 
@@ -111,3 +111,9 @@ Organize your work
     with neptune.create_experiment() as npt_exp:
         exp_paramaters = npt_exp.get_parameters()
         print(exp_paramaters)
+
+.. External links
+
+.. |psutil| raw:: html
+
+    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">psutil</a>
