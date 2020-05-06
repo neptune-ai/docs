@@ -1,14 +1,17 @@
-Log fast.ai metrics to neptune
-==============================
+Neptune-fastai Integration
+===========================
+
+The integration enables you to log |fast-ai| metrics to Neptune.
+
 .. image:: ../_static/images/others/fastai_neptuneml.png
    :target: ../_static/images/others/fastai_neptuneml.png
    :alt: fast.ai neptune.ai integration
 
-Prerequisites
--------------
-Integration with |fast-ai| framework is introduced as a part of |neptune-contrib| - open source project curated by Neptune team.
+Requirements
+------------
+Integration with the fastai framework is enabled as a part of |neptune-contrib|, an open source project curated by the Neptune team.
 
-Please install it before you continue. Check the `docs <neptune-contrib.html>`_ if you need more info.
+Install |fast-ai| before you continue. For more information, check the `docs <neptune-contrib.html>`_.
 
 .. code-block:: bash
 
@@ -25,8 +28,8 @@ Create your databunch
     data = ImageDataBunch.from_folder(path, ds_tfms=(rand_pad(2, 28), []), bs=64)
     data.normalize(imagenet_stats)
 
-Create the **learner** find your optimal learning rate and plot it
-------------------------------------------------------------------
+Create the **learner**, find your optimal learning rate, and plot it
+---------------------------------------------------------------------
 .. code-block:: python3
 
     learn = cnn_learner(data, models.resnet18, metrics=accuracy)
@@ -37,8 +40,8 @@ Create the **learner** find your optimal learning rate and plot it
    :target: ../_static/images/fast_ai/fast_ai_1.png
    :alt: learning rate finder plot
 
-Create an experiment and add **neptune_monitor** callback
----------------------------------------------------------
+Create an experiment and add the **neptune_monitor** callback
+-------------------------------------------------------------
 .. code-block:: python3
 
     import neptune
@@ -51,15 +54,15 @@ Create an experiment and add **neptune_monitor** callback
                             callback_fns=[NeptuneMonitor])
         learn.fit_one_cycle(20, 1e-2)
 
-Monitor your fast.ai training in Neptune
+Monitor your fastai training in Neptune
 ----------------------------------------
-Now you can watch your fast.ai model training in neptune!
+Now you can watch your fastai model training in Neptune!
 
 .. image:: ../_static/images/fast_ai/fast_ai_2.png
    :target: ../_static/images/fast_ai/fast_ai_2.png
    :alt: charts for the example fast.ai experiment
 
-Full fast.ai monitor script
+Full fastai monitor script
 ---------------------------
 Simply copy and paste it to ``fastai_example.py`` and run.
 

@@ -1,9 +1,11 @@
-TensorBoard runs comparison
-===========================
+Sync and Compare TensorBoard Runs
+=================================
 
-Prerequisites
--------------
-Let’s create a simple training script with ``TensorBoard`` logging. In this example we use TensorFlow 1.x,
+This example shows you how to sync your logs directory with Neptune, then compare runs, just like you would in TensorBoard.
+
+Requirements
+------------
+Create a simple training script with ``TensorBoard`` logging. This example uses TensorFlow version 1.x,
 however, neptune-tensorboard works well with both TensorFlow 1 and TensorFlow 2.
 
 .. code-block:: python3
@@ -58,7 +60,7 @@ Change parameters and run a few different experiments to see what works best.
 
 Sync TensorBoard logdir with Neptune
 ------------------------------------
-You can now **sync your logs directory with Neptune**.
+You can now sync your logs directory with Neptune:
 
 .. code-block:: bash
 
@@ -70,7 +72,7 @@ and be able to organize and collaborate on |your-experiments|.
    :target: ../../_static/images/tensorboard/tensorboard_1.png
    :alt: organize TensorBoard experiments in Neptune
 
-You can also **compare runs just like in TensorBoard**:
+You can also compare runs just like in TensorBoard:
 
 .. image:: ../../_static/images/tensorboard/tensorboard_2.png
    :target: ../../_static/images/tensorboard/tensorboard_2.png

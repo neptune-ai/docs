@@ -1,5 +1,5 @@
-Other Experiment Tracking Frameworks
-====================================
+Experiment Tracking Frameworks
+==============================
 
 Neptune provides integrations with the other experiment tracking frameworks:
 

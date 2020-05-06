@@ -1,25 +1,25 @@
 Any language support
 ====================
 
-You can track experiments that you run in any language in Neptune by logging data to a ``.json`` files of a certain format and syncing that with Neptune.
+You can track experiments that you run in any language in Neptune by logging data to a JSON file and syncing that with Neptune.
 
 Install packages
 ----------------
 Install Python and pip package manager on your system.
 
-.. note:: you need Python running on your system.
+.. note:: You need to have Python running on your system.
 
-After that simply install |neptune-client| and |neptune-contrib|.
+After that, simply install |neptune-client| and |neptune-contrib|.
 
-.. code:: 
+.. code::
 
     pip install neptune-client neptune-contrib --user
 
 
-Log your experiment data to a ``.json`` file
---------------------------------------------
+Log your experiment data to a JSON file
+---------------------------------------
 
-You can log anything you want as long as you can save it in a following format:
+You can log anything you want, as long as you can save it in the following format:
 
 .. code:: json
 
@@ -69,10 +69,10 @@ You can log anything you want as long as you can save it in a following format:
     }
 
 
-Sync your ``.json`` file with Neptune
--------------------------------------
+Sync your JSON file with Neptune
+--------------------------------
 
-Now you can convert your ``.json`` file into a Neptune experiment by running:
+Now you can convert your JSON file into a Neptune experiment by running:
 
 .. code:: bash
 

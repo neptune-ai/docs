@@ -1,12 +1,16 @@
-Monitor Scikit Optimize hyperparameter optimization in Neptune
-==============================================================
+Neptune-Scikit-Optimize Integration
+===================================
+
+This integation lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimization in Neptune.
+
 .. image:: ../_static/images/others/skopt_neptuneai.png
    :target: ../_static/images/others/skopt_neptuneai.png
    :alt: Scikit Optimize Neptune integration
 
-Prerequisites
--------------
-Integration with |Scikit Optimize| framework is introduced as a part of logging module so just need to have |neptune-client| and |neptune-contrib| installed.
+Requirements
+------------
+
+Integration with the Scikit-Optimize framework is enabled as a part of the logging module so all you need to have installed is |neptune-client| and |neptune-contrib|.
 
 .. code-block:: bash
 
@@ -25,9 +29,9 @@ Initialize Neptune and create an experiment
 
 Create **NeptuneMonitor** callback
 ----------------------------------
-Pass the experiment object as first argument.
+Pass the experiment object as the first argument.
 
-.. note:: To be able to log information after the .fit() method finishes remember to pass ``close_after_train=False``
+.. note:: To be able to log information after the ``.fit()`` method finishes, remember to pass ``close_after_train=False``.
 
 .. code-block:: python3
 
@@ -36,7 +40,7 @@ Pass the experiment object as first argument.
 
 Pass **neptune_monitor** to **skopt.forest_minimize** or others
 ---------------------------------------------------------------
-It will monitor the metrics and parameters checked at each run.
+This causes the metrics and parameters checked at each run to be monitored.
 
 .. code-block:: python3
 
@@ -46,9 +50,10 @@ It will monitor the metrics and parameters checked at each run.
 
 Log all results
 ---------------
-It will log the following things to Neptune:
-* best score
-* best parameters
+The script logs the following to Neptune:
+
+* Best score
+* Best parameters
 * plot_convergence figure
 * plot_evaluations figure
 * plot_objective figure
@@ -57,21 +62,21 @@ It will log the following things to Neptune:
 
     sk_utils.log_results(results)
 
-Monitor your Scikit Optimize training in Neptune
+Monitor your Scikit-Optimize training in Neptune
 ------------------------------------------------
-Now you can watch your Scikit Optimize hyperparameter optimization in Neptune!
+Now you can watch your Scikit-Optimize hyperparameter optimization in Neptune!
 
 Check out this |example experiment|.
 
 .. image:: ../_static/images/skopt/skopt_monitoring.gif
    :target: ../_static/images/skopt/skopt_monitoring.gif
-   :alt: Scikit Optimize monitoring in Neptune
+   :alt: Scikit-Optimize monitoring in Neptune
 
 .. External links
 
-.. |Scikit Optimize| raw:: html
+.. |Scikit-Optimize| raw:: html
 
-    <a href="https://scikit-optimize.github.io/stable/" target="_blank">Scikit Optimize</a>
+    <a href="https://scikit-optimize.github.io/stable/" target="_blank">Scikit-Optimize</a>
 
 .. |example experiment| raw:: html
 

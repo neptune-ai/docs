@@ -1,12 +1,15 @@
-Log Sacred experiments to neptune
-=================================
+Neptune-Sacred Integration
+==========================
+
+The integration lets you log |Sacred| experiments to Neptune.
+
 .. image:: ../_static/images/others/sacred_neptuneai.png
    :target: ../_static/images/others/sacred_neptuneai.png
    :alt: Sacred neptune.ai integration
 
-Prerequisites
--------------
-Integration with |Sacred| framework is introduced as a part of logging module so just need to have |neptune-client|.
+Requirements
+------------
+Integration with the Sacred framework is enabled as part of the logging module, so all you need is |neptune-client| to get started.
 
 .. code-block:: bash
 
@@ -16,7 +19,7 @@ Integration with |Sacred| framework is introduced as a part of logging module so
 Create an **Experiment**
 ------------------------
 
-.. note:: I am using a shared, anonymous token but you can change to your private ``NEPTUNE_API_TOKEN``.
+.. note:: The code here uses a shared, anonymous token but you can change to your private ``NEPTUNE_API_TOKEN``.
 
 .. code-block:: python3
 
@@ -28,9 +31,9 @@ Create an **Experiment**
 
 Append **NeptuneObserver**
 --------------------------
-Pass the experiment object as first argument.
+Pass the experiment object as the first argument.
 
-.. note:: We are using api token for the anonymous user neptuner. You can change it to your own or test it out on this public project.
+.. note:: The code uses the API token for the anonymous user neptuner. You can change it to your own or test it out on this public project.
 
 .. code-block:: python3
 
@@ -71,8 +74,8 @@ Check out this |example experiment dashboard|.
 
 Full Sacred monitoring script
 -----------------------------
-Simply copy and paste it to ``sacred_example.py`` and run.
-Remember to change your credentials in **NeptuneObserver()**:
+Simply copy and paste the script to ``sacred_example.py`` and run.
+Remember to change your credentials in ``NeptuneObserver()``:
 
 .. code-block:: python3
 

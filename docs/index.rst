@@ -147,14 +147,15 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
-   Deep Learning Frameworks <integrations/deep_learning_frameworks.rst>
-   Machine Learning Frameworks <integrations/machine_learning_frameworks.rst>
-   Hyperparmeter Optimization Frameworks <integrations/hyperparams_opt_frameworks.rst>
-   Visualization Tools <integrations/visualization_tools.rst>
-   Messaging Systems <integrations/messaging_systems.rst>
-   Experiment Tracking Frameworks <integrations/experiment_tracking_frmwks.rst>
    Languages <integrations/languages.rst>
    Cloud providers <integrations/cloud_providers.rst>
+   Deep learning frameworks <integrations/deep_learning_frameworks.rst>
+   Machine learning frameworks <integrations/machine_learning_frameworks.rst>
+   Hyperparmeter optimization frameworks <integrations/hyperparams_opt_frameworks.rst>
+   Visualization tools <integrations/visualization_tools.rst>
+   Messaging systems <integrations/messaging_systems.rst>
+   Experiment tracking frameworks <integrations/experiment_tracking_frmwks.rst>
+   Neptune extensions library <integrations/neptune-contrib.rst>
 
 
 

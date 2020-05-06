@@ -1,4 +1,4 @@
-Sync runs and share model weights
+Sync Runs and Share Model Weights
 =================================
 
 Train your model and log artifact
@@ -46,17 +46,24 @@ Train your model and log artifact
         model.save('my_model.h5')
         mlflow.log_artifact('my_model.h5')
 
-Sync mlruns with Neptune
+Sync MLruns with Neptune
 ------------------------
-You can now sync your ML runs directory with Neptune.
+You can now sync your MLruns directory with Neptune.
 
 .. code-block:: python3
 
     neptune mlflow --project USER_NAME/PROJECT_NAME
 
-Now you can share your **experiment artifacts**
-(see: example here) `your experiments <https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
+**Now you can share your experiment artifacts!**
+
+See |the example|.
 
 .. image:: ../../_static/images/mlflow/mlflow_2.png
    :target: ../../_static/images/mlflow/mlflow_2.png
    :alt: share artifacts logged during MLflow run
+
+.. External Links
+
+.. |the example| raw:: html
+
+    <a href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083" target="_blank">the example</a>

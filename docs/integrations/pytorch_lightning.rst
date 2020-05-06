@@ -1,12 +1,15 @@
-Log PyTorchLightning metrics to neptune
-=======================================
+Neptune-PyTorch Lightning Integration
+=====================================
+
+The integration enables you to log |PyTorch Lightning| metrics to Neptune.
+
 .. image:: ../_static/images/others/pytorchlightning_neptuneml.png
    :target: ../_static/images/others/pytorchlightning_neptuneml.png
    :alt: PyTorchLightning neptune.ai integration
 
-Prerequisites
--------------
-Integration with |PyTorchLightning| framework is introduced as a part of logging module so just need to have |neptune-client| installed.
+Requirements
+------------
+Integration with the PyTorch Lightning framework is enabled as part of the Neptune logging module, so all you need is to have |neptune-client| installed.
 
 .. code-block:: bash
 
@@ -71,8 +74,8 @@ Create the **Trainer** and pass **neptune_logger** to logger
 Log additional information after the **.fit** loop ends
 -------------------------------------------------------
 
-You can log additional metrics, images, model binaries or other things after the `.fit` loop is over.
-You just need to specify `close_after_fit=False` in `NeptuneLogger` initialization.
+You can log additional metrics, images, model binaries or other things after the ``.fit`` loop is over.
+You just need to specify ``close_after_fit=False`` in the ``NeptuneLogger`` initialization.
 
 .. code-block:: python3
 
@@ -123,15 +126,17 @@ You just need to specify `close_after_fit=False` in `NeptuneLogger` initializati
 
     neptune_logger.experiment.log_artifact('my/checkpoints')
 
-**Explicitly close the logger** it is optional but you may want to close it and than do something after.
+**Explicitly close the logger**
+
+Closing is optional but you may want to close it and then do something afterwards.
 
 .. code-block:: python3
 
     neptune_logger.experiment.stop()
 
-Monitor your PyTorchLightning training in Neptune
+Monitor your PyTorch Lightning training in Neptune
 --------------------------------------------------
-Now you can watch your pytorch-lightning model training in neptune!
+Now you can watch your pytorch-lightning model training in Neptune!
 
 Check out this |example experiment|.
 
@@ -139,10 +144,10 @@ Check out this |example experiment|.
    :target: ../_static/images/pytorch_lightning/pytorch_lightning_monitoring.gif
    :alt: PyTorchLightning logging in neptune
 
-Full PyTorchLightning monitor script
-------------------------------------
+Full PyTorch Lightning monitor script
+-------------------------------------
 Simply copy and paste it to ``pytorch_lightning_example.py`` and run.
-You can change your credentials in the **NeptuneLogger** or run some tests as anonymous user:
+You can change your credentials in ``NeptuneLogger`` or run some tests as an anonymous user:
 
 .. code-block:: python3
 
@@ -299,9 +304,9 @@ You can change your credentials in the **NeptuneLogger** or run some tests as an
 
 .. External links
 
-.. |PyTorchLightning| raw:: html
+.. |PyTorch Lightning| raw:: html
 
-    <a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank">PyTorchLightning</a>
+    <a href="https://github.com/PyTorchLightning/pytorch-lightning" target="_blank">PyTorch Lightning</a>
 
 .. |example experiment| raw:: html
 
