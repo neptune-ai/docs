@@ -89,7 +89,7 @@ The following table summarizes the permissions available for the three project r
 
 .. csv-table::
    :header: "Permission","Owner","Contributor","Viewer"
-   :widths: 15, 15, 15, 55
+   :widths: 25, 15, 15, 15 
    :delim: #
 
       Viewing project content#yes#yes#yes
