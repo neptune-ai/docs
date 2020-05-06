@@ -102,7 +102,6 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
     <a href="https://ui.neptune.ai/USERNAME/example-project/n/Experiments-analysis-with-Query-API-and-Seaborn-31510158-04e2-47a5-a823-1cd97a0d8fcd/91350522-2b98-482d-bc14-a6ff5c061b6b" target="_blank">Example</a>
 
-
 .. |dashboard| raw:: html
 
     <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
