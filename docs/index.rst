@@ -253,7 +253,6 @@ Go ahead and mention us on social media!
 
     <a href="https://www.youtube.com/channel/UCvOJU-ubyUqxGSDRN7xK4Ng" target="_blank">YouTube channel</a>
 
-
 .. |Neptune Blog|  raw:: html
 
     <a href="https://neptune.ai/blog" target="_blank">Neptune blog</a>

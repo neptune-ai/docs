@@ -187,12 +187,3 @@ Example result: https://ui.neptune.ai/o/shared/org/XGBoost-integration/e/XGB-64
 .. |create-experiment| raw:: html
 
     <a href="https://docs.neptune.ai/neptune-client/docs/project.html#neptune.projects.Project.create_experiment" target="_blank">neptune.create_experiment()</a>
-
-.. |example Project| raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project" target="_blank">example Project</a>
-
-
-.. |example details| raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-21/details" target="_blank">example details</a>
