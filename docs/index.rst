@@ -155,8 +155,7 @@ Go ahead and mention us on social media!
    Experiment Tracking Frameworks <integrations/experiment_tracking_frmwks.rst>
    Languages <integrations/languages.rst>
    Cloud providers <integrations/cloud_providers.rst>
-
-
+   neptune-contrib <integrations/neptune-contrib.rst>
 
 .. External links
 
