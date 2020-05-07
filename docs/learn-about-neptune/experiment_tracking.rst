@@ -36,7 +36,7 @@ Logging to Neptune
 
 There are various object types that you can log to Neptune. Some of them are logged automatically; some you need to specify explicitly. There is a place in the UI associated with every logging object type defined below.
 
-- **Parameters**: You can log your experiment hyperparameters, such as learning rate, tree depth or regularization by passing them in as a dictionary during experiment creation. Note that Neptune parameters are immutable - you cannot change them later.
+- **Parameters**: You can log your experiment hyper-parameters, such as learning rate, tree depth or regularization by passing them in as a dictionary during experiment creation. Note that Neptune parameters are immutable - you cannot change them later.
 
     For more information, see the :meth:`~neptune.projects.Project.create_experiment` method.
 
