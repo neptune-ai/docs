@@ -6,9 +6,7 @@ Neptune provides integrations with the following messaging systems:
 .. toctree::
    :maxdepth: 1
 
-
-|Telegram|
-
+   Telegram <telegram.rst>
 
 .. External Links
 
