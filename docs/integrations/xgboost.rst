@@ -11,7 +11,7 @@ XGBoost is an optimized distributed gradient boosting library designed to be hig
 The integration is implemented as an XGBoost callback and provides the following capabilities:
 
 * |metrics| (train and eval) after each boosting iteration.
-* |model| (booster) to Neptune after the last boosting iteration.
+* |model| (Booster) to Neptune after the last boosting iteration.
 * |feature| to Neptune as an image after the last boosting iteration.
 * |tree| to Neptune as images after the last boosting iteration.
 
