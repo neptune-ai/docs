@@ -1,30 +1,30 @@
-Use HiPlot integration to analyse multiple experiments
-======================================================
+Neptune-HiPlot Integration
+==========================
+
+This integration lets you analyze multiple experiments in Neptune using |HiPlot| visualization. HiPlot is a lightweight interactive visualization tool published by
+the Facebook AI group.
 
 .. image:: ../_static/images/hiplot/example_hiplot_0.png
    :target: ../_static/images/hiplot/example_hiplot_0.png
    :alt: parallel plot header
 
-Parallel coordinates plot is a powerful tool that allows AI researchers analyse correlations
-and patterns between experiments' metrics, parameters and properties.
+Parallel coordinates plot is a powerful tool that allows AI researchers to analyze correlations
+and patterns between experiment metrics, parameters and properties.
 
-Parallel plots are especially useful when inspecting hyper-parameter optimization jobs
-that usually consists of hundreds of experiments. |Neptune| allows you to very easily generate such plot in a Notebook
+Parallel plots are especially useful when inspecting hyperparameter optimization jobs
+that usually consists of hundreds of experiments. Neptune allows you to very easily generate such plots in a Jupyter Notebook
 or Python script.
 
-Visualization is build with |HiPlot|, lightweight interactive visualization tool published by
-the Facebook AI group.
-
-Prerequisites
--------------
-This feature makes use of the HiPlot library and is implemented as a part of the |neptune-contrib|.
+Requirements
+------------
+This feature is implemented as a part of |neptune-contrib|.
 Make sure that you have all dependencies installed:
 
 * neptune-client
 * neptune-contrib[viz]
 * hiplot
 
-Use this command to install all dependencies:
+Use this command to install them:
 
 .. code-block:: bash
 
@@ -53,13 +53,16 @@ Generate parallel coordinates plot
    :target: ../_static/images/hiplot/example_hiplot_1.png
    :alt: parallel plot overview
 
-Customize visualization to your need
-------------------------------------
-#. Set axes order,
-#. Drop unused axes,
-#. Apply coloring to axis,
-#. Sort by clicking on axis,
-#. Select range in axis & slide.
+Customize visualization to your needs
+-------------------------------------
+
+Perform the following steps:
+
+#. Set axes order.
+#. Drop the unused axes.
+#. Apply coloring to the axis.
+#. Sort by clicking on the axis.
+#. Select range in the axis and slide.
 
 .. image:: ../_static/images/hiplot/example_hiplot_1.gif
    :target: ../_static/images/hiplot/example_hiplot_1.gif
@@ -67,13 +70,17 @@ Customize visualization to your need
 
 Inspect experiments lineage
 ---------------------------
-#. Right-click on the axis name,
-#. Use options 'Set as X axis' and 'Set as Y axis' (in the menu XY group at the bottom),
-#. When both are selected, you will see lineage plot below parallel coordinates plot.
+
+Perform the following steps:
+
+#. Right-click on the axis name.
+#. Use options 'Set as X axis' and 'Set as Y axis' (in the menu XY group at the bottom).
+
+When both are selected, you will see the lineage plot below the parallel coordinates plot.
 
 .. image:: ../_static/images/hiplot/example_hiplot_2.gif
-   :target: ../_static/images/hiplot/example_hiplot_2.gif
-   :alt: experiments lineage
+    :target: ../_static/images/hiplot/example_hiplot_2.gif
+    :alt: experiments lineage
 
 Check example notebooks in Neptune
 ----------------------------------

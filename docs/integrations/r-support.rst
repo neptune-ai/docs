@@ -1,12 +1,12 @@
-R support
-=========
+Neptune-R Integration
+=====================
 
-You can interact with Neptune from R without any trouble and get the same functionality that is available in Python.
+You can interact freely with Neptune from R and enjoy the same functionality that is available in Python.
 
 Installation
 ------------
 
-Neptune integration with R is available as a |CRAN package| and a |Github project|.
+The Neptune integration with R is available as a |CRAN package| and a |Github project|.
 You can install it by running:
 
 .. code:: R
@@ -15,20 +15,20 @@ You can install it by running:
 
 **Python environment setup**
 
-Under the hood ``neptune`` is using ``reticulate`` which in turn calls Python.
-That means you have to:
+Under the hood, Neptune uses reticulate, which in turn calls Python.
+That means you must:
 
-* install Python in your environment ('venv', 'conda', 'miniconda' and pure 'python' environments are supported)
-* point to that environment when you initialize neptune (more on that in the next section)
+* Install Python in your environment (venv, conda, miniconda and pure Python environments are supported).
+* Point to that environment when you initialize Neptune, as shown below.
 
 Initialize Neptune
 ------------------
-Toward the top of your script you need to import ``neptune`` library and initialize the connection with Neptune.
+Toward the top of your script, you must import the ``neptune`` library and initialize the connection with Neptune.
 
-You need to specify:
+Specify:
 
-* ``project_name``: which is the name of your project in Neptune
-* ``api_token``: which is a key associated to your Neptune account
+* ``project_name``: the name of your project in Neptune
+* ``api_token``: a key associated with your Neptune account
 
 .. code:: R
 
@@ -36,11 +36,11 @@ You need to specify:
     init_neptune(project_name = 'shared/r-integration',
                  api_token = 'ANONYMOUS')
 
-Once this is added you can start logging your experiment data to Neptune.
+Once this is added, you can start logging your experiment data to Neptune.
 
-.. note:: As an example we are using 'ANONYMOUS' user token and a public project 'shared/r-integration'.
+.. note:: As an example, we are using the 'ANONYMOUS' user token and a public project named 'shared/r-integration'.
 
-.. warning:: The suggested way to pass your ``api_token`` is to store your key in environemnt variable and pass it via ``Sys.getenv('MY_NEPTUNE_KEY')``
+.. warning:: The suggested way to pass in your ``api_token`` is to store your key in an environment variable and pass it using ``Sys.getenv('MY_NEPTUNE_KEY')``.
 
     .. code:: R
 
@@ -93,13 +93,13 @@ Once this is added you can start logging your experiment data to Neptune.
 Create experiment
 -----------------
 
-To start tracking you need to create an experiment.
+To start tracking, you must create an experiment.
 
 You can:
 
-* name your experiments,
-* tag them to keep your work organized
-* specify params to keep track of hyperparameters of your experiments
+* Name your experiments
+* Tag them to keep your work organized
+* Specify params to keep track of hyperparameters of your experiments
 
 For example:
 
@@ -114,10 +114,11 @@ For example:
 
 Track data versions and other properties
 ----------------------------------------
-Keeping track of your data is an important part of the job. With Neptune you can log a fingerprint (hash) of your data for every experiment. 
-By doing so you will make sure that you are comparing apples to apples.
 
-To do so, you need to add a property to your experiment. 
+Keeping track of your data is an important part of the job. With Neptune, you can log a fingerprint (hash) of your data for every experiment.
+By doing so, you will make sure that you are "comparing apples to apples."
+
+Add a property to your experiment:
 
 .. code:: R
 
@@ -131,9 +132,10 @@ To do so, you need to add a property to your experiment.
 
 Track metrics
 -------------
-Tracking evaluation metrics is as simple as logging. 
+Tracking evaluation metrics is as simple as logging.
 You can track a single metric by using the ``log_metric()`` method.
-Just define your logging channel name and metric value. 
+Just define your logging channel name and metric value.
+
 For example:
 
 .. code:: R
@@ -142,7 +144,7 @@ For example:
     log_metric('error class M', model$confusion[1,3])
     log_metric('error class R', model$confusion[2,3])
 
-If you want to log multiple values to a single logging channel just call ``log_metric()`` method multiple times for the same channel name.
+If you want to log multiple values to a single logging channel, just call the ``log_metric()`` method multiple times for the same channel name.
 Neptune will automatically create charts for you!
 
 .. code:: R
@@ -151,22 +153,22 @@ Neptune will automatically create charts for you!
       log_metric('OOB errors', err)
     }
 
-You can sort your experiments by metrics you care about and take a look at the charts in the application.
+You can sort your experiments by the metrics you care about and take a look at the charts in the application.
 
 Track artifacts
 ---------------
-You can also save your model weights, pdf report files or other objects in Neptune. All you need to do is pass the filepath to the neptune$send_artifact() method and it will be attached to your experiment.
+You can also save your model weights, PDF report files or other objects in Neptune. All you need to do is pass the filepath to the ``neptune$send_artifact()`` method and it will be attached to your experiment.
 
 .. code:: R
 
     save(model, file="model.Rdata")
     log_artifact('model.Rdata')
 
-Once it is logged, sharing it with your colleagues or collaborators is super easy.
+Once it is logged, `sharing it <../learn-about-neptune/collaborate.html#experiment-charts-and-other-resources>`_ with your colleagues or collaborators is super easy.
 
 Track images and charts
 -----------------------
-Logging images and charts to Neptune is very simple as well. Just use the neptune$send_image() method that takes the nameof the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things, just send another image to the same channel.
+Logging images and charts to Neptune is very simple, as well. Just use the ``neptune$send_image()`` method that takes the name of the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things - just send another image to the same channel.
 
 .. code:: R
 
@@ -177,12 +179,12 @@ Logging images and charts to Neptune is very simple as well. Just use the neptun
       log_image('feature_importance', 'importance_plot.jpeg')
     }
 
-Once it is logged you can view it in the app.
+Once it is logged, you can view it in the app.
 
 Stop experiment
 ---------------
 
-Once you are finished tracking you should stop the experiment
+Once you are finished tracking, you should stop the experiment
 
 .. code:: R
 
@@ -191,9 +193,9 @@ Once you are finished tracking you should stop the experiment
 Explore your experiment in Neptune
 ----------------------------------
 
-Thanks to all the logging you've done you can now see all your experiments in the Neptune app.
+Thanks to all the logging you've done, you can now see all your experiments in the Neptune app.
 
-Explore the |shared/r-integration public project| to see how it looks like.
+Explore the |shared/r-integration public project| to see how it looks.
 
 .. image:: ../_static/images/r_support/r-integration-tour.gif
    :target: ../_static/images/r_support/r-integration-tour.gif

@@ -1,12 +1,15 @@
-PyTorch
-=======
+Neptune-PyTorch Integration
+===========================
+
+Neptune has implemented an integration with the PyTorch machine learning library.
+
 .. image:: ../_static/images/others/pytorch_neptuneml.png
    :target: ../_static/images/others/pytorch_neptuneml.png
    :alt: Pytorch neptune.ai integration
 
 Log PyTorch metrics
 -------------------
-It is very easy to track PyTorch metrics in Neptune. Example below, presents simple integration that lets you track loss:
+It is very easy to track PyTorch metrics in Neptune. The following example presents a simple integration that lets you track loss:
 
 .. code-block:: python3
 
@@ -27,7 +30,7 @@ Your loss is now logged to Neptune:
 
 .. note::
 
-    Check for more example in the |pytorch-integration| project.
+    Check for more example in the |pytorch-integration| Neptune project.
 
 Full script
 ^^^^^^^^^^^

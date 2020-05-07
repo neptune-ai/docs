@@ -5,8 +5,8 @@ Use Telegram Bot to access experiment information
    :target: ../_static/images/others/telegram_neptuneai.png
    :alt: Telegram integration with Neptune
 
-Prerequisites
--------------
+Requirements
+------------
 
 You need to install |neptune-client| and |neptune-contrib|.
 
@@ -49,6 +49,9 @@ Plot metric charts directly into your Telegram.
    :target: ../_static/images/telegram/telegram_conversation2.png
    :alt: Telegram integration with Neptune
 
+Resources
+---------
+You can learn more about Telegram bot in the neptune-contrib documentation about |telegram|.
 
 .. External links
 
@@ -59,3 +62,7 @@ Plot metric charts directly into your Telegram.
 .. |neptune-contrib| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
+
+.. |telegram| raw:: html
+
+    <a href="https://neptune-contrib.readthedocs.io/examples/telegram_bot.html" target="_blank">Telegram</a>

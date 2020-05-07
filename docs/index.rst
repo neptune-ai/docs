@@ -144,7 +144,7 @@ Go ahead and mention us on social media!
    python-api/introduction.rst
    python-api/sample_project.rst
    python-api/tutorials.rst
-   python-api/fetch-data.rst   
+   python-api/fetch-data.rst
    python-api/cheatsheet.rst
    python-api/api-reference.rst
 
@@ -153,27 +153,17 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
-   Keras <integrations/keras.rst>
-   PyTorch <integrations/pytorch.rst>
-   LightGBM <integrations/lightgbm.rst>
-   Matplotlib <integrations/matplotlib.rst>
-   R <integrations/r-support.rst>
-   Any language <integrations/any-language-support.rst>
-   TensorBoard <integrations/tensorboard.rst>
-   HiPlot <integrations/hiplot.rst>
-   MLflow <integrations/mlflow.rst>
-   Sacred <integrations/sacred.rst>
-   Fast.ai <integrations/fast_ai.rst>
-   PyTorchLightning <integrations/pytorch_lightning.rst>
-   Catalyst <integrations/catalyst.rst>
-   PyTorch Ignite <integrations/pytorch_ignite.rst>
-   Skorch <integrations/skorch.rst>
-   XGBoost <integrations/xgboost.rst>
-   Scikit Optimize <integrations/skopt.rst>
-   Optuna <integrations/optuna.rst>
-   Telegram <integrations/telegram.rst>
-   Neptune-enabled JupyterLab on AWS and AWS SageMaker <notebooks/integrations.rst>
-   Neptune Contrib <integrations/neptune-contrib.rst>
+   Languages <integrations/languages.rst>
+   Cloud providers <integrations/cloud_providers.rst>
+   Deep learning frameworks <integrations/deep_learning_frameworks.rst>
+   Machine learning frameworks <integrations/machine_learning_frameworks.rst>
+   Hyperparmeter optimization frameworks <integrations/hyperparams_opt_frameworks.rst>
+   Visualization tools <integrations/visualization_tools.rst>
+   Messaging systems <integrations/messaging_systems.rst>
+   Experiment tracking frameworks <integrations/experiment_tracking_frmwks.rst>
+   Neptune extensions library <integrations/neptune-contrib.rst>
+
+
 
 .. External links
 

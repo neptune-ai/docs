@@ -1,9 +1,9 @@
-Sync and compare runs
+Sync and Compare Runs
 =====================
 
-Prerequisites
--------------
-Let’s import libraries and define hyper-parameters. Of course, you can pass hyper-parameters from ``argparse`` or ``click`` as well.
+Preparation
+-----------
+Import libraries and define hyperparameters. Of course, you can pass hyperparameters from ``argparse`` or ``click`` as well.
 
 .. code-block:: python3
 
@@ -20,9 +20,9 @@ Let’s import libraries and define hyper-parameters. Of course, you can pass hy
         'dropout': 0.25
     }
 
-Start experiment and log hyper-parameters
+Start experiment and log hyperparameters
 -----------------------------------------
-I like to have everything in the with statement if possible, to enforce auto-clean once experiment is completed.
+It's recommended to have everything in the ``with`` statement if possible, to enforce auto-clean once the experiment is complete.
 
 .. code-block:: python3
 
@@ -62,16 +62,25 @@ Train your model and log metrics
     mlflow.log_metric("test_loss", test_loss)
     mlflow.log_metric("test_accuracy", test_acc)
 
-Sync mlruns with Neptune
+Sync MLRuns with Neptune
 ------------------------
-You can now sync your ML runs directory with Neptune.
+You can now sync your MLRuns directory with Neptune.
 
 .. code-block:: python3
 
     neptune mlflow --project USER_NAME/PROJECT_NAME
 
-**Organize and collaborate** on `your experiments <https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083>`_:
+
+You can now organize and collaborate on |your experiments|.
+
 
 .. image:: ../../_static/images/mlflow/mlflow_1.png
    :target: ../../_static/images/mlflow/mlflow_1.png
    :alt: organize MLflow experiments in Neptune
+
+
+.. External Links
+
+.. |your experiments| raw:: html
+
+    <a href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments?viewId=817b9095-103e-11ea-9a39-42010a840083" target="_blank">your experiments</a>

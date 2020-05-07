@@ -1,46 +1,46 @@
-Matplotlib
-==========
+Neptune-Matplotlib Integration
+==============================
 
-Log Matplotlib figures to Neptune
----------------------------------
-How to log charts generated in `matplotlib <https://matplotlib.org/>`_, like confusion matrix or distribution in Neptune?
+This integration lets you log charts generated in |matplotlib|, like confusion matrix or distribution, in Neptune.
+
 
 .. image:: ../_static/images/others/matplotlib_neptuneml.png
    :target: ../_static/images/others/matplotlib_neptuneml.png
    :alt: matplotlib neptune.ai integration
 
-**Step 1**
 
-Neptune-client supports logging matplotlib figures. Examples:
+Follow these steps:
 
-.. code-block::
+1. Import matplotlib figures into Neptune-client so that they are logged:
 
-    # matplotlib figure example 1
-    from matplotlib import pyplot
-    pyplot.plot([1, 2, 3, 4])
-    pyplot.ylabel('some numbers')
-    experiment.log_image('plots', plt.gcf())
+   Some examples:
 
-.. code-block::
+   .. code-block::
 
-    # matplotlib figure example 2
-    from matplotlib import pyplot
-    import numpy
+      # matplotlib figure example 1
+      from matplotlib import pyplot
+      pyplot.plot([1, 2, 3, 4])
+      pyplot.ylabel('some numbers')
+      experiment.log_image('plots', plt.gcf())
 
-    numpy.random.seed(19680801)
-    data = numpy.random.randn(2, 100)
+   .. code-block::
 
-    figure, axs = pyplot.subplots(2, 2, figsize=(5, 5))
-    axs[0, 0].hist(data[0])
-    axs[1, 0].scatter(data[0], data[1])
-    axs[0, 1].plot(data[0], data[1])
-    axs[1, 1].hist2d(data[0], data[1])
+      # matplotlib figure example 2
+      from matplotlib import pyplot
+      import numpy
 
-    experiment.log_image('diagrams', figure)
+      numpy.random.seed(19680801)
+      data = numpy.random.randn(2, 100)
 
-**Step 2**
+      figure, axs = pyplot.subplots(2, 2, figsize=(5, 5))
+      axs[0, 0].hist(data[0])
+      axs[1, 0].scatter(data[0], data[1])
+      axs[0, 1].plot(data[0], data[1])
+      axs[1, 1].hist2d(data[0], data[1])
 
-Explore it in the browser:
+      experiment.log_image('diagrams', figure)
+
+2. Explore the results in the Neptune dashboard:
 
 .. image:: ../_static/images/how-to/ht-matplotlib-1.png
    :target: ../_static/images/how-to/ht-matplotlib-1.png
@@ -49,3 +49,10 @@ Explore it in the browser:
 .. image:: ../_static/images/how-to/ht-matplotlib-2.png
    :target: ../_static/images/how-to/ht-matplotlib-2.png
    :alt: image
+
+
+.. External Links
+
+.. |matplotlib| raw:: html
+
+    <a href="https://matplotlib.org/" target="_blank">matplotlib</a>
