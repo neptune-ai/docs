@@ -38,7 +38,7 @@ Here is how to use the Neptune-XGBoost integration:
     import neptune
     ...
     # here you import `neptune_callback` that does the magic (the open source magic :)
-    from neptunecontrib.monitoring.xgboost_monitor import neptune_callback
+    from neptunecontrib.monitoring.xgboost import neptune_callback
 
     ...
 
@@ -106,7 +106,7 @@ Full script
     from sklearn.model_selection import train_test_split
 
     # here you import `neptune_callback` that does the magic (the open source magic :)
-    from neptunecontrib.monitoring.xgboost_monitor import neptune_callback
+    from neptunecontrib.monitoring.xgboost import neptune_callback
 
     # Set project
     # For this demonstration, I use public user: neptuner, who has 'ANONYMOUS' token .

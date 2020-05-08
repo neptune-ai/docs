@@ -4,14 +4,23 @@ Neptune-Matplotlib Integration
 This integration lets you log charts generated in |matplotlib|, like confusion matrix or distribution, in Neptune.
 
 
-.. image:: ../_static/images/others/matplotlib_neptuneml.png
-   :target: ../_static/images/others/matplotlib_neptuneml.png
+.. image:: ../_static/images/matplotlib/matplotlib.png
+   :target: ../_static/images/matplotlib/matplotlib.png
    :alt: matplotlib neptune.ai integration
 
 
 Follow these steps:
 
-1. Import matplotlib figures into Neptune-client so that they are logged:
+0. Create an experiment:
+
+   .. code-block::
+
+        import neptune
+
+        neptune.init(api_token='ANONYMOUS',project_qualified_name='shared/showroom')
+        neptune.create_experiment()
+
+1. Create and log matplotlib figures into Neptune:
 
    Some examples:
 
@@ -51,8 +60,25 @@ Follow these steps:
    :alt: image
 
 
+3. Log matplotlib figures as interactive plotly figures:
+
+   .. code-block::
+
+    from neptunecontrib.api import log_chart, log_table
+    log_chart(name='matplotlib_figure', chart=figure)
+
+Check out |this experiment| in the app.
+
+.. image:: ../_static/images/matplotlib/matplotlib.gif
+   :target: ../_static/images/matplotlib/matplotlib.gif
+   :alt: image
+
 .. External Links
 
 .. |matplotlib| raw:: html
 
     <a href="https://matplotlib.org/" target="_blank">matplotlib</a>
+
+.. |this experiment| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-978/artifacts?path=charts%2F&file=matplotlib_figure.html" target="_blank">this experiment</a>
