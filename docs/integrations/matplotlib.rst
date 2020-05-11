@@ -64,7 +64,8 @@ Follow these steps:
 
    .. code-block::
 
-    from neptunecontrib.api import log_chart, log_table
+    from neptunecontrib.api import log_chart
+
     log_chart(name='matplotlib_figure', chart=figure)
 
 Check out |this experiment| in the app.
