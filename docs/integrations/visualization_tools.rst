@@ -8,3 +8,8 @@ Neptune provides integrations with the following visualization tools:
 
    HiPlot <hiplot.rst>
    Matplotlib <matplotlib.rst>
+   Plotly <plotly.rst>
+   Bokeh <bokeh.rst>
+   Altair <altair.rst>
+   Pandas <pandas.rst>
+   HTML <html.rst>
