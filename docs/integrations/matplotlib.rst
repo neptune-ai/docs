@@ -20,17 +20,9 @@ Follow these steps:
         neptune.init(api_token='ANONYMOUS',project_qualified_name='shared/showroom')
         neptune.create_experiment()
 
-1. Create and log matplotlib figures into Neptune:
+1. Create a matplotlib figure:
 
-   Some examples:
-
-   .. code-block::
-
-      # matplotlib figure example 1
-      from matplotlib import pyplot
-      pyplot.plot([1, 2, 3, 4])
-      pyplot.ylabel('some numbers')
-      experiment.log_image('plots', plt.gcf())
+   For example:
 
    .. code-block::
 
@@ -47,20 +39,15 @@ Follow these steps:
       axs[0, 1].plot(data[0], data[1])
       axs[1, 1].hist2d(data[0], data[1])
 
+2. Log figure into Neptune:
+
+**Log as static image**
+
+   .. code-block::
+
       experiment.log_image('diagrams', figure)
 
-2. Explore the results in the Neptune dashboard:
-
-.. image:: ../_static/images/how-to/ht-matplotlib-1.png
-   :target: ../_static/images/how-to/ht-matplotlib-1.png
-   :alt: image
-
-.. image:: ../_static/images/how-to/ht-matplotlib-2.png
-   :target: ../_static/images/how-to/ht-matplotlib-2.png
-   :alt: image
-
-
-3. Log matplotlib figures as interactive plotly figures:
+**Log as interactive plotly chart**
 
    .. code-block::
 
@@ -68,6 +55,15 @@ Follow these steps:
 
     log_chart(name='matplotlib_figure', chart=figure)
 
+3. Explore the results in the Neptune dashboard:
+
+Static image is logged into the logs section:
+
+.. image:: ../_static/images/how-to/ht-matplotlib-2.png
+   :target: ../_static/images/how-to/ht-matplotlib-2.png
+   :alt: image
+
+Interactive figure is logged as artifact into the charts folder.
 Check out |this experiment| in the app.
 
 .. image:: ../_static/images/matplotlib/matplotlib.gif
