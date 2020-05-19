@@ -22,19 +22,21 @@ Initialize Neptune and create an experiment
 .. code-block:: python3
 
     import neptune
-    neptune.init('jakub-czakon/blog-hpo')
-    neptune.create_experiment(name='optuna sweep')
 
-Create **NeptuneMonitor** callback
-----------------------------------
-Pass the experiment object as the first argument.
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/showroom')
 
-.. note:: To be able to log information after the ``.fit()`` method finishes, remember to pass ``close_after_train=False``.
+    neptune.create_experiment('optuna-sweep')
+
+Create **NeptuneCallback**
+--------------------------
+.. note:: You can pass the experiment object as the first argument if you want to do it explicitly.
 
 .. code-block:: python3
 
     import neptunecontrib.monitoring.optuna as opt_utils
-    neptune_monitor = opt_utils.NeptuneMonitor()
+
+    neptune_callback = opt_utils.NeptuneCallback()
 
 Pass **neptune_monitor** to **study.optimize**
 ----------------------------------------------
@@ -43,22 +45,23 @@ Monitor the metrics and parameters checked at each run:
 .. code-block:: python3
 
     study = optuna.create_study(direction='maximize')
-    study.optimize(objective, n_trials=100, callbacks=[monitor])
+    study.optimize(objective, n_trials=100, callbacks=[neptune_callback])
 
 Log all results
 ---------------
-
-The script logs the following to Neptune:
-
-* Best score
-* Best parameters
-* plot_convergence figure
-* plot_evaluations figure
-* plot_objective figure
+You can log additional information from optuna study after the sweep has completed.
+By running:
 
 .. code-block:: python3
 
     opt_utils.log_study(study)
+
+You log the following things to Neptune:
+
+* Best score
+* Best parameters
+* Interactive plotly figures from optuna.visualization: plot_contour, plot_slice, plot_parallel_coordinate, optimization_history
+* Pickled study object
 
 Monitor your Optuna training in Neptune
 ---------------------------------------
@@ -70,6 +73,53 @@ Check out this |example experiment|.
    :target: ../_static/images/optuna/optuna_monitoring.gif
    :alt: Optuna monitoring in Neptune
 
+Full script
+-----------
+
+.. code-block:: python3
+
+    import lightgbm as lgb
+    import optuna
+    from sklearn.datasets import load_breast_cancer
+    from sklearn.metrics import roc_auc_score
+    from sklearn.model_selection import train_test_split
+
+    import neptune
+    import neptunecontrib.monitoring.optuna as opt_utils
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/showroom')
+
+    neptune.create_experiment('optuna-sweep')
+    neptune_callback = opt_utils.NeptuneCallback()
+
+    def objective(trial):
+        data, target = load_breast_cancer(return_X_y=True)
+        train_x, test_x, train_y, test_y = train_test_split(data, target, test_size=0.25)
+        dtrain = lgb.Dataset(train_x, label=train_y)
+
+        param = {
+            'objective': 'binary',
+            'metric': 'binary_logloss',
+            'num_leaves': trial.suggest_int('num_leaves', 2, 256),
+            'feature_fraction': trial.suggest_uniform('feature_fraction', 0.4, 1.0),
+            'bagging_fraction': trial.suggest_uniform('bagging_fraction', 0.4, 1.0),
+            'min_child_samples': trial.suggest_int('min_child_samples', 5, 100),
+        }
+
+        gbm = lgb.train(param, dtrain)
+        preds = gbm.predict(test_x)
+        accuracy = roc_auc_score(test_y, preds)
+        return accuracy
+
+    study = optuna.create_study(direction='maximize')
+    study.optimize(objective, n_trials=100, callbacks=[neptune_callback])
+    opt_utils.log_study(study)
+
+    neptune.stop()
+
+
+
 .. External links
 
 .. |Optuna| raw:: html
@@ -78,7 +128,7 @@ Check out this |example experiment|.
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/jakub-czakon/blog-hpo/e/BLOG-270/logs" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1018/artifacts" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
