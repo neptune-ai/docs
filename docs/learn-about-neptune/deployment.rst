@@ -14,9 +14,7 @@ To get started, just |register| and follow the onboarding instructions.
 On-premises Deployment
 ----------------------
 
-In this configuration, we deploy the application on the infrastructure of your choice, including the backend, the frontend, and all your experiment data. In this mode, data never leaves your organization.
-
-You can deploy Neptune on local servers or in any cloud (AWS, GCP, Azure or custom hardware).
+In this configuration your data never leaves your organization - you deploy Neptune on the infrastructure of your choice: local servers or in any cloud (AWS, GCP, Azure, etc).
 
 To get started, |contact us|.
 
