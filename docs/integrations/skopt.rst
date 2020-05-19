@@ -23,40 +23,47 @@ Initialize Neptune and create an experiment
 .. code-block:: python3
 
     import neptune
-    neptune.init('jakub-czakon/blog-hpo')
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/showroom')
     neptune.create_experiment(name='skopt sweep')
 
 
-Create **NeptuneMonitor** callback
-----------------------------------
+Create **NeptuneCallback**
+--------------------------
 Pass the experiment object as the first argument.
-
-.. note:: To be able to log information after the ``.fit()`` method finishes, remember to pass ``close_after_train=False``.
 
 .. code-block:: python3
 
     import neptunecontrib.monitoring.skopt as sk_utils
-    neptune_monitor = sk_utils.NeptuneMonitor()
 
-Pass **neptune_monitor** to **skopt.forest_minimize** or others
----------------------------------------------------------------
-This causes the metrics and parameters checked at each run to be monitored.
+    neptune_callback = sk_utils.NeptuneCallback()
+
+Pass **neptune_callback** to **skopt.forest_minimize** or others
+----------------------------------------------------------------
+This causes the metrics, parameters and results pickle logged after every iteration.
+Everything can be inspected live.
 
 .. code-block:: python3
 
-    results = skopt.forest_minimize(objective, space, callback=[neptune_monitor],
+    results = skopt.forest_minimize(objective, space, callback=[neptune_callback],
                                     base_estimator='ET', n_calls=100, n_random_starts=10)
-    sk_utils.log_results(results)
 
 Log all results
 ---------------
-The script logs the following to Neptune:
+You can log additional information from skopt results after the sweep has completed.
+By running:
+
+.. code-block:: python3
+
+    sk_utils.log_results(results)
+
+You log the following things to Neptune:
 
 * Best score
 * Best parameters
-* plot_convergence figure
-* plot_evaluations figure
-* plot_objective figure
+* Figures from plots module: plot_evaluations, plot_convergence, plot_objective, and plot_regret
+* Pickled results object
 
 .. code-block:: python3
 
@@ -80,7 +87,7 @@ Check out this |example experiment|.
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/jakub-czakon/blog-hpo/e/BLOG-99/logs" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1061/logs" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
