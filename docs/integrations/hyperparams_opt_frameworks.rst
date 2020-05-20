@@ -1,5 +1,5 @@
-Visualization Tools
-===================
+Hyperparameter Optimization Frameworks
+======================================
 
 Neptune provides integrations with the following hyperparameter optimization frameworks:
 
