@@ -63,6 +63,16 @@ You log the following things to Neptune:
 * Interactive plotly figures from optuna.visualization: plot_contour, plot_slice, plot_parallel_coordinate, optimization_history
 * Pickled study object
 
+Log study and charts after every iteration
+------------------------------------------
+You can log interactive charts from optuna.visualization and the study object after every iteration.
+Simply specify what you want to log at `NeptuneCallback` creation.
+
+.. code-block:: python3
+
+    neptune_callback = opt_utils.NeptuneCallback(log_study=True, log_charts=True)
+
+
 Monitor your Optuna training in Neptune
 ---------------------------------------
 Now you can watch your Optuna hyperparameter optimization in Neptune!
