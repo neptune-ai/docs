@@ -9,7 +9,7 @@ This integration enables you to monitor |Optuna| hyperparameter optimization in 
 
 Requirements
 ------------
-Integration with the Optuna framework is enabled as a part of the logging module, so all you need to have installed is |neptune-client| and |neptune-contrib|.
+To use Neptune + Optuna integration you need to have installed is |neptune-client| and |neptune-contrib|.
 
 .. code-block:: bash
 

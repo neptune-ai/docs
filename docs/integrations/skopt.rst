@@ -10,7 +10,7 @@ This integation lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimi
 Requirements
 ------------
 
-Integration with the Scikit-Optimize framework is enabled as a part of the logging module so all you need to have installed is |neptune-client| and |neptune-contrib|.
+To use Neptune + Scikit-Optimize integration you need to have installed is |neptune-client| and |neptune-contrib|.
 
 .. code-block:: bash
 
