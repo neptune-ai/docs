@@ -35,9 +35,9 @@ Pass the experiment object as the first argument.
 
 .. code-block:: python3
 
-    import neptunecontrib.monitoring.skopt as sk_utils
+    import neptunecontrib.monitoring.skopt as skopt_utils
 
-    neptune_callback = sk_utils.NeptuneCallback()
+    neptune_callback = skopt_utils.NeptuneCallback()
 
 Pass **neptune_callback** to **skopt.forest_minimize** or others
 ----------------------------------------------------------------
@@ -56,7 +56,7 @@ By running:
 
 .. code-block:: python3
 
-    sk_utils.log_results(results)
+    skopt_utils.log_results(results)
 
 You log the following things to Neptune:
 
@@ -67,7 +67,7 @@ You log the following things to Neptune:
 
 .. code-block:: python3
 
-    sk_utils.log_results(results)
+    skopt_utils.log_results(results)
 
 Monitor your Scikit-Optimize training in Neptune
 ------------------------------------------------
@@ -91,13 +91,13 @@ Full script
     from sklearn.model_selection import train_test_split
 
     import neptune
-    import neptunecontrib.monitoring.skopt as sk_utils
+    import neptunecontrib.monitoring.skopt as skopt_utils
 
     neptune.init(api_token='ANONYMOUS',
                  project_qualified_name='shared/showroom')
 
     neptune.create_experiment('skopt-sweep')
-    neptune_callback = sk_utils.NeptuneCallback()
+    neptune_callback = skopt_utils.NeptuneCallback()
 
     space = [skopt.space.Real(0.01, 0.5, name='learning_rate', prior='log-uniform'),
              skopt.space.Integer(1, 30, name='max_depth'),
@@ -127,9 +127,7 @@ Full script
     results = skopt.forest_minimize(objective, space, n_calls=100, n_random_starts=10,
                                     callback=[neptune_callback])
 
-    sk_utils.log_results(results)
-
-    neptune.stop()
+    skopt_utils.log_results(results)
 
 
 .. External links

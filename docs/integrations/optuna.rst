@@ -63,6 +63,10 @@ You log the following things to Neptune:
 * Interactive plotly figures from optuna.visualization: plot_contour, plot_slice, plot_parallel_coordinate, optimization_history
 * Pickled study object
 
+.. image:: ../_static/images/optuna/optuna_charts.gif
+   :target: ../_static/images/optuna/optuna_charts.gif
+   :alt: Optuna charts in Neptune
+
 Log study and charts after every iteration
 ------------------------------------------
 You can log interactive charts from optuna.visualization and the study object after every iteration.
@@ -95,13 +99,13 @@ Full script
     from sklearn.model_selection import train_test_split
 
     import neptune
-    import neptunecontrib.monitoring.optuna as opt_utils
+    import neptunecontrib.monitoring.optuna as optuna_utils
 
     neptune.init(api_token='ANONYMOUS',
                  project_qualified_name='shared/showroom')
 
     neptune.create_experiment('optuna-sweep')
-    neptune_callback = opt_utils.NeptuneCallback()
+    neptune_callback = optuna_utils.NeptuneCallback()
 
     def objective(trial):
         data, target = load_breast_cancer(return_X_y=True)
@@ -124,10 +128,7 @@ Full script
 
     study = optuna.create_study(direction='maximize')
     study.optimize(objective, n_trials=100, callbacks=[neptune_callback])
-    opt_utils.log_study(study)
-
-    neptune.stop()
-
+    optuna_utils.log_study(study)
 
 
 .. External links
