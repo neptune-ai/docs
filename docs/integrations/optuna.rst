@@ -54,7 +54,7 @@ By running:
 
 .. code-block:: python3
 
-    opt_utils.log_study(study)
+    opt_utils.log_study_info(study)
 
 You log the following things to Neptune:
 

@@ -79,6 +79,59 @@ Check out this |example experiment|.
    :target: ../_static/images/skopt/skopt_monitoring.gif
    :alt: Scikit-Optimize monitoring in Neptune
 
+Full script
+-----------
+
+.. code-block:: python3
+
+    import lightgbm as lgb
+    import skopt
+    from sklearn.datasets import load_breast_cancer
+    from sklearn.metrics import roc_auc_score
+    from sklearn.model_selection import train_test_split
+
+    import neptune
+    import neptunecontrib.monitoring.skopt as sk_utils
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/showroom')
+
+    neptune.create_experiment('skopt-sweep')
+    neptune_callback = sk_utils.NeptuneCallback()
+
+    space = [skopt.space.Real(0.01, 0.5, name='learning_rate', prior='log-uniform'),
+             skopt.space.Integer(1, 30, name='max_depth'),
+             skopt.space.Integer(2, 100, name='num_leaves'),
+             skopt.space.Integer(10, 1000, name='min_data_in_leaf'),
+             skopt.space.Real(0.1, 1.0, name='feature_fraction', prior='uniform'),
+             skopt.space.Real(0.1, 1.0, name='subsample', prior='uniform'),
+             ]
+
+    @skopt.utils.use_named_args(space)
+    def objective(**params):
+        data, target = load_breast_cancer(return_X_y=True)
+        train_x, test_x, train_y, test_y = train_test_split(data, target, test_size=0.25)
+        dtrain = lgb.Dataset(train_x, label=train_y)
+
+        param = {
+            'objective': 'binary',
+            'metric': 'binary_logloss',
+            **params
+        }
+
+        gbm = lgb.train(param, dtrain)
+        preds = gbm.predict(test_x)
+        accuracy = roc_auc_score(test_y, preds)
+        return -1.0 * accuracy
+
+    results = skopt.forest_minimize(objective, space, n_calls=100, n_random_starts=10,
+                                    callback=[neptune_callback])
+
+    sk_utils.log_results(results)
+
+    neptune.stop()
+
+
 .. External links
 
 .. |Scikit-Optimize| raw:: html
@@ -87,7 +140,7 @@ Check out this |example experiment|.
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1061/logs" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1068/logs" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
