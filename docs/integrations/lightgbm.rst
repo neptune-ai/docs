@@ -13,7 +13,7 @@ To use Neptune + lightGBM integration you need to have installed is |neptune-cli
 
 .. code-block:: bash
 
-    pip install neptune-client neptune-contrib['monitoring']
+    pip install neptune-client neptune-contrib[monitoring]
 
 Initialize Neptune and create an experiment
 -------------------------------------------
