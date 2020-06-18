@@ -26,8 +26,10 @@ spec:
     spec:
       restartPolicy: Always
       {{- with .Values.docs.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 -}}
+      nodeSelector: {{ toYaml . | nindent 8 -}}
+      {{- end }}
+      {{- with .Values.docs.tolerations }}
+      tolerations: {{ toYaml . | nindent 8 -}}
       {{- end }}
       containers:
       - name: nginx
@@ -42,6 +44,6 @@ spec:
           httpGet:
             path: /
             port: {{ .Values.docs.port }}
-        resources:
-          requests:
-            cpu: "{{ .Values.docs.resource_requests }}"
+        {{- with .Values.docs.resources }}
+        resources: {{ toYaml . | nindent 10 -}}
+        {{- end }}

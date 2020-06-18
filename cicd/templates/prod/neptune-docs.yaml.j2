@@ -4,3 +4,6 @@ global:
   registry: "{{ registry }}"
 docs:
   image: "{{ image }}"
+  nodeSelector:
+    neptune.type: instance
+  tolerations: []
