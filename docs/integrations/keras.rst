@@ -1,9 +1,10 @@
 Neptune-Keras Integration
 =========================
 
-Neptune has implemented an integration with the Keras neural-network library.
+Neptune has implemented an integration with the Keras neural network library.
 
-Integration with Keras is enabled through the |neptune-tensorboard| package. It lets you automatically track metrics and losses (on *batch end* and *epoch end*).
+Integration with Keras is enabled through the |neptune-contrib| package. 
+It lets you automatically track metrics and losses (on *batch end* and *epoch end*).
 
 
 .. image:: ../_static/images/others/keras_neptuneml.png
@@ -15,18 +16,29 @@ Installation
 ^^^^^^^^^^^^
 .. code-block:: bash
 
-    pip install neptune-tensorboard
+    pip install neptune-contrib
 
 Usage
 ^^^^^
-From now on, you can integrate with Keras. An integration snippet is presented below. It should be executed before you create a Neptune experiment, using the :meth:`~neptune.projects.Project.create_experiment` method.
+
+To log your experiments to Neptune, use the 
+:class:`~neptunecontrib.monitoring.keras.NeptuneMonitor` callback as an argument
+to the :meth:`keras.models.Model.fit` method and other Keras methods supporting
+training callbacks. An integration snippet is presented below.
 
 .. code-block:: python3
 
-    import neptune_tensorboard as neptune_tb
-    neptune_tb.integrate_with_keras()
+    from neptunecontrib.monitoring.keras import NeptuneMonitor
 
-As a result, all metrics and losses are automatically tracked in Neptune.
+    model = ...
+
+    model.fit(x_train,
+              y_train,
+              epochs=42,
+              callbacks=[NeptuneMonitor()])
+
+When using the Neptune callback, all metrics and losses are automatically 
+tracked in Neptune.
 
 .. image:: ../_static/images/how-to/ht-log-keras-1.png
    :target: ../_static/images/how-to/ht-log-keras-1.png
@@ -40,16 +52,13 @@ Full script
 ^^^^^^^^^^^
 .. code-block:: python3
 
-    # imports
-    import random
     import neptune
     import keras
-    import neptune_tensorboard as neptune_tb
+    from neptunecontrib.monitoring.keras import NeptuneMonitor
 
-    # set project and start integration with keras
+    # set project
     neptune.init(api_token='ANONYMOUS',
-                 project_qualified_name='shared/keras-integration')
-    neptune_tb.integrate_with_keras()
+                project_qualified_name='shared/keras-integration')
 
     # parameters
     PARAMS = {'epoch_nr': 5,
@@ -84,13 +93,14 @@ Full script
 
     model.fit(x_train, y_train,
               epochs=PARAMS['epoch_nr'],
-              batch_size=PARAMS['batch_size'])
+              batch_size=PARAMS['batch_size'],
+              callbacks=[NeptuneMonitor()])
 
 .. External links
 
-.. |neptune-tensorboard| raw:: html
+.. |neptune-contrib| raw:: html
 
-    <a href="https://docs.neptune.ai/integrations/tensorboard.html" target="_blank">neptune-tensorboard</a>
+    <a href="https://pypi.org/project/neptune-contrib/" target="_blank">neptune-contrib</a>
 
 .. |keras-integration| raw:: html
 
