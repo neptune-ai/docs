@@ -46,7 +46,8 @@ tracked in Neptune.
 
 .. note::
 
-    Check for more examples in the |keras-integration| Neptune project.
+    An example Keras experiment logged to Neptune can be viewed
+    `here <https://ui.neptune.ai/shared/keras-integration/e/KERAS-23/logs>`_.
 
 Full script
 ^^^^^^^^^^^
@@ -101,7 +102,3 @@ Full script
 .. |neptune-contrib| raw:: html
 
     <a href="https://pypi.org/project/neptune-contrib/" target="_blank">neptune-contrib</a>
-
-.. |keras-integration| raw:: html
-
-    <a href="https://ui.neptune.ai/shared/keras-integration/experiments" target="_blank">keras-integration</a>
