@@ -20,7 +20,13 @@ docs:
   domain: "docs"
   redirect_domain: "documentation"
   port: "80"
-  resource_requests: "0.1"
+  resources:
+    requests:
+      cpu: "0.1"
+      memory: "256Mi"
+    limits:
+      cpu: "0.1"
+      memory: "256Mi"
   replicas: 1
-  nodeSelector:
-    neptune.type: instance
+  nodeSelector: {}
+  tolerations: []

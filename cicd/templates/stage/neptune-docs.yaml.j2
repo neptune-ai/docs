@@ -3,3 +3,11 @@ global:
   registry: "{{ registry }}"
 docs:
   image: "{{ image }}"
+  nodeSelector:
+    node.type: stage
+  tolerations:
+    - key: "node.taint"
+      operator: Equal
+      value: "stage"
+      effect: NoSchedule
+
