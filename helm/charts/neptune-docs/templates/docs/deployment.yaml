@@ -40,6 +40,8 @@ spec:
         env:
         - name: IS_PRODUCTION
           value: "{{ .Values.global.production }}"
+        - name: HEAP_ID
+          value: "{{ .Value.docs.heapId }}"
         readinessProbe:
           httpGet:
             path: /
