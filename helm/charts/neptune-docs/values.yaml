@@ -30,3 +30,5 @@ docs:
   replicas: 1
   nodeSelector: {}
   tolerations: []
+  # Heap analytics account
+  heapId: ""
