@@ -1,7 +1,8 @@
 Team, Project and User Management
 =================================
 
-This page describes the concepts of team, project and user roles and permissions as they are used in Neptune. It also provides instructions for creating projects and organizations and adding users to them.
+This page describes the concepts of team, project and user roles and permissions as they are used in Neptune. It also
+provides instructions for creating projects and workspaces and adding users to them.
 
 
 .. contents::
@@ -9,28 +10,26 @@ This page describes the concepts of team, project and user roles and permissions
     :depth: 1
     :backlinks: top
 
-.. _how-to_team-management_create-organization:
-
-Organization Types
+Workspace Types
 ------------------
 
 .. _core-concepts_organization-types:
 
-An organization is a way to centrally manage projects, users and subscriptions.
+A *workspace* is a way to centrally manage projects, users and subscriptions.
 
-Neptune has two organization types: individual and team.
+Neptune has two workspace types: *individual* and *team*.
 
 Individual
 ^^^^^^^^^^
-* Each user is assigned individual organization with ``username`` as an organization name.
-* The user is the only member of this organization but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
-* The user can create an unlimited number of projects in the individual organization.
+* Each user is assigned an individual workspace with their ``username`` as the workspace name.
+* The user is the only member of this workspace but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
+* The user can create an unlimited number of projects in their individual workspace.
 
 Team
 ^^^^
-* A team organization comes in handy when an entire team needs to be managed centrally.
-* Once :ref:`created <how-to_team-management_create-organization>`, a team organization can be managed by the :ref:`organization Admin <core-concepts_user-roles_organization-admin>`. This include users and subscription.
-* Only users who joined team organization can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the organization or project.
+* A team workspace comes in handy when an entire team needs to be managed centrally.
+* Once :ref:`created <how-to_team-management_create-organization>`, a team workspace can be managed by the :ref:`workspace Admin <core-concepts_user-roles_organization-admin>`. The admin can manage users and subscription settings.
+* Only users who joined team workspace can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the workspace or project.
 
 Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
 
@@ -40,42 +39,42 @@ User Roles
 ----------
 .. _core-concepts_user-roles:
 
-There are roles in projects and in organizations.
+There are roles in projects and in workspaces.
 
 
-Roles in an organization
-^^^^^^^^^^^^^^^^^^^^^^^^
+Roles in a workspace
+^^^^^^^^^^^^^^^^^^^^
 
-Organization roles apply only to team organizations.
+Workspace roles apply only to team workspaces.
 
 .. _core-concepts_user-roles_organization-admin:
 
-If you have :ref:`created an organization <how-to_team-management_create-organization>`,
+If you have :ref:`created a workspace <how-to_team-management_create-organization>`,
 you can invite people to it. Two roles are available: Admin and Member.
 
-The following table summarizes the permissions available for the organization roles.
+The following table summarizes the permissions available for the workspace roles.
 
 .. csv-table::
    :header: "Permission","Admin","Member"
    :widths: 20, 20, 20
 
       Managing subscription (including invoice data),yes,no
-      Managing organization members,yes,no
+      Managing workspace members,yes,no
       Creating and deleting projects,yes,no
 
 
-You can access organization settings by clicking **Settings**.
+You can access workspace settings by clicking **Settings**.
 
 .. figure:: ../_static/images/core-concepts/org-settings.png
    :target: ../_static/images/core-concepts/org-settings.png
-   :alt: organization settings button
+   :alt: workspace settings button
 
 
 .. note::
 
-    - An Admin of an organization is also the Owner of all projects and can grant organization ownership to anyone in the organization.
-    - Project Owners can grant project ownership to anyone in the organization.
-    - An organization must have at least one Admin, so the last remaining Admin cannot be removed from the organization.
+    - An Admin of a workspace is also the Owner of all projects and can grant workspace ownership to anyone in the workspace.
+    - Project Owners can grant project ownership to anyone in the workspace.
+    - A workspace must have at least one Admin, so the last remaining Admin cannot be removed from the workspace.
 
 Roles in a project
 ^^^^^^^^^^^^^^^^^^
@@ -121,7 +120,7 @@ Public projects
 ^^^^^^^^^^^^^^^
 Public projects are freely available to view by everyone who has access to the Internet.
 
-Also, in case of individual organizations, you can invite collaborators to public projects only.
+Also, in case of individual workspaces, you can invite collaborators to public projects only.
 Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
 .. External links
@@ -135,59 +134,59 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
     <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>
 
-Create an Organization
+Create a workspace
 ----------------------
-Neptune lets you create an :ref:`organization <core-concepts_organization-types>`.
+Neptune lets you create an :ref:`workspace <core-concepts_organization-types>`.
 
-1. Click the **Context Switcher** at the upper-right corner and click **Create new organization**.
+1. Click the **Context Switcher** at the upper-right corner and click **Create new workspace**.
 
 .. image:: ../_static/images/how-to/team-management/create-org-1.png
    :target: ../_static/images/how-to/team-management/create-org-1.png
-   :alt: create new organization
+   :alt: create new workspace
 
-2. Type in a name and click **Create organization**.
+2. Type in a name and click **Create workspace**.
 
 .. image:: ../_static/images/how-to/team-management/create-org-2.png
    :target: ../_static/images/how-to/team-management/create-org-2.png
-   :alt: type name for new organization
+   :alt: type name for new workspace
 
-3. Once the organization has been created, you can :ref:`invite people <invite-to-organization>` to your organization.
+3. Once the workspace has been created, you can :ref:`invite people <invite-to-organization>` to your workspace.
 
 .. image:: ../_static/images/how-to/team-management/create-org-3.png
    :target: ../_static/images/how-to/team-management/create-org-3.png
-   :alt: type name for new organization
+   :alt: type name for new workspace
 
 .. _invite-to-organization:
 
-Invite Users to an Organization
+Invite Users to an workspace
 -------------------------------
-After you have :ref:`created an organization <how-to_team-management_create-organization>`, you can invite members to join it.
+After you have :ref:`created a workspace <how-to_team-management_create-organization>`, you can invite members to join it.
 
 
 .. note::
-    - Only :ref:`an organization Admin <core-concepts_user-roles_organization-admin>` can invite new users to an organization.
-    - In case of a team organization, as soon as a user is added, s(he) is listed automatically.
-    - In case of an individual organization, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
-    - Only organization members can be added to Projects in team organizations.
+    - Only :ref:`a workspace Admin <core-concepts_user-roles_organization-admin>` can invite new users to a workspace.
+    - In case of a team workspace, as soon as a user is added, s(he) is listed automatically.
+    - In case of an individual workspace, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
+    - Only workspace members can be added to Projects in team workspaces.
 
-1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant organization.
+1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant workspace.
 
 .. image:: ../_static/images/how-to/team-management/create-org-1.png
    :target: ../_static/images/how-to/team-management/create-org-1.png
-   :alt: Go to settings to invite user to organization
+   :alt: Go to settings to invite user to workspace
 
 2. In the panel that appears, click the **People** tab.
 
 .. image:: ../_static/images/how-to/team-management/invite-to-org-2.png
    :target: ../_static/images/how-to/team-management/invite-to-org-2.png
-   :alt: Invite user to organization
+   :alt: Invite user to workspace
 
-- The tab displays the list of users who already belong to the organization or whose membership is pending.
+- The tab displays the list of users who already belong to the workspace or whose membership is pending.
 - Above the list is a field in which you can type an email or username  of people you want to invite. Neptune identifies names and emails for people who already have an account.
 
 3. Specify a name, set a role (Admin or Member) and click **Invite**.
 
-The users you invite will be invited via email to join your organization (in case of already registered users, through an in-app notification).
+The users you invite will be invited via email to join your workspace (in case of already registered users, through an in-app notification).
 Until they join, their status is marked as "Pending invitation".
 
 Create a Project
@@ -238,4 +237,4 @@ Add Users to a Project
 .. note::
 
     - If a user is registered in Neptune.ai, s(he) can be added from the UI, under **Project Settings** > **People**. If the user is not yet registered in Neptune.ai, s(he) can be invited by email. In any case, the user needs to accept the invitation, before s(he) appears in the list.
-    - If the project is created in an individual organization, you can only invite users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
+    - If the project is created in an individual workspace, you can only invite users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
