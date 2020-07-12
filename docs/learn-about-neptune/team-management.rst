@@ -13,7 +13,7 @@ provides instructions for creating projects and workspaces and adding users to t
 Workspace Types
 ------------------
 
-.. _core-concepts_organization-types:
+.. _core-concepts_workspace-types:
 
 A *workspace* is a way to centrally manage projects, users and subscriptions.
 
@@ -28,7 +28,7 @@ Individual
 Team
 ^^^^
 * A team workspace comes in handy when an entire team needs to be managed centrally.
-* Once :ref:`created <how-to_team-management_create-organization>`, a team workspace can be managed by the :ref:`workspace Admin <core-concepts_user-roles_organization-admin>`. The admin can manage users and subscription settings.
+* Once :ref:`created <how-to_team-management_create-workspace>`, a team workspace can be managed by the :ref:`workspace Admin <core-concepts_user-roles_workspace-admin>`. The admin can manage users and subscription settings.
 * Only users who joined team workspace can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the workspace or project.
 
 Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
@@ -47,9 +47,9 @@ Roles in a workspace
 
 Workspace roles apply only to team workspaces.
 
-.. _core-concepts_user-roles_organization-admin:
+.. _core-concepts_user-roles_workspace-admin:
 
-If you have :ref:`created a workspace <how-to_team-management_create-organization>`,
+If you have :ref:`created a workspace <how-to_team-management_create-workspace>`,
 you can invite people to it. Two roles are available: Admin and Member.
 
 The following table summarizes the permissions available for the workspace roles.
@@ -139,9 +139,10 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
     <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>
 
+.. _how-to_team-management_create-workspace:
+
 Create a workspace
 ----------------------
-Neptune lets you create an :ref:`workspace <core-concepts_organization-types>`.
 
 1. Click the **Context Switcher** at the upper-right corner, then click **Switch workspace**, and finally click **Create new workspace**
 
@@ -155,21 +156,21 @@ Neptune lets you create an :ref:`workspace <core-concepts_organization-types>`.
    :target: ../_static/images/how-to/team-management/create-workspace-2.png
    :alt: type name for new workspace
 
-3. Once the workspace has been created, you can :ref:`invite people <invite-to-organization>` to your workspace.
+3. Once the workspace has been created, you can :ref:`invite people <invite-to-workspace>` to your workspace.
 
 .. image:: ../_static/images/how-to/team-management/create-workspace-3.png
    :target: ../_static/images/how-to/team-management/create-workspace-3.png
    :alt: type name for new workspace
 
-.. _invite-to-organization:
+.. _invite-to-workspace:
 
-Invite Users to an workspace
+Invite Users to a Workspace
 -------------------------------
-After you have :ref:`created a workspace <how-to_team-management_create-organization>`, you can invite members to join it.
+After you have :ref:`created a workspace <how-to_team-management_create-workspace>`, you can invite members to join it.
 
 
 .. note::
-    - Only :ref:`a workspace Admin <core-concepts_user-roles_organization-admin>` can invite new users to a workspace.
+    - Only :ref:`a workspace Admin <core-concepts_user-roles_workspace-admin>` can invite new users to a workspace.
     - In case of a team workspace, as soon as a user is added, s(he) is listed automatically.
     - In case of an individual workspace, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
     - Only workspace members can be added to Projects in team workspaces.
