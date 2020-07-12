@@ -63,12 +63,17 @@ The following table summarizes the permissions available for the workspace roles
       Creating and deleting projects,yes,no
 
 
-You can access workspace settings by clicking **Settings**.
+You can access workspace settings by clicking the workspace name on the top bar.
 
-.. figure:: ../_static/images/core-concepts/org-settings.png
-   :target: ../_static/images/core-concepts/org-settings.png
+.. figure:: ../_static/images/core-concepts/workspace-settings.png
+   :target: ../_static/images/core-concepts/workspace-settings.png
    :alt: workspace settings button
 
+Workspace settings can be viewed under the *Overview*, *Projects*, *People*, and *Subscription* tabs.
+
+.. figure:: ../_static/images/core-concepts/workspace-settings-tabs.png
+   :target: ../_static/images/core-concepts/workspace-settings-tabs.png
+   :alt: workspace settings tabs
 
 .. note::
 
@@ -112,8 +117,8 @@ Only people added to the project can see it. The project :ref:`Owner <core-conce
 
 Here is an example view, where the project Owner can manage project members:
 
-.. image:: ../_static/images/core-concepts/invite-to-project.png
-   :target: ../_static/images/core-concepts/invite-to-project.png
+.. image:: ../_static/images/how-to/team-management/invite-to-project.png
+   :target: ../_static/images/how-to/team-management/invite-to-project.pn
    :alt: Invite user to the project
 
 Public projects
@@ -138,22 +143,22 @@ Create a workspace
 ----------------------
 Neptune lets you create an :ref:`workspace <core-concepts_organization-types>`.
 
-1. Click the **Context Switcher** at the upper-right corner and click **Create new workspace**.
+1. Click the **Context Switcher** at the upper-right corner, then click **Switch workspace**, and finally click **Create new workspace**
 
-.. image:: ../_static/images/how-to/team-management/create-org-1.png
-   :target: ../_static/images/how-to/team-management/create-org-1.png
+.. image:: ../_static/images/how-to/team-management/create-workspace-1.png
+   :target: ../_static/images/how-to/team-management/create-workspace-1.png 
    :alt: create new workspace
 
 2. Type in a name and click **Create workspace**.
 
-.. image:: ../_static/images/how-to/team-management/create-org-2.png
-   :target: ../_static/images/how-to/team-management/create-org-2.png
+.. image:: ../_static/images/how-to/team-management/create-workspace-2.png
+   :target: ../_static/images/how-to/team-management/create-workspace-2.png
    :alt: type name for new workspace
 
 3. Once the workspace has been created, you can :ref:`invite people <invite-to-organization>` to your workspace.
 
-.. image:: ../_static/images/how-to/team-management/create-org-3.png
-   :target: ../_static/images/how-to/team-management/create-org-3.png
+.. image:: ../_static/images/how-to/team-management/create-workspace-3.png
+   :target: ../_static/images/how-to/team-management/create-workspace-3.png
    :alt: type name for new workspace
 
 .. _invite-to-organization:
@@ -169,16 +174,16 @@ After you have :ref:`created a workspace <how-to_team-management_create-organiza
     - In case of an individual workspace, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
     - Only workspace members can be added to Projects in team workspaces.
 
-1. Go to **Context Switcher** at the upper-right corner and click the **Settings** button for the relevant workspace.
+1. Click the name of the current workspace on the top bar.
 
-.. image:: ../_static/images/how-to/team-management/create-org-1.png
-   :target: ../_static/images/how-to/team-management/create-org-1.png
+.. figure:: ../_static/images/core-concepts/workspace-settings.png
+   :target: ../_static/images/core-concepts/workspace-settings.png
    :alt: Go to settings to invite user to workspace
 
 2. In the panel that appears, click the **People** tab.
 
-.. image:: ../_static/images/how-to/team-management/invite-to-org-2.png
-   :target: ../_static/images/how-to/team-management/invite-to-org-2.png
+.. image:: ../_static/images/how-to/team-management/invite-to-workspace-2.png
+   :target: ../_static/images/how-to/team-management/invite-to-workspace-2.png
    :alt: Invite user to workspace
 
 - The tab displays the list of users who already belong to the workspace or whose membership is pending.
@@ -229,8 +234,8 @@ Add Users to a Project
 
 3. Set a role and click **Invite**.
 
-.. image:: ../_static/images/how-to/team-management/add-user-1.png
-   :target: ../_static/images/how-to/team-management/add-user-1.png
+.. image:: ../_static/images/how-to/team-management/invite-to-project.png
+   :target: ../_static/images/how-to/team-management/invite-to-project.png
    :alt: Add users to project
 
 
