@@ -20,7 +20,7 @@ However, the full definition of the *neptune.init* is as follows:
     neptune.init(project_qualified_name='USERNAME/PROJECT_NAME',
                  api_token='YOUR_LONG_API_TOKEN')
 
-* ``project_qualified_name`` - this is *USERNAME/PROJECT_NAME*, where first the component is the organization name and the second is the project name (as you created in the Neptune web application).
+* ``project_qualified_name`` - this is *USERNAME/PROJECT_NAME*, where first the component is the workspace name and the second is the project name (as you created in the Neptune web application).
 * ``api_token`` - User can explicitly paste ``NEPTUNE_API_TOKEN`` here, however, **it is not recommended**. This method first looks for an environment variable, then a value is passed in here. Note that this value overwrites the environment variable.
 
 .. note:: If you have your API token stored in the ``NEPTUNE_API_TOKEN`` environment variable you can leave the ``api_token`` argument empty.

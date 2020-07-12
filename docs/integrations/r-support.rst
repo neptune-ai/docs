@@ -48,7 +48,7 @@ Once this is added, you can start logging your experiment data to Neptune.
 
     .. code:: R
 
-        init_neptune(project_name = 'my_organization/my_project',
+        init_neptune(project_name = 'my_workspace/my_project',
                      api_token = Sys.getenv('NEPTUNE_API_TOKEN')
                      )
 

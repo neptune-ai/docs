@@ -207,7 +207,7 @@ There is a single - yet powerful - CLI command:
 
     neptune notebook sync --project ENTITY_NAME/PROJECT_NAME your_notebook.ipynb
 
-`ENTITY_NAME` is either your organization name in the case of a team account or a username in the case of an individual account.
+`ENTITY_NAME` is either your workspace name in the case of a team account or a username in the case of an individual account.
 
 
 Parameters
