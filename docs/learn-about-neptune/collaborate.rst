@@ -11,13 +11,13 @@ To share a view on a project or any of its parts, you simply copy and paste the 
     :depth: 1
     :backlinks: top
 
-About Access to Organizations and Projects
+About Access to Workspaces and Projects
 ------------------------------------------
 
 - If the project is private, access to the shared content is restricted to users who have access to the project.
 - If the project is public, anyone who has access to the Internet has access to the shared content.
 
-For more information about user permissions in organizations and projects, see :ref:`user roles <core-concepts_user-roles>`.
+For more information about user permissions in workspaces and projects, see :ref:`user roles <core-concepts_user-roles>`.
 
 Sharing View Links with Teammates
 ---------------------------------
