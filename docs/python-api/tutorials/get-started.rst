@@ -17,9 +17,17 @@ Copy API token
 
 Assign it to the bash environment variable:
 
+Linux/IOS:
+
 .. code:: bash
 
     export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'
+
+Windows:
+
+.. code-block:: bat
+
+    set NEPTUNE_API_TOKEN="YOUR_LONG_API_TOKEN"
 
 or append this line to your ``~/.bashrc`` or ``~/.bash_profile`` files **(recommended)**.
 

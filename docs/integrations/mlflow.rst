@@ -23,9 +23,17 @@ Sync your MLruns with Neptune
 
 1. Set your ``NEPTUNE_API_TOKEN``:
 
-.. code-block:: bash
+Linux/IOS:
 
-    export NEPTUNE_API_TOKEN="YOUR_NEPTUNE_API_TOKEN"
+.. code:: bash
+
+    export NEPTUNE_API_TOKEN='YOUR_NEPTUNE_API_TOKEN'
+
+Windows:
+
+.. code-block:: bat
+
+    set NEPTUNE_API_TOKEN="YOUR_NEPTUNE_API_TOKEN"
 
 2. Navigate to the MLflow project in your directory and run:
 
@@ -37,7 +45,7 @@ Alternatively you can point to the MLflow project directory:
 
 .. code-block:: bash
 
-    neptune mlflow /PATH/TO/MLflow_PROJECT --project USER_NAME/PROJECT_NAME
+    neptune mlflow /PATH/TO/MLflow_PROJECT --project WORKSPACE_NAME/PROJECT_NAME
 
 **That's it! You can now browse and collaborate on your MLflow runs in Neptune.**
 

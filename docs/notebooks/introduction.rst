@@ -243,9 +243,17 @@ To use the CLI command, you must export your `NEPTUNE_API_TOKEN` as an environme
 
 - Use this command:
 
+    Linux/IOS:
+
     .. code:: bash
 
         export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'
+
+    Windows:
+
+    .. code-block:: bat
+
+        set NEPTUNE_API_TOKEN="YOUR_LONG_API_TOKEN"
 
 OR
 
