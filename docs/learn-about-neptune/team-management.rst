@@ -144,7 +144,7 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 Create a workspace
 ----------------------
 
-1. Click the **Context Switcher** at the upper-right corner, then click **Switch workspace**, and finally click **Create new workspace**
+1. Click your avatar at the upper-right corner, then click **Switch workspace**, and finally click **Create new workspace**
 
 .. image:: ../_static/images/how-to/team-management/create-workspace-1.png
    :target: ../_static/images/how-to/team-management/create-workspace-1.png 
