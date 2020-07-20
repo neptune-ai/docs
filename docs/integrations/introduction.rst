@@ -9,7 +9,7 @@ Neptune comes with 25+ integrations with Python libraries popular in machine lea
 
 How integrations work?
 ----------------------
-Integrations are written using `Neptune-client <../python-api/introduction.html>`_ and provide a convenient way to jump-start working with Neptune and particular library. There is no need to integrate your code manually using neptune-client (it's easy though).
+Integrations are written using `Neptune-client <../python-api/introduction.html>`_ and provide a convenient way to jump-start working with Neptune and a library that you are using. There is no need to integrate your code manually using neptune-client (it's easy though).
 
 Each integration, that is installation, scope and usage example are explained in detail in the documentation (see: `LightGBM <lightgbm.html>`_ for example).
 
@@ -32,7 +32,7 @@ My library is not here. What now?
 There are two common paths:
 
 #. You can always use `neptune-client <../python-api/introduction.html>`_, our open source Python library for logging all kinds of data and metadata to `experiments <../learn-about-neptune/experiment_tracking.html>`_.
-#. Contact us directly via mail contact@neptune.ai or post |forum| on our forum to discuss what you need and how we can deliver it.
+#. Contact us directly via mail (contact@neptune.ai), chat (that little thing in the lower right corner) or post |forum| on our forum to discuss what you need and how we can deliver it.
 
 .. External links
 
