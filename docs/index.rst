@@ -154,6 +154,7 @@ Go ahead and mention us on social media!
    :maxdepth: 2
    :caption: Integrations
 
+   Introduction <integrations/introduction.rst>
    Languages <integrations/languages.rst>
    Cloud providers <integrations/cloud_providers.rst>
    Deep learning frameworks <integrations/deep_learning_frameworks.rst>
