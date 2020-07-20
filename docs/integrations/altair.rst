@@ -1,5 +1,5 @@
 Neptune-Altair Integration
-==============================
+==========================
 
 This integration lets you log interactive charts generated in |altair|, like confusion matrix or distribution, in Neptune.
 
