@@ -6,9 +6,10 @@ Neptune is a light-weight experiment management tool that helps you keep track o
 Use Neptune to log hyperparameters and output metrics from your runs, then visualize and compare results. Automatically transform tracked data into a knowledge repository, then share and discuss your work with colleagues.
 
 - Neptune fits in any workflow, ranging from data exploration and analysis, decision science to machine learning and deep learning.
-- Neptune works with common technologies in the data science domain: Python, `Jupyter Notebooks <notebooks/introduction.html>`_, and `R <integrations/r-support.html>`_, to mention a few.
-- It integrates with other tracking tools such as `MLflow <integrations/mlflow.html#>`_ and `TensorBoard <integrations/tensorboard.html#>`_ or `Sacred <integrations/sacred.html>`_ and many other machine learning and deep learning frameworks.
-- It integrates seamlessly with your machine learning infrastructure, be it AWS, GCP, Kubernetes, Azure, or on-prem machines.
+- Neptune works with common technologies in the data science domain: `Python <python-api/introduction.html>`_, `Jupyter Notebooks <notebooks/introduction.html>`_, and `R <integrations/r-support.html>`_, to mention a few.
+- It has convenient integrations with many Python libraries for machine learning and deep learning such as: `Keras <integrations/keras.html>`_, `PyTorch Lightning <integrations/pytorch_lightning.html>`_, `XGBoost <integrations/xgboost.html>`_, `Matplotlib <integrations/matplotlib.html>`_.
+- It integrates with other tracking tools such as `MLflow <integrations/mlflow.html#>`_ and `TensorBoard <integrations/tensorboard.html#>`_ or `Sacred <integrations/sacred.html>`_.
+- It works seamlessly with your infrastructure, be it AWS, GCP, Kubernetes, Azure, or on-prem machines.
 - The `Neptune Python Library <python-api/introduction.html>`_ is an open source package that allows you to integrate your Python scripts with Neptune. Once you have integrated with Neptune, you can:
 
     - Create and track experiments
