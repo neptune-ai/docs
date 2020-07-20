@@ -89,7 +89,9 @@ There are various object types that you can log to Neptune. Some of them are log
 
     For more information, see `Uploading and Downloading Notebook Checkpoints <../notebooks/introduction.html#uploading-and-downloading-notebook-checkpoints>`_.
 
-- **Integrations**: We have created loggers for many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above. Learn more about the `MLflow <https://docs.neptune.ai/integrations/mlflow.html#>`_ and `TensorBoard <https://docs.neptune.ai/integrations/tensorboard.html#>`_ or `Sacred <integrations/sacred.html>`_ integrations, for example.
+- **Integrations**: We have created convenient integrations with many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above.
+
+    Learn more about integrations `here <../integrations/introduction.html>`_, or study some examples: `Keras <../integrations/keras.html>`_, `PyTorch Lightning <../integrations/pytorch_lightning.html>`_, `XGBoost <../integrations/xgboost.html>`_, `Matplotlib <../integrations/matplotlib.html>`_.
 
 Fetching Experiments from Neptune
 ---------------------------------
