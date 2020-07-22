@@ -15,6 +15,14 @@ To use Neptune + DALEX integration you need to have installed is |neptune-client
 
     pip install neptune-client neptune-contrib
 
+You also need to have |DALEX| python client installed.
+
+.. code-block:: bash
+
+    pip install dalex
+
+.. note:: dalex client is available for python versions 3.6 and later.
+
 
 Initialize Neptune and create an experiment
 -------------------------------------------
