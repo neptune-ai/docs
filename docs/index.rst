@@ -161,6 +161,7 @@ Go ahead and mention us on social media!
    Machine learning frameworks <integrations/machine_learning_frameworks.rst>
    Hyperparmeter optimization frameworks <integrations/hyperparams_opt_frameworks.rst>
    Visualization tools <integrations/visualization_tools.rst>
+   Explainability tools <integrations/explainability_tools.rst>
    Messaging systems <integrations/messaging_systems.rst>
    Experiment tracking frameworks <integrations/experiment_tracking_frmwks.rst>
    Neptune extensions library <integrations/neptune-contrib.rst>
