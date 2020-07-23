@@ -9,7 +9,7 @@ This integration enables you to log |DALEX| global and local explanations as wel
 
 Requirements
 ------------
-To use Neptune + DALEX integration you need to have installed is |neptune-client| and |neptune-contrib|.
+To use Neptune + DALEX integration you need to have |neptune-client| and |neptune-contrib| installed.
 
 .. code-block:: bash
 
@@ -73,7 +73,7 @@ To log local explanations you need to pass the observation and the explainer obj
 The following charts can be logged to Neptune:
 
 * break down
-* break down with interactions,
+* break down with interactions
 * shap
 * ceteris paribus
 * ceteris paribus for categorical variables
