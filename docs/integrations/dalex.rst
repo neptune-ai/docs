@@ -56,14 +56,14 @@ If you are dealing with categorical variables you need to pass the column names 
 The following charts can be logged to Neptune:
 
 * variable importance
-* partial dependence
-* accumulated dependence
+* partial dependence if `numerical_features` are specified
+* accumulated dependence if `categorical_features` are specified
 
 .. code-block:: python3
 
     import neptunecontrib.api import log_global_explanations
 
-    log_global_explanations(expl, categorical_features=["gender", "class"])
+    log_global_explanations(expl, categorical_features=["gender", "class"], numerical_features=["age", "fare"])
 
 Log local explanations
 ----------------------
@@ -93,8 +93,8 @@ The following charts can be logged to Neptune:
 
     log_local_explanations(expl, new_observation)
 
-Log expainer object
--------------------
+Log explainer object
+--------------------
 You can also log the explainer object in case you may need it later.
 
 .. code-block:: python3
@@ -176,11 +176,11 @@ Full script
                                     'parch': 0},
                                    index=['John'])
 
-    exp = dx.Explainer(clf, X, y, label="Titanic MLP Pipeline")
+    expl = dx.Explainer(clf, X, y, label="Titanic MLP Pipeline")
 
-    log_local_explanations(exp, new_observation)
-    log_global_explanations(exp, categorical_features=["gender", "class"])
-    log_explainer('explainer.pkl', exp)
+    log_local_explanations(expl, new_observation)
+    log_global_explanations(expl, categorical_features=["gender", "class"], numerical_features=["age", "fare"])
+    log_explainer('explainer.pkl', expl)
 
 .. External links
 
@@ -190,7 +190,7 @@ Full script
 
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/shared/dalex-integration/e/DAL-48/artifacts?path=charts%2F&file=SHAP.html" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/shared/dalex-integration/e/DAL-83/artifacts?path=charts%2F&file=SHAP.html" target="_blank">example experiment</a>
 
 .. |neptune-client| raw:: html
 
