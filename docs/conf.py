@@ -36,6 +36,10 @@ extensions = ['recommonmark',
               'sphinx.ext.viewcode',
               'sphinx.ext.napoleon']
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -58,11 +62,11 @@ html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'style_external_links': False,
     'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
-    'sticky_navigation': False,
+    'sticky_navigation': True,
     'titles_only': False,
     'logo_only': True,
 }
