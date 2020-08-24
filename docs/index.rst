@@ -173,7 +173,7 @@ Discover Neptune
 
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Neptune-API-Tour.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
 
