@@ -167,20 +167,14 @@ Now that you know how to save notebook checkpoints to Neptune you can learn:
 
 .. |Create Exploration| raw:: html
 
-    <div style="text-align: center; margin-bottom: 2em;">
-    <iframe width="100%" height="350" src="https://youtu.be/oMT3djePjw4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/oMT3djePjw4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Configure Notebook| raw:: html
 
-    <div style="text-align: center; margin-bottom: 2em;">
-    <iframe width="100%" height="350" src="https://youtu.be/3IbLpotwHEc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3IbLpotwHEc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Save Notebook checkpoint| raw:: html
 
-    <div style="text-align: center; margin-bottom: 2em;">
-    <iframe width="100%" height="350" src="https://youtu.be/N_RTyqGmRmg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/N_RTyqGmRmg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 

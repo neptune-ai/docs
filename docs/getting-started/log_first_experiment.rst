@@ -153,6 +153,4 @@ Now that you know how to create experiments and log metrics you can learn:
 
 .. |Explore experiment| raw:: html
 
-    <div style="text-align: center; margin-bottom: 2em;">
-    <iframe width="100%" height="350" src="https://youtu.be/BU20fhL6jBE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/BU20fhL6jBE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

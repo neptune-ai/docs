@@ -1,8 +1,8 @@
 Documentation
 =============
 
-Neptune in 60 seconds
----------------------
+Neptune in 3 minutes
+--------------------
 
 |Neptune tour|
 
@@ -159,9 +159,7 @@ Discover Neptune
 
 .. |Neptune tour| raw:: html
 
-    <div style="text-align: center; margin-bottom: 2em;">
-    <iframe width="100%" height="350" src="https://www.youtube.com/watch?v=9iX6DxcijO8&list=PLKePQLVx9tOeRjHIj4_L8KhNG9vWalX1A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Sign up| raw:: html
 
