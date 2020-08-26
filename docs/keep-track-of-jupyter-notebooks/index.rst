@@ -1,12 +1,14 @@
 Version Jupyter Notebooks
 =========================
 
-.. image:: ../_static/images/notebooks/opening.png
-   :target: ../_static/images/notebooks/opening.png
-   :alt: Jupyter Notebooks neptune.ai integration
+|Youtube Video|
 
 Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization.
 They allow data scientists to work interactively, keeping code and results - like visualizations - in a single document.
+
+.. image:: ../_static/images/notebooks/opening.png
+   :target: ../_static/images/notebooks/opening.png
+   :alt: Jupyter Notebooks neptune.ai integration
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let
 you track Jupyter Notebooks.
@@ -261,3 +263,7 @@ OR
 
 
 .. warning:: Always keep your API token secret - it is like a password to the application. Appending the "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile`` file is the recommended method to ensure it remains secret.
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8qmz2yIndOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

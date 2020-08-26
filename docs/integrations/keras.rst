@@ -1,6 +1,8 @@
 Neptune-Keras Integration
 =========================
 
+|Youtube Video|
+
 Neptune has implemented an integration with the Keras neural network library.
 
 Integration with Keras is enabled through the |neptune-contrib| package. 
@@ -102,3 +104,7 @@ Full script
 .. |neptune-contrib| raw:: html
 
     <a href="https://pypi.org/project/neptune-contrib/" target="_blank">neptune-contrib</a>
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EwRGVThAvMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

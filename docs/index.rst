@@ -99,7 +99,7 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
-   Getting Started <getting-started/index.rst>
+   Getting started <getting-started/index.rst>
 
 .. toctree::
    :hidden:
@@ -111,7 +111,7 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
-   Use Cases <use-cases/index.rst>
+   Use cases <use-cases/index.rst>
 
 .. toctree::
    :hidden:
@@ -141,7 +141,7 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
-   Workspace, Project, and User Management <user-workspace-management/index.rst>
+   Workspace, project, and user management <user-workspace-management/index.rst>
 
 .. toctree::
    :hidden:
@@ -159,7 +159,7 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
-   API Reference <api-reference/index.rst>
+   API reference <api-reference/index.rst>
 
 .. toctree::
    :hidden:
@@ -172,6 +172,8 @@ Discover Neptune
 .. |Neptune tour| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 .. |Sign up| raw:: html
 

@@ -1,6 +1,8 @@
 Exploring Experiment View
 =========================
 
+|Youtube Video|
+
 Click a line in the experiments table to see details of that experiment.
 
 
@@ -19,3 +21,7 @@ Inside the experiment, there are tabs in the left sidebar. Each displays specifi
 - **Details**: Displays additional metadata information.
 
 For more information about the experiment data that is logged, see `Logging to Neptune <../learn-about-neptune/experiment_tracking.html#logging-to-neptune>`_.
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5lwCvyC9hqw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

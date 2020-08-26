@@ -68,6 +68,9 @@ a:visited {
 
 .wy-side-nav-search {
   background-color: #f7fafc;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
@@ -77,4 +80,39 @@ a:visited {
 /* override table no-wrap */
 .wy-table-responsive table td, .wy-table-responsive table th {
   white-space: normal;
+}
+
+[role=navigation] {
+  background-color: #fcfcfc;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+.wy-nav-content {
+ max-width: none;
+ width: 1100px;
+}
+
+.rst-content {
+ padding-left: 200px;
+}
+
+.wy-nav-side, .wy-side-scroll, .wy-menu {
+ width: 450px;
+}
+
+.wy-side-nav-search {
+ width: 400px;
+ margin-left: 20px;
+}
+
+.wy-menu-vertical li.toctree-l1 {
+  font-size: 20px;
+  font-weight: 1.5px;
+  padding-bottom: 10px;
+}
+
+.wy-menu-vertical li.toctree-l2 {
+  font-size: 16px;
 }

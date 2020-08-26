@@ -1,6 +1,8 @@
 Logging data to Neptune
 =======================
 
+|Youtube Video|
+
 |neptune-client-github|
 is an open source Python library that lets you integrate your Python scripts with Neptune so that you can more easily track and organize your experiments in the rich Neptune |dashboard|.
 
@@ -51,6 +53,10 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 .. note:: Save the code as ``main.py`` and run it using the command: ``python main.py``.
 
 .. External links
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |neptune-client-github| raw:: html
 

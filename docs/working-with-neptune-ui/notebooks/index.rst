@@ -4,4 +4,5 @@ Notebooks
 .. toctree::
    :maxdepth: 1
 
-   notebooks.rst
+    notebooks.rst
+    notebook-compare.rst
