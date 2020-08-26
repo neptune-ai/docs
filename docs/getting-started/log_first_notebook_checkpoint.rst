@@ -164,7 +164,6 @@ Now that you know how to save notebook checkpoints to Neptune you can learn:
 
     <a href="/working-with-neptune-ui/guides/notebooks.html" target="_blank">learn how to see checkpoint diffs, download notebooks and share with Neptune</a>
 
-
 .. |Create Exploration| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/oMT3djePjw4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

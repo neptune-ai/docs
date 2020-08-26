@@ -13,8 +13,8 @@ Get a quick feel of how monitoring and keeping track of experiments can look lik
 
 |Run on Colab|
 
-What is Neptune?
-----------------
+What does Neptune do?
+---------------------
 
 Neptune is a light-weight experiment management tool that helps you keep track of your machine learning experiments.
 
@@ -81,7 +81,7 @@ Discover Neptune
 - |Example Project|: See how example project looks in Neptune
 - |YouTube channel|: Provides hands-on videos that showcase key Neptune features.
 - |Neptune blog|: Provides in-depth articles about best practices in machine learning experimentation (among other things)
-- |Neptune user community|: Meet other Neptune users and developers and start a discussion.
+- |Neptune community|: Meet other Neptune users and developers and start a discussion.
 - |neptune-client|: Neptune client is an open source Python library that lets you integrate your Python scripts with Neptune.
 - |neptune-contrib|: Built on top of neptune-client, this is an open-source collection of advanced utilities that make work with Neptune easier.
 - Questions? Send an email to contact@neptune.ai by email or click the chat icon in the bottom right corner.
@@ -105,37 +105,49 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
+   Adding Neptune to your project <adding-neptune/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
    Use Cases <use-cases/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Logging data to Neptune <logging-data-to-neptune/index.rst>
+   Logging experiment results <logging-data-to-neptune/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Working with Neptune UI <working-with-neptune-ui/index.rst>
+   Keeping track of Jupyter notebooks <logging-data-to-neptune/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Getting data from Neptune <getting-data-from-neptune/index.rst>
+   Managing results in the UI <working-with-neptune-ui/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Teamwork and User Management <teamwork-and-user-management/index.rst>
+   Sharing results and models with the team <teamwork-collaboration/index.rst>
 
 .. toctree::
    :hidden:
-   :maxdepth: 3
+   :maxdepth: 2
 
-   Security <security/index.rst>
+   Workspace, Project, and User Management <user-workspace-management/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 4
+
+   Security and Privacy <security-privacy/index.rst>
 
 .. toctree::
    :hidden:
@@ -195,9 +207,9 @@ Discover Neptune
 
     <a href="https://neptune.ai/blog/category/machine-learning-model-management" target="_blank">Neptune blog</a>
 
-.. |Neptune user community|  raw:: html
+.. |Neptune community|  raw:: html
 
-    <a href="https://community.neptune.ai/" target="_blank">Neptune user community</a>
+    <a href="https://community.neptune.ai/" target="_blank">Neptune community forum</a>
 
 .. |neptune-client| raw:: html
 

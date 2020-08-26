@@ -64,10 +64,10 @@ html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
     'collapse_navigation': True,
     'style_external_links': False,
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     'prev_next_buttons_location': 'bottom',
     'sticky_navigation': True,
-    'titles_only': False,
+    'titles_only': True,
     'logo_only': True,
 }
 

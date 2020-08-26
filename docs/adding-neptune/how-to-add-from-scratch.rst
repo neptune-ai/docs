@@ -1,5 +1,5 @@
-Use Neptune API to Iog your first experiment
-============================================
+How to add Neptune logging to your script
+=========================================
 
 |run on colab button|
 
@@ -19,14 +19,32 @@ Before you start
 
 Make sure you meet the following prerequisites before starting:
 
-* Have Python 3.x installed
+* Have Neptune client installed.  |Install Neptune|
+* Go through quick start. through the |Quick starts|
 
-.. note::
+Step 1 - Connect Neptune to your script
+---------------------------------------
 
-    You can run this example on Google Colab
+Step 2 - Create experiment
+--------------------------
 
-Step 1 - Install neptune-client
--------------------------------
+Step 3 - Add logging of parameters
+----------------------------------
+
+Step 4 - Add logging of training metrics
+----------------------------------------
+
+Step 5 - Add logging of test metrics
+------------------------------------
+
+Step 6 - Add logging of performance charts
+------------------------------------------
+
+Step 7 - Add logging of model binary
+------------------------------------
+
+Run your script and see your experiment in Neptune UI
+-----------------------------------------------------
 
 Go to the command line of your operating system and run the installation command:
 
@@ -128,7 +146,6 @@ Now that you know how to create experiments and log metrics you can learn:
 
 * |create a new project|
 * |how to log other objects and monitor training in Neptune|
-* |how to connect Neptune to the ML framework you are using|
 
 .. External links
 
