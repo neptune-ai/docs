@@ -1,10 +1,7 @@
-Logging data to Neptune
-=======================
+Logging experiment data to Neptune
+==================================
 
-|neptune-client-github|
-is an open source Python library that lets you integrate your Python scripts with Neptune so that you can more easily track and organize your experiments in the rich Neptune |dashboard|.
-
-Once you have integrated with Neptune, you can also:
+Once you have integrated with Neptune, you can:
 
 * Create experiments. |Example1|.
 * Manage running experiments. |Example2|.
@@ -88,10 +85,15 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
     <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
 
+.. |Here is an example| raw:: html
+
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   Logging experiment data <logging/index.rst>
-   Updating existing experiments <updating/index.rst>
-   Downloading experiment data programmatically <downloading/index.rst>
+   What can you log to experiments <what-you-can-log.rst>
+   Logging cheatsheet <cheatsheet.rst>
+   Sample project <sample_project.rst>
+   Tutorials <tutorials/index.rst>
+   Integrations <../../integrations/index.rst>

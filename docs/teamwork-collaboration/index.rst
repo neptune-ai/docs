@@ -14,5 +14,6 @@ To share a view on a project or any of its parts, you simply copy and paste the 
 .. toctree::
    :maxdepth: 2
 
+   See what everyone is doing <see-all-experiments/index.rst>
    Share "what you see" with a link <sharing-with-links/index.rst>
    Collaborate on results in Wiki <collaborating-in-wiki/index.rst>

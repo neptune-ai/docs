@@ -11,8 +11,8 @@ Copy API token
 --------------
 ``NEPTUNE_API_TOKEN`` is located under your user menu (top right side of the screen):
 
-.. image:: ../../_static/images/tutorials/token.png
-   :target: ../../_static/images/tutorials/token.png
+.. image:: ../../../_static/images/tutorials/token.png
+   :target: ../../../_static/images/tutorials/token.png
    :alt: API token location
 
 Assign it to the bash environment variable:

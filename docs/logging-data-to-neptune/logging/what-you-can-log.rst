@@ -1,38 +1,5 @@
-Keep Track of Experiments
-=========================
-
-Neptune was designed to let you track whatever you need, wherever you run it.
-
-.. contents::
-    :local:
-    :depth: 1
-    :backlinks: top
-
-Supported Programming Languages and Platforms
----------------------------------------------
-
-There are various ways of connecting Neptune to your experiments.
-
-
-- **Python neptune-client**: Neptune provides an open-source library that lets you connect your experiments directly from your scripts.
-
-    For more information, see `Neptune Python Library <../python-api/introduction.html>`_ and `Get Started <../python-api/tutorials/get-started.html>`_.
-
-- **Jupyter Notebook extension**: (package: neptune-notebooks): With this extension, you can version all the exploratory work or experimentation done in Jupyter Notebooks. ``.ipynb`` checkpoints are sent to the Neptune server and can be commented, shared, compared and downloaded by anyone on your project.
-
-    For more information, see `Using Jupyter Notebooks in Neptune <../notebooks/introduction.html>`_.
-
-- **R via reticulate**: You can track experiments run in R, as well. You can install an interface to Neptune using the |CRAN package manager| and use it, just as you would any R package.
-
-    For more information, see `R support <../integrations/r-support.html>`_.
-
-- **Any other programming language**: For any other language, you can save your experiment data to a JSON file, which can be synced with the Neptune server. In this way, you can log any experiment, no matter how complicated, multi-staged or multi-lingual. Use Neptune API methods to parse the JSON file and upload it as an experiment.
-
-    For more information, see |Sync experiments with Neptune using a JSON file|.
-
-
-Logging to Neptune
-------------------
+What you can log to experiments
+===============================
 
 There are various object types that you can log to Neptune. Some of them are logged automatically; some you need to specify explicitly. There is a place in the UI associated with every logging object type defined below.
 
@@ -93,66 +60,6 @@ There are various object types that you can log to Neptune. Some of them are log
 
     Learn more about integrations `here <../integrations/introduction.html>`_, or study some examples: `Keras <../integrations/keras.html>`_, `PyTorch Lightning <../integrations/pytorch_lightning.html>`_, `XGBoost <../integrations/xgboost.html>`_, `Matplotlib <../integrations/matplotlib.html>`_.
 
-Fetching Experiments from Neptune
----------------------------------
-
-Every piece of information that is logged to Neptune can be easily retrieved programmatically using the dedicated methods in the Neptune Python Library. For more information, see `Fetching Data From Neptune <../python-api/fetch-data.html>`_.
-
-Experiment dashboard
-""""""""""""""""""""
-You can fetch data on the Project level. One example is :meth:`~neptune.projects.Project.get_leaderboard` that lets you fetch the entire experiment dashboard or use filters to query only parts of it that you care about.
-
-
-Single experiment
-"""""""""""""""""
-Alternatively, you can fetch data relating to a specific experiment. One example is :meth:`~neptune.projects.Project.get_experiments` that lets you fetch existing experiments and then access information like the parameters, metrics, properties or artifacts of that experiment.
-
-
-If you are running experiments in Jupyter Notebooks, you can download all checkpoints from Notebooks that were previously logged to Neptune. These could be yours or one of your teammate's. See `Uploading and Downloading Notebook Checkpoints <../notebooks/introduction.html#uploading-and-downloading-notebook-checkpoints>`_.
-
-Main Python Objects
--------------------
-.. I want to use the name of the API - not "Python". What is best to call it?
-
-There are several key objects in the client library that let you interact with your Neptune projects or experiment data.
-
-For more information, see `Neptune Python Library Reference <../python-api/api-reference.html>`_.
-
-.. External Links
-
-.. |CRAN package manager| raw:: html
-
-    <a href="https://cran.r-project.org/web/packages/neptune/index.html" target="_blank">CRAN package manager</a>
-
-.. |Sync experiments with Neptune using a JSON file| raw:: html
-
-    <a href="https://neptune-contrib.readthedocs.io/user_guide/sync/with_json.html" target="_blank">Sync experiments with Neptune using a JSON file</a>
-
-.. |artifacts| raw:: html
-
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/artifacts" target="_blank">See this example</a>
-
 .. |Here is an example| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">Here is an example</a>
-
-.. |monitoring| raw:: html
-
-     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/monitoring" target="_blank">See this example</a>
-
-.. |properties| raw:: html
-
-     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/details" target="_blank">in this experiment</a>
-
-.. |in this example| raw:: html
-
-     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/details" target="_blank">in this example</a>
-
-
-.. |Example Git reference| raw:: html
-
-     <a href="https://ui.neptune.ai/o/neptune-ai/org/fastai2-integration/e/FAI-3/details" target="_blank">Example Git reference</a>
-
-.. |Example| raw:: html
-
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py" target="_blank">Example</a>

@@ -1,7 +1,7 @@
 .. _fetch_data:
 
-Cheatsheet
-----------
+Downloading experiment data from Neptune
+========================================
 
 In addition to uploading experiment data to Neptune, neptune-client can be used to fetch data directly from Neptune for further processing, such as for custom analysis.
 
@@ -10,7 +10,7 @@ This page presents the methods in the `Neptune Python Library <introduction.html
 |Study this example|.
 
 Getting Project Data
-====================
+--------------------
 
 On the level of project, you can fetch a list of :class:`neptune.projects.Project` objects,
 fetch the entire experiments view as a Pandas DataFrame and get all members of the project.
@@ -22,7 +22,7 @@ The following methods are provided:
 * :meth:`~neptune.projects.Project.get_members`: Gets a list of project members.
 
 Getting Experiment Data
-=======================
+-----------------------
 
 You can fetch multiple types of tracked :class:`~neptune.experiments.Experiment` objects, ranging from numeric log values to tags.
 

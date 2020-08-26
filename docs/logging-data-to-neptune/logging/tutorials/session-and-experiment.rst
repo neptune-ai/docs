@@ -79,8 +79,8 @@ Also, if you are creating more than one experiment, this approach keeps things o
 
 Ok, now that we know how to start and stop experiments let's see what happens in the app when you actually run it.
 
-.. image:: ../../_static/images/tutorials/create_experiment_basic.gif
-   :target: ../../_static/images/tutorials/create_experiment_basic.gif
+.. image:: ../../../_static/images/tutorials/create_experiment_basic.gif
+   :target: ../../../_static/images/tutorials/create_experiment_basic.gif
    :alt: create experiment
 
 With every ``create_experiment``, a new record is added to Neptune with a state *running*.

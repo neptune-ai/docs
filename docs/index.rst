@@ -117,19 +117,19 @@ Discover Neptune
    :hidden:
    :maxdepth: 2
 
-   Logging experiment results <logging-data-to-neptune/index.rst>
+   Logging and managing experiment results <logging-data-to-neptune/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Keeping track of Jupyter notebooks <logging-data-to-neptune/index.rst>
+   Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
 
-   Managing results in the UI <working-with-neptune-ui/index.rst>
+   Organizing and exploring results in the UI <working-with-neptune-ui/index.rst>
 
 .. toctree::
    :hidden:
