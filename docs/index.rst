@@ -97,22 +97,41 @@ Discover Neptune
    Home <self>
    Getting started <getting-started/index.rst>
    Use cases <use-cases/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Guides
+
    Logging and managing experiment results <logging-data-to-neptune/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
    Organizing and exploring results in the UI <working-with-neptune-ui/index.rst>
    Sharing results and models with the team <teamwork-collaboration/index.rst>
    Workspace, project, and user management <user-workspace-management/index.rst>
    Security and Privacy <security-privacy/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Essentials
+
    Integrations <integrations/index.rst>
    API reference <api-reference/index.rst>
    FAQ <faq/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Links
+
+   Neptune Website <https://neptune.ai/>
+   Neptune App <https://ui.neptune.ai/>
 
 .. External links
 
 .. |Neptune tour| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 .. |Sign up| raw:: html
 
