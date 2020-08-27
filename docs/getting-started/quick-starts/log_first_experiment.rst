@@ -40,7 +40,7 @@ Go to the command line of your operating system and run the installation command
 
 
 Step 2 - Create a `quickstart.py`
---------------------------------
+---------------------------------
 
 Create a python script called `quickstart.py` and copy the code below to it:
 
@@ -76,8 +76,8 @@ Create a python script called `quickstart.py` and copy the code below to it:
 
     1. Get your Neptune API token
 
-       .. image:: ../_static/images/others/get_token.gif
-          :target: ../_static/images/others/get_token.gif
+       .. image:: ../../_static/images/others/get_token.gif
+          :target: ../../_static/images/others/get_token.gif
           :alt: Get API token
 
     2. Pass the token to ``api_token`` argument of ``neptune.init()`` method: ``api_token=YOUR_API_TOKEN``
@@ -118,7 +118,7 @@ You’ve learned how to:
 * Install neptune-client
 * Connect Neptune to your python script and create an experiment
 * Log metrics to Neptune
-* Explore your metrics in `Logs` and `Charts’ sections
+* Explore your metrics in ``Logs`` and ``Charts`` sections
 * See hardware consumption during the experiment run
 
 What's next

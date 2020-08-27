@@ -4,5 +4,5 @@ Notebooks
 .. toctree::
    :maxdepth: 1
 
-    notebooks.rst
-    notebook-compare.rst
+    Notebooks in Neptune UI <notebooks.rst>
+    Notebook comparison <notebook-compare.rst>

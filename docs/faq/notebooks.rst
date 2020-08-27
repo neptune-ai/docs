@@ -56,8 +56,8 @@ Where is *NEPTUNE_API_TOKEN*?
 #. `Log in <https://neptune.ai/login>`_ to Neptune.
 #. In the upper right corner of the UI, click the avatar, and then click **Get API Token** to copy the token to the clipboard.
 
-.. image:: _static/images/notebooks/token.png
-   :target: _static/images/notebooks/token.png
+.. image:: ../_static/images/notebooks/token.png
+   :target: ../_static/images/notebooks/token.png
    :alt: image
 
 
@@ -70,6 +70,6 @@ If that is the case, the experiments are not associated with the notebook.
 In Jupyter, click **Activate**.
 
 
-.. image:: _static/images/notebooks/activate_button.png
-   :target: _static/images/notebooks/activate_button.png
+.. image:: ../_static/images/notebooks/activate_button.png
+   :target: ../_static/images/notebooks/activate_button.png
    :alt: image

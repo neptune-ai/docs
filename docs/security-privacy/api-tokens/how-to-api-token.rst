@@ -6,8 +6,8 @@ Copy API token
 
 ``NEPTUNE_API_TOKEN`` is located under your user menu (top right side of the screen):
 
-.. image:: ../_static/images/others/get_token.gif
-  :target: ../_static/images/others/get_token.gif
+.. image:: ../../_static/images/others/get_token.gif
+  :target: ../../_static/images/others/get_token.gif
   :alt: Get API token
 
 Set to environment variable

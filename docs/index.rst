@@ -96,7 +96,6 @@ Discover Neptune
 
    Home <self>
    Getting started <getting-started/index.rst>
-   Adding Neptune to your project <adding-neptune/index.rst>
    Use cases <use-cases/index.rst>
    Logging and managing experiment results <logging-data-to-neptune/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
