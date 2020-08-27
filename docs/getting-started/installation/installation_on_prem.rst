@@ -34,7 +34,7 @@ To see how it works in detail read our **"Neptune installation guide"**.
 
 
     <a href="https://neptune.ai/wp-content/uploads/Neptune-Installation-Guide.pdf" target="_blank">
-        <img width="400" src="../_static/images/others/on_prem_installation.png"></img>
+        <img width="400" src="../../_static/images/others/on_prem_installation.png"></img>
     </a>
 
     </div>

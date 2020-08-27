@@ -108,9 +108,10 @@ a:visited {
 }
 
 .wy-menu-vertical li.toctree-l1 {
-  font-size: 20px;
-  font-weight: 1.5px;
-  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 1.25px;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 
 .wy-menu-vertical li.toctree-l2 {

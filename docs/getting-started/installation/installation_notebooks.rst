@@ -156,14 +156,14 @@ Method 3: Install the JupyterLab extension only, using the JupyterLab Extension 
 
 1. In JupyterLab, enable Extension Manager, by clicking **Settings** > **Enable Extension Manager (experimental)**.
 
-.. image:: ../_static/images/notebooks/extension_manager.png
-   :target: ../_static/images/notebooks/extension_manager.png
+.. image:: ../../_static/images/notebooks/extension_manager.png
+   :target: ../../_static/images/notebooks/extension_manager.png
    :alt: Enable extension manager
 
 2. Find neptune-notebooks and click **Install**.
 
-.. image:: ../_static/images/notebooks/ext-manager-2.png
-   :target: ../_static/images/notebooks/ext-manager-2.png
+.. image:: ../../_static/images/notebooks/ext-manager-2.png
+   :target: ../../_static/images/notebooks/ext-manager-2.png
    :alt: go to extension manager and search for neptune-notebooks
 
 
@@ -172,8 +172,8 @@ Checking if the Installation was Successful
 
 Provided you have `configured <configuration.html>`_ Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:
 
-.. image:: ../_static/images/notebooks/buttons_11.png
-    :target: ../_static/images/notebooks/buttons_11.png
+.. image:: ../../_static/images/notebooks/buttons_11.png
+    :target: ../../_static/images/notebooks/buttons_11.png
     :alt: image
 
 - **Neptune**: For modifying configuration.
@@ -191,15 +191,15 @@ you connect it to your Neptune account.
 
 1. In Jupyter, click **Connect to Neptune**.
 
-.. image:: ../_static/images/notebooks/connect_button.png
-   :target: ../_static/images/notebooks/connect_button.png
+.. image:: ../../_static/images/notebooks/connect_button.png
+   :target: ../../_static/images/notebooks/connect_button.png
    :alt: image
 
 
 The **Configure your connection to Neptune** dialog appears.
 
-.. image:: ../_static/images/notebooks/configure_connect.png
-   :target: ../_static/images/notebooks/configure_connect.png
+.. image:: ../../_static/images/notebooks/configure_connect.png
+   :target: ../../_static/images/notebooks/configure_connect.png
    :alt: image
 
 
@@ -209,8 +209,8 @@ The **Configure your connection to Neptune** dialog appears.
 
    a. In the upper right corner, click the avatar, and then click **Get API Token**.
 
-    .. image:: ../_static/images/notebooks/get_api_token.png
-        :target: ../_static/images/notebooks/get_api_token.png
+    .. image:: ../../_static/images/notebooks/get_api_token.png
+        :target: ../../_static/images/notebooks/get_api_token.png
         :alt: image
 
    b. In the dialog that appears, click the **Copy to clipboard** button on the right. Then click **Close**.

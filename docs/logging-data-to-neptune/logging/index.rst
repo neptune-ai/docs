@@ -96,4 +96,4 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
    Logging cheatsheet <cheatsheet.rst>
    Sample project <sample_project.rst>
    Tutorials <tutorials/index.rst>
-   Integrations <../../integrations/index.rst>
+   Integrations <logging_integrations.rst>

@@ -9,7 +9,7 @@ Neptune comes with 25+ integrations with Python libraries popular in machine lea
 
 How integrations work?
 ----------------------
-Integrations are written using `Neptune-client <../python-api/introduction.html>`_ and provide a convenient way to jump-start working with Neptune and a library that you are using. There is no need to integrate your code manually using neptune-client (it's easy though).
+Integrations are written using |neptune-client| and provide a convenient way to jump-start working with Neptune and a library that you are using. There is no need to integrate your code manually using neptune-client (it's easy though).
 
 Each integration, that is installation, scope and usage example are explained in detail in the documentation (see: `LightGBM <lightgbm.html>`_ for example).
 
@@ -25,13 +25,14 @@ Integrations are organized into the following categories:
 * `Cloud providers <cloud_providers.html>`_
 
 .. note::
-    `Neptune-client <../python-api/introduction.html>`_ is our official way of logging experiments and notebooks to Neptune (all integrations use it). If you need more control or explicit logging, you can always use it in your projects as well.
+
+     |neptune-client|  is our official way of logging experiments and notebooks to Neptune (all integrations use it). If you need more control or explicit logging, you can always use it in your projects as well.
 
 My library is not here. What now?
 ---------------------------------
 There are two common paths:
 
-#. You can always use `neptune-client <../python-api/introduction.html>`_, our open source Python library for logging all kinds of data and metadata to `experiments <../learn-about-neptune/experiment_tracking.html>`_.
+#. You can always use  |neptune-client| , our open source Python library for logging all kinds of data and metadata to experiments.
 #. Contact us directly via mail (contact@neptune.ai), chat (that little thing in the lower right corner) or post |forum| on our forum to discuss what you need and how we can deliver it.
 
 .. External links
@@ -40,8 +41,12 @@ There are two common paths:
 
     <a href="https://community.neptune.ai/c/feature-requests" target="_blank">feature request</a>
 
+.. |neptune-client| raw:: html
+
+    <a href="../logging-data-to-neptune/index.html" target="_blank">neptune-client</a>
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
 
    Languages <languages.rst>

@@ -33,8 +33,21 @@ highlight_language = 'python3'
 # ones.
 extensions = ['recommonmark',
               'sphinx.ext.autodoc',
+              'autoapi.extension',
               'sphinx.ext.viewcode',
               'sphinx.ext.napoleon']
+
+autoapi_dirs = ['../venv/lib/python3.8/site-packages/neptune',
+                '../venv/lib/python3.8/site-packages/neptunecontrib',
+                '../venv/lib/python3.8/site-packages/neptune_tensorboard',
+                '../venv/lib/python3.8/site-packages/neptune_mlflow',
+                ]
+autoapi_template_dir = '_templates/auto_api_templates'
+autoapi_root = 'api-reference'
+autoapi_ignore = ['*neptune_tensorboard/internal*',
+                  '*neptune_tensorboard/sync/internal*',
+                  '*neptune/internal*',
+                  ]
 
 source_suffix = {
     '.rst': 'restructuredtext',

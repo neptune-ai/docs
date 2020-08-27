@@ -92,87 +92,27 @@ Discover Neptune
 
 .. toctree::
    :hidden:
+   :maxdepth: 2
 
    Home <self>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Getting started <getting-started/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Adding Neptune to your project <adding-neptune/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Use cases <use-cases/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Logging and managing experiment results <logging-data-to-neptune/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Organizing and exploring results in the UI <working-with-neptune-ui/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Sharing results and models with the team <teamwork-collaboration/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Workspace, project, and user management <user-workspace-management/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 4
-
    Security and Privacy <security-privacy/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    Integrations <integrations/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
    API reference <api-reference/index.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
-
-   FAQ <faq.rst>
+   FAQ <faq/index.rst>
 
 .. External links
 
 .. |Neptune tour| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 .. |Sign up| raw:: html
