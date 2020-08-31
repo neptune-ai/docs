@@ -20,14 +20,14 @@ Neptune is a light-weight experiment management tool that helps you keep track o
 
 Most common Neptune use cases:
 
-- Monitor ML runs live wherever you are
-- Get your ML experimentation in order
-- Compare and Debug ML experiments
-- Share results of experiments with your team
+- |Monitor ML runs live wherever you are|
+- |Get your ML experimentation in order|
+- |Compare and Debug ML experiments|
+- |Share results of experiments with your team|
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let you track Jupyter Notebooks.
 
-- Clean up your Jupyter workflow without git
+- |Clean up your Jupyter workflow without git|
 
 |Sign up|
 
@@ -188,3 +188,23 @@ Discover Neptune
 .. |neptune-contrib|  raw:: html
 
     <a href="https://neptune-contrib.readthedocs.io/index.html" target="_blank">neptune-contrib</a>
+
+.. |Monitor ML runs live wherever you are| raw:: html
+
+    <a href="/use-cases/monitor_live.html">Monitor ML runs live wherever you are</a>
+
+.. |Get your ML experimentation in order| raw:: html
+
+    <a href="/use-cases/organize_experiments.html">Get your ML experimentation in order</a>
+
+.. |Compare and Debug ML experiments| raw:: html
+
+    <a href="/use-cases/compare_experiments.html">Compare and Debug ML experiments</a>
+
+.. |Share results of experiments with your team| raw:: html
+
+    <a href="/use-cases/share_results.html">Share results of experiments with your team</a>
+
+.. |Clean up your Jupyter workflow without git| raw:: html
+
+    <a href="/use-cases/clean_up_jupyter_workflow.html">Clean up your Jupyter workflow without git</a>
