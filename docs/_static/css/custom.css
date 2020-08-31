@@ -68,8 +68,8 @@ a:visited {
 
 .wy-side-nav-search {
   background-color: #f7fafc;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+  /* position: -webkit-sticky;*/
+  /*position: sticky;*/
   top: 0;
 }
 
@@ -84,7 +84,7 @@ a:visited {
 
 [role=navigation] {
   background-color: #fcfcfc;
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }

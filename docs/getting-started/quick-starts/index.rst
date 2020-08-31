@@ -1,6 +1,11 @@
 Quick starts
 ============
 
+Quick starts should get you started in minutes.
+Those are minimal examples that get you from A to B.
+
+Right now we have:
+
 .. toctree::
    :maxdepth: 1
 

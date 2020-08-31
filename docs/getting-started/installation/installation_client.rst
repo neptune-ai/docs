@@ -14,9 +14,7 @@ Make sure you meet the following prerequisites before starting:
 Install neptune-client
 **********************
 
-Depending on your operating system run
-
-Open a terminal or CMD and run this command:
+Depending on your operating system open a terminal or CMD and run this command:
 
 **pip**
 

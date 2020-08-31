@@ -28,10 +28,8 @@ With Neptune you can:
 
 |Sign up|
 
-How does Neptune work?
-----------------------
-
-You embed Neptune in your scripts.
+How does Neptune work (in 3 steps)?
+-----------------------------------
 
 1. Connect it to your script
 
@@ -51,9 +49,9 @@ You embed Neptune in your scripts.
 
 .. code:: python
 
-    neptune.log_metric('test_auc', 0.92)
-    neptune.log_image('charts', roc_curve_fig)
-    neptune.log_artifact('model.h5')
+    neptune.log_metric('test_auc', 0.92) # metrics, losses
+    neptune.log_image('charts', roc_curve_fig) # images, charts
+    neptune.log_artifact('model.h5') # model binaries, predictions, files
 
 4. Run your script normally
 
@@ -95,14 +93,23 @@ Discover Neptune
    :maxdepth: 2
 
    Home <self>
-   Getting started <getting-started/index.rst>
-   Use cases <use-cases/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Getting started
+
+   Installation <getting-started/installation/index.rst>
+   Quick starts <getting-started/quick-starts/index.rst>
+   Adding Neptune to your codebase <getting-started/adding-neptune/index.rst>
+   Getting help <getting-started/get-help.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Guides
 
+   Use cases <use-cases/index.rst>
    Logging and managing experiment results <logging-data-to-neptune/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
    Organizing and exploring results in the UI <working-with-neptune-ui/index.rst>
@@ -153,7 +160,7 @@ Discover Neptune
 
 .. |Quick starts| raw:: html
 
-    <a href="/getting-started/quick-starts.html">Quick Starts</a>
+    <a href="/getting-started/quick-starts/index.html">Quick Starts</a>
 
 .. |Example Project| raw:: html
 
