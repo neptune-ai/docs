@@ -164,7 +164,7 @@ To do that you should specify:
 
 .. code:: python
 
-    PARAMS = {}
+    PARAMS = {'lr': 0.1, 'epoch_nr': 10, 'batch_size': 32}
     neptune.create_experiment(name='great-idea', params=PARAMS)
 
 This opens a new "experiment" namespace in Neptune to which you can log various objects.
@@ -174,33 +174,79 @@ It also logs your ``PARAMS`` dictionary with all the parameters that you want to
 
     Right now parameters can only be passed at experiment creation.
 
+.. tip::
+
+    You may want to read our article on:
+
+    - |how to track hyperparameters of ML models|
+
 3. Add logging of training metrics
 
 .. code:: python
 
-    neptune.log_metric
+    neptune.log_metric('loss', 0.26)
 
-5. Add logging of test metrics
+The first argument is the name of the log. You can have one or multiple log names (like 'acc', 'f1_score', 'log-loss', 'test-acc').
+The second argument is the value of the log.
 
-.. code:: python
-
-    neptune.log_metric
-
-6. Add logging of performance charts
+Typically during training there will be some sort of a loop where those losses are logged.
+You can simply call ``neptune.log_metric`` multiple times on the same log name to log it at each step.
 
 .. code:: python
 
-    neptune.log_image
+    for i in range(epochs):
+        ...
+        neptune.log_metric('loss', loss)
+        neptune.log_metric('metric', accuracy)
+
+.. note::
+
+    You can specifically log value at given step by using ``x`` and ``y`` arguments.
+
+    .. code:: python
+
+        neptune.log_metric('loss', x=12, y=0.32)
+
+.. tip::
+
+    You may want to read our articles on:
+
+    - |how to log other objects and monitor training in Neptune|
+    - |how to track metrics and losses|
+    - |how to monitor ML/DL experiments|
+
+4. Add logging of test metrics
 
 .. code:: python
 
-    neptune.log_chart
+    neptune.log_metric('test-accuracy', 0.82)
 
-7. Add logging of model binary
+You can log metrics in the same way after the training loop is done.
+
+.. note::
+
+    You can also update experiments after the script is done running.
+
+    Read about |updating existing experiments|.
+
+5. Add logging of performance charts
 
 .. code:: python
 
-    neptune.log_artifact
+    neptune.log_image('predictions', 'pred_img.png')
+    neptune.log_image('performance charts', fig)
+
+.. tip::
+
+    You may want to read our articles on:
+
+    - |how to log other objects and monitor training in Neptune|
+
+6. Add logging of model binary
+
+.. code:: python
+
+    neptune.log_artifact('model.pkl')
 
 Run your script and see your experiment in Neptune UI
 -----------------------------------------------------
@@ -210,8 +256,11 @@ Run your script and see your experiment in Neptune UI
 What is next?
 -------------
 
+- See |how to log other objects and monitor training in Neptune|
+- See |how to track hyperparameters of ML models|
+- See |how to track metrics and losses|
+- See |how to monitor ML/DL experiments|
 - Check the |full list of integrations|
-- Watch videos
 
 .. |installation guides| raw:: html
 
@@ -285,3 +334,24 @@ What is next?
 .. |full list of integrations| raw:: html
 
     <a href="/integrations/index.html">full list of integrations</a>
+
+.. |how to log other objects and monitor training in Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
+
+
+.. |how to track hyperparameters of ML models| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-hyperparameters" target="_blank">how to track hyperparameters of ML models</a>
+
+.. |how to track metrics and losses| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-machine-learning-model-metrics" target="_blank">how to track metrics and losses</a>
+
+.. |how to monitor ML/DL experiments| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-monitor-machine-learning-and-deep-learning-experiments" target="_blank">how to monitor ML/DL experiments</a>
+
+.. |updating existing experiments| raw:: html
+
+    <a href="/logging-data-to-neptune/updating/index.html">full list of integrations</a>
