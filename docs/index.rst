@@ -20,14 +20,14 @@ Neptune is a light-weight experiment management tool that helps you keep track o
 
 Most common Neptune use cases:
 
-- Monitor your ML experiment runs live
-- Organize and version the ML experimentation process
-- Compare experiments
-- Share results with your team
+- Monitor ML runs live wherever you are
+- Get your ML experimentation in order
+- Compare and Debug ML experiments
+- Share results of experiments with your team
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let you track Jupyter Notebooks.
 
-- Version, organize, and share Jupyter Notebooks and checkpoints
+- Clean up your Jupyter workflow without git
 
 |Sign up|
 

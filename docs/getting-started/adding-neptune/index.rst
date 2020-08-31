@@ -3,7 +3,7 @@ Adding Neptune to your codebase
 
 We've created a how-to guide to guide you through this step by step:
 
-|How to connect Neptune to your Python codebase step by step (5 min)|
+- |How to connect Neptune to your Python codebase step by step (5 min)|
 
 If you are interested in connecting Neptune with a particular framework you can jump straight to our |Integrations|.
 

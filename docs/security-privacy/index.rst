@@ -2,7 +2,7 @@ Security and privacy
 ====================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    API tokens <api-tokens/index.rst>
    Data Privacy <data-privacy/index.rst>

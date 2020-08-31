@@ -1,5 +1,5 @@
-Clean up Jupyter workflow without git
-=====================================
+Clean up your Jupyter workflow without git
+==========================================
 
 Introduction
 ------------
