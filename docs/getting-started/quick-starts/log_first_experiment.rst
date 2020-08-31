@@ -128,7 +128,7 @@ Now that you know how to create experiments and log metrics you can learn:
 
 * |create a new project|
 * |how to log other objects and monitor training in Neptune|
-* |how to connect Neptune to the ML framework you are using|
+* |how to connect Neptune to your codebase|
 
 .. External links
 
@@ -136,9 +136,9 @@ Now that you know how to create experiments and log metrics you can learn:
 
     <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
 
-.. |how to connect Neptune to the ML framework you are using| raw:: html
+.. |how to connect Neptune to your codebase| raw:: html
 
-    <a href="https://neptune.ai/integrations" target="_blank">how to connect Neptune to the ML framework you are using</a>
+    <a href="/getting-started/adding-neptune/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
 
 .. |run on colab button| raw:: html
 

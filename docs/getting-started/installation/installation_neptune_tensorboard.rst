@@ -1,7 +1,7 @@
 Installing neptune-tensorboard
-=========================
+==============================
 
-Neptune has an |integration with tensorboard| that lets you convert mlruns directory into Neptune experiments.
+Neptune has an |integration with tensorboard| that lets you sync your TensorBoard logdir with Neptune experiments.
 It comes as a separate package |neptune-tensorboard|.
 
 To install it, open a terminal or CMD (depending on your operating system) and run this command:

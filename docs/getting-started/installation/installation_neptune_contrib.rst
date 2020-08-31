@@ -1,66 +1,51 @@
 Installing neptune-contrib
 ==========================
 
-Neptune comes with a bunch of client extensions that make working with it easier.
+|neptune-contrib| is an open-source library with Neptune extensions created by the community.
 
-.. toctree::
-   :maxdepth: 1
-
-   Install neptune-contrib <installation_contrib.rst>
-   Install neptune-tensorboard <installation_tensorboard.rst>
-   Install neptune-mlflow <installation_mlflow.rst>
-
-- |neptune-contrib|
--
-
-Installing neptune-contrib
+Installing minimal contrib
 --------------------------
 
-Before you start
-****************
-
-Make sure you meet the following prerequisites before starting:
-
-- Have Python 3.x installed.
-
-Install neptune-client
-**********************
-
-Depending on your operating system run
-
-Open a terminal or CMD and run this command:
-
-**pip**
+To install it, open a terminal or CMD (depending on your operating system) and run this command:
 
 .. code:: bash
 
-    pip install neptune-client
+    pip install neptune-contrib
 
-**conda**
+Installing submodule dependencies
+---------------------------------
+
+Neptune contrib comes with a few helper submodules:
+
+- neptunecontrib.api: extensions to the neptune api
+- neptunecotnrib.bots: accessing experiment data through a bot
+- neptunecontrib.hpo: Neptune utils for hyperparameter optimization
+- neptunecontrib.monitoring: Neptune utils for various machine learning frameworks
+- neptunecontrib.versioning: Data versioning utils
+- neptunecontrib.viz: Vizualization utils
+
+Some of the dependencies may not be installed with the minimal installation.
+
+To install them you can add the suffix [SUBMODULE] to your pip command.
+
+For example:
 
 .. code:: bash
 
-    conda install -c conda-forge neptune-client
+    pip install neptune-contrib[monitoring]
 
-.. note::
+It will install all the minimal dependencies as well as the specific ``neptunecontrib.monitoring`` dependences.
 
-    If you want to have your hardware consumption logged you should additionaly install ``psutil``
+Installing all dependencies
+---------------------------
 
-    **pip**
+You can also install all the dependencies.
 
-    .. code:: bash
+.. warning:: this may install a lot of things that you don't need.
 
-        pip install psutil
+.. code:: bash
 
-    **conda**
-
-    .. code:: bash
-
-        conda install -c anaconda psutil
-
-Installing neptune-contrib
---------------------------
-
+    pip install neptune-contrib[all]
 
 
 What is next?
@@ -75,21 +60,3 @@ What is next?
 .. |neptune-contrib| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
-
-.. |neptune-mlflow| raw:: html
-
-    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">neptune-mlflow</a>
-
-.. |neptune-tensorboard| raw:: html
-
-    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
-
-.. |Neptune| raw:: html
-
-    <a href="https://neptune.ai/" target="_blank">Neptune</a>
-
-.. |Neptune web app| raw:: html
-
-    <a href="https://ui.neptune.ai/" target="_blank">Neptune web app</a>
-
-

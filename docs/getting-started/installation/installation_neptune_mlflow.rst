@@ -1,7 +1,7 @@
 Installing neptune-mlflow
 =========================
 
-Neptune has an |integration with MLflow| that lets you convert ``mlruns`` directory into Neptune experiments.
+Neptune has an |integration with MLflow| that lets you sync ``mlruns`` directory into Neptune experiments.
 It comes as a separate package |neptune-mlflow|.
 
 To install it, open a terminal or CMD (depending on your operating system) and run this command:
