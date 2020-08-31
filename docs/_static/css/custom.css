@@ -68,8 +68,8 @@ a:visited {
 
 .wy-side-nav-search {
   background-color: #f7fafc;
-  /* position: -webkit-sticky;*/
-  /*position: sticky;*/
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
 }
 
@@ -110,8 +110,8 @@ a:visited {
 .wy-menu-vertical li.toctree-l1 {
   font-size: 16px;
   font-weight: 1.25px;
-  padding-bottom: 2px;
-  padding-top: 2px;
+  padding-bottom: 1px;
+  padding-top: 1px;
 }
 
 .wy-menu-vertical li.toctree-l2 {

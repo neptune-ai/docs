@@ -127,8 +127,8 @@ What's next
 Now that you know how to create experiments and log metrics you can learn:
 
 - |create a new project|
-- |how to log other objects and monitor training in Neptune|
-- |how to connect Neptune to your codebase|
+- See |how to log other objects and monitor training in Neptune|
+- See |how to connect Neptune to your codebase|
 
 .. External links
 

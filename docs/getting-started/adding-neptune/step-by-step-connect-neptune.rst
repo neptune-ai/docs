@@ -9,9 +9,9 @@ Introduction
 
 This guide will show you how to:
 
-* Create a project in Neptune
-* Setup Neptune API token in your environment
-* Connect Neptune to your script
+- Create a project in Neptune
+- Setup Neptune API token in your environment
+- Connect Neptune to your script
 
 By the end of it, you will have experiments from your project logged and versioned in Neptune!
 
@@ -45,6 +45,12 @@ Neptune lets you create a project.
 4. Click **Apply**.
 
 The new project is created.
+
+.. note::
+
+    TODO
+
+    If you are using a team account XXX
 
 Step 2: Find and setup Neptune API token
 ----------------------------------------
@@ -149,8 +155,8 @@ You need to tell Neptune who you are and where you want to log things.
 
 To do that you should specify:
 
-- ``project_qualified_name``=``USERNAME/PROJECT_NAME``: Neptune username and project
-- ``api_token``=``YOUR_API_TOKEN``: your Neptune API token.
+- ``project_qualified_name=USERNAME/PROJECT_NAME``: Neptune username and project
+- ``api_token=YOUR_API_TOKEN``: your Neptune API token.
 
 .. note::
 
@@ -178,7 +184,7 @@ It also logs your ``PARAMS`` dictionary with all the parameters that you want to
 
     You may want to read our article on:
 
-    - |how to track hyperparameters of ML models|
+    - See |how to track hyperparameters of ML models|
 
 3. Add logging of training metrics
 
@@ -211,9 +217,9 @@ You can simply call ``neptune.log_metric`` multiple times on the same log name t
 
     You may want to read our articles on:
 
-    - |how to log other objects and monitor training in Neptune|
-    - |how to track metrics and losses|
-    - |how to monitor ML/DL experiments|
+    - See |how to log other objects and monitor training in Neptune|
+    - See |how to track metrics and losses|
+    - See |how to monitor ML/DL experiments|
 
 4. Add logging of test metrics
 
@@ -241,7 +247,7 @@ You can log metrics in the same way after the training loop is done.
     There are many other object that you can log to Neptune.
     You may want to read our articles on:
 
-    - |how to log other objects and monitor training in Neptune|
+    - See |how to log other objects and monitor training in Neptune|
 
 6. Add logging of model binary
 

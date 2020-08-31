@@ -21,8 +21,8 @@ We have a lot of video tutorials on our Youtube channel.
 
 See how to get your problem solved in the |Video Tutorials|.
 
-Intercom
---------
+Chat
+----
 
 You can always talk to us!
 
@@ -79,7 +79,7 @@ You can just shoot us an email at contact@neptune.ai
 
 .. |Frequently Asked Questions| raw:: html
 
-    <a href="/faq.html">Frequently Asked Questions</a>
+    <a href="/faq/index.html">Frequently Asked Questions</a>
 
 .. |Neptune Blog|  raw:: html
 
@@ -99,16 +99,16 @@ You can just shoot us an email at contact@neptune.ai
 
 .. |neptune-r|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-r" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-r" target="_blank">neptune-r</a>
 
 .. |neptune-tensorboard|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
 
 .. |neptune-mlflow|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">neptune-mlflow</a>
 
 .. |neptune-notebooks|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-notebooks" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-notebooks" target="_blank">neptune-notebooks</a>

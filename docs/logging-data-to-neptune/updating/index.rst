@@ -25,7 +25,7 @@ For example:
 
 .. code:: python
 
-    experiment = project.get_experiments(id='')[0]
+    experiment = project.get_experiments(id='ON-238')[0]
 
 ``project.get_experiment()`` returns a list of experiments. In this case we just have one but still need to access it.
 

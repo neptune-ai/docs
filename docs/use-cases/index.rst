@@ -1,6 +1,11 @@
 Use Cases
 =========
 
+You can use Neptune for whatever you see fit but there are a few main use-cases that people use Neptune for.
+
+
+Those are:
+
 .. toctree::
    :maxdepth: 1
 
