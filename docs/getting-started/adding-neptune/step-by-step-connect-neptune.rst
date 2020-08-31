@@ -238,6 +238,7 @@ You can log metrics in the same way after the training loop is done.
 
 .. tip::
 
+    There are many other object that you can log to Neptune.
     You may want to read our articles on:
 
     - |how to log other objects and monitor training in Neptune|
@@ -247,6 +248,20 @@ You can log metrics in the same way after the training loop is done.
 .. code:: python
 
     neptune.log_artifact('model.pkl')
+
+You save your model to a file and log that file to Neptune.
+
+.. tip::
+
+    There is a helper function in neptune-contrib called |log pickle| for logging picklable Python objects without saving them to disk.
+
+    It works like this:
+
+    .. code:: python
+
+        from neptunecontrib.api import log_pickle
+
+        log_pickle(model)
 
 Run your script and see your experiment in Neptune UI
 -----------------------------------------------------
@@ -355,3 +370,7 @@ What is next?
 .. |updating existing experiments| raw:: html
 
     <a href="/logging-data-to-neptune/updating/index.html">full list of integrations</a>
+
+.. |log pickle| raw:: html
+
+    <a href="/api-reference/neptunecontrib/api/index.html?highlight=log%20pickle#neptunecontrib.api.log_pickle">log_pickle</a>
