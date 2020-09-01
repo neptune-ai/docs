@@ -12,6 +12,14 @@ This guide will show you how to:
 * Monitor hardware resources during training
 * Create a Neptune callback for Keras
 
+.. note::
+
+    You **don't have to use Keras** to monitor your training runs live with Neptune.
+
+    We're using it as an easy to follow example.
+
+    There are links to integrations with other ML frameworks and useful articles about monitoring in the text.
+
 By the end of it, you will monitor your metrics, losses, and hardware live in Neptune!
 
 Before you start
