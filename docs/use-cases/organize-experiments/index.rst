@@ -7,13 +7,20 @@ Gain control without changing your workflow.
 
 |YouTube video|
 
-Learn how to do that with these resources:
+Learn how to do that with these resources.
 
-- **Must read: |How to organize ML experimentation: step by step guide| [Docs]**
-- |Machine Learning Experiment Management: How to Organize Your Model Development Process| [Article]
-- |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide| [Article]
+Must read
+---------
+
+- |How to organize ML experimentation: step by step guide|
+
+Useful articles
+---------------
+
+- |Machine Learning Experiment Management: How to Organize Your Model Development Process|
+- |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide|
 - |How to Track Hyperparameters of Machine Learning Models| [Article]
-- |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune| [Article]
+- |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune|
 
 .. toctree::
    :hidden:

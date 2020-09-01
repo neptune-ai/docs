@@ -9,11 +9,18 @@ You can. Run experiments anywhere, log anything you want, and see it all in one 
 
 Learn how to do that with these resources:
 
-- **Must read: |How to monitor ML runs live: step by step guide| [Docs]**
-- |A Complete Guide to Monitoring ML Experiments Live in Neptune| [Article]
-- |How to Monitor Machine Learning and Deep Learning Experiments| [Article]
-- |How to Track Machine Learning Model Metrics in Your Projects| [Article]
-- |How to Keep Track of PyTorch Lightning Experiments with Neptune| [Article]
+Must read
+---------
+
+- |How to monitor ML runs live: step by step guide|
+
+Useful articles
+---------------
+
+- |A Complete Guide to Monitoring ML Experiments Live in Neptune|
+- |How to Monitor Machine Learning and Deep Learning Experiments|
+- |How to Track Machine Learning Model Metrics in Your Projects|
+- |How to Keep Track of PyTorch Lightning Experiments with Neptune|
 
 .. toctree::
    :hidden:
