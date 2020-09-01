@@ -37,10 +37,10 @@ extensions = ['recommonmark',
               'sphinx.ext.viewcode',
               'sphinx.ext.napoleon']
 
-autoapi_dirs = ['../venv/lib/python3.8/site-packages/neptune',
-                '../venv/lib/python3.8/site-packages/neptunecontrib',
-                '../venv/lib/python3.8/site-packages/neptune_tensorboard',
-                '../venv/lib/python3.8/site-packages/neptune_mlflow',
+autoapi_dirs = ['../venv/lib/python3.6/site-packages/neptune',
+                '../venv/lib/python3.6/site-packages/neptunecontrib',
+                '../venv/lib/python3.6/site-packages/neptune_tensorboard',
+                '../venv/lib/python3.6/site-packages/neptune_mlflow',
                 ]
 autoapi_template_dir = '_templates/auto_api_templates'
 autoapi_root = 'api-reference'
