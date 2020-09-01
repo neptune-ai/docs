@@ -10,15 +10,6 @@ This guide will show you how to:
 
 * Monitor training and evaluation metrics and losses live
 * Monitor hardware resources during training
-* Create a Neptune callback for Keras
-
-.. note::
-
-    You **don't have to use Keras** to monitor your training runs live with Neptune.
-
-    We're using it as an easy to follow example.
-
-    There are links to integrations with other ML frameworks and useful articles about monitoring in the text.
 
 By the end of it, you will monitor your metrics, losses, and hardware live in Neptune!
 
@@ -41,6 +32,14 @@ Step 1: Create a basic training script
 --------------------------------------
 
 As an example I'll use a script that trains a Keras model on mnist dataset.
+
+.. note::
+
+    You **don't have to use Keras** to monitor your training runs live with Neptune.
+
+    I am using it as an easy to follow example.
+
+    There are links to integrations with other ML frameworks and useful articles about monitoring in the text.
 
 Create a file ``train.py`` and copy the script below.
 
