@@ -19,7 +19,7 @@ Useful articles
 
 - |Machine Learning Experiment Management: How to Organize Your Model Development Process|
 - |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide|
-- |How to Track Hyperparameters of Machine Learning Models| [Article]
+- |How to Track Hyperparameters of Machine Learning Models|
 - |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune|
 
 .. toctree::
