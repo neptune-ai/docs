@@ -23,7 +23,7 @@ Make sure you meet the following prerequisites before starting:
 
 .. note::
 
-    You can run this example on Google Colab
+    You can run this quick-start on Google Colab with zero setup. Just click on the button above.
 
 Step 1 - Install neptune-client
 -------------------------------

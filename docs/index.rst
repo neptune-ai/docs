@@ -191,20 +191,20 @@ Discover Neptune
 
 .. |Monitor ML runs live wherever you are| raw:: html
 
-    <a href="/use-cases/monitor_live.html">Monitor ML runs live wherever you are</a>
+    <a href="/use-cases/monitor-live/index.html">Monitor ML runs live wherever you are</a>
 
 .. |Get your ML experimentation in order| raw:: html
 
-    <a href="/use-cases/organize_experiments.html">Get your ML experimentation in order</a>
+    <a href="/use-cases/organize-experiments/index.html">Get your ML experimentation in order</a>
 
 .. |Compare and Debug ML experiments| raw:: html
 
-    <a href="/use-cases/compare_experiments.html">Compare and Debug ML experiments</a>
+    <a href="/use-cases/compare-experiments/index.html">Compare and Debug ML experiments</a>
 
 .. |Share results of experiments with your team| raw:: html
 
-    <a href="/use-cases/share_results.html">Share results of experiments with your team</a>
+    <a href="/use-cases/share-results/index.html">Share results of experiments with your team</a>
 
 .. |Clean up your Jupyter workflow without git| raw:: html
 
-    <a href="/use-cases/clean_up_jupyter_workflow.html">Clean up your Jupyter workflow without git</a>
+    <a href="/use-cases/clean-up-jupyter/index.html">Clean up your Jupyter workflow without git</a>
