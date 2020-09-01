@@ -1,0 +1,14 @@
+global:
+  domain: "stage.neptune.ai"
+  registry: "{{ registry }}"
+docs:
+  image: "{{ image }}"
+  domain: "new-docs"
+  nodeSelector:
+    node.type: stage
+  tolerations:
+    - key: "node.taint"
+      operator: Equal
+      value: "stage"
+      effect: NoSchedule
+  heapId: 1995704192
