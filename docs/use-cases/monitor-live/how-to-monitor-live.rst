@@ -41,7 +41,7 @@ As an example I'll use a script that trains a Keras model on mnist dataset.
 
     There are links to integrations with other ML frameworks and useful articles about monitoring in the text.
 
-Create a file ``train.py`` and copy the script below.
+1. Create a file ``train.py`` and copy the script below.
 
 ``train.py``
 
@@ -80,7 +80,7 @@ Create a file ``train.py`` and copy the script below.
               epochs=PARAMS['epoch_nr'],
               batch_size=PARAMS['batch_size'])
 
-Run training to make sure that it works correctly.
+2. Run training to make sure that it works correctly.
 
 .. code:: bash
 
