@@ -64,8 +64,8 @@ How does Neptune work (in 3 steps)?
 
 5. See everything in Neptune UI
 
-.. image:: _static/images/core-concepts/compare_experiments.png
-    :target: _static/images/core-concepts/compare_experiments.png
+.. image:: _static/images/others/view_experiment_info.png
+    :target: _static/images/others/view_experiment_info.png
     :alt: Compare Experiments
     :width: 800
 
