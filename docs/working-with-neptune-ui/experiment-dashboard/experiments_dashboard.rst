@@ -10,7 +10,7 @@ Neptune is a browser-enabled app that lets you visualize and browse experiments.
       :target: /_static/images/core-concepts/experiment_general_view.png
       :alt: Experiments view
 
-The **Experiments** tab  displays all the experiments in a specific Project in table form.
+The **Experiments** space displays all the experiments in a specific Project in table form.
 
 Filter experiments
 ^^^^^^^^^^^^^^^^^^
