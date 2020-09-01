@@ -50,4 +50,4 @@ Useful articles
 
 .. |How to organize ML experimentation: step by step guide| raw:: html
 
-    <a href="/use-cases/monitor-live/how-to-organize-experiments.html">How to organize ML experimentation: step by step guide</a>
+    <a href="/use-cases/organize-experiments/how-to-organize-experiments.html">How to organize ML experimentation: step by step guide</a>

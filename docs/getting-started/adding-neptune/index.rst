@@ -1,5 +1,5 @@
-Adding Neptune to your codebase
-===============================
+Integrating Neptune into your codebase
+======================================
 
 We've created a how-to guide to guide you through this step by step:
 
