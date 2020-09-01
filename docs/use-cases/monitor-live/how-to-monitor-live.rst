@@ -19,7 +19,7 @@ Before you start
 Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
-- Have Tensorflow with Keras installed
+- Have Tensorflow 2.x with Keras installed
 - |Have Neptune installed|
 - |Create a project|
 - |Configure Neptune API token on your system|

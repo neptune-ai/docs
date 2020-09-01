@@ -79,11 +79,11 @@ html_logo = '_static/images/others/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
-    'collapse_navigation': True,
-    'style_external_links': False,
+    'collapse_navigation': False,
+    'style_external_links': True,
     'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
-    'sticky_navigation': True,
+    'sticky_navigation': False,
     'titles_only': True,
     'logo_only': True,
 }
