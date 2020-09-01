@@ -13,10 +13,7 @@ if __name__ == "__main__":
     registry = sys.argv[2]
     image = sys.argv[3]
 
-    template_directory = "cicd/templates/stage"
-
-    if env == "prod":
-        template_directory = "cicd/templates/prod"
+    template_directory = "cicd/templates/" + env
 
     template_env = Environment(loader=FileSystemLoader(template_directory))
     template = template_env.get_template("neptune-docs.yaml.j2")
