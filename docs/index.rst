@@ -103,7 +103,7 @@ Discover Neptune
 
    Installation <getting-started/installation/index.rst>
    Quick starts <getting-started/quick-starts/index.rst>
-   Adding Neptune to your codebase <getting-started/adding-neptune/index.rst>
+   Integrating Neptune into your codebase <getting-started/adding-neptune/index.rst>
    Getting help <getting-started/get-help.rst>
 
 .. toctree::
