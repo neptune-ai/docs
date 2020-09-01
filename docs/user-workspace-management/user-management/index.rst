@@ -15,7 +15,7 @@ Workspace roles apply only to team workspaces.
 
 .. _core-concepts_user-roles_workspace-admin:
 
-If you have :ref:`created a workspace <how-to_team-management_create-workspace>`,
+If you have :ref:`created a Team workspace <how-to_team-management_create-workspace>`,
 you can invite people to it. Two roles are available: Admin and Member.
 
 The following table summarizes the permissions available for the workspace roles.
