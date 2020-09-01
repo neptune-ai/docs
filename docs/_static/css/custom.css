@@ -103,8 +103,9 @@ a:visited {
 }
 
 .wy-side-nav-search {
- width: 400px;
+ width: 450px;
  margin-left: 20px;
+ margin-right: 20px;
 }
 
 .wy-menu-vertical li.toctree-l1 {
@@ -117,4 +118,8 @@ a:visited {
 .wy-menu-vertical li.toctree-l2 {
   font-size: 14px;
   margin-left: 15px;
+}
+
+[role=search] {
+ width: 400px;
 }
