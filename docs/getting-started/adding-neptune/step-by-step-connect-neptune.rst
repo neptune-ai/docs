@@ -9,9 +9,9 @@ Introduction
 
 This guide will show you how to:
 
-- Create a project in Neptune
-- Setup Neptune API token in your environment
-- Connect Neptune to your script
+- Connect Neptune to your script from scratch
+- Find ML framework integrations to start tracking your runs with even less work
+- Find tracking tool integrations to sync/convert experiment information from your current tool to Neptune experiments
 
 By the end of it, you will have experiments from your project logged and versioned in Neptune!
 
@@ -20,74 +20,12 @@ Before you start
 
 Make sure you meet the following prerequisites before starting:
 
-* Have Python 3.x installed
-* Have Neptune installed. Read our |installation guides|.
+- Have Python 3.x installed
+- |Have Neptune installed|
+- |Create a project|
+- |Configure Neptune API token on your system|
 
-Step 1: Create a project in Neptune
------------------------------------
-
-Neptune lets you create a project.
-
-1. Click **Project** at the top-left of the window.
-
-2. In the pane that appears, click **New project**.
-
-.. image:: ../../_static/images/how-to/team-management/create-project-1.png
-   :target: ../../_static/images/how-to/team-management/create-project-1.png
-   :alt: Go to new project panel
-
-3. Set a name, color, description and :ref:`project type <core-concepts_project-types>` (Public or Private).
-
-.. image:: ../../_static/images/how-to/team-management/create-project-2.png
-   :target: ../../_static/images/how-to/team-management/create-project-2.png
-   :alt: Create new project
-
-4. Click **Apply**.
-
-The new project is created.
-
-.. note::
-
-    TODO
-
-    If you are using a team account XXX
-
-Step 2: Find and setup Neptune API token
-----------------------------------------
-
-1. Copy API token
-
-``NEPTUNE_API_TOKEN`` is located under your user menu (top right side of the screen):
-
-.. image:: ../../_static/images/others/get_token.gif
-  :target: ../../_static/images/others/get_token.gif
-  :alt: Get API token
-
-2. Set to environment variable
-
-Assign it to the bash environment variable:
-
-Linux/IOS:
-
-.. code:: bash
-
-    export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'
-
-or append this line to your ``~/.bashrc`` or ``~/.bash_profile`` files **(recommended)**.
-
-Windows:
-
-.. code-block:: bat
-
-    set NEPTUNE_API_TOKEN="YOUR_LONG_API_TOKEN"
-
-.. warning::
-
-    Always keep your API token secret - it is like a password to the application.
-    Appending the "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile``
-    file is the recommended method to ensure it remains secret.
-
-Step 3: Choose a language: Are you using Python?
+Step 1: Choose a language: Are you using Python?
 ------------------------------------------------
 
 Neptune was built for Python first and if this is your language of choice jump to the next Step!
@@ -96,7 +34,7 @@ If you are not using Python, no worries, Neptune plays nicely with other languag
 
 Read |how to use Neptune with other languages| here.
 
-Step 4: See if Neptune integrates with your current experiment tracking tool
+Step 2: See if Neptune integrates with your current experiment tracking tool
 ----------------------------------------------------------------------------
 
 Neptune has utilities that let you use other open-source experiment tracking tools together with Neptune
@@ -108,7 +46,7 @@ Neptune integrates with the following experiment tracking frameworks:
 - |TensorBoard|
 - |Sacred|
 
-Step 5: See if Neptune integrates with your ML framework
+Step 3: See if Neptune integrates with your ML framework
 --------------------------------------------------------
 
 Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started in minutes.
@@ -138,7 +76,7 @@ Hyperparameter Optimization frameworks:
 
 Check out the |full list of integrations|.
 
-Step 6: Add Neptune logging explicitly
+Step 4: Add Neptune logging explicitly
 --------------------------------------
 
 1. Connect Neptune to your script
@@ -160,11 +98,16 @@ To do that you should specify:
 
 .. note::
 
-    If you followed "Step 2: Find and setup Neptune API token" you can skip ``api_token``
+    If you followed suggested prerequisites:
+
+    - |Configure Neptune API token on your system|
+    - |Create a project|
+
+    You can skip ``api_token`` and change the ``project_qualified_name`` to your ``USERNAME`` and ``PROJECT_NAME``
 
     .. code:: python
 
-        neptune.init(project_qualified_name='shared/onboarding')
+        neptune.init(project_qualified_name='USERNAME/PROJECT_NAME')
 
 2. Create an experiment and log parameters
 
@@ -380,3 +323,15 @@ What is next?
 .. |log pickle| raw:: html
 
     <a href="/api-reference/neptunecontrib/api/index.html?highlight=log%20pickle#neptunecontrib.api.log_pickle">log_pickle</a>
+
+.. |Have Neptune installed| raw:: html
+
+    <a href="/getting-started/installation/index.html">Have Neptune installed</a>
+
+.. |Create a project| raw:: html
+
+    <a href="/teamwork-and-user-management/how-to/create-project.html" target="_blank">Create a project in Neptune</a>
+
+.. |Configure Neptune API token on your system| raw:: html
+
+    <a href="/security-privacy/api-tokens/how-to-api-token.html" target="_blank">Configure Neptune API token on your system</a>
