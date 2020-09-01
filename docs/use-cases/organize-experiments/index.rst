@@ -26,7 +26,7 @@ Useful articles
    :hidden:
    :maxdepth: 1
 
-    How to organize ML experiments: step by step guide<how-to-organize-experiments.rst>
+    How to organize ML experiments: step by step guide <how-to-organize-experiments.rst>
 
 .. |YouTube video|  raw:: html
 

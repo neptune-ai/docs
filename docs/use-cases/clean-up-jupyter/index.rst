@@ -18,7 +18,7 @@ Must read
    :hidden:
    :maxdepth: 1
 
-    How to monitor ML runs live: step by step guide <how-to-monitor-live.rst>
+    How to version your Jupyter workflow: step by step guide <how-to-version-notebooks.rst>
 
 .. |YouTube video|  raw:: html
 

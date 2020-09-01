@@ -1,15 +1,4 @@
-Clean up your Jupyter workflow without git
-==========================================
+How to version your Jupyter workflow: step by step guide
+========================================================
 
-Introduction
-------------
-
-Before you start
-----------------
-
-Step 1
-------
-
-What's next?
-------------
-
+TODO

@@ -1,15 +1,4 @@
-Get your ML experimentation in order
-====================================
+How to organize ML experimentation: step by step guide
+======================================================
 
-Introduction
-------------
-
-Before you start
-----------------
-
-Step 1
-------
-
-What's next?
-------------
-
+TODO

@@ -22,6 +22,7 @@ Most common Neptune use cases:
 
 - |Monitor ML runs live wherever you are|
 - |Get your ML experimentation in order|
+- |Compare and Debug ML experiments and models|
 - |Share results of experiments with your team|
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let you track Jupyter Notebooks.
@@ -203,6 +204,10 @@ Discover Neptune
 .. |Share results of experiments with your team| raw:: html
 
     <a href="/use-cases/share-results/index.html">Share results of experiments with your team</a>
+
+.. |Compare and Debug ML experiments and models| raw:: html
+
+    <a href="/use-cases/compare-experiments/index.html">Compare and Debug ML experiments and models</a>
 
 .. |Clean up your Jupyter workflow without git| raw:: html
 

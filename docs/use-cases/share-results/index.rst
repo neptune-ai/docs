@@ -18,7 +18,7 @@ Must read
    :hidden:
    :maxdepth: 1
 
-    How to monitor ML runs live: step by step guide <how-to-monitor-live.rst>
+    How to share results with your team: step by step guide <how-to-share-experiments.rst>
 
 .. |YouTube video|  raw:: html
 
