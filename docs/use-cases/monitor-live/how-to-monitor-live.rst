@@ -28,7 +28,7 @@ Make sure you meet the following prerequisites before starting:
 
     You can run this how-to on Google Colab with zero setup.
 
-    Just click on the button at the top.
+    Just click on the ``Open in Colab`` button on the top of the page.
 
 Step 1: Create a basic training script
 --------------------------------------
