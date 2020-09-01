@@ -7,7 +7,7 @@ You can. Run experiments anywhere, log anything you want, and see it all in one 
 
 |YouTube video|
 
-Learn how to do that with these resources:
+Learn how to do that with these resources.
 
 Must read
 ---------
@@ -30,7 +30,7 @@ Useful articles
 
 .. |YouTube video|  raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/K-FU20SgB9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/K-FU20SgB9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |A Complete Guide to Monitoring ML Experiments Live in Neptune| raw:: html
 

@@ -30,7 +30,7 @@ Useful articles
 
 .. |YouTube video|  raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/YGPggqU26Qc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/YGPggqU26Qc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Machine Learning Experiment Management: How to Organize Your Model Development Process| raw:: html
 

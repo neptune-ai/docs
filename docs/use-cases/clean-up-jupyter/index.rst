@@ -7,7 +7,7 @@ It’s good for you and great for your team.
 
 |YouTube video|
 
-Learn how to do that with these resources:
+Learn how to do that with these resources.
 
 Must read
 ---------
@@ -22,7 +22,7 @@ Must read
 
 .. |YouTube video|  raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/d7Ovf3kcxqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/d7Ovf3kcxqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |How to version your Jupyter workflow: step by step guide| raw:: html
 

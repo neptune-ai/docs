@@ -56,7 +56,7 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
 .. |Youtube Video| raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |neptune-client-github| raw:: html
 
