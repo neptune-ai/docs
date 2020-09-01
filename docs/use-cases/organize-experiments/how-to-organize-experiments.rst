@@ -6,6 +6,12 @@ How to organize ML experimentation: step by step guide
 Introduction
 ------------
 
+This guide will show you how to:
+
+- Keep track of code, data, environment and parameters
+- Log results like evaluation metrics and model files
+- Find experiments in the experiment dashboard with tags, parameter and metric filters
+- Organize experiments in a dashboard view and save it for later
 
 Before you start
 ----------------

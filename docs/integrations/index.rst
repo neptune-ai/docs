@@ -15,14 +15,14 @@ Each integration, that is installation, scope and usage example are explained in
 
 Integrations are organized into the following categories:
 
-* `Deep learning frameworks <deep_learning_frameworks.html>`_
-* `Machine learning frameworks <machine_learning_frameworks.html>`_
-* `Hyperparameter optimization libraries <hyperparams_opt_frameworks.html>`_
-* `Visualization libraries <visualization_tools.html>`_
-* `Messaging systems <messaging_systems.html>`_
-* `Experiment tracking frameworks <experiment_tracking_frmwks.html>`_
-* `Neptune Extensions Library <neptune-contrib.html>`_
-* `Cloud providers <cloud_providers.html>`_
+- `Deep learning frameworks <deep_learning_frameworks.html>`_
+- `Machine learning frameworks <machine_learning_frameworks.html>`_
+- `Hyperparameter optimization libraries <hyperparams_opt_frameworks.html>`_
+- `Visualization libraries <visualization_tools.html>`_
+- `Messaging systems <messaging_systems.html>`_
+- `Experiment tracking frameworks <experiment_tracking_frmwks.html>`_
+- `Neptune Extensions Library <neptune-contrib.html>`_
+- `Cloud providers <cloud_providers.html>`_
 
 .. note::
 

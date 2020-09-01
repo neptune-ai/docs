@@ -80,7 +80,7 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
     'collapse_navigation': False,
-    'style_external_links': True,
+    'style_external_links': False,
     'navigation_depth': 3,
     'prev_next_buttons_location': 'bottom',
     'sticky_navigation': False,
