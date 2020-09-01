@@ -37,6 +37,7 @@ As an example I'll use a script that trains a Keras model on mnist dataset.
 Create a file ``train.py`` and copy the script below.
 
 ``train.py``
+
 .. code:: python
 
     import keras

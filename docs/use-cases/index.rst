@@ -6,7 +6,7 @@ You can use Neptune for whatever you see fit but there are a few main use-cases 
 Those are:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
     Monitor ML runs live wherever you are <monitor-live/index.rst>
     Get your ML experimentation in order <organize-experiments/index.rst>
