@@ -3,7 +3,14 @@ Add Users to a Project
 
 .. note::
 
-    Only a project Owner can invite new users to the project. Learn more about :ref:`project roles <core-concepts_user-roles_project-owner>`.
+    Note that you can only collaborate on your private projects in a Team workspace.
+    Try Team workspace with 1 project and 10 GB for free.
+
+    Read how to set up a |Team workspace|.
+
+.. note::
+
+    Only a project Owner can invite new users to the project. Learn more about |project roles|.
 
 1. In the Project pane, click **Settings**, then click the **People** tab.
 
@@ -24,3 +31,12 @@ Add Users to a Project
 
     - If a user is registered in Neptune.ai, s(he) can be added from the UI, under **Project Settings** > **People**. If the user is not yet registered in Neptune.ai, s(he) can be invited by email. In any case, the user needs to accept the invitation, before s(he) appears in the list.
     - If the project is created in an individual workspace, you can only invite users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
+
+.. |Team workspace| raw:: html
+
+    <a href="/user-workspace-management/workspaces/create-workspace.html">Team workspace</a>
+
+.. |project roles| raw:: html
+
+    <a href="/user-workspace-management/user-management/index.html#roles-in-a-project">project roles</a>
+

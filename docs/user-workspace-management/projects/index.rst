@@ -31,3 +31,12 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
     Create a project <create-project.rst>
     Add people to project <add-people-to-project.rst>
+
+.. |credit-default-prediction| raw:: html
+
+    <a href="https://ui.neptune.ai/neptune-ai/credit-default-prediction" target="_blank">Credit default prediction</a>
+
+
+.. |binary-classification-metrics| raw:: html
+
+    <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics" target="_blank">Binary classification metrics</a>
