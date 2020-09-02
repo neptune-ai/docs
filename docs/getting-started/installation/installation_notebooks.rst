@@ -14,7 +14,7 @@ Neptune versions the Notebook automatically once an experiment has started.
 About neptune-notebooks
 -----------------------
 
-neptune-notebooks is a Python package hosted `here <https://pypi.org/project/neptune-notebooks>`_. It includes:
+neptune-notebooks is a Python package hosted on pip. It includes:
 
 - A very basic CLI (command line interface) for uploading notebooks.
 - Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.
