@@ -75,9 +75,6 @@ Irrespective of which method you use, the following must be preinstalled on your
 - `npm <https://www.npmjs.com/get-npm>`_
 - `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`_
 
-.. tip:: When installing Python packages, it is best practice to work in a `virtual environment <https://virtualenv.pypa.io/en/latest/>`_.
-
-
 Method 1: Install the full neptune-notebooks package through the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
