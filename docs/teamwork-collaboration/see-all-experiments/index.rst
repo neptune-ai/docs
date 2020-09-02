@@ -11,8 +11,8 @@ You can execute experiment code on your laptop, cloud environment, or a cluster 
     :target: ../../_static/images/others/run_everywhere.png
     :alt: Run ML experiment everywhere see them in one place
 
-Neptune helps different people on your team
--------------------------------------------
+How does Neptune help different people on your team?
+----------------------------------------------------
 
 **Data Scientist:**
 
