@@ -11,5 +11,5 @@ Those are:
     Monitor ML runs live wherever you are <monitor-live/index.rst>
     Get your ML experimentation in order <organize-experiments/index.rst>
     Share results of experiments with your team <share-results/index.rst>
-    Compare and Debug ML experiments and models <compare-experiments/index.rst>
+    Compare and debug ML experiments and models <compare-experiments/index.rst>
     Clean up your Jupyter workflow without git <clean-up-jupyter/index.rst>

@@ -1,4 +1,4 @@
-Compare and Debug Experiments and Models
+Compare and debug experiments and models
 ========================================
 
 TODO
