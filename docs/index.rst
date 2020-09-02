@@ -187,7 +187,7 @@ Discover Neptune
 
 .. |neptune-contrib|  raw:: html
 
-    <a href="https://neptune-contrib.readthedocs.io/index.html" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
 
 .. |Monitor ML runs live wherever you are| raw:: html
 

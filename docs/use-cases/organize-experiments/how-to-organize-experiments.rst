@@ -33,35 +33,228 @@ Make sure you meet the following prerequisites before starting:
 Step 1: Create a basic training script
 --------------------------------------
 
+As an example I'll use a script that trains a sklearn model on wine dataset.
+
+.. note::
+
+    You **don't have to use sklearn** to track your training runs with Neptune.
+
+    I am using it as an easy to follow example.
+
+    There are links to integrations with other ML frameworks and useful articles in the text.
+
+1. Create a file ``train.py`` and copy the script below.
+
+``train.py``
+
+.. code:: python
+
+    from sklearn.datasets import load_wine
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import f1_score
+    from joblib import dump
+
+    data = load_wine()
+    X_train, X_test, y_train, y_test = train_test_split(data.data, data.target,
+                                                        test_size=0.4, random_state=1234)
+
+    params = {'n_estimators': 10,
+              'max_depth': 3,
+              'min_samples_leaf': 1,
+              'min_samples_split': 2,
+              'max_features': 3,
+              }
+
+    clf = RandomForestClassifier(**params)
+    clf.fit(X_train, y_train)
+    y_train_pred = clf.predict_proba(X_train)
+    y_test_pred = clf.predict_proba(X_test)
+
+    train_f1 = f1_score(y_train, y_train_pred.argmax(axis=1), average='macro')
+    test_f1 = f1_score(y_test, y_test_pred.argmax(axis=1), average='macro')
+    print(f'Train f1:{train_f1} | Test f1:{test_f1}')
+
+    dump(clf, 'model.pkl')
+
+2. Run training to make sure that it works correctly.
+
+.. code:: bash
+
+   python train.py
+
 Step 3: Connect Neptune to your script
 --------------------------------------
+
+At the top of your script add
+
+.. code:: python
+
+    import neptune
+
+    neptune.init(project_qualified_name='shared/onboarding',
+                 api_token='ANONYMOUS',
+                 )
+
+You need to tell Neptune who you are and where you want to log things.
+
+To do that you specify:
+
+- ``project_qualified_name=USERNAME/PROJECT_NAME``: Neptune username and project
+- ``api_token=YOUR_API_TOKEN``: your Neptune API token.
+
+.. note::
+
+    If you configured your Neptune API token correctly, as described in |Configure Neptune API token on your system|, you can skip ``api_token`` argument:
+
+    .. code:: python
+
+        neptune.init(project_qualified_name='YOUR_USERNAME/YOUR_PROJECT_NAME')
 
 Step 4. Create an experiment and add parameter, code and environment tracking
 -----------------------------------------------------------------------------------
 
-1. Add parameters tracking
+To start logging things to Neptune you need to create an experiment.
+An experiment is an object to which you log various objects.
 
-2. Add code and environment tracking
+Some object types like parameters and source code can only be logged when you create experiment.
+
+Let's go over that step-by-step.
+
+1. Create an experiment
+
+.. code:: python
+
+    neptune.create_experiment(name='great-idea')
+
+This opens a new "experiment" namespace in Neptune to which you can log various objects.
+You can add ``name`` to your experiment but it's optional.
+
+2. Add parameters tracking
+
+.. code:: python
+
+    neptune.create_experiment(params=params)
+
+To log parameters you need to pass a dictionary to the ``params`` argument.
+
+3. Add code and environment tracking
+
+.. code:: python
+
+    neptune.create_experiment(upload_source_files=['*.py', 'requirements.txt'])
+
+You can log source code to Neptune with every experiment run.
+It can save you if you forget to commit your code changes to git.
+
+To do it pass a list of files or regular expressions to ``upload_source_files`` argument.
+
+.. note::
+
+    Neptune automatically finds the ``.git`` directoy and logs the git commit information like:
+
+    - commit id sha
+    - commit message
+    - commit author email
+    - commit datetime
+    - whether the experiment is run on a dirty commit (code change but wasn't commited to git)
+
+Putting it all together your ``neptune.create_experiment`` should look like this:
+
+.. code:: python
+
+    neptune.create_experiment(name='great-idea', # name experiment
+                              params=params,  # log parameters
+                              upload_source_files=['*.py', 'requirements.txt']  # log source and environment
+                              )
 
 Step 5. Add tags to organize things
 -----------------------------------
 
-Step 6. Add logging of evaluation metrics
------------------------------------------
+.. code:: python
+
+    neptune.append_tag(['experiment-organization', 'me'])  # organize things
+
+Pass a list of strings to the ``.append_tag`` method of the experiment object.
+
+It will help you find experiments later, especially if you try a lot of ideas.
+
+.. note::
+
+    You can also add tags at experiment creation via ``tags`` argument
+
+    .. code:: python
+
+        neptune.create_experiment(tags=['experiment-organization', 'me'])
+
+Step 6. Add logging of train and evaluation metrics
+---------------------------------------------------
+
+.. code:: python
+
+    neptune.log_metric('train_f1', train_f1)
+    neptune.log_metric('test_f1', test_f1)
+
+Log all the metrics you care about with ``.log_metric`` method. There could be as many as you like.
+The first argument is the name of the metric, the second it's value.
+
+.. note::
+
+    You can log multiple values to the same metric. When you do that a chart will be created automatically.
 
 Step 7. Add logging of model files
 ----------------------------------
 
+.. code:: python
+
+    neptune.log_artifact('model.pkl')
+
+Log your model with ``.log_artifact`` method. Just pass the path to the file you want to log to Neptune.
+
+.. note::
+
+    You can also log picklable Python objects directly with |log_pickle function from neptune-contrib|.
+
+    .. code:: python
+
+        from neptunecontrib.api import log_pickle
+
+        ...
+        rf = RandomForestClassifier()
+        log_pickle('rf.pkl', rf)
+
 Step 8. Run a few experiments with different parameters
 -------------------------------------------------------
 
-Step 9. Filter experiments by tag
+Let's run some experiments with different model configuration.
+
+1. Change parameters in the ``params`` dictionary
+
+.. code:: python
+
+    params = {'n_estimators': 10,
+              'max_depth': 3,
+              'min_samples_leaf': 1,
+              'min_samples_split': 2,
+              'max_features': 3,
+              }
+
+2. Run an experiment
+
+.. code:: bash
+
+    python train.py
+
+Step 9. Go to Neptune UI
+------------------------
+
+Step 10. Filter experiments by tag
 ---------------------------------
 
-Step 10. Choose parameter and metric columns
+Step 11. Choose parameter and metric columns
 --------------------------------------------
 
-Step 11. Save the view of experiment space
+Step 12. Save the view of experiment space
 ------------------------------------------
 
 What's next
@@ -80,7 +273,48 @@ Full Neptune monitoring script
 
 .. code:: python
 
-    TODO
+    import neptune
+    from joblib import dump
+    from sklearn.datasets import load_wine
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import f1_score
+    from sklearn.model_selection import train_test_split
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/onboarding')
+
+    data = load_wine()
+    X_train, X_test, y_train, y_test = train_test_split(data.data, data.target,
+                                                        test_size=0.4, random_state=1234)
+
+    params = {'n_estimators': 10,
+              'max_depth': 3,
+              'min_samples_leaf': 1,
+              'min_samples_split': 2,
+              'max_features': 3,
+              'random_state': 1234
+              }
+
+    neptune.create_experiment('great-idea',
+                              params=params,  # log parameters
+                              upload_source_files=['*.py', 'requirements.txt'],  # log source and environment
+                              tags=['experiment-organization', 'me'])  # organize things
+
+    clf = RandomForestClassifier(**params)
+    clf.fit(X_train, y_train)
+    y_train_pred = clf.predict_proba(X_train)
+    y_test_pred = clf.predict_proba(X_test)
+
+    train_f1 = f1_score(y_train, y_train_pred.argmax(axis=1), average='macro')
+    test_f1 = f1_score(y_test, y_test_pred.argmax(axis=1), average='macro')
+    print(f'Train f1:{train_f1} | Test f1:{test_f1}')
+
+    neptune.log_metric('train_f1', train_f1)  # log metrics
+    neptune.log_metric('test_f1', test_f1)  # log metrics
+
+    dump(clf, 'model.pkl')
+    neptune.log_artifact('model.pkl')  # log files
+
 
 .. |Create a project| raw:: html
 
@@ -111,3 +345,8 @@ Full Neptune monitoring script
 .. |Check our integrations| raw:: html
 
     <a href="/integrations/index.html" target="_blank">Check our integrations</a>
+
+.. |log_pickle function from neptune-contrib|  raw:: html
+
+    <a href="/api-reference/neptunecontrib/api/index.html?highlight=log_pickle#neptunecontrib.api.log_pickle" target="_blank">log_pickle function from neptune-contrib</a>
+
