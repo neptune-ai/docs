@@ -12,7 +12,7 @@ Assign People to a Project
 
     Only a project Owner can invite new users to the project. Learn more about |project roles|.
 
-1. In the Project pane, click **Settings**, then click the **People** tab.
+1. In the Project panel, click **Settings**, then click the **People** tab.
 
 
 - The tab displays the list of project members who already belong to the project.
