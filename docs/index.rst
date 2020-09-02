@@ -16,7 +16,7 @@ Get a quick feel of how monitoring and keeping track of experiments can look lik
 What does Neptune do?
 ---------------------
 
-Neptune is a light-weight experiment management tool that helps you keep track of your machine learning experiments.
+Neptune is a lightweight experiment management tool that helps you keep track of your machine learning experiments.
 
 Most common Neptune use cases:
 
