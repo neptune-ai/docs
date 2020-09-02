@@ -16,7 +16,7 @@ Assign People to a Project
 
 
 - The tab displays the list of project members who already belong to the project.
-- Above the list is a field in which you can type an email or username of people you want to invite. Neptune identifies names and emails for people who already have an account.
+- Above the list is a field in which you can type an email or username of people you want to assign to a project. Neptune identifies names and emails for people who already have an account.
 
 2. Specify an email or username of a user you want to add.
 

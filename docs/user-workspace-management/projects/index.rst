@@ -10,7 +10,7 @@ There are private and public projects.
 Private projects
 ^^^^^^^^^^^^^^^^
 
-Only people added to the project can see it. The project :ref:`Owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the Settings view.
+Only people assigned to the project can see it. The project :ref:`Owner <core-concepts_user-roles_project-owner>` can manage who has access to the project in the Settings view.
 
 Here is an example view, where the project Owner can manage project members:
 
