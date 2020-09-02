@@ -1,5 +1,5 @@
-Add Users to a Project
-======================
+Assign People to a Project
+==========================
 
 .. note::
 
