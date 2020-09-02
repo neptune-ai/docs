@@ -1,8 +1,7 @@
 Quick starts
 ============
 
-Quick starts should get you started in minutes.
-Those are minimal examples that get you from A to B.
+Quick starts are minimal examples that will get you started in minutes.
 
 Right now we have:
 
