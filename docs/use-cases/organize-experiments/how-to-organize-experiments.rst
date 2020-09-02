@@ -10,7 +10,7 @@ This guide will show you how to:
 
 - Keep track of code, data, environment and parameters
 - Log results like evaluation metrics and model files
-- Find experiments in the experiment dashboard with tags, parameter and metric filters
+- Find experiments in the experiment dashboard with tags
 - Organize experiments in a dashboard view and save it for later
 
 Before you start
@@ -19,7 +19,7 @@ Before you start
 Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
-- Have Tensorflow 2.x with Keras installed
+- Have scikit-learn and joblib installed
 - |Have Neptune installed|
 - |Create a project|
 - |Configure Neptune API token on your system|
@@ -248,26 +248,84 @@ Let's run some experiments with different model configuration.
 Step 9. Go to Neptune UI
 ------------------------
 
-Step 10. Filter experiments by tag
+Click on one of the links created when you run the script or go directly to the app.
+
+|click on link|
+
+If you created your own project in Neptune you can also go to projects tab and find it.
+
+|user project|
+
+If you are logging things to the public project ``shared/onboarding`` you can just |follow this link|.
+
+Step 10. See that everything got logged
+---------------------------------------
+
+Go to one of the experiments you ran and see that you logged things correctly:
+
+- click on the experiment link or one of the rows in the experiment table in the UI
+- Go to ``Logs`` section to see your metrics
+- Go to ``Source code`` to see that your code was logged
+- Go to ``Artifacts`` to see that the model was saved
+
+|See one experiment|
+
+Step 11. Filter experiments by tag
 ---------------------------------
 
-Step 11. Choose parameter and metric columns
---------------------------------------------
+Go to the experiments space and:
 
-Step 12. Save the view of experiment space
+1. Click on the ``go to simple search``
+2. In the ``tags`` type ``experiment-organization`` to find it (or other tag you added to your experiment).
+3. Select the tag.
+
+Neptune should filter all those experiments for you.
+
+|filter with tag|
+
+Step 12. Choose parameter and metric columns you want to see
+------------------------------------------------------------
+
+Use the ``Manage columns`` button to choose the columns for the experiment table:
+
+- Click on ``Manage columns``
+- Go to the ``Numeric logs`` and ``Text parameters`` or type a name of your metric or parameter to find it.
+- Add ``test_f1`` metric and the parameters you tweaked (in my case ``max_depth``, ``max_features``, ``min_samples_leaf``, and ``n_estimators``).
+
+|manage columns|
+
+.. tip::
+
+    You can also use the suggested columns which shows you the columns with values that differ between selected experiments.
+
+    Just click on the ``+`` to add it to your experiment table.
+
+Step 13. Save the view of experiment table
 ------------------------------------------
+
+You can save the current view of experiment table for later:
+
+- Click on the ``Save as new``
+
+Both the columns and the filtering on rows will be saved as view.
+
+|save view|
+
+.. tip::
+
+    Create and save multiple views of the experiment table for different use cases or experiment groups.
 
 What's next
 -----------
 
-Now that you know how to create experiments and log metrics you can learn:
+Now that you know how to keep track of experiments and organize them you can:
 
 - See |how to log other objects and monitor training in Neptune|
 - See |how to connect Neptune to your codebase|
 - |Check our integrations| with other frameworks
 
-Full Neptune monitoring script
-------------------------------
+Full script
+-----------
 
 |run on colab button|
 
@@ -350,3 +408,30 @@ Full Neptune monitoring script
 
     <a href="/api-reference/neptunecontrib/api/index.html?highlight=log_pickle#neptunecontrib.api.log_pickle" target="_blank">log_pickle function from neptune-contrib</a>
 
+.. |follow this link| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/onboarding/e/ON-261" target="_blank">follow this link</a>
+
+.. |click on link| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/6ztCBfYuDKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |user project| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/rEC-sxhP72w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |See one experiment| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/WpAq7Kj88ec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |filter with tag| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/ppPOtU_lNkk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |manage columns| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/gvlIXa25-Bc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |save view| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/iTgjtYBWqko" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

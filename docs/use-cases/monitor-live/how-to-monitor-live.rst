@@ -227,8 +227,8 @@ Now that you know how to create experiments and log metrics you can learn:
 - See |how to connect Neptune to your codebase|
 - |Check our integrations| with other frameworks
 
-Full Neptune monitoring script
-------------------------------
+Full script
+-----------
 
 |run on colab button|
 

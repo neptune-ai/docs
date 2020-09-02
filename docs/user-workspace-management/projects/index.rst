@@ -15,7 +15,7 @@ Only people added to the project can see it. The project :ref:`Owner <core-conce
 Here is an example view, where the project Owner can manage project members:
 
 .. image:: ../../_static/images/how-to/team-management/invite-to-project.png
-   :target: ../../_static/images/how-to/team-management/invite-to-project.pn
+   :target: ../../_static/images/how-to/team-management/invite-to-project.png
    :alt: Invite user to the project
 
 Public projects
