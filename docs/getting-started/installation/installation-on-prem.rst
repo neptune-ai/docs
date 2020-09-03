@@ -1,6 +1,8 @@
 Deploy Neptune On-Prem (60 min)
 ===============================
 
+Neptune can be deployed on-premises. You can |request a free 30 day on-prem trial|.
+
 How can I deploy Neptune?
 -------------------------
 
@@ -15,7 +17,7 @@ Where can I deploy Neptune?
 You can deploy Neptune on:
 
 - your local infrastructure
-- your local cloud
+- your private cloud
 
 .. note::
 
@@ -50,3 +52,8 @@ To see how it works in detail read our **"Neptune installation guide"**.
 .. |install neptune-client| raw:: html
 
     <a href="/getting-started/installation/installation-neptune-client.html" target="_blank">install neptune-client</a>
+
+.. |request a free 30 day on-prem trial| raw:: html
+
+    <a href="https://neptune.ai/pricing/own-infrastructure" target="_blank">request a free 30 day on-prem trial</a>
+
