@@ -26,12 +26,12 @@ Packages:
 
 .. |neptune-contrib|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-client</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
 
 .. |neptune-tensorboard| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-client</a>
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
 
 .. |neptune-mlflow|  raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">neptune-client</a>
+    <a href="https://github.com/neptune-ai/neptune-mlflow" target="_blank">neptune-mlflow</a>
