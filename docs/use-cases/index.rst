@@ -8,7 +8,7 @@ Those are:
 .. toctree::
    :maxdepth: 1
 
-    Monitor ML runs live wherever you are <monitor-live/index.rst>
+    Monitor ML runs live <monitor-live/index.rst>
     Organize ML experimentation <organize-experiments/index.rst>
     Share results of experiments with your team <share-results/index.rst>
     Compare and debug ML experiments and models <compare-experiments/index.rst>

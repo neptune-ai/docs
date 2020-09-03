@@ -1,5 +1,5 @@
-Monitor ML runs live wherever you are
-=====================================
+Monitor ML runs live
+====================
 
 Would you like to know that your model training failed, the loss stopped improving, or the GPU consumption is going crazy?
 

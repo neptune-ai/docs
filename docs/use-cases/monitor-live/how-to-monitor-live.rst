@@ -1,5 +1,5 @@
-Monitor ML runs live wherever you are
-=====================================
+How to monitor ML runs live: step by step guide
+===============================================
 
 |run on colab button|
 

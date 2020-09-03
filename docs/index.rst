@@ -20,7 +20,7 @@ Neptune is a lightweight experiment management tool that helps you keep track of
 
 Most common Neptune use cases:
 
-- |Monitor ML runs live wherever you are|
+- |Monitor ML runs live|
 - |Organize ML experimentation|
 - |Compare and debug ML experiments and models|
 - |Share results of experiments with your team|
@@ -187,9 +187,9 @@ Discover Neptune
 
     <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
 
-.. |Monitor ML runs live wherever you are| raw:: html
+.. |Monitor ML runs live| raw:: html
 
-    <a href="/use-cases/monitor-live/index.html">Monitor ML runs live wherever you are</a>
+    <a href="/use-cases/monitor-live/index.html">Monitor ML runs live</a>
 
 .. |Organize ML experimentation| raw:: html
 
