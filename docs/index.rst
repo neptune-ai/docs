@@ -72,7 +72,8 @@ How does Neptune work (in 3 steps)?
 Check it for yourself:
 
 - See our |Quick starts|
-- |Run on Colab|
+
+|Run on Colab|
 
 Discover Neptune
 ----------------
