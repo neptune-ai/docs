@@ -78,8 +78,8 @@ Create a python script called `quickstart.py` and copy the code below to it:
 
     1. Get your Neptune API token
 
-       .. image:: ../../_static/images/others/get_token.gif
-          :target: ../../_static/images/others/get_token.gif
+       .. image:: ../../_static/images/getting-started/quick-starts/get_token.gif
+          :target: ../../_static/images/getting-started/quick-starts/get_token.gif
           :alt: Get API token
 
     2. Pass the token to ``api_token`` argument of ``neptune.init()`` method: ``api_token=YOUR_API_TOKEN``

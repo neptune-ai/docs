@@ -84,26 +84,26 @@ You can go see it in your dashboard and share it with anyone, just as we are sha
 
 - Overview
 
-    .. image:: ../../_static/images/tensorboard/tensorboard_example_1.png
-        :target: ../../_static/images/tensorboard/tensorboard_example_1.png
+    .. image:: ../../_static/images/integrations/tensorboard_example_1.png
+        :target: ../../_static/images/integrations/tensorboard_example_1.png
         :alt: experiment in the experiment table
 
 - Monitor learning curves
 
-    .. image:: ../../_static/images/tensorboard/tensorboard_example_2.png
-        :target: ../../_static/images/tensorboard/tensorboard_example_2.png
+    .. image:: ../../_static/images/integrations/tensorboard_example_2.png
+        :target: ../../_static/images/integrations/tensorboard_example_2.png
         :alt: experiment in the experiment table
 
 - Monitor hardware utilization
 
-    .. image:: ../../_static/images/tensorboard/tensorboard_example_3.png
-        :target: ../../_static/images/tensorboard/tensorboard_example_3.png
+    .. image:: ../../_static/images/integrations/tensorboard_example_3.png
+        :target: ../../_static/images/integrations/tensorboard_example_3.png
         :alt: experiment in the experiment table
 
 - Check the source code
 
-    .. image:: ../../_static/images/tensorboard/tensorboard_example_4.png
-        :target: ../../_static/images/tensorboard/tensorboard_example_4.png
+    .. image:: ../../_static/images/integrations/tensorboard_example_4.png
+        :target: ../../_static/images/integrations/tensorboard_example_4.png
         :alt: experiment in the experiment table
 
 Full script

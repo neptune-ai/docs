@@ -3,8 +3,8 @@ Neptune-PyTorch Lightning Integration
 
 The integration enables you to log |PyTorch Lightning| metrics to Neptune.
 
-.. image:: ../_static/images/others/pytorchlightning_neptuneml.png
-   :target: ../_static/images/others/pytorchlightning_neptuneml.png
+.. image:: ../_static/images/integrations/pytorchlightning_neptuneml.png
+   :target: ../_static/images/integrations/pytorchlightning_neptuneml.png
    :alt: PyTorchLightning neptune.ai integration
 
 Requirements
@@ -140,8 +140,8 @@ Now you can watch your pytorch-lightning model training in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/pytorch_lightning/pytorch_lightning_monitoring.gif
-   :target: ../_static/images/pytorch_lightning/pytorch_lightning_monitoring.gif
+.. image:: ../_static/images/integrations/pytorch_lightning_monitoring.gif
+   :target: ../_static/images/integrations/pytorch_lightning_monitoring.gif
    :alt: PyTorchLightning logging in neptune
 
 Full PyTorch Lightning monitor script

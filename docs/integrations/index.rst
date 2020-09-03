@@ -1,8 +1,8 @@
 Integrations
 ============
 
-.. image:: ../_static/images/overview/framework-logos.png
-   :target: ../_static/images/overview/framework-logos.png
+.. image:: ../_static/images/integrations/framework-logos.png
+   :target: ../_static/images/integrations/framework-logos.png
    :alt: selected integrations
 
 Neptune comes with 25+ integrations with Python libraries popular in machine learning, deep learning and reinforcement learning.
@@ -43,7 +43,7 @@ There are two common paths:
 
 .. |neptune-client| raw:: html
 
-    <a href="../logging-data-to-neptune/index.html" target="_blank">neptune-client</a>
+    <a href="/api-reference/neptune/index.html" target="_blank">neptune-client</a>
 
 .. toctree::
    :hidden:

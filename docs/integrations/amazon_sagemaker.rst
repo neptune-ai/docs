@@ -3,8 +3,8 @@ Neptune-Amazon SageMaker Integration
 
 You can use Neptune to track experiments that you run on Amazon SageMaker.
 
-.. image:: ../_static/images/others/sagemaker_neptuneml.png
-   :target: ../_static/images/others/sagemaker_neptuneml.png
+.. image:: ../_static/images/integrations/sagemaker_neptuneml.png
+   :target: ../_static/images/integrations/sagemaker_neptuneml.png
    :alt: Amazon SageMaker neptune.ai integration
 
 To set this up, perform the following steps:
@@ -17,8 +17,8 @@ To set this up, perform the following steps:
 
     a. Go to SageMaker **Lifecycle configurations** and click **Create configuration**.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-create_configuration.png
-       :target: ../_static/images/how-to/ht-sagemaker-create_configuration.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-create_configuration.png
+       :target: ../_static/images/integrations/ht-sagemaker-create_configuration.png
        :alt: image
 
     |
@@ -27,8 +27,8 @@ To set this up, perform the following steps:
 
     b. Modify the **Create Notebook** script to run it only once at the creation of your SageMaker Notebook instance.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-config_specs.png
-       :target: ../_static/images/how-to/ht-sagemaker-config_specs.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-config_specs.png
+       :target: ../_static/images/integrations/ht-sagemaker-config_specs.png
        :alt: image
 
     |
@@ -70,24 +70,24 @@ To set this up, perform the following steps:
 
     a. Go to SageMaker **Notebook instances** and click **Create notebook instance**.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-create_instance.png
-         :target: ../_static/images/how-to/ht-sagemaker-create_instance.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-create_instance.png
+         :target: ../_static/images/integrations/ht-sagemaker-create_instance.png
          :alt: image
 
     |
 
     b. Type in an instance name and click **Additional configuration** to add the Lifecycle configuration you have just created.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
-         :target: ../_static/images/how-to/ht-sagemaker-create_instance_specs.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-create_instance_specs.png
+         :target: ../_static/images/integrations/ht-sagemaker-create_instance_specs.png
          :alt: image
 
     |
 
     c. Click **Create notebook instance** at the bottom to start your instance.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
-         :target: ../_static/images/how-to/ht-sagemaker-create_notebook_run.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-create_notebook_run.png
+         :target: ../_static/images/integrations/ht-sagemaker-create_notebook_run.png
          :alt: image
 
 4. Start Notebook.
@@ -95,14 +95,14 @@ To set this up, perform the following steps:
     If everything went well, your Amazon SageMaker instance should have *InService* status and you can open a Jupyter Notebook or JupyterLab
     with Neptune Notebook versioning enabled.
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-notebook_run.png
-          :target: ../_static/images/how-to/ht-sagemaker-notebook_run.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-notebook_run.png
+          :target: ../_static/images/integrations/ht-sagemaker-notebook_run.png
           :alt: image
 
 **You can now version your Notebooks and track experiments in Amazon SageMaker with Neptune!**
 
-    .. image:: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
-          :target: ../_static/images/how-to/ht-sagemaker-notebook_runs_01.png
+    .. image:: ../_static/images/integrations/ht-sagemaker-notebook_runs_01.png
+          :target: ../_static/images/integrations/ht-sagemaker-notebook_runs_01.png
           :alt: image
 
 .. External links

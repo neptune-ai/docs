@@ -3,8 +3,8 @@ Neptune-Scikit-Optimize Integration
 
 This integation lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimization in Neptune.
 
-.. image:: ../_static/images/others/skopt_neptuneai.png
-   :target: ../_static/images/others/skopt_neptuneai.png
+.. image:: ../_static/images/integrations/skopt_neptuneai.png
+   :target: ../_static/images/integrations/skopt_neptuneai.png
    :alt: Scikit Optimize Neptune integration
 
 Requirements
@@ -75,8 +75,8 @@ Now you can watch your Scikit-Optimize hyperparameter optimization in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/skopt/skopt_monitoring.gif
-   :target: ../_static/images/skopt/skopt_monitoring.gif
+.. image:: ../_static/images/integrations/skopt_monitoring.gif
+   :target: ../_static/images/integrations/skopt_monitoring.gif
    :alt: Scikit-Optimize monitoring in Neptune
 
 Full script

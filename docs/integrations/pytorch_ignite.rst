@@ -4,8 +4,8 @@ Neptune-PyTorch Ignite Integration
 The integration enables you to log |PyTorch Ignite| metrics to Neptune.
 
 
-.. image:: ../_static/images/others/ignite_neptuneai.png
-   :target: ../_static/images/others/ignite_neptuneai.png
+.. image:: ../_static/images/integrations/ignite_neptuneai.png
+   :target: ../_static/images/integrations/ignite_neptuneai.png
    :alt: PyTorch Ignite neptune.ai integration
 
 Requirements
@@ -129,8 +129,8 @@ Now you can watch your pytorch-ignite model training in Neptune!
 
 Check this |example experiment|.
 
-.. image:: ../_static/images/pytorch_ignite/pytorch_ignite_monitoring.gif
-   :target: ../_static/images/pytorch_ignite/pytorch_ignite_monitoring.gif
+.. image:: ../_static/images/integrations/pytorch_ignite_monitoring.gif
+   :target: ../_static/images/integrations/pytorch_ignite_monitoring.gif
    :alt: PyTorch Ignite logging in neptune
 
 Full PyTorch Ignite monitor script

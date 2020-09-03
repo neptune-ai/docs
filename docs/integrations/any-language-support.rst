@@ -88,8 +88,8 @@ Now you can watch your metrics, parameters and logs in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/any_language/any_language_monitoring.gif
-   :target: ../_static/images/any_language/any_language_monitoring.gif
+.. image:: ../_static/images/integrations/any_language_monitoring.gif
+   :target: ../_static/images/integrations/any_language_monitoring.gif
    :alt: Any language integration with Neptune
 
 

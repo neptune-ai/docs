@@ -4,8 +4,8 @@ Neptune-plotly Integration
 This integration lets you log interactive charts generated in |plotly|, like confusion matrix or distribution, in Neptune.
 
 
-.. image:: ../_static/images/plotly/plotly.png
-   :target: ../_static/images/plotly/plotly.png
+.. image:: ../_static/images/integrations/plotly.png
+   :target: ../_static/images/integrations/plotly.png
    :alt: plotly neptune.ai integration
 
 
@@ -41,8 +41,8 @@ Follow these steps:
 
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/plotly/plotly.gif
-   :target: ../_static/images/plotly/plotly.gif
+.. image:: ../_static/images/integrations/plotly.gif
+   :target: ../_static/images/integrations/plotly.gif
    :alt: image
 
 .. External Links

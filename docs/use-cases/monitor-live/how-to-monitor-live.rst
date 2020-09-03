@@ -287,11 +287,11 @@ Full script
 
 .. |Create a project| raw:: html
 
-    <a href="/teamwork-and-user-management/how-to/create-project.html" target="_blank">Create a project in Neptune</a>
+    <a href="/workspace-project-and-user-management/projects/create-project.html" target="_blank">Create a project in Neptune</a>
 
 .. |Configure Neptune API token on your system| raw:: html
 
-    <a href="/security-privacy/api-tokens/how-to-api-token.html" target="_blank">Configure Neptune API token on your system</a>
+    <a href="/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html" target="_blank">Configure Neptune API token on your system</a>
 
 .. |how to log other objects and monitor training in Neptune| raw:: html
 
@@ -299,7 +299,7 @@ Full script
 
 .. |how to connect Neptune to your codebase| raw:: html
 
-    <a href="/getting-started/adding-neptune/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
+    <a href="/getting-started/integrating-neptune-into-your-codebase/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
 
 .. |Have Neptune installed| raw:: html
 

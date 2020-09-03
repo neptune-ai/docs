@@ -3,8 +3,8 @@ Neptune-AWS EC2 Integration
 
 You can run Neptune and track experiments that you run on AWS cloud.
 
-.. image:: ../_static/images/others/aws_neptuneml.png
-   :target: ../_static/images/others/aws_neptuneml.png
+.. image:: ../_static/images/integrations/aws_neptuneml.png
+   :target: ../_static/images/integrations/aws_neptuneml.png
    :alt: AWS neptune.ai integration
 
 To set this up, perform the following steps:
@@ -141,7 +141,7 @@ Notebooks and run experiments with no problem.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://docs.neptune.ai/integrations/neptune-contrib.html" target="_blank">neptune-contrib</a>
+    <a href="/api-reference/neptunecontrib/index.html" target="_blank">neptune-contrib</a>
 
 
 .. |instructions|  raw:: html

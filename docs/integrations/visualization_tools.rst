@@ -18,4 +18,4 @@ Neptune provides integrations with the following visualization tools:
 
 .. |Youtube Video| raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/4No97bl1A4A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/4No97bl1A4A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

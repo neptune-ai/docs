@@ -4,8 +4,8 @@ Neptune-skorch Integration
 
 The integration enables you to log |skorch| metrics to Neptune.
 
-.. image:: ../_static/images/others/skorch_neptuneai.png
-   :target: ../_static/images/others/skorch_neptuneai.png
+.. image:: ../_static/images/integrations/skorch_neptuneai.png
+   :target: ../_static/images/integrations/skorch_neptuneai.png
    :alt: Skorch neptune.ai integration
 
 Requirements
@@ -96,8 +96,8 @@ Now you can watch your skorch model training in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/skorch/skorch_monitoring.gif
-   :target: ../_static/images/skorch/skorch_monitoring.gif
+.. image:: ../_static/images/integrations/skorch_monitoring.gif
+   :target: ../_static/images/integrations/skorch_monitoring.gif
    :alt: Skorch monitoring in neptune
 
 Close experiment

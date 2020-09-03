@@ -3,8 +3,8 @@ Neptune-fastai Integration
 
 The integration enables you to log |fast-ai| metrics to Neptune.
 
-.. image:: ../_static/images/others/fastai_neptuneml.png
-   :target: ../_static/images/others/fastai_neptuneml.png
+.. image:: ../_static/images/integrations/fastai_neptuneml.png
+   :target: ../_static/images/integrations/fastai_neptuneml.png
    :alt: fast.ai neptune.ai integration
 
 Requirements
@@ -36,8 +36,8 @@ Create the **learner**, find your optimal learning rate, and plot it
     learn.lr_find()
     learn.recorder.plot()
 
-.. image:: ../_static/images/fast_ai/fast_ai_1.png
-   :target: ../_static/images/fast_ai/fast_ai_1.png
+.. image:: ../_static/images/integrations/fast_ai_1.png
+   :target: ../_static/images/integrations/fast_ai_1.png
    :alt: learning rate finder plot
 
 Create an experiment and add the **neptune_monitor** callback
@@ -58,8 +58,8 @@ Monitor your fastai training in Neptune
 ----------------------------------------
 Now you can watch your fastai model training in Neptune!
 
-.. image:: ../_static/images/fast_ai/fast_ai_2.png
-   :target: ../_static/images/fast_ai/fast_ai_2.png
+.. image:: ../_static/images/integrations/fast_ai_2.png
+   :target: ../_static/images/integrations/fast_ai_2.png
    :alt: charts for the example fast.ai experiment
 
 Full fastai monitor script

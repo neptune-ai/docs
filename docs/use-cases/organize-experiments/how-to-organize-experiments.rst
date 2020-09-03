@@ -112,7 +112,7 @@ To do that you specify:
         neptune.init(project_qualified_name='YOUR_USERNAME/YOUR_PROJECT_NAME')
 
 Step 4. Create an experiment and add parameter, code and environment tracking
------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 
 To start logging things to Neptune you need to create an experiment.
 An experiment is an object to which you log various objects.
@@ -271,7 +271,7 @@ Go to one of the experiments you ran and see that you logged things correctly:
 |See one experiment|
 
 Step 11. Filter experiments by tag
----------------------------------
+----------------------------------
 
 Go to the experiments space and:
 
@@ -376,11 +376,11 @@ Full script
 
 .. |Create a project| raw:: html
 
-    <a href="/teamwork-and-user-management/how-to/create-project.html" target="_blank">Create a project in Neptune</a>
+    <a href="/workspace-project-and-user-management/projects/create-project.html" target="_blank">Create a project in Neptune</a>
 
 .. |Configure Neptune API token on your system| raw:: html
 
-    <a href="/security-privacy/api-tokens/how-to-api-token.html" target="_blank">Configure Neptune API token on your system</a>
+    <a href="/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html" target="_blank">Configure Neptune API token on your system</a>
 
 .. |Have Neptune installed| raw:: html
 
@@ -398,7 +398,7 @@ Full script
 
 .. |how to connect Neptune to your codebase| raw:: html
 
-    <a href="/getting-started/adding-neptune/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
+    <a href="/getting-started/integrating-neptune-into-your-codebase/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
 
 .. |Check our integrations| raw:: html
 

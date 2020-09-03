@@ -3,8 +3,8 @@ Neptune-TensorBoard Integration
 
 |neptune-tensorboard|, an open source project curated by the Neptune team, integrates |tensorboard| with Neptune to let you enjoy the best of both worlds.
 
-.. image:: ../_static/images/tensorboard/tensorboard_neptuneml.png
-   :target: ../_static/images/tensorboard/tensorboard_neptuneml.png
+.. image:: ../_static/images/integrations/tensorboard_neptuneml.png
+   :target: ../_static/images/integrations/tensorboard_neptuneml.png
    :alt: organize TensorBoard experiments in Neptune
 
 Neptune supports two major use cases:
@@ -36,14 +36,14 @@ Point Neptune to your TensorBoard logs directory:
 
 - Organize your TensorBoard experiments:
 
-.. image:: ../_static/images/tensorboard/tensorboard_1.png
-   :target: ../_static/images/tensorboard/tensorboard_1.png
+.. image:: ../_static/images/integrations/tensorboard_1.png
+   :target: ../_static/images/integrations/tensorboard_1.png
    :alt: organize TensorBoard experiments in Neptune
 
 - Compare your TensorBoard runs:
 
-.. image:: ../_static/images/tensorboard/tensorboard_2.png
-   :target: ../_static/images/tensorboard/tensorboard_2.png
+.. image:: ../_static/images/integrations/tensorboard_2.png
+   :target: ../_static/images/integrations/tensorboard_2.png
    :alt: compare TensorBoard runs in Neptune
 
 - Share your work with others by sending an |experiment-link|.

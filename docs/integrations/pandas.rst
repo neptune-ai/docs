@@ -4,8 +4,8 @@ Neptune-Pandas Integration
 This integration lets you log |pandas| dataframes to Neptune.
 
 
-.. image:: ../_static/images/pandas/pandas.png
-   :target: ../_static/images/pandas/pandas.png
+.. image:: ../_static/images/integrations/pandas.png
+   :target: ../_static/images/integrations/pandas.png
    :alt: pandas neptune.ai integration
 
 
@@ -39,8 +39,8 @@ Follow these steps:
 
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/pandas/pandas.gif
-   :target: ../_static/images/pandas/pandas.gif
+.. image:: ../_static/images/integrations/pandas.gif
+   :target: ../_static/images/integrations/pandas.gif
    :alt: image
 
 .. External Links

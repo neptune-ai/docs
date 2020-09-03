@@ -197,8 +197,8 @@ Thanks to all the logging you've done, you can now see all your experiments in t
 
 Explore the |shared/r-integration public project| to see how it looks.
 
-.. image:: ../_static/images/r_support/r-integration-tour.gif
-   :target: ../_static/images/r_support/r-integration-tour.gif
+.. image:: ../_static/images/integrations/r-integration-tour.gif
+   :target: ../_static/images/integrations/r-integration-tour.gif
    :alt: Experiment Tracking in R
 
 Full tracking script

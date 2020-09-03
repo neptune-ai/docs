@@ -64,14 +64,12 @@ How does Neptune work (in 3 steps)?
 
 5. See everything in Neptune UI
 
-.. image:: _static/images/others/view_experiment_info.png
-    :target: _static/images/others/view_experiment_info.png
+.. image:: _static/images/home/view_experiment_info.png
+    :target: _static/images/home/view_experiment_info.png
     :alt: Compare Experiments
     :width: 800
 
-
 Check it our for yourself:
-
 
 - See our |Quick starts|
 - |Run on Colab|
@@ -104,20 +102,20 @@ Discover Neptune
 
    Installation <getting-started/installation/index.rst>
    Quick starts <getting-started/quick-starts/index.rst>
-   Integrating Neptune into your codebase <getting-started/adding-neptune/index.rst>
-   Getting help <getting-started/get-help.rst>
+   Integrating Neptune into your codebase <getting-started/integrate-neptune-into-your-codebase/index.rst>
+   Getting help <getting-started/getting-help.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
    :caption: Guides
 
-   Logging and managing experiment results <logging-data-to-neptune/index.rst>
+   Logging and managing experiment results <logging-and-managing-experiment-results/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
-   Organizing and exploring results in the UI <working-with-neptune-ui/index.rst>
-   Sharing results and models with the team <teamwork-collaboration/index.rst>
-   Workspace, project, and user management <user-workspace-management/index.rst>
-   Security and Privacy <security-privacy/index.rst>
+   Organizing and exploring results in the UI <organizing-and-exploring-results-in-the-ui/index.rst>
+   Sharing results and models with the team <sharing-results-and-models-with-the-team/index.rst>
+   Workspace, project, and user management <workspace-project-and-user-management/index.rst>
+   Security and privacy <security-and-privacy/index.rst>
 
 .. toctree::
    :hidden:
@@ -134,8 +132,8 @@ Discover Neptune
    :maxdepth: 1
    :caption: Links
 
-   Neptune Website <https://neptune.ai/>
-   Neptune App <https://ui.neptune.ai/>
+   Neptune website <https://neptune.ai/>
+   Neptune app <https://ui.neptune.ai/>
 
 .. External links
 
@@ -197,17 +195,13 @@ Discover Neptune
 
     <a href="/use-cases/organize-experiments/index.html">Get your ML experimentation in order</a>
 
-.. |Compare and Debug ML experiments| raw:: html
-
-    <a href="/use-cases/compare-experiments/index.html">Compare and Debug ML experiments</a>
-
 .. |Share results of experiments with your team| raw:: html
 
     <a href="/use-cases/share-results/index.html">Share results of experiments with your team</a>
 
 .. |Compare and Debug ML experiments and models| raw:: html
 
-    <a href="/use-cases/compare-experiments/index.html">Compare and Debug ML experiments and models</a>
+    <a href="/use-cases/compare-experiments/index.html">Compare and debug ML experiments and models</a>
 
 .. |Clean up your Jupyter workflow without git| raw:: html
 

@@ -5,8 +5,8 @@ Neptune-XGBoost Integration
 
 XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. The integration with Neptune lets you log multiple training artifacts with no further customization.
 
-.. image:: ../_static/images/xgboost/xgboost_0.png
-   :target: ../_static/images/xgboost/xgboost_0.png
+.. image:: ../_static/images/integrations/xgboost_0.png
+   :target: ../_static/images/integrations/xgboost_0.png
    :alt: XGBoost overview
 
 
@@ -55,32 +55,32 @@ Logged metrics
 ^^^^^^^^^^^^^^
 These are logged for train and eval (or whatever you defined in the watchlist) after each boosting iteration.
 
-.. image:: ../_static/images/xgboost/xgboost_metrics.png
-   :target: ../_static/images/xgboost/xgboost_metrics.png
+.. image:: ../_static/images/integrations/xgboost_metrics.png
+   :target: ../_static/images/integrations/xgboost_metrics.png
    :alt: XGBoost overview
 
 Logged model
 ^^^^^^^^^^^^
 The model (Booster) is logged to Neptune after the last boosting iteration. If you run cross-validation, you get a model for each fold.
 
-.. image:: ../_static/images/xgboost/xgboost_model.png
-   :target: ../_static/images/xgboost/xgboost_model.png
+.. image:: ../_static/images/integrations/xgboost_model.png
+   :target: ../_static/images/integrations/xgboost_model.png
    :alt: XGBoost overview
 
 Logged feature importance
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 This is a very useful chart, as it shows feature importance. It is logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a feature importance chart for each fold's model.
 
-.. image:: ../_static/images/xgboost/xgboost_importance.png
-   :target: ../_static/images/xgboost/xgboost_importance.png
+.. image:: ../_static/images/integrations/xgboost_importance.png
+   :target: ../_static/images/integrations/xgboost_importance.png
    :alt: XGBoost overview
 
 Logged visualized trees
 ^^^^^^^^^^^^^^^^^^^^^^^
 Selected trees are logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a tree visualization for each fold's model, independently.
 
-.. image:: ../_static/images/xgboost/xgboost_trees.png
-   :target: ../_static/images/xgboost/xgboost_trees.png
+.. image:: ../_static/images/integrations/xgboost_trees.png
+   :target: ../_static/images/integrations/xgboost_trees.png
    :alt: XGBoost overview
 
 Resources
@@ -202,4 +202,4 @@ Full script
 
 .. |Youtube Video| raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/xc5gsJvf5Wo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/xc5gsJvf5Wo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -4,8 +4,8 @@ Neptune-HiPlot Integration
 This integration lets you analyze multiple experiments in Neptune using |HiPlot| visualization. HiPlot is a lightweight interactive visualization tool published by
 the Facebook AI group.
 
-.. image:: ../_static/images/hiplot/example_hiplot_0.png
-   :target: ../_static/images/hiplot/example_hiplot_0.png
+.. image:: ../_static/images/integrations/example_hiplot_0.png
+   :target: ../_static/images/integrations/example_hiplot_0.png
    :alt: parallel plot header
 
 Parallel coordinates plot is a powerful tool that allows AI researchers to analyze correlations
@@ -49,8 +49,8 @@ Generate parallel coordinates plot
                                    params = ['activation', 'batch_size', 'dense_units', 'dropout', 'learning_rate', 'optimizer'],
                                    tag='optuna')
 
-.. image:: ../_static/images/hiplot/example_hiplot_1.png
-   :target: ../_static/images/hiplot/example_hiplot_1.png
+.. image:: ../_static/images/integrations/example_hiplot_1.png
+   :target: ../_static/images/integrations/example_hiplot_1.png
    :alt: parallel plot overview
 
 Customize visualization to your needs
@@ -64,8 +64,8 @@ Perform the following steps:
 #. Sort by clicking on the axis.
 #. Select range in the axis and slide.
 
-.. image:: ../_static/images/hiplot/example_hiplot_1.gif
-   :target: ../_static/images/hiplot/example_hiplot_1.gif
+.. image:: ../_static/images/integrations/example_hiplot_1.gif
+   :target: ../_static/images/integrations/example_hiplot_1.gif
    :alt: parallel plot customization options
 
 Inspect experiments lineage
@@ -78,8 +78,8 @@ Perform the following steps:
 
 When both are selected, you will see the lineage plot below the parallel coordinates plot.
 
-.. image:: ../_static/images/hiplot/example_hiplot_2.gif
-    :target: ../_static/images/hiplot/example_hiplot_2.gif
+.. image:: ../_static/images/integrations/example_hiplot_2.gif
+    :target: ../_static/images/integrations/example_hiplot_2.gif
     :alt: experiments lineage
 
 Check example notebooks in Neptune
@@ -105,7 +105,7 @@ Check integration |documentation| for more details.
 
 .. |neptune-contrib| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
+    <a href="/api-reference/neptunecontrib/index.html" target="_blank">neptune-contrib</a>
 
 .. |documentation| raw:: html
 

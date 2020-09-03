@@ -9,8 +9,8 @@ Integration with Keras is enabled through the |neptune-contrib| package.
 It lets you automatically track metrics and losses (on *batch end* and *epoch end*).
 
 
-.. image:: ../_static/images/others/keras_neptuneml.png
-   :target: ../_static/images/others/keras_neptuneml.png
+.. image:: ../_static/images/integrations/keras_neptuneml.png
+   :target: ../_static/images/integrations/keras_neptuneml.png
    :alt: Keras neptune.ai integration
 
 
@@ -42,8 +42,8 @@ training callbacks. An integration snippet is presented below.
 When using the Neptune callback, all metrics and losses are automatically 
 tracked in Neptune.
 
-.. image:: ../_static/images/how-to/ht-log-keras-1.png
-   :target: ../_static/images/how-to/ht-log-keras-1.png
+.. image:: ../_static/images/integrations/ht-log-keras-1.png
+   :target: ../_static/images/integrations/ht-log-keras-1.png
    :alt: image
 
 .. note::
@@ -107,4 +107,4 @@ Full script
 
 .. |Youtube Video| raw:: html
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/EwRGVThAvMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/EwRGVThAvMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

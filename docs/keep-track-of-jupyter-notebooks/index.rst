@@ -6,8 +6,8 @@ Version Jupyter Notebooks
 Jupyter Notebooks are a useful and popular tool for data scientists, regardless of their area of specialization.
 They allow data scientists to work interactively, keeping code and results - like visualizations - in a single document.
 
-.. image:: ../_static/images/notebooks/opening.png
-   :target: ../_static/images/notebooks/opening.png
+.. image:: ../_static/images/keep-track-of-jupyter-notebooks/opening.png
+   :target: ../_static/images/keep-track-of-jupyter-notebooks/opening.png
    :alt: Jupyter Notebooks neptune.ai integration
 
 While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let
@@ -49,8 +49,8 @@ Notebook UI
 -----------
 The `Notebooks tab <https://ui.neptune.ai/shared/onboarding/notebooks>`_ in the Neptune UI provides a table of all the Notebooks in the current project.
 
-.. image:: ../_static/images/notebooks/nb-view-11.png
-    :target: ../_static/images/notebooks/nb-view-11.png
+.. image:: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-11.png
+    :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-11.png
     :alt: image
 
 
@@ -79,8 +79,8 @@ There are two tabs on the right:
 
 You can also view snapshots of the work with the Notebook, as well as download, share or compare this checkpoint with another checkpoint.
 
-.. image:: ../_static/images/notebooks/nb-view-22.png
-    :target: ../_static/images/notebooks/nb-view-22.png
+.. image:: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-22.png
+    :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-22.png
     :alt: image
 
 Compare Notebooks
@@ -90,8 +90,8 @@ The Notebooks Comparison pane lets you compare Notebook checkpoints.
 
 You display the pane by clicking the **Compare** button anywhere it is visible in the Notebooks pane.
 
-.. image:: ../_static/images/notebooks/compare.png
-    :target: ../_static/images/notebooks/compare.png
+.. image:: ../_static/images/keep-track-of-jupyter-notebooks/compare.png
+    :target: ../_static/images/keep-track-of-jupyter-notebooks/compare.png
     :alt: image
 
 In the Notebooks Comparison pane, select two Notebook checkpoints, then click **Compare** to see a side-by-side comparison, just like source code.
@@ -104,8 +104,8 @@ In the Notebooks Comparison pane, select two Notebook checkpoints, then click **
 * Differences in code, markdown, output and execution count are highlighted.
 * Summary information about the differences is displayed at the top of the pane.
 
-.. image:: ../_static/images/notebooks/nb-view-cmp-1.png
-    :target: ../_static/images/notebooks/nb-view-cmp-1.png
+.. image:: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-cmp-1.png
+    :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-cmp-1.png
     :alt: image
 
 
@@ -158,8 +158,8 @@ You can upload Notebook checkpoints from Jupyter to Neptune.
 
 1. Click **Upload**.
 
-    .. image:: ../_static/images/notebooks/upload_dialog.png
-        :target: ../_static/images/notebooks/upload_dialog.png
+    .. image:: ../_static/images/keep-track-of-jupyter-notebooks/upload_dialog.png
+        :target: ../_static/images/keep-track-of-jupyter-notebooks/upload_dialog.png
         :width: 450
         :alt: Upload Notebook dialog
 
@@ -178,8 +178,8 @@ You can download a specific Notebook checkpoint from Neptune to Jupyter.
 
 1. Click **Download**.
 
-    .. image:: ../_static/images/notebooks/download_dialog.png
-        :target: ../_static/images/notebooks/download_dialog.png
+    .. image:: ../_static/images/keep-track-of-jupyter-notebooks/download_dialog.png
+        :target: ../_static/images/keep-track-of-jupyter-notebooks/download_dialog.png
         :width: 450
         :alt: Download Notebook dialog
 

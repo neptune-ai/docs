@@ -75,13 +75,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_logo = '_static/images/others/logo-horizontal.png'
+html_logo = '_static/images/home/logo-horizontal.png'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
     'collapse_navigation': False,
     'style_external_links': False,
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     'prev_next_buttons_location': 'bottom',
     'sticky_navigation': False,
     'titles_only': True,
@@ -99,4 +99,4 @@ html_css_files = [
     'css/custom.css'
 ]
 
-html_favicon = '_static/images/others/favicon.ico'
+html_favicon = '_static/images/home/favicon.ico'

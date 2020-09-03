@@ -3,8 +3,8 @@ Dalex Integration
 
 This integration enables you to log |DALEX| global and local explanations as well as the ``dalex.expainer`` object to Neptune.
 
-.. image:: ../_static/images/others/dalex_neptuneai.png
-   :target: ../_static/images/others/dalex_neptuneai.png
+.. image:: ../_static/images/integrations/dalex_neptuneai.png
+   :target: ../_static/images/integrations/dalex_neptuneai.png
    :alt: DALEX Neptune integration
 
 Requirements
@@ -109,8 +109,8 @@ Now you can go to the experiment ``Artifacts`` section and see your interactive 
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/dalex/dalex_charts.gif
-   :target: ../_static/images/dalex/dalex_charts.gif
+.. image:: ../_static/images/integrations/dalex_charts.gif
+   :target: ../_static/images/integrations/dalex_charts.gif
    :alt: DALEX explanation charts in Neptune
 
 Full script

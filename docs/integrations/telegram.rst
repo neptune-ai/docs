@@ -1,8 +1,8 @@
 Use Telegram Bot to access experiment information
 =================================================
 
-.. image:: ../_static/images/others/telegram_neptuneai.png
-   :target: ../_static/images/others/telegram_neptuneai.png
+.. image:: ../_static/images/integrations/telegram_neptuneai.png
+   :target: ../_static/images/integrations/telegram_neptuneai.png
    :alt: Telegram integration with Neptune
 
 Requirements
@@ -39,14 +39,14 @@ Talk to your bot
 
 Ask for projects or last experiments.
 
-.. image:: ../_static/images/telegram/telegram_conversation1.png
-   :target: ../_static/images/telegram/telegram_conversation1.png
+.. image:: ../_static/images/integrations/telegram_conversation1.png
+   :target: ../_static/images/integrations/telegram_conversation1.png
    :alt: Telegram integration with Neptune
 
 Plot metric charts directly into your Telegram.
 
-.. image:: ../_static/images/telegram/telegram_conversation2.png
-   :target: ../_static/images/telegram/telegram_conversation2.png
+.. image:: ../_static/images/integrations/telegram_conversation2.png
+   :target: ../_static/images/integrations/telegram_conversation2.png
    :alt: Telegram integration with Neptune
 
 Resources
