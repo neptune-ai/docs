@@ -1,5 +1,5 @@
 Searching Experiments with Neptune Query Language
-===============================================
+=================================================
 .. _core-concepts_nql:
 
 Neptune Query Language (NQL) enables you to apply complex filters to your experiments view.

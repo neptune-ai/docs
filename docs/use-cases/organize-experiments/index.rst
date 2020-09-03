@@ -1,5 +1,5 @@
-Get your ML experimentation in order
-====================================
+Organize ML experimentation
+===========================
 
 Keep track of every piece of every experiment or notebook you run and organize them in a single application.
 

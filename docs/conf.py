@@ -37,9 +37,7 @@ extensions = ['recommonmark',
               'autoapi.extension',
               'sphinx.ext.viewcode',
               'sphinx.ext.napoleon',
-              'sphinxcontrib.redirects']
-
-redirects_file = 'redirects'
+              ]
 
 import neptune
 import os.path

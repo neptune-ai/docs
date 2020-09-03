@@ -114,11 +114,11 @@ Now, you need to connect your notebook to Neptune.
 
 1. Copy your Neptune API token.
 
-.. image::
+2. Click on the Neptune icon and paste your API token there.
 
-eyJhcGlfYW908fsdf23f940jiri0bn3085gh03riv03irn
-
-2. Click on the Neptune icon and paster your API token there.
+.. image:: ../../_static/images/getting-started/quick-starts/get_token.gif
+    :target: ../../_static/images/getting-started/quick-starts/get_token.gif
+    :alt: Get Neptune API token
 
 |Configure Notebook|
 
