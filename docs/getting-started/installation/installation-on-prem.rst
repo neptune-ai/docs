@@ -1,9 +1,7 @@
 Deploy Neptune On-Prem (60 min)
 ===============================
 
-Neptune can be deployed on-premises.
-
-You can |request a free 30 day on-prem trial|.
+Neptune can be deployed on-premises. You can |request a free 30 day on-prem trial|.
 
 How can I deploy Neptune?
 -------------------------
