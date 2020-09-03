@@ -384,7 +384,7 @@ Full script
 
 .. |Have Neptune installed| raw:: html
 
-    <a href="/getting-started/installation/index.html">Have Neptune installed</a>
+    <a href="/getting-started/installation/index.html" target="_blank">Have Neptune installed</a>
 
 .. |run on colab button| raw:: html
 

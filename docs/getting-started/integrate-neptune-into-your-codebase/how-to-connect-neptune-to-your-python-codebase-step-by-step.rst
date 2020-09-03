@@ -326,7 +326,7 @@ What is next?
 
 .. |Have Neptune installed| raw:: html
 
-    <a href="/getting-started/installation/index.html">Have Neptune installed</a>
+    <a href="/getting-started/installation/index.html" target="_blank">Have Neptune installed</a>
 
 .. |Create a project| raw:: html
 
