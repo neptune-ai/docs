@@ -1,5 +1,5 @@
-Installing neptune-mlflow
-=========================
+Install neptune-mlflow: integration with MLflow (1 min)
+=======================================================
 
 Neptune has an |integration with MLflow| that lets you sync ``mlruns`` directory into Neptune experiments.
 It comes as a separate package |neptune-mlflow|.

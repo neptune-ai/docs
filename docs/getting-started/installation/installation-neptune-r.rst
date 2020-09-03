@@ -1,5 +1,5 @@
-Installation neptune client for R
-=================================
+Install neptune-r: Neptune client for R (1 min)
+===============================================
 
 How do I install neptune-r package
 ----------------------------------

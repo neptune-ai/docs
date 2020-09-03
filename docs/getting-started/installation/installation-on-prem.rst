@@ -1,5 +1,5 @@
-Installation On-Prem
-====================
+Deploy Neptune On-Prem (60 min)
+===============================
 
 How can I deploy Neptune?
 -------------------------

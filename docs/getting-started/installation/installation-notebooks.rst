@@ -1,5 +1,5 @@
-Installing neptune-notebooks Jupyterlab extension
-=================================================
+Install neptune-notebooks: Jupyter extension (3 min)
+====================================================
 
 This page provides instructions for installing neptune-notebooks -- the Neptune Jupyter extension.
 

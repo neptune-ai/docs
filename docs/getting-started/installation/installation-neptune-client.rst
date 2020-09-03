@@ -1,5 +1,5 @@
-Installation Neptune client for Python
-======================================
+Install neptune-client: Neptune client for Python (1 min)
+=========================================================
 
 How do I install neptune-client library
 ---------------------------------------

@@ -1,5 +1,5 @@
-Installing neptune-contrib
-==========================
+Install neptune-contrib: Neptune extensions contributed by the community (3 min)
+================================================================================
 
 |neptune-contrib| is an open-source library with Neptune extensions created by the community.
 

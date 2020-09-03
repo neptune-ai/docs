@@ -10,10 +10,12 @@ Full list of our installation guides:
 .. toctree::
    :maxdepth: 1
 
-   Install neptune-client for Python (1 min) <installation-neptune-client.rst>
-   Install neptune extension libraries for Python client (2 min) <installation-extensions.rst>
-   Install neptune-notebooks Jupyter extension (3 min) <installation-notebooks.rst>
-   Install Neptune client for R (1 min) <installation-neptune-r.rst>
+   Install neptune-client <installation-neptune-client.rst>
+   Install neptune-notebooks <installation-notebooks.rst>
+   Install neptune-contrib <installation-neptune-contrib.rst>
+   Install neptune-tensorboard <installation-neptune-tensorboard.rst>
+   Install neptune-mlflow <installation-neptune-mlflow.rst>
+   Install neptune-r <installation-neptune-r.rst>
    Deploy Neptune On-Prem (60 min) <installation-on-prem.rst>
 
 .. |neptune-client| raw:: html

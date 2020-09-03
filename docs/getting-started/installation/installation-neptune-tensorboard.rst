@@ -1,5 +1,5 @@
-Installing neptune-tensorboard
-==============================
+Install neptune-tensorboard: integration with TensorBoard (1 min)
+=================================================================
 
 Neptune has an |integration with tensorboard| that lets you sync your TensorBoard logdir with Neptune experiments.
 It comes as a separate package |neptune-tensorboard|.
