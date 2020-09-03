@@ -69,7 +69,7 @@ How does Neptune work (in 3 steps)?
     :alt: Compare Experiments
     :width: 800
 
-Check it our for yourself:
+Check it for yourself:
 
 - See our |Quick starts|
 - |Run on Colab|
