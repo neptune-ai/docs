@@ -25,6 +25,7 @@ six==1.12.0
 snowballstemmer==1.2.1
 Sphinx==2.0.1
 sphinx-rtd-theme==0.4.3
+git+https://github.com/sphinx-contrib/redirects
 sphinxcontrib-applehelp==1.0.1
 sphinx-autoapi==1.4.0
 sphinxcontrib-devhelp==1.0.1

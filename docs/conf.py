@@ -12,6 +12,7 @@
 #
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('./neptune-client/'))
 
 # -- Project information -----------------------------------------------------
@@ -35,10 +36,14 @@ extensions = ['recommonmark',
               'sphinx.ext.autodoc',
               'autoapi.extension',
               'sphinx.ext.viewcode',
-              'sphinx.ext.napoleon']
+              'sphinx.ext.napoleon',
+              'sphinxcontrib.redirects']
+
+redirects_file = 'redirects'
 
 import neptune
 import os.path
+
 lib_path = os.path.dirname(os.path.dirname(neptune.__file__))
 
 autoapi_dirs = [os.path.join(lib_path, 'neptune'),
