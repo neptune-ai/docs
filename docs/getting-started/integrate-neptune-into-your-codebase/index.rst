@@ -25,7 +25,7 @@ If you are interested in connecting Neptune with a particular framework you can 
 
 .. |How to connect Neptune to your Python codebase step by step (5 min)| raw:: html
 
-    <a href="/getting-started/integrate-neptune-into-your-codebase/how-to-connect-neptune-to-your-python-codebase-step-by-step .html">How to connect Neptune to your Python codebase step by step (5 min)</a>
+    <a href="/getting-started/integrate-neptune-into-your-codebase/how-to-connect-neptune-to-your-python-codebase-step-by-step.html">How to connect Neptune to your Python codebase step by step (5 min)</a>
 
 .. |Neptune client for R| raw:: html
 
