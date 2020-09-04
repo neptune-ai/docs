@@ -6,8 +6,8 @@ Neptune in 3 minutes
 
 |Neptune tour|
 
-Try Neptune on Colab with zero setup
-------------------------------------
+Try Neptune on Colab with zero setup and see results in the UI
+--------------------------------------------------------------
 
 Get a quick feel of how monitoring and keeping track of experiments can look like.
 
