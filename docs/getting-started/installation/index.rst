@@ -16,6 +16,12 @@ Full list of our installation guides:
    Install neptune-tensorboard <installation-neptune-tensorboard.rst>
    Install neptune-mlflow <installation-neptune-mlflow.rst>
    Install neptune-r <installation-neptune-r.rst>
+
+You can also deploy Neptune on your own infrastructure. If you are interested in that read:
+
+.. toctree::
+   :maxdepth: 1
+
    Deploy Neptune On-Prem (60 min) <installation-on-prem.rst>
 
 .. |neptune-client| raw:: html
