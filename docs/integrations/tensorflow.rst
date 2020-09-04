@@ -1,7 +1,25 @@
-Integrate with TensorBoard Logging
-==================================
+Neptune-Tensorflow Integration
+===============================
 
-In this example, you use a Neptune method to automatically log TensorBoard metrics in Neptune.
+|neptune-tensorboard|, an open source project curated by the Neptune team, integrates |tensorboard| with Neptune to let you enjoy the best of both worlds.
+
+.. image:: ../_static/images/integrations/tensorboard_neptuneml.png
+   :target: ../_static/images/integrations/tensorboard_neptuneml.png
+   :alt: organize TensorBoard experiments in Neptune
+
+Neptune supports two major use cases:
+
+1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune. See `how to sync TensorBoard logdir <tensorboard.html>`_.
+2. You can use the ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune. For example, `Integrate with TensorBoard logging <tensorboard/tensorboard_integrate.html>`_.
+
+Check the example |tensorboard-integration| project in Neptune.
+
+Installation
+------------
+
+.. code-block:: bash
+
+    pip install neptune-tensorboard
 
 Requirements
 ------------
@@ -159,9 +177,31 @@ Simply copy and paste it to ``tensorflow_example.py`` and run.
                   batch_size=PARAMS['batch_size'],
                   callbacks=[tensorboard])
 
+.. External links
 
-.. External Links
+.. |GitHub| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">GitHub</a>
 
 .. |here| raw:: html
 
     <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/e/TEN-41/charts" target="_blank">here</a>
+
+.. |neptune-tensorboard| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
+
+
+.. |tensorboard| raw:: html
+
+    <a href="https://www.tensorflow.org/guide/summaries_and_tensorboard" target="_blank">TensorBoard</a>
+
+
+.. |tensorboard-integration| raw:: html
+
+    <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/experiments" target="_blank">TensorBoard project</a>
+
+
+.. |experiment-link| raw:: html
+
+    <a href="https://ui.neptune.ai/jakub-czakon/tensorboard-integration/compare?shortId=%5B%22TEN-41%22%2C%22TEN-40%22%2C%22TEN-39%22%2C%22TEN-38%22%2C%22TEN-37%22%2C%22TEN-36%22%2C%22TEN-35%22%2C%22TEN-34%22%2C%22TEN-33%22%2C%22TEN-32%22%5D" target="_blank">experiment link</a>

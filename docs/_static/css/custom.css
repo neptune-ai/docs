@@ -61,6 +61,10 @@ a:visited {
   background: #f7fafc;
 }
 
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a {
+  background: #f7fafc;
+}
+
 .wy-menu-vertical li.toctree-l2.current>a {
   background: #f7fafc;
   color: #556cd6;
@@ -118,6 +122,16 @@ a:visited {
 .wy-menu-vertical li.toctree-l2 {
   font-size: 14px;
   margin-left: 15px;
+}
+
+.wy-menu-vertical li.toctree-l3 {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.wy-menu-vertical li.toctree-l4 {
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 [role=search] {
