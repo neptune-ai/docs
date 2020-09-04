@@ -94,6 +94,7 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
     <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
 
+**More info:**
 
 .. toctree::
    :maxdepth: 1

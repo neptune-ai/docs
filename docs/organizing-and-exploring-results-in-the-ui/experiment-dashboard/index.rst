@@ -1,6 +1,8 @@
 Experiment Dashboard
 ====================
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

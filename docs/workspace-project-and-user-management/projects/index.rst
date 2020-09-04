@@ -26,6 +26,8 @@ Public projects are freely available to view by everyone who has access to the I
 Also, in case of individual workspaces, you can invite collaborators to public projects only.
 Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

@@ -26,6 +26,8 @@ Team
 
 Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

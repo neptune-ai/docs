@@ -1,6 +1,8 @@
 Security and privacy
 ====================
 
+**More info:**
+
 .. toctree::
    :maxdepth: 2
 

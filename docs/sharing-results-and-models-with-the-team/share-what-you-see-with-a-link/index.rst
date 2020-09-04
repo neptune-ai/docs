@@ -13,6 +13,8 @@ To get the URL you need for sharing, copy the URL from the address bar.
 
 The URL changes in accordance with the particular view you are in. Details are provided below.
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

@@ -1,6 +1,8 @@
 API tokens
 ==========
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

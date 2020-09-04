@@ -11,6 +11,8 @@ To share a view on a project or any of its parts, you simply copy and paste the 
     :depth: 1
     :backlinks: top
 
+**More info:**
+
 .. toctree::
    :maxdepth: 2
 

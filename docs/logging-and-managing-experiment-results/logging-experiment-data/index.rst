@@ -3,7 +3,7 @@ Logging experiment data
 
 Logging experiment data is one of the main features of Neptune.
 
-Here are some resources that will help you learn about Neptune logging:
+**More info:**
 
 .. toctree::
    :maxdepth: 2

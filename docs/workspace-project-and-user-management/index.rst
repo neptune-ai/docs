@@ -26,6 +26,8 @@ provides instructions for creating projects and workspaces and adding users to t
 
 .. _how-to_team-management_create-workspace:
 
+**More info:**
+
 .. toctree::
    :maxdepth: 1
 

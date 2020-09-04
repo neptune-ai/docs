@@ -3,6 +3,8 @@ Working with Neptune UI
 
 |Youtube Video dashboard|
 
+**More info:**
+
 .. toctree::
    :maxdepth: 2
 
