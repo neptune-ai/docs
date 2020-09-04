@@ -37,7 +37,9 @@ The following methods are provided:
 * :meth:`~neptune.experiments.Experiment.get_properties`: Gets user-defined properties for this experiment.
 * :meth:`~neptune.experiments.Experiment.get_system_properties`: Gets experiment properties.
 * :meth:`~neptune.experiments.Experiment.get_tags`: Gets the tags associated with this experiment.
-
+* :meth:`~neptune.experiments.Experiment.download_artifact`: Download an artifact (file) from the experiment storage.
+* :meth:`~neptune.experiments.Experiment.download_artifacts`: Download a directory or a single file from experiment’s artifacts as a ZIP archive.
+* :meth:`~neptune.experiments.Experiment.download_sources`: Download a directory or a single file from experiment’s sources as a ZIP archive.
 
 .. External Links
 
