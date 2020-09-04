@@ -3,7 +3,7 @@ Integrating Neptune into your codebase
 
 We've created a how-to guide to guide you through this step by step:
 
-- |How to connect Neptune to your Python codebase step by step (5 min)|
+- |How to connect Neptune to your codebase: step by step guide (5 min)|
 
 If you are interested in connecting Neptune with a particular framework you can jump straight to our |Integrations|.
 
@@ -20,12 +20,12 @@ If you are interested in connecting Neptune with a particular framework you can 
    :hidden:
    :maxdepth: 1
 
-   How to connect Neptune to your Python codebase step by step (5 min) <how-to-connect-neptune-to-your-python-codebase-step-by-step.rst>
+   How to connect Neptune to your codebase: step by step guide (5 min) <how-to-connect-neptune-to-your-python-codebase-step-by-step.rst>
    Not using Python? <not-using-python.rst>
 
-.. |How to connect Neptune to your Python codebase step by step (5 min)| raw:: html
+.. |How to connect Neptune to your codebase: step by step guide (5 min)| raw:: html
 
-    <a href="/getting-started/integrate-neptune-into-your-codebase/how-to-connect-neptune-to-your-python-codebase-step-by-step.html">How to connect Neptune to your Python codebase step by step (5 min)</a>
+    <a href="/getting-started/integrate-neptune-into-your-codebase/how-to-connect-neptune-to-your-python-codebase-step-by-step.html">How to connect Neptune to your codebase: step by step guide (5 min)</a>
 
 .. |Neptune client for R| raw:: html
 

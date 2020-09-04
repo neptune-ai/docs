@@ -1,5 +1,5 @@
-How to connect Neptune to your Python codebase step by step
-===========================================================
+How to connect Neptune to your codebase step by step
+====================================================
 
 Adding Neptune is a simple process that only takes a few steps.
 We'll go through those one by one.
