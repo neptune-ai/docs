@@ -163,7 +163,7 @@ Discover Neptune
 
 .. |Quick starts| raw:: html
 
-    <a href="/getting-started/quick-starts/index.html">Quick Starts</a>
+    <a href="/getting-started/quick-starts/index.html" target="_blank">Quick Starts</a>
 
 .. |Example Project| raw:: html
 
