@@ -25,7 +25,7 @@ You can deploy Neptune on:
 
 .. note::
 
-    Remember that you can always |install neptune-client|
+    Remember that you can always |install neptune-client| to use the SaaS version of Neptune.
 
 Download the manual
 -------------------
