@@ -9,6 +9,13 @@ You can. Run experiments anywhere, log anything you want, and see it all in one 
 
 Learn how to do that with these resources.
 
+Try monitoring experiments live in Neptune on Colab with zero setup and see results in the UI
+---------------------------------------------------------------------------------------------
+
+Get a quick feel of how monitoring of experiments can look like.
+
+|run on colab button|
+
 Must read
 ---------
 
@@ -51,3 +58,9 @@ Useful articles
 .. |How to monitor ML runs live: step by step guide| raw:: html
 
     <a href="/use-cases/monitor-live/how-to-monitor-live.html">How to monitor ML runs live: step by step guide</a>
+
+.. |run on colab button| raw:: html
+
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Monitor-ML-runs-live.ipynb" target="_blank">
+        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
+    </a>

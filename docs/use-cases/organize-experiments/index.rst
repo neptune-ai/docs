@@ -9,6 +9,13 @@ Gain control without changing your workflow.
 
 Learn how to do that with these resources.
 
+Try tracking experiments in Neptune on Colab with zero setup and see how you can organize results in the UI
+-----------------------------------------------------------------------------------------------------------
+
+Get a quick feel of how keeping track and organizing experiments can look like.
+
+|run on colab button|
+
 Must read
 ---------
 
@@ -51,3 +58,9 @@ Useful articles
 .. |How to organize ML experimentation: step by step guide| raw:: html
 
     <a href="/use-cases/organize-experiments/how-to-organize-experiments.html">How to organize ML experimentation: step by step guide</a>
+
+.. |run on colab button| raw:: html
+
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Organize-ML-experiments.ipynb" target="_blank">
+        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
+    </a>
