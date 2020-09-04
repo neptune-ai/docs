@@ -3,8 +3,6 @@ Installation
 
 Neptune comes with a client library |neptune-client| as well as a suite of extension libraries.
 
-You can also deploy Neptune on your own infrastructure. If you are interested in that read |deploy Neptune on-prem| guide.
-
 Full list of our installation guides:
 
 .. toctree::
