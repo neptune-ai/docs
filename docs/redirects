@@ -18,3 +18,7 @@
 /integrations/frameworks.html /integrations/index.html
 /integrations/tensorboard/tensorboard_runs_comparison.html /integrations/tensorboard.html
 /integrations/tensorboard/tensorboard_integrate.html /integrations/tensorflow.html
+/python-api/tutorials.html /logging-and-managing-experiment-results/index.html
+/python-api/tutorials/get-started.html /logging-and-managing-experiment-results/index.html
+/python-api/tutorials/session-and-experiment.html /logging-and-managing-experiment-results/index.html
+/python-api/tutorials/experiment-tracking.html /logging-and-managing-experiment-results/index.html
