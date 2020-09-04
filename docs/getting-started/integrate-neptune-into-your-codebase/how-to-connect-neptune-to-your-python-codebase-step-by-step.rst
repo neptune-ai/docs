@@ -25,8 +25,8 @@ Make sure you meet the following prerequisites before starting:
 - |Create a project|
 - |Configure Neptune API token on your system|
 
-Step 1: Choose a language: Are you using Python?
-------------------------------------------------
+Step 1: Are you using Python? Choose your client library
+--------------------------------------------------------
 
 Neptune was built for Python first and if this is your language of choice jump to the next Step!
 
@@ -34,8 +34,8 @@ If you are not using Python, no worries, Neptune plays nicely with other languag
 
 Read |how to use Neptune with other languages| here.
 
-Step 2: See if Neptune integrates with your current experiment tracking tool
-----------------------------------------------------------------------------
+Step 2: See if Neptune integrates with your current experiment tracking tool (Optional)
+---------------------------------------------------------------------------------------
 
 Neptune has utilities that let you use other open-source experiment tracking tools together with Neptune
 They also make the migration from those tools easy and quick.
@@ -46,8 +46,8 @@ Neptune integrates with the following experiment tracking frameworks:
 - |TensorBoard|
 - |Sacred|
 
-Step 3: See if Neptune integrates with your ML framework
---------------------------------------------------------
+Step 3: See if Neptune integrates with your ML framework (Optional)
+-------------------------------------------------------------------
 
 Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started faster.
 
