@@ -34,11 +34,15 @@ While Neptune is essentially a platform for tracking experiments, it provides Ju
 How does Neptune work (in 3 steps)?
 -----------------------------------
 
+.. note::
+
+    Following snippets are just to give you the idea.
+
+    If you want to copy paste and run things quickly then go to |Quick starts|.
+
 1. Connect it to your script
 
 .. code:: python
-
-    import neptune
 
     neptune.init('happy_tom/great-project')
 
