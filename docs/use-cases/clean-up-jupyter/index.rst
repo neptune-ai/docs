@@ -9,21 +9,15 @@ It’s good for you and great for your team.
 
 Learn how to do that with these resources.
 
-Must read
----------
+More info:
+----------
 
-- |How to version your Jupyter workflow: step by step guide|
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-    How to version your Jupyter workflow: step by step guide <how-to-version-notebooks.rst>
+- |Keeping track of jupyter notebooks|
 
 .. |YouTube video|  raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/d7Ovf3kcxqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-.. |How to version your Jupyter workflow: step by step guide| raw:: html
+.. |Keeping track of jupyter notebooks| raw:: html
 
-    <a href="/use-cases/clean-up-jupyter/how-to-version-notebooks.html">How to clean up your Jupyter workflow: step by step guide</a>
+    <a href="/use-cases/clean-up-jupyter/how-to-version-notebooks.html" target="_blank">Keeping track of jupyter notebooks</a>

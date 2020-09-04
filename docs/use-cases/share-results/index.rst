@@ -9,21 +9,15 @@ Run experiments anywhere, use any framework, have all the results in one place, 
 
 Learn how to do that with these resources.
 
-Must read
----------
+More info:
+----------
 
-- |How to share results with your team: step by step guide|
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-    How to share results with your team: step by step guide <how-to-share-experiments.rst>
+- |Sharing results and models with the team|
 
 .. |YouTube video|  raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/3E9FjsskXFI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-.. |How to share results with your team: step by step guide| raw:: html
+.. |Sharing results and models with the team| raw:: html
 
-    <a href="/use-cases/share-results/how-to-share-results.html">How to share results with your team: step by step guide</a>
+    <a href="/sharing-results-and-models-with-the-team/index.html" target="_blank">Sharing results and models with the team</a>
