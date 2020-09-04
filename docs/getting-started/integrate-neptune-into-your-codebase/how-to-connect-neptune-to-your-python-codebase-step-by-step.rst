@@ -49,7 +49,7 @@ Neptune integrates with the following experiment tracking frameworks:
 Step 3: See if Neptune integrates with your ML framework
 --------------------------------------------------------
 
-Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started in minutes.
+Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started faster.
 
 Deep learning frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,6 +78,10 @@ Check out the |full list of integrations|.
 
 Step 4: Add Neptune logging explicitly
 --------------------------------------
+
+You can always add Neptune logging into your codebase explicitly.
+
+Let me show you how to do that step by step. 
 
 1. Connect Neptune to your script
 
