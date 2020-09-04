@@ -32,7 +32,7 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
    :maxdepth: 1
 
     Create a project <create-project.rst>
-    Add people to project <assign-people-to-project.rst>
+    Assign people to a project <assign-people-to-project.rst>
 
 .. |credit-default-prediction| raw:: html
 

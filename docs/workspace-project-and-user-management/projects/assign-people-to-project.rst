@@ -33,9 +33,9 @@ Assign People to a Project
 
 .. |Team workspace| raw:: html
 
-    <a href="/user-workspace-management/workspaces/create-workspace.html">Team workspace</a>
+    <a href="/workspace-project-and-user-management/workspaces/index.html#team">Team workspace</a>
 
 .. |project roles| raw:: html
 
-    <a href="/user-workspace-management/user-management/index.html#roles-in-a-project">project roles</a>
+    <a href="/workspace-project-and-user-management/index.html#roles-in-a-project">project roles</a>
 

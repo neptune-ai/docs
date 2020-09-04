@@ -81,7 +81,7 @@ Step 4: Add Neptune logging explicitly
 
 You can always add Neptune logging into your codebase explicitly.
 
-Let me show you how to do that step by step. 
+Let me show you how to do that step by step.
 
 1. Connect Neptune to your script
 
