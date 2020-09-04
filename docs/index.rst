@@ -24,9 +24,6 @@ Most common Neptune use cases:
 - |Organize ML experimentation|
 - |Compare and debug ML experiments and models|
 - |Share results of experiments with your team|
-
-While Neptune is essentially a platform for tracking experiments, it provides Jupyter and JupyterLab extensions that also let you track Jupyter Notebooks.
-
 - |Clean up your Jupyter workflow without git|
 
 |Sign up|
