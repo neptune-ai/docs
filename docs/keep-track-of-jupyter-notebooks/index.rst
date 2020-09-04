@@ -1,5 +1,5 @@
-Keep track of Jupyter Notebooks
-===============================
+Keeping track of Jupyter Notebooks
+==================================
 
 |Youtube Video|
 
