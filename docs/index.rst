@@ -1,115 +1,92 @@
-Welcome to Neptune!
-===================
+Documentation
+=============
 
-Neptune is a light-weight experiment management tool that helps you keep track of your machine learning experiments.
+Neptune in 3 minutes
+--------------------
 
-Use Neptune to log hyperparameters and output metrics from your runs, then visualize and compare results. Automatically transform tracked data into a knowledge repository, then share and discuss your work with colleagues.
+|Neptune tour|
 
-- Neptune fits in any workflow, ranging from data exploration and analysis, decision science to machine learning and deep learning.
-- Neptune works with common technologies in the data science domain: `Python <python-api/introduction.html>`_, `Jupyter Notebooks <notebooks/introduction.html>`_, and `R <integrations/r-support.html>`_, to mention a few.
-- It has convenient integrations with many Python libraries for machine learning and deep learning such as: `Keras <integrations/keras.html>`_, `PyTorch Lightning <integrations/pytorch_lightning.html>`_, `XGBoost <integrations/xgboost.html>`_, `Matplotlib <integrations/matplotlib.html>`_.
-- It integrates with other tracking tools such as `MLflow <integrations/mlflow.html#>`_ and `TensorBoard <integrations/tensorboard.html#>`_ or `Sacred <integrations/sacred.html>`_.
-- It works seamlessly with your infrastructure, be it AWS, GCP, Kubernetes, Azure, or on-prem machines.
-- The `Neptune Python Library <python-api/introduction.html>`_ is an open source package that allows you to integrate your Python scripts with Neptune. Once you have integrated with Neptune, you can:
+Try Neptune on Colab with zero setup and see results in the UI
+--------------------------------------------------------------
 
-    - Create and track experiments
-    - Manage and run experiments
-    - Fetching experiment and project data
+Get a quick feel of how monitoring and keeping track of experiments can look like.
 
-Get Started
-===========
+|Run on Colab|
 
-- New user? |Register| and climb aboard.
-- Registered already? Log in |here|, then click **Getting Started** and follow the onboarding instructions:
+What does Neptune do?
+---------------------
 
-    .. image:: ./_static/images/core-concepts/getting_started_onboarding.png
-        :target: ./_static/images/core-concepts/getting_started_onboarding.png
-        :alt: Get Started Onboarding
+Neptune is a lightweight experiment management tool that helps you keep track of your machine learning experiments.
 
-- Take a look at Neptune Project starter code in our |sample project|.
+Most common Neptune use cases:
 
+- |Monitor ML runs live|
+- |Organize ML experimentation|
+- |Compare and debug ML experiments and models|
+- |Share results of experiments with your team|
+- |Clean up your Jupyter workflow without git|
 
-Track, Organize, Collaborate
-============================
+|Sign up|
 
-.. image:: ./_static/images/overview/quick_overview.gif
-   :target: ./_static/images/overview/quick_overview.gif
-   :alt: image
+How does Neptune work (in 3 steps)?
+-----------------------------------
 
+.. note::
 
-The Neptune workflow comprises three iterative phases:
+    Following snippets are just to give you the idea.
 
-- **Track** all objects in the data science or machine learning project. It can be model training curves, visualizations, input data, calculated features and so on. The snippet below presents an example of integration with Python code.
+    If you want to copy paste and run things quickly then go to |Quick starts|.
 
-    .. code-block:: python
+1. Connect it to your script
 
-        import neptune
+.. code:: python
 
-        neptune.init('shared/onboarding', api_token='ANONYMOUS')
-        neptune.create_experiment()
+    neptune.init('happy_tom/great-project')
 
-        neptune.append_tag('minimal-example')
-        n = 117
-        for i in range(1, n):
-            neptune.send_metric('iteration', i)
-            neptune.send_metric('loss', 1/i**0.5)
-            neptune.set_property('n_iterations', n)
+2. Start an experiment
 
-    .. note::
-        The `api_token` belongs to the public user Neptuner. After running the code, your experiment will appear on the experiments |dashboard|.
+.. code:: python
 
-    For more information, see `Experiment Tracking <learn-about-neptune/experiment_tracking.html>`_.
+    neptune.create_experiment('my-amazing-idea')
 
-- **Organize** the structure of your project:
+3. Log things that you care about
 
-    - Code
-    - Notebooks
-    - Experiment results
-    - Model weights
-    - Meeting notes
-    - Reports
+.. code:: python
 
-    Everything is in one place, accessible from the application or programmatically. Neptune exposes a Query API, that allows users to access their Neptune data right from the Python code.
+    neptune.log_metric('test_auc', 0.92) # metrics, losses
+    neptune.log_image('charts', roc_curve_fig) # images, charts
+    neptune.log_artifact('model.h5') # model binaries, predictions, files
 
-    For more information, see `Experiments View <learn-about-neptune/ui.html#experiments-view>`_.
+4. Run your script normally
 
-- **Collaborate** in the team:
+.. code:: bash
 
-    - Share your experiments
-    - Compare results
-    - Comment and communicate your work
-    - Use widgets and mentions to show your progress
-    - Speak your language in our data-science focused interactive wiki!
+    python train.py
 
-        .. image:: ./_static/images/overview/wiki.gif
-           :target: ./_static/images/overview/wiki.gif
-           :alt: image
+5. See everything in Neptune UI
 
-    For more information, see `Collaborating in Neptune <learn-about-neptune/collaborate.html>`_.
+.. image:: _static/images/home/view_experiment_info.png
+    :target: _static/images/home/view_experiment_info.png
+    :alt: Compare Experiments
+    :width: 800
 
+Check it for yourself:
 
-More Resources
-==============
+- See our |Quick starts|
 
-In addition to this documentation set, check out the following resources:
+|Run on Colab|
 
-- |Project tutorial|: Covers installation, experiment tracking and comparison, data tracking, and Notebook use.
-- Sample projects like a |comparison of binary classification metrics| applied to fraud detection, |research on hyperparameter optimization strategies|, or a |step-by-step experiment tracking tutorial|.
+Discover Neptune
+----------------
+
+- |Example Project|: See how example project looks in Neptune
 - |YouTube channel|: Provides hands-on videos that showcase key Neptune features.
-- |Neptune blog|: Provides in-depth articles about best practices and trends in machine learning.
-- |Neptune user community|: Meet other Neptune users and developers and start a discussion.
+- |Neptune blog|: Provides in-depth articles about best practices in machine learning experimentation (among other things)
+- |Neptune community|: Meet other Neptune users and developers and start a discussion.
+- |neptune-client|: Neptune client is an open source Python library that lets you integrate your Python scripts with Neptune.
 - |neptune-contrib|: Built on top of neptune-client, this is an open-source collection of advanced utilities that make work with Neptune easier.
-- |Product hunt| : A review helps other people find our product.
-- Presentations, talks, podcasts
-- Technical support: Should you require further support, or have feature requests, |contact us| by email or click the chat icon in the bottom right corner of the Neptune UI.
+- Questions? Send an email to contact@neptune.ai by email or click the chat icon in the bottom right corner.
 
-Spread the Love
-===============
-
-Go ahead and mention us on social media!
-
-- |Twitter|: Tweet us. Our handle is @neptune.ai.
-- Product feedback: File an issue or suggest a feature or improvement in our |GitHub repo|.
 
 .. ----------------------
 .. Documentation contents
@@ -117,130 +94,87 @@ Go ahead and mention us on social media!
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Getting Started with Neptune
 
-   learn-about-neptune/ui.rst
-   learn-about-neptune/experiment_tracking.rst
-   learn-about-neptune/team-management.rst
-   learn-about-neptune/collaborate.rst
-   learn-about-neptune/nql.rst
-   learn-about-neptune/deployment.rst
-   learn-about-neptune/faq.rst
+   Home <self>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Jupyter Notebooks in Neptune
+   :caption: Getting started
 
-   Using Jupyter Notebooks <notebooks/introduction.rst>
-   Installation for Jupyter and JupyterLab <notebooks/installation.rst>
-   Configuration <notebooks/configuration.rst>
-   Troubleshoot <notebooks/troubleshoot.rst>
-
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-   :caption: Python Library
-
-   python-api/introduction.rst
-   python-api/sample_project.rst
-   python-api/tutorials.rst
-   python-api/fetch-data.rst
-   python-api/cheatsheet.rst
-   python-api/api-reference.rst
+   Installation <getting-started/installation/index.rst>
+   Quick starts <getting-started/quick-starts/index.rst>
+   Integrating Neptune into your codebase <getting-started/integrate-neptune-into-your-codebase/index.rst>
+   Getting help <getting-started/getting-help.rst>
 
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Integrations
+   :caption: User Guides
 
-   Introduction <integrations/introduction.rst>
-   Languages <integrations/languages.rst>
-   Cloud providers <integrations/cloud_providers.rst>
-   Deep learning frameworks <integrations/deep_learning_frameworks.rst>
-   Machine learning frameworks <integrations/machine_learning_frameworks.rst>
-   Hyperparmeter optimization frameworks <integrations/hyperparams_opt_frameworks.rst>
-   Visualization tools <integrations/visualization_tools.rst>
-   Explainability tools <integrations/explainability_tools.rst>
-   Messaging systems <integrations/messaging_systems.rst>
-   Experiment tracking frameworks <integrations/experiment_tracking_frmwks.rst>
-   Neptune extensions library <integrations/neptune-contrib.rst>
+   Most common use cases <use-cases/index.rst>
+   Logging and managing experiment results <logging-and-managing-experiment-results/index.rst>
+   Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
+   Organizing and exploring results in the UI <organizing-and-exploring-results-in-the-ui/index.rst>
+   Sharing results and models with the team <sharing-results-and-models-with-the-team/index.rst>
 
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Essentials
 
+   Integrations <integrations/index.rst>
+   API reference <api-reference/index.rst>
+   FAQ <faq/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Administration
+
+   Workspace, project, and user management <workspace-project-and-user-management/index.rst>
+   Security and privacy <security-and-privacy/index.rst>
+   On-prem <on-prem/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Links
+
+   Neptune website <https://neptune.ai/>
+   Neptune app <https://ui.neptune.ai/>
 
 .. External links
+
+.. |Neptune tour| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |Sign up| raw:: html
+
+    <div style="padding-bottom:20px">
+    <a href="https://neptune.ai/register" target="_blank">
+        <img width="600" src="../_static/images/home/sign_up.png"></img>
+    </a>
+    </div>
+
+.. |Run on Colab| raw:: html
+
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Neptune-API-Tour.ipynb" target="_blank">
+        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
+    </a>
 
 .. |Neptune| raw:: html
 
     <a href="https://neptune.ai/" target="_blank">Neptune</a>
 
-.. |contact us| raw:: html
+.. |Quick starts| raw:: html
 
-    <a href="mailto:contact@neptune.ai" target="_blank">contact us</a>
+    <a href="/getting-started/quick-starts/index.html" target="_blank">Quick Starts</a>
 
-.. |MLflow| raw:: html
+.. |Example Project| raw:: html
 
-    <a href="https://mlflow.org/" target="_blank">MLflow</a>
-
-.. |TensorBoard| raw:: html
-
-    <a href="https://www.tensorflow.org/guide/summaries_and_tensorboard" target="_blank">TensorBoard</a>
-
-.. |Neptuner| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/neptuner" target="_blank">Neptuner</a>
-
-.. |experiments view| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/onboarding/experiments" target="_blank">experiments view</a>
-
-.. |Jupyter Notebooks| raw:: html
-
-    <a href="https://docs.neptune.ai/notebooks/introduction.html" target="_blank">Jupyter Notebooks</a>
-
-.. |Neptune client| raw:: html
-
-    <a href="https://github.com/neptune-ai/neptune-client" target="_blank">Neptune client</a>
-
-
-.. |GitHub repo|  raw:: html
-
-    <a href="https://github.com/neptune-ai/neptune-client/issues" target="_blank">GitHub repo</a>
-
-.. |Register| raw:: html
-
-    <a href="https://neptune.ai/register" target="_blank">Register</a>
-
-.. |here| raw:: html
-
-    <a href="https://neptune.ai/login" target="_blank">here</a>
-
-.. |sample project| raw:: html
-
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/wiki/2-Installation-and-minimal-example-cd2b3338-6629-40cc-966c-b455c62a90b3" target="_blank">sample project</a>
-
-.. |dashboard| raw:: html
-
-    <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
-
-
-.. |Project tutorial|  raw:: html
-
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/wiki/1-Intro-89a74d1e-c71d-4764-912a-63312c3e885c" target="_blank">Project tutorial</a>
-
-
-.. |comparison of binary classification metrics|  raw:: html
-
-    <a href="https://ui.neptune.ai/neptune-ai/binary-classification-metrics/wiki/README-12ff3437-42e3-48c9-af34-957822849559" target="_blank">comparison of binary classification metrics</a>
-
-
-.. |research on hyperparameter optimization strategies|  raw:: html
-
-    <a href="https://ui.neptune.ai/jakub-czakon/blog-hpo/wiki/Skopt-forest-51912822-7a61-42ad-87d1-108998739c73" target="_blank">research on hyperparameter optimization strategies</a>
-
-.. |step-by-step experiment tracking tutorial|  raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project/wiki/1-Intro-89a74d1e-c71d-4764-912a-63312c3e885c" target="_blank">step-by-step experiment tracking tutorial</a>
+    <a href="https://ui.neptune.ai/o/neptune-ai/org/credit-default-prediction/experiments?viewId=a261e2d2-a558-468e-bf16-9fc9d0394abc" target="_blank">Example project</a>
 
 .. |YouTube channel|  raw:: html
 
@@ -248,21 +182,36 @@ Go ahead and mention us on social media!
 
 .. |Neptune Blog|  raw:: html
 
-    <a href="https://neptune.ai/blog" target="_blank">Neptune blog</a>
+    <a href="https://neptune.ai/blog/category/machine-learning-model-management" target="_blank">Neptune blog</a>
 
-.. |Neptune user community|  raw:: html
+.. |Neptune community|  raw:: html
 
-    <a href="https://spectrum.chat/neptune-community?tab=posts" target="_blank">Neptune user community</a>
+    <a href="https://community.neptune.ai/" target="_blank">Neptune community forum</a>
+
+.. |neptune-client| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
 
 .. |neptune-contrib|  raw:: html
 
-    <a href="https://neptune-contrib.readthedocs.io/index.html" target="_blank">neptune-contrib</a>
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
 
+.. |Monitor ML runs live| raw:: html
 
-.. |Product hunt|   raw:: html
+    <a href="/use-cases/monitor-live/index.html">Monitor ML runs live</a>
 
-    <a href="https://www.producthunt.com/posts/neptune-ai" target="_blank">Product hunt</a>
+.. |Organize ML experimentation| raw:: html
 
-.. |Twitter|  raw:: html
+    <a href="/use-cases/organize-experiments/index.html">Organize ML experimentation</a>
 
-    <a href="https://twitter.com/neptune_ai" target="_blank">Twitter</a>
+.. |Share results of experiments with your team| raw:: html
+
+    <a href="/use-cases/share-results/index.html">Share results of experiments with your team</a>
+
+.. |Compare and Debug ML experiments and models| raw:: html
+
+    <a href="/use-cases/compare-experiments/index.html">Compare and debug ML experiments and models</a>
+
+.. |Clean up your Jupyter workflow without git| raw:: html
+
+    <a href="/use-cases/clean-up-jupyter/index.html">Clean up your Jupyter workflow without git</a>

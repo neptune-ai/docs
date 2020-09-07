@@ -4,8 +4,8 @@ Neptune-Altair Integration
 This integration lets you log interactive charts generated in |altair|, like confusion matrix or distribution, in Neptune.
 
 
-.. image:: ../_static/images/altair/altair.png
-   :target: ../_static/images/altair/altair.png
+.. image:: ../_static/images/integrations/altair.png
+   :target: ../_static/images/integrations/altair.png
    :alt: altair neptune.ai integration
 
 
@@ -60,8 +60,8 @@ Follow these steps:
 
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/altair/altair.gif
-   :target: ../_static/images/altair/altair.gif
+.. image:: ../_static/images/integrations/altair.gif
+   :target: ../_static/images/integrations/altair.gif
    :alt: image
 
 .. External Links

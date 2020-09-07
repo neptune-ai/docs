@@ -12,6 +12,7 @@
 #
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('./neptune-client/'))
 
 # -- Project information -----------------------------------------------------
@@ -33,9 +34,47 @@ highlight_language = 'python3'
 # ones.
 extensions = ['recommonmark',
               'sphinx.ext.autodoc',
+              'autoapi.extension',
               'sphinx.ext.viewcode',
-              'sphinx.ext.napoleon']
+              'sphinx.ext.napoleon',
+              ]
 
+import neptune
+import os.path
+
+lib_path = os.path.dirname(os.path.dirname(neptune.__file__))
+
+autoapi_dirs = [os.path.join(lib_path, 'neptune'),
+                os.path.join(lib_path, 'neptunecontrib'),
+                os.path.join(lib_path, 'neptune_tensorboard'),
+                ]
+autoapi_template_dir = '_templates/auto_api_templates'
+autoapi_root = 'api-reference'
+autoapi_ignore = ['*neptune_tensorboard/internal*',
+                  '*neptune_tensorboard/sync*',
+                  '*neptune_tensorboard/integration/keras_integration*',
+                  '*neptunecontrib/_version*',
+                  '*neptunecontrib/logging*',
+                  '*neptunecontrib/sync*',
+                  '*neptune/internal*',
+                  '*neptune/_version*',
+                  '*neptune/api_exceptions*',
+                  '*neptune/backend*',
+                  '*neptune/checkpoint*',
+                  '*neptune/constants*',
+                  '*neptune/envs*',
+                  '*neptune/exceptions*',
+                  '*neptune/exceptions*',
+                  '*neptune/model*',
+                  '*neptune/oauth*',
+                  '*neptune/patterns*',
+                  '*neptune/utils*',
+                  ]
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -54,16 +93,16 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_logo = '_static/images/others/logo-horizontal.png'
+html_logo = '_static/images/home/logo-horizontal.svg'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'canonical_url': 'https://docs.neptune.ai/',
     'collapse_navigation': False,
     'style_external_links': False,
-    'navigation_depth': 3,
+    'navigation_depth': 4,
     'prev_next_buttons_location': 'bottom',
     'sticky_navigation': False,
-    'titles_only': False,
+    'titles_only': True,
     'logo_only': True,
 }
 
@@ -78,4 +117,4 @@ html_css_files = [
     'css/custom.css'
 ]
 
-html_favicon = '_static/images/others/favicon.ico'
+html_favicon = '_static/images/home/favicon.ico'

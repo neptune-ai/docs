@@ -4,8 +4,8 @@ Neptune-Catalyst Integration
 The integration enables you to log |Catalyst| metrics to Neptune.
 
 
-.. image:: ../_static/images/others/catalyst_neptuneai.png
-   :target: ../_static/images/others/catalyst_neptuneai.png
+.. image:: ../_static/images/integrations/catalyst_neptuneai.png
+   :target: ../_static/images/integrations/catalyst_neptuneai.png
    :alt: Catalyst neptune.ai integration
 
 
@@ -58,8 +58,8 @@ Now you can watch your Catalyst model training in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/catalyst/catalyst_monitoring.gif
-   :target: ../_static/images/catalyst/catalyst_monitoring.gif
+.. image:: ../_static/images/integrations/catalyst_monitoring.gif
+   :target: ../_static/images/integrations/catalyst_monitoring.gif
    :alt: Catalyst monitoring in neptune
 
 Full Catalyst monitor script
@@ -167,8 +167,6 @@ Remember to change your credentials in the ``NeptuneLogger``:
         verbose=True,
         callbacks=[neptune_logger]
     )
-
-
 
 .. External links
 

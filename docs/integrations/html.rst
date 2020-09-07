@@ -4,8 +4,8 @@ Neptune-HTML Integration
 This integration lets you log any standalone HTML objects to Neptune.
 
 
-.. image:: ../_static/images/html/html.png
-   :target: ../_static/images/html/html.png
+.. image:: ../_static/images/integrations/html.png
+   :target: ../_static/images/integrations/html.png
    :alt: html neptune.ai integration
 
 
@@ -38,8 +38,8 @@ Follow these steps:
 
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/html/html.gif
-   :target: ../_static/images/html/html.gif
+.. image:: ../_static/images/integrations/html.gif
+   :target: ../_static/images/integrations/html.gif
    :alt: image
 
 .. External Links

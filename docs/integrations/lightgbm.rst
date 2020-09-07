@@ -3,8 +3,8 @@ Neptune-LightGBM Integration
 
 |lightGBM| is a popular gradient boosting library. The integration with Neptune lets you log training and evaluation metrics and have them visualized in Neptune.
 
-.. image:: ../_static/images/others/lightgbm_neptuneml.png
-   :target: ../_static/images/others/lightgbm_neptuneml.png
+.. image:: ../_static/images/integrations/lightgbm_neptuneml.png
+   :target: ../_static/images/integrations/lightgbm_neptuneml.png
    :alt: lightGBM neptune.ai integration
 
 Requirements
@@ -48,8 +48,8 @@ Now you can watch your lightGBM training in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/others/lightgbm_neptuneml.png
-   :target: ../_static/images/others/lightgbm_neptuneml.png
+.. image:: ../_static/images/integrations/lightgbm_neptuneml.png
+   :target: ../_static/images/integrations/lightgbm_neptuneml.png
    :alt: lightGBM neptune.ai integration
 
 Full script

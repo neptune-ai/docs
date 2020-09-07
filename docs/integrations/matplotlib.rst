@@ -4,8 +4,8 @@ Neptune-Matplotlib Integration
 This integration lets you log charts generated in |matplotlib|, like confusion matrix or distribution, in Neptune.
 
 
-.. image:: ../_static/images/matplotlib/matplotlib.png
-   :target: ../_static/images/matplotlib/matplotlib.png
+.. image:: ../_static/images/integrations/matplotlib.png
+   :target: ../_static/images/integrations/matplotlib.png
    :alt: matplotlib neptune.ai integration
 
 
@@ -59,15 +59,15 @@ Follow these steps:
 
 Static image is logged into the logs section:
 
-.. image:: ../_static/images/how-to/ht-matplotlib-2.png
-   :target: ../_static/images/how-to/ht-matplotlib-2.png
+.. image:: ../_static/images/integrations/ht-matplotlib-2.png
+   :target: ../_static/images/integrations/ht-matplotlib-2.png
    :alt: image
 
 Interactive figure is logged as artifact into the charts folder.
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/matplotlib/matplotlib.gif
-   :target: ../_static/images/matplotlib/matplotlib.gif
+.. image:: ../_static/images/integrations/matplotlib.gif
+   :target: ../_static/images/integrations/matplotlib.gif
    :alt: image
 
 .. External Links

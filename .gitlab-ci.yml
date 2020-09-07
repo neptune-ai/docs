@@ -105,6 +105,17 @@ stages:
   only:
     - master
 
+.deploy_refactor_job:
+  <<: *base_stage
+  stage: stage
+  tags:
+    - deploy-stage
+  except:
+    - tags
+    - web
+  only:
+    - refactor
+
 .publish_component_anchor: &publish_component |
   registry="$REGISTRY_URL_CICD"
   if [ "$CI_COMMIT_TAG" == "" ]; then
@@ -169,22 +180,22 @@ stages:
 
 .deploy_script: &deploy |
   echo "Generating values file for stage deployment"
-  ./cicd/get_config.py "stage" "${REGISTRY_URL_CICD}" "${CI_COMMIT_SHA:0:8}" >deployment-values.yaml
+  ./cicd/get_config.py "$component" "${REGISTRY_URL_CICD}" "${CI_COMMIT_SHA:0:8}" >deployment-values.yaml
 
   cat deployment-values.yaml
 
-  if helm status "neptune-docs" -n neptune &>/dev/null ; then
+  if helm status "$deployment" -n neptune &>/dev/null ; then
     helm upgrade \
       -n neptune \
       --timeout 600s \
-      "neptune-docs" \
+      "$deployment" \
       ./helm/charts/neptune-docs \
       --values=deployment-values.yaml
   else
     helm install \
       --timeout 600s \
       --namespace "neptune" \
-      "neptune-docs"  \
+      "$deployment"  \
       ./helm/charts/neptune-docs \
       --values=deployment-values.yaml
   fi
@@ -213,6 +224,19 @@ deploy_stage:
     url: https://docs.stage.neptune.ai
   script:
     - *setup
+    - component="stage"
+    - deployment="neptune-docs"
+    - *deploy
+
+deploy_refactor:
+  extends: .deploy_refactor_job
+  environment:
+    name: stage-docs
+    url: https://new-docs.stage.neptune.ai
+  script:
+    - *setup
+    - component="refactor"
+    - deployment="neptune-new-docs"
     - *deploy
 
 ###############################################################################

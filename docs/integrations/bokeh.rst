@@ -4,8 +4,8 @@ Neptune-bokeh Integration
 This integration lets you log interactive charts generated in |bokeh|, like confusion matrix or distribution, in Neptune.
 
 
-.. image:: ../_static/images/bokeh/bokeh.png
-   :target: ../_static/images/bokeh/bokeh.png
+.. image:: ../_static/images/integrations/bokeh.png
+   :target: ../_static/images/integrations/bokeh.png
    :alt: bokeh neptune.ai integration
 
 
@@ -76,8 +76,8 @@ Follow these steps:
 
 Check out |this experiment| in the app.
 
-.. image:: ../_static/images/bokeh/bokeh.gif
-   :target: ../_static/images/bokeh/bokeh.gif
+.. image:: ../_static/images/integrations/bokeh.gif
+   :target: ../_static/images/integrations/bokeh.gif
    :alt: image
 
 .. External Links

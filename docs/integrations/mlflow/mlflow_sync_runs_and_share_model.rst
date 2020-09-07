@@ -58,8 +58,8 @@ You can now sync your MLruns directory with Neptune.
 
 See |the example|.
 
-.. image:: ../../_static/images/mlflow/mlflow_2.png
-   :target: ../../_static/images/mlflow/mlflow_2.png
+.. image:: ../../_static/images/integrations/mlflow_2.png
+   :target: ../../_static/images/integrations/mlflow_2.png
    :alt: share artifacts logged during MLflow run
 
 .. External Links

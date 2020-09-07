@@ -5,8 +5,8 @@ Neptune-MLflow Integration
 
 The integration lets you enjoy the best of both worlds: the tracking and reproducibility of MLflow with the organization and collaboration of Neptune.
 
-.. image:: ../_static/images/others/mlflow_neptuneml.png
-   :target: ../_static/images/others/mlflow_neptuneml.png
+.. image:: ../_static/images/integrations/mlflow_neptuneml.png
+   :target: ../_static/images/integrations/mlflow_neptuneml.png
    :alt: organize MLflow experiments in Neptune
 
 Check the example project in Neptune: |mlflow-integration|.
@@ -52,13 +52,13 @@ Alternatively you can point to the MLflow project directory:
 Organize and share your MLflow experiments
 ------------------------------------------
 
-.. image:: ../_static/images/mlflow/mlflow_1.png
-   :target: ../_static/images/mlflow/mlflow_1.png
+.. image:: ../_static/images/integrations/mlflow_1.png
+   :target: ../_static/images/integrations/mlflow_1.png
    :alt: organize MLflow experiments in Neptune
 
 
-.. image:: ../_static/images/mlflow/mlflow_2.png
-   :target: ../_static/images/mlflow/mlflow_2.png
+.. image:: ../_static/images/integrations/mlflow_2.png
+   :target: ../_static/images/integrations/mlflow_2.png
    :alt: share artifacts logged during MLflow run
 
 Examples

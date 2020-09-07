@@ -2,7 +2,7 @@
 DEFAULT_TAG="eu.gcr.io/neptune-cicd/neptune/docs:dev"
 set -e
 
-virtualenv -p python3 venv
+virtualenv -p python3.6 venv
 
 source venv/bin/activate
 

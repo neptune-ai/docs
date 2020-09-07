@@ -3,14 +3,14 @@ Neptune-TensorBoard Integration
 
 |neptune-tensorboard|, an open source project curated by the Neptune team, integrates |tensorboard| with Neptune to let you enjoy the best of both worlds.
 
-.. image:: ../_static/images/tensorboard/tensorboard_neptuneml.png
-   :target: ../_static/images/tensorboard/tensorboard_neptuneml.png
+.. image:: ../_static/images/integrations/tensorboard_neptuneml.png
+   :target: ../_static/images/integrations/tensorboard_neptuneml.png
    :alt: organize TensorBoard experiments in Neptune
 
 Neptune supports two major use cases:
 
-1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune. For example, `TensorBoard runs comparison <tensorboard/tensorboard_runs_comparison.html>`_.
-2. You can use the ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune. For example, `Integrate with TensorBoard logging <tensorboard/tensorboard_integrate.html>`_.
+1. With |neptune-tensorboard| you can have your TensorBoard visualizations hosted in Neptune. See `how to sync TensorBoard logdir <tensorboard.html>`_.
+2. You can use the ``neptune.integrate_with_tensorflow()`` method to instantly log major metrics (epoch and batch related) to Neptune. See `how to integrate Neptune with Tensorflow <tensorflow.html>`_.
 
 Check the example |tensorboard-integration| project in Neptune.
 
@@ -36,25 +36,17 @@ Point Neptune to your TensorBoard logs directory:
 
 - Organize your TensorBoard experiments:
 
-.. image:: ../_static/images/tensorboard/tensorboard_1.png
-   :target: ../_static/images/tensorboard/tensorboard_1.png
+.. image:: ../_static/images/integrations/tensorboard_1.png
+   :target: ../_static/images/integrations/tensorboard_1.png
    :alt: organize TensorBoard experiments in Neptune
 
 - Compare your TensorBoard runs:
 
-.. image:: ../_static/images/tensorboard/tensorboard_2.png
-   :target: ../_static/images/tensorboard/tensorboard_2.png
+.. image:: ../_static/images/integrations/tensorboard_2.png
+   :target: ../_static/images/integrations/tensorboard_2.png
    :alt: compare TensorBoard runs in Neptune
 
 - Share your work with others by sending an |experiment-link|.
-
-Examples
-----------
-.. toctree::
-   :maxdepth: 1
-
-   Sync and compare TensorBoard runs <tensorboard/tensorboard_runs_comparison.rst>
-   Integrate TensorBoard logging with Neptune <tensorboard/tensorboard_integrate.rst>
 
 Support
 -------

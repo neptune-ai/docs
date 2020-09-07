@@ -3,8 +3,8 @@ Neptune-Optuna Integration
 
 This integration enables you to monitor |Optuna| hyperparameter optimization in Neptune.
 
-.. image:: ../_static/images/others/optuna_neptuneai.png
-   :target: ../_static/images/others/optuna_neptuneai.png
+.. image:: ../_static/images/integrations/optuna_neptuneai.png
+   :target: ../_static/images/integrations/optuna_neptuneai.png
    :alt: Optuna Neptune integration
 
 Requirements
@@ -63,8 +63,8 @@ You log the following things to Neptune:
 * Interactive plotly figures from optuna.visualization: plot_contour, plot_slice, plot_parallel_coordinate, optimization_history
 * Pickled study object
 
-.. image:: ../_static/images/optuna/optuna_charts.gif
-   :target: ../_static/images/optuna/optuna_charts.gif
+.. image:: ../_static/images/integrations/optuna_charts.gif
+   :target: ../_static/images/integrations/optuna_charts.gif
    :alt: Optuna charts in Neptune
 
 Log study and charts after every iteration
@@ -83,8 +83,8 @@ Now you can watch your Optuna hyperparameter optimization in Neptune!
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/optuna/optuna_monitoring.gif
-   :target: ../_static/images/optuna/optuna_monitoring.gif
+.. image:: ../_static/images/integrations/optuna_monitoring.gif
+   :target: ../_static/images/integrations/optuna_monitoring.gif
    :alt: Optuna monitoring in Neptune
 
 Full script

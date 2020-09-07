@@ -3,8 +3,8 @@ Neptune-Sacred Integration
 
 The integration lets you log |Sacred| experiments to Neptune.
 
-.. image:: ../_static/images/others/sacred_neptuneai.png
-   :target: ../_static/images/others/sacred_neptuneai.png
+.. image:: ../_static/images/integrations/sacred_neptuneai.png
+   :target: ../_static/images/integrations/sacred_neptuneai.png
    :alt: Sacred neptune.ai integration
 
 Requirements
@@ -68,8 +68,8 @@ Now you can watch your Sacred experiments in Neptune!
 
 Check out this |example experiment dashboard|.
 
-.. image:: ../_static/images/sacred/sacred_monitoring.png
-   :target: ../_static/images/sacred/sacred_monitoring.png
+.. image:: ../_static/images/integrations/sacred_monitoring.png
+   :target: ../_static/images/integrations/sacred_monitoring.png
    :alt: Sacred monitoring in neptune
 
 Full Sacred monitoring script

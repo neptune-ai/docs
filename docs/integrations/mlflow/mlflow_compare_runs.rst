@@ -74,8 +74,8 @@ You can now sync your MLRuns directory with Neptune.
 You can now organize and collaborate on |your experiments|.
 
 
-.. image:: ../../_static/images/mlflow/mlflow_1.png
-   :target: ../../_static/images/mlflow/mlflow_1.png
+.. image:: ../../_static/images/integrations/mlflow_1.png
+   :target: ../../_static/images/integrations/mlflow_1.png
    :alt: organize MLflow experiments in Neptune
 
 

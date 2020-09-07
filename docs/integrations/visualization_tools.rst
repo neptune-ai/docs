@@ -1,6 +1,8 @@
 Visualization Tools
 ===================
 
+|Youtube Video|
+
 Neptune provides integrations with the following visualization tools:
 
 .. toctree::
@@ -13,3 +15,7 @@ Neptune provides integrations with the following visualization tools:
    Altair <altair.rst>
    Pandas <pandas.rst>
    HTML <html.rst>
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/4No97bl1A4A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

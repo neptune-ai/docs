@@ -3,7 +3,6 @@ Babel==2.7.0
 certifi==2019.3.9
 chardet==3.0.4
 commonmark==0.9.0
-./docs/neptune-client
 docutils==0.14
 future==0.17.1
 idna==2.8
@@ -13,6 +12,8 @@ m2r==0.2.1
 MarkupSafe==1.1.1
 mistune==0.8.4
 neptune-client
+neptune-contrib
+neptune-tensorboard
 packaging==19.0
 Pygments==2.4.2
 pyparsing==2.4.0
@@ -24,6 +25,7 @@ snowballstemmer==1.2.1
 Sphinx==2.0.1
 sphinx-rtd-theme==0.4.3
 sphinxcontrib-applehelp==1.0.1
+sphinx-autoapi==1.4.0
 sphinxcontrib-devhelp==1.0.1
 sphinxcontrib-htmlhelp==1.0.2
 sphinxcontrib-jsmath==1.0.1
