@@ -15,9 +15,11 @@ Full list of our installation guides:
    Install neptune-mlflow <installation-neptune-mlflow.rst>
    Install neptune-r <installation-neptune-r.rst>
 
-You can also deploy Neptune on your own infrastructure. If you are interested in that read:
+.. note::
 
-- |How to deploy Neptune On-Prem|
+    You can also deploy Neptune on your own infrastructure. If you are interested in that read:
+
+    - |How to deploy Neptune On-Prem|
 
 .. |neptune-client| raw:: html
 
