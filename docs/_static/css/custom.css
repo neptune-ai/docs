@@ -115,8 +115,8 @@ a:visited {
 .wy-menu-vertical li.toctree-l1 {
   font-size: 16px;
   font-weight: 1.25px;
-  padding-bottom: 1px;
-  padding-top: 1px;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .wy-menu-vertical li.toctree-l2 {
@@ -136,4 +136,16 @@ a:visited {
 
 [role=search] {
  width: 400px;
+}
+
+.wy-side-nav-search > a img.logo, .wy-side-nav-search .wy-dropdown > a img.logo {
+ display: block;
+ border-radius: 0;
+ max-width: 100%;
+ background: transparent;
+ height: 100px;
+ width: auto;
+ margin-right: 150px;
+ margin-top: -20px;
+ margin-bottom: -20px;
 }

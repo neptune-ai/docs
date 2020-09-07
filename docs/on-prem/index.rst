@@ -1,11 +1,16 @@
-Deploy Neptune On-Prem (60 min)
-===============================
+On-Prem
+=======
 
 Neptune can be deployed on-premises.
 
 Check our |pricing page| for more details or |request a free 30 day on-prem trial| of the Team version of Neptune.
 
 If you are interested in the Enterprise version |contact us|.
+
+Should you use SaaS or On-Prem version?
+---------------------------------------
+
+|Youtube Video|
 
 How can I deploy Neptune?
 -------------------------
@@ -27,31 +32,18 @@ You can deploy Neptune on:
 
     Remember that you can always |install neptune-client| to use the SaaS version of Neptune.
 
-Download the manual
--------------------
 
-To see how it works in detail read our **"Neptune installation guide"**.
+**Read our on-prem deployment guide:**
 
-|Download Guide|
+.. toctree::
+   :maxdepth: 1
 
-.. |Download Guide| raw:: html
+   Deploy Neptune On-Prem (60 min) <installation-on-prem.rst>
 
-    <div style="padding-bottom:20px">
+.. |Youtube Video| raw:: html
 
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/DX1UCDVZ5Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <a href="https://neptune.ai/wp-content/uploads/Neptune-Installation-Guide.pdf" target="_blank">
-        <img width="400" src="../../_static/images/getting-started/installation/on_prem_installation.png"></img>
-    </a>
-
-    </div>
-
-    <div style="padding-bottom:20px">
-
-    <a href="https://neptune.ai/wp-content/uploads/Neptune-Installation-Guide.pdf" target="_blank">
-        <button class="btn" style="background-color:#162B4D;"><i class="fa fa-download"></i> Download</button>
-    </a>
-
-    </div>
 
 .. |install neptune-client| raw:: html
 

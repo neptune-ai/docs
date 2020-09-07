@@ -110,14 +110,13 @@ Discover Neptune
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: Guides
+   :caption: User Guides
 
+   Most common use cases <use-cases/index.rst>
    Logging and managing experiment results <logging-and-managing-experiment-results/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
    Organizing and exploring results in the UI <organizing-and-exploring-results-in-the-ui/index.rst>
    Sharing results and models with the team <sharing-results-and-models-with-the-team/index.rst>
-   Workspace, project, and user management <workspace-project-and-user-management/index.rst>
-   Security and privacy <security-and-privacy/index.rst>
 
 .. toctree::
    :hidden:
@@ -126,8 +125,16 @@ Discover Neptune
 
    Integrations <integrations/index.rst>
    API reference <api-reference/index.rst>
-   Use cases <use-cases/index.rst>
    FAQ <faq/index.rst>
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Administration
+
+   Workspace, project, and user management <workspace-project-and-user-management/index.rst>
+   Security and privacy <security-and-privacy/index.rst>
+   On-prem <on-prem/index.rst>
 
 .. toctree::
    :hidden:

@@ -54,6 +54,18 @@ autoapi_root = 'api-reference'
 autoapi_ignore = ['*neptune_tensorboard/internal*',
                   '*neptune_tensorboard/sync/internal*',
                   '*neptune/internal*',
+                  '*neptune/_version*',
+                  '*neptune/api_exceptions*',
+                  '*neptune/backend*',
+                  '*neptune/checkpoint*',
+                  '*neptune/constants*',
+                  '*neptune/envs*',
+                  '*neptune/exceptions*',
+                  '*neptune/exceptions*',
+                  '*neptune/model*',
+                  '*neptune/oauth*',
+                  '*neptune/patterns*',
+                  '*neptune/utils*',
                   ]
 
 source_suffix = {

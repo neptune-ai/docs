@@ -17,15 +17,12 @@ Full list of our installation guides:
 
 You can also deploy Neptune on your own infrastructure. If you are interested in that read:
 
-.. toctree::
-   :maxdepth: 1
-
-   Deploy Neptune On-Prem (60 min) <installation-on-prem.rst>
+- |How to deploy Neptune On-Prem|
 
 .. |neptune-client| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
 
-.. |deploy Neptune on-prem| raw:: html
+.. |How to deploy Neptune On-Prem|  raw:: html
 
-    <a href="/getting-started/installation/installation-on-prem.html" target="_blank">deploy Neptune on-prem</a>
+    <a href="/on-prem/installation-on-prem.html" target="_blank">How to deploy Neptune on-prem</a>
