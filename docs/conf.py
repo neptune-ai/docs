@@ -47,12 +47,12 @@ lib_path = os.path.dirname(os.path.dirname(neptune.__file__))
 autoapi_dirs = [os.path.join(lib_path, 'neptune'),
                 os.path.join(lib_path, 'neptunecontrib'),
                 os.path.join(lib_path, 'neptune_tensorboard'),
-                os.path.join(lib_path, 'neptune_mlflow'),
                 ]
 autoapi_template_dir = '_templates/auto_api_templates'
 autoapi_root = 'api-reference'
 autoapi_ignore = ['*neptune_tensorboard/internal*',
-                  '*neptune_tensorboard/sync/internal*',
+                  '*neptune_tensorboard/sync*',
+                  '*neptune_tensorboard/integration/keras_integration*',
                   '*neptune/internal*',
                   '*neptune/_version*',
                   '*neptune/api_exceptions*',
