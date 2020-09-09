@@ -3,7 +3,7 @@ Installation
 
 Neptune comes with a client library |neptune-client| as well as a suite of extension libraries.
 
-In most cases installing Neptune client is as simple as running:
+In most cases, installing Neptune client is as simple as running:
 
 .. code:: bash
 
