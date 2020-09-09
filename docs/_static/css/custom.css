@@ -86,13 +86,6 @@
         max-height: 60vw;
     }
 
-    ..rst-content div.feedback-box img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border: 10px solid;
-    }
-
 }
 
 @media (min-width: 1361px) {
