@@ -3,7 +3,13 @@ Installation
 
 Neptune comes with a client library |neptune-client| as well as a suite of extension libraries.
 
-Full list of our installation guides:
+In most cases it is as simple as running:
+
+.. code:: bash
+
+    pip install neptune-client
+
+For more info, read our installation guides:
 
 .. toctree::
    :maxdepth: 1

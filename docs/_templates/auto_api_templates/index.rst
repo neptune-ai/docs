@@ -1,12 +1,11 @@
 API Reference
 =============
 
-It contains API reference for all libraries in the Neptune ecosystem:
+It contains API reference for the following libraries from the Neptune ecosystem:
 
 - |neptune-client|: the main Python client
 - |neptune-contrib|: library with community extensions
 - |neptune-tensorboard|: Neptune integration with TensorBoard
-- |neptune-mlflow|: Neptune integration with MLflow
 
 Packages:
 ---------
