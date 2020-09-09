@@ -5,6 +5,7 @@ cicd-release
 deployment-values.yaml
 neptune-docs.tgz
 docs/_build
+docs/api-reference
 *.tar.gz
 requirements.lock
 *.swp
