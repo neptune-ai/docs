@@ -37,3 +37,7 @@ You can also view snapshots of the work with the Notebook, as well as download, 
 .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
     :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
     :alt: image
+
+.. |Youtube Video| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/8qmz2yIndOw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
