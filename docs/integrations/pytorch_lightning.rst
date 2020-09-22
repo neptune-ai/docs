@@ -9,7 +9,7 @@ The integration enables you to log |PyTorch Lightning| metrics to Neptune.
 
 Requirements
 ------------
-Integration with the PyTorch Lightning framework is enabled as part of the Neptune logging module, so all you need is to have |neptune-client| installed.
+This integration is enabled as part of PyTorch Ligthning loggers module, so all you need is to have |neptune-client| installed.
 
 .. code-block:: bash
 
@@ -49,7 +49,7 @@ Create the **NeptuneLogger** with all the information you want to track
 -----------------------------------------------------------------------
 .. code-block:: python3
 
-    from pytorch_lightning.logging.neptune import NeptuneLogger
+    from pytorch_lightning.loggers.neptune import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
         api_key="ANONYMOUS",
