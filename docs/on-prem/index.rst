@@ -1,3 +1,5 @@
+.. _on-prem:
+
 On-Prem
 =======
 
@@ -30,7 +32,7 @@ You can deploy Neptune on:
 
 .. note::
 
-    Remember that you can always |install neptune-client| to use the SaaS version of Neptune.
+    Remember that you can always :ref:`install neptune-client <installation-neptune-client>` to use the SaaS version of Neptune.
 
 
 **Read our on-prem deployment guide:**
@@ -40,14 +42,11 @@ You can deploy Neptune on:
 
    Deploy Neptune On-Prem (60 min) <installation-on-prem.rst>
 
+.. External links
+
 .. |Youtube Video| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/DX1UCDVZ5Fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-.. |install neptune-client| raw:: html
-
-    <a href="/getting-started/installation/installation-neptune-client.html" target="_blank">install neptune-client</a>
 
 .. |pricing page| raw:: html
 

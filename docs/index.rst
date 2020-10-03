@@ -20,11 +20,11 @@ Neptune is a lightweight experiment management tool that helps you keep track of
 
 Most common Neptune use cases:
 
-- |Monitor ML runs live|
-- |Organize ML experimentation|
-- |Compare and debug ML experiments and models|
-- |Share results of experiments with your team|
-- |Clean up your Jupyter workflow without git|
+- :ref:`Monitor ML runs live <use-cases-monitor-runs-live>`
+- :ref:`Organize ML experimentation <use-cases-organize-ml-experiments>`
+- :ref:`Compare and debug ML experiments and models <use-cases-compare-and-debug-experiments>`
+- :ref:`Share results of experiments with your team <use-cases-share-results-with-team>`
+- :ref:`Clean up your Jupyter workflow without git <use-cases-clean-jupyter-workflow>`
 
 |Sign up|
 
@@ -35,7 +35,7 @@ How does Neptune work (in 3 steps)?
 
     Following snippets are just to give you the idea.
 
-    If you want to copy paste and run things quickly then go to |Quick starts|.
+    If you want to copy paste and run things quickly then go to :ref:`Quick starts <quick-starts-index>`.
 
 1. Connect it to your script
 
@@ -72,7 +72,7 @@ How does Neptune work (in 3 steps)?
 
 Check it for yourself:
 
-- See our |Quick starts|
+- See our :ref:`Quick starts <quick-starts-index>`
 
 |Run on Colab|
 
@@ -151,10 +151,10 @@ Discover Neptune
 
 .. |Sign up| raw:: html
 
-    <div style="padding-bottom:20px">
-    <a href="https://neptune.ai/register" target="_blank">
-        <img width="600" src="../_static/images/home/sign_up.png"></img>
-    </a>
+    <div class="cta-signup-docs" style="padding-bottom:20px">
+        <a href="https://neptune.ai/register" target="_blank">
+            <img width="600" src="../_static/images/home/sign_up.png"></img>
+        </a>
     </div>
 
 .. |Run on Colab| raw:: html
@@ -166,10 +166,6 @@ Discover Neptune
 .. |Neptune| raw:: html
 
     <a href="https://neptune.ai/" target="_blank">Neptune</a>
-
-.. |Quick starts| raw:: html
-
-    <a href="/getting-started/quick-starts/index.html" target="_blank">Quick Starts</a>
 
 .. |Example Project| raw:: html
 
@@ -194,23 +190,3 @@ Discover Neptune
 .. |neptune-contrib|  raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
-
-.. |Monitor ML runs live| raw:: html
-
-    <a href="/use-cases/monitor-live/index.html">Monitor ML runs live</a>
-
-.. |Organize ML experimentation| raw:: html
-
-    <a href="/use-cases/organize-experiments/index.html">Organize ML experimentation</a>
-
-.. |Share results of experiments with your team| raw:: html
-
-    <a href="/use-cases/share-results/index.html">Share results of experiments with your team</a>
-
-.. |Compare and Debug ML experiments and models| raw:: html
-
-    <a href="/use-cases/compare-experiments/index.html">Compare and debug ML experiments and models</a>
-
-.. |Clean up your Jupyter workflow without git| raw:: html
-
-    <a href="/use-cases/clean-up-jupyter/index.html">Clean up your Jupyter workflow without git</a>

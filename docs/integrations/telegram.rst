@@ -1,3 +1,5 @@
+.. _integration-telegram:
+
 Use Telegram Bot to access experiment information
 =================================================
 

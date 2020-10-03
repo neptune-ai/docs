@@ -1,3 +1,5 @@
+.. _administration-create-workspace:
+
 Create a workspace
 ==================
 
@@ -18,5 +20,3 @@ Create a workspace
 .. image:: ../../_static/images/workspace-project-and-user-management/workspaces/create-workspace-3.png
    :target: ../../_static/images/workspace-project-and-user-management/workspaces/create-workspace-3.png
    :alt: type name for new workspace
-
-.. _invite-to-workspace:

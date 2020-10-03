@@ -1,3 +1,5 @@
+.. _integration-amazon-sagemaker:
+
 Neptune-Amazon SageMaker Integration
 ====================================
 

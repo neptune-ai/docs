@@ -6,11 +6,11 @@ Assign People to a Project
     Note that you can only collaborate on your private projects in a Team workspace.
     Try Team workspace with 1 project and 10 GB for free.
 
-    Read how to set up a |Team workspace|.
+    Read how to set up a :ref:`Team workspace <administration-team-workspace>`.
 
 .. note::
 
-    Only a project Owner can assign people to the project. Learn more about |project roles|.
+    Only a project Owner can assign people to the project. Learn more about :ref:`project roles <administration-roles-in-project>`.
 
 1. In the Project panel, click **Settings**, then click the **People** tab.
 
@@ -30,12 +30,3 @@ Assign People to a Project
 
     - If a user is registered in Neptune.ai, s(he) can be added from the UI, under **Project Settings** > **People**. If the user is not yet registered in Neptune.ai, s(he) can be invited by email. In any case, the user needs to accept the invitation, before s(he) appears in the list.
     - If the project is created in an individual workspace, you can only invite users to a public project. The user is notified by email and must accept the invitation to be added. You cannot add users to a private project.
-
-.. |Team workspace| raw:: html
-
-    <a href="/workspace-project-and-user-management/workspaces/index.html#team">Team workspace</a>
-
-.. |project roles| raw:: html
-
-    <a href="/workspace-project-and-user-management/index.html#roles-in-a-project">project roles</a>
-

@@ -1,3 +1,5 @@
+.. _integration-messaging-systems:
+
 Messaging Systems
 =================
 

@@ -1,3 +1,5 @@
+.. _guides-notebook-compare:
+
 Compare Notebooks
 =================
 
@@ -13,8 +15,6 @@ You display the pane by clicking the **Compare** button anywhere it is visible i
 
 In the Notebooks Comparison pane, select two Notebook checkpoints, then click **Compare** to see a side-by-side comparison, just like source code.
 
-
-.. Commented out. Doesn't seem to be working.
 .. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at the difference between checkpoints of the same Notebook, or two entirely different Notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
 
 
@@ -24,6 +24,8 @@ In the Notebooks Comparison pane, select two Notebook checkpoints, then click **
 .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-cmp-1.png
     :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-cmp-1.png
     :alt: image
+
+.. External links
 
 .. |Youtube Video| raw:: html
 

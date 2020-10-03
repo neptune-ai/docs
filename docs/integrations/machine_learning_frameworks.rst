@@ -1,3 +1,5 @@
+.. _integration-machine-learning-frameworks:
+
 Machine Learning Frameworks
 ===========================
 

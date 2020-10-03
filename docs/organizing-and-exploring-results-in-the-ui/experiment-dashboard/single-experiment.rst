@@ -20,7 +20,9 @@ Inside the experiment, there are tabs in the left sidebar. Each displays specifi
 - **Parameters**: Displays parameters uploaded to the experiment during experiment creation.
 - **Details**: Displays additional metadata information.
 
-For more information about the experiment data that is logged, see `Logging to Neptune <../learn-about-neptune/experiment_tracking.html#logging-to-neptune>`_.
+For more information about the experiment data that is logged, see :ref:`Logging to Neptune <guides-logging-data-to-neptune>`.
+
+.. External links
 
 .. |Youtube Video| raw:: html
 

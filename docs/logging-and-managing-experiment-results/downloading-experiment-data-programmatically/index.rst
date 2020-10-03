@@ -1,4 +1,4 @@
-.. _fetch_data:
+.. _guides-download_data:
 
 Downloading experiment data programmatically
 ============================================
@@ -7,9 +7,9 @@ Downloading experiment data programmatically
 
 In addition to uploading experiment data to Neptune, neptune-client can be used to fetch data directly from Neptune for further processing, such as for custom analysis.
 
-This page presents the methods in the `Neptune Python Library <introduction.html>`_ that enable you to download project and experiment data.
+This page presents the methods in the that enable you to download project and experiment data.
 
-|Study this example|.
+You may want to check out |this example| project for more information.
 
 Getting Project Data
 --------------------
@@ -43,7 +43,7 @@ The following methods are provided:
 
 .. External Links
 
-.. |Study this example| raw:: html
+.. |this example| raw:: html
 
  <a href="https://ui.neptune.ai/USERNAME/example-project/n/Experiments-analysis-with-Query-API-and-Seaborn-31510158-04e2-47a5-a823-1cd97a0d8fcd/91350522-2b98-482d-bc14-a6ff5c061b6b>" target="_blank">Study this example</a>
 

@@ -1,7 +1,7 @@
 Install neptune-mlflow: integration with MLflow (1 min)
 =======================================================
 
-Neptune has an |integration with MLflow| that lets you sync ``mlruns`` directory into Neptune experiments.
+Neptune has an :ref:`integration with MLFlow <integration-mlflow>` that lets you sync ``mlruns`` directory into Neptune experiments.
 It comes as a separate package |neptune-mlflow|.
 
 To install it, open a terminal or CMD (depending on your operating system) and run this command:
@@ -13,16 +13,11 @@ To install it, open a terminal or CMD (depending on your operating system) and r
 What is next?
 -------------
 
-- Check out |Quick starts|
-- Read about Neptune |integration with MLflow|
+- Check out :ref:`Quick starts <quick-starts-index>`
 
-.. |Quick starts| raw:: html
+- Read about Neptune :ref:`integration with MLFlow <integration-mlflow>`
 
-    <a href="/getting-started/quick-starts/index.html">Quick Starts</a>
-
-.. |integration with MLflow| raw:: html
-
-    <a href="/integrations/mlflow.html">integration with MLflow</a>
+.. External links
 
 .. |neptune-mlflow| raw:: html
 

@@ -1,3 +1,5 @@
+.. _update-existing-experiment:
+
 Updating existing experiment
 ============================
 

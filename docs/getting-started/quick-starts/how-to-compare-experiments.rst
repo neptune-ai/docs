@@ -1,3 +1,5 @@
+.. _use-cases-compare-and-debug-experiments:
+
 How to compare and debug experiments and models
 ===============================================
 
@@ -14,11 +16,9 @@ Learn how to do that with these resources.
 More info:
 ----------
 
-- |Comparing experiments in Neptune UI|
+- :ref:`Comparing experiments in Neptune UI <guides-compare-experiments-ui>`
 
-.. |Comparing experiments in Neptune UI| raw:: html
-
-    <a href="/organizing-and-exploring-results-in-the-ui/experiment-dashboard/experiment-compare.html" target="_blank">Comparing experiments in Neptune UI</a>
+.. External links
 
 .. |Youtube Video compare| raw:: html
 

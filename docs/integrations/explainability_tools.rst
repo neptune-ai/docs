@@ -1,3 +1,5 @@
+.. _integration-explainability-tools:
+
 Explainability Tools
 ====================
 

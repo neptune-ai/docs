@@ -1,3 +1,5 @@
+.. _guides-ui-notebooks:
+
 Notebooks
 =========
 

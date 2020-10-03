@@ -47,10 +47,11 @@ Workspace settings can be viewed under the *Overview*, *Projects*, *People*, and
     - Project Owners can grant project ownership to anyone in the workspace.
     - A workspace must have at least one Admin, so the last remaining Admin cannot be removed from the workspace.
 
+.. _administration-roles-in-project:
+
 Roles in a project
 ^^^^^^^^^^^^^^^^^^
 
-.. _core-concepts_user-roles_project-owner:
 
 The following table summarizes the permissions available for the three project roles: Owner, Contributor and Viewer.
 

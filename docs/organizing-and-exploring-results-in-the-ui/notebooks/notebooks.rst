@@ -21,7 +21,7 @@ The Notebook data is arranged in the following columns:
 
 In addition, for each Notebook, there are buttons for downloading the Notebook, comparing it with another Notebook, or for sharing a link to it.
 
-A **Compare** button at the top right displays a Notebooks Comparison pane. See `Compare Notebooks <notebook-compare.html>`_.
+A **Compare** button at the top right displays a Notebooks Comparison pane. See :ref:`Compare Notebooks <guides-notebook-compare>`.
 
 Notebook contents
 ~~~~~~~~~~~~~~~~~
@@ -37,6 +37,8 @@ You can also view snapshots of the work with the Notebook, as well as download, 
 .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
     :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
     :alt: image
+
+.. External links
 
 .. |Youtube Video| raw:: html
 

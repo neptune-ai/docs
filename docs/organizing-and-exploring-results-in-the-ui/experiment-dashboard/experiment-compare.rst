@@ -1,3 +1,5 @@
+.. _guides-compare-experiments-ui:
+
 Compare experiments
 ===================
 
@@ -25,6 +27,8 @@ Simply select experiments and click **Compare**:
       :target: /_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/compare_experiments.png
       :alt: Compare experiments table
       :width: 600
+
+.. External videos
 
 .. |Youtube Video compare| raw:: html
 

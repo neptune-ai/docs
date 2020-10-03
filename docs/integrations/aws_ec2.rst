@@ -1,3 +1,5 @@
+.. _integration-aws-ec2:
+
 Neptune-AWS EC2 Integration
 ===========================
 

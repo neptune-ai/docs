@@ -1,9 +1,10 @@
 Projects
 ========
 
+.. _administration-project-types:
+
 Project Types
 -------------
-.. _core-concepts_project-types:
 
 There are private and public projects.
 
@@ -33,6 +34,8 @@ Examples are: |credit-default-prediction| and |binary-classification-metrics|.
 
     Create a project <create-project.rst>
     Assign people to a project <assign-people-to-project.rst>
+
+.. External links
 
 .. |credit-default-prediction| raw:: html
 

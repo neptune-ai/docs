@@ -42,7 +42,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
 - **Properties**: You can log your experiment information like status, data version, or anything else as a name:value (text) pair. Neptune properties are mutable - you can change them later. See the lower section in |properties|.
 
-- **Tags**: You can attach tags (text) to every experiment to make the experiment organization easier. For more information, see |Organize experiments|.
+- **Tags**: You can attach tags (text) to every experiment to make the experiment organization easier. For more information, see :ref:`Organize experiments <guides-experiment-dashboard>`.
 
 - **Code**: The following methods are available for versioning your code in Neptune. Whatever method you use, whenever you create an experiment, the code is versioned.
 
@@ -50,15 +50,15 @@ There are various object types that you can log to Neptune. Some of them are log
 
     - **Code snapshots**: You can specify files, directories or use `regexp` to choose files you want to snapshot and log directly to Neptune. |Example|.
 
-    - **Notebook snapshots**: If you are running your experiments from Jupyter Notebooks and are using the Neptune extension, your ``.ipynb`` code is automatically snapshot whenever you create an experiment. For more information, see |Using Jupyter Notebooks in Neptune|.
+    - **Notebook snapshots**: If you are running your experiments from Jupyter Notebooks and are using the Neptune extension, your ``.ipynb`` code is automatically snapshot whenever you create an experiment. For more information, see :ref:`Using Jupyter Notebooks in Neptune <guides-keep-track-jupyter-notebooks>`.
 
 - **Jupyter Notebook checkpoints**: You can version any analysis you do in Jupyter Notebooks with the neptune-notebooks extension. The extension also lets you keep track of all your exploratory work by uploading Notebook checkpoints, naming them and adding descriptions for every piece of work you find important.
 
-    For more information, see |Uploading and Downloading Notebook Checkpoints|.
+    For more information, see :ref:`Uploading and Downloading Notebook Checkpoints <guides-uploading-download-notebook-checkpoints>`.
 
 - **Integrations**: We have created convenient integrations with many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above.
 
-    Learn |more about integrations here|, or study some examples: `Keras <../integrations/keras.html>`_, `PyTorch Lightning <../integrations/pytorch_lightning.html>`_, `XGBoost <../integrations/xgboost.html>`_, `Matplotlib <../integrations/matplotlib.html>`_.
+    Learn :ref:`more about integrations here <integrations-index>`, or study some examples: :ref:`Keras <integration-keras>`, :ref:`PyTorch Lightning <integration-pytorch-lightning>`, :ref:`XGBoost <integration-xgboost>`, :ref:`Matplotlib <integration-matplotlib>`.
 
 .. External Links
 
@@ -126,19 +126,3 @@ There are various object types that you can log to Neptune. Some of them are log
 .. |setting properties| raw:: html
 
      <a href="/api-reference/neptune/index.html?highlight=set_property#neptune.set_property" target="_blank">setting properties</a>
-
-.. |Organize experiments| raw:: html
-
-     <a href="/use-cases/organize-experiments/index.html" target="_blank">Organize experiments</a>
-
-.. |Using Jupyter Notebooks in Neptune| raw:: html
-
-     <a href="/keep-track-of-jupyter-notebooks/index.html" target="_blank">Using Jupyter Notebooks in Neptune</a>
-
-.. |Uploading and Downloading Notebook Checkpoints| raw:: html
-
-     <a href="/keep-track-of-jupyter-notebooks/index.html" target="_blank">Uploading and Downloading Notebook Checkpoints</a>
-
-.. |more about integrations here| raw:: html
-
-     <a href="/integrations/index.html" target="_blank">more about integrations here</a>

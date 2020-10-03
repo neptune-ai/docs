@@ -1,3 +1,5 @@
+.. _installation-neptune-client:
+
 Install neptune-client: Neptune client for Python (1 min)
 =========================================================
 
@@ -47,11 +49,9 @@ Depending on your operating system open a terminal or CMD and run this command:
 What is next?
 -------------
 
-- Check out |Quick starts|
+- Check out :ref:`Quick starts <quick-starts-index>`
 
-.. |Quick starts| raw:: html
-
-    <a href="/getting-started/quick-starts/index.html">Quick Starts</a>
+.. External links
 
 .. |neptune-client| raw:: html
 

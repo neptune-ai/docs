@@ -1,3 +1,5 @@
+.. _integration-tensorboard:
+
 Neptune-TensorBoard Integration
 ===============================
 
@@ -48,22 +50,11 @@ Point Neptune to your TensorBoard logs directory:
 
 - Share your work with others by sending an |experiment-link|.
 
-Support
--------
-If you need assistance, report an issue in Git, or talk to us directly in a |support-chat|.
-
-
 .. External links
 
 .. |GitHub| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">GitHub</a>
-
-
-.. |support-chat| raw:: html
-
-    <a href="https://spectrum.chat/neptune-community" target="_blank">support chat</a>
-
 
 .. |neptune-tensorboard| raw:: html
 

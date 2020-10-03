@@ -1,3 +1,5 @@
+.. _guides-share-results-with-team:
+
 Sharing results and models with the team
 ========================================
 

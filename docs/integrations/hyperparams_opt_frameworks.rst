@@ -1,3 +1,5 @@
+.. _integration-hyperparameter-optimization-frameworks:
+
 Hyperparameter Optimization Frameworks
 ======================================
 

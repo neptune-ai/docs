@@ -12,6 +12,7 @@ Working with Neptune UI
    Notebooks <notebooks/index.rst>
    Wiki <wiki/index.rst>
 
+.. External links
 
 .. |Youtube Video dashboard| raw:: html
 

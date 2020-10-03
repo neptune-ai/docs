@@ -8,7 +8,7 @@ FAQ
 
 Perhaps the answer to your question is already there!
 
-Check out the |Frequently Asked Questions|.
+Check out the :ref:`Frequently Asked Questions <frequently-asked-questions>`.
 
 Youtube channel
 ---------------
@@ -72,14 +72,11 @@ Email
 
 You can just shoot us an email at contact@neptune.ai
 
+.. External links
 
 .. |Video Tutorials| raw:: html
 
     <a href="https://www.youtube.com/playlist?list=PLKePQLVx9tOd8TEGdG4PAKz0Owqdv1aaw" target="_blank">Video Tutorials</a>
-
-.. |Frequently Asked Questions| raw:: html
-
-    <a href="/faq/index.html">Frequently Asked Questions</a>
 
 .. |Neptune Blog|  raw:: html
 

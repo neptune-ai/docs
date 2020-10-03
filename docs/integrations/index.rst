@@ -1,3 +1,5 @@
+.. _integrations-index:
+
 Integrations
 ============
 
@@ -35,16 +37,6 @@ There are two common paths:
 #. You can always use  |neptune-client| , our open source Python library for logging all kinds of data and metadata to experiments.
 #. Contact us directly via mail (contact@neptune.ai), chat (that little thing in the lower right corner) or post |forum| on our forum to discuss what you need and how we can deliver it.
 
-.. External links
-
-.. |forum| raw:: html
-
-    <a href="https://community.neptune.ai/c/feature-requests" target="_blank">feature request</a>
-
-.. |neptune-client| raw:: html
-
-    <a href="/api-reference/neptune/index.html" target="_blank">neptune-client</a>
-
 .. toctree::
    :hidden:
    :maxdepth: 2
@@ -59,3 +51,13 @@ There are two common paths:
    Messaging systems <messaging_systems.rst>
    Experiment tracking frameworks <experiment_tracking_frmwks.rst>
    Neptune extensions library <neptune-contrib.rst>
+
+.. External links
+
+.. |forum| raw:: html
+
+    <a href="https://community.neptune.ai/c/feature-requests" target="_blank">feature request</a>
+
+.. |neptune-client| raw:: html
+
+    <a href="/api-reference/neptune/index.html" target="_blank">neptune-client</a>

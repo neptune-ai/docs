@@ -1,3 +1,5 @@
+.. _integration-hiplot:
+
 Neptune-HiPlot Integration
 ==========================
 

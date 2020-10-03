@@ -1,3 +1,5 @@
+.. _guides-keep-track-jupyter-notebooks:
+
 Keeping track of Jupyter Notebooks
 ==================================
 
@@ -108,6 +110,8 @@ In the Notebooks Comparison pane, select two Notebook checkpoints, then click **
     :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-cmp-1.png
     :alt: image
 
+
+.. _guides-uploading-download-notebook-checkpoints:
 
 Uploading and Downloading Notebook Checkpoints
 ----------------------------------------------
@@ -261,8 +265,9 @@ OR
 
 - Append the line above to your ``~/.bashrc`` or ``~/.bash_profile`` file.
 
-
 .. warning:: Always keep your API token secret - it is like a password to the application. Appending the "export NEPTUNE_API_TOKEN='YOUR_LONG_API_TOKEN'" line to your ``~/.bashrc`` or ``~/.bash_profile`` file is the recommended method to ensure it remains secret.
+
+.. External links
 
 .. |Youtube Video| raw:: html
 

@@ -1,3 +1,5 @@
+.. _integration-r:
+
 Neptune-R Integration
 =====================
 

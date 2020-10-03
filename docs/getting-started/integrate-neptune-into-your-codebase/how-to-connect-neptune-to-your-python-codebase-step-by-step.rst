@@ -1,3 +1,5 @@
+.. _how-to-connect-neptune-to-your-codebase:
+
 How to connect Neptune to your codebase step by step
 ====================================================
 
@@ -21,9 +23,9 @@ Before you start
 Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
-- |Have Neptune installed|
-- |Create a project|
-- |Configure Neptune API token on your system|
+- :ref:`Have Neptune installed<installation-neptune-client>`
+- :ref:`Create a project <create-project>`
+- :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
 
 Step 1: Are you using Python? Choose your client library
 --------------------------------------------------------
@@ -32,7 +34,7 @@ Neptune was built for Python first and if this is your language of choice jump t
 
 If you are not using Python, no worries, Neptune plays nicely with other languages as well.
 
-Read |how to use Neptune with other languages| here.
+Read :ref:`how to use Neptune with other languages <integration-any-language>` here.
 
 Step 2: See if Neptune integrates with your current experiment tracking tool (Optional)
 ---------------------------------------------------------------------------------------
@@ -42,9 +44,9 @@ They also make the migration from those tools easy and quick.
 
 Neptune integrates with the following experiment tracking frameworks:
 
-- |MLflow|
-- |TensorBoard|
-- |Sacred|
+- :ref:`MLflow <integration-mlflow>`
+- :ref:`TensorBoard <integration-tensorboard>`
+- :ref:`Sacred <integration-sacred>`
 
 Step 3: See if Neptune integrates with your ML framework (Optional)
 -------------------------------------------------------------------
@@ -54,27 +56,27 @@ Neptune supports any machine learning framework but there are a lot of integrati
 Deep learning frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- |Keras|
-- |PyTorch|
-- |PyTorch Lightning|
-- |PyTorch Ignite|
-- |Catalyst|
-- |Fastai|
-- |Skorch|
+- :ref:`Keras <integration-keras>`
+- :ref:`PyTorch <integration-pytorch>`
+- :ref:`PyTorch Lightning <integration-pytorch-lightning>`
+- :ref:`PyTorch Ignite <integration-pytorch-ignite>`
+- :ref:`Catalyst <integration-catalyst>`
+- :ref:`Fastai <integration-fastai>`
+- :ref:`Skorch <integration-skorch>`
 
 Machine learning frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- |lightGBM|
-- |XGBoost|
+- :ref:`lightGBM <integration-lightgbm>`
+- :ref:`XGBoost <integration-xgboost>`
 
 Hyperparameter Optimization frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- |Optuna|
-- |Scikit-Optimize|
+- :ref:`Optuna <integration-optuna>`
+- :ref:`Scikit-Optimize <integration-scikit-optimize>`
 
-Check out the |full list of integrations|.
+Check out the :ref:`full list of integrations <integration-index>`.
 
 Step 4: Add Neptune logging explicitly
 --------------------------------------
@@ -104,8 +106,8 @@ To do that you should specify:
 
     If you followed suggested prerequisites:
 
-    - |Configure Neptune API token on your system|
-    - |Create a project|
+    - :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
+    - :ref:`Create a project <create-project>`
 
     You can skip ``api_token`` and change the ``project_qualified_name`` to your ``USERNAME`` and ``PROJECT_NAME``
 
@@ -180,7 +182,7 @@ You can log metrics in the same way after the training loop is done.
 
     You can also update experiments after the script is done running.
 
-    Read about |updating existing experiments|.
+    Read about :ref:`updating existing experiments <update-existing-experiment>`.
 
 5. Add logging of performance charts
 
@@ -206,7 +208,7 @@ You save your model to a file and log that file to Neptune.
 
 .. tip::
 
-    There is a helper function in neptune-contrib called |log pickle| for logging picklable Python objects without saving them to disk.
+    There is a helper function in neptune-contrib called log pickle for logging picklable Python objects without saving them to disk.
 
     It works like this:
 
@@ -228,85 +230,17 @@ What is next?
 - See |how to track hyperparameters of ML models|
 - See |how to track metrics and losses|
 - See |how to monitor ML/DL experiments|
-- Check the |full list of integrations|
+- Check out the :ref:`full list of integrations <integration-index>`
 
-.. |installation guides| raw:: html
-
-    <a href="/getting-started/installation/index.html">installation guides</a>
-
-.. |how to use Neptune with other languages| raw:: html
-
-    <a href="/getting-started/integrate-neptune-into-your-codebase/not-using-python.html">how to use Neptune with other languages</a>
-
-.. |MLflow| raw:: html
-
-    <a href="/integrations/mlflow.html">MLflow</a>
-
-.. |TensorBoard| raw:: html
-
-    <a href="/integrations/tensorboard.html">TensorBoard</a>
-
-.. |Sacred| raw:: html
-
-    <a href="/integrations/sacred.html">Sacred</a>
+.. External links
 
 .. |Logging video| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/of4Q7TkUAVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-.. |Keras| raw:: html
-
-    <a href="/integrations/keras.html">Keras</a>
-
-.. |PyTorch| raw:: html
-
-    <a href="/integrations/pytorch.html">PyTorch</a>
-
-.. |PyTorch Lightning| raw:: html
-
-    <a href="/integrations/pytorch_lightning.html">PyTorch Lightning</a>
-
-.. |PyTorch Ignite| raw:: html
-
-    <a href="/integrations/pytorch_ignite.html">PyTorch Ignite</a>
-
-.. |Catalyst| raw:: html
-
-    <a href="/integrations/catalyst.html">Catalyst</a>
-
-.. |Fastai| raw:: html
-
-    <a href="/integrations/fastai.html">Fastai</a>
-
-.. |Skorch| raw:: html
-
-    <a href="/integrations/skorch.html">Skorch</a>
-
-.. |lightGBM| raw:: html
-
-    <a href="/integrations/lightgbm.html">lightGBM</a>
-
-.. |XGBoost| raw:: html
-
-    <a href="/integrations/xgboost.html">XGBoost</a>
-
-.. |Optuna| raw:: html
-
-    <a href="/integrations/optuna.html">Optuna</a>
-
-.. |Scikit-Optimize| raw:: html
-
-    <a href="/integrations/skopt.html">Scikit-Optimize</a>
-
-
-.. |full list of integrations| raw:: html
-
-    <a href="/integrations/index.html">full list of integrations</a>
-
 .. |how to log other objects and monitor training in Neptune| raw:: html
 
     <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
-
 
 .. |how to track hyperparameters of ML models| raw:: html
 
@@ -319,23 +253,3 @@ What is next?
 .. |how to monitor ML/DL experiments| raw:: html
 
     <a href="https://neptune.ai/blog/how-to-monitor-machine-learning-and-deep-learning-experiments" target="_blank">how to monitor ML/DL experiments</a>
-
-.. |updating existing experiments| raw:: html
-
-    <a href="/logging-and-managing-experiment-results/updating-existing-experiment/index.html">updating existing experiments</a>
-
-.. |log pickle| raw:: html
-
-    <a href="/api-reference/neptunecontrib/api/index.html?highlight=log%20pickle#neptunecontrib.api.log_pickle">log_pickle</a>
-
-.. |Have Neptune installed| raw:: html
-
-    <a href="/getting-started/installation/index.html" target="_blank">Have Neptune installed</a>
-
-.. |Create a project| raw:: html
-
-    <a href="/workspace-project-and-user-management/projects/create-project.html" target="_blank">Create a project in Neptune</a>
-
-.. |Configure Neptune API token on your system| raw:: html
-
-    <a href="/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html" target="_blank">Configure Neptune API token on your system</a>

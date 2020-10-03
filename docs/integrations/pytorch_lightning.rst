@@ -1,3 +1,5 @@
+.. _integration-pytorch-lightning:
+
 Neptune-PyTorch Lightning Integration
 =====================================
 

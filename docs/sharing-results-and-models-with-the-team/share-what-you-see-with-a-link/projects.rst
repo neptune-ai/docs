@@ -2,6 +2,7 @@ Projects
 ========
 You can share projects. |example Project|.
 
+.. External links
 
 .. |example Project| raw:: html
 
