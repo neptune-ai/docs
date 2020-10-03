@@ -112,7 +112,6 @@ Discover Neptune
    :maxdepth: 2
    :caption: User Guides
 
-   Most common use cases <use-cases/index.rst>
    Logging and managing experiment results <logging-and-managing-experiment-results/index.rst>
    Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
    Organizing and exploring results in the UI <organizing-and-exploring-results-in-the-ui/index.rst>

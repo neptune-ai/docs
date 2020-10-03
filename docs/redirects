@@ -22,3 +22,13 @@
 /python-api/tutorials/get-started.html /logging-and-managing-experiment-results/index.html
 /python-api/tutorials/session-and-experiment.html /logging-and-managing-experiment-results/index.html
 /python-api/tutorials/experiment-tracking.html /logging-and-managing-experiment-results/index.html
+
+/use-cases/monitor-live/index.html /getting-started/quick-starts/how-to-monitor-live.html
+/use-cases/monitor-live/how-to-monitor-live.html /getting-started/quick-starts/how-to-monitor-live.html
+/use-cases/organize-experiments/index.html /getting-started/quick-starts/how-to-organize-experiments.html
+/use-cases/organize-experiments/how-to-organize-experiments.html /getting-started/quick-starts/how-to-organize-experiments.html
+/use-cases/clean-up-jupyter/index.html /getting-started/quick-starts/how-to-clean-up-jupyter.html
+/use-cases/compare-experiments/index.html /getting-started/quick-starts/how-to-compare-experiments.html
+/use-cases/share-results/index.html /getting-started/quick-starts/how-to-share-results.html
+/use-cases/index.html /getting-started/quick-starts/index.html
+

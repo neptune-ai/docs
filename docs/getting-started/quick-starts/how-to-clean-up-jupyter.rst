@@ -1,5 +1,9 @@
-Clean up your Jupyter workflow without git
-==========================================
+How to clean up Jupyter workflow
+================================
+
+.. note::
+
+    How to coming soon... for now we have a video that explains it.
 
 With Neptune you can be in control of your notebook versions with literally one click.
 

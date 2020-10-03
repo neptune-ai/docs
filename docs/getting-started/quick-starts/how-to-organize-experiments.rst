@@ -13,6 +13,8 @@ This guide will show you how to:
 - Find experiments in the experiment dashboard with tags
 - Organize experiments in a dashboard view and save it for later
 
+|Youtube video|
+
 Before you start
 ----------------
 
@@ -324,6 +326,13 @@ Now that you know how to keep track of experiments and organize them you can:
 - See |how to connect Neptune to your codebase|
 - |Check our integrations| with other frameworks
 
+Other useful articles:
+
+- |Machine Learning Experiment Management: How to Organize Your Model Development Process|
+- |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide|
+- |How to Track Hyperparameters of Machine Learning Models|
+- |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune|
+
 Full script
 -----------
 
@@ -435,3 +444,27 @@ Full script
 .. |save view| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/iTgjtYBWqko" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |YouTube video|  raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/YGPggqU26Qc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |Machine Learning Experiment Management: How to Organize Your Model Development Process| raw:: html
+
+    <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">Machine Learning Experiment Management: How to Organize Your Model Development Process</a>
+
+.. |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide| raw:: html
+
+    <a href="https://neptune.ai/blog/continuous-integration-for-machine-learning-with-github-actions-and-neptune" target="_blank">How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide</a>
+
+.. |How to Track Hyperparameters of Machine Learning Models| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-hyperparameters" target="_blank">How to Track Hyperparameters of Machine Learning Models</a>
+
+.. |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/explainable-and-reproducible-machine-learning-with-dalex-and-neptune" target="_blank">Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune</a>
+
+.. |How to organize ML experimentation: step by step guide| raw:: html
+
+    <a href="/use-cases/organize-experiments/how-to-organize-experiments.html">How to organize ML experimentation: step by step guide</a>

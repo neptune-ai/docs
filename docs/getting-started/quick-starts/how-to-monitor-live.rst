@@ -227,6 +227,12 @@ Now that you know how to create experiments and log metrics you can learn:
 - See |how to connect Neptune to your codebase|
 - |Check our integrations| with other frameworks
 
+Other useful articles:
+
+- |How to Monitor Machine Learning and Deep Learning Experiments|
+- |How to Track Machine Learning Model Metrics in Your Projects|
+- |How to Keep Track of PyTorch Lightning Experiments with Neptune|
+
 Full script
 -----------
 
@@ -330,3 +336,21 @@ Full script
 .. |YouTube video|  raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/Hzr8E3vmAQM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. |A Complete Guide to Monitoring ML Experiments Live in Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">A Complete Guide to Monitoring ML Experiments Live in Neptune</a>
+
+.. |How to Keep Track of PyTorch Lightning Experiments with Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/pytorch-lightning-neptune-integration" target="_blank">How to Keep Track of PyTorch Lightning Experiments with Neptune</a>
+
+.. |How to Track Machine Learning Model Metrics in Your Projects| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-machine-learning-model-metrics" target="_blank">How to Track Machine Learning Model Metrics in Your Projects</a>
+
+.. |How to monitor ML runs live: step by step guide| raw:: html
+
+    <a href="/use-cases/monitor-live/how-to-monitor-live.html">How to monitor ML runs live: step by step guide</a>
+
