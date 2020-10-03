@@ -1,4 +1,4 @@
-.. _integration-visualization-tools:
+.. _integrations-visualization-tools:
 
 Visualization Tools
 ===================

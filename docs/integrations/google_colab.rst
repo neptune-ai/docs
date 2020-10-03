@@ -1,4 +1,4 @@
-.. _integration-google-colab:
+.. _integrations-google-colab:
 
 Neptune-Google Colab Integration
 ================================

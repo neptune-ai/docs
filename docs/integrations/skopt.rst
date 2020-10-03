@@ -1,4 +1,4 @@
-.. _integration-skopt:
+.. _integrations-scikit-optimize:
 
 Neptune-Scikit-Optimize Integration
 ===================================

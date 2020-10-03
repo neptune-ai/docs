@@ -1,4 +1,4 @@
-.. _integration-tensorflow:
+.. _integrations-tensorflow:
 
 Neptune-Tensorflow Integration
 ===============================

@@ -5,7 +5,7 @@ How to share ML results with your team
 
 .. note::
 
-    How to coming soon... for now we have a video that explains it.
+    "How to..." is coming soon. For now we have a video that explains it.
 
 With Neptune you can have all your teams’ experiments and notebooks versioned in an app built for ML teams.
 

@@ -30,7 +30,7 @@ Install the package by running:
 What is next?
 -------------
 
-- Check out :ref:`integration with R <integration-r>`
+- Check out :ref:`integration with R <integrations-r>`
 
 .. External links
 
@@ -44,4 +44,4 @@ What is next?
 
 .. |Go here to read| raw:: html
 
-    <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/">Go here to read</a>
+    <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">Go here to read</a>

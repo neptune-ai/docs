@@ -1,4 +1,4 @@
-.. _integration-dalex:
+.. _integrations-dalex:
 
 Dalex Integration
 =================

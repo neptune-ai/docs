@@ -1,4 +1,4 @@
-.. _integration-experiment-tracking-frameworks:
+.. _integrations-experiment-tracking-frameworks:
 
 Experiment Tracking Frameworks
 ==============================

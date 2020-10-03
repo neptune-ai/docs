@@ -58,7 +58,7 @@ There are various object types that you can log to Neptune. Some of them are log
 
 - **Integrations**: We have created convenient integrations with many machine learning frameworks so that you don’t have to implement them from the atomic logging functions mentioned above.
 
-    Learn :ref:`more about integrations here <integrations-index>`, or study some examples: :ref:`Keras <integration-keras>`, :ref:`PyTorch Lightning <integration-pytorch-lightning>`, :ref:`XGBoost <integration-xgboost>`, :ref:`Matplotlib <integration-matplotlib>`.
+    Learn :ref:`more about integrations here <integrations-index>`, or study some examples: :ref:`Keras <integrations-keras>`, :ref:`PyTorch Lightning <integrations-pytorch-lightning>`, :ref:`XGBoost <integrations-xgboost>`, :ref:`Matplotlib <integrations-matplotlib>`.
 
 .. External Links
 

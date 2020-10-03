@@ -1,4 +1,4 @@
-.. _integration-plotly:
+.. _integrations-plotly:
 
 Neptune-plotly Integration
 ==============================

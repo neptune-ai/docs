@@ -1,4 +1,4 @@
-.. _integration-xgboost:
+.. _integrations-xgboost:
 
 Neptune-XGBoost Integration
 ===========================
@@ -23,7 +23,7 @@ The integration is implemented as an XGBoost callback and provides the following
 
 Requirements
 ------------
-This integration makes use of the XGBoost library and is part of :ref:`neptune-contrib <integration-neptune-contrib>`.
+This integration makes use of the XGBoost library and is part of :ref:`neptune-contrib <integrations-neptune-contrib>`.
 
 Make sure you have all dependencies installed. You can use the bash command below:
 

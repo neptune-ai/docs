@@ -5,7 +5,7 @@ How to clean up Jupyter workflow
 
 .. note::
 
-    How to coming soon... for now we have a video that explains it.
+    "How to..." is coming soon. For now we have a video that explains it.
 
 With Neptune you can be in control of your notebook versions with literally one click.
 

@@ -1,4 +1,4 @@
-.. _integration-optuna:
+.. _integrations-optuna:
 
 Neptune-Optuna Integration
 ==========================

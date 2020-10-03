@@ -1,4 +1,4 @@
-.. _integration-cloud-providers:
+.. _integrations-cloud-providers:
 
 Cloud Providers
 ===============

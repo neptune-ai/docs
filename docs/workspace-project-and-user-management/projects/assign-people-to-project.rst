@@ -10,7 +10,7 @@ Assign People to a Project
 
 .. note::
 
-    Only a project Owner can assign people to the project. Learn more about :ref:`project roles <administration-roles-in-project>`.
+    Only a project Owner can assign people to the project. Learn more about :ref:`project roles <administration-user-roles>`.
 
 1. In the Project panel, click **Settings**, then click the **People** tab.
 

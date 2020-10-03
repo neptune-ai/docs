@@ -1,4 +1,4 @@
-.. _integration-tensorboard:
+.. _integrations-tensorboard:
 
 Neptune-TensorBoard Integration
 ===============================

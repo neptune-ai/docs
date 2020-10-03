@@ -1,4 +1,4 @@
-.. _integration-mlflow:
+.. _integrations-mlflow:
 
 Neptune-MLflow Integration
 ==========================
@@ -62,15 +62,6 @@ Organize and share your MLflow experiments
 .. image:: ../_static/images/integrations/mlflow_2.png
    :target: ../_static/images/integrations/mlflow_2.png
    :alt: share artifacts logged during MLflow run
-
-Examples
---------
-.. toctree::
-   :maxdepth: 1
-
-   Sync and compare runs <mlflow/mlflow_compare_runs.rst>
-   Sync runs and share model weights <mlflow/mlflow_sync_runs_and_share_model.rst>
-
 
 .. External links
 

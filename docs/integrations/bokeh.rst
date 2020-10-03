@@ -1,4 +1,4 @@
-.. _integration-bokeh:
+.. _integrations-bokeh:
 
 Neptune-bokeh Integration
 ==============================

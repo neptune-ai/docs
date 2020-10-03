@@ -5,7 +5,7 @@ How to compare and debug experiments and models
 
 .. note::
 
-    How to coming soon... for now we have a video that explains it.
+    "How to..." is coming soon. For now we have a video that explains it.
 
 Neptune lets you compare experiments using in-depth analysis in the specialized view.
 

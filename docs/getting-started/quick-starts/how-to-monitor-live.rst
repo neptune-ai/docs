@@ -22,7 +22,7 @@ Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
 - Have Tensorflow 2.x with Keras installed
-- :ref:`Have Neptune installed<installation-neptune-client>`
+- :ref:`Have Neptune installed <installation-neptune-client>`
 - :ref:`Create a project <create-project>`
 - :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
 
@@ -195,7 +195,7 @@ Now that you know all this.
     You don't actually have to implement this callback yourself and can use the Callback that we created for Keras.
     It is one of many integrations with ML frameworks that Neptune has.
 
-    - Check our :ref:`Keras integration <integration-keras>`
+    - Check our :ref:`Keras integration <integrations-keras>`
 
 .. tip::
 
@@ -226,7 +226,7 @@ What's next
 Now that you know how to create experiments and log metrics you can learn:
 
 - See |how to log other objects and monitor training in Neptune|
-- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase:>`
+- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
 - :ref:`Check our integrations <integrations-index>` with other frameworks
 
 Other useful articles:

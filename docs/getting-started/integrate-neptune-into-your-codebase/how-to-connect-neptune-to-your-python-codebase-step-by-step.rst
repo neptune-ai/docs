@@ -34,7 +34,7 @@ Neptune was built for Python first and if this is your language of choice jump t
 
 If you are not using Python, no worries, Neptune plays nicely with other languages as well.
 
-Read :ref:`how to use Neptune with other languages <integration-any-language>` here.
+Read :ref:`how to use Neptune with other languages <integrations-any-language>` here.
 
 Step 2: See if Neptune integrates with your current experiment tracking tool (Optional)
 ---------------------------------------------------------------------------------------
@@ -44,9 +44,9 @@ They also make the migration from those tools easy and quick.
 
 Neptune integrates with the following experiment tracking frameworks:
 
-- :ref:`MLflow <integration-mlflow>`
-- :ref:`TensorBoard <integration-tensorboard>`
-- :ref:`Sacred <integration-sacred>`
+- :ref:`MLflow <integrations-mlflow>`
+- :ref:`TensorBoard <integrations-tensorboard>`
+- :ref:`Sacred <integrations-sacred>`
 
 Step 3: See if Neptune integrates with your ML framework (Optional)
 -------------------------------------------------------------------
@@ -56,27 +56,27 @@ Neptune supports any machine learning framework but there are a lot of integrati
 Deep learning frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`Keras <integration-keras>`
-- :ref:`PyTorch <integration-pytorch>`
-- :ref:`PyTorch Lightning <integration-pytorch-lightning>`
-- :ref:`PyTorch Ignite <integration-pytorch-ignite>`
-- :ref:`Catalyst <integration-catalyst>`
-- :ref:`Fastai <integration-fastai>`
-- :ref:`Skorch <integration-skorch>`
+- :ref:`Keras <integrations-keras>`
+- :ref:`PyTorch <integrations-pytorch>`
+- :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
+- :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
+- :ref:`Catalyst <integrations-catalyst>`
+- :ref:`Fastai <integrations-fastai>`
+- :ref:`Skorch <integrations-skorch>`
 
 Machine learning frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`lightGBM <integration-lightgbm>`
-- :ref:`XGBoost <integration-xgboost>`
+- :ref:`lightGBM <integrations-lightgbm>`
+- :ref:`XGBoost <integrations-xgboost>`
 
 Hyperparameter Optimization frameworks:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`Optuna <integration-optuna>`
-- :ref:`Scikit-Optimize <integration-scikit-optimize>`
+- :ref:`Optuna <integrations-optuna>`
+- :ref:`Scikit-Optimize <integrations-scikit-optimize>`
 
-Check out the :ref:`full list of integrations <integration-index>`.
+Check out the :ref:`full list of integrations <integrations-index>`.
 
 Step 4: Add Neptune logging explicitly
 --------------------------------------
@@ -230,7 +230,7 @@ What is next?
 - See |how to track hyperparameters of ML models|
 - See |how to track metrics and losses|
 - See |how to monitor ML/DL experiments|
-- Check out the :ref:`full list of integrations <integration-index>`
+- Check out the :ref:`full list of integrations <integrations-index>`
 
 .. External links
 

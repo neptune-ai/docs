@@ -14,8 +14,8 @@ If you are interested in connecting Neptune with a particular framework you can 
 
     Read our guides on:
 
-    - How to use :ref:`Neptune client for R <integration-r>`
-    - How to log experiments for :ref:`any other language <integration-any-language>`
+    - How to use :ref:`Neptune client for R <integrations-r>`
+    - How to log experiments for :ref:`any other language <integrations-any-language>`
 
 .. toctree::
    :hidden:

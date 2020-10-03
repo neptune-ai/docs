@@ -1,4 +1,4 @@
-.. _integration-lightgbm:
+.. _integrations-lightgbm:
 
 Neptune-LightGBM Integration
 ============================

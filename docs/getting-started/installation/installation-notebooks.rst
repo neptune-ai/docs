@@ -18,7 +18,7 @@ neptune-notebooks is a Python package hosted on pip. It includes:
 
 - A very basic CLI (command line interface) for uploading notebooks.
 - Standard Jupyter extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is not hosted anywhere separately, only as part of the python package.
-- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted `on the npm <https://www.npmjs.com/package/neptune-notebooks>`_.
+- JupyterLab extension. The extension is written in Javascript and is visible in the web-based Jupyter UI. It is hosted |on the npm|.
 
 
 Installation for Jupyter
@@ -28,7 +28,7 @@ Installation for Jupyter
 
 Procedure
 
-1. Install `neptune-notebooks extension <https://github.com/neptune-ai/neptune-notebooks>`_:
+1. Install neptune-notebooks extension:
 
 .. code-block:: bash
 
@@ -70,10 +70,9 @@ Details for these methods follow below.
 
 Irrespective of which method you use, the following must be preinstalled on your system before you begin.
 
-
-- `Node.js <https://nodejs.org/en>`_
-- `npm <https://www.npmjs.com/get-npm>`_
-- `JupyterLab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>`_
+- |Node.js|
+- |npm|
+- |JupyterLab|
 
 Method 1: Install the full neptune-notebooks package through the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -167,7 +166,7 @@ Method 3: Install the JupyterLab extension only, using the JupyterLab Extension 
 Checking if the Installation was Successful
 -------------------------------------------
 
-Provided you have `configured <configuration.html>`_ Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:
+Provided you have configured Jupyter correctly, the following Neptune buttons appear in Jupyter notebooks:
 
 .. image:: ../../_static/images/getting-started/installation/buttons_11.png
     :target: ../../_static/images/getting-started/installation/buttons_11.png
@@ -181,8 +180,7 @@ Provided you have `configured <configuration.html>`_ Jupyter correctly, the foll
 Connecting the Jupyter Extension to Your Neptune Account
 --------------------------------------------------------
 
-After you have successfully `installed the Jupyter extension for Neptune <installation.html>`_,
-you connect it to your Neptune account.
+After you have successfully installed the Jupyter extension for Neptune, you connect it to your Neptune account.
 
 **Procedure**
 
@@ -222,3 +220,20 @@ The **Configure your connection to Neptune** dialog appears.
 5. To conclude, to see experiments that you will run associated with this Notebook, click **Activate**.
 In the dialog that appears, click **Activate**.
 
+.. External links
+
+.. |on the npm|  raw:: html
+
+    <a href="https://www.npmjs.com/package/neptune-notebooks" target="_blank">on the npm</a>
+
+.. |Node.js|  raw:: html
+
+    <a href="https://nodejs.org/en" target="_blank">Node.js</a>
+
+.. |npm|  raw:: html
+
+    <a href="https://www.npmjs.com/get-npm" target="_blank">npm</a>
+
+.. |JupyterLab|  raw:: html
+
+    <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html" target="_blank">JupyterLab</a>

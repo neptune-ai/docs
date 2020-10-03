@@ -105,7 +105,6 @@ html_theme_options = {
     'sticky_navigation': False,
     'titles_only': True,
     'logo_only': True,
-    'nitpicky': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

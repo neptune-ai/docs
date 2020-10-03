@@ -1,19 +1,19 @@
 User Management
 ===============
 
+.. _administration-user-roles:
+
 User Roles
 ----------
-.. _core-concepts_user-roles:
 
 There are user roles in projects and in workspaces.
 
+.. _administration-user-roles-workspace:
 
 Roles in a workspace
 ^^^^^^^^^^^^^^^^^^^^
 
 Workspace roles apply only to team workspaces.
-
-.. _core-concepts_user-roles_workspace-admin:
 
 If you have :ref:`created a Team workspace <how-to_team-management_create-workspace>`,
 you can invite people to it. Two roles are available: Admin and Member.
@@ -47,7 +47,7 @@ Workspace settings can be viewed under the *Overview*, *Projects*, *People*, and
     - Project Owners can grant project ownership to anyone in the workspace.
     - A workspace must have at least one Admin, so the last remaining Admin cannot be removed from the workspace.
 
-.. _administration-roles-in-project:
+.. _administration-user-roles-project:
 
 Roles in a project
 ^^^^^^^^^^^^^^^^^^

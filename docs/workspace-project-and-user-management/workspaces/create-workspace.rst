@@ -15,7 +15,7 @@ Create a workspace
    :target: ../../_static/images/workspace-project-and-user-management/workspaces/create-workspace-2.png
    :alt: type name for new workspace
 
-3. Once the workspace has been created, you can :ref:`invite people <invite-to-workspace>` to your workspace.
+3. Once the workspace has been created, you can :ref:`invite people <administration-invite-to-workspace>` to your workspace.
 
 .. image:: ../../_static/images/workspace-project-and-user-management/workspaces/create-workspace-3.png
    :target: ../../_static/images/workspace-project-and-user-management/workspaces/create-workspace-3.png

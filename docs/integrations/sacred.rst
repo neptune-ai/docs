@@ -1,4 +1,4 @@
-.. _integration-sacred:
+.. _integrations-sacred:
 
 Neptune-Sacred Integration
 ==========================

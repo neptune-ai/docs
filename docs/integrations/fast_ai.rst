@@ -1,4 +1,4 @@
-.. _integration-fastai:
+.. _integrations-fastai:
 
 Neptune-fastai Integration
 ===========================

@@ -1,4 +1,4 @@
-.. _integration-catalyst:
+.. _integrations-catalyst:
 
 Neptune-Catalyst Integration
 ============================

@@ -1,4 +1,4 @@
-.. _integration-neptune-contrib:
+.. _integrations-neptune-contrib:
 
 Neptune Extensions Library
 ==========================

@@ -1,4 +1,4 @@
-.. _integration-pytorch:
+.. _integrations-pytorch:
 
 Neptune-PyTorch Integration
 ===========================

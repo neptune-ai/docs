@@ -1,4 +1,4 @@
-.. _integration-languages:
+.. _integrations-languages:
 
 Languages
 =========

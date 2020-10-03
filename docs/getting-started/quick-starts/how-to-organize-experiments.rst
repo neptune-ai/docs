@@ -325,7 +325,7 @@ What's next
 Now that you know how to keep track of experiments and organize them you can:
 
 - See |how to log other objects and monitor training in Neptune|
-- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase:>`
+- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
 - :ref:`Check our integrations <integrations-index>` with other frameworks
 
 Other useful articles:

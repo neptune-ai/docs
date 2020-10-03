@@ -1,4 +1,3 @@
-
 Use Neptune API to Iog your first experiment
 ============================================
 
@@ -39,7 +38,7 @@ Go to the command line of your operating system and run the installation command
 
 .. note::
 
-    If you are using R or any other language |go read this|.
+    If you are using R or any other language :ref:`go read this <integrations-any-language>`.
 
 
 Step 2 - Create a `quickstart.py`
