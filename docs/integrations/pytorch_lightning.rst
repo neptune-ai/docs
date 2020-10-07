@@ -3,7 +3,9 @@ PyTorch Lightning Integration
 
 What will you get?
 ------------------
-[video-placeholder]
+.. image:: ../_static/images/integrations/lightning_basic.gif
+   :target: ../_static/images/integrations/lightning_basic.gif
+   :alt: PyTorchLightning neptune.ai integration
 
 PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI research. With Neptune integration you can:
 
@@ -45,7 +47,7 @@ Before you start
 
 **Supported version**
 
-* ``pytorch-lightning>=0.9.0``
+* ``pytorch-lightning==0.9.0``
 * ``neptune-client>=0.4.105``
 
 Installation
@@ -104,12 +106,12 @@ You will see them in Neptune parameters tab.
 .. code-block:: python3
 
     PARAMS = {'max_epochs': 3,
-              'LR': 0.02,
+              'learning_rate': 0.005,
               'batch_size': 32}
 
 Step 3 - Define Lightning Module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This is minimal example of the ``pl.LightningModule``. Notice the Cross Entropy loss in the ``training_step`` method.
+This is minimal example of the ``pl.LightningModule``. Notice the Cross Entropy loss in the ``training_step`` method, that is being logged in every training step.
 
 Also, note that you pass learning rate from the ``PARAMS`` dictionary.
 
@@ -127,10 +129,12 @@ Also, note that you pass learning rate from the ``PARAMS`` dictionary.
             x, y = batch
             y_hat = self(x)
             loss = F.cross_entropy(y_hat, y)
-            return pl.TrainResult(loss)
+            result = pl.TrainResult(minimize=loss)
+            result.log('train_loss', loss)
+            return result
 
         def configure_optimizers(self):
-            return torch.optim.Adam(self.parameters(), lr=PARAMS['LR'])
+            return torch.optim.Adam(self.parameters(), lr=PARAMS['learning_rate'])
 
 Step 4 - Prepare Data Loader
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,19 +178,19 @@ Notice, that ``max_epochs`` is from the ``PARAMS`` dictionary. All these params 
 
     trainer.fit(model, train_loader)
 
-Results
-^^^^^^^
+Explore Results
+^^^^^^^^^^^^^^^
 You just learned how to start logging PyTorch Lightning experiments to Neptune, by using Neptune logger which is part of the lightning library.
 
-Above training is logged to Neptune in near real-time. You can go and explore the results. In particular check:
+Above training is logged to Neptune in near real-time. Click on the link that was outputted to the console or |go-here| to explore an experiment similar to yours. In particular check:
 
 #. |metrics|,
 #. |params|,
 #. |hardware|,
-#. |metadata|.
+#. |metadata| including git summary info.
 
-.. image:: ../_static/images/integrations/pytorchlightning_neptuneml.png
-   :target: ../_static/images/integrations/pytorchlightning_neptuneml.png
+.. image:: ../_static/images/integrations/lightning_basic.png
+   :target: ../_static/images/integrations/lightning_basic.png
    :alt: PyTorchLightning neptune.ai integration
 
 Advanced options
@@ -206,6 +210,9 @@ Save model checkpoints
 
 Troubleshooting
 ---------------
+
+Common problems
+^^^^^^^^^^^^^^^
 
 How to ask for help?
 ^^^^^^^^^^^^^^^^^^^^
@@ -290,16 +297,20 @@ You may also like these two integrations:
 
 .. |metrics| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-68/charts" target="_blank">metrics</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/charts" target="_blank">metrics</a>
 
 .. |params| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-68/parameters" target="_blank">logged parameters</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/parameters" target="_blank">logged parameters</a>
 
 .. |hardware| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-68/monitoring" target="_blank">hardware usage statistics</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/monitoring" target="_blank">hardware usage statistics</a>
 
 .. |metadata| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-68/details" target="_blank">metadata information</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/details" target="_blank">metadata information</a>
+
+.. |go-here| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/charts" target="_blank">go here</a>
