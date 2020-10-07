@@ -1,3 +1,5 @@
+.. _integrations-sacred:
+
 Neptune-Sacred Integration
 ==========================
 

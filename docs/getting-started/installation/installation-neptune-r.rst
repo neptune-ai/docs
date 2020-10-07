@@ -30,11 +30,9 @@ Install the package by running:
 What is next?
 -------------
 
-- Check out |R integration|
+- Check out :ref:`integration with R <integrations-r>`
 
-.. |R integration| raw:: html
-
-    <a href="/integrations/r-support.html">Neptune integration with R</a>
+.. External links
 
 .. |CRAN package| raw:: html
 
@@ -46,4 +44,4 @@ What is next?
 
 .. |Go here to read| raw:: html
 
-    <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/">Go here to read</a>
+    <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">Go here to read</a>

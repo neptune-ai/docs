@@ -1,6 +1,7 @@
+.. _guides-nql:
+
 Searching Experiments with Neptune Query Language
 =================================================
-.. _core-concepts_nql:
 
 Neptune Query Language (NQL) enables you to apply complex filters to your experiments view.
 You can build NQL queries in the query editor inside the Neptune dashboard.

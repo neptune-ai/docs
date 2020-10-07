@@ -15,6 +15,7 @@ You can copy the link in either of the following ways:
         :alt: Notebook comparison
         :width: 900
 
+.. External links
 
 .. |Notebook comparison| raw:: html
 

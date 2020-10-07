@@ -1,3 +1,5 @@
+.. _use-cases-organize-ml-experiments:
+
 How to organize ML experimentation: step by step guide
 ======================================================
 
@@ -13,6 +15,8 @@ This guide will show you how to:
 - Find experiments in the experiment dashboard with tags
 - Organize experiments in a dashboard view and save it for later
 
+|Youtube video|
+
 Before you start
 ----------------
 
@@ -20,9 +24,9 @@ Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
 - Have scikit-learn and joblib installed
-- |Have Neptune installed|
-- |Create a project|
-- |Configure Neptune API token on your system|
+- :ref:`Have Neptune installed<installation-neptune-client>`
+- :ref:`Create a project <create-project>`
+- :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
 
 .. note::
 
@@ -105,7 +109,7 @@ To do that you specify:
 
 .. note::
 
-    If you configured your Neptune API token correctly, as described in |Configure Neptune API token on your system|, you can skip ``api_token`` argument:
+    If you configured your Neptune API token correctly, as described in :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`, you can skip ``api_token`` argument:
 
     .. code:: python
 
@@ -213,7 +217,7 @@ Log your model with ``.log_artifact`` method. Just pass the path to the file you
 
 .. note::
 
-    You can also log picklable Python objects directly with |log_pickle function from neptune-contrib|.
+    You can also log picklable Python objects directly with `log_pickle` function from neptune-contrib.
 
     .. code:: python
 
@@ -321,8 +325,15 @@ What's next
 Now that you know how to keep track of experiments and organize them you can:
 
 - See |how to log other objects and monitor training in Neptune|
-- See |how to connect Neptune to your codebase|
-- |Check our integrations| with other frameworks
+- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
+- :ref:`Check our integrations <integrations-index>` with other frameworks
+
+Other useful articles:
+
+- |Machine Learning Experiment Management: How to Organize Your Model Development Process|
+- |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide|
+- |How to Track Hyperparameters of Machine Learning Models|
+- |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune|
 
 Full script
 -----------
@@ -373,18 +384,7 @@ Full script
     dump(clf, 'model.pkl')
     neptune.log_artifact('model.pkl')  # log files
 
-
-.. |Create a project| raw:: html
-
-    <a href="/workspace-project-and-user-management/projects/create-project.html" target="_blank">Create a project in Neptune</a>
-
-.. |Configure Neptune API token on your system| raw:: html
-
-    <a href="/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html" target="_blank">Configure Neptune API token on your system</a>
-
-.. |Have Neptune installed| raw:: html
-
-    <a href="/getting-started/installation/index.html" target="_blank">Have Neptune installed</a>
+.. External links
 
 .. |run on colab button| raw:: html
 
@@ -395,18 +395,6 @@ Full script
 .. |how to log other objects and monitor training in Neptune| raw:: html
 
     <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
-
-.. |how to connect Neptune to your codebase| raw:: html
-
-    <a href="/getting-started/integrating-neptune-into-your-codebase/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
-
-.. |Check our integrations| raw:: html
-
-    <a href="/integrations/index.html" target="_blank">Check our integrations</a>
-
-.. |log_pickle function from neptune-contrib|  raw:: html
-
-    <a href="/api-reference/neptunecontrib/api/index.html?highlight=log_pickle#neptunecontrib.api.log_pickle" target="_blank">log_pickle function from neptune-contrib</a>
 
 .. |follow this link| raw:: html
 
@@ -435,3 +423,23 @@ Full script
 .. |save view| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/iTgjtYBWqko" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |YouTube video|  raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/YGPggqU26Qc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |Machine Learning Experiment Management: How to Organize Your Model Development Process| raw:: html
+
+    <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">Machine Learning Experiment Management: How to Organize Your Model Development Process</a>
+
+.. |How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide| raw:: html
+
+    <a href="https://neptune.ai/blog/continuous-integration-for-machine-learning-with-github-actions-and-neptune" target="_blank">How to Set Up Continuous Integration for Machine Learning with Github Actions and Neptune: Step by Step Guide</a>
+
+.. |How to Track Hyperparameters of Machine Learning Models| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-hyperparameters" target="_blank">How to Track Hyperparameters of Machine Learning Models</a>
+
+.. |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/explainable-and-reproducible-machine-learning-with-dalex-and-neptune" target="_blank">Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune</a>

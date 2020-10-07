@@ -1,3 +1,5 @@
+.. _integrations-keras:
+
 Neptune-Keras Integration
 =========================
 

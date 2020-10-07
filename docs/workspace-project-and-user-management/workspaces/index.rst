@@ -14,18 +14,20 @@ Individual
 ^^^^^^^^^^
 
 * Each user is assigned an individual workspace with their ``username`` as the workspace name.
-* The user is the only member of this workspace but may :ref:`invite collaborators <how-to_team-management_invite-to-project>` to projects.
+* The user is the only member of this workspace but may :ref:`invite collaborators <administration-invite-to-workspace>` to projects.
 * The user can create an unlimited number of projects in their individual workspace.
+
+.. _administration-team-workspace:
 
 Team
 ^^^^
 
 * A team workspace comes in handy when an entire team needs to be managed centrally.
+* Once :ref:`created <administration-create-workspace>`, a team workspace can be managed by the :ref:`workspace Admin <administration-user-roles-workspace>`. The admin can manage users and subscription settings.
+* Only users who joined team workspace can browse its content, subject to the assigned :ref:`role <administration-user-roles-project>` in the workspace or project.
 * You can `request free Team trial <https://neptune-team-trial.paperform.co>`_ and we will create a Team workspace for you
-* Once created, a team workspace can be managed by the :ref:`workspace Admin <core-concepts_user-roles_workspace-admin>`. The admin can manage users and subscription settings.
-* Only users who joined team workspace can browse its content, subject to the assigned :ref:`role <core-concepts_user-roles>` in the workspace or project.
 
-Learn more about :ref:`project types <core-concepts_project-types>` and :ref:`user roles <core-concepts_user-roles>`.
+Learn more about :ref:`project types <administration-project-types>` and :ref:`user roles <administration-user-roles>`.
 
 **More info:**
 

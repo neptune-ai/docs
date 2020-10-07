@@ -1,4 +1,3 @@
-
 Use Neptune API to Iog your first experiment
 ============================================
 
@@ -39,7 +38,7 @@ Go to the command line of your operating system and run the installation command
 
 .. note::
 
-    If you are using R or any other language |go read this|.
+    If you are using R or any other language :ref:`go read this <integrations-any-language>`.
 
 
 Step 2 - Create a `quickstart.py`
@@ -129,9 +128,9 @@ What's next
 
 Now that you know how to create experiments and log metrics you can learn:
 
-- |create a new project|
+- :ref:`Create a new project <create-project>`
 - See |how to log other objects and monitor training in Neptune|
-- See |how to connect Neptune to your codebase|
+- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
 
 .. External links
 
@@ -139,27 +138,11 @@ Now that you know how to create experiments and log metrics you can learn:
 
     <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
 
-.. |how to connect Neptune to your codebase| raw:: html
-
-    <a href="/getting-started/adding-neptune/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
-
 .. |run on colab button| raw:: html
 
     <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
-
-.. |Create a new project| raw:: html
-
-    <a href="/teamwork-and-user-management/how-to/create-project.html" target="_blank">Create a new project</a>
-
-.. |Get your Neptune API token| raw:: html
-
-    <a href="/security/how-to/api-token.html" target="_blank">Get your Neptune API token</a>
-
-.. |go read this| raw:: html
-
-    <a href="/integrations/languages.html" target="_blank">go read this</a>
 
 .. |Explore experiment| raw:: html
 

@@ -14,12 +14,6 @@ to the number of API calls over the 1 thousand limit.
 
     Our experiences suggests that few AI research groups ever reach those limits.
 
-.. External links
-
-.. |Pricing| raw:: html
-
-    <a href="https://neptune.ai/pricing" target="_blank">Pricing</a>
-
 ----
 
 What happens if I lose my Internet connection during an experiment?
@@ -53,3 +47,8 @@ What is the number of experiments or Notebooks limit?
 
 There are no limits. You can have as many experiments and Notebooks as you wish.
 
+.. External links
+
+.. |Pricing| raw:: html
+
+    <a href="https://neptune.ai/pricing" target="_blank">Pricing</a>

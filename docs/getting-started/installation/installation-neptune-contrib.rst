@@ -51,11 +51,9 @@ You can also install all the dependencies.
 What is next?
 -------------
 
-- Check out |Quick starts|
+- Check out :ref:`Quick starts <quick-starts-index>`
 
-.. |Quick starts| raw:: html
-
-    <a href="/getting-started/quick-starts/index.html">Quick Starts</a>
+.. External links
 
 .. |neptune-contrib| raw:: html
 

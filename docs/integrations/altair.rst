@@ -1,3 +1,5 @@
+.. _integrations-altair:
+
 Neptune-Altair Integration
 ==========================
 

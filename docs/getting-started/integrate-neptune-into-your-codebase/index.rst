@@ -3,9 +3,10 @@ Integrating Neptune into your codebase
 
 We've created a how-to guide to guide you through this step by step:
 
-- |How to connect Neptune to your codebase: step by step guide (5 min)|
+- :ref:`How to connect Neptune to your codebase: step by step guide (5 min) <how-to-connect-neptune-to-your-codebase>`
 
-If you are interested in connecting Neptune with a particular framework you can jump straight to our |Integrations|.
+
+If you are interested in connecting Neptune with a particular framework you can jump straight to our :ref:`integrations <integrations-index>`.
 
 .. note::
 
@@ -13,8 +14,8 @@ If you are interested in connecting Neptune with a particular framework you can 
 
     Read our guides on:
 
-    - How to use |Neptune client for R|
-    - How to log experiments for |any other language|
+    - How to use :ref:`Neptune client for R <integrations-r>`
+    - How to log experiments for :ref:`any other language <integrations-any-language>`
 
 .. toctree::
    :hidden:
@@ -22,19 +23,3 @@ If you are interested in connecting Neptune with a particular framework you can 
 
    How to connect Neptune to your codebase: step by step guide (5 min) <how-to-connect-neptune-to-your-python-codebase-step-by-step.rst>
    Not using Python? <not-using-python.rst>
-
-.. |How to connect Neptune to your codebase: step by step guide (5 min)| raw:: html
-
-    <a href="/getting-started/integrate-neptune-into-your-codebase/how-to-connect-neptune-to-your-python-codebase-step-by-step.html">How to connect Neptune to your codebase: step by step guide (5 min)</a>
-
-.. |Neptune client for R| raw:: html
-
-    <a href="/integrations/r-support.html">Neptune client for R</a>
-
-.. |any other language| raw:: html
-
-    <a href="/integrations/any-language-support.html">any other language</a>
-
-.. |Integrations| raw:: html
-
-    <a href="/integrations/index.html">integrations</a>

@@ -1,3 +1,5 @@
+.. _integrations-xgboost:
+
 Neptune-XGBoost Integration
 ===========================
 
@@ -21,7 +23,7 @@ The integration is implemented as an XGBoost callback and provides the following
 
 Requirements
 ------------
-This integration makes use of the XGBoost library and is part of |neptune-contrib|.
+This integration makes use of the XGBoost library and is part of :ref:`neptune-contrib <integrations-neptune-contrib>`.
 
 Make sure you have all dependencies installed. You can use the bash command below:
 
@@ -86,7 +88,6 @@ Selected trees are logged to Neptune as an image after the last boosting iterati
 Resources
 ---------
 * Open source implementation is on |github-project|.
-* Docstrings/reference documentation is |docstrings|.
 * Example Neptune project: |neptune-project|.
 
 Notebooks with examples
@@ -167,10 +168,6 @@ Full script
 
     <a href="https://ui.neptune.ai/api/leaderboard/v1/images/b15cefdc-7272-4ad8-85a9-2859c3841f6c/94dcef8f-b0a4-42a9-86df-4ea325757283/95b8c689-a2c5-47d6-bd17-4155dae1b189.PNG" target="_blank">Log visualized trees</a>
 
-.. |neptune-contrib| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/neptune-contrib.html" target="_blank">neptune-contrib</a>
-
 .. |google-colab| raw:: html
 
     <a href="https://colab.research.google.com/github/neptune-ai/neptune-colab-examples/blob/master/xgboost-integration.ipynb" target="_blank">Google Colab</a>
@@ -179,10 +176,6 @@ Full script
 
     <a href="https://github.com/neptune-ai/neptune-contrib/blob/master/neptunecontrib/monitoring/xgboost_monitor.py" target="_blank">GitHub</a>
 
-.. |docstrings| raw:: html
-
-    <a href="https://neptune-contrib.readthedocs.io/user_guide/monitoring/xgboost.html" target="_blank">here</a>
-
 .. |neptune-project| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/experiments" target="_blank">XGBoost-integration</a>
@@ -190,10 +183,6 @@ Full script
 .. |xgboost-integration-demo| raw:: html
 
     <a href="https://ui.neptune.ai/shared/XGBoost-integration/n/demo-notebooks-code-8f65f556-37b8-48d9-b8e0-bde6286c749d/e6c0e2a0-994b-46ff-bb4b-ba615ff46d04" target="_blank">xgboost-integration-demo</a>
-
-.. |create-experiment| raw:: html
-
-    <a href="https://docs.neptune.ai/neptune-client/docs/project.html#neptune.projects.Project.create_experiment" target="_blank">neptune.create_experiment()</a>
 
 .. |Example results| raw:: html
 

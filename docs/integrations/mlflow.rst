@@ -1,3 +1,5 @@
+.. _integrations-mlflow:
+
 Neptune-MLflow Integration
 ==========================
 
@@ -61,19 +63,6 @@ Organize and share your MLflow experiments
    :target: ../_static/images/integrations/mlflow_2.png
    :alt: share artifacts logged during MLflow run
 
-Examples
---------
-.. toctree::
-   :maxdepth: 1
-
-   Sync and compare runs <mlflow/mlflow_compare_runs.rst>
-   Sync runs and share model weights <mlflow/mlflow_sync_runs_and_share_model.rst>
-
-Support
--------
-
-If you need assistance, report an issue in Git, or talk to us directly in a |support-chat|.
-
 .. External links
 
 .. |neptune-mlflow| raw:: html
@@ -87,7 +76,3 @@ If you need assistance, report an issue in Git, or talk to us directly in a |sup
 .. |mlflow-integration| raw:: html
 
     <a href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments" target="_blank">MLflow integration</a>
-
-.. |support-chat| raw:: html
-
-    <a href="https://spectrum.chat/neptune-community" target="_blank">support chat</a>

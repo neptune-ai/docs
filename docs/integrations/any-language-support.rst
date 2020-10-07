@@ -1,3 +1,5 @@
+.. _integrations-any-language:
+
 Any language support
 ====================
 

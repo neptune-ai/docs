@@ -1,3 +1,5 @@
+.. _guides-experiment-dashboard:
+
 Experiment Dashboard
 ====================
 

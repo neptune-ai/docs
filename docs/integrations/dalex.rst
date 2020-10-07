@@ -1,3 +1,5 @@
+.. _integrations-dalex:
+
 Dalex Integration
 =================
 

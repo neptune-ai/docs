@@ -1,3 +1,5 @@
+.. _integrations-pandas:
+
 Neptune-Pandas Integration
 ==============================
 

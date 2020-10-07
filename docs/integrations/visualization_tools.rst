@@ -1,3 +1,5 @@
+.. _integrations-visualization-tools:
+
 Visualization Tools
 ===================
 
@@ -15,6 +17,8 @@ Neptune provides integrations with the following visualization tools:
    Altair <altair.rst>
    Pandas <pandas.rst>
    HTML <html.rst>
+
+.. External links
 
 .. |Youtube Video| raw:: html
 

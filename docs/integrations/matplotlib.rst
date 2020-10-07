@@ -1,3 +1,5 @@
+.. _integrations-matplotlib:
+
 Neptune-Matplotlib Integration
 ==============================
 

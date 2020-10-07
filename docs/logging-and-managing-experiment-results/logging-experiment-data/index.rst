@@ -1,3 +1,5 @@
+.. _guides-logging-data-to-neptune:
+
 Logging experiment data
 =======================
 

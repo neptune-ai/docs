@@ -1,3 +1,5 @@
+.. _integrations-pytorch-ignite:
+
 Neptune-PyTorch Ignite Integration
 ==================================
 

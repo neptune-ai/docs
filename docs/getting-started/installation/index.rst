@@ -25,12 +25,10 @@ For more info, read our installation guides:
 
     You can also deploy Neptune on your own infrastructure. If you are interested in that read:
 
-    - |How to deploy Neptune On-Prem|
+    - :ref:`How to deploy Neptune on-prem <on-prem>`
+
+.. External links
 
 .. |neptune-client| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
-
-.. |How to deploy Neptune On-Prem|  raw:: html
-
-    <a href="/on-prem/installation-on-prem.html" target="_blank">How to deploy Neptune on-prem</a>

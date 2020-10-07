@@ -21,7 +21,7 @@ You can perform the simplest filtering by typing into the search fields:
       :alt: Experiment search
 
 
-You can also use the `Neptune Query Language <nql.html>`_ to filter experiments for more advanced criteria.
+You can also use the :ref:`Neptune Query Language <guides-nql>` to filter experiments for more advanced criteria.
 
 Organize experiments
 ^^^^^^^^^^^^^^^^^^^^
@@ -50,6 +50,7 @@ There are several ways to organize your experiments:
       :target: /_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/group_by.png
       :alt: Group columns
 
+.. External links
 
 .. |Youtube Video dashboard| raw:: html
 

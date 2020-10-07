@@ -1,11 +1,13 @@
+.. _administration-invite-to-workspace:
+
 Invite Users to a Workspace
 ===========================
 
-After you have :ref:`created a workspace <how-to_team-management_create-workspace>`, you can invite members to join it.
+After you have :ref:`created a workspace <administration-create-workspace>`, you can invite members to join it.
 
 
 .. note::
-    - Only :ref:`a workspace Admin <core-concepts_user-roles_workspace-admin>` can invite new users to a workspace.
+    - Only :ref:`a workspace Admin <administration-user-roles-workspace>` can invite new users to a workspace.
     - In case of a team workspace, as soon as a user is added, s(he) is listed automatically.
     - In case of an individual workspace, users are explicitly invited and have to accept the invitation before they are added. Those users can leave the Projects that they joined at any time.
     - Only workspace members can be added to Projects in team workspaces.

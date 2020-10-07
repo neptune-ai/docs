@@ -1,3 +1,5 @@
+.. _integrations-html:
+
 Neptune-HTML Integration
 ==============================
 

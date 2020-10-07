@@ -1,3 +1,5 @@
+.. _use-cases-monitor-runs-live:
+
 How to monitor ML runs live: step by step guide
 ===============================================
 
@@ -20,9 +22,9 @@ Make sure you meet the following prerequisites before starting:
 
 - Have Python 3.x installed
 - Have Tensorflow 2.x with Keras installed
-- |Have Neptune installed|
-- |Create a project|
-- |Configure Neptune API token on your system|
+- :ref:`Have Neptune installed <installation-neptune-client>`
+- :ref:`Create a project <create-project>`
+- :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
 
 .. note::
 
@@ -127,7 +129,7 @@ To do that you specify:
 
 .. note::
 
-    If you configured your Neptune API token correctly, as described in |Configure Neptune API token on your system|, you can skip ``api_token`` argument:
+    If you configured your Neptune API token correctly, as described in :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`, you can skip ``api_token`` argument:
 
     .. code:: python
 
@@ -193,7 +195,7 @@ Now that you know all this.
     You don't actually have to implement this callback yourself and can use the Callback that we created for Keras.
     It is one of many integrations with ML frameworks that Neptune has.
 
-    - Check our |Keras integration|
+    - Check our :ref:`Keras integration <integrations-keras>`
 
 .. tip::
 
@@ -224,8 +226,14 @@ What's next
 Now that you know how to create experiments and log metrics you can learn:
 
 - See |how to log other objects and monitor training in Neptune|
-- See |how to connect Neptune to your codebase|
-- |Check our integrations| with other frameworks
+- See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
+- :ref:`Check our integrations <integrations-index>` with other frameworks
+
+Other useful articles:
+
+- |How to Monitor Machine Learning and Deep Learning Experiments|
+- |How to Track Machine Learning Model Metrics in Your Projects|
+- |How to Keep Track of PyTorch Lightning Experiments with Neptune|
 
 Full script
 -----------
@@ -285,41 +293,13 @@ Full script
 
 .. External links
 
-.. |Create a project| raw:: html
-
-    <a href="/workspace-project-and-user-management/projects/create-project.html" target="_blank">Create a project in Neptune</a>
-
-.. |Configure Neptune API token on your system| raw:: html
-
-    <a href="/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html" target="_blank">Configure Neptune API token on your system</a>
-
 .. |how to log other objects and monitor training in Neptune| raw:: html
 
     <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">how to log other objects and monitor training in Neptune</a>
 
-.. |how to connect Neptune to your codebase| raw:: html
-
-    <a href="/getting-started/integrating-neptune-into-your-codebase/step-by-step-connect-neptune.html" target="_blank">how to connect Neptune to your codebase</a>
-
-.. |Have Neptune installed| raw:: html
-
-    <a href="/getting-started/installation/index.html" target="_blank">Have Neptune installed</a>
-
-.. |Check our integrations| raw:: html
-
-    <a href="/integrations/index.html" target="_blank">Check our integrations</a>
-
-.. |Keras integration| raw:: html
-
-    <a href="/integrations/keras.html" target="_blank">Keras integration</a>
-
 .. |How to Monitor Machine Learning and Deep Learning Experiments| raw:: html
 
     <a href="https://neptune.ai/blog/how-to-monitor-machine-learning-and-deep-learning-experiments" target="_blank">How to Monitor Machine Learning and Deep Learning Experiments</a>
-
-.. |how to install it| raw:: html
-
-    <a href="/getting-started/installation/install_client.html" target="_blank">how to install it</a>
 
 .. |run on colab button| raw:: html
 
@@ -330,3 +310,15 @@ Full script
 .. |YouTube video|  raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/Hzr8E3vmAQM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |A Complete Guide to Monitoring ML Experiments Live in Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/monitoring-machine-learning-experiments-guide" target="_blank">A Complete Guide to Monitoring ML Experiments Live in Neptune</a>
+
+.. |How to Keep Track of PyTorch Lightning Experiments with Neptune| raw:: html
+
+    <a href="https://neptune.ai/blog/pytorch-lightning-neptune-integration" target="_blank">How to Keep Track of PyTorch Lightning Experiments with Neptune</a>
+
+.. |How to Track Machine Learning Model Metrics in Your Projects| raw:: html
+
+    <a href="https://neptune.ai/blog/how-to-track-machine-learning-model-metrics" target="_blank">How to Track Machine Learning Model Metrics in Your Projects</a>

@@ -1,3 +1,5 @@
+.. _integrations-deep-learning-frameworks:
+
 Deep Learning Frameworks
 ========================
 

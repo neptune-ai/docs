@@ -31,6 +31,8 @@ How does Neptune help different people on your team?
 - Find the information that you want to check quickly
 - Save dashboard or experiment views for later and link to them from other tools
 
+.. External links
+
 .. |Youtube Video| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/KGdXLWqNquQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

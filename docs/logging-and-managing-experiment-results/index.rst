@@ -52,6 +52,15 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
 .. note:: Save the code as ``main.py`` and run it using the command: ``python main.py``.
 
+**More info:**
+
+.. toctree::
+   :maxdepth: 1
+
+   Logging experiment data <logging-experiment-data/index.rst>
+   Updating existing experiments <updating-existing-experiment/index.rst>
+   Downloading experiment data programmatically <downloading-experiment-data-programmatically/index.rst>
+
 .. External links
 
 .. |Youtube Video| raw:: html
@@ -64,7 +73,7 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 
 .. |Neptune| raw:: html
 
-    <a href="https://neptune.ai/register" target="_blank">Neptune</a>
+    <a href="https://neptune.ai" target="_blank">Neptune</a>
 
 .. |onboarding| raw:: html
 
@@ -73,10 +82,6 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 .. |github-issues| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client/issues" target="_blank">GitHub issues</a>
-
-.. |spectrum| raw:: html
-
-    <a href="https://spectrum.chat/neptune-community" target="_blank">spectrum</a>
 
 .. |Example1| raw:: html
 
@@ -93,12 +98,3 @@ The following code creates a Neptune experiment in the project |onboarding|. Nam
 .. |dashboard| raw:: html
 
     <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
-
-**More info:**
-
-.. toctree::
-   :maxdepth: 1
-
-   Logging experiment data <logging-experiment-data/index.rst>
-   Updating existing experiments <updating-existing-experiment/index.rst>
-   Downloading experiment data programmatically <downloading-experiment-data-programmatically/index.rst>

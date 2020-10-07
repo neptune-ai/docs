@@ -1,3 +1,4 @@
+.. _integrations-skorch:
 
 Neptune-skorch Integration
 ==========================
