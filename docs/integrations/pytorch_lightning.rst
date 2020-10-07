@@ -9,7 +9,7 @@ What will you get?
 
 PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI research. With Neptune integration you can:
 
-* preview running experiment
+* see experiment as it is running,
 * log training and testing metrics, and visualize them in Neptune UI,
 * log experiment parameters,
 * monitor hardware usage,
@@ -17,38 +17,34 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 * log performance charts,
 * save model checkpoints.
 
-.. tip::
+.. note::
 
-    Check this public project with example experiments: |project|.
-
-    You can also go straight to the |exp|.
+    This integration is tested with ``pytorch-lightning==0.9.0``. See 'Troubleshoot' section for information about other versions.
 
 Quickstart
 ----------
+This quickstart will show you how to log PyTorch Lightning experiments to Neptune using ``NeptuneLogger`` (part of the pytorch-lightning library).
 
-Introduction
-^^^^^^^^^^^^
-This quickstart will show you how to use Neptune with your existing PyTorch Lightning code. You have three options:
+Check this public project with example experiments: |project|.
 
-1. Follow through this quickstart for detailed explanations,
-2. Open starter code in Colab Notebook (badge-link below) and run it as a "`neptuner`" user - zero setup, it just works.
-3. View starter code as Python script on |script|.
+.. tip::
+
+    Follow whatever is most convenient to you:
+
+    1. This page for detailed explanations,
+    2. Open quickstart code in Colab Notebook (badge-link below) and run it as a "`neptuner`" user - zero setup, it just works,
+    3. View quickstart code as Python script on |script|.
 
 |Run on Colab|
 
 Before you start
 ^^^^^^^^^^^^^^^^
-
 **Prerequisites**
 
 * Python 3,
 * Neptune account |register|,
+* ``pytorch-lightning==0.9.0`` and ``torchvision`` installed (lightning |lightning-install|),
 * Minimal familiarity with the PyTorch Lightning.
-
-**Supported version**
-
-* ``pytorch-lightning==0.9.0``
-* ``neptune-client>=0.4.105``
 
 Installation
 ^^^^^^^^^^^^
@@ -66,26 +62,11 @@ From Conda:
 
     conda install neptune-client -c conda-forge
 
-**Install PyTorch Lightning and torchvision**
-
-From PyPI:
-
-.. code-block:: bash
-
-    pip install pytorch-lightning torchvision
-
-From Conda:
-
-.. code-block:: bash
-
-    conda install pytorch-lightning -c conda-forge
-    conda install pytorch torchvision -c pytorch
-
 Now, you have all dependencies installed. Let's move to the actual integration.
 
-Step 1 - Necessary Imports
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-No a big deal here, just imports. Note ``pytorch_lightning`` at the bottom.
+Step 1: Import Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^
+Import necessary libraries.
 
 .. code-block:: python3
 
@@ -99,9 +80,11 @@ No a big deal here, just imports. Note ``pytorch_lightning`` at the bottom.
 
     import pytorch_lightning as pl
 
-Step 2 - Model Hyper-Parameters
+Notice ``pytorch_lightning`` at the bottom.
+
+Step 2: Define Hyper-Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You will see them in Neptune parameters tab.
+Define hyper-parameters for model training.
 
 .. code-block:: python3
 
@@ -109,14 +92,15 @@ You will see them in Neptune parameters tab.
               'learning_rate': 0.005,
               'batch_size': 32}
 
-Step 3 - Define Lightning Module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This is minimal example of the ``pl.LightningModule``. Notice the Cross Entropy loss in the ``training_step`` method, that is being logged in every training step.
+Hyper-parameters are passed in the regular Python dictionary. You will see them logged in Neptune parameters tab.
 
-Also, note that you pass learning rate from the ``PARAMS`` dictionary.
+Step 3: Define LightningModule and DataLoader
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Implement minimal example of the ``pl.LightningModule`` and simple ``DataLoader``.
 
 .. code-block:: python3
 
+    # pl.LightningModule
     class LitModel(pl.LightningModule):
         def __init__(self):
             super().__init__()
@@ -136,20 +120,15 @@ Also, note that you pass learning rate from the ``PARAMS`` dictionary.
         def configure_optimizers(self):
             return torch.optim.Adam(self.parameters(), lr=PARAMS['learning_rate'])
 
-Step 4 - Prepare Data Loader
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-``DataLoader`` (you know it from PyTorch) is necessary to fit your model. Note that you pass ``batch_size`` from the ``PARAMS`` dictionary.
-
-.. code-block:: python3
-
+    # DataLoader
     train_loader = DataLoader(MNIST(os.getcwd(), download=True, transform=transforms.ToTensor()),
                               batch_size=PARAMS['batch_size'])
 
-Step 5 - Create NeptuneLogger
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-``NeptuneLogger`` is an object that integrates Neptune with PyTorch Lightning allowing you to track your experiments in Neptune. It's a part of the lightning library.
+Cross Entropy loss in the ``training_step`` method will be logged to Neptune in every training step. ``DataLoader`` is a purely PyTorch object. Notice, that you pass ``learning_rate`` and ``batch_size`` from the ``PARAMS`` dictionary - all params will be logged as experiment parameters.
 
-In this minimalist example we use public user `"neptuner"`, who has public token: "ANONYMOUS".
+Step 4: Create NeptuneLogger
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instantiate ``NeptuneLogger`` with necessary parameters.
 
 .. code-block:: python3
 
@@ -160,23 +139,35 @@ In this minimalist example we use public user `"neptuner"`, who has public token
         project_name="shared/pytorch-lightning-integration",
         params=PARAMS)
 
+``NeptuneLogger`` is an object that integrates Neptune with PyTorch Lightning allowing you to track experiments. It's a part of the lightning library. In this minimalist example we use public user `"neptuner"`, who has public token: `"ANONYMOUS"`.
+
 .. tip::
 
     Make sure to use your API token in your projects. Read more about how to |token|.
 
-Step 6 - Fit model to the data - Neptune tracks it automatically
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-At this point you are ready to fit the model to the data. Simply pass ``neptune_logger`` to the ``Trainer`` and run ``fit()`` loop. Neptune will collect metrics and show them in UI.
-
-Notice, that ``max_epochs`` is from the ``PARAMS`` dictionary. All these params are logged to Neptune.
+Step 5: Pass NeptuneLogger to the Trainer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Pass instantiated ``NeptuneLogger`` to the ``pl.Trainer``.
 
 .. code-block:: python3
 
     trainer = pl.Trainer(max_epochs=PARAMS['max_epochs'],
                          logger=neptune_logger)
+
+
+Simply pass ``neptune_logger`` to the ``Trainer``, so that lightning will use this logger. Notice, that ``max_epochs`` is from the ``PARAMS`` dictionary.
+
+Step 6: Run experiment
+^^^^^^^^^^^^^^^^^^^^^^
+Fit model to the data.
+
+.. code-block:: python3
+
     model = LitModel()
 
     trainer.fit(model, train_loader)
+
+At this point you are all set to fit the model. Neptune logger will collect metrics and show them in the UI.
 
 Explore Results
 ^^^^^^^^^^^^^^^
@@ -192,6 +183,10 @@ Above training is logged to Neptune in near real-time. Click on the link that wa
 .. image:: ../_static/images/integrations/lightning_basic.png
    :target: ../_static/images/integrations/lightning_basic.png
    :alt: PyTorchLightning neptune.ai integration
+
+Check this experiment |exp-link|.
+
+|Run on Colab|
 
 Advanced options
 ----------------
@@ -235,8 +230,8 @@ Here are other integrations with libraries from the PyTorch ecosystem:
 
 You may also like these two integrations:
 
-#. |Keras|
-#. |LightGBM|
+#. |optuna|
+#. |plotly|
 
 
 .. External links
@@ -254,10 +249,6 @@ You may also like these two integrations:
     <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/Neptune-PyTorch-Ligthning-basic.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
-
-.. |exp| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-68/charts" target="_blank">example experiment</a>
 
 .. |script| raw:: html
 
@@ -287,13 +278,13 @@ You may also like these two integrations:
 
     <a href="https://docs.neptune.ai/integrations/skorch.html" target="_blank">skorch</a>
 
-.. |Keras| raw:: html
+.. |optuna| raw:: html
 
-    <a href="https://docs.neptune.ai/integrations/keras.html" target="_blank">Keras</a>
+    <a href="https://docs.neptune.ai/integrations/optuna.html" target="_blank">optuna</a>
 
-.. |LightGBM| raw:: html
+.. |plotly| raw:: html
 
-    <a href="https://docs.neptune.ai/integrations/lightgbm.html" target="_blank">LightGBM</a>
+    <a href="https://docs.neptune.ai/integrations/plotly.html" target="_blank">plotly</a>
 
 .. |metrics| raw:: html
 
@@ -314,3 +305,11 @@ You may also like these two integrations:
 .. |go-here| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/charts" target="_blank">go here</a>
+
+.. |exp-link| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137793/charts" target="_blank">here</a>
+
+.. |lightning-install| raw:: html
+
+    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/introduction_guide.html#installing-lightning" target="_blank">installation guide</a>
