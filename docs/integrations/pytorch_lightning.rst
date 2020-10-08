@@ -17,52 +17,41 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 * log performance charts,
 * save model checkpoints.
 
+Where to start?
+---------------
+To get started with this integration, follow whatever is most convenient to you:
+
+#. :ref:`Quickstart <quickstart>` below for detailed explanations,
+#. Open Colab notebook (badge-link below) with quickstart code and run it as a "`neptuner`" user - zero setup, it just works,
+#. View quickstart code as a plain Python script on |script|.
+
+You can also check this public project with example experiments: |project|.
+
+|Run on Colab|
+
 .. note::
 
-    This integration is tested with ``pytorch-lightning==0.9.0``. See 'Troubleshoot' section for information about other versions.
+    This integration is tested with ``pytorch-lightning==0.9.0`` and ``neptune-client==0.4.122``.
+
+    See :ref:`Troubleshoot <troubleshoot>` section for information about other versions.
+
+.. _quickstart:
 
 Quickstart
 ----------
 This quickstart will show you how to log PyTorch Lightning experiments to Neptune using ``NeptuneLogger`` (part of the pytorch-lightning library).
 
-Check this public project with example experiments: |project|.
-
-.. tip::
-
-    Follow whatever is most convenient to you:
-
-    1. This page for detailed explanations,
-    2. Open quickstart code in Colab Notebook (badge-link below) and run it as a "`neptuner`" user - zero setup, it just works,
-    3. View quickstart code as Python script on |script|.
-
-|Run on Colab|
-
 Before you start
 ^^^^^^^^^^^^^^^^
 **Prerequisites**
 
-* Python 3,
-* Neptune account |register|,
-* ``pytorch-lightning==0.9.0`` and ``torchvision`` installed (lightning |lightning-install|),
-* Minimal familiarity with the PyTorch Lightning.
+You have ``Python 3.x`` and following libraries installed:
 
-Installation
-^^^^^^^^^^^^
-**Install neptune-client**
+* ``neptune-client==0.4.122`` or newer: See :ref:`neptune-client installation guide <neptune-client-install>`.
+* ``pytorch`` and ``torchvision``. See |pytorch-install|.
+* ``pytorch-lightning==0.9.0``. See |lightning-install|.
 
-From PyPI:
-
-.. code-block:: bash
-
-    pip install neptune-client -U
-
-From Conda:
-
-.. code-block:: bash
-
-    conda install neptune-client -c conda-forge
-
-Now, you have all dependencies installed. Let's move to the actual integration.
+You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
 
 Step 1: Import Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,15 +73,15 @@ Notice ``pytorch_lightning`` at the bottom.
 
 Step 2: Define Hyper-Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Define hyper-parameters for model training.
+Define Python dictionary with hyper-parameters for model training.
 
 .. code-block:: python3
 
     PARAMS = {'max_epochs': 3,
-              'learning_rate': 0.005,
+              'learning_rate': 0.007,
               'batch_size': 32}
 
-Hyper-parameters are passed in the regular Python dictionary. You will see them logged in Neptune parameters tab.
+This dictionary will later be passed to the Neptune logger (you will see how to do it in :ref:`step 4 <create-neptune-logger>`), so that you will see hyper-parameters in experiment `Parameters` tab.
 
 Step 3: Define LightningModule and DataLoader
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -124,7 +113,20 @@ Implement minimal example of the ``pl.LightningModule`` and simple ``DataLoader`
     train_loader = DataLoader(MNIST(os.getcwd(), download=True, transform=transforms.ToTensor()),
                               batch_size=PARAMS['batch_size'])
 
-Cross Entropy loss in the ``training_step`` method will be logged to Neptune in every training step. ``DataLoader`` is a purely PyTorch object. Notice, that you pass ``learning_rate`` and ``batch_size`` from the ``PARAMS`` dictionary - all params will be logged as experiment parameters.
+Few explanations here:
+
+* Cross entropy logging is defined in the ``training_step`` method in this way:
+
+.. code-block:: python3
+
+    result.log('train_loss', loss)
+
+This loss will be logged to Neptune in every training step as a as ``train_loss``. You will see it in the Experiment's `Charts` tab (as "train_loss" chart) and `Logs` tab (as raw numeric values).
+
+* ``DataLoader`` is a pure PyTorch object.
+* Notice, that you pass ``learning_rate`` and ``batch_size`` from the ``PARAMS`` dictionary - all params will be logged as experiment parameters.
+
+.. _create-neptune-logger:
 
 Step 4: Create NeptuneLogger
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,7 +145,7 @@ Instantiate ``NeptuneLogger`` with necessary parameters.
 
 .. tip::
 
-    Make sure to use your API token in your projects. Read more about how to |token|.
+    You can also use your API token. Read more about how to :ref:`securely set Neptune API token <api-token>`.
 
 Step 5: Pass NeptuneLogger to the Trainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,7 +186,7 @@ Above training is logged to Neptune in near real-time. Click on the link that wa
    :target: ../_static/images/integrations/lightning_basic.png
    :alt: PyTorchLightning neptune.ai integration
 
-Check this experiment |exp-link|.
+Check this experiment |exp-link| or view quickstart code as a plain Python script on |script|.
 
 |Run on Colab|
 
@@ -202,6 +204,8 @@ Log performance charts
 
 Save model checkpoints
 ^^^^^^^^^^^^^^^^^^^^^^
+
+.. _troubleshoot:
 
 Troubleshooting
 ---------------
@@ -253,10 +257,6 @@ You may also like these two integrations:
 .. |script| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Ligthning-basic.py" target="_blank">GitHub</a>
-
-.. |token| raw:: html
-
-    <a href="https://docs.neptune.ai/security-and-privacy/api-tokens/how-to-find-and-set-neptune-api-token.html#how-to-find-and-set-neptune-api-token" target="_blank">securely set Neptune API token</a>
 
 .. |forum| raw:: html
 
@@ -312,4 +312,12 @@ You may also like these two integrations:
 
 .. |lightning-install| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/introduction_guide.html#installing-lightning" target="_blank">installation guide</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/new-project.html#step-0-install-pytorch-lightning" target="_blank">PyTorch Lightning installation guide</a>
+
+.. |lightning-guide| raw:: html
+
+    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/new-project.html" target="_blank">Lightning in 3 steps</a>
+
+.. |pytorch-install| raw:: html
+
+    <a href="https://pytorch.org/get-started/locally/" target="_blank">PyTorch installation guide</a>
