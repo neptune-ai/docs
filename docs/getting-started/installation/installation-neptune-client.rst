@@ -32,7 +32,7 @@ Depending on your operating system open a terminal or CMD and run this command:
 
 .. note::
 
-    If you want to have your hardware consumption logged you should additionaly install ``psutil``
+    If you want to have your hardware consumption logged you should additionally install ``psutil``
 
     **pip**
 

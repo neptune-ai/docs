@@ -10,7 +10,7 @@ A comparison between experiments is shown |experiment comparison|.
         :target: ../../_static/images/sharing-results-and-models-with-the-team/share-what-you-see-with-a-link/compare_experiments1.png
         :alt: Compare experiments
 
-.. Exernal links
+.. External links
 
 .. |experiment comparison| raw:: html
 

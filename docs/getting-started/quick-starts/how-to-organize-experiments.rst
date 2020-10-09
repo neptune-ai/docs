@@ -155,13 +155,13 @@ To do it pass a list of files or regular expressions to ``upload_source_files`` 
 
 .. note::
 
-    Neptune automatically finds the ``.git`` directoy and logs the git commit information like:
+    Neptune automatically finds the ``.git`` directory and logs the git commit information like:
 
     - commit id sha
     - commit message
     - commit author email
     - commit datetime
-    - whether the experiment is run on a dirty commit (code change but wasn't commited to git)
+    - whether the experiment is run on a dirty commit (code change but wasn't committed to git)
 
 Putting it all together your ``neptune.create_experiment`` should look like this:
 
