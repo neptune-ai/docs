@@ -45,7 +45,7 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.122`` or newer: See :ref:`neptune-client installation guide <neptune-client-install>`.
+* ``neptune-client==0.4.122`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch`` and ``torchvision``. See |pytorch-install|.
 * ``pytorch-lightning==0.9.0``. See |lightning-install|.
 
@@ -143,7 +143,7 @@ Instantiate ``NeptuneLogger`` with necessary parameters.
 
 .. tip::
 
-    You can also use your API token. Read more about how to :ref:`securely set Neptune API token <api-token>`.
+    You can also use your API token. Read more about how to :ref:`securely set Neptune API token <how-to-setup-api-token>`.
 
 Step 5: Pass NeptuneLogger to the Trainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,4 +1,4 @@
-.. _api-token:
+.. _how-to-setup-api-token:
 
 How to find and set Neptune API token
 =====================================

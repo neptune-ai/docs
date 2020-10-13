@@ -1,4 +1,4 @@
-.. _neptune-client-install:
+.. _installation-neptune-client:
 
 Install neptune-client: Neptune client for Python (1 min)
 =========================================================
