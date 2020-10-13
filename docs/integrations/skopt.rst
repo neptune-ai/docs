@@ -3,7 +3,7 @@
 Neptune-Scikit-Optimize Integration
 ===================================
 
-This integation lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimization in Neptune.
+This integration lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimization in Neptune.
 
 .. image:: ../_static/images/integrations/skopt_neptuneai.png
    :target: ../_static/images/integrations/skopt_neptuneai.png

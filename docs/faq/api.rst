@@ -26,7 +26,7 @@ in which case, no network connectivity is required). Each such call may fail due
 decreased frequency for the next 34 minutes.
 
 
-Note that some of your method calls are translated to asychronous requests, which means that neptune-client processes
+Note that some of your method calls are translated to asynchronous requests, which means that neptune-client processes
 them in the background, while returning control to your code. Be aware that if the connectivity fails for a longer period -
 say, 30 minutes, during which you push multiple requests to Neptune (for example, channel values), this might increase
 your process's memory consumption. neptune-client applies no limits to this consumption.

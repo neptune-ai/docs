@@ -34,7 +34,7 @@ For example:
 
     pip install neptune-contrib[monitoring]
 
-It will install all the minimal dependencies as well as the specific ``neptunecontrib.monitoring`` dependences.
+It will install all the minimal dependencies as well as the specific ``neptunecontrib.monitoring`` dependencies.
 
 Installing all dependencies
 ---------------------------

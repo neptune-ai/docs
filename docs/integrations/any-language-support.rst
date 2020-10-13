@@ -31,7 +31,7 @@ You can log anything you want, as long as you can save it in the following forma
       "params": {
         "lr": 0.1,
         "batch_size": 128,
-        "dropount": 0.5
+        "dropout": 0.5
       },
       "properties": {
         "data_version": "1231ffwefef9",

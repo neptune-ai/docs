@@ -71,7 +71,7 @@ Track your work
     # send image (PIL object)
     neptune.send_image('image-channel-name', PIL_image)
 
-    # send image (pass path to filse)
+    # send image (pass path to file)
     neptune.send_image('image-channel-name', 'path/to/image.png')
 
     # send arbitrary artifact
@@ -95,8 +95,8 @@ Organize your work
 
     # get experiment properties
     with neptune.create_experiment() as npt_exp:
-        exp_paramaters = npt_exp.get_parameters()
-        print(exp_paramaters)
+        exp_parameters = npt_exp.get_parameters()
+        print(exp_parameters)
 
 .. External links
 
