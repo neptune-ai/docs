@@ -1,5 +1,7 @@
-PyTorch Lightning Integration
-=============================
+.. _integrations-pytorch-lightning:
+
+Neptune-PyTorch Lightning Integration
+=====================================
 
 What will you get?
 ------------------
