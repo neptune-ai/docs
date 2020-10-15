@@ -33,7 +33,7 @@ You can also check this public project with example experiments: |project|.
 
 .. note::
 
-    This integration is tested with ``pytorch-lightning==0.9.0`` and ``neptune-client==0.4.122``.
+    This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest.
 
 .. _quickstart:
 
@@ -47,9 +47,9 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.122`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client==0.4.123`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch`` and ``torchvision``. See |pytorch-install|.
-* ``pytorch-lightning==0.9.0``. See |lightning-install|.
+* ``pytorch-lightning==1.0.0``. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
 
@@ -78,7 +78,7 @@ Define Python dictionary with hyper-parameters for model training.
 .. code-block:: python3
 
     PARAMS = {'max_epochs': 3,
-              'learning_rate': 0.007,
+              'learning_rate': 0.005,
               'batch_size': 32}
 
 This dictionary will later be passed to the Neptune logger (you will see how to do it in :ref:`step 4 <create-neptune-logger>`), so that you will see hyper-parameters in experiment `Parameters` tab.
@@ -102,9 +102,8 @@ Implement minimal example of the ``pl.LightningModule`` and simple ``DataLoader`
             x, y = batch
             y_hat = self(x)
             loss = F.cross_entropy(y_hat, y)
-            result = pl.TrainResult(minimize=loss)
-            result.log('train_loss', loss)
-            return result
+            self.log('train_loss', loss)
+            return loss
 
         def configure_optimizers(self):
             return torch.optim.Adam(self.parameters(), lr=PARAMS['learning_rate'])
@@ -119,9 +118,9 @@ Few explanations here:
 
 .. code-block:: python3
 
-    result.log('train_loss', loss)
+    self.log('train_loss', loss)
 
-This loss will be logged to Neptune in every training step as a as ``train_loss``. You will see it in the Experiment's `Charts` tab (as "train_loss" chart) and `Logs` tab (as raw numeric values).
+This loss will be logged to Neptune during training as a ``train_loss``. You will see it in the Experiment's `Charts` tab (as "train_loss" chart) and `Logs` tab (as raw numeric values).
 
 * ``DataLoader`` is a pure PyTorch object.
 * Notice, that you pass ``learning_rate`` and ``batch_size`` from the ``PARAMS`` dictionary - all params will be logged as experiment parameters.
@@ -411,7 +410,7 @@ Instantiate ``NeptuneLogger`` with advanced parameters.
         close_after_fit=False,
         experiment_name="train-on-MNIST",
         params=ALL_PARAMS,
-        tags=['0.9.0', 'advanced'],
+        tags=['1.0.0', 'advanced'],
     )
 
 When compared to the :ref:`quickstart example <create-neptune-logger>`, few more options are used:
@@ -578,7 +577,7 @@ Check this experiment (|adv-go-here|) or view above code snippets as a plain Pyt
 
 Common problems
 ---------------
-This integration is tested with ``pytorch-lightning==0.9.0`` and ``neptune-client==0.4.122``. Make sure that you use correct versions.
+This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest. Make sure that you use correct versions.
 
 How to ask for help?
 --------------------
@@ -655,27 +654,27 @@ You may also like these two integrations:
 
 .. |metrics| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/charts" target="_blank">metrics</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/charts" target="_blank">metrics</a>
 
 .. |params| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/parameters" target="_blank">logged parameters</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/parameters" target="_blank">logged parameters</a>
 
 .. |hardware| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/monitoring" target="_blank">hardware usage statistics</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/monitoring" target="_blank">hardware usage statistics</a>
 
 .. |metadata| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/details" target="_blank">metadata information</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/details" target="_blank">metadata information</a>
 
 .. |go-here| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/charts" target="_blank">go here</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/charts" target="_blank">go here</a>
 
 .. |exp-link| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137827/charts" target="_blank">here</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/charts" target="_blank">here</a>
 
 .. |lightning-install| raw:: html
 
