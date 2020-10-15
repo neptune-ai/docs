@@ -678,11 +678,11 @@ You may also like these two integrations:
 
 .. |lightning-install| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/new-project.html#step-0-install-pytorch-lightning" target="_blank">PyTorch Lightning installation guide</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html#step-0-install-pytorch-lightning" target="_blank">PyTorch Lightning installation guide</a>
 
 .. |lightning-guide| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/0.9.0/new-project.html" target="_blank">Lightning in 3 steps</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html" target="_blank">Lightning in 3 steps</a>
 
 .. |pytorch-install| raw:: html
 
