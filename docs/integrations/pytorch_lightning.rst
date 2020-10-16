@@ -207,7 +207,7 @@ In addition to the contents of the ":ref:`Before you start <before-you-start-bas
 
 .. code-block:: bash
 
-    pip install scikit-learn scikit-plot --upgrade
+    pip install scikit-learn==0.23.2 scikit-plot==0.3.7
 
 Check |scikit-learn| or |scikit-plot| for more info.
 
