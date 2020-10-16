@@ -5,9 +5,7 @@ Neptune-PyTorch Lightning Integration
 
 What will you get?
 ------------------
-.. image:: ../_static/images/integrations/lightning_basic.gif
-   :target: ../_static/images/integrations/lightning_basic.gif
-   :alt: PyTorchLightning neptune.ai integration
+[VIDEO PLACEHOLDER]
 
 PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI research. With Neptune integration you can:
 
@@ -16,7 +14,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 * log experiment parameters,
 * monitor hardware usage,
 * log any additional metrics of your choice,
-* log performance charts,
+* log performance charts and images,
 * save model checkpoints.
 
 Where to start?
@@ -49,7 +47,7 @@ You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client==0.4.123`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch`` and ``torchvision``. See |pytorch-install|.
-* ``pytorch-lightning==1.0.0``. See |lightning-install|.
+* ``pytorch-lightning==1.0.0`` or newer. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
 
@@ -195,9 +193,9 @@ Advanced options
 ----------------
 To learn more about advanced options that Neptune logger has to offer, you can either:
 
-#. Follow the walk-through below for detailed explanations,
-#. Open Colab notebook (badge-link below) and run it as a "`neptuner`" user - zero setup, it just works,
-#. View code as a plain Python script on |script-advanced|.
+#. Check the options below for detailed explanations,
+#. Open Colab notebook (badge-link below) and run advanced example as a "`neptuner`" user - zero setup, it just works,
+#. View advanced example code as a plain Python script on |script-advanced|.
 
 You can also check this public project with example experiments: |project|.
 
@@ -375,8 +373,8 @@ Few notes:
 * Similarly to the ``LitModule``, ``MNISTDataModule`` will be parametrized by values from appropriate dictionary that was created in :ref:`Step 2 <adv-step-2>`.
 * This module contains dataloaders for training, validation and testing of the model.
 
-Step 3.3: Implement Callbacks
-"""""""""""""""""""""""""""""
+### Step 3.3: Implement Callbacks and Create Them
+"""""""""""""""""""""""""""""""""""""""""""""""""
 Callbacks for model checkpointing and logging learning rate changes.
 
 .. _adv-step-3-callbacks:
@@ -391,7 +389,7 @@ Callbacks for model checkpointing and logging learning rate changes.
 
 Few notes:
 
-* ``LearningRateLogger`` will log new value of the learning rate for each epoch (see: :ref:`Step 2 <adv-step-2>`).
+* ``LearningRateMonitor`` will log new value of the learning rate for each epoch (see: :ref:`Step 2 <adv-step-2>`).
 * ``ModelCheckpoint`` will save top 3 checkpoints (see: :ref:`Step 2 <adv-step-2>`).
 
 .. _adv-step-4:
@@ -612,7 +610,7 @@ You may also like these two integrations:
 
 .. |project| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=8080df27-e2d7-48e7-a04d-5fab2d2c6fd2" target="_blank">PyTorch Lightning integration</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665" target="_blank">PyTorch Lightning integration</a>
 
 .. |Run on Colab| raw:: html
 
@@ -682,7 +680,7 @@ You may also like these two integrations:
 
 .. |lightning-guide| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html" target="_blank">Lightning in 3 steps</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html" target="_blank">Lightning in 2 steps</a>
 
 .. |pytorch-install| raw:: html
 
@@ -708,36 +706,36 @@ You may also like these two integrations:
 
 .. |adv-charts| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/charts" target="_blank">charts</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/charts" target="_blank">charts</a>
 
 .. |adv-parameters| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/parameters" target="_blank">parameters</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/parameters" target="_blank">parameters</a>
 
 .. |adv-hardware| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/monitoring" target="_blank">hardware</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/monitoring" target="_blank">hardware</a>
 
 .. |adv-details| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/details" target="_blank">details</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/details" target="_blank">details</a>
 
 .. |adv-misclassified-images| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/logs" target="_blank">misclassified images</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/logs" target="_blank">misclassified images</a>
 
 .. |adv-confusion-matrix| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/logs" target="_blank">confusion matrix</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/logs" target="_blank">confusion matrix</a>
 
 .. |adv-model-checkpoints| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/artifacts?path=checkpoints%2F" target="_blank">model checkpoints</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/artifacts?path=checkpoints%2F" target="_blank">model checkpoints</a>
 
 .. |adv-model-summary| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/logs" target="_blank">model summary</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/logs" target="_blank">model summary</a>
 
 .. |adv-go-here| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137851/charts" target="_blank">charts</a>
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/charts" target="_blank">charts</a>
