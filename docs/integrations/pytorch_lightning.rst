@@ -179,13 +179,13 @@ Above training is logged to Neptune in near real-time. Click on the link that wa
 #. |hardware|,
 #. |metadata| including git summary info.
 
-.. image:: ../_static/images/integrations/lightning_basic.png
-   :target: ../_static/images/integrations/lightning_basic.png
-   :alt: PyTorchLightning neptune.ai integration
-
 Check this experiment |exp-link| or view quickstart code as a plain Python script on |script|.
 
 |Run on Colab|
+
+.. image:: ../_static/images/integrations/lightning_basic.png
+   :target: ../_static/images/integrations/lightning_basic.png
+   :alt: PyTorchLightning neptune.ai integration
 
 ----
 
@@ -211,196 +211,29 @@ In addition to the contents of the ":ref:`Before you start <before-you-start-bas
 
 Check |scikit-learn| or |scikit-plot| for more info.
 
-Step 1: Import Libraries
-^^^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: python3
+Jump to your favorite option
+""""""""""""""""""""""""""""
+* :ref:`Advanced NeptuneLogger options <logger-options>`
+* :ref:`Log loss during train, validation and test <Log-loss>`
+* :ref:`Log accuracy score after train, validation and test epoch <log-accuracy-score>`
+* :ref:`Log learning rate changes <log-lr>`
+* :ref:`Log misclassified images for the test set <log-imgs>`
+* :ref:`Log gradient norm <log-grad>`
+* :ref:`Log model checkpoints <log-checkpoints>`
+* :ref:`Log confusion matrix <log-confusion-matrix>`
+* :ref:`Log auxiliary info <log-auxiliary>`
 
-    import os
-    import numpy as np
+.. _logger-options:
 
-    import torch
-    import torch.nn.functional as F
-    from torchvision.datasets import MNIST
-    from torchvision import transforms
-    from torch.utils.data import DataLoader
-    from torch.utils.data import random_split
-    from torch.optim.lr_scheduler import LambdaLR
-
-    import pytorch_lightning as pl
-
-.. _adv-step-2:
-
-Step 2: Define Hyper-Parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Define Python dictionaries with hyper-parameters.
-
-.. code-block:: python3
-
-    LightningModule_Params = {'image_size': 28,
-                              'linear': 128,
-                              'n_classes': 10,
-                              'learning_rate': 0.0023,
-                              'decay_factor': 0.95}
-
-    LightningDataModule_Params = {'batch_size': 32,
-                                  'num_workers': 4,
-                                  'normalization_vector': ((0.1307,), (0.3081,)),}
-
-    LearningRateLogger_Params = {'logging_interval': 'epoch'}
-
-    ModelCheckpoint_Params = {'filepath': 'my_model/checkpoints/{epoch:02d}-{val_loss:.2f}',
-                              'save_weights_only': True,
-                              'save_top_k': 3}
-
-    Trainer_Params = {'max_epochs': 7,
-                      'track_grad_norm': 2,
-                      'row_log_interval': 1}
-
-    ALL_PARAMS = {**LightningModule_Params,
-                  **LightningDataModule_Params,
-                  **LearningRateLogger_Params,
-                  **ModelCheckpoint_Params,
-                  **Trainer_Params}
-
-* Parameters are grouped into categories that follow the structure of the Pytorch Lightning workflow.
-* ``ALL_PARAMS`` dictionary will be logged to Neptune, so that you will see hyper-parameters in the experiment `Parameters` tab.
-
-Step 3: Define LightningModule, LightningDataModule and Callbacks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 3.1: Implement LightningModule
-"""""""""""""""""""""""""""""""""""
-.. code-block:: python3
-
-    class LitModel(pl.LightningModule):
-
-        def __init__(self, image_size, linear, n_classes, learning_rate, decay_factor):
-            super().__init__()
-            self.image_size = image_size
-            self.linear = linear
-            self.n_classes = n_classes
-            self.learning_rate = learning_rate
-            self.decay_factor = decay_factor
-
-            self.layer_1 = torch.nn.Linear(image_size * image_size, linear)
-            self.layer_2 = torch.nn.Linear(linear, n_classes)
-
-        def forward(self, x):
-            x = x.view(x.size(0), -1)
-            x = self.layer_1(x)
-            x = F.relu(x)
-            x = self.layer_2(x)
-            return x
-
-        def configure_optimizers(self):
-            optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
-            scheduler = LambdaLR(optimizer, lambda epoch: self.decay_factor ** epoch)
-            return [optimizer], [scheduler]
-
-        def training_step(self, batch, batch_idx):
-            x, y = batch
-            y_hat = self(x)
-            loss = F.cross_entropy(y_hat, y)
-            result = pl.TrainResult(loss)
-            result.log('train_loss', loss, prog_bar=False)
-            return result
-
-        def validation_step(self, batch, batch_idx):
-            x, y = batch
-            y_hat = self(x)
-            loss = F.cross_entropy(y_hat, y)
-            result = pl.EvalResult(checkpoint_on=loss)
-            result.log('val_loss', loss, prog_bar=False)
-            return result
-
-        def test_step(self, batch, batch_idx):
-            x, y = batch
-            y_hat = self(x)
-            loss = F.cross_entropy(y_hat, y)
-            result = pl.EvalResult()
-            result.log('test_loss', loss, prog_bar=False)
-            return result
-
-Few explanations:
-
-* ``LitModule`` will be parametrized by values from appropriate dictionary that was created in :ref:`Step 2 <adv-step-2>`.
-* learning rate scheduler is defined in the ``configure_optimizers``. It will change lr values after each epoch. These values will be tracked to Neptune.
-* Metrics collected during training, validation and testing will be tracked in Neptune.
-
-Step 3.2: Implement LightningDataModule
-"""""""""""""""""""""""""""""""""""""""
-.. code-block:: python3
-
-    class MNISTDataModule(pl.LightningDataModule):
-
-        def __init__(self, batch_size, num_workers, normalization_vector):
-            super().__init__()
-            self.batch_size = batch_size
-            self.num_workers = num_workers
-            self.normalization_vector = normalization_vector
-
-        def prepare_data(self):
-            MNIST(os.getcwd(), train=True, download=True)
-            MNIST(os.getcwd(), train=False, download=True)
-
-        def setup(self, stage):
-            # transforms
-            transform=transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize(self.normalization_vector[0],
-                                     self.normalization_vector[1])
-            ])
-
-            if stage == 'fit':
-                mnist_train = MNIST(os.getcwd(), train=True, transform=transform)
-                self.mnist_train, self.mnist_val = random_split(mnist_train, [55000, 5000])
-            if stage == 'test':
-                self.mnist_test = MNIST(os.getcwd(), train=False, transform=transform)
-
-        def train_dataloader(self):
-            mnist_train = DataLoader(self.mnist_train, batch_size=self.batch_size, num_workers=self.num_workers)
-            return mnist_train
-
-        def val_dataloader(self):
-            mnist_val = DataLoader(self.mnist_val, batch_size=self.batch_size, num_workers=self.num_workers)
-            return mnist_val
-
-        def test_dataloader(self):
-            mnist_test = DataLoader(self.mnist_test, batch_size=self.batch_size, num_workers=self.num_workers)
-            return mnist_test
-
-Few notes:
-
-* Similarly to the ``LitModule``, ``MNISTDataModule`` will be parametrized by values from appropriate dictionary that was created in :ref:`Step 2 <adv-step-2>`.
-* This module contains dataloaders for training, validation and testing of the model.
-
-### Step 3.3: Implement Callbacks and Create Them
-"""""""""""""""""""""""""""""""""""""""""""""""""
-Callbacks for model checkpointing and logging learning rate changes.
-
-.. _adv-step-3-callbacks:
-
-.. code-block:: python3
-
-    from pytorch_lightning.callbacks import LearningRateLogger, ModelCheckpoint
-
-    lr_logger = LearningRateLogger(**LearningRateLogger_Params)
-
-    model_checkpoint = ModelCheckpoint(**ModelCheckpoint_Params)
-
-Few notes:
-
-* ``LearningRateMonitor`` will log new value of the learning rate for each epoch (see: :ref:`Step 2 <adv-step-2>`).
-* ``ModelCheckpoint`` will save top 3 checkpoints (see: :ref:`Step 2 <adv-step-2>`).
-
-.. _adv-step-4:
-
-Step 4: Create NeptuneLogger
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Instantiate ``NeptuneLogger`` with advanced parameters.
+Advanced NeptuneLogger options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create ``NeptuneLogger`` with advanced parameters.
 
 .. code-block:: python3
 
     from pytorch_lightning.loggers.neptune import NeptuneLogger
+
+    ALL_PARAMS = {...}
 
     neptune_logger = NeptuneLogger(
         api_key="ANONYMOUS",
@@ -408,65 +241,236 @@ Instantiate ``NeptuneLogger`` with advanced parameters.
         close_after_fit=False,
         experiment_name="train-on-MNIST",
         params=ALL_PARAMS,
-        tags=['1.0.0', 'advanced'],
+        tags=['1.x', 'advanced'],
     )
 
-When compared to the :ref:`quickstart example <create-neptune-logger>`, few more options are used:
+In the NeptuneLogger - besides required ``api_key`` and ``project_name``, you can specify other options, notably:
 
-* ``close_after_fit=False`` -> that will let us log more data after ``Trainer.fit()`` and ``Trainer.test()`` methods,
+* params - are passed as Python dict, see example experiment |adv-parameters|.
 * ``experiment_name`` and ``tags`` are set. You will use them later in the UI for experiment searching and filtering.
+* ``close_after_fit=False`` -> that will let us log more data after ``Trainer.fit()`` and ``Trainer.test()`` methods.
 
-Step 5: Pass NeptuneLogger and Callbacks to the Trainer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tip::
+
+    Use ``neptune_logger.experiment.ABC`` to call methods that you would use, when working with neptune client, for example:
+
+        * ``neptune_logger.experiment.log_metric``
+        * ``neptune_logger.experiment.log_image``
+        * ``neptune_logger.experiment.set_property``
+
+    Check more methods here: |experiment-methods|.
+
+.. _Log-loss:
+
+Log loss during train, validation and test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the ``pl.LightningModule`` loss logging for train, validation and test.
+
 .. code-block:: python3
 
-    from pytorch_lightning import Trainer
+    class LitModel(pl.LightningModule):
+        (...)
+
+        def training_step(self, batch, batch_idx):
+            (...)
+            loss = ...
+            self.log('train_loss', loss, prog_bar=False)
+
+        def validation_step(self, batch, batch_idx):
+            (...)
+            loss = ...
+            self.log('val_loss', loss, prog_bar=False)
+
+        def test_step(self, batch, batch_idx):
+            (...)
+            loss = ...
+            self.log('test_loss', loss, prog_bar=False)
+
+Loss values will be tracked in Neptune automatically.
+
+.. tip::
+
+    ``Trainer`` parameter: ``log_every_n_steps`` controls how frequent the logging is. Keep this parameter relatively high, say >100 for longer experiments.
+
+.. image:: ../_static/images/integrations/lightning_adv_loss.png
+   :target: ../_static/images/integrations/lightning_adv_loss.png
+   :alt: PyTorch Lightning train and validation loss
+
+.. _log-accuracy-score:
+
+Log accuracy score after train, validation and test epoch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the ``pl.LightningModule`` implement accuracy score and log it.
+
+.. code-block:: python3
+
+    class LitModel(pl.LightningModule):
+        (...)
+
+        def training_epoch_end(self, outputs):
+            for output in outputs:
+                (...)
+            acc = accuracy_score(y_true, y_pred)
+            self.log('train_acc', acc)
+
+        def validation_epoch_end(self, outputs):
+            for output in outputs:
+                (...)
+            acc = accuracy_score(y_true, y_pred)
+            self.log('val_acc', acc)
+
+        def test_epoch_end(self, outputs):
+            for output in outputs:
+                (...)
+            acc = accuracy_score(y_true, y_pred)
+            self.log('test_acc', acc)
+
+Accuracy score will be calculated and logged after every train, validation and test epoch.
+
+.. image:: ../_static/images/integrations/lightning_adv_acc.png
+   :target: ../_static/images/integrations/lightning_adv_acc.png
+   :alt: PyTorch Lightning train and validation acc
+
+.. tip::
+
+    You can find full implementation of all metrics logging in this |script-advanced| or in |Run on Colab Advanced|.
+
+.. _log-lr:
+
+Log learning rate changes
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Implement learning rate monitor as Callback
+
+.. code-block:: python3
+
+    from pytorch_lightning.callbacks import LearningRateMonitor
+
+    # Add scheduler to the optimizer
+    class LitModel(pl.LightningModule):
+        (...)
+
+        def configure_optimizers(self):
+            optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
+            scheduler = LambdaLR(optimizer, lambda epoch: self.decay_factor ** epoch)
+            return [optimizer], [scheduler]
+
+    # Instantiate LearningRateMonitor Callback
+    lr_logger = LearningRateMonitor(logging_interval='epoch')
+
+    # Pass lr_logger to the pl.Trainer as callback
+    trainer = pl.Trainer(logger=neptune_logger,
+                         callbacks=[lr_logger])
+
+Learning rate scheduler is defined in the ``configure_optimizers``. It will change lr values after each epoch. These values will be tracked to Neptune automatically.
+
+.. image:: ../_static/images/integrations/lightning_adv_lr.png
+   :target: ../_static/images/integrations/lightning_adv_lr.png
+   :alt: PyTorch Lightning lr-Adam chart
+
+.. _log-imgs:
+
+Log misclassified images for the test set
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the ``pl.LightningModule`` implement logic for identifying and logging misclassified images.
+
+.. code-block:: python3
+
+    class LitModel(pl.LightningModule):
+        (...)
+
+        def test_step(self, batch, batch_idx):
+            x, y = batch
+            (...)
+            y_true = ...
+            y_pred = ...
+            for j in np.where(np.not_equal(y_true, y_pred))[0]:
+                img = np.squeeze(x[j].cpu().detach().numpy())
+                img[img < 0] = 0
+                img = (img / img.max()) * 256
+                neptune_logger.experiment.log_image(
+                    'test_misclassified_images',
+                    img,
+                    description='y_pred={}, y_true={}'.format(y_pred[j], y_true[j]))
+
+* As a result you will automatically log misclassified images to Neptune during test.
+* Take a look at these |adv-misclassified-images| - look for the ``'test_misclassified_images'`` tile.
+
+.. image:: ../_static/images/integrations/lightning_adv_imgs.png
+   :target: ../_static/images/integrations/lightning_adv_imgs.png
+   :alt: PyTorch Lightning misclassified images
+
+.. _log-grad:
+
+Log gradient norm
+^^^^^^^^^^^^^^^^^
+Set ``pl.Trainer`` to log gradient norm.
+
+.. code-block:: python3
 
     trainer = pl.Trainer(logger=neptune_logger,
-                         checkpoint_callback=model_checkpoint,
-                         callbacks=[lr_logger],
-                         **Trainer_Params)
+                         track_grad_norm=2)
 
-Notes:
+Neptune will visualize gradient norm automatically.
 
-* Besides ``neptune_logger``, callbacks (created :ref:`here <adv-step-3-callbacks>`) are also passed to the trainer.
-* Notes that you also used ``Trainer_Params`` defined in the :ref:`Step 2<adv-step-2>`, where you set ``max_epochs`` and specified gradient 2-norm (``track_grad_norm``) for automatic logging to Neptune.
+.. tip::
 
-Step 6: Run experiment
-^^^^^^^^^^^^^^^^^^^^^^
-Step 6.1: Initialize model and data objects
-"""""""""""""""""""""""""""""""""""""""""""
-.. code-block:: python3
+    When you use ``track_grad_norm`` it's recommended to also set ``log_every_n_steps`` to something >100, so that you will avoid logging large amount of data.
 
-    # init model
-    model = LitModel(**LightningModule_Params)
+.. image:: ../_static/images/integrations/lightning_adv_grad_norm.png
+   :target: ../_static/images/integrations/lightning_adv_grad_norm.png
+   :alt: PyTorch Lightning misclassified images
 
-    # init data
-    dm = MNISTDataModule(**LightningDataModule_Params)
+.. _log-checkpoints:
 
-Step 6.2: Run training
-""""""""""""""""""""""
-.. code-block:: python3
-
-    trainer.fit(model, dm)
-
-Here, you log training and validation loss, learning rate scheduler values and gradient 2-norm.
-
-Step 6.3: Run testing
-"""""""""""""""""""""
-.. code-block:: python3
-
-    trainer.test(datamodule=dm)
-
-Here, you log test loss.
-
-Step 7: Run additional actions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Step 7.1: Log misclassified images
-""""""""""""""""""""""""""""""""""
-In the test set, identify misclassified images and log them to Neptune.
+Log model checkpoints
+^^^^^^^^^^^^^^^^^^^^^
+Use ``ModelCheckpoint`` to make checkpoint during training, then log saved checkpoints to Neptune.
 
 .. code-block:: python3
+
+    from pytorch_lightning.callbacks import ModelCheckpoint
+
+    # Instantiate ModelCheckpoint
+    model_checkpoint = ModelCheckpoint(filepath='my_model/checkpoints/{epoch:02d}-{val_loss:.2f}',
+                                       save_weights_only=True,
+                                       save_top_k=3,
+                                       monitor='val_loss',
+                                       period=1)
+
+    # Pass it to the pl.Trainer
+    trainer = pl.Trainer(logger=neptune_logger,
+                         checkpoint_callback=model_checkpoint)
+
+    # Log model checkpoint to Neptune
+    for k in model_checkpoint.best_k_models.keys():
+        model_name = 'checkpoints/' + k.split('/')[-1]
+        neptune_logger.experiment.log_artifact(k, model_name)
+
+    # Log score of the best model checkpoint.
+    neptune_logger.experiment.set_property('best_model_score', model_checkpoint.best_model_score.tolist())
+
+* ``model_checkpoint`` will keep top three model according to the ``'val_loss'`` metric.
+* When train and test are done, simply upload model checkpoints to Neptune to keep them with an experiment.
+* Score of the best model checkpoint is in the |adv-details| tab.
+
+.. image:: ../_static/images/integrations/lightning_adv_checkpoints.png
+   :target: ../_static/images/integrations/lightning_adv_checkpoints.png
+   :alt: PyTorch Lightning model checkpoint
+
+.. tip::
+
+    You can find full example implementation in this |script-advanced| or in |Run on Colab Advanced|.
+
+.. _log-confusion-matrix:
+
+Log confusion matrix
+^^^^^^^^^^^^^^^^^^^^
+Log confusion metrics after test time.
+
+.. code-block:: python3
+
+    import matplotlib.pyplot as plt
+    from scikitplot.metrics import plot_confusion_matrix
 
     model.freeze()
     test_data = dm.test_dataloader()
@@ -480,80 +484,50 @@ In the test set, identify misclassified images and log them to Neptune.
         y_true = np.append(y_true, y)
         y_pred = np.append(y_pred, y_hat)
 
-        for j in np.where(np.not_equal(y, y_hat))[0]:
-            img = np.squeeze(x[j].cpu().detach().numpy())
-            img[img < 0] = 0
-            img = (img / img.max()) * 256
-            neptune_logger.experiment.log_image('misclassified_images',
-                                                img,
-                                                description='y_pred={}, y_true={}'.format(y_hat[j], y[j]))
-
-Last line in the above snippet logs misclassified image to Neptune.
-
-.. tip::
-
-    Use ``neptune_logger.experiment.ABC`` to call methods that you would normally called, when working with neptune client, for example ``log_image`` or ``set_property``.
-
-Step 7.2: Log custom metric
-"""""""""""""""""""""""""""
-Log test set accuracy to Neptune.
-
-.. code-block:: python3
-
-    from sklearn.metrics import accuracy_score
-
-    accuracy = accuracy_score(y_true, y_pred)
-    neptune_logger.experiment.log_metric('test_accuracy', accuracy)
-
-Step 7.3: Log confusion matrix
-""""""""""""""""""""""""""""""
-.. code-block:: python3
-
-    import matplotlib.pyplot as plt
-    from scikitplot.metrics import plot_confusion_matrix
-
     fig, ax = plt.subplots(figsize=(16, 12))
     plot_confusion_matrix(y_true, y_pred, ax=ax)
     neptune_logger.experiment.log_image('confusion_matrix', fig)
 
-Step 7.4: Log model checkpoints to Neptune
-""""""""""""""""""""""""""""""""""""""""""
+.. image:: ../_static/images/integrations/lightning_adv_confusion_matrix.png
+   :target: ../_static/images/integrations/lightning_adv_confusion_matrix.png
+   :alt: PyTorch Lightning confusion metrics
+
+.. _log-auxiliary:
+
+Log auxiliary info
+^^^^^^^^^^^^^^^^^^
+Log model summary and number of GPUs used in the experiment.
+
 .. code-block:: python3
 
-    for k in model_checkpoint.best_k_models.keys():
-        model_name = 'checkpoints/' + k.split('/')[-1]
-        neptune_logger.experiment.log_artifact(k, model_name)
-
-Step 7.5: Log best model checkpoint score to Neptune
-""""""""""""""""""""""""""""""""""""""""""""""""""""
-.. code-block:: python3
-
-    neptune_logger.experiment.set_property('best_model_score', model_checkpoint.best_model_score.tolist())
-
-Step 7.6 Log model summary
-""""""""""""""""""""""""""
-.. code-block:: python3
-
+    # Log model summary
     for chunk in [x for x in str(model).split('\n')]:
         neptune_logger.experiment.log_text('model_summary', str(chunk))
 
-Step 7.7: Log number of GPU units used
-""""""""""""""""""""""""""""""""""""""
-.. code-block:: python3
-
+    # Log number of GPU units used
     neptune_logger.experiment.set_property('num_gpus', trainer.num_gpus)
+
+* You will find |adv-model-summary| in the `Logs` tab, ``num_gpus`` in the |adv-details| tab.
+* In similar way you can log more information that you feel is relevant to your experimentation.
+
+.. image:: ../_static/images/integrations/lightning_adv_model_summary.png
+   :target: ../_static/images/integrations/lightning_adv_model_summary.png
+   :alt: PyTorch Lightning confusion metrics
 
 Step 8: Stop Neptune logger
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Close Neptune logger and experiment once everything is logged.
+
 .. code-block:: python3
 
     neptune_logger.experiment.stop()
 
-In the :ref:`Step 4 <adv-step-4>` we created ``NeptuneLogger`` with ``close_after_fit=False``, so we need to close Neptune experiment explicitly at the end.
+.. tip::
+
+    If you create ``NeptuneLogger`` with ``close_after_fit=False``, so we need to close Neptune experiment explicitly at the end.
 
 Explore Results
 ^^^^^^^^^^^^^^^
-
 You just learned how to log PyTorch Lightning experiments to Neptune, by using Neptune logger which is part of the lightning library.
 
 Above training is logged to Neptune in near real-time. Click on the link that was outputted to the console or |adv-go-here| to explore an experiment similar to yours.
@@ -739,3 +713,7 @@ You may also like these two integrations:
 .. |adv-go-here| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137930/charts" target="_blank">charts</a>
+
+.. |experiment-methods| raw:: html
+
+    <a href="https://docs.neptune.ai/api-reference/neptune/experiments/index.html#neptune.experiments.Experiment" target="_blank">experiment methods</a>
