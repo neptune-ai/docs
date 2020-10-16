@@ -292,8 +292,8 @@ Loss values will be tracked in Neptune automatically.
 
     ``Trainer`` parameter: ``log_every_n_steps`` controls how frequent the logging is. Keep this parameter relatively high, say >100 for longer experiments.
 
-.. image:: ../_static/images/integrations/lightning_adv_loss.png
-   :target: ../_static/images/integrations/lightning_adv_loss.png
+.. image:: ../_static/images/integrations/lightning_basic.png
+   :target: ../_static/images/integrations/lightning_basic.png
    :alt: PyTorch Lightning train and validation loss
 
 .. _log-accuracy-score:
