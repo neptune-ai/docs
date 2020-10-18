@@ -85,8 +85,13 @@ If you tick all the prerequisites listed above, then you're ready to move on to 
 
 Setting up your environment
 ---------------------------
-Head over to |colab| and create a new notebook in order to get started. Note that this tutorial can be run locally with minimal changes, you just have to install each package you'll be using in your local environment. If you have installed a distribution like Anaconda, then you have almost all the packages you need except tensorflow keras and neptune. I'll walk you through installation and setting up of neptune. In order to install Tensorflow Keras, you can visit this link.
+Head over to |colab| and create a new notebook in order to get started. Note that this tutorial can be run locally with minimal changes, you just have to install each package you'll be using in your local environment. If you have installed a distribution like Anaconda, then you have almost all the packages you need except tensorflow keras and neptune. 
+
+I'll walk you through installation and setting up of neptune. In order to install Tensorflow Keras, you can visit this link.
+
 Neptune does not come preinstalled on colab, and also needs to be initialized with an API token before you can log metrics. In the steps below, you're going to create a new Neptune project, install a Neptune client on colab via pip, and also initialize the project with your API token. Follow the steps below to achieve this:
+
+
 Step 1: If you have signed-up, login into your account and create a new project. In the new project settings, add a project name (spam-classifier), copy the initialization code, you can set your project to either public or private, and also add a description. Finally click apply to save the new project.
 
 .. image:: ../_static/images/integrations/keras-integration/kix.9gkqt7221q47.png
@@ -103,6 +108,7 @@ Step 1: If you have signed-up, login into your account and create a new project.
 .. |Anaconda| raw:: html
 
     <a href="https://www.anaconda.com" target="_blank">Anaconda</a>
+
 
 
 Step 2: In your notebook (colab/local) and install neptune client library.
@@ -127,6 +133,7 @@ Neptune will automatically pick up the variable from the environment as long as 
 .. code-block:: python3
 
    neptune.init(project_qualified_name='risingodegua/spam-classifier')
+
 
 
 STEP 4: Create your first experiment under your project
