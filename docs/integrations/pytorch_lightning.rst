@@ -720,4 +720,4 @@ You may also like these two integrations:
 
 .. |pytorch-lightning-tour| raw:: html
 
-    <iframe width="720" height="420" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/53xsUwc-e0o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
