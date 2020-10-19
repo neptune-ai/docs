@@ -39,7 +39,6 @@ Follow these steps:
       axs[0, 0].hist(data[0])
       axs[1, 0].scatter(data[0], data[1])
       axs[0, 1].plot(data[0], data[1])
-      axs[1, 1].hist2d(data[0], data[1])
 
 2. Log figure into Neptune:
 
@@ -71,6 +70,12 @@ Check out |this experiment| in the app.
 .. image:: ../_static/images/integrations/matplotlib.gif
    :target: ../_static/images/integrations/matplotlib.gif
    :alt: image
+   
+.. note::
+
+    Not all `matplotlib` charts can be converted to interactive `plotly` charts.
+    If conversion is not possible, `neptune-client` will notify the user and automatically
+    fall back on logging the chart as an image.
 
 .. External Links
 
