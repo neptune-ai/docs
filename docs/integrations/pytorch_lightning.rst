@@ -5,7 +5,7 @@ Neptune-PyTorch Lightning Integration
 
 What will you get?
 ------------------
-[VIDEO PLACEHOLDER]
+|pytorch-lightning-tour|
 
 PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI research. With Neptune integration you can:
 
@@ -588,7 +588,7 @@ You may also like these two integrations:
 
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/Neptune-PyTorch-Ligthning-basic.ipynb" target="_blank">
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
 
@@ -666,7 +666,7 @@ You may also like these two integrations:
 
 .. |Run on Colab Advanced| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/Neptune-PyTorch-Ligthning-advanced.ipynb" target="_blank">
+    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
 
@@ -717,3 +717,7 @@ You may also like these two integrations:
 .. |experiment-methods| raw:: html
 
     <a href="https://docs.neptune.ai/api-reference/neptune/experiments/index.html#neptune.experiments.Experiment" target="_blank">experiment methods</a>
+
+|pytorch-lightning-tour| raw:: html
+
+    <iframe width="720" height="420" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
