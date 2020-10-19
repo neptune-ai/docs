@@ -56,6 +56,13 @@ Follow these steps:
 
     log_chart(name='matplotlib_figure', chart=figure)
 
+.. note::
+
+    The :code:`log_chart` function required that `plotly` is installed
+    as a Python package in the active environment (e.g. with :code:`pip install plotly`).
+    In the absence of `plotly`, :code:`log_chart` silently falls back on 
+    logging the chart as a static image.
+
 3. Explore the results in the Neptune dashboard:
 
 Static image is logged into the logs section:
@@ -74,8 +81,8 @@ Check out |this experiment| in the app.
 .. note::
 
     Not all `matplotlib` charts can be converted to interactive `plotly` charts.
-    If conversion is not possible, `neptune-client` will notify the user and automatically
-    fall back on logging the chart as an image.
+    If conversion is not possible, `neptune-client` will emit a warning
+    and fall back on logging the chart as an image.
 
 .. External Links
 
