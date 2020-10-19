@@ -718,6 +718,6 @@ You may also like these two integrations:
 
     <a href="https://docs.neptune.ai/api-reference/neptune/experiments/index.html#neptune.experiments.Experiment" target="_blank">experiment methods</a>
 
-|pytorch-lightning-tour| raw:: html
+.. |pytorch-lightning-tour| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/9iX6DxcijO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
