@@ -275,7 +275,7 @@ OR
 
 .. |share a Notebook| raw:: html
 
-    <a href="https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9" target="_blank">share a Notebook</a>
+    <a href="https://ui.neptune.ai/shared/onboarding/n/Multitask-GP-Regression-e11f2bd6-6bb5-4269-b3d7-84453ad19ddb/60911a35-6ee2-40c7-af10-8a7c8a79e6cb" target="_blank">share a Notebook</a>
 
 .. |compare two Notebooks| raw:: html
 
