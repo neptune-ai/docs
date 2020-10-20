@@ -19,9 +19,14 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 Where to start?
 ---------------
-To get started with this integration, follow whatever is most convenient to you:
+To get started with this integration, follow the :ref:`Quickstart <quickstart>` below.
 
-#. :ref:`Quickstart <quickstart>` below for detailed explanations,
+.. tip::
+
+    Are you a Pro User? Take a look at the :ref:`advanced options <advanced-options>`.
+
+If you want to try things out and focus only on the code you can either:
+
 #. Open Colab notebook (badge-link below) with quickstart code and run it as a "`neptuner`" user - zero setup, it just works,
 #. View quickstart code as a plain Python script on |script|.
 
@@ -39,6 +44,8 @@ Quickstart
 ----------
 This quickstart will show you how to log PyTorch Lightning experiments to Neptune using ``NeptuneLogger`` (part of the pytorch-lightning library).
 
+As a result you will have an experiment logged to Neptune. It will have train loss and epoch (visualized as charts), parameters, hardware utilization charts and experiment metadata.
+
 .. _before-you-start-basic:
 
 Before you start
@@ -46,7 +53,7 @@ Before you start
 You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client==0.4.123`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``pytorch`` and ``torchvision``. See |pytorch-install|.
+* ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
 * ``pytorch-lightning==1.0.0`` or newer. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
@@ -189,11 +196,14 @@ Check this experiment |exp-link| or view quickstart code as a plain Python scrip
 
 ----
 
+.. _advanced-options:
+
 Advanced options
 ----------------
-To learn more about advanced options that Neptune logger has to offer, you can either:
+To learn more about advanced options that Neptune logger has to offer, follow :ref:`sections <jump-to-option>` below as each describes one functionality.
 
-#. Check the options below for detailed explanations,
+If you want to try things out and focus only on the code you can either:
+
 #. Open Colab notebook (badge-link below) and run advanced example as a "`neptuner`" user - zero setup, it just works,
 #. View advanced example code as a plain Python script on |script-advanced|.
 
@@ -210,6 +220,8 @@ In addition to the contents of the ":ref:`Before you start <before-you-start-bas
     pip install scikit-learn==0.23.2 scikit-plot==0.3.7
 
 Check |scikit-learn| or |scikit-plot| for more info.
+
+.. _jump-to-option:
 
 Jump to your favorite option
 """"""""""""""""""""""""""""
@@ -514,17 +526,15 @@ Log model summary and number of GPUs used in the experiment.
    :target: ../_static/images/integrations/lightning_adv_model_summary.png
    :alt: PyTorch Lightning confusion metrics
 
-Step 8: Stop Neptune logger
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Stop Neptune logger (Notebooks only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Close Neptune logger and experiment once everything is logged.
 
 .. code-block:: python3
 
     neptune_logger.experiment.stop()
 
-.. tip::
-
-    If you create ``NeptuneLogger`` with ``close_after_fit=False``, so we need to close Neptune experiment explicitly at the end.
+``NeptuneLogger`` was created with ``close_after_fit=False``, so we need to close Neptune experiment explicitly at the end. Again, this is only for Notebooks, as in scripts logger is closed automatically at the end of the script execution.
 
 Explore Results
 ^^^^^^^^^^^^^^^
@@ -553,13 +563,7 @@ This integration is tested with ``pytorch-lightning==1.0.0`` and current latest,
 
 How to ask for help?
 --------------------
-The fastest way is to simply chat with us. Chat icon is located directly in-app, in the lower right corner. Use it!
-
-.. image:: ../_static/images/integrations/chat-icon.png
-   :target: ../_static/images/integrations/chat-icon.png
-   :alt: Chat icon
-
-For more general questions go to our |forum|.
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
 
 Other integrations you may like
 -------------------------------
@@ -594,7 +598,7 @@ You may also like these two integrations:
 
 .. |script| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Ligthning-basic.py" target="_blank">GitHub</a>
+    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py" target="_blank">GitHub</a>
 
 .. |forum| raw:: html
 
@@ -662,7 +666,7 @@ You may also like these two integrations:
 
 .. |script-advanced| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Ligthning-advanced.py" target="_blank">GitHub</a>
+    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.py" target="_blank">GitHub</a>
 
 .. |Run on Colab Advanced| raw:: html
 
