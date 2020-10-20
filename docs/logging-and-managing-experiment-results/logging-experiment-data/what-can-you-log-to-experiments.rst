@@ -1,3 +1,5 @@
+.. _log-to-experiments:
+
 What you can log to experiments
 ===============================
 

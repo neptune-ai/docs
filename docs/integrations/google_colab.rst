@@ -3,10 +3,16 @@
 Neptune-Google Colab Integration
 ================================
 
-..
-    Video [1min screencast]
+|Google Colab| is a temporary runtime environment. This means you lose all your data (unless saved externally) once you restart your kernel. 
 
-`Google Colab <https://colab.research.google.com/>`_ is a temporary runtime environment. This means you lose all your data (unless saved externally) once you restart your kernel. This is where you can leverage Neptune. By running your experiments on Google Colab and tracking them with Neptune, you can refer to the experiment stats and attributes, even after the Colab kernel has died.
+This is where you can leverage Neptune. By running your experiments on Google Colab and tracking them with Neptune, you can log 
+
+* parameters
+* metrics and losses
+* hardware consumption, and
+* model checkpoints and other artifacts
+
+to Neptune and refer to them even after the Colab kernel has died.
 
 Introduction
 ------------
@@ -15,12 +21,12 @@ This guide will show you how to:
 
 #. Install ``neptune-client``
 #. Connect Neptune to your notebook and create the first experiment
-#. Log simple metrics to Neptune and explore them in the UI
+#. Log simple metrics to Neptune and explore them in the Neptune UI
 
 Before you start
 ----------------
 
-Make sure that you have an account with both `Google <https://support.google.com/accounts/answer/27441?hl=en>`_ and `Neptune <https://neptune.ai/register>`_.
+Make sure that you have an account with both |Google| and |Neptune|.
 
 Quickstart
 ----------
@@ -38,20 +44,21 @@ Go to your first cell in Google Colab and install ``neptune-client``:
 Step 2: Set Neptune API token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Go to the Neptune web app and `get your API token <../python-api/how-to/organize.html#find-my-neptune-api-token>`_
-
-   .. image:: https://neptune.ai/wp-content/uploads/get_token.gif
-      :target: https://neptune.ai/wp-content/uploads/get_token.gif
-      :alt: Getting your Neptune API token
+.. image:: ../../_static/images/integrations/getpass.gif
+  :target: ../../_static/images/integrations/getpass.gif
+  :alt: Set API token using getpass()
+  
+#. Go to the Neptune web app and get your API token
    
 #. Run the code below:
     
    .. code-block:: Python
 
       from getpass import getpass
-      api_token = getpass('Enter your private Neptune API token')
+      api_token = getpass('Enter your private Neptune API token: ')
 
-#. Enter the token in the input box. This will save your token to ``api_token``
+#. Enter the token in the input box. This will save your token to ``api_token``.
+
 
 Step 3: Initialize your Neptune Project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,18 +80,20 @@ Run the code below:
     from numpy import random
     from time import sleep
 
-    with neptune.create_experiment():
+    neptune.create_experiment()
         
-        neptune.log_metric('single_metric', 0.62)
+    neptune.log_metric('single_metric', 0.62)
         
-        for i in range(100):
-            sleep(0.2) # to see logging live
-            neptune.log_metric('random_training_metric', i*random.random())
-            neptune.log_metric('other_random_training_metric', 0.5*i*random.random())
+    for i in range(100):
+        sleep(0.2) # to see logging live
+        neptune.log_metric('random_training_metric', i*random.random())
+        neptune.log_metric('other_random_training_metric', 0.5*i*random.random())
+	
+    neptune.stop()
 
 Step 5: Check metrics on the Neptune UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Follow the link shown to view your experiment progress and metrics on the Neptune UI.
+Follow the link shown to view your experiment progress and metrics in the Neptune UI.
 
 |Explore experiment|
 
@@ -93,12 +102,24 @@ What's next
 
 Now that you know how to integrate Neptune with Google Colab, you can check:
 
-* `What can you log to experiments? <https://docs.neptune.ai/logging-and-managing-experiment-results/logging-experiment-data/what-can-you-log-to-experiments.html>`_
-* `Downloading experiment data from Neptune <https://docs.neptune.ai/logging-and-managing-experiment-results/downloading-experiment-data-programmatically/index.html>`_
-* Other `Neptune integrations <https://docs.neptune.ai/integrations/index.html>`_ you might like
+* :ref:`What can you log to experiments? <log-to-experiments>`
+* :ref:`Downloading experiment data from Neptune <guides-download_data>`
+* Other :ref:`Neptune integrations <integrations-index>`
 
 .. External links
 
+.. |Google Colab| raw:: html
+	
+	<a href="https://colab.research.google.com/" target="_blank">Google Colab</a>
+
+.. |Google| raw:: html
+	
+	<a href="https://support.google.com/accounts/answer/27441?hl=en" target="_blank">Google</a>
+
+.. |Neptune| raw:: html
+
+	<a href="https://neptune.ai/register" target="_blank">Neptune</a>
+	
 .. |Run on Colab| raw:: html
 
     <a href="https://colab.research.google.com/github/neptune-ai/neptune-colab-examples/blob/master/Neptune-API-Tour.ipynb" target="_blank">
