@@ -19,11 +19,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 Where to start?
 ---------------
-To get started with this integration, follow the :ref:`Quickstart <quickstart>` below.
-
-.. tip::
-
-    Are you a Pro User? Take a look at the :ref:`advanced options <advanced-options>`.
+To get started with this integration, follow the :ref:`Quickstart <quickstart>` below. You can also skip the basics and take a look at the :ref:`advanced options <advanced-options>`.
 
 If you want to try things out and focus only on the code you can either:
 
