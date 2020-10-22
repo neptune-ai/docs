@@ -56,7 +56,7 @@ You have ``Python 3.x`` and following libraries installed:
 * ``pandas==1.0.5`` and ``scikit-learn==0.23.1``. See |pandas-install| and |scikit-learn-install|.
 
 Example
--------
+^^^^^^^
 Make sure you have created an experiment before you start XGBoost training. Use the :meth:`~neptune.projects.Project.create_experiment` method to do this.
 
 Here is how to use the Neptune-XGBoost integration:
@@ -76,7 +76,7 @@ Here is how to use the Neptune-XGBoost integration:
               callbacks=[neptune_callback()])  # neptune_callback is here
 
 Logged metrics
-^^^^^^^^^^^^^^
+""""""""""""""
 These are logged for train and eval (or whatever you defined in the watchlist) after each boosting iteration.
 
 .. image:: ../_static/images/integrations/xgboost_metrics.png
@@ -84,7 +84,7 @@ These are logged for train and eval (or whatever you defined in the watchlist) a
    :alt: XGBoost overview
 
 Logged model
-^^^^^^^^^^^^
+""""""""""""
 The model (Booster) is logged to Neptune after the last boosting iteration. If you run cross-validation, you get a model for each fold.
 
 .. image:: ../_static/images/integrations/xgboost_model.png
@@ -92,7 +92,7 @@ The model (Booster) is logged to Neptune after the last boosting iteration. If y
    :alt: XGBoost overview
 
 Logged feature importance
-^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""
 This is a very useful chart, as it shows feature importance. It is logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a feature importance chart for each fold's model.
 
 .. image:: ../_static/images/integrations/xgboost_importance.png
@@ -100,7 +100,7 @@ This is a very useful chart, as it shows feature importance. It is logged to Nep
    :alt: XGBoost overview
 
 Logged visualized trees (requires graphviz)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""""""""""
 Log first 6 trees at the end of training (tree with indices 0, 1, 2, 3, 4, 5)
 
 .. code-block:: python3
