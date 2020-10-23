@@ -1,0 +1,15 @@
+name: Broken links checker
+on:
+  push:
+  schedule:
+    - cron: '*/28 6 * * *' # Run once daily at arbitrary time (6:28 AM UTC)
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - run: npm install broken-link-checker -g
+      - run: blc https://neptune.ai -ro --requests 5 --host-requests 5 -e 'https://www.linkedin.com/**'
+
