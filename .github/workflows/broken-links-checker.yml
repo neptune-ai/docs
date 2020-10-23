@@ -12,6 +12,6 @@ jobs:
           node-version: '12'
       - run: npm install broken-link-checker -g
       - name: Run broken-link-checker on neptune.ai
-        run: blc https://neptune.ai -ro --requests 5 --host-requests 5 --exclude 'https://www.linkedin.com/**' --get
+        run: blc https://neptune.ai -ro --requests 5 --host-requests 5 --exclude 'https://*.linkedin.com/**' --get
       - name: Run broken-link-checker on docs.neptune.ai
-        run: blc https://docs.neptune.ai -ro --requests 5 --host-requests 5 --exclude 'https://www.linkedin.com/**' --get
+        run: blc https://docs.neptune.ai -ro --requests 5 --host-requests 5 --exclude 'https://*.linkedin.com/**' --get
