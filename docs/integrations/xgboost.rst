@@ -33,7 +33,7 @@ If you want to try things out and focus only on the code you can either:
 
 .. note::
 
-    This integration is tested with ``xgboost==1.2.0`` and current latest, and ``neptune-client==0.4.124`` and current latest.
+    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.124``.
 
 .. _quickstart-xgb:
 
