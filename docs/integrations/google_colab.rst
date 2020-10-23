@@ -3,14 +3,16 @@
 Neptune-Google Colab Integration
 ================================
 
+|Video intro|
+
 |Google Colab| is a temporary runtime environment. This means you lose all your data (unless saved externally) once you restart your kernel. 
 
-This is where you can leverage Neptune. By running your experiments on Google Colab and tracking them with Neptune, you can log 
+This is where you can leverage Neptune. By running your experiments on Google Colab and tracking them with Neptune, you can log:
 
-* parameters
-* metrics and losses
-* hardware consumption, and
-* model checkpoints and other artifacts
+* parameters,
+* metrics and losses,
+* hardware consumption,
+* model checkpoints and other artifacts,
 
 to Neptune and refer to them even after the Colab kernel has died.
 
@@ -19,9 +21,9 @@ Introduction
 
 This guide will show you how to:
 
-#. Install ``neptune-client``
-#. Connect Neptune to your notebook and create the first experiment
-#. Log simple metrics to Neptune and explore them in the Neptune UI
+* Install ``neptune-client``
+* Connect Neptune to your notebook and create the first experiment
+* Log simple metrics to Neptune and explore them in the Neptune UI
 
 Before you start
 ----------------
@@ -44,9 +46,7 @@ Go to your first cell in Google Colab and install ``neptune-client``:
 Step 2: Set Neptune API token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../_static/images/integrations/getpass.gif
-  :target: ../../_static/images/integrations/getpass.gif
-  :alt: Set API token using getpass()
+|Video get pass|
   
 #. Go to the Neptune web app and get your API token
    
@@ -97,6 +97,8 @@ Follow the link shown to view your experiment progress and metrics in the Neptun
 
 |Explore experiment|
 
+|Video explore experiments|
+
 What's next
 -----------
 
@@ -108,17 +110,29 @@ Now that you know how to integrate Neptune with Google Colab, you can check:
 
 .. External links
 
+.. |Video intro| raw:: html
+
+    <div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;"><iframe src="https://www.loom.com/embed/a533ef47757a498a9fa944541b56d780" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |Video get pass| raw:: html
+
+    <div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;"><iframe src="https://www.loom.com/embed/a3681197abbe4f118896fc087c73932f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |Video explore experiments| raw:: html
+
+    <div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;"><iframe src="https://www.loom.com/embed/5fedeee768c545c48694a804130d8bde" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 .. |Google Colab| raw:: html
-	
-	<a href="https://colab.research.google.com/" target="_blank">Google Colab</a>
+
+    <a href="https://colab.research.google.com/" target="_blank">Google Colab</a>
 
 .. |Google| raw:: html
 	
-	<a href="https://support.google.com/accounts/answer/27441?hl=en" target="_blank">Google</a>
+    <a href="https://support.google.com/accounts/answer/27441?hl=en" target="_blank">Google</a>
 
 .. |Neptune| raw:: html
 
-	<a href="https://neptune.ai/register" target="_blank">Neptune</a>
+    <a href="https://neptune.ai/register" target="_blank">Neptune</a>
 	
 .. |Run on Colab| raw:: html
 
