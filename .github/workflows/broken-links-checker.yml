@@ -1,6 +1,8 @@
 name: Broken links checker
 on:
   push:
+    paths:
+      - '.github/workflows/broken-links-checker.yml'
   schedule:
     - cron: '*/28 6 * * *' # Run once daily at arbitrary time (6:28 AM UTC)
 jobs:
