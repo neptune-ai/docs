@@ -101,6 +101,11 @@ This is a very useful chart, as it shows feature importance. It is logged to Nep
 
 Logged visualized trees (requires graphviz)
 """""""""""""""""""""""""""""""""""""""""""
+.. note::
+
+    You need to install graphviz and graphviz Python interface for ``log_tree`` feature to work.
+    Check |graphviz| and |graphviz-python| for installation info.
+
 Log first 6 trees at the end of training (tree with indices 0, 1, 2, 3, 4, 5)
 
 .. code-block:: python3
@@ -109,11 +114,6 @@ Log first 6 trees at the end of training (tree with indices 0, 1, 2, 3, 4, 5)
               callbacks=[neptune_callback(log_tree=[0,1,2,3,4,5])])
 
 Selected trees are logged to Neptune as an image after the last boosting iteration. If you run cross-validation, you get a tree visualization for each fold's model, independently.
-
-.. note::
-
-    You need to install graphviz and graphviz Python interface for ``log_tree`` feature to work.
-    Check |graphviz| and |graphviz-python| for installation info.
 
 .. image:: ../_static/images/integrations/xgboost_trees.png
    :target: ../_static/images/integrations/xgboost_trees.png
