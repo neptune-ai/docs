@@ -14,6 +14,8 @@ This is where you can leverage Neptune. By running your experiments on Google Co
 
 to Neptune and refer to them even after the Colab kernel has died.
 
+You can also :ref:`Download this data <guides-download_data>` from Neptune to use in a new notebook so that your work is saved.
+
 Introduction
 ------------
 
@@ -31,6 +33,9 @@ Make sure that you have an account with both |Google| and |Neptune|.
 Quickstart
 ----------
 
+.. 
+   [Add integration video https://www.loom.com/share/2d9b9f8845d545a899285702fe2fd159?sharedAppSource=team_library]
+   
 |Run on Colab|
 
 Step 1: Install Neptune client
@@ -44,9 +49,8 @@ Go to your first cell in Google Colab and install ``neptune-client``:
 Step 2: Set Neptune API token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../../_static/images/integrations/getpass.gif
-  :target: ../../_static/images/integrations/getpass.gif
-  :alt: Set API token using getpass()
+.. 
+   [Add getpass() video https://www.loom.com/share/e4a9efe5d723492dac31897aaab9f981?sharedAppSource=team_library]
   
 #. Go to the Neptune web app and get your API token
    
