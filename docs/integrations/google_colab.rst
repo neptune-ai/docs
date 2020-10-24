@@ -137,6 +137,6 @@ Now that you know how to integrate Neptune with Google Colab, you can check:
 	
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com/github/neptune-ai/neptune-examples/tree/master/quick-starts/first-experiment/showcase/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/neptune-ai/neptune-examples/blob/master/quick-starts/first-experiment/showcase/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
         <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
     </a>
