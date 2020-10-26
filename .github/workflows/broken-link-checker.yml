@@ -1,0 +1,17 @@
+name: Broken link checker
+on:
+  push:
+    paths:
+      - '.github/workflows/broken-link-checker.yml'
+  schedule:
+    - cron: '*/28 6 * * *' # Run once daily at arbitrary time (6:28 AM UTC)
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - run: npm install broken-link-checker -g
+      - name: Run broken-link-checker on docs.neptune.ai
+        run: blc https://docs.neptune.ai -ro --requests 5 --host-requests 5 --exclude 'https://*.linkedin.com/**' --get
