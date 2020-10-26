@@ -129,6 +129,10 @@ You just learned how to start logging XGBoost experiments to Neptune. Check this
    :target: ../_static/images/integrations/xgboost_0.png
    :alt: XGBoost overview
 
+Common problems
+---------------
+If you are using Windows machine with Python 3.8 and ``xgboost-1.2.1``, you may encounter tkinter error when logging `feature importance`. This problem does not occur on the Windows machine with Python 3.8 and ``xgboost-1.2.0``. Also, it does not occur on the Windows machine with Python 3.6 or Python 3.7.
+
 How to ask for help?
 --------------------
 Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
