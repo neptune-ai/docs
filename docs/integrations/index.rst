@@ -26,7 +26,9 @@ Integrations are organized into the following categories:
 
 .. note::
 
-     |neptune-client|  is our official way of logging experiments and notebooks to Neptune (all integrations use it). If you need more control or explicit logging, you can always use it in your projects as well.
+    You can always :ref:`use neptune-client to log data to experiments <guides-logging-and-managing-experiment-results>` .
+    If you need more control or explicit logging, you can always use it (all integrations use it anyway).
+
 
 My library is not here. What now?
 ---------------------------------

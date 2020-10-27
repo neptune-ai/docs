@@ -3,11 +3,11 @@
 Languages
 =========
 
-Neptune provides integrations with the following programming languages:
+You can run Neptune with any programming language but the main language we support is Python.
+See how it works in various languages:
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
 
    Python <python-support.rst>
    R <r-support.rst>
