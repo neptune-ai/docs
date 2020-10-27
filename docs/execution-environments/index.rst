@@ -27,7 +27,10 @@ There are just two things you need to do:
 .. note::
 
     if you are not using Python don't worry.
-    Read how to :ref:`use Neptune with R <integrations-r>` or :ref:`with any other language <integrations-any-language>`
+    Read how to:
+
+    - :ref:`use Neptune with R <integrations-r>`
+    - :ref:`use Neptune with any other language <integrations-any-language>`
 
 
 .. _execution-use-environment-variables:
