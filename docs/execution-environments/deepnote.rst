@@ -3,7 +3,7 @@
 Deepnote
 ========
 
-You can easily run experiments in Deepnote notebooks and log them to Neptune.
+You can easily run experiments in |Deepnote notebooks| and log them to Neptune.
 To do that you need to:
 
 Step 1: Install neptune-client
@@ -49,11 +49,14 @@ Step 3: Replace the project name and log metrics into a Neptune dashboard
 
 .. note::
 
-    Check out a this example |Deepnote notebook| with Neptune logging.
+    Check out a this |example Deepnote notebook| with Neptune logging.
 
 .. external links
 
-.. |Deepnote notebook| raw:: html
+.. |example Deepnote notebook| raw:: html
 
-    <a href="https://deepnote.com/publish/13d805d1-8b8e-4c2c-a02b-96c182db640d" target="_blank">Deepnote notebook</a>
+    <a href="https://deepnote.com/publish/13d805d1-8b8e-4c2c-a02b-96c182db640d" target="_blank">example Deepnote notebook</a>
 
+.. |Deepnote notebooks| raw:: html
+
+    <a href="https://deepnote.com/" target="_blank">Deepnote notebooks</a>
