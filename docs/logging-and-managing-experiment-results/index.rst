@@ -1,3 +1,5 @@
+.. _guides-logging-and-managing-experiment-results:
+
 Logging and managing experiment results
 =======================================
 
