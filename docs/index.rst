@@ -123,7 +123,7 @@ Discover Neptune
    :caption: Essentials
 
    Integrations <integrations/index.rst>
-   Execution environments <execution-environments/index.rst>
+   Run Neptune anywhere <execution-environments/index.rst>
    API reference <api-reference/index.rst>
    FAQ <faq/index.rst>
 

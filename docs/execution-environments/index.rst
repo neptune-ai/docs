@@ -1,7 +1,7 @@
 .. _execution-environments-index:
 
-Execution environments
-======================
+Run Neptune anywhere
+====================
 
 You can run your experiments in any environment and log them to Neptune.
 There are just two things you need to do:
