@@ -1,7 +1,7 @@
 .. _integrations-visualization-tools:
 
-Visualization Tools
-===================
+Visualization libraries
+=======================
 
 |Youtube Video|
 

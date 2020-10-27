@@ -13,18 +13,16 @@ How integrations work?
 ----------------------
 Integrations are written using |neptune-client| and provide a convenient way to jump-start working with Neptune and a library that you are using. There is no need to integrate your code manually using neptune-client (it's easy though).
 
-Each integration, that is installation, scope and usage example are explained in detail in the documentation (see: `LightGBM <lightgbm.html>`_ for example).
+Each integration, that is installation, scope and usage example are explained in detail in the documentation (see: :ref:`PyTorch Lightning <integrations-pytorch-lightning>` for example).
 
 Integrations are organized into the following categories:
 
-- `Deep learning frameworks <deep_learning_frameworks.html>`_
-- `Machine learning frameworks <machine_learning_frameworks.html>`_
-- `Hyperparameter optimization libraries <hyperparams_opt_frameworks.html>`_
-- `Visualization libraries <visualization_tools.html>`_
-- `Messaging systems <messaging_systems.html>`_
-- `Experiment tracking frameworks <experiment_tracking_frmwks.html>`_
-- `Neptune Extensions Library <neptune-contrib.html>`_
-- `Cloud providers <cloud_providers.html>`_
+- :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
+- :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
+- :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
+- :ref:`Visualization libraries <integrations-visualization-tools>`
+- :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
+- :ref:`Other integrations <integrations-other-integrations>`
 
 .. note::
 
@@ -41,16 +39,12 @@ There are two common paths:
    :hidden:
    :maxdepth: 2
 
-   Languages <languages.rst>
-   Cloud providers <cloud_providers.rst>
    Deep learning frameworks <deep_learning_frameworks.rst>
    Machine learning frameworks <machine_learning_frameworks.rst>
    Hyperparmeter optimization frameworks <hyperparams_opt_frameworks.rst>
-   Visualization tools <visualization_tools.rst>
-   Explainability tools <explainability_tools.rst>
-   Messaging systems <messaging_systems.rst>
+   Visualization libraries <visualization_tools.rst>
    Experiment tracking frameworks <experiment_tracking_frmwks.rst>
-   Neptune extensions library <neptune-contrib.rst>
+   Other integrations <other-integrations.rst>
 
 .. External links
 

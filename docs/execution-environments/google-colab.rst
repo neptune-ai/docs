@@ -51,11 +51,11 @@ Step 2: Set Neptune API token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |Video get pass|
-  
+
 * Go to the Neptune web app and get your API token
-   
+
 * Run the code below:
-    
+
    .. code-block:: Python
 
       from getpass import getpass
@@ -84,14 +84,14 @@ Run the code below:
     from time import sleep
 
     neptune.create_experiment()
-        
+
     neptune.log_metric('single_metric', 0.62)
-        
+
     for i in range(100):
         sleep(0.2) # to see logging live
         neptune.log_metric('random_training_metric', i*random.random())
         neptune.log_metric('other_random_training_metric', 0.5*i*random.random())
-	
+
     neptune.stop()
 
 Step 5: Check metrics on the Neptune UI
@@ -128,13 +128,13 @@ Now that you know how to integrate Neptune with Google Colab, you can check:
     <a href="https://colab.research.google.com/" target="_blank">Google Colab</a>
 
 .. |Google| raw:: html
-	
+
     <a href="https://support.google.com/accounts/answer/27441?hl=en" target="_blank">Google</a>
 
 .. |Neptune| raw:: html
 
     <a href="https://neptune.ai/register" target="_blank">Neptune</a>
-	
+
 .. |Run on Colab| raw:: html
 
     <a href="https://colab.research.google.com/github/neptune-ai/neptune-examples/blob/master/quick-starts/first-experiment/showcase/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
