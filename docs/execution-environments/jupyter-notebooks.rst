@@ -39,6 +39,7 @@ To make sure that your API token is secure it is recommended to :ref:`pass it as
 
 .. note::
 
-    Neptune supports keeping track of Jupyter Notebook checkpoints if you use neptune-notebooks extension.
+    Neptune supports keeping track of Jupyter Notebook checkpoints with neptune-notebooks extension.
     If you do that, your notebook checkpoints will get an auto-snapshot whenever you create an experiment.
     Go :ref:`here to read more about that <guides-keep-track-jupyter-notebooks>`.
+
