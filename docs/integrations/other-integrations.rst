@@ -3,8 +3,9 @@
 Other integrations
 ==================
 
+Other Neptune integrations that may be interesting:
+
 .. toctree::
-   :hidden:
    :maxdepth: 1
 
    DALEX (explainability tool) <dalex.rst>
