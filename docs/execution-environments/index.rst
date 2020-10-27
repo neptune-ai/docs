@@ -76,10 +76,15 @@ Various Notebook flavours:
 
 .. toctree::
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
 
-   Languages <languages.rst>
-   Notebook flavours <notebook-flavours.rst>
+   Python <python-support.rst>
+   R <r-support.rst>
+   Any other language <any-language-support.rst>
+   Jupyter Lab and Jupyter Notebook <jupyter-notebooks.rst>
+   Google Colab <google-colab.rst>
+   Deepnote <deepnote.rst>
+   Amazon SageMaker <amazon_sagemaker.rst>
 
 .. External links
 
