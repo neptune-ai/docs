@@ -52,16 +52,14 @@ Check the :ref:`logging section <what-you-can-log>` for a complete list.
 
 **[loom-placeholder]**
 
-Essentials
-----------
+Essential parts
+---------------
 Snippet above sets project and creates experiment. Indeed, :ref:`Project <logging_project>` and :ref:`Experiment <logging_experiment>` are two important entities in Neptune. Read on, to learn a bit about them.
 
 .. _logging_project:
 
 Project
 ^^^^^^^
-What it is?
------------
 It is a **collection of Experiments**, created by user(s) assigned to the project.
 
 .. note::
@@ -83,7 +81,7 @@ Learn more about how you can interact with |docs-experiment| in your Python code
 **[loom-placeholder]**
 
 What you can do?
-^^^^^^^^^^^^^^^^
+----------------
 You can think of three main actions around experiments:
 
 #. **Log experiments** - explained above, where you log metrics and other data to the experiment
