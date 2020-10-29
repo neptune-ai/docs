@@ -66,7 +66,7 @@ It is a **collection of Experiments**, created by user(s) assigned to the projec
 
     Always use ``neptune.init('my_workspace/my_project')`` to set project that you will be logging into. Check |docs-neptune-init| for more details.
 
-Learn more about how you can interact with |docs-project| in your Python code.
+Learn more about |docs-project| to use in your Python code.
 
 .. _logging_experiment:
 
@@ -74,9 +74,13 @@ Experiment
 ^^^^^^^^^^
 Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when ``neptune.stop()`` is called.
 
-You can log experiments from :ref:`anywhere <execution-environments-index>` (local machine, cluster, cloud, Colab, etc.) at they will be tracked in the same, standardized way. In this way you will be able to compare experiments run by you on your workstation with experiments run on AWS by your team-mate.
+You can log experiments from :ref:`anywhere <execution-environments-index>` (local machine, cluster, cloud, Colab, etc.) and they will be tracked in the same, standardized way. You will be able to quickly compare experiments run by you on your workstation with experiments run on AWS by your team-mate.
 
-Learn more about how you can interact with |docs-experiment| in your Python code.
+.. note::
+
+    ``neptune.log_metric('some_name', some_value)`` is for tracking all numeric values to Neptune (metric, loss, score, variances, etc.). Learn, what else can be tracked to experiment from :ref:`this list <what-you-can-log>`.
+
+Learn more about |docs-experiment| to use in your Python code.
 
 **[loom-placeholder]**
 
@@ -101,8 +105,8 @@ You can think of three main actions around experiments:
 
 .. |docs-project| raw:: html
 
-    <a href="https://docs.neptune.ai/api-reference/neptune/projects/index.html#neptune.projects.Project" target="_blank">Project API</a>
+    <a href="https://docs.neptune.ai/api-reference/neptune/projects/index.html#neptune.projects.Project" target="_blank">Project methods</a>
 
 .. |docs-experiment| raw:: html
 
-    <a href="https://docs.neptune.ai/api-reference/neptune/experiments/index.html#neptune.experiments.Experiment" target="_blank">Experiment API</a>
+    <a href="https://docs.neptune.ai/api-reference/neptune/experiments/index.html#neptune.experiments.Experiment" target="_blank">Experiment methods</a>
