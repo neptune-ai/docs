@@ -9,7 +9,7 @@ What is neptune-client?
 1. logging machine learning experiments,
 2. fetching experiment data from Neptune to local machine.
 
-It is designed to be **lightweight** (fast onboarding), **generic** (capable of logging any kind of machine learning work) and **straightforward** (user defines what to keep track of during experiment) to use.
+It is designed to be **lightweight** (low setup effort), **generic** (capable of logging any kind of machine learning work) and **straightforward** (user defines what to keep track of during experiment) to use.
 
 **[loom-placeholder]**
 
@@ -72,7 +72,7 @@ Learn more about |docs-project| to use in your Python code.
 
 Experiment
 ^^^^^^^^^^
-Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when ``neptune.stop()`` is called.
+Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes.
 
 You can log experiments from :ref:`anywhere <execution-environments-index>` (local machine, cluster, cloud, Colab, etc.) and they will be tracked in the same, standardized way. You will be able to quickly compare experiments run by you on your workstation with experiments run on AWS by your team-mate.
 
