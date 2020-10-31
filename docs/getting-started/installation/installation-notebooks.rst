@@ -1,3 +1,5 @@
+.. _installation-notebook-extension:
+
 Install neptune-notebooks: Jupyter extension (3 min)
 ====================================================
 
