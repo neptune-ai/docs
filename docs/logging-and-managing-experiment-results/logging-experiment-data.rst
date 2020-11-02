@@ -34,7 +34,7 @@ Everything that is evaluated after ``neptune.create_experiment()`` and before th
 
 What you can log
 ----------------
-Neptune support numerous types of data that you can log to the experiment. Here, you can find all of them listed and described:
+Neptune supports numerous types of data that you can log to the experiment. Here, you can find all of them listed and described:
 
 * :ref:`Metrics <logging-experiment-data-metrics>`
 * :ref:`Parameters <logging-experiment-data-parameters>`
@@ -44,6 +44,7 @@ Neptune support numerous types of data that you can log to the experiment. Here,
     * :ref:`Code Snapshot <logging-experiment-data-code-code-snapshot>`
     * :ref:`Notebook Snapshot <logging-experiment-data-code-notebook-snapshot>`
 
+* :ref:`Text <logging-experiment-data-text>`
 * :ref:`Hardware consumption <logging-experiment-data-hardware-consumption>`
 * :ref:`Experiment information <logging-experiment-data-experiment-information>`
 
@@ -82,11 +83,28 @@ Neptune support numerous types of data that you can log to the experiment. Here,
 
     * :ref:`Explainers (DALEX) <logging-experiment-data-images-python-objects-dalex>`
 
+**[loom-placeholder]**
+
 .. _logging-experiment-data-metrics:
 
 Metrics
 ^^^^^^^
-[text]
+You can log one or multiple metrics to a log section with the :meth:`~neptune.experiments.Experiment.log_metric` method. These could be machine learning metrics like accuracy, MSE or any numerical value.
+
+.. code-block:: python3
+
+    # single value
+    neptune.log_metric('test_accuracy', 0.76)
+
+    # single value for each epoch, resulting in nice chart
+    for epoch in range(epoch_nr):
+        epoch_accuracy = ...
+        neptune.log_metric('test_accuracy', epoch_accuracy)
+
+
+
+
+
 
 .. _logging-experiment-data-parameters:
 
@@ -116,6 +134,12 @@ Code Snapshot
 
 Notebook Snapshot
 """""""""""""""""
+[text]
+
+.. _logging-experiment-data-text:
+
+Text
+^^^^
 [text]
 
 .. _logging-experiment-data-hardware-consumption:
