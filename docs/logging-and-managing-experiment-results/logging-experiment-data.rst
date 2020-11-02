@@ -37,6 +37,16 @@ What you can log
 
 Logging with integrations
 -------------------------
+Besides logging using Neptune Python library, you can also use integrations that let you log relevant data with almost no code changes. Have a look at :ref:`Integrations page <integrations-index>` for more information or find your favourite library in one of the following categories:
+
+- :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
+- :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
+- :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
+- :ref:`Visualization libraries <integrations-visualization-tools>`
+- :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
+- :ref:`Other integrations <integrations-other-integrations>`
+
+**[loom-placeholder]**
 
 Advanced
 --------

@@ -93,6 +93,14 @@ You can think of three main actions around experiments:
 #. **Download experiments** - all logged data can be :ref:`downloaded programmatically <guides-download_data>`.
 
 
+.. Local navigation
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   Logging experiment data <logging-experiment-data.rst>
+
 .. External links
 
 .. |neptune-client-github| raw:: html
