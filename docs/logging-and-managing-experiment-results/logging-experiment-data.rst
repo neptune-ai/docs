@@ -300,7 +300,10 @@ HTML objects
 
 Images
 ^^^^^^
-[text]
+
+.. note::
+
+    Single image should not exceed 15MB. If you work with larger files, you can log them using :meth:`~neptune.experiments.Experiment.log_artifact`. Check :ref:`Files section <logging-experiment-data-files>` for more info.
 
 .. _logging-experiment-data-images-matplotlib:
 
