@@ -36,54 +36,64 @@ What you can log
 ----------------
 Neptune supports numerous types of data that you can log to the experiment. Here, you can find all of them listed and described:
 
-* :ref:`Metrics <logging-experiment-data-metrics>`
-* :ref:`Parameters <logging-experiment-data-parameters>`
-* :ref:`Code <logging-experiment-data-code>`
-
-    * :ref:`Git <logging-experiment-data-code-git>`
-    * :ref:`Code Snapshot <logging-experiment-data-code-code-snapshot>`
-    * :ref:`Notebook Snapshot <logging-experiment-data-code-notebook-snapshot>`
-
-* :ref:`Text <logging-experiment-data-text>`
-* :ref:`Hardware consumption <logging-experiment-data-hardware-consumption>`
-* :ref:`Experiment information <logging-experiment-data-experiment-information>`
-
-    * :ref:`Experiment name <logging-experiment-data-experiment-information-name>`
-    * :ref:`Experiment description <logging-experiment-data-experiment-information-description>`
-    * :ref:`Experiment tags <logging-experiment-data-experiment-information-tags>`
-
-* :ref:`Properties <logging-experiment-data-properties>`
-* :ref:`Data versions <logging-experiment-data-data-versions>`
-* :ref:`Files <logging-experiment-data-files>`
-
-    * :ref:`Model checkpoints <logging-experiment-data-files-model-checkpoints>`
-    * :ref:`HTML objects <logging-experiment-data-files-html-objects>`
-
-* :ref:`Images <logging-experiment-data-images>`
-
-    * :ref:`Matplotlib <logging-experiment-data-images-matplotlib>`
-    * :ref:`PIL <logging-experiment-data-images-pil>`
-    * :ref:`NumPy <logging-experiment-data-images-numpy>`
-
-* :ref:`Interactive charts <logging-experiment-data-interactive-charts>`
-
-    * :ref:`Matplotlib <logging-experiment-data-interactive-charts-matplotlib>`
-    * :ref:`Altair <logging-experiment-data-interactive-charts-altair>`
-    * :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`
-    * :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`
-
-* :ref:`Video <logging-experiment-data-images-video>`
-* :ref:`Audio <logging-experiment-data-images-audio>`
-* :ref:`Tables <logging-experiment-data-images-tables>`
-
-    * :ref:`pandas <logging-experiment-data-images-pandas>`
-    * :ref:`csv <logging-experiment-data-images-csv>`
-
-* :ref:`Python objects <logging-experiment-data-images-python-objects>`
-
-    * :ref:`Explainers (DALEX) <logging-experiment-data-images-python-objects-dalex>`
-
-**[loom-placeholder]**
++----------------------------------------------------------------------------------------------+--------------------+
+|                                       Data to log/track                                      | Video overview     |
++==============================================================================================+====================+
+| :ref:`Metrics <logging-experiment-data-metrics>`                                             | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Parameters <logging-experiment-data-parameters>`                                       | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Code <logging-experiment-data-code>`                                                   | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Git <logging-experiment-data-code-git>`                                              |                    |
+| * :ref:`Code Snapshot <logging-experiment-data-code-code-snapshot>`                          |                    |
+| * :ref:`Notebook Snapshot <logging-experiment-data-code-notebook-snapshot>`                  |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Experiment information <logging-experiment-data-experiment-information>`               | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Experiment name <logging-experiment-data-experiment-information-name>`               |                    |
+| * :ref:`Experiment description <logging-experiment-data-experiment-information-description>` |                    |
+| * :ref:`Experiment tags <logging-experiment-data-experiment-information-tags>`               |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Hardware consumption <logging-experiment-data-hardware-consumption>`                   | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Text <logging-experiment-data-text>`                                                   | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Properties <logging-experiment-data-properties>`                                       | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Data versions <logging-experiment-data-data-versions>`                                 | [loom-placeholder] |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Files <logging-experiment-data-files>`                                                 | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Model checkpoints <logging-experiment-data-files-model-checkpoints>`                 |                    |
+| * :ref:`HTML objects <logging-experiment-data-files-html-objects>`                           |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Images <logging-experiment-data-images>`                                               | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Matplotlib <logging-experiment-data-images-matplotlib>`                              |                    |
+| * :ref:`PIL <logging-experiment-data-images-pil>`                                            |                    |
+| * :ref:`NumPy <logging-experiment-data-images-numpy>`                                        |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Interactive charts <logging-experiment-data-interactive-charts>`                       | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Matplotlib <logging-experiment-data-interactive-charts-matplotlib>`                  |                    |
+| * :ref:`Altair <logging-experiment-data-interactive-charts-altair>`                          |                    |
+| * :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`                            |                    |
+| * :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`                          |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Video <logging-experiment-data-images-video>`                                          | [loom-placeholder] |
+|                                                                                              |                    |
+| :ref:`Audio <logging-experiment-data-images-audio>`                                          |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Tables <logging-experiment-data-images-tables>`                                        | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`pandas <logging-experiment-data-images-pandas>`                                      |                    |
+| * :ref:`csv <logging-experiment-data-images-csv>`                                            |                    |
++----------------------------------------------------------------------------------------------+--------------------+
+| :ref:`Python objects <logging-experiment-data-images-python-objects>`                        | [loom-placeholder] |
+|                                                                                              |                    |
+| * :ref:`Explainers (DALEX) <logging-experiment-data-images-python-objects-dalex>`            |                    |
++----------------------------------------------------------------------------------------------+--------------------+
 
 .. _logging-experiment-data-metrics:
 
