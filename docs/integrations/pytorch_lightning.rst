@@ -3,8 +3,11 @@
 Neptune-PyTorch Lightning Integration
 =====================================
 
-What will you get?
-------------------
+|Run on Colab|
+
+What will you get with this integration?
+----------------------------------------
+
 |pytorch-lightning-tour|
 
 PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI research. With Neptune integration you can:
@@ -17,22 +20,20 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 * log performance charts and images,
 * save model checkpoints.
 
+.. note::
+
+    This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest.
+
 Where to start?
 ---------------
 To get started with this integration, follow the :ref:`Quickstart <quickstart>` below. You can also skip the basics and take a look at the :ref:`advanced options <advanced-options>`.
 
 If you want to try things out and focus only on the code you can either:
 
-#. Open Colab notebook (badge-link below) with quickstart code and run it as a "`neptuner`" user - zero setup, it just works,
+#. Open Colab notebook (badge-link below) with quickstart code and run it as an anonymous user "`neptuner`" - zero setup, it just works,
 #. View quickstart code as a plain Python script on |script|.
 
 You can also check this public project with example experiments: |project|.
-
-|Run on Colab|
-
-.. note::
-
-    This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest.
 
 .. _quickstart:
 
@@ -41,6 +42,8 @@ Quickstart
 This quickstart will show you how to log PyTorch Lightning experiments to Neptune using ``NeptuneLogger`` (part of the pytorch-lightning library).
 
 As a result you will have an experiment logged to Neptune. It will have train loss and epoch (visualized as charts), parameters, hardware utilization charts and experiment metadata.
+
+|Run on Colab|
 
 .. _before-you-start-basic:
 
@@ -588,9 +591,20 @@ You may also like these two integrations:
 
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |script| raw:: html
 
@@ -666,9 +680,20 @@ You may also like these two integrations:
 
 .. |Run on Colab Advanced| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |scikit-learn| raw:: html
 
