@@ -283,3 +283,15 @@
 .run-on-colab button:hover {
     background-color: #EBEBEB;
 }
+
+.last-updated {
+    border-radius: 4px;
+    border: solid 1px #dddddd;
+    background-color: #fcfcfc;
+    padding: 15px 30px;
+    font-size: 14px;
+    color: #2260ad;
+    font-family: inherit;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
