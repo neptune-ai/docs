@@ -3,14 +3,37 @@ Working with Neptune UI
 
 |Youtube Video dashboard|
 
-**More info:**
+Neptune UI has 3 major sections: Experiments, Notebooks and Wiki.
+
+**Experiments** section is the place where you can:
+
+- monitor the experiments that are running
+- organize experiments into groups and views
+- filter and search experiments
+- compare experiments
+- drill down to experiment details like charts and code
+
+**Notebooks** section is where you can:
+
+- explore notebooks and notebook checkpoints
+- compare notebook checkpoints
+
+In the **Wiki** section you can:
+
+- add notes about experiments and link to them
+- discuss experiments with your team
+
+**For more info go to one of the pages:**
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   Experiment dashboard <experiment-dashboard/index.rst>
-   Notebooks <notebooks/index.rst>
-   Wiki <wiki/index.rst>
+   Comparing experiments <comparing-experiments.rst>
+   Organizing Experiments in a Dashboard <organizing-experiments.rst>
+   Searching and filtering experiments <searching-experiments.rst>
+   Exploring a single experiment <single-experiment-details.rst>
+   Viewing and comparing Notebook checkpoints <notebooks.rst>
+   Using project Wiki <wiki.rst>
 
 .. External links
 

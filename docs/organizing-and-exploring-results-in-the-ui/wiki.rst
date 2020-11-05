@@ -11,8 +11,8 @@ Create a Wiki page
 2. Click the **Wiki** tab.
 3. Click the **+** button:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_page.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_page.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_page.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_page.png
         :alt: Create new Wiki page
         :width: 200
 
@@ -24,8 +24,8 @@ Insert a comment
 
 When you hover on any content in the Wiki page, the **Comment** icon appears on the right side. Click it to make a comment:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment.png
         :alt: New Wiki comment
         :width: 800
 
@@ -33,8 +33,8 @@ When you hover on any content in the Wiki page, the **Comment** icon appears on 
 Alternatively, select existing text and click the comment button in the context menu that appears:
 
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment_menu.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment_menu.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment_menu.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/new_wiki_comment_menu.png
         :alt: New Wiki comment
         :width: 600
 
@@ -45,8 +45,8 @@ Share a Wiki page
 1. Enter the Wiki page you want to share.
 2. Click the **Share** button:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/share_wiki_page.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/share_wiki_page.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/share_wiki_page.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/share_wiki_page.png
         :alt: Share Wiki page
         :width: 600
 
@@ -57,8 +57,8 @@ Formatting text, adding links and more
 
 When you select existing text in a Wiki page, a contextual menu appears, presenting actions for formatting the selected text:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_context_menu.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_context_menu.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_context_menu.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_context_menu.png
         :alt: Format Wiki text
         :width: 450
 
@@ -68,8 +68,8 @@ Formatting headings and adding mentions
 
 While in a Wiki page, you can display a menu for formatting a heading or adding a mention of a person or experiment:
 
-   .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_commands.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_commands.png
+   .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_commands.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_commands.png
         :alt: Wiki commands
         :width: 450
 
@@ -91,8 +91,8 @@ Their avatars are displayed next to the title page.
 Note that each user has one color associated with them.
 
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_collaborative_editing.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_collaborative_editing.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_collaborative_editing.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/wiki_collaborative_editing.png
         :alt: Copy URL
 
 In the example, the user who has a green color, has highlighted the word “Project”,
@@ -105,8 +105,8 @@ Avatar details
 
 Hover on an avatar to see user details:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/avatar_highlight.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/avatar_highlight.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/avatar_highlight.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/avatar_highlight.png
         :alt: Avatar details
         :width: 250
 
@@ -115,11 +115,10 @@ Highlighted text
 
 Hover on the highlighted text to see who highlighted it:
 
-    .. image:: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/editor_details.png
-        :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/wiki/editor_details.png
+    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/editor_details.png
+        :target: ../_static/images/organizing-and-exploring-results-in-the-ui/wiki/editor_details.png
         :alt: Editor details
         :width: 250
-
 
 .. External Links
 

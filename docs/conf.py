@@ -37,7 +37,8 @@ extensions = ['recommonmark',
               'autoapi.extension',
               'sphinx.ext.viewcode',
               'sphinx.ext.napoleon',
-              'sphinx_copybutton'
+              'sphinx_copybutton',
+              'sphinx_last_updated_by_git',
               ]
 
 import neptune
