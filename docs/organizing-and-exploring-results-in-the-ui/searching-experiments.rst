@@ -1,17 +1,31 @@
+Searching and filtering experiments
+===================================
+
+Basic Filtering
+---------------
+You can perform the simplest filtering by typing into the search fields:
+
+   .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/search_fields.png
+      :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/search_fields.png
+      :alt: Experiment search
+
+
+For more advanced filtering criteria you should switch to the "advanced search" and use Neptune Query Language described in the next section.
+
 .. _guides-nql:
 
 Searching Experiments with Neptune Query Language
-=================================================
+-------------------------------------------------
 
 Neptune Query Language (NQL) enables you to apply complex filters to your experiments view.
 You can build NQL queries in the query editor inside the Neptune dashboard.
 
-.. figure:: ../../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/nql_01.png
-   :target: ../../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/nql_01.png
+.. figure:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/nql_01.png
+   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/nql_01.png
    :alt: experiments view with advanced search
 
-Examples
---------
+Basic Examples
+^^^^^^^^^^^^^^
 Let's assume that you want to see experiments where the ``recall`` metric is higher than ``0.9``.
 In other words, you are looking for experiments, where:
 
@@ -49,7 +63,7 @@ either the ``learning_rate`` parameter is smaller or equal to ``0.005``, or ``en
 For more information, see :ref:`NQL reference <core-concepts_nql_reference>`.
 
 Advanced examples
------------------
+^^^^^^^^^^^^^^^^^
 - Fetching specific experiments by ids:
 
     .. code-block:: mysql
@@ -117,13 +131,13 @@ Advanced examples
 
         notebookName EXISTS
 
-
-NQL reference
--------------
 .. _core-concepts_nql_reference:
 
+Neptune Query Language reference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Clause
-^^^^^^
+******
 A clause can take one of the following forms:
 
 1. A relation consisting of three elements:
@@ -372,7 +386,7 @@ Examples:
           "untitled Test"
 
 Complex query
-^^^^^^^^^^^^^^^
+*************
 **AND and OR operators**
 
 An NQL query consists of a number of clauses connected with logical operators. For example:
@@ -433,7 +447,7 @@ In addition, you can use the ``NOT`` operator with the ``CONTAINS`` operator lik
 Logical operators are case insensitive.
 
 Operators reference
-^^^^^^^^^^^^^^^^^^^
+*******************
 .. _core-concepts_nql_operators_reference:
 
 ==================== =============================================================================
@@ -446,7 +460,7 @@ Quotation marks      ``""``, ``````
 ==================== =============================================================================
 
 Precedence order
-^^^^^^^^^^^^^^^^
+****************
 If there are any field name collisions, the following order precedence is applied:
 
   * system column
@@ -464,7 +478,7 @@ created by Fred, but no experiments of other users who have a parameter called `
 
 
 Quotes
-^^^^^^
+******
 
 There are two types of quotation marks in NQL:
 
