@@ -7,6 +7,7 @@ Neptune UI has 3 major sections: Experiments, Notebooks and Wiki.
 
 **Experiments** section is the place where you can:
 
+- monitor the experiments that are running
 - organize experiments into groups and views
 - filter and search experiments
 - compare experiments

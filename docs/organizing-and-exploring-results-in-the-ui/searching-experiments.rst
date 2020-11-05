@@ -3,7 +3,11 @@ Searching and filtering experiments
 
 Basic Filtering
 ---------------
-You can perform the simplest filtering by typing into the search fields:
+You can perform the simplest filtering by:
+
+- typing into the search field
+- choosing a tag
+- choosing an experiment status
 
    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/search_fields.png
       :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/search_fields.png
@@ -11,6 +15,12 @@ You can perform the simplest filtering by typing into the search fields:
 
 
 For more advanced filtering criteria you should switch to the "advanced search" and use Neptune Query Language described in the next section.
+
+To do that you should click on the "Go to advanced search" button.
+
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/go_to_advanced_search.png
+    :target: ../_static/images/organizing-and-exploring-results-in-the-ui/go_to_advanced_search.png
+    :alt: Go to advanced search
 
 .. _guides-nql:
 

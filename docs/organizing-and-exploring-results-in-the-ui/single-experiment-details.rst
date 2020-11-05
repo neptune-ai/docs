@@ -3,8 +3,7 @@ Exploring a single experiment
 
 |Youtube Video|
 
-Click a line in the experiments table to see details of that experiment.
-
+Click on the experiment ID (leftmost column) to enter single experiment view.
 
    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/single_experiment.png
       :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/single_experiment.png
@@ -28,6 +27,10 @@ Organizing experiments charts
 In Neptune UI charts are organized in "chart sets".
 
 The "Basic" chart set contains all metrics and losses you logged with one metric or loss per chart.
+
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/basic_chart_set.png
+  :target: ../_static/images/organizing-and-exploring-results-in-the-ui/basic_chart_set.png
+  :alt: Basic chart set
 
 There are many situations where creating charts sets helps a lot.
 Most common situations are:

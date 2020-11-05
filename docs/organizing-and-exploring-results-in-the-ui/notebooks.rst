@@ -9,8 +9,9 @@ Key Features
 * In Neptune, each Notebook consists of a collection of checkpoints that you upload directly from the Jupyter user interface.
 * In any project, an unlimited number of Notebooks and checkpoints is allowed.
 * You can browse checkpoints history across all |Notebooks in the project|.
-* You can |share a Notebook as a link| a Notebook as a link.
+* You can |share a Notebook as a link|.
 * You can |compare two Notebooks side-by-side|, like source code.
+* You can download a notebook directly from the UI.
 
 Viewing Notebook Checkpoints
 ----------------------------
@@ -45,8 +46,6 @@ There are two tabs on the right:
 
 - **Details**: Here are shown the ID, size, creation date, latest checkpoint, owner, description and associated experiments of the selected Notebook.
 - **Checkpoints**: Here are listed all the checkpoints of the Notebook. Click a checkpoint to see the details in the main pane. From this tab, you can also access the experiments that are associated with the checkpoint.
-
-You can also view snapshots of the work with the Notebook, as well as download, share or compare this checkpoint with another checkpoint.
 
 .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
     :target: ../_static/images/organizing-and-exploring-results-in-the-ui/notebooks/nb-view-22.png
