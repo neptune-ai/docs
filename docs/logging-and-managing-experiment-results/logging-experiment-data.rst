@@ -555,7 +555,7 @@ You will have images in the |logs| section of the experiment, where you can brow
 
 .. note::
 
-    You can log unlimited number of images either in the single log or in the multiple image logs.
+    You can log unlimited number of images either in the single log or in the multiple image logs. Simply use the same log name, for example ``'misclassified_images'`` - first argument of the :meth:`~neptune.experiments.Experiment.log_image`.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -595,7 +595,24 @@ You will have Matplotlib figure in the |streamplot| section of the experiment, w
 
 PIL
 """
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
+   :alt: PIL image in experiment
+
+Log PIL image right from the memory, by using :meth:`~neptune.experiments.Experiment.log_image`.
+
+.. code-block:: python3
+
+    # Import PIL
+    from PIL import Image
+
+    # Load image
+    image = Image.open('Representation-learning.jpg')
+
+    # Log image to experiment
+    neptune.log_image('PIL-image', image, image_name='representation learning', description='Example PIL image in experiment')
+
+You will have images in the |logs| section of the experiment, where you can browse and download them.
 
 |example-images-pil|
 
@@ -605,7 +622,27 @@ PIL
 
 NumPy
 """""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
+   :alt: NumPy as image in experiment
+
+Log NumPy array (2d or 3d) right from the memory, and have it visualized as image, by using :meth:`~neptune.experiments.Experiment.log_image`.
+
+.. code-block:: python3
+
+    # Import NumPy
+    import numpy as np
+
+    # Prepare some NumPy arrays
+    for j in range(5):
+        array = ...
+
+        # Log them as images
+        neptune.log_image('NumPy array as image',
+                          array,
+                          image_name='array-{}'.format(j), description='Example NumPy as image')
+
+You will have NumPy images in the |logs| section of the experiment, where you can browse and download them.
 
 |example-images-numpy|
 
@@ -615,9 +652,26 @@ NumPy
 
 Interactive charts
 ^^^^^^^^^^^^^^^^^^
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :alt: Interactive charts in the experiment
+
+You can log interactive charts and they will be rendered interactively in the |artifacts| section under the ``charts/my_chart.html``. Common visualization libraries are supported:
+
+* :ref:`Matplotlib <logging-experiment-data-interactive-charts-matplotlib>` -> we turn it interactive automatically
+* :ref:`Altair <logging-experiment-data-interactive-charts-altair>`
+* :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`
+* :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`
 
 |example-interactive-charts|
+
+.. note::
+
+    For a full screen view, you can open visualization in the new browser tab, by clicking on the *"arrow-pointing-top-right"* icon, located right above your visualisation:
+
+    .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/full-screen-icon.png
+       :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/full-screen-icon.png
+       :alt: Full screen icon
 
 :ref:`back to top <what-you-can-log>`
 
@@ -625,8 +679,8 @@ Interactive charts
 
 Matplotlib
 """"""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.png
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
    :alt: Interactive Matplotlib figure in experiment
 
 Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
@@ -644,13 +698,13 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by usin
     # Log figure to experiment
     log_chart('matplotlib-interactive', fig)
 
-Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` where you can explore and download it.
+Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/matplotlib-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-matplotlib|
 
 .. note::
 
-    Check :ref:`Matplotlib logging <logging-experiment-data-images-matplotlib>` to see how to log the same matplotlib figure as an image.
+    Check :ref:`images logging <logging-experiment-data-images-matplotlib>` to see how to log matplotlib figure as an image.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -658,7 +712,26 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 Altair
 """"""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :alt: Interactive altair chart in the experiment
+
+Log Altair chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
+
+.. code-block:: python3
+
+    # Import altair and log_chart
+    import altair as alt
+    from neptunecontrib.api import log_chart
+
+    # Generate figure
+    alt_chart = alt.Chart(...)
+    ...
+
+    # Log figure to experiment
+    log_chart(name='altair-interactive', chart=alt_chart)
+
+Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/altair-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-altair|
 
@@ -668,7 +741,26 @@ Altair
 
 Bokeh
 """""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
+   :alt: Interactive bokeh chart in the experiment
+
+Log Bokeh chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
+
+.. code-block:: python3
+
+    # Import bokeh and log_chart
+    from bokeh.plotting import figure
+    from neptunecontrib.api import log_chart
+
+    # Generate figure
+    bokeh_chart = figure(...)
+    ...
+
+    # Log figure to experiment
+    log_chart(name='bokeh-interactive', chart=bokeh_chart)
+
+Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/bokeh-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-bokeh|
 
@@ -678,7 +770,26 @@ Bokeh
 
 Plotly
 """"""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
+   :alt: Interactive plotly chart in the experiment
+
+Log plotly chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
+
+.. code-block:: python3
+
+    # Import plotly and log_chart
+    import plotly.express as px
+    from neptunecontrib.api import log_chart
+
+    # Generate figure
+    plotly_fig = px.histogram(...)
+    ...
+
+    # Log figure to experiment
+    log_chart(name='plotly-interactive', chart=plotly_fig)
+
+Interactive plotly chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/plotly-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-plotly|
 
@@ -1019,9 +1130,33 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
 .. |example-images-pil| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2038/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-images-numpy| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2039/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-interactive-charts| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
 
 .. |example-interactive-charts-matplotlib| raw:: html
 
@@ -1035,9 +1170,33 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
 .. |example-interactive-charts-altair| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-interactive-charts-bokeh| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=bokeh_figure.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-interactive-charts-plotly| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=plotly_figure.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
 
 .. |example-video| raw:: html
 
