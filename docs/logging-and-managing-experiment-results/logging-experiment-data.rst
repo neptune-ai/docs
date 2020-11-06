@@ -85,18 +85,18 @@ Neptune supports numerous types of data that you can log to the experiment. Here
 | * :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`                            |                    |
 | * :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`                          |                    |
 +----------------------------------------------------------------------------------------------+--------------------+
-| :ref:`Video <logging-experiment-data-images-video>`                                          | [loom-placeholder] |
+| :ref:`Video <logging-experiment-data-video>`                                                 | [loom-placeholder] |
 |                                                                                              |                    |
-| :ref:`Audio <logging-experiment-data-images-audio>`                                          |                    |
+| :ref:`Audio <logging-experiment-data-audio>`                                                 |                    |
 +----------------------------------------------------------------------------------------------+--------------------+
-| :ref:`Tables <logging-experiment-data-images-tables>`                                        | [loom-placeholder] |
+| :ref:`Tables <logging-experiment-data-tables>`                                               | [loom-placeholder] |
 |                                                                                              |                    |
-| * :ref:`pandas <logging-experiment-data-images-pandas>`                                      |                    |
-| * :ref:`csv <logging-experiment-data-images-csv>`                                            |                    |
+| * :ref:`pandas <logging-experiment-data-pandas>`                                             |                    |
+| * :ref:`csv <logging-experiment-data-csv>`                                                   |                    |
 +----------------------------------------------------------------------------------------------+--------------------+
-| :ref:`Python objects <logging-experiment-data-images-python-objects>`                        | [loom-placeholder] |
+| :ref:`Python objects <logging-experiment-data-python-objects>`                               | [loom-placeholder] |
 |                                                                                              |                    |
-| * :ref:`Explainers (DALEX) <logging-experiment-data-images-python-objects-dalex>`            |                    |
+| * :ref:`Explainers (DALEX) <logging-experiment-data-python-objects-dalex>`                   |                    |
 +----------------------------------------------------------------------------------------------+--------------------+
 
 .. _logging-experiment-data-metrics:
@@ -123,6 +123,8 @@ Metric can be accuracy, MSE or any numerical value. All metrics are visualized a
 
 You can create as many metrics as you wish.
 
+|example-metrics|
+
 .. note::
 
     Organize your metrics into groups or display multiple curves on the single chart: :ref:`here is how <creating-custom-chart-sets>`.
@@ -131,7 +133,7 @@ You can create as many metrics as you wish.
 
     Download metrics as pandas DataFrame for further analysis locally. Here is :ref:`how to do it <guides-download_data>`.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-parameters:
 
@@ -157,11 +159,13 @@ Define parameters as Python dictionary and pass to the :meth:`~neptune.projects.
 
 You can use them later to analyse or compare experiments. They are displayed in the |parameters| section of the experiment. Moreover every parameter can be displayed as a column on the |experiment-dashboard| (look for green columns).
 
+|example-parameters|
+
 .. note::
 
     Experiment parameters are read-only. You cannot change or update them during or after the experiment.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code:
 
@@ -169,7 +173,7 @@ Code
 ^^^^
 You can version your code with Neptune. Few options in that regard are available.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code-git:
 
@@ -181,7 +185,9 @@ Git
 
 Neptune automatically discovers, if you start experiment from directory that is part of the git repo. Then, it creates summary in the |details| section with: commit information (id, message, author, date), branch, and remote address to your experiment.
 
-:ref:`back to list <what-you-can-log>`
+|example-code-git|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code-code-snapshot:
 
@@ -203,11 +209,13 @@ Snapshot code files or src folders when you :meth:`~neptune.projects.Project.cre
 
 You will have all sources in the |source-code| section of the experiment. Neptune also logs the entrypoint file so that you have all the information about the run sources.
 
+|example-code-snapshot|
+
 .. note::
 
     Specify particular files (i.e. 'my_model.py') or use regex to capture many files at once (i.e. `'*.py'`).
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code-notebook-snapshot:
 
@@ -221,7 +229,9 @@ You can save code developed in notebook. With that you can log entire notebook b
 
 To get started, install :ref:`notebook extension <installation-notebook-extension>`, then go to the :ref:`Keeping track of Jupyter Notebooks <guides-keep-track-jupyter-notebooks>` guide that will explain everything.
 
-:ref:`back to list <what-you-can-log>`
+|example-notebook-snapshot|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-text:
 
@@ -240,11 +250,13 @@ Log text information to the experiment by using :meth:`~neptune.experiments.Expe
 
 You will have it in the |logs| section of the experiment, where you can browse and download it.
 
+|example-text|
+
 .. note::
 
     Single line of text log is limited to 1k characters. At the same time number of lines is not limited.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-hardware-consumption:
 
@@ -265,11 +277,13 @@ You can turn off this feature when you :meth:`~neptune.projects.Project.create_e
 
 As a result hardware consumption is not being tracked.
 
+|example-hardware-consumption|
+
 .. note::
 
     To enable this feature you need to install ``psutil``. Check our :ref:`installation guide <installation-neptune-client>` for more info. It will take like 1 minute to install.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-experiment-information:
 
@@ -277,7 +291,7 @@ Experiment information
 ^^^^^^^^^^^^^^^^^^^^^^
 To better describe an experiment you can use 'name', 'description' and 'tags'.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-experiment-information-name:
 
@@ -297,11 +311,13 @@ Experiment name appears in the |details| section and can be displayed as a colum
 
 You can edit 'name' directly in the UI.
 
+|example-information-name|
+
 .. note::
 
     You can search for an experiment by it's name. Here is how: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-experiment-information-description:
 
@@ -321,11 +337,13 @@ Experiment description appears in the |details| section and can be displayed as 
 
 You can edit 'description' directly in the UI.
 
+|example-information-description|
+
 .. note::
 
     You can use info in the description to later search for an experiment in the UI. Here is how: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-experiment-information-tags:
 
@@ -354,11 +372,13 @@ You can easily remove tags programmatically if you wish using :meth:`~neptune.ex
     # Assuming experiment has tags: `['tag-1', 'tag-2']`.
     experiment.remove_tag('tag-1')
 
+|example-information-tags|
+
 .. note::
 
     You can quickly filter by tag by clicking on it in the experiments dashboard. Check :ref:`Searching and filtering experiments <searching-and-filtering-experiments>` guide for more options.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-properties:
 
@@ -387,11 +407,13 @@ What distinguishes them from :ref:`parameters <logging-experiment-data-parameter
 
 They appear in the |details| section and can be displayed as a column on the |experiment-dashboard|.
 
+|example-properties|
+
 .. note::
 
     You can :meth:`~neptune.experiments.Experiment.remove_property` programmatically.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-data-versions:
 
@@ -416,7 +438,9 @@ Log data version or dataset hash to Neptune as a :ref:`property <logging-experim
 
 In this way you can keep track on what data given model was trained. Data version will appear in the |details| section and can be displayed as a column on the |experiment-dashboard|.
 
-:ref:`back to list <what-you-can-log>`
+|example-data-versions|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-files:
 
@@ -435,11 +459,13 @@ Log any file you want, by using :meth:`~neptune.experiments.Experiment.log_artif
 
 You can browse and download files in the |artifacts| section of the experiment.
 
+|example-files|
+
 .. note::
 
     Keep an eye on your artifacts as they may consume a lot of storage. You can always remove some by using :meth:`~neptune.experiments.Experiment.delete_artifacts`.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-files-model-checkpoints:
 
@@ -460,7 +486,9 @@ Log model checkpoints as artifacts, using :meth:`~neptune.experiments.Experiment
 
 This technique let you save model from any deep learning framework. Model checkpoint will appear in the |artifacts| section in the 'model_checkpoints' directory: |model-checkpoint|.
 
-:ref:`back to list <what-you-can-log>`
+|example-model-checkpoints|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-files-html-objects:
 
@@ -484,9 +512,9 @@ Log HTML files, using :meth:`~neptunecontrib.api.html.log_html`.
 
 HTML will appear in the |artifacts| section, with path ``html/my_file.html``. They are interactive in Neptune.
 
-Here is |html-example|.
+|example-html-objects|
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-images:
 
@@ -519,6 +547,8 @@ Log images to Neptune. You can log either single image or series of them, using 
 
 You will have images in the |logs| section of the experiment, where you can browse and download them.
 
+|example-images|
+
 .. note::
 
     Single image size limit is 15MB. If you work with larger files, you can log them using :meth:`~neptune.experiments.Experiment.log_artifact`. Check :ref:`Files section <logging-experiment-data-files>` for more info.
@@ -527,7 +557,7 @@ You will have images in the |logs| section of the experiment, where you can brow
 
     You can log unlimited number of images either in the single log or in the multiple image logs.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-images-matplotlib:
 
@@ -553,11 +583,13 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an image, by using :meth:`~ne
 
 You will have Matplotlib figure in the |streamplot| section of the experiment, where you can browse and download them.
 
+|example-images-matplotlib|
+
 .. note::
 
     Check :ref:`Interactive Matplotlib logging <logging-experiment-data-interactive-charts-matplotlib>` to see how to log the same matplotlib figure and have it turned interactive in Neptune.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-images-pil:
 
@@ -565,7 +597,9 @@ PIL
 """
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-images-pil|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-images-numpy:
 
@@ -573,7 +607,9 @@ NumPy
 """""
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-images-numpy|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts:
 
@@ -581,7 +617,9 @@ Interactive charts
 ^^^^^^^^^^^^^^^^^^
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-interactive-charts|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-matplotlib:
 
@@ -608,13 +646,13 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by usin
 
 Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` where you can explore and download it.
 
-Here is |matplotlib-interactive|.
+|example-interactive-charts-matplotlib|
 
 .. note::
 
     Check :ref:`Matplotlib logging <logging-experiment-data-images-matplotlib>` to see how to log the same matplotlib figure as an image.
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-altair:
 
@@ -622,7 +660,9 @@ Altair
 """"""
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-interactive-charts-altair|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-bokeh:
 
@@ -630,7 +670,9 @@ Bokeh
 """""
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-interactive-charts-bokeh|
+
+:ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-plotly:
 
@@ -638,60 +680,77 @@ Plotly
 """"""
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-interactive-charts-plotly|
 
-.. _logging-experiment-data-images-video:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-video:
 
 Video
 ^^^^^
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-video|
 
-.. _logging-experiment-data-images-audio:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-audio:
 
 Audio
 ^^^^^
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-audio|
 
-.. _logging-experiment-data-images-tables:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-tables:
 
 Tables
 ^^^^^^
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-tables|
 
-.. _logging-experiment-data-images-pandas:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-pandas:
 
 pandas
 """"""
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-pandas|
 
-.. _logging-experiment-data-images-csv:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-csv:
 
 csv
 """
 [text]
 
-:ref:`back to list <what-you-can-log>`
+|example-csv|
 
-.. _logging-experiment-data-images-python-objects:
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-python-objects:
 
 Python objects
 ^^^^^^^^^^^^^^
 [text]
 
-:ref:`back to list <what-you-can-log>`
+:ref:`back to top <what-you-can-log>`
 
-.. _logging-experiment-data-images-python-objects-dalex:
+.. _logging-experiment-data-python-objects-dalex:
 
 Explainers (DALEX)
 """"""""""""""""""
+[text]
+
+|example-python-objects-dalex|
+
+:ref:`back to top <what-you-can-log>`
 
 
 
@@ -777,10 +836,6 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts" target="_blank">artifacts</a>
 
-.. |html-example| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-988/artifacts?path=html%2F&file=button_example.html" target="_blank">html example</a>
-
 .. |streamplot| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2027/logs" target="_blank">logs</a>
@@ -789,6 +844,209 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
     <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.figure.Figure.html#matplotlib-figure-figure" target="_blank">matplotlib.figure.Figure</a>
 
-.. |matplotlib-interactive| raw:: html
 
-    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=matplotlib_figure.html" target="_blank">example visualization</a>
+.. Buttons
+
+.. |example-metrics| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-parameters| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/parameters"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-code-git| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-code-snapshot| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-notebook-snapshot| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/USERNAME/example-project/n/analysis-of-top-70-experiments-final-final-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-text| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-hardware-consumption| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/monitoring"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-information-name| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-information-description| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-information-tags| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-properties| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-data-versions| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-files| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-model-checkpoints| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=model_checkpoints%2F"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-html-objects| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-988/artifacts?path=html%2F&file=button_example.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-images| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-images-matplotlib| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2027/logs"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-images-pil| raw:: html
+
+.. |example-images-numpy| raw:: html
+
+.. |example-interactive-charts| raw:: html
+
+.. |example-interactive-charts-matplotlib| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=matplotlib_figure.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-interactive-charts-altair| raw:: html
+
+.. |example-interactive-charts-bokeh| raw:: html
+
+.. |example-interactive-charts-plotly| raw:: html
+
+.. |example-video| raw:: html
+
+.. |example-audio| raw:: html
+
+.. |example-tables| raw:: html
+
+.. |example-pandas| raw:: html
+
+.. |example-csv| raw:: html
+
+.. |example-python-objects-dalex| raw:: html
