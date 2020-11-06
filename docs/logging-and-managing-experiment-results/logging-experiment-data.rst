@@ -799,7 +799,21 @@ Interactive plotly chart will appear in the |artifacts| section, with path ``cha
 
 Video
 ^^^^^
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
+   :alt: Video preview in the experiment
+
+Log video files and watch them right in the artifacts section of the experiment. Use :meth:`~neptunecontrib.api.video.log_video` to do it.
+
+.. code-block:: python3
+
+    # Import log_video
+    from neptunecontrib.api.video import log_video
+
+    # Log video file from disk
+    log_video('/path/to/video-file.mp4')
+
+As a result, video player is rendered in the artifacts section under path ``video/my_video.html`` (in the snippet above: ``video/video-file.html``) where you can watch, open in full screen and download it.
 
 |example-video|
 
@@ -809,7 +823,21 @@ Video
 
 Audio
 ^^^^^
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
+   :alt: Audio files in the experiment
+
+Log audio files and listen to them directly from the artifacts section of the experiment. Use :meth:`~neptunecontrib.api.audio.log_audio` to do it.
+
+.. code-block:: python3
+
+    # Import log_audio
+    from neptunecontrib.api.audio import log_audio
+
+    # Log audio file from disk
+    log_audio('/path/to/audio-file.mp3')
+
+As a result, player is rendered in the artifacts section under path ``audio/my_audio.html`` (in the snippet above: ``audio/audio-file.html``) where you can listen to and download it.
 
 |example-audio|
 
@@ -819,9 +847,14 @@ Audio
 
 Tables
 ^^^^^^
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :alt: Table preview in the experiment
 
-|example-tables|
+When you log tabular data, such as csv or DataFrame, Neptune will display it as table automatically.
+
+* :ref:`pandas DataFrame <logging-experiment-data-pandas>`
+* :ref:`csv file <logging-experiment-data-csv>`
 
 :ref:`back to top <what-you-can-log>`
 
@@ -829,7 +862,25 @@ Tables
 
 pandas
 """"""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
+   :alt: Table preview from pandas DataFrame in the experiment
+
+Log pandas DataFrame and have it visualized as table. Use :meth:`~neptunecontrib.api.table.log_table` to do it.
+
+.. code-block:: python3
+
+    # Import log_table
+    from neptunecontrib.api.table import log_table
+
+    # Create pandas DataFrame
+    df = pd.DataFrame(..)
+    ...
+
+    # Log DataFrame
+    log_table('dataframe-in-experiment', df)
+
+DataFrame is displayed in the |artifacts| section under path ``tables/my_dataframe.html`` (in the snippet above: ``tables/dataframe-in-experiment.html``) where you can inspect entries and download data.
 
 |example-pandas|
 
@@ -839,7 +890,18 @@ pandas
 
 csv
 """
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :alt: Table preview from csv in the experiment
+
+Log *csv* files and have them visualized as table. Use :meth:`~neptune.experiments.Experiment.log_artifact` to do it.
+
+.. code-block:: python3
+
+    # Log csv file
+    neptune.log_artifact('/path/to/test_preds.csv')
+
+Table rendered from the csv data is displayed in the artifacts section where you can inspect entries and download data.
 
 |example-csv|
 
@@ -849,7 +911,9 @@ csv
 
 Python objects
 ^^^^^^^^^^^^^^
-[text]
+Some Python object are rendered automatically.
+
+* :ref:`DALEX Explainers <logging-experiment-data-python-objects-dalex>`
 
 :ref:`back to top <what-you-can-log>`
 
@@ -857,23 +921,35 @@ Python objects
 
 Explainers (DALEX)
 """"""""""""""""""
-[text]
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
+   :alt: Table preview from csv in the experiment
+
+Log |dalex| explainer to Neptune and inspect them interactively. Use :meth:`~neptunecontrib.api.explainers.log_explainer` to do it.
+
+.. code-block:: python3
+
+    # Import dalex explainer
+    neptunecontrib.api.explainers import log_explainer
+
+    # Train your model
+    clf = ...
+    X = ...
+    y = ...
+
+    clf.fit(X, y)
+
+    # Create dalex explainer
+    expl = dx.Explainer(clf, X, y, label="Titanic MLP Pipeline")
+
+    # Log explainer
+    log_explainer('explainer.pkl', expl)
+
+As a result, pickled explainer and charts will be available in the artifacts section of the experiment.
 
 |example-python-objects-dalex|
 
 :ref:`back to top <what-you-can-log>`
-
-
-
-
-
-
-
-
-
-
-
-
 
 Logging with integrations
 -------------------------
@@ -955,6 +1031,9 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
     <a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.figure.Figure.html#matplotlib-figure-figure" target="_blank">matplotlib.figure.Figure</a>
 
+.. |dalex| raw:: html
+
+    <a href="https://modeloriented.github.io/DALEX/" target="_blank">Dalex</a>
 
 .. Buttons
 
@@ -1200,12 +1279,50 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
 .. |example-video| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1635/artifacts?path=video%2F&file=SAC.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-audio| raw:: html
 
-.. |example-tables| raw:: html
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1485/artifacts?path=audio%2F&file=sample-mp4-file.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
 
 .. |example-pandas| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=tables%2F&file=pandas_df.html">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-csv| raw:: html
 
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2040/artifacts?file=iris.csv">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
 .. |example-python-objects-dalex| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/dalex-integration/e/DAL-48/artifacts">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
