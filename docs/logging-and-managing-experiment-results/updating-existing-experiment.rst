@@ -4,7 +4,7 @@ Updating existing experiment
 ============================
 [loom-placeholder]
 
-You can update experiments even after they finished running. This enables updating experiment with new data and visualizations even after closing experiment and makes multi-stage training convenient.
+You can update experiments even after they finished running. This let you update experiment with new data or visualizations even after closing experiment and makes multi-stage training convenient.
 
 .. _update-existing-experiment-basics:
 
@@ -15,12 +15,31 @@ Why updating existing experiment
 Updating existing experiment can be handy, in several situations:
 
 * You want to enrich closed experiment with more metrics or visualizations.
-* You finished model training earlier and now want to continue training from that moment. You want to keep logging new metrics for that update. Actually, you can even make multiple iterations of the procedure: ``resume experiment -> log more data``. Have a look at the :ref:`simple case <update-existing-experiment-basics-simple-case>` for details.
+* You finished model training and closed the experiment earlier, but now you want to continue training from that moment. Actually, you can even make multiple iterations of the procedure: ``resume experiment -> log more data``. Have a look at the :ref:`simple example <update-existing-experiment-basics-simple-example>` below for details.
 
-.. _update-existing-experiment-basics-simple-case:
+.. _update-existing-experiment-basics-simple-example:
 
-Update existing experiment - simple case
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Simple example
+^^^^^^^^^^^^^^
+In this example you will see how to upload more data to the existing experiment that was previously closed. Example result below, shows updated experiment with more data-points logged to the ``'mse'`` metric and ``'pretty-random-metric'`` added.
+
++--------------------------------------------------------------------------------------------------------------------+
+| .. image:: ../_static/images/logging-and-managing-experiment-results/updating-experiment/update-charts-before.png  |
+|    :target: ../_static/images/logging-and-managing-experiment-results/updating-experiment/update-charts-before.png |
+|    :alt: Charts in original experiment                                                                             |
++====================================================================================================================+
+| Charts in original experiment                                                                                      |
++--------------------------------------------------------------------------------------------------------------------+
+
++-------------------------------------------------------------------------------------------------------------------+
+| .. image:: ../_static/images/logging-and-managing-experiment-results/updating-experiment/update-charts-after.png  |
+|    :target: ../_static/images/logging-and-managing-experiment-results/updating-experiment/update-charts-after.png |
+|    :alt: Charts in updated experiment                                                                             |
++===================================================================================================================+
+| Charts in updated experiment                                                                                      |
++-------------------------------------------------------------------------------------------------------------------+
+
+
 To update existing experiment with new data, you need to perform just two steps.
 
 Get experiment to update
@@ -63,9 +82,9 @@ With ``my_exp`` at hand, you can use it to continue logging to the experiment wi
 
 Really nothing special here. Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
 
-Example
-"""""""
-Experiment with ``id='SHOW-2066'`` was recorded then updated: |original-exp|. All th sources are logged:
+Example Code
+""""""""""""
+Experiment with ``id='SHOW-2066'`` was recorded then updated: |original-exp|. All the sources are logged:
 
 * |original| - in the "Source code" section.
 * |update| - logged as file and rendered nicely in the "Artifacts" section.
@@ -76,78 +95,24 @@ Experiment with ``id='SHOW-2066'`` was recorded then updated: |original-exp|. Al
 
 What you can/cannot update
 --------------------------
+You can freely use all :class:`~neptune.experiments.Experiment` methods for logging more data:
 
+* :meth:`~neptune.experiments.Experiment.log_metric`
+* :meth:`~neptune.experiments.Experiment.log_artifact`
+* :meth:`~neptune.experiments.Experiment.log_image`
+* :meth:`~neptune.experiments.Experiment.log_text`
+
+All other methods like :meth:`~neptune.experiments.Experiment.set_property`, :meth:`~neptune.experiments.Experiment.append_tag` or :meth:`~neptune.experiments.Experiment.download_artifacts` will work just fine.
+
+However, updating experiment come with some limitation, notably:
+
+* you cannot update |parameters| and |source-code|, but you can upload sources as artifact, using :meth:`~neptune.experiments.Experiment.log_artifact`.
+* |hardware-consumption| for the update will not be tracked.
+* ``stdout`` and ``stderr`` are not logged during update.
+* experiment status (failed/succeeded/aborted) will not be updated.
 
 .. _update-existing-experiment-step-by-step:
 
-How to update step by step
---------------------------
-
-Troubleshooting
----------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Step 2: Fetch Experiment
-------------------------
-
-Use ``project.get_experiment()`` method and specify your experiment ID.
-For example:
-
-.. code:: python
-
-    experiment = project.get_experiments(id='ON-238')[0]
-
-``project.get_experiment()`` returns a list of experiments. In this case we just have one but still need to access it.
-
-Step 3: Update experiment
--------------------------
-
-You can use **all** the normal ``experiment`` logging methods like:
-
-- ``.log_metric``
-- ``.log_image``
-- ``.log_artifact``
-
-For example I'll update the experiment with a new metric 'external_test_auc':
-
-.. code:: python
-
-    experiment.log_metric('external_test_auc', 0.82)
-
-And you can go to the UI and see your updated experiment.
-
-.. warning::
-
-    Some things are not logged when you update the existing experiment.
-
-    Those are:
-
-    - hardware consumption, stderr, stdout logs in the ``Monitoring`` section
-    - code in the ``Source code`` section
 
 .. External links
 
@@ -161,7 +126,26 @@ And you can go to the UI and see your updated experiment.
 
 .. |original-exp| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2066/charts" target="_blank">example</a>
+    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2066/charts" target="_blank">here it is</a>
+
+.. |parameters| raw:: html
+
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/parameters" target="_blank">parameters</a>
+
+.. |hardware-consumption| raw:: html
+
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/monitoring" target="_blank">hardware consumption</a>
+
+.. |source-code| raw:: html
+
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code" target="_blank">source code</a>
+
+
+
+
+
+
+
 
 .. Buttons
 
