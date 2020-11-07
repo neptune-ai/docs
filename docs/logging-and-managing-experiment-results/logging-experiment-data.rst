@@ -14,6 +14,8 @@ You can track many different types of (meta)-data to the experiment. It can be m
 
 .. _basics-of-logging:
 
+-----
+
 Basics of logging
 -----------------
 Logging experiments data to Neptune is simple and straightforward.
@@ -42,6 +44,8 @@ Everything that is evaluated after ``neptune.create_experiment()`` and before th
 [loom-placeholder]
 
 .. _what-you-can-log:
+
+-----
 
 What you can log
 ----------------
@@ -962,6 +966,8 @@ As a result, pickled explainer and charts will be available in the artifacts sec
 
 :ref:`back to top <what-you-can-log>`
 
+-----
+
 Logging with integrations
 -------------------------
 Besides logging using Neptune Python library, you can also use integrations that let you log relevant data with almost no code changes. Have a look at :ref:`Integrations page <integrations-index>` for more information or find your favourite library in one of the following categories:
@@ -976,6 +982,8 @@ Besides logging using Neptune Python library, you can also use integrations that
 [loom-placeholder]
 
 .. _logging-advanced:
+
+-----
 
 Advanced
 --------
@@ -1083,30 +1091,47 @@ Logging to multiple experiments in one script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [loom-placeholder]
 
+You can freely create multiple experiments in the single script and log to them separately. General recipe is very straightforward, as you simply create multiple :class:`~neptune.experiments.Experiment` objects - one for each experiment.
+
+Create three experiments and log metric to each separately:
+
+.. code-block:: python3
+
+    import neptune
+
+    # Set project
+    project = neptune.init('my_workspace/my_project')
+
+    # Create three experiments
+    my_exp1 = project.create_experiment(name='1st')
+    my_exp2 = project.create_experiment(name='2nd')
+    my_exp3 = project.create_experiment(name='3rd')
+
+    # Log metric to my_exp1
+    for batch in data:
+        loss = ...
+        my_exp1.log_metric('mean_squared_error', loss)
+
+    for batch in data:
+        loss = ...
+        my_exp2.log_metric('mean_squared_error', loss)
+
+    for batch in data:
+        loss = ...
+        my_exp3.log_metric('mean_squared_error', loss)
+
+    neptune.log_text('info', 'This goes to the most recently created experiment, here "my_exp3".')
+
+Few remarks:
+
+* Notice that we log MSE, by using the ``my_exp1``, ``my_exp2`` and ``my_exp3``. In this way you can log freely to many experiments from the same Python script.
+* If you use global call ``neptune.log_X()``, then you only log to the most recently created experiment.
+
+.. note::
+
+    Organize experiments by adding :ref:`tags <logging-experiment-data-experiment-information-tags>` or short :ref:`name <logging-experiment-data-experiment-information-name>`.
+
 |example-advanced-logging-to-multiple-experiments|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .. External links
@@ -1475,7 +1500,7 @@ Logging to multiple experiments in one script
 
     <div class="see-in-neptune">
         <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
+                   href="https://ui.neptune.ai/o/shared/org/showroom/experiments?viewId=205bf909-6f8f-40f8-be64-aa19f61f9b3b">
                 <img width="50" height="50" style="margin-right:10px"
                      src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
         </button>
