@@ -6,22 +6,33 @@ During machine learning experimentation, you need to keep track of many differen
 
 You can track many different types of (meta)-data to the experiment. It can be metric, loss, image, interactive visualization, model checkpoint, pandas DataFrame and many more. Simply check :ref:`what you can log <what-you-can-log>` section below for complete listing.
 
+**On this page:**
+
+* :ref:`Basics of logging <basics-of-logging>`
+* :ref:`What you can log <what-you-can-log>`
+* :ref:`Advanced topics <logging-advanced>`
+
+.. _basics-of-logging:
+
 Basics of logging
 -----------------
 Logging experiments data to Neptune is simple and straightforward.
 
 Minimal example
 ^^^^^^^^^^^^^^^
-Let's create minimal code snippet that log single value to the experiment: 'acc'=0.95.
+Let's create minimal code snippet that log single value to the experiment: ``'acc'=0.95``.
 
 .. code-block:: python3
 
     import neptune
 
+    # Set project
     neptune.init('my_workspace/my_project')
+
+    # Create experiment
     neptune.create_experiment()
 
-    # log 'acc' value 0.95
+    # Log 'acc' value 0.95
     neptune.log_metric('acc', 0.95)
 
 Above snippet sets project, creates experiment and log one value to it. When script ends, the experiment is closed automatically. As a result you have new experiment with one value in one metric ('acc'=0.95).
@@ -955,34 +966,147 @@ Logging with integrations
 -------------------------
 Besides logging using Neptune Python library, you can also use integrations that let you log relevant data with almost no code changes. Have a look at :ref:`Integrations page <integrations-index>` for more information or find your favourite library in one of the following categories:
 
-- :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
-- :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
-- :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
-- :ref:`Visualization libraries <integrations-visualization-tools>`
-- :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
-- :ref:`Other integrations <integrations-other-integrations>`
+* :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
+* :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
+* :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
+* :ref:`Visualization libraries <integrations-visualization-tools>`
+* :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
+* :ref:`Other integrations <integrations-other-integrations>`
 
 [loom-placeholder]
 
+.. _logging-advanced:
+
 Advanced
 --------
-Minimal example revisited
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Let's create minimal code snippet that log single value to the experiment: 'acc'=0.96.
+
+.. _logging-advanced-using-experiment-object-explicitly:
+
+Using Project and Experiment objects explicitly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[loom-placeholder]
+
+If you work with large codebase, you may want to switch from using global ``neptune`` calls like ``neptune.create_experiment()`` or ``neptune.log_metric()`` to passing objects around, either :class:`~neptune.projects.Project` or :class:`~neptune.experiments.Experiment`.
+
+Let's revisit minimal code snippet from the :ref:`basics section <basics-of-logging>`. Modify it to use :class:`~neptune.projects.Project` and :class:`~neptune.experiments.Experiment` objects and log a bit more data.
+
+.. code-block:: python3
+
+    # Import libraries
+    import neptune
+    from neptunecontrib.api.table import log_table
+
+    # Set project
+    project = neptune.init('my_workspace/my_project')
+
+    # Use 'project' to create experiment
+    my_exp = project.create_experiment(name='minimal-example-exp-proj',
+                                       tags=['do-not-remove'])
+
+    # Log using my_exp
+    my_exp.log_metric(...)
+    my_exp.log_image(...)
+    my_exp.log_text(...)
+
+    # Logging with neptunecontrib methods is a bit different
+    df = ...
+    fig = ...
+    log_table(name='pandas_df', table=df, experiment=my_exp)
+    log_chart('matplotlib-interactive', fig, my_exp)
+
+**Few explanations**
+
+* Use instance of the :class:`~neptune.projects.Project` object returned by the :meth:`~neptune.init` to create new experiment.
+* Next, :meth:`~neptune.projects.Project.create_experiment` returns :class:`~neptune.experiments.Experiment` object that we use for logging purposes.
+* Notice that logging with neptunecontrib :mod:`~neptunecontrib.api` is slightly different as you pass :class:`~neptune.experiments.Experiment` object as an argument.
+
+|example-advanced-exp-object|
+
+.. _logging-advanced-pass-experiment-object-around:
+
+Pass Experiment object around to log from multiple Python files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[loom-placeholder]
+
+You can pass :class:`~neptune.experiments.Experiment` object around and use it to populate functions' parameters and perform logging from multiple Python files.
+
+Let's create a recipe for that:
+
+**main.py**
 
 .. code-block:: python3
 
     import neptune
+    from utils import log_images_epoch, log_preds_as_table
 
-    neptune.init('my_workspace/my_project')
-    exp = neptune.create_experiment()
+    # Set project
+    project = neptune.init('my_workspace/my_project')
 
-    # log 'acc' value 0.96
-    exp.log_metric('acc', 0.96)
+    # Create experiment
+    my_exp = project.create_experiment(...)
 
-``neptune.create_experiment()`` returns :class:`~neptune.experiments.Experiment` object, that allows you to pass it around your code base and perform logging from multiple Python files to the single experiment.
+    # Log metrics in the same file
+    my_exp.log_metric('acc', 0.95)
+    my_exp.log_metric('acc', 0.99)
 
+    # Log by using imported function, pass 'my_exp'
+    log_images_epoch(experiment=my_exp)
+    log_preds_as_table(experiment=my_exp)
+
+**utils.py**
+
+.. code-block:: python3
+
+    from neptunecontrib.api.table import log_table
+
+    # 'experiment' is an instance of the Experiment object
+    def log_images_epoch(experiment):
+        image1 = ...
+        image2 = ...
+
+        experiment.log_image('PIL-image', image1)
+        experiment.log_image('NumPy-image', image2)
+
+    # 'experiment' is an instance of the Experiment object
+    def log_preds_as_table(experiment):
+        preds_df = ...
+
+        log_table(name='test_preds_df', table=preds_df, experiment=experiment)
+
+In this way you can work with larger codebase and use logging from multiple Python files.
+
+|example-advanced-pass-exp-object|
+
+.. _logging-advanced-logging-to-multiple-experiments:
+
+Logging to multiple experiments in one script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [loom-placeholder]
+
+|example-advanced-logging-to-multiple-experiments|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .. External links
@@ -1322,6 +1446,36 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
     <div class="see-in-neptune">
         <button><a target="_blank"
                    href="https://ui.neptune.ai/o/shared/org/dalex-integration/e/DAL-48/artifacts">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-advanced-exp-object| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2043/source-code?path=.&file=minimal-exp-proj.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-advanced-pass-exp-object| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-advanced-logging-to-multiple-experiments| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
                 <img width="50" height="50" style="margin-right:10px"
                      src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
         </button>
