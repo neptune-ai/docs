@@ -8,10 +8,8 @@ You can update experiments even after they finished running. This let you update
 
 .. _update-existing-experiment-basics:
 
-Basics of updating
-------------------
 Why updating existing experiment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------
 Updating existing experiment can be handy, in several situations:
 
 * You want to enrich closed experiment with more metrics or visualizations.
@@ -20,7 +18,7 @@ Updating existing experiment can be handy, in several situations:
 .. _update-existing-experiment-basics-simple-example:
 
 Simple example
-^^^^^^^^^^^^^^
+--------------
 In this example you will see how to upload more data to the existing experiment that was previously closed. Example result below, shows updated experiment with more data-points logged to the ``'mse'`` metric and ``'pretty-random-metric'`` added.
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -39,11 +37,12 @@ In this example you will see how to upload more data to the existing experiment 
 | Charts in updated experiment                                                                                      |
 +-------------------------------------------------------------------------------------------------------------------+
 
+|example-update|
 
 To update existing experiment with new data, you need to perform just two steps.
 
 Get experiment to update
-""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^
 Retrieve the :class:`~neptune.experiments.Experiment` object of the experiment you want to update.
 
 .. code-block:: python3
@@ -65,7 +64,7 @@ Few explanations:
 Experiment with ``id='SHOW-2066'`` is now ready to be updated. Use ``my_exp`` to continue logging to it.
 
 Log more data
-"""""""""""""
+^^^^^^^^^^^^^
 With ``my_exp`` at hand, you can use it to continue logging to the experiment with ``id='SHOW-2066'``.
 
 .. code-block:: python3
@@ -82,9 +81,13 @@ With ``my_exp`` at hand, you can use it to continue logging to the experiment wi
 
 Really nothing special here. Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
 
+.. note::
+
+    You can retrieve an experiment and log more data to it multiple times.
+
 Example Code
-""""""""""""
-Experiment with ``id='SHOW-2066'`` was recorded then updated: |original-exp|. All the sources are logged:
+^^^^^^^^^^^^
+Experiment with ``id='SHOW-2066'`` was recorded, then updated: |original-exp|. All the sources are logged:
 
 * |original| - in the "Source code" section.
 * |update| - logged as file and rendered nicely in the "Artifacts" section.
@@ -104,7 +107,7 @@ You can freely use all :class:`~neptune.experiments.Experiment` methods for logg
 
 All other methods like :meth:`~neptune.experiments.Experiment.set_property`, :meth:`~neptune.experiments.Experiment.append_tag` or :meth:`~neptune.experiments.Experiment.download_artifacts` will work just fine.
 
-However, updating experiment come with some limitation, notably:
+However, updating experiment comes with some limitations, notably:
 
 * you cannot update |parameters| and |source-code|, but you can upload sources as artifact, using :meth:`~neptune.experiments.Experiment.log_artifact`.
 * |hardware-consumption| for the update will not be tracked.
