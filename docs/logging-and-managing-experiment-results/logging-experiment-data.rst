@@ -28,7 +28,7 @@ Above snippet sets project, creates experiment and log one value to it. When scr
 
 Everything that is evaluated after ``neptune.create_experiment()`` and before the end of the script can be logged to the experiment.
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 .. _what-you-can-log:
 
@@ -962,7 +962,7 @@ Besides logging using Neptune Python library, you can also use integrations that
 - :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
 - :ref:`Other integrations <integrations-other-integrations>`
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 Advanced
 --------
@@ -982,7 +982,7 @@ Let's create minimal code snippet that log single value to the experiment: 'acc'
 
 ``neptune.create_experiment()`` returns :class:`~neptune.experiments.Experiment` object, that allows you to pass it around your code base and perform logging from multiple Python files to the single experiment.
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 
 .. External links

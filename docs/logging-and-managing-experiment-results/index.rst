@@ -11,7 +11,7 @@ What is neptune-client?
 
 It is designed to be **lightweight** (low setup effort), **generic** (capable of logging any kind of machine learning work) and **straightforward** (user defines what to keep track of during experiment) to use.
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 What you need to add to your code to start logging
 --------------------------------------------------
@@ -50,7 +50,7 @@ Check the :ref:`logging section <what-you-can-log>` for a complete list.
 
     Note that you are still able to :ref:`update an experiment <update-existing-experiment>` that was closed before.
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 Essential parts
 ---------------
@@ -82,7 +82,7 @@ You can log experiments from :ref:`anywhere <execution-environments-index>` (loc
 
 Learn more about |docs-experiment| to use in your Python code.
 
-**[loom-placeholder]**
+[loom-placeholder]
 
 What you can do?
 ----------------
