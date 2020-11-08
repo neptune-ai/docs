@@ -18,6 +18,8 @@ You can track many different types of (meta)-data to the experiment. It can be m
 
 Basics of logging
 -----------------
+[loom-placeholder]
+
 Logging experiments data to Neptune is simple and straightforward.
 
 Minimal example
@@ -978,8 +980,6 @@ Besides logging using Neptune Python library, you can also use integrations that
 * :ref:`Visualization libraries <integrations-visualization-tools>`
 * :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
 * :ref:`Other integrations <integrations-other-integrations>`
-
-[loom-placeholder]
 
 .. _logging-advanced:
 
