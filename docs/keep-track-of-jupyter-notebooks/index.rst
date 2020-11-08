@@ -169,6 +169,8 @@ You can upload Notebook checkpoints from Jupyter to Neptune.
 
 A confirmation message is displayed. You can click the link in the message to open the Notebook in Neptune.
 
+.. _download-notebook:
+
 Downloading a Notebook
 ~~~~~~~~~~~~~~~~~~~~~~
 

@@ -79,7 +79,7 @@ With ``my_exp`` at hand, you can use it to continue logging to the experiment wi
 
     log_chart('matplotlib-interactive', fig, my_exp)
 
-Really nothing special here. Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
+Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
 
 .. note::
 
@@ -87,7 +87,7 @@ Really nothing special here. Technique is the same as described in section about
 
 Example Code
 ^^^^^^^^^^^^
-Experiment with ``id='SHOW-2066'`` was recorded, then updated: |original-exp|. All the sources are logged:
+Experiment with ``id='SHOW-2066'`` was recorded, then updated: |original-exp|. All the sources are logged that is:
 
 * |original| - in the "Source code" section.
 * |update| - logged as file and rendered nicely in the "Artifacts" section.
@@ -98,7 +98,7 @@ Experiment with ``id='SHOW-2066'`` was recorded, then updated: |original-exp|. A
 
 What you can/cannot update
 --------------------------
-You can freely use all :class:`~neptune.experiments.Experiment` methods for logging more data:
+You can freely use all :class:`~neptune.experiments.Experiment` methods. These include core methods for logging more data:
 
 * :meth:`~neptune.experiments.Experiment.log_metric`
 * :meth:`~neptune.experiments.Experiment.log_artifact`
@@ -106,6 +106,19 @@ You can freely use all :class:`~neptune.experiments.Experiment` methods for logg
 * :meth:`~neptune.experiments.Experiment.log_text`
 
 All other methods like :meth:`~neptune.experiments.Experiment.set_property`, :meth:`~neptune.experiments.Experiment.append_tag` or :meth:`~neptune.experiments.Experiment.download_artifacts` will work just fine.
+
+Moreover, you can use all logging methods from ``neptunecontrib``, that is:
+
+* :meth:`~neptunecontrib.api.audio.log_audio`
+* :meth:`~neptunecontrib.api.chart.log_chart`
+* :meth:`~neptunecontrib.api.video.log_video`
+* :meth:`~neptunecontrib.api.table.log_table`
+* :meth:`~neptunecontrib.api.html.log_html`
+* :meth:`~neptunecontrib.api.explainers.log_explainer`
+
+.. note::
+
+    Learn more about :ref:`logging options <what-you-can-log>` to see why and how to use each method.
 
 However, updating experiment comes with some limitations, notably:
 
@@ -142,13 +155,6 @@ However, updating experiment comes with some limitations, notably:
 .. |source-code| raw:: html
 
     <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code" target="_blank">source code</a>
-
-
-
-
-
-
-
 
 .. Buttons
 
