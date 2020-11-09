@@ -1,5 +1,9 @@
+.. _searching-and-filtering-experiments:
+
 Searching and filtering experiments
 ===================================
+
+.. _basic-filtering:
 
 Basic Filtering
 ---------------
