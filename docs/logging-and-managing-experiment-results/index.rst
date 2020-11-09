@@ -98,7 +98,7 @@ You can think of three main actions around experiments:
    :hidden:
 
    Logging experiment data <logging-experiment-data.rst>
-   Downloading experiment data programmatically <downloading-experiment-data-programmatically.rst>
+   Downloading experiment data <downloading-experiment-data.rst>
    Updating existing experiment <updating-existing-experiment.rst>
 
 
