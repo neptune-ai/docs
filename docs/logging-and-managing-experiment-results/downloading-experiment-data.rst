@@ -48,8 +48,8 @@ Download experiments dashboard data as pandas DataFrame. Use :meth:`~neptune.pro
 
 .. _download_data-can-cannot:
 
-What you can/cannot download
-----------------------------
+What you can download
+---------------------
 
 .. _download-programmatically:
 
@@ -109,8 +109,81 @@ First, you need to get correct project, then you simply run :meth:`~neptune.proj
 
 Experiment level
 """"""""""""""""
+On this level you can use all methods that get/download data from the :class:`neptune.experiments.Experiment` object. Three types of data are especially useful: metrics, artifacts and source code.
 
-The following methods are provided:
+First step in all cases is to get experiment object.
+
+.. code-block:: python3
+
+    import neptune
+
+    # Get project
+    project = neptune.init('my_workspace/my_project')
+
+    # Get experiment object for appropriate experiment, here 'SHOW-2066'
+    my_exp = project.get_experiments(id='SHOW-2066')[0]
+
+Have a look at :ref:`this section <update-existing-experiment-basics-simple-example>` about updating experiments to learn more about it.
+
+Here, ``my_exp`` is :class:`neptune.experiments.Experiment` object that will be used in the following section about downloading metrics, artifacts and source code.
+
+Metrics
+~~~~~~~
+Download metrics data as pandas DataFrame.
+
+.. code-block:: python3
+
+    # Example metrics to download
+    my_metrics = ['epoch/accuracy', 'epoch/loss']
+
+    # 'my_exp' is experiment object
+    metrics_data_df = my_exp.get_numeric_channels_values(*my_metrics)
+
+Notice star ``*`` in the :meth:`~neptune.experiments.Experiment.get_numeric_channels_values`, as this method accepts comma separated names - list is not accepted.
+
+``metrics_data_df`` is a pandas DataFrame with metrics data.
+
+.. note::
+
+    Use :meth:`~neptune.experiments.Experiment.get_logs` to discover all logs (types: metrics, text, images) names in the experiment.
+
+.. note::
+
+    It’s good idea to get metrics with common temporal pattern (like iteration or batch/epoch number). Thanks to this each row of returned DataFrame has metrics from the same moment in experiment. For example, combine epoch metrics to one DataFrame and batch metrics to the other.
+
+Files
+~~~~~
+Download files from the experiment. Any file that is logged to the |artifacts| section can be downloaded.
+
+Notice that there are two methods for this:
+
+* :meth:`~neptune.experiments.Experiment.download_artifact`: single file download.
+* :meth:`~neptune.experiments.Experiment.download_artifacts`: multiple files download as a ZIP archive.
+
+.. code-block:: python3
+
+    # Download csv file
+    my_exp.download_artifact('aux_data/preds_test.csv', 'data/')
+
+    # Download all model checkpoints to the cwd
+    my_exp.download_artifacts('model_checkpoints/')
+
+Source code
+~~~~~~~~~~~
+Download source code used un the experiment as a ZIP archive.
+
+.. code-block:: python3
+
+    # Download all sources to the cwd
+    my_exp.download_sources()
+
+.. note::
+
+    You can also download source durectly from the UI: :ref:`here is how <download-from-neptune-ui>`.
+
+Other options
+~~~~~~~~~~~~~
+Besides metrics, artifacts and scripts covered above, you can use other methods as well. Here is full listing of all methods provided by the :class:`neptune.experiments.Experiment`.
 
 * :meth:`~neptune.experiments.Experiment.get_hardware_utilization`: Gets GPU, CPU and memory utilization data.
 * :meth:`~neptune.experiments.Experiment.get_logs`: Gets all log names with their most recent values for this experiment.
@@ -122,14 +195,6 @@ The following methods are provided:
 * :meth:`~neptune.experiments.Experiment.download_artifact`: Download an artifact (file) from the experiment storage.
 * :meth:`~neptune.experiments.Experiment.download_artifacts`: Download a directory or a single file from experiment’s artifacts as a ZIP archive.
 * :meth:`~neptune.experiments.Experiment.download_sources`: Download a directory or a single file from experiment’s sources as a ZIP archive.
-
-
-Fetch metrics
-
-Fetch scripts
-
-Fetch artifacts
-
 
 .. _download-from-neptune-ui:
 
@@ -214,6 +279,10 @@ The result will look like this:
 .. |Youtube Video| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/ILnM4owoJqw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |artifacts| raw:: html
+
+    <a href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts" target="_blank">artifacts</a>
 
 .. Buttons
 
