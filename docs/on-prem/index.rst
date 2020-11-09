@@ -54,7 +54,7 @@ You can deploy Neptune on:
 
 .. |request a free 30 day on-prem trial| raw:: html
 
-    <a href="https://neptune.ai/pricing/own-infrastructure" target="_blank">request a free 30 day on-prem trial</a>
+    <a href="https://neptune-on-prem-trial.paperform.co/" target="_blank">request a free 30 day on-prem trial</a>
 
 .. |contact us| raw:: html
 

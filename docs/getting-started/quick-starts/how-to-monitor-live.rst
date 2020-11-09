@@ -220,6 +220,8 @@ If it worked correctly you should see:
 
 |Youtube video|
 
+|run on colab button|
+
 What's next
 -----------
 
@@ -235,62 +237,6 @@ Other useful articles:
 - |How to Track Machine Learning Model Metrics in Your Projects|
 - |How to Keep Track of PyTorch Lightning Experiments with Neptune|
 
-Full script
------------
-
-|run on colab button|
-
-.. code:: python
-
-    import keras
-    import neptune
-
-    # set project
-    neptune.init(api_token='ANONYMOUS',
-                 project_qualified_name='shared/onboarding')
-
-    # parameters
-    PARAMS = {'epoch_nr': 100,
-              'batch_size': 256,
-              'lr': 0.005,
-              'momentum': 0.4,
-              'use_nesterov': True,
-              'unit_nr': 256,
-              'dropout': 0.05}
-
-    # start experiment
-    neptune.create_experiment(name='great-idea')
-
-    class NeptuneMonitor(keras.callbacks.Callback):
-         def on_epoch_end(self, logs={}):
-              for metric_name, metric_value in logs.items():
-                   neptune.log_metric(metric_name, metric_value)
-
-    mnist = keras.datasets.mnist
-    (x_train, y_train),(x_test, y_test) = mnist.load_data()
-    x_train, x_test = x_train / 255.0, x_test / 255.0
-
-    model = keras.models.Sequential([
-      keras.layers.Flatten(),
-      keras.layers.Dense(PARAMS['unit_nr'], activation=keras.activations.relu),
-      keras.layers.Dropout(PARAMS['dropout']),
-      keras.layers.Dense(10, activation=keras.activations.softmax)
-    ])
-
-    optimizer = keras.optimizers.SGD(lr=PARAMS['lr'],
-                                     momentum=PARAMS['momentum'],
-                                     nesterov=PARAMS['use_nesterov'],)
-
-    model.compile(optimizer=optimizer,
-                  loss='sparse_categorical_crossentropy',
-                  metrics=['accuracy'])
-
-    model.fit(x_train, y_train,
-              epochs=PARAMS['epoch_nr'],
-              batch_size=PARAMS['batch_size'],
-              callbacks=[NeptuneMonitor()])
-
-
 .. External links
 
 .. |how to log other objects and monitor training in Neptune| raw:: html
@@ -303,9 +249,20 @@ Full script
 
 .. |run on colab button| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Monitor-ML-runs-live.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/monitor-ml-runs/docs/Monitor-ML-runs-live.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/quick-starts/monitor-ml-runs/docs/Monitor-ML-runs-live.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |YouTube video|  raw:: html
 

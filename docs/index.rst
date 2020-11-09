@@ -158,11 +158,25 @@ Discover Neptune
         </a>
     </div>
 
+
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Neptune-API-Tour.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/product-tours/how-it-works/showcase/Neptune-API-Tour.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/product-tours/how-it-works/docs/Neptune-API-Tour.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
+
+
 
 .. |Neptune| raw:: html
 
