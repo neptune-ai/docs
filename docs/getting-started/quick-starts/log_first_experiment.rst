@@ -54,7 +54,7 @@ Create a python script called `quickstart.py` and copy the code below to it:
     import neptune
 
     neptune.init(project_qualified_name='shared/onboarding',
-                  api_token='ANONYMOUS',
+                 api_token='ANONYMOUS',
                  )
 
     # Create experiment
@@ -69,8 +69,6 @@ Create a python script called `quickstart.py` and copy the code below to it:
         sleep(0.2) # to see logging live
         neptune.log_metric('random_training_metric', i * 0.6)
         neptune.log_metric('other_random_training_metric', i * 0.4)
-
-|run on colab button|
 
 .. note::
 
@@ -123,6 +121,8 @@ You’ve learned how to:
 * Explore your metrics in ``Logs`` and ``Charts`` sections
 * See hardware consumption during the experiment run
 
+|run on colab button|
+
 What's next
 -----------
 
@@ -140,9 +140,20 @@ Now that you know how to create experiments and log metrics you can learn:
 
 .. |run on colab button| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Use-Neptune-API-to-log-your-first-experiment.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |Explore experiment| raw:: html
 

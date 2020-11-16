@@ -3,8 +3,11 @@
 Neptune-XGBoost Integration
 ===========================
 
-What will you get?
-------------------
+|Run on Colab|
+
+What will you get with this integration?
+----------------------------------------
+
 |Youtube Video|
 
 XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. The integration with Neptune lets you log multiple training artifacts with no further customization.
@@ -20,20 +23,18 @@ The integration is implemented as XGBoost callback and provides the following ca
 * |feature| to Neptune as an image after the last boosting iteration.
 * |tree| to Neptune as images after the last boosting iteration.
 
+.. note::
+
+    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.124``.
+
 Where to start?
 ---------------
 To get started with this integration, follow the :ref:`Quickstart <quickstart-xgb>` below.
 
 If you want to try things out and focus only on the code you can either:
 
-#. Open Colab notebook (badge-link below) with quickstart code and run it as a "`neptuner`" user - zero setup, it just works,
+#. Open Colab notebook with quickstart code and run it as an anonymous user "`neptuner`" - zero setup, it just works,
 #. View quickstart code as a plain Python script on |script|.
-
-|Run on Colab|
-
-.. note::
-
-    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.124``.
 
 .. _quickstart-xgb:
 
@@ -45,6 +46,8 @@ Integration is implemented as XGBoost callback and made available in the ``neptu
 As a result you will have an experiment logged to Neptune with metrics, model,
 feature importances and (optionally, requires graphviz) visualized trees.
 Have a look at this example |exp|.
+
+|Run on Colab|
 
 Before you start
 ^^^^^^^^^^^^^^^^
@@ -187,9 +190,20 @@ Please visit the :ref:`Getting help <getting-help>` page. Everything regarding s
 
 .. |Run on Colab| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/xgboost/docs/Neptune-XGBoost.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/xgboost/docs/Neptune-XGBoost.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/xgboost/docs/Neptune-XGBoost.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |xgboost-install| raw:: html
 

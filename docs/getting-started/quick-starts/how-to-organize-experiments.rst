@@ -319,6 +319,8 @@ Both the columns and the filtering on rows will be saved as view.
 
     Create and save multiple views of the experiment table for different use cases or experiment groups.
 
+|run on colab button|
+
 What's next
 -----------
 
@@ -335,62 +337,24 @@ Other useful articles:
 - |How to Track Hyperparameters of Machine Learning Models|
 - |Explainable and Reproducible Machine Learning Model Development with DALEX and Neptune|
 
-Full script
------------
-
-|run on colab button|
-
-.. code:: python
-
-    import neptune
-    from joblib import dump
-    from sklearn.datasets import load_wine
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.metrics import f1_score
-    from sklearn.model_selection import train_test_split
-
-    neptune.init(api_token='ANONYMOUS',
-                 project_qualified_name='shared/onboarding')
-
-    data = load_wine()
-    X_train, X_test, y_train, y_test = train_test_split(data.data, data.target,
-                                                        test_size=0.4, random_state=1234)
-
-    params = {'n_estimators': 10,
-              'max_depth': 3,
-              'min_samples_leaf': 1,
-              'min_samples_split': 2,
-              'max_features': 3,
-              'random_state': 1234
-              }
-
-    neptune.create_experiment('great-idea',
-                              params=params,  # log parameters
-                              upload_source_files=['*.py', 'requirements.txt'],  # log source and environment
-                              tags=['experiment-organization', 'me'])  # organize things
-
-    clf = RandomForestClassifier(**params)
-    clf.fit(X_train, y_train)
-    y_train_pred = clf.predict_proba(X_train)
-    y_test_pred = clf.predict_proba(X_test)
-
-    train_f1 = f1_score(y_train, y_train_pred.argmax(axis=1), average='macro')
-    test_f1 = f1_score(y_test, y_test_pred.argmax(axis=1), average='macro')
-    print(f'Train f1:{train_f1} | Test f1:{test_f1}')
-
-    neptune.log_metric('train_f1', train_f1)  # log metrics
-    neptune.log_metric('test_f1', test_f1)  # log metrics
-
-    dump(clf, 'model.pkl')
-    neptune.log_artifact('model.pkl')  # log files
-
 .. External links
 
 .. |run on colab button| raw:: html
 
-    <a href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/Organize-ML-experiments.ipynb" target="_blank">
-        <img width="200" height="200"src="https://colab.research.google.com/assets/colab-badge.svg"></img>
-    </a>
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/organize-ml-experimentation/docs/Organize-ML-experiments.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
+            Google Colab</a></button>
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/quick-starts/organize-ml-experimentation/docs/Organize-ML-experiments.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+    </div>
 
 .. |how to log other objects and monitor training in Neptune| raw:: html
 
