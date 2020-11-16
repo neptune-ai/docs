@@ -193,7 +193,7 @@ Download source code used un the experiment as a ZIP archive.
 
 More options
 """"""""""""
-Besides metrics, artifacts and scripts covered above, you can use other methods as well. Here is a full list of methods that download data from the :class:`neptune.experiments.Experiment`.
+Besides metrics, artifacts and scripts covered above, you can use other methods as well. Here is a full list of methods that download data:
 
 * :meth:`~neptune.experiments.Experiment.get_hardware_utilization`: Gets GPU, CPU and memory utilization data.
 * :meth:`~neptune.experiments.Experiment.get_logs`: Gets all log names with their most recent values for this experiment.
@@ -205,6 +205,7 @@ Besides metrics, artifacts and scripts covered above, you can use other methods 
 * :meth:`~neptune.experiments.Experiment.download_artifact`: Download an artifact (file) from the experiment storage.
 * :meth:`~neptune.experiments.Experiment.download_artifacts`: Download a directory or a single file from experiment’s artifacts as a ZIP archive.
 * :meth:`~neptune.experiments.Experiment.download_sources`: Download a directory or a single file from experiment’s sources as a ZIP archive.
+* :meth:`~neptunecontrib.api.utils.get_pickle`: Download pickled artifact (file) from Neptune and returns a Python object.
 
 Combining downloading methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

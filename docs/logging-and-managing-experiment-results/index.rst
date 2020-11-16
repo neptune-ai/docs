@@ -70,7 +70,7 @@ Where ``X`` could be metric, artifact, chart, pickle, etc. Check the :ref:`loggi
 
 .. note::
 
-    If you work in Notebooks, you need to place ``neptune.stop()`` at the very end of your experiment to make sure that everything will be closed properly.
+    If you work in Notebooks, you need to place :meth:`~neptune.experiments.Experiment.stop` at the very end of your experiment to make sure that everything will be closed properly.
 
     Note that you are still able to :ref:`update an experiment <update-existing-experiment>` that was closed before.
 
