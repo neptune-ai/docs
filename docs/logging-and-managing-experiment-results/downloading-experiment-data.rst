@@ -4,12 +4,6 @@ Downloading experiment data
 ===========================
 |Youtube Video|
 
-.. _download_data-basics:
-
-Basics of downloading
----------------------
-Why
-^^^
 Almost all data that is logged to the project (experiments and notebooks) can be downloaded to the local machine. You may want to do it for a variety of reasons:
 
 * Build custom analysis or visualizations using experiment data.
@@ -18,21 +12,21 @@ Almost all data that is logged to the project (experiments and notebooks) can be
 * Build report that uses data across projects.
 * Archive old project.
 
-How
-^^^
 There are three ways to download data from Neptune:
 
 #. Programmatically, by using neptune-client: for example downloading experiment dashboard as pandas DataFrame. Check :ref:`download programmatically <download-programmatically>` below.
 #. Directly from the UI: for example downloading notebook checkpoint or experiments dashboard as csv. Check :ref:`downloading from Neptune UI <download-from-neptune-ui>` below.
 #. From the JupyterLab interface: Check :ref:`downloading checkpoint <download-notebook>` documentation.
 
-.. _download_data-basics-example:
+.. _download-programmatically:
 
-Simple example
-""""""""""""""
-In this example you will programmatically download experiment dashboard as pandas DataFrame. It's a decent representation of the overall idea behind downloading data from Neptune by using Neptune Python library.
+Downloading programmatically
+----------------------------
+You can download experiment data programmatically.
 
-Download experiments dashboard data as pandas DataFrame. Use :meth:`~neptune.projects.Project.get_leaderboard` to do it.
+Snippet below shows how to download experiment dashboard as pandas DataFrame. It's a decent representation of the overall idea behind downloading data from Neptune.
+
+To download experiments dashboard data as pandas DataFrame use :meth:`~neptune.projects.Project.get_leaderboard`.
 
 .. code-block::
 
@@ -42,32 +36,28 @@ Download experiments dashboard data as pandas DataFrame. Use :meth:`~neptune.pro
     project = neptune.init('my_workspace/my_project')
 
     # Download experiments dashboard as pandas DataFrame
-    exp_data_df = project.get_leaderboard()
+    data = project.get_leaderboard()
+    data.head()
 
-``exp_data_df`` is a pandas DataFrame, where each row is an experiment and columns represent all system properties, metrics and text logs, parameters and properties in these experiments. For metrics, the latest value is returned.
+``data`` is a pandas DataFrame, where each row is an experiment and columns represent all system properties, metrics and text logs, parameters and properties in these experiments. For metrics, the latest value is returned.
 
-.. _download_data-can-cannot:
+.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head.png
+    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head.png
+    :alt: Example downloaded dashboard data
 
-What you can download
----------------------
-
-.. _download-programmatically:
-
-Download programmatically
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Project level
-"""""""""""""
+Downloading from the project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 On the level of the project, you can do two major actions:
 
-* Fetch a list of :class:`neptune.experiments.Experiment` objects, using :meth:`~neptune.projects.Project.get_experiments`.
-* Download the entire experiments view as a Pandas DataFrame, using :meth:`~neptune.projects.Project.get_leaderboard`. That exact action was done in the :ref:`simple example <download_data-basics-example>`.
+* Fetch a list of :class:`neptune.experiments.Experiment` objects, using :meth:`~neptune.projects.Project.get_experiments`, then access or download information from them.
+* Download the entire experiments view as a Pandas DataFrame, using :meth:`~neptune.projects.Project.get_leaderboard`. That exact action was done in :ref:`this example snippet <download-programmatically>`.
 
 .. note::
 
     Check :class:`~neptune.projects.Project` for other related methods.
 
 Fetch a list of :class:`~neptune.experiments.Experiment` objects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Let's fetch a list of :class:`~neptune.experiments.Experiment` objects that match some criteria.
 
 .. code-block:: python3
@@ -89,8 +79,8 @@ First, you need to get correct project, then you simply run :meth:`~neptune.proj
 * For downloading continue reading this page.
 
 Download experiment dashboard as DataFrame
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Let's download the filtered experiments dashboard view as a Pandas DataFrame.
+""""""""""""""""""""""""""""""""""""""""""
+Let's download the filtered experiments dashboard view as a Pandas DataFrame, using :meth:`~neptune.projects.Project.get_leaderboard`.
 
 .. code-block::
 
@@ -107,8 +97,24 @@ Let's download the filtered experiments dashboard view as a Pandas DataFrame.
 
 First, you need to get correct project, then you simply run :meth:`~neptune.projects.Project.get_leaderboard` with appropriate parameters. ``sophia_df`` and ``cycleLR_df`` are pandas DataFrames where each row is an experiment and columns represent all system properties, metrics and text logs, parameters and properties in these experiments. For metrics, the latest value is returned.
 
-Experiment level
-""""""""""""""""
+Note that prefixes are added to metrics, parameters and properties:
+
+* ``channel_`` for metrics and text logs, for example: ``channel_epoch/accuracy``
+* ``parameter_`` for example: ``parameter_optimizer``
+* ``property_`` for example: ``property_test_images_version``
+
+See example dataframe:
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head-2.png
+    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head-2.png
+    :alt: Example downloaded dashboard data
+
+.. note::
+
+    To download only experiments that you want, you can filter them by ``id``, ``state``, ``owner``, ``tag`` and ``min_running_time``. Check :meth:`~neptune.projects.Project.get_leaderboard` documentation for details.
+
+Downloading from the experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 On this level you can use all methods that get/download data from the :class:`neptune.experiments.Experiment` object. Three types of data are especially useful: metrics, artifacts and source code.
 
 First step in all cases is to get experiment object.
@@ -128,31 +134,35 @@ Have a look at :ref:`this section <update-existing-experiment-basics-simple-exam
 Here, ``my_exp`` is :class:`neptune.experiments.Experiment` object that will be used in the following section about downloading metrics, artifacts and source code.
 
 Metrics
-~~~~~~~
-Download metrics data as pandas DataFrame.
+"""""""
+You can download metrics data as pandas DataFrame.
 
 .. code-block:: python3
 
-    # Example metrics to download
-    my_metrics = ['epoch/accuracy', 'epoch/loss']
-
     # 'my_exp' is experiment object
-    metrics_data_df = my_exp.get_numeric_channels_values(*my_metrics)
+    data = my_exp.get_numeric_channels_values('epoch/accuracy', 'epoch/loss')
 
-Notice star ``*`` in the :meth:`~neptune.experiments.Experiment.get_numeric_channels_values`, as this method accepts comma separated names - list is not accepted.
+:meth:`~neptune.experiments.Experiment.get_numeric_channels_values` accepts comma separated metric names. ``data`` is a pandas DataFrame with metrics data.
 
-``metrics_data_df`` is a pandas DataFrame with metrics data.
+You can also use :meth:`~neptune.experiments.Experiment.get_logs` to see all logs (types: metrics, text, images) names in the experiment.
 
-.. note::
+.. code-block:: python3
 
-    Use :meth:`~neptune.experiments.Experiment.get_logs` to discover all logs (types: metrics, text, images) names in the experiment.
+    # exp is Experiment object
+    print(exp.get_logs().keys())
+
+Result looks like this:
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/logs-names.png
+    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/logs-names.png
+    :alt: Example logs names printed in notebook
 
 .. note::
 
     It’s good idea to get metrics with common temporal pattern (like iteration or batch/epoch number). Thanks to this each row of returned DataFrame has metrics from the same moment in experiment. For example, combine epoch metrics to one DataFrame and batch metrics to the other.
 
 Files
-~~~~~
+"""""
 Download files from the experiment. Any file that is logged to the |artifacts| section can be downloaded.
 
 Notice that there are two methods for this:
@@ -169,7 +179,7 @@ Notice that there are two methods for this:
     my_exp.download_artifacts('model_checkpoints/')
 
 Source code
-~~~~~~~~~~~
+"""""""""""
 Download source code used un the experiment as a ZIP archive.
 
 .. code-block:: python3
@@ -179,11 +189,11 @@ Download source code used un the experiment as a ZIP archive.
 
 .. note::
 
-    You can also download source durectly from the UI: :ref:`here is how <download-from-neptune-ui>`.
+    You can also download source directly from the UI: :ref:`here is how <download-from-neptune-ui>`.
 
-Other options
-~~~~~~~~~~~~~
-Besides metrics, artifacts and scripts covered above, you can use other methods as well. Here is full listing of all methods provided by the :class:`neptune.experiments.Experiment`.
+More options
+""""""""""""
+Besides metrics, artifacts and scripts covered above, you can use other methods as well. Here is a full list of methods that download data from the :class:`neptune.experiments.Experiment`.
 
 * :meth:`~neptune.experiments.Experiment.get_hardware_utilization`: Gets GPU, CPU and memory utilization data.
 * :meth:`~neptune.experiments.Experiment.get_logs`: Gets all log names with their most recent values for this experiment.
@@ -196,10 +206,52 @@ Besides metrics, artifacts and scripts covered above, you can use other methods 
 * :meth:`~neptune.experiments.Experiment.download_artifacts`: Download a directory or a single file from experiment’s artifacts as a ZIP archive.
 * :meth:`~neptune.experiments.Experiment.download_sources`: Download a directory or a single file from experiment’s sources as a ZIP archive.
 
+Combining downloading methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can combine few downloading options to build custom visualizations or analysis. Example below shows how to use :meth:`~neptune.projects.Project.get_experiments` and :meth:`~neptune.experiments.Experiment.get_numeric_channels_values` and seaborn library to overlay metric from multiple experiments on the same plot.
+
+Get list of :class:`~neptune.experiments.Experiment` objects.
+
+.. code-block:: python3
+
+    import neptune
+
+    # Set project
+    project = neptune.init('my_workspace/my_project')
+
+    # Get list of experiments
+    experiments = project.get_experiments(owner='...', tag='...')
+
+Download metrics data from all experiments in the list, by using :meth:`~neptune.experiments.Experiment.get_numeric_channels_values`
+
+.. code-block:: python3
+
+    for experiment in experiments:
+        raw_df = experiment.get_numeric_channels_values(*metrics_names)
+        metrics_df = raw_df[...]
+
+Prepare dataframe with top performing experiments and make seaborn plot
+
+.. code-block:: python3
+
+    # Prepare dataframe
+    top_acc_df = metrics_df.sort_values(...)
+
+    # Make seaborn plot
+    g = sns.relplot(x='x', y='epoch_accuracy', data=top_acc_df)
+
+The result will look like this:
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-and-plot.png
+   :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-and-plot.png
+   :alt: Metrics plotted in single chart
+
+|example-neptune-notebook|
+
 .. _download-from-neptune-ui:
 
 Downloading from Neptune UI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 When in Neptune, simply look for the download icon. It's located in multiple places in the application and allows you to download various parts of the experiments or notebook. Below are three examples:
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -226,52 +278,9 @@ When in Neptune, simply look for the download icon. It's located in multiple pla
 | Download notebook checkpoint                                                                                            |
 +-------------------------------------------------------------------------------------------------------------------------+
 
-Download helpers
-----------------
-You can combine few downloading options to build custom visualizations or analysis. One example is to plot multiple metrics on the single chart, by using :meth:`~neptune.projects.Project.get_experiments` and :meth:`~neptune.experiments.Experiment.get_numeric_channels_values`.
-
-Build seaborn visualization - overlay metric from multiple experiment on the same plot.
-
-.. code-block:: python3
-
-    # Import libraries
-    import neptune
-    import pandas as pd
-    import seaborn as sns
-
-    # Set project
-    project = neptune.init('my_workspace/my_project')
-
-    # Get list of experiments
-    experiments = project.get_experiments(owner='...', tag='...')
-
-    # Prepare metrics to visualise
-    logs_names = ['epoch_accuracy', 'epoch_loss', ...]
-
-    # Initialize metrics DataFrame for seaborn
-    metrics_df = pd.DataFrame(columns=['id', *logs_names])
-
-    # Download metrics data from all experiments from the list
-    for experiment in experiments:
-        df = experiment.get_numeric_channels_values(*logs_names)
-        df.insert(loc=0, column='id', value=experiment.id)
-        metrics_df = metrics_df.append(df, sort=True)
-
-    # Prepare df with top 10 experiments with respect to epoch accuracy
-    top_10_epoch_acc_df = ...
-
-    # Make seaborn plot
-    g = sns.relplot(x='x', y='epoch_accuracy', kind='line', hue='id',
-                    height=9, aspect=1,
-                    data=top_10_epoch_acc_df[['x', 'epoch_accuracy', 'id']])
-
-The result will look like this:
-
-.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-and-plot.png
-   :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-and-plot.png
-   :alt: Metrics plotted in single chart
-
-|example-neptune-notebook|
+Downloading from Jupyter Notebook
+---------------------------------
+You can download notebook checkpoint directly from Neptune to the Jupyter or JupyterLab interface. Check :ref:`downloading checkpoint <download-notebook>` documentation for details.
 
 
 .. External Links
