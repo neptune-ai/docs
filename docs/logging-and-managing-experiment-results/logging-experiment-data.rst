@@ -107,10 +107,6 @@ Neptune supports logging many different types of data. Here, you can find all of
 
 Metrics
 ^^^^^^^
-.. image:: ../_static/images/integrations/lightning_adv_acc.png
-   :target: ../_static/images/integrations/lightning_adv_acc.png
-   :alt: Metrics visualized as line chart
-
 Log metric to neptune using :meth:`~neptune.experiments.Experiment.log_metric`.
 
 .. code-block:: python3
@@ -122,6 +118,10 @@ Log metric to neptune using :meth:`~neptune.experiments.Experiment.log_metric`.
     for epoch in range(epoch_nr):
         epoch_accuracy = ...
         neptune.log_metric('epoch_accuracy', epoch_accuracy)
+
+.. image:: ../_static/images/integrations/lightning_adv_acc.png
+   :target: ../_static/images/integrations/lightning_adv_acc.png
+   :alt: Metrics visualized as line chart
 
 Metric can be accuracy, MSE or any numerical value. All metrics are visualized as |charts| in the experiment. You can also check and download raw data from the |logs| section.
 
@@ -152,6 +152,19 @@ In the above snippet, ``x`` argument must be strictly increasing.
 
 Parameters
 ^^^^^^^^^^
+Define parameters as Python dictionary and pass to the :meth:`~neptune.projects.Project.create_experiment` method to log them.
+
+.. code-block:: python3
+
+    # Define parameters
+    PARAMS = {'batch_size': 64,
+              'dense_units': 128,
+              'dropout': 0.2,
+              'learning_rate': 0.001,
+              'optimizer': 'Adam'}
+
+    # Pass parameters to create experiment
+    neptune.create_experiment(params=PARAMS)
 
 +--------------------------------------------------------------------------------------------------------------+
 | .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/parameters.png  |
@@ -168,20 +181,6 @@ Parameters
 +========================================================================================================================+
 | Parameters in the experiment dashboard                                                                                 |
 +------------------------------------------------------------------------------------------------------------------------+
-
-Define parameters as Python dictionary and pass to the :meth:`~neptune.projects.Project.create_experiment` method to log them.
-
-.. code-block:: python3
-
-    # Define parameters
-    PARAMS = {'batch_size': 64,
-              'dense_units': 128,
-              'dropout': 0.2,
-              'learning_rate': 0.001,
-              'optimizer': 'Adam'}
-
-    # Pass parameters to create experiment
-    neptune.create_experiment(params=PARAMS)
 
 You can use them later to analyse or compare experiments. They are displayed in the |parameters| section of the experiment. Moreover every parameter can be displayed as a column on the |experiment-dashboard| (look for green columns).
 
@@ -205,10 +204,6 @@ Neptune supports code versioning. There are a few ways to do that.
 
 Track your git information
 """"""""""""""""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/git.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/git.png
-   :alt: Git summary in experiment
-
 If you start an experiment from a directory that is a part of the git repo, Neptune will automatically find the ``.git`` directory and log some information from it.
 
 It creates a summary in the |details| section with:
@@ -219,6 +214,10 @@ It creates a summary in the |details| section with:
 * remote address to your experiment,
 * git checkout command with commit.
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/git.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/git.png
+   :alt: Git summary in experiment
+
 |example-code-git|
 
 :ref:`back to top <what-you-can-log>`
@@ -227,10 +226,6 @@ It creates a summary in the |details| section with:
 
 Code Snapshot
 """""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/source-code.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/source-code.png
-   :alt: Source code snapshot
-
 Neptune automatically snapshots code when you :meth:`~neptune.projects.Project.create_experiment`.
 
 By default, it will only save the entrypoint file (``main.py`` if you run ``python main.py``) but you can pass a list of files or regex (like: `'*.py'`) to specify more files.
@@ -243,6 +238,10 @@ By default, it will only save the entrypoint file (``main.py`` if you run ``pyth
     # Snapshot all python files and 'config.yaml' file
     neptune.create_experiment(upload_source_files=['*.py', 'config.yaml'])
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/source-code.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/source-code.png
+   :alt: Source code snapshot
+
 You will have all sources in the |source-code| section of the experiment. Neptune also logs the entrypoint file so that you have all the information about the run sources.
 
 |example-code-snapshot|
@@ -253,13 +252,15 @@ You will have all sources in the |source-code| section of the experiment. Neptun
 
 Notebook Code Snapshot
 """"""""""""""""""""""
+Neptune auto-snapshots your notebook every time you create experiment in that notebook.
+
+Another option to log notebook checkpoint is by clicking a button in the Jupyter or JupyterLab UI. It is useful to log notebook with EDA or manual model analysis.
+
+To get started, install :ref:`notebook extension <installation-notebook-extension>`, then go to the :ref:`Keeping track of Jupyter Notebooks <guides-keep-track-jupyter-notebooks>` guide that will explain everything.
+
 .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/notebook-snapshot.png
    :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/notebook-snapshot.png
    :alt: Notebook code snapshot
-
-You can save code developed in notebook. With that you can log entire notebook by clicking a button or let Neptune auto-snapshot your experiments whenever you create a new one inside notebook.
-
-To get started, install :ref:`notebook extension <installation-notebook-extension>`, then go to the :ref:`Keeping track of Jupyter Notebooks <guides-keep-track-jupyter-notebooks>` guide that will explain everything.
 
 |example-notebook-snapshot|
 
@@ -269,22 +270,25 @@ To get started, install :ref:`notebook extension <installation-notebook-extensio
 
 Images
 ^^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
-   :alt: Images in experiment
-
 Log images to Neptune. You can log either single image or series of them, using :meth:`~neptune.experiments.Experiment.log_image`.
+
+Log single image from disk
 
 .. code-block:: python3
 
-    # Log single image from disk
-    neptune.log_image('bbox_images', 'pictures/image.png')
+    neptune.log_image('bbox_images', 'train-set/image.png')
 
-    # Log numpy array as a single image
+Log numpy array as a single image
+
+.. code-block:: python3
+
     array = numpy.random.rand(300, 200, 3)*255
     neptune.log_image('fig', array)
 
-    # Log series of images:
+Log series of images
+
+.. code-block:: python3
+
     for batch in test_data_loader:
         y_pred = ...
         y_true = ...
@@ -293,6 +297,10 @@ Log images to Neptune. You can log either single image or series of them, using 
         neptune.log_image('misclassified_images',
                           misclassified_image,
                           description='y_pred={}, y_true={}'.format(y_pred, y_true)
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
+   :alt: Images in experiment
 
 You will have images in the |logs| section of the experiment, where you can browse and download them.
 
@@ -312,10 +320,6 @@ You will have images in the |logs| section of the experiment, where you can brow
 
 Matplotlib
 """"""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-image.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-image.png
-   :alt: Matplotlib as an image in experiment
-
 Log Matplotlib figure (|matplotlib-fig-object|) as an image, by using :meth:`~neptune.experiments.Experiment.log_image`.
 
 .. code-block:: python3
@@ -329,6 +333,10 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an image, by using :meth:`~ne
 
     # Log figure to experiment
     neptune.log_image('matplotlib-fig', fig, image_name='streamplot')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-image.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-image.png
+   :alt: Matplotlib as an image in experiment
 
 You will have Matplotlib figure in the |streamplot| section of the experiment, where you can browse and download them.
 
@@ -344,10 +352,6 @@ You will have Matplotlib figure in the |streamplot| section of the experiment, w
 
 PIL
 """
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
-   :alt: PIL image in experiment
-
 Log PIL image right from the memory, by using :meth:`~neptune.experiments.Experiment.log_image`.
 
 .. code-block:: python3
@@ -361,6 +365,10 @@ Log PIL image right from the memory, by using :meth:`~neptune.experiments.Experi
     # Log image to experiment
     neptune.log_image('PIL-image', image, image_name='representation learning', description='Example PIL image in experiment')
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pil-image.png
+   :alt: PIL image in experiment
+
 You will have images in the |logs| section of the experiment, where you can browse and download them.
 
 |example-images-pil|
@@ -371,10 +379,6 @@ You will have images in the |logs| section of the experiment, where you can brow
 
 NumPy
 """""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
-   :alt: NumPy as image in experiment
-
 Log NumPy array (2d or 3d) right from the memory, and have it visualized as image, by using :meth:`~neptune.experiments.Experiment.log_image`.
 
 .. code-block:: python3
@@ -390,6 +394,10 @@ Log NumPy array (2d or 3d) right from the memory, and have it visualized as imag
         neptune.log_image('NumPy array as image',
                           array,
                           image_name='array-{}'.format(j), description='Example NumPy as image')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/numpy-image.png
+   :alt: NumPy as image in experiment
 
 You will have NumPy images in the |logs| section of the experiment, where you can browse and download them.
 
@@ -432,10 +440,6 @@ You can log interactive charts and they will be rendered interactively in the |a
 
 Matplotlib
 """"""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
-   :alt: Interactive Matplotlib figure in experiment
-
 Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
 
 .. code-block:: python3
@@ -451,6 +455,10 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by usin
     # Log figure to experiment
     log_chart('matplotlib-interactive', fig)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/matplotlib-interactive.gif
+   :alt: Interactive Matplotlib figure in experiment
+
 Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/matplotlib-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-matplotlib|
@@ -465,10 +473,6 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 Altair
 """"""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
-   :alt: Interactive altair chart in the experiment
-
 Log Altair chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
 
 .. code-block:: python3
@@ -484,6 +488,10 @@ Log Altair chart as an interactive chart, by using :meth:`~neptunecontrib.api.ch
     # Log figure to experiment
     log_chart(name='altair-interactive', chart=alt_chart)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/altair-interactive.gif
+   :alt: Interactive altair chart in the experiment
+
 Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/altair-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-altair|
@@ -494,10 +502,6 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 Bokeh
 """""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
-   :alt: Interactive bokeh chart in the experiment
-
 Log Bokeh chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
 
 .. code-block:: python3
@@ -513,6 +517,10 @@ Log Bokeh chart as an interactive chart, by using :meth:`~neptunecontrib.api.cha
     # Log figure to experiment
     log_chart(name='bokeh-interactive', chart=bokeh_chart)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/bokeh-interactive.gif
+   :alt: Interactive bokeh chart in the experiment
+
 Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/bokeh-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-bokeh|
@@ -523,10 +531,6 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 Plotly
 """"""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
-   :alt: Interactive plotly chart in the experiment
-
 Log plotly chart as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
 
 .. code-block:: python3
@@ -542,6 +546,10 @@ Log plotly chart as an interactive chart, by using :meth:`~neptunecontrib.api.ch
     # Log figure to experiment
     log_chart(name='plotly-interactive', chart=plotly_fig)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/plotly-interactive.gif
+   :alt: Interactive plotly chart in the experiment
+
 Interactive plotly chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/plotly-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-plotly|
@@ -552,15 +560,15 @@ Interactive plotly chart will appear in the |artifacts| section, with path ``cha
 
 Text
 ^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/text.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/text.png
-   :alt: Text log
-
 Log text information to the experiment by using :meth:`~neptune.experiments.Experiment.log_text`.
 
 .. code-block:: python3
 
     neptune.log_text('my_text_data', 'text I keep track of, like query or tokenized word')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/text.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/text.png
+   :alt: Text log
 
 You will have it in the |logs| section of the experiment, where you can browse and download it.
 
@@ -576,15 +584,15 @@ You will have it in the |logs| section of the experiment, where you can browse a
 
 Hardware consumption
 ^^^^^^^^^^^^^^^^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/hardware-consumption.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/hardware-consumption.png
-   :alt: Hardware consumption charts
-
 Automatically monitor hardware utilization for your experiments:
 
 * CPU (average of all cores),
 * memory,
 * for each GPU unit - memory usage and utilization.
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/hardware-consumption.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/hardware-consumption.png
+   :alt: Hardware consumption charts
 
 All that information is visualized in the |monitoring| section. You can turn off this feature when you :meth:`~neptune.projects.Project.create_experiment`.
 
@@ -615,15 +623,15 @@ To better describe an experiment you can use 'name', 'description' and 'tags'.
 
 Experiment name
 """""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-name.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-name.png
-   :alt: Experiment name
-
 You can add name to the experiment when you :meth:`~neptune.projects.Project.create_experiment`. Try to keep it short and descriptive.
 
 .. code-block:: python3
 
     neptune.create_experiment(name='Mask R-CNN with data-v2')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-name.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-name.png
+   :alt: Experiment name
 
 Experiment name appears in the |details| section and can be displayed as a column on the |experiment-dashboard|.
 
@@ -641,15 +649,15 @@ You can edit 'name' directly in the UI.
 
 Experiment description
 """"""""""""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-description.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-description.png
-   :alt: Experiment description
-
 You can add longer note to the experiment when you :meth:`~neptune.projects.Project.create_experiment`.
 
 .. code-block:: python3
 
     neptune.create_experiment(description='neural net trained on Fashion-MNIST with high LR and low dropout')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-description.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-description.png
+   :alt: Experiment description
 
 Experiment description appears in the |details| section and can be displayed as a column on the |experiment-dashboard|.
 
@@ -667,10 +675,6 @@ You can edit 'description' directly in the UI.
 
 Experiment tags
 """""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-tags.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-tags.png
-   :alt: Experiment tags
-
 You can add tags to the experiment when you :meth:`~neptune.projects.Project.create_experiment` or during an experiment using :meth:`~neptune.experiments.Experiment.append_tag`.
 
 .. code-block:: python3
@@ -680,6 +684,10 @@ You can add tags to the experiment when you :meth:`~neptune.projects.Project.cre
 
     # Append new tag during experiment (it must be running)
     neptune.append_tag('new-tag')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-tags.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/exp-tags.png
+   :alt: Experiment tags
 
 Tags are convenient way to organize or group experiments. They appear in the |details| section and can be displayed as a column on the |experiment-dashboard|. Tags are editable in the UI.
 
@@ -702,10 +710,6 @@ You can easily remove tags programmatically if you wish using :meth:`~neptune.ex
 
 Properties
 ^^^^^^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
-   :alt: Experiment properties
-
 Log ``'key': 'value'`` pairs to the experiment. Those could be data versions, URL or path to the model on your filesystem, or anything else that fit the generic ``'key': 'value'`` scheme.
 
 You can do it when you :meth:`~neptune.projects.Project.create_experiment`:
@@ -723,6 +727,10 @@ Another option is to add property during an experiment (it must be running), by 
     # Single key-value pair at a time
     neptune.set_property('model_id', 'a44521d0-0fb8')
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
+   :alt: Experiment properties
+
 What distinguishes them from :ref:`parameters <logging-experiment-data-parameters>` is that they are editable after experiment is created.
 
 They appear in the |details| section and can be displayed as a column on the |experiment-dashboard|.
@@ -739,10 +747,6 @@ They appear in the |details| section and can be displayed as a column on the |ex
 
 Data versions
 ^^^^^^^^^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
-   :alt: Experiment properties
-
 Log data version or dataset hash to Neptune as a :ref:`property <logging-experiment-data-properties>`.
 
 .. code-block:: python3
@@ -755,6 +759,10 @@ Log data version or dataset hash to Neptune as a :ref:`property <logging-experim
     # Log data version as experiment property
     neptune.set_property('train_images_version', hashlib.md5(train_images).hexdigest())
     neptune.set_property('test_images_version', hashlib.md5(test_images).hexdigest())
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/properties.png
+   :alt: Experiment properties
 
 In this way you can keep track on what data given model was trained. Data version will appear in the |details| section and can be displayed as a column on the |experiment-dashboard|.
 
@@ -787,16 +795,16 @@ If your data is on AWS S3, use :meth:`~neptunecontrib.versioning.data.log_s3_dat
 
 Files
 ^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
-   :alt: Experiment files
-
 Log any file you want, by using :meth:`~neptune.experiments.Experiment.log_artifact`. This include model_checkpoint, csv, binaries, or anything else.
 
 .. code-block:: python3
 
     # Log file
-    neptune.log_artifact('/models/retinanet.pth')
+    neptune.log_artifact('/data/auxiliary-data.zip')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
+   :alt: Experiment files
 
 You can browse and download files in the |artifacts| section of the experiment.
 
@@ -812,10 +820,6 @@ You can browse and download files in the |artifacts| section of the experiment.
 
 Model checkpoints
 """""""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/model-checkpoints.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/model-checkpoints.png
-   :alt: Model checkpoints in experiment
-
 Log model checkpoints as artifacts, using :meth:`~neptune.experiments.Experiment.log_artifact`.
 
 .. code-block:: python3
@@ -824,6 +828,10 @@ Log model checkpoints as artifacts, using :meth:`~neptune.experiments.Experiment
     my_model = ...
     torch.save(my_model, 'my_model.pt')
     neptune.log_artifact('my_model.pt', 'model_checkpoints/my_model.pt')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/model-checkpoints.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/model-checkpoints.png
+   :alt: Model checkpoints in experiment
 
 This technique lets you save model from any deep learning framework. Model checkpoint will appear in the |artifacts| section in the 'model_checkpoints' directory: |model-checkpoint|.
 
@@ -835,10 +843,6 @@ This technique lets you save model from any deep learning framework. Model check
 
 HTML objects
 """"""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/html.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/html.png
-   :alt: HTML logged to the experiment
-
 Log HTML files, using :meth:`~neptunecontrib.api.html.log_html`.
 
 .. code-block:: python3
@@ -851,6 +855,10 @@ Log HTML files, using :meth:`~neptunecontrib.api.html.log_html`.
     html = str(...)
     log_html('go_to_docs_button', html)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/html.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/html.png
+   :alt: HTML logged to the experiment
+
 HTML will appear in the |artifacts| section, with path ``html/my_file.html``. They are interactive in Neptune.
 
 |example-html-objects|
@@ -861,10 +869,6 @@ HTML will appear in the |artifacts| section, with path ``html/my_file.html``. Th
 
 Video
 ^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
-   :alt: Video preview in the experiment
-
 Log video files and watch them right in the artifacts section of the experiment. Use :meth:`~neptunecontrib.api.video.log_video` to do it.
 
 .. code-block:: python3
@@ -874,6 +878,10 @@ Log video files and watch them right in the artifacts section of the experiment.
 
     # Log video file from disk
     log_video('/path/to/video-file.mp4')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/video.png
+   :alt: Video preview in the experiment
 
 As a result, video player is rendered in the artifacts section under path ``video/my_video.html`` (in the snippet above: ``video/video-file.html``) where you can watch, open in full screen and download it.
 
@@ -885,10 +893,6 @@ As a result, video player is rendered in the artifacts section under path ``vide
 
 Audio
 ^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
-   :alt: Audio files in the experiment
-
 Log audio files and listen to them directly from the artifacts section of the experiment. Use :meth:`~neptunecontrib.api.audio.log_audio` to do it.
 
 .. code-block:: python3
@@ -898,6 +902,10 @@ Log audio files and listen to them directly from the artifacts section of the ex
 
     # Log audio file from disk
     log_audio('/path/to/audio-file.mp3')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/audio.png
+   :alt: Audio files in the experiment
 
 As a result, player is rendered in the artifacts section under path ``audio/my_audio.html`` (in the snippet above: ``audio/audio-file.html``) where you can listen to and download it.
 
@@ -909,10 +917,6 @@ As a result, player is rendered in the artifacts section under path ``audio/my_a
 
 Tables
 ^^^^^^
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
-   :alt: Table preview in the experiment
-
 When you log tabular data, such as csv or DataFrame, Neptune will display it as table automatically.
 
 * :ref:`pandas DataFrame <logging-experiment-data-pandas>`
@@ -924,10 +928,6 @@ When you log tabular data, such as csv or DataFrame, Neptune will display it as 
 
 pandas
 """"""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
-   :alt: Table preview from pandas DataFrame in the experiment
-
 Log pandas DataFrame and have it visualized as table. Use :meth:`~neptunecontrib.api.table.log_table` to do it.
 
 .. code-block:: python3
@@ -942,6 +942,10 @@ Log pandas DataFrame and have it visualized as table. Use :meth:`~neptunecontrib
     # Log DataFrame
     log_table('dataframe-in-experiment', df)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pandas.png
+   :alt: Table preview from pandas DataFrame in the experiment
+
 DataFrame is displayed in the |artifacts| section under path ``tables/my_dataframe.html`` (in the snippet above: ``tables/dataframe-in-experiment.html``) where you can inspect entries and download data.
 
 |example-pandas|
@@ -952,16 +956,16 @@ DataFrame is displayed in the |artifacts| section under path ``tables/my_datafra
 
 csv
 """
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
-   :alt: Table preview from csv in the experiment
-
 Log *csv* files and have them visualized as table. Use :meth:`~neptune.experiments.Experiment.log_artifact` to do it.
 
 .. code-block:: python3
 
     # Log csv file
     neptune.log_artifact('/path/to/test_preds.csv')
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/table.png
+   :alt: Table preview from csv in the experiment
 
 Table rendered from the csv data is displayed in the artifacts section where you can inspect entries and download data.
 
@@ -984,10 +988,6 @@ Some Python objects are handled automatically.
 
 Pickled object
 """"""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pickle.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pickle.png
-   :alt: Python pickle logged to the experiment
-
 You can log pickled Python object, by using :meth:`~neptunecontrib.api.utils.log_pickle`. It gets an object, pickle it and log to Neptune as file.
 
 Log pickled random forest:
@@ -999,6 +999,10 @@ Log pickled random forest:
     RandomForest = ...
     log_pickle('rf.pkl', RandomForest)
 
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pickle.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/pickle.png
+   :alt: Python pickle logged to the experiment
+
 .. note::
 
     You can download picked file as Python object using :meth:`~neptunecontrib.api.utils.get_pickle`.
@@ -1009,10 +1013,6 @@ Log pickled random forest:
 
 Explainers (DALEX)
 """"""""""""""""""
-.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
-   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
-   :alt: Table preview from csv in the experiment
-
 Log |dalex| explainer to Neptune and inspect them interactively. Use :meth:`~neptunecontrib.api.explainers.log_explainer` to do it.
 
 .. code-block:: python3
@@ -1032,6 +1032,10 @@ Log |dalex| explainer to Neptune and inspect them interactively. Use :meth:`~nep
 
     # Log explainer
     log_explainer('explainer.pkl', expl)
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
+   :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/dalex.png
+   :alt: Table preview from csv in the experiment
 
 As a result, pickled explainer and charts will be available in the artifacts section of the experiment.
 
