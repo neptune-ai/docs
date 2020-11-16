@@ -4,22 +4,59 @@ Updating existing experiment
 ============================
 [loom-placeholder]
 
-You can update experiments even after they finished running. This let you update experiment with new data or visualizations even after closing experiment and makes multi-stage training convenient.
+You can update experiments even after they finished running. This lets you add new data or visualizations to the previously closed experiment and makes multi-stage training convenient.
 
 .. _update-existing-experiment-basics:
 
-Why updating existing experiment
---------------------------------
-Updating existing experiment can be handy, in several situations:
+Why you may want to update an existing experiment?
+--------------------------------------------------
+Updating existing experiment can come in handy in several situations:
 
-* You want to enrich closed experiment with more metrics or visualizations.
+* You want to add metrics or visualizations to the closed experiment.
 * You finished model training and closed the experiment earlier, but now you want to continue training from that moment. Actually, you can even make multiple iterations of the procedure: ``resume experiment -> log more data``. Have a look at the :ref:`simple example <update-existing-experiment-basics-simple-example>` below for details.
 
 .. _update-existing-experiment-basics-simple-example:
 
-Simple example
---------------
-In this example you will see how to upload more data to the existing experiment that was previously closed. Example result below, shows updated experiment with more data-points logged to the ``'mse'`` metric and ``'pretty-random-metric'`` added.
+How to update existing experiment?
+----------------------------------
+Check how to upload more data to the existing experiment that was previously closed.
+
+Retrieve the :class:`~neptune.experiments.Experiment` object of the experiment you want to update.
+
+.. code-block:: python3
+
+    import neptune
+
+    # Get project
+    project = neptune.init('my_workspace/my_project')
+
+    # Get experiment object for appropriate experiment, here 'SHOW-2066'
+    my_exp = project.get_experiments(id='SHOW-2066')[0]
+
+Experiment with ``id='SHOW-2066'`` is now ready to be updated. Use ``my_exp`` to continue logging to it.
+
+.. code-block:: python3
+
+    from neptunecontrib.api.table import log_chart
+
+    # Log metrics, images, text
+    my_exp.log_metric(...)
+    my_exp.log_image(...)
+    my_exp.log_text(...)
+
+    # Append tag
+    my_exp.append_tag('updated')
+
+    # Log new chart
+    log_chart('matplotlib-interactive', fig, my_exp)
+
+Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
+
+.. note::
+
+    You can retrieve an experiment and log more data to it multiple times.
+
+Example below shows updated experiment with more data-points logged to the ``'mse'`` metric and ``'pretty-random-metric'`` added.
 
 +--------------------------------------------------------------------------------------------------------------------+
 | .. image:: ../_static/images/logging-and-managing-experiment-results/updating-experiment/update-charts-before.png  |
@@ -39,73 +76,18 @@ In this example you will see how to upload more data to the existing experiment 
 
 |example-update|
 
-To update existing experiment with new data, you need to perform just two steps.
-
-Get experiment to update
-^^^^^^^^^^^^^^^^^^^^^^^^
-Retrieve the :class:`~neptune.experiments.Experiment` object of the experiment you want to update.
-
-.. code-block:: python3
-
-    import neptune
-
-    # Get project
-    project = neptune.init('my_workspace/my_project')
-
-    # Get experiment object for appropriate experiment, here 'SHOW-2066'
-    my_exp = project.get_experiments(id='SHOW-2066')[0]
-
-Few explanations:
-
-* ``project`` is :class:`~neptune.projects.Project` instance, that we use to retrieve desired experiment.
-* Use :meth:`~neptune.projects.Project.get_experiments` to get desired experiment. Fetching by ``id`` is just one option.
-* :meth:`~neptune.projects.Project.get_experiments` returns list of :class:`~neptune.experiments.Experiment` objects. In this case list has just single element - experiment with ``id='SHOW-2066'``. We want to get this single element directly, hence ``[0]`` at the end of the line.
-
-Experiment with ``id='SHOW-2066'`` is now ready to be updated. Use ``my_exp`` to continue logging to it.
-
-Log more data
-^^^^^^^^^^^^^
-With ``my_exp`` at hand, you can use it to continue logging to the experiment with ``id='SHOW-2066'``.
-
-.. code-block:: python3
-
-    from neptunecontrib.api.table import log_chart
-
-    my_exp.log_metric(...)
-    my_exp.log_image(...)
-    my_exp.log_text(...)
-
-    my_exp.append_tag('updated')
-
-    log_chart('matplotlib-interactive', fig, my_exp)
-
-Technique is the same as described in section about :ref:`logging by using experiment object <logging-advanced-using-experiment-object-explicitly>`.
-
-.. note::
-
-    You can retrieve an experiment and log more data to it multiple times.
-
-Example Code
-^^^^^^^^^^^^
-Experiment with ``id='SHOW-2066'`` was recorded, then updated: |original-exp|. All the sources are logged that is:
-
-* |original| - in the "Source code" section.
-* |update| - logged as file and rendered nicely in the "Artifacts" section.
-
-|example-update|
-
 .. _update-existing-experiment-what-you-can-cannot:
 
 What you can/cannot update
 --------------------------
-You can freely use all :class:`~neptune.experiments.Experiment` methods. These include core methods for logging more data:
+You can freely use all :class:`~neptune.experiments.Experiment` methods. These include methods for logging more data:
 
 * :meth:`~neptune.experiments.Experiment.log_metric`
 * :meth:`~neptune.experiments.Experiment.log_artifact`
 * :meth:`~neptune.experiments.Experiment.log_image`
 * :meth:`~neptune.experiments.Experiment.log_text`
-
-All other methods like :meth:`~neptune.experiments.Experiment.set_property`, :meth:`~neptune.experiments.Experiment.append_tag` or :meth:`~neptune.experiments.Experiment.download_artifacts` will work just fine.
+* :meth:`~neptune.experiments.Experiment.set_property`
+* :meth:`~neptune.experiments.Experiment.append_tag`
 
 Moreover, you can use all logging methods from ``neptunecontrib``, that is:
 
@@ -120,7 +102,7 @@ Moreover, you can use all logging methods from ``neptunecontrib``, that is:
 
     Learn more about :ref:`logging options <what-you-can-log>` to see why and how to use each method.
 
-However, updating experiment comes with some limitations, notably:
+However, updating experiment comes with some limitations. Specifically:
 
 * you cannot update |parameters| and |source-code|, but you can upload sources as artifact, using :meth:`~neptune.experiments.Experiment.log_artifact`.
 * |hardware-consumption| for the update will not be tracked.
@@ -131,18 +113,6 @@ However, updating experiment comes with some limitations, notably:
 
 
 .. External links
-
-.. |original| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2066/source-code?path=.&file=update-experiment-1.py" target="_blank">original experiment sources</a>
-
-.. |update| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2066/artifacts?file=update-experiment-2.py" target="_blank">update sources</a>
-
-.. |original-exp| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2066/charts" target="_blank">here it is</a>
 
 .. |parameters| raw:: html
 
