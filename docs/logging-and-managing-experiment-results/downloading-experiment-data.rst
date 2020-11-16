@@ -103,7 +103,7 @@ Note that prefixes are added to metrics, parameters and properties:
 * ``parameter_`` for example: ``parameter_optimizer``
 * ``property_`` for example: ``property_test_images_version``
 
-See example dataframe:
+Example dataframe will look like this:
 
 .. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head-2.png
     :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/data-head-2.png
