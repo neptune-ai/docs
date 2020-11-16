@@ -40,10 +40,10 @@ Bare minimum are one import and two methods:
 
     import neptune
 
-    # set project
+    # Set project
     neptune.init('my_workspace/my_project')
 
-    # create experiment
+    # Create experiment
     neptune.create_experiment()
 
 These are usually just copy&paste into your existing project code.
@@ -82,10 +82,10 @@ Basic snippet below, sets project and creates new experiment in that project.
 
 .. code-block:: python3
 
-    # set project
+    # Set project
     neptune.init('my_workspace/my_project')
 
-    # create new experiment
+    # Create new experiment
     neptune.create_experiment()
 
 .. _logging_project:
@@ -98,13 +98,13 @@ You can log experiments to the project or fetch all experiments that satisfy som
 
 .. code-block:: python3
 
-    # set project and get project object
+    # Set project and get project object
     project = neptune.init('my_workspace/my_project')
 
-    # use project to create experiment
+    # Use project to create experiment
     project.create_experiment()
 
-    # use project to get experiments data from the project
+    # Use project to get experiments data from the project
     project.get_leaderboard(state=['succeeded'])
 
 Learn more about :ref:`downloading data from Neptune <guides-download_data>`. Check also, :class:`~neptune.projects.Project` to use in your Python code.
@@ -119,10 +119,10 @@ Creating experiment is easy:
 
 .. code-block:: python3
 
-    # set project
+    # Set project
     neptune.init('my_workspace/my_project')
 
-    # create new experiment
+    # Create new experiment
     neptune.create_experiment()
 
 You can now log various data to the experiment including metrics, losses, model weights, images, predictions and much more. Have a look at the complete list of :ref:`what you can log <what-you-can-log>` to the experiment
