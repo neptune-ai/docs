@@ -684,6 +684,10 @@ You can log interactive charts and they will be rendered interactively in the |a
 
 .. note::
 
+    You need to install plotly to log any type of interactive chart. See: |plotly-installation-guide|.
+
+.. note::
+
     For a full screen view, you can open visualization in the new browser tab, by clicking on the *"arrow-pointing-top-right"* icon, located right above your visualisation:
 
     .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/full-screen-icon.png
@@ -1183,6 +1187,11 @@ Few remarks:
 .. |dalex| raw:: html
 
     <a href="https://modeloriented.github.io/DALEX/" target="_blank">Dalex</a>
+
+.. |plotly-installation-guide| raw:: html
+
+    <a href="https://plotly.com/python/getting-started/#installation" target="_blank">plotly installation guide</a>
+
 
 .. Buttons
 
