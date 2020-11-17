@@ -8,11 +8,11 @@ Log and manage data in Neptune via |neptune-client-github| (Python and R clients
 
 What is neptune-client?
 -----------------------
-|neptune-client-github| is an open source Python library that serves two purposes:
+|neptune-client-github| is an open source Python library that serves three purposes:
 
-#. logging machine learning experiments,
-#. update existing experiment with new data and visualizations,
-#. download experiment data from Neptune to local machine.
+#. :ref:`logging <guides-logging-data-to-neptune>` machine learning experiments,
+#. :ref:`update existing experiment <update-existing-experiment>` with new data and visualizations,
+#. :ref:`download experiment data <guides-download_data>` from Neptune to local machine.
 
 It is designed to be:
 
@@ -21,14 +21,6 @@ It is designed to be:
 * **straightforward**: user defines what to keep track of during experiment to use.
 
 You can :ref:`log experiments from anywhere <execution-environments-index>` (local machine, cluster, cloud, Colab, etc.) and they will be tracked in the same, standardized way. You will be able to quickly compare experiments run by you on your workstation with experiments run on AWS by your team-mate.
-
-What you can do?
-----------------
-You can think of three main actions around experiments:
-
-#. **Log experiments** - explained above, where you log metrics and other data to the experiment
-#. **Update experiments** - you can log more data to previously closed experiment. Here is how to :ref:`update experiment <update-existing-experiment>`
-#. **Download experiments** - all logged data can be :ref:`downloaded programmatically <guides-download_data>`.
 
 What you need to add to your code to start logging
 --------------------------------------------------
@@ -70,7 +62,7 @@ Where ``X`` could be metric, artifact, chart, pickle, etc. Check the :ref:`loggi
 
 .. note::
 
-    If you work in Notebooks, you need to place :meth:`~neptune.experiments.Experiment.stop` at the very end of your experiment to make sure that everything will be closed properly.
+    If you work in Notebooks, you need to place ``neptune.stop`` (reference: :meth:`~neptune.experiments.Experiment.stop`) at the very end of your experiment to make sure that everything will be closed properly.
 
     Note that you are still able to :ref:`update an experiment <update-existing-experiment>` that was closed before.
 
@@ -113,7 +105,7 @@ Learn more about :ref:`downloading data from Neptune <guides-download_data>`. Ch
 
 Experiment
 ^^^^^^^^^^
-Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with :meth:`~neptune.experiments.Experiment.stop`.
+Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference: :meth:`~neptune.experiments.Experiment.stop`).
 
 Creating experiment is easy:
 
@@ -133,7 +125,7 @@ Besides logging data, you can also :ref:`download experiment data <guides-downlo
 
     ``neptune.log_metric('some_name', some_value)`` is for tracking all numeric values to Neptune (metric, loss, score, variances, etc.). Learn, what else can be tracked to experiment from :ref:`this list <what-you-can-log>`.
 
-Learn more about :class:`~neptune.experiments.Experiment` to use in your Python code.
+Learn more about the :class:`~neptune.experiments.Experiment` object and how to use it in your Python code.
 
 
 .. Local navigation
