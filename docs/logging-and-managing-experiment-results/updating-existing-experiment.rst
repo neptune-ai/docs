@@ -13,15 +13,13 @@ Why you may want to update an existing experiment?
 Updating existing experiment can come in handy in several situations:
 
 * You want to add metrics or visualizations to the closed experiment.
-* You finished model training and closed the experiment earlier, but now you want to continue training from that moment. Actually, you can even make multiple iterations of the procedure: ``resume experiment -> log more data``. Have a look at the :ref:`simple example <update-existing-experiment-basics-simple-example>` below for details.
+* You finished model training and closed the experiment earlier, but now you want to continue training from that moment. Actually, you can even make multiple iterations of the procedure: ``resume experiment -> log more data``. Have a look at the simple example below for details.
 
 .. _update-existing-experiment-basics-simple-example:
 
 How to update existing experiment?
 ----------------------------------
-Check how to upload more data to the existing experiment that was previously closed.
-
-Retrieve the :class:`~neptune.experiments.Experiment` object of the experiment you want to update.
+To update the experiment you need to get the project where this experiment is. Then you need to get the :class:`~neptune.experiments.Experiment` object of the experiment you want to update.
 
 .. code-block:: python3
 
@@ -34,6 +32,8 @@ Retrieve the :class:`~neptune.experiments.Experiment` object of the experiment y
     my_exp = project.get_experiments(id='SHOW-2066')[0]
 
 Experiment with ``id='SHOW-2066'`` is now ready to be updated. Use ``my_exp`` to continue logging to it.
+
+Note that with :meth:`~neptune.projects.Project.get_experiments` you can get experiments by ``id``, ``state``, ``owner``, ``tag`` and ``min_running_time``.
 
 .. code-block:: python3
 

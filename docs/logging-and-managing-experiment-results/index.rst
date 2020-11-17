@@ -10,7 +10,7 @@ What is neptune-client?
 -----------------------
 |neptune-client-github| is an open source Python library that serves three purposes:
 
-#. :ref:`logging <guides-logging-data-to-neptune>` machine learning experiments,
+#. :ref:`log machine learning experiments <guides-logging-data-to-neptune>`,
 #. :ref:`update existing experiment <update-existing-experiment>` with new data and visualizations,
 #. :ref:`download experiment data <guides-download_data>` from Neptune to local machine.
 
@@ -62,7 +62,7 @@ Where ``X`` could be metric, artifact, chart, pickle, etc. Check the :ref:`loggi
 
 .. note::
 
-    If you work in Notebooks, you need to place ``neptune.stop`` (reference: :meth:`~neptune.experiments.Experiment.stop`) at the very end of your experiment to make sure that everything will be closed properly.
+    If you work in Notebooks, you need to place ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`) at the very end of your experiment to make sure that everything will be closed properly.
 
     Note that you are still able to :ref:`update an experiment <update-existing-experiment>` that was closed before.
 
@@ -105,7 +105,7 @@ Learn more about :ref:`downloading data from Neptune <guides-download_data>`. Ch
 
 Experiment
 ^^^^^^^^^^
-Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference: :meth:`~neptune.experiments.Experiment.stop`).
+Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`).
 
 Creating experiment is easy:
 
