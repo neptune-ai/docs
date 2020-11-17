@@ -8,7 +8,7 @@ Almost all data that is logged to the project (experiments and notebooks) can be
 
 * Build custom analysis or visualizations using experiment data.
 * Use saved model checkpoint elsewhere.
-* Get sources of experiment and run it again.
+* Get source code of experiment and run it again.
 * Build report that uses data across projects.
 * Archive old project.
 
@@ -149,7 +149,7 @@ You can also use :meth:`~neptune.experiments.Experiment.get_logs` to see all log
 .. code-block:: python3
 
     # exp is Experiment object
-    print(exp.get_logs().keys())
+    print(my_exp.get_logs().keys())
 
 Result looks like this:
 
@@ -209,7 +209,7 @@ Besides metrics, artifacts and scripts covered above, you can use other methods 
 
 Combining downloading methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can combine few downloading options to build custom visualizations or analysis. Example below shows how to use :meth:`~neptune.projects.Project.get_experiments` and :meth:`~neptune.experiments.Experiment.get_numeric_channels_values` and seaborn library to overlay metric from multiple experiments on the same plot.
+You can combine a few downloading options to build custom visualizations or analysis. Example below shows how to use :meth:`~neptune.projects.Project.get_experiments` and :meth:`~neptune.experiments.Experiment.get_numeric_channels_values` and seaborn library to overlay metric from multiple experiments on the same plot.
 
 Get list of :class:`~neptune.experiments.Experiment` objects.
 
@@ -228,18 +228,23 @@ Download metrics data from all experiments in the list, by using :meth:`~neptune
 .. code-block:: python3
 
     for experiment in experiments:
-        raw_df = experiment.get_numeric_channels_values(*metrics_names)
-        metrics_df = raw_df[...]
+        metrics_df = experiment.get_numeric_channels_values('epoch_accuracy', 'epoch_loss', 'learning_rate')
 
-Prepare dataframe with top performing experiments and make seaborn plot
+``metrics_df`` will look like this:
+
+.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/metrics-df.png
+    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/metrics-df.png
+    :alt: Metrics dataframe printed in notebook
+
+Sort dataframe and make seaborn plot
 
 .. code-block:: python3
 
     # Prepare dataframe
-    top_acc_df = metrics_df.sort_values(...)
+    metrics_df.sort_values(by=['epoch_accuracy'], ascending=False, inplace=True)
 
     # Make seaborn plot
-    g = sns.relplot(x='x', y='epoch_accuracy', data=top_acc_df)
+    g = sns.relplot(x='x', y='epoch_accuracy', data=metrics_df)
 
 The result will look like this:
 
