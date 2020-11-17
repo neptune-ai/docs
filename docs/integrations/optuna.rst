@@ -145,6 +145,14 @@ Check out this |advance experiment| with advanced logging.
 
 |optuna-advanced-logs|
 
+What's next
+-----------
+
+Now that you know how to integrate Neptune with Optuna, you can check:
+
+* Other :ref:`Hyperparameter Optimization Integrations with Neptune <integrations-hyperparameter-optimization-frameworks>`
+* :ref:`Downloading experiment data from Neptune <guides-download_data>`
+
 .. External links
 
 .. |Run on Colab| raw:: html
