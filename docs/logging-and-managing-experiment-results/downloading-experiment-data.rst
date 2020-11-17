@@ -227,21 +227,25 @@ Download metrics data from all experiments in the list, by using :meth:`~neptune
 
 .. code-block:: python3
 
+    metrics_df = pd.DataFrame(columns=['id', 'epoch_accuracy', 'epoch_loss', 'learning_rate'])
     for experiment in experiments:
-        metrics_df = experiment.get_numeric_channels_values('epoch_accuracy', 'epoch_loss', 'learning_rate')
+        df = experiment.get_numeric_channels_values('epoch_accuracy', 'epoch_loss', 'learning_rate')
+        df.insert(loc=0, column='id', value=experiment.id)
+        metrics_df = metrics_df.append(df, sort=True)
 
 ``metrics_df`` will look like this:
 
 .. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/metrics-df.png
     :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/metrics-df.png
-    :alt: Metrics dataframe printed in notebook
+    :alt: Metrics dataframe
 
-Sort dataframe and make seaborn plot
+Make seaborn plot
 
 .. code-block:: python3
 
     # Prepare dataframe
-    metrics_df.sort_values(by=['epoch_accuracy'], ascending=False, inplace=True)
+    metrics_df.sort_values(by='eval_accuracy', ascending=False, inplace=True)
+    ...
 
     # Make seaborn plot
     g = sns.relplot(x='x', y='epoch_accuracy', data=metrics_df)
