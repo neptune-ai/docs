@@ -16,43 +16,48 @@ What will you get with this integration?
 * see charts of logged run scores,
 * log the parameters tried at every run,
 * log the best parameters after training,
-* explore interactive optuna visualizations like plot_contour, plot_slice, plot_parallel_coordinate, optimization_history,
-* save the study object.
+* log and explore interactive optuna visualizations like plot_contour, plot_slice, plot_parallel_coordinate, and optimization_history,
+* save the ``optuna.study`` object itself.
    
 .. note::
 
-    This integration is tested with ``optuna==2.3.0`` and current latest, ``neptune-client==0.4.125`` and current latest, and ``neptune-contrib==0.24.7`` and current latest.
+    This integration is tested with ``optuna==2.3.0``, ``neptune-client==0.4.125``, and ``neptune-contrib==0.24.7``.
 
 Where to start?
 ---------------
-To get started with this integration, follow the :ref:`Quickstart <quickstart>` below. You can also skip the basics and take a look at the :ref:`advanced options <advanced-options>`.
+To get started with this integration, follow the :ref:`quickstart <optuna-quickstart>` below. 
+You can also skip the basics and take a look at how to log Optuna visualizations and the ``optuna.study`` object during or after the sweep in the :ref:`advanced options <optuna-advanced-options>` section.
 
 If you want to try things out and focus only on the code you can either:
 
 #. Open the Colab notebook (badge-link below) with quickstart code and run it as an anonymous user "`neptuner`" - zero setup, it just works,
 #. View quickstart code as a plain Python script on |script|.
 
-.. _quickstart:
+.. _optuna-quickstart:
 
 Quickstart
 ----------
 This quickstart will show you how to:
 
 * Install the necessary neptune packages
-* Connect Neptune to your script and create the first experiment
-* Log metrics, figures, and artifacts to Neptune, and 
+* Connect Neptune to your Optuna hyperparameter tuning code and create the first experiment
+* Log metrics, figures, and artifacts from your first Optuna sweep to Neptune, and 
 * Explore them in the Neptune UI.
 
 |Run on Colab|
 
-.. _before-you-start-basic:
+.. _optuna-before-you-start-basic:
 
 Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.125`` or newer, and ``neptune-contrib==0.24.7`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client==0.4.125``, and ``neptune-contrib==0.24.7``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``optuna==2.3.0``. See |optuna-install|.
+
+.. note::
+
+    The integration should work on newer versions of ``neptune-client`` and ``neptune-contrib`` too.
 
 You also need minimal familiarity with Optuna. Have a look at the |optuna-guide| guide to get started.
 
@@ -68,7 +73,7 @@ Run the code below:
 
     import neptune
 
-    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/showroom')
+    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/optuna-integration')
 
 .. tip::
 
@@ -82,7 +87,8 @@ Run the code below to create a Neptune experiment:
 
     neptune.create_experiment('optuna-sweep')
 
-Open the link in a new tab. The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
+This also creates a link to the experiment. Open the link in a new tab. 
+The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
 Step 3: Create the Neptune Callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,8 +98,8 @@ Step 3: Create the Neptune Callback
 
    neptune_callback = opt_utils.NeptuneCallback()
 
-Step 4: Running Optuna with the Neptune callback
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 4: Run Optuna with the Neptune callback
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Pass the ``neptune_callback`` as a callback to ``study.optimize()`` to monitor the metrics and parameters checked at each run.
 
 .. code-block:: python3
@@ -109,18 +115,27 @@ Check out this |example experiment|.
 
 |optuna-basic-logs|
 
-.. _advanced-options:
+.. _optuna-advanced-options:
 
 Advanced Options
 ----------------
 
+Log charts and study object during sweep
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 While creating the Neptune Callback, you can set ``log_study=True`` and ``log_charts=True`` to log interactive charts from ``optuna.visualization`` and the study object itself after every iteration.
 
 .. code-block:: python3
      
    neptune_callback = opt_utils.NeptuneCallback(log_study=True, log_charts=True)
 
-You can also log the above information after the sweep has completed by running:
+.. warning::
+
+   Depending on the size of the ``optuna.study`` object and the charts, this might add some overhead to the sweep.
+   To avoid this, you can log the study object and charts after the sweep.
+
+Log charts and study object after sweep
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can log the ``optuna.study`` object and charts after the sweep has completed by running:
 
 .. code-block:: python3
    
@@ -129,15 +144,6 @@ You can also log the above information after the sweep has completed by running:
 Check out this |advance experiment| with advanced logging.
 
 |optuna-advanced-logs|
-
-What's next
------------
-
-Now that you know how to integrate Neptune with Optuna, you can check:
-
-* Other :ref:`Hyperparameter Optimization Integrations with Neptune <integrations-hyperparameter-optimization-frameworks>`
-* :ref:`Downloading experiment data from Neptune <guides-download_data>`
-* Other :ref:`Neptune integrations <integrations-index>`
 
 .. External links
 
