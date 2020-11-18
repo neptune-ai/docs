@@ -41,7 +41,7 @@ Let's create minimal code snippet that logs single value to the experiment: ``'a
 
 Above snippet sets project, creates experiment and log one value to it. When script ends, the experiment is closed automatically. As a result you have new experiment with one value in one metric ('acc'=0.95).
 
-Everything that is evaluated after ``neptune.create_experiment()`` and before the end of the script (or when you call :meth:`~neptune.experiments.Experiment.stop`) can be logged to the experiment.
+Everything that is evaluated after ``neptune.create_experiment()`` and before the end of the script or when you call ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`) can be logged to the experiment.
 
 .. _what-you-can-log:
 
@@ -65,6 +65,7 @@ Neptune supports logging many different types of data. Here, you can find all of
 
 * :ref:`Images <logging-experiment-data-images>`
 
+    * :ref:`Image file <logging-experiment-data-images-file>`
     * :ref:`Matplotlib <logging-experiment-data-images-matplotlib>`
     * :ref:`PIL <logging-experiment-data-images-pil>`
     * :ref:`NumPy <logging-experiment-data-images-numpy>`
@@ -102,6 +103,8 @@ Neptune supports logging many different types of data. Here, you can find all of
 
     * :ref:`Explainers (DALEX) <logging-experiment-data-python-objects-dalex>`
     * :ref:`Pickled object <logging-experiment-data-python-pickle>`
+
+* :ref:`Logging with integrations <logging-with-integrations>`
 
 .. _logging-experiment-data-metrics:
 
@@ -198,8 +201,6 @@ Code
 ^^^^
 Neptune supports code versioning. There are a few ways to do that.
 
-:ref:`back to top <what-you-can-log>`
-
 .. _logging-experiment-data-code-git:
 
 Track your git information
@@ -270,49 +271,51 @@ To get started, install :ref:`notebook extension <installation-notebook-extensio
 
 Images
 ^^^^^^
-Log images to Neptune. You can log either single image or series of them, using :meth:`~neptune.experiments.Experiment.log_image`.
+Log images to Neptune. You can log either single image or series of them, using :meth:`~neptune.experiments.Experiment.log_image`. Several data formats are available:
 
-Log single image from disk
+* :ref:`Image files like png <logging-experiment-data-images-file>`,
+* :ref:`Matplotlib figure <logging-experiment-data-images-matplotlib>`,
+* :ref:`PIL image object <logging-experiment-data-images-pil>`,
+* :ref:`NumPy array <logging-experiment-data-images-numpy>`.
+
+In all cases you will have images in the |logs| section of the experiment, where you can browse and download them.
+
+You can log unlimited number of images either in the single log or in the multiple image logs. Simply use the same log name, for example ``'misclassified_images'`` - first argument of the :meth:`~neptune.experiments.Experiment.log_image`.
+
+.. note::
+
+    Single image size limit is 15MB. If you work with larger files, you can log them using :meth:`~neptune.experiments.Experiment.log_artifact`. Check :ref:`Files section <logging-experiment-data-files>` for more info.
+
+:ref:`back to top <what-you-can-log>`
+
+.. _logging-experiment-data-images-file:
+
+Image file
+""""""""""
+You can log image files directly from disk, by using :meth:`~neptune.experiments.Experiment.log_image`.
+
+Log single image from disk.
 
 .. code-block:: python3
 
     neptune.log_image('bbox_images', 'train-set/image.png')
 
-Log numpy array as a single image
+Log series of images in ``for`` loop.
 
 .. code-block:: python3
 
-    array = numpy.random.rand(300, 200, 3)*255
-    neptune.log_image('fig', array)
-
-Log series of images
-
-.. code-block:: python3
-
-    for batch in test_data_loader:
+    for name in misclassified_images_names:
         y_pred = ...
         y_true = ...
-        image_class = ...
-        misclassified_image = ...
         neptune.log_image('misclassified_images',
-                          misclassified_image,
+                          'misclassified_images/{name}.png`.format(name),
                           description='y_pred={}, y_true={}'.format(y_pred, y_true)
 
 .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
    :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/images.png
    :alt: Images in experiment
 
-You will have images in the |logs| section of the experiment, where you can browse and download them.
-
 |example-images|
-
-.. note::
-
-    Single image size limit is 15MB. If you work with larger files, you can log them using :meth:`~neptune.experiments.Experiment.log_artifact`. Check :ref:`Files section <logging-experiment-data-files>` for more info.
-
-.. note::
-
-    You can log unlimited number of images either in the single log or in the multiple image logs. Simply use the same log name, for example ``'misclassified_images'`` - first argument of the :meth:`~neptune.experiments.Experiment.log_image`.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -1044,6 +1047,8 @@ As a result, pickled explainer and charts will be available in the artifacts sec
 :ref:`back to top <what-you-can-log>`
 
 -----
+
+.. _logging-with-integrations:
 
 Logging with integrations
 -------------------------
