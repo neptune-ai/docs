@@ -2,7 +2,7 @@
 
 Updating existing experiment
 ============================
-[loom-placeholder]
+|video-update|
 
 You can update experiments even after they finished running. This lets you add new data or visualizations to the previously closed experiment and makes multi-stage training convenient.
 
@@ -137,3 +137,9 @@ However, updating experiment comes with some limitations. Specifically:
                      src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
         </button>
     </div>
+
+.. Videos
+
+.. |video-update| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/d2bb1e74c74a4892a68b0bc9dc0a0f11" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
