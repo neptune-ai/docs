@@ -2,7 +2,7 @@
 
 Logging experiment data
 =======================
-[loom-placeholder]
+|video-intro|
 
 During machine learning experimentation, you need to keep track of many different types of meta-data. Neptune helps you do that by logging, keeping track of and visualizing it.
 
@@ -1185,7 +1185,7 @@ Advanced
 
 Using Project and Experiment objects explicitly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[loom-placeholder]
+|video-project-experiment|
 
 If you work with large codebase, you may want to switch from using global ``neptune`` calls like ``neptune.create_experiment()`` or ``neptune.log_metric()`` to passing objects around, either :class:`~neptune.projects.Project` or :class:`~neptune.experiments.Experiment`.
 
@@ -1227,7 +1227,7 @@ Let's revisit minimal code snippet from the :ref:`basics section <basics-of-logg
 
 Pass Experiment object around to log from multiple Python files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[loom-placeholder]
+|video-project-experiment|
 
 You can pass :class:`~neptune.experiments.Experiment` object around and use it to populate functions' parameters and perform logging from multiple Python files.
 
@@ -1282,7 +1282,7 @@ In this way you can work with larger codebase and use logging from multiple Pyth
 
 Logging to multiple experiments in one script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[loom-placeholder]
+|video-multiple-experiments|
 
 You can freely create multiple experiments in the single script and log to them separately. General recipe is very straightforward, as you simply create multiple :class:`~neptune.experiments.Experiment` objects - one for each experiment.
 
@@ -1703,3 +1703,17 @@ Few remarks:
                      src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
         </button>
     </div>
+
+.. Videos
+
+.. |video-intro| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/c4b7c2beddc84e1f842be32aa78dfcaf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |video-project-experiment| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/56e30de6bd8f4093b8bc702c179b2b0e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |video-multiple-experiments| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
