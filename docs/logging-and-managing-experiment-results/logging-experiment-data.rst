@@ -106,6 +106,119 @@ Neptune supports logging many different types of data. Here, you can find all of
 
 * :ref:`Logging with integrations <logging-with-integrations>`
 
+    * :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
+    * :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
+    * :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
+    * :ref:`Visualization libraries <integrations-visualization-tools>`
+    * :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
+    * :ref:`Other integrations <integrations-other-integrations>`
+
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| Type od data                                                                   | Per-type category                                                                                    |
++================================================================================+======================================================================================================+
+| :ref:`Metrics <logging-experiment-data-metrics>`                               | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Parameters <logging-experiment-data-parameters>`                         | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Code <logging-experiment-data-code>`                                     | * :ref:`Git <logging-experiment-data-code-git>`                                                      |
+|                                                                                | * :ref:`Code Snapshot <logging-experiment-data-code-code-snapshot>`                                  |
+|                                                                                | * :ref:`Notebook Snapshot <logging-experiment-data-code-notebook-snapshot>`                          |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Images <logging-experiment-data-images>`                                 | * :ref:`Image file <logging-experiment-data-images-file>`                                            |
+|                                                                                | * :ref:`Matplotlib <logging-experiment-data-images-matplotlib>`                                      |
+|                                                                                | * :ref:`PIL <logging-experiment-data-images-pil>`                                                    |
+|                                                                                | * :ref:`NumPy <logging-experiment-data-images-numpy>`                                                |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Interactive charts <logging-experiment-data-interactive-charts>`         | * :ref:`Matplotlib <logging-experiment-data-interactive-charts-matplotlib>`                          |
+|                                                                                | * :ref:`Altair <logging-experiment-data-interactive-charts-altair>`                                  |
+|                                                                                | * :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`                                    |
+|                                                                                | * :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`                                  |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Text <logging-experiment-data-text>`                                     | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Hardware consumption <logging-experiment-data-hardware-consumption>`     | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Experiment information <logging-experiment-data-experiment-information>` | * :ref:`Experiment name <logging-experiment-data-experiment-information-name>`                       |
+|                                                                                | * :ref:`Experiment description <logging-experiment-data-experiment-information-description>`         |
+|                                                                                | * :ref:`Experiment tags <logging-experiment-data-experiment-information-tags>`                       |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Properties <logging-experiment-data-properties>`                         | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Data versions <logging-experiment-data-data-versions>`                   | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Files <logging-experiment-data-files>`                                   | * :ref:`Model checkpoints <logging-experiment-data-files-model-checkpoints>`                         |
+|                                                                                | * :ref:`HTML objects <logging-experiment-data-files-html-objects>`                                   |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Video <logging-experiment-data-video>`                                   | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Audio <logging-experiment-data-audio>`                                   | n.a.                                                                                                 |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Tables <logging-experiment-data-tables>`                                 | * :ref:`pandas <logging-experiment-data-pandas>`                                                     |
+|                                                                                | * :ref:`csv <logging-experiment-data-csv>`                                                           |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Python objects <logging-experiment-data-python-objects>`                 | * :ref:`Explainers (DALEX) <logging-experiment-data-python-objects-dalex>`                           |
+|                                                                                | * :ref:`Pickled object <logging-experiment-data-python-pickle>`                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Logging with integrations <logging-with-integrations>`                   | * :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`                            |
+|                                                                                | * :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`                      |
+|                                                                                | * :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>` |
+|                                                                                | * :ref:`Visualization libraries <integrations-visualization-tools>`                                  |
+|                                                                                | * :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`                |
+|                                                                                | * :ref:`Other integrations <integrations-other-integrations>`                                        |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Metrics <logging-experiment-data-metrics>`                               |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Parameters <logging-experiment-data-parameters>`                         |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Code <logging-experiment-data-code>`                                     | * :ref:`Git <logging-experiment-data-code-git>`                                                      |
+|                                                                                | * :ref:`Code Snapshot <logging-experiment-data-code-code-snapshot>`                                  |
+|                                                                                | * :ref:`Notebook Snapshot <logging-experiment-data-code-notebook-snapshot>`                          |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Images <logging-experiment-data-images>`                                 | * :ref:`Image file <logging-experiment-data-images-file>`                                            |
+|                                                                                | * :ref:`Matplotlib <logging-experiment-data-images-matplotlib>`                                      |
+|                                                                                | * :ref:`PIL <logging-experiment-data-images-pil>`                                                    |
+|                                                                                | * :ref:`NumPy <logging-experiment-data-images-numpy>`                                                |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Interactive charts <logging-experiment-data-interactive-charts>`         | * :ref:`Matplotlib <logging-experiment-data-interactive-charts-matplotlib>`                          |
+|                                                                                | * :ref:`Altair <logging-experiment-data-interactive-charts-altair>`                                  |
+|                                                                                | * :ref:`Bokeh <logging-experiment-data-interactive-charts-bokeh>`                                    |
+|                                                                                | * :ref:`Plotly <logging-experiment-data-interactive-charts-plotly>`                                  |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Text <logging-experiment-data-text>`                                     |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Hardware consumption <logging-experiment-data-hardware-consumption>`     |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Experiment information <logging-experiment-data-experiment-information>` | * :ref:`Experiment name <logging-experiment-data-experiment-information-name>`                       |
+|                                                                                | * :ref:`Experiment description <logging-experiment-data-experiment-information-description>`         |
+|                                                                                | * :ref:`Experiment tags <logging-experiment-data-experiment-information-tags>`                       |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Properties <logging-experiment-data-properties>`                         |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Data versions <logging-experiment-data-data-versions>`                   |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Files <logging-experiment-data-files>`                                   | * :ref:`Model checkpoints <logging-experiment-data-files-model-checkpoints>`                         |
+|                                                                                | * :ref:`HTML objects <logging-experiment-data-files-html-objects>`                                   |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Video <logging-experiment-data-video>`                                   |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Audio <logging-experiment-data-audio>`                                   |                                                                                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Tables <logging-experiment-data-tables>`                                 | * :ref:`pandas <logging-experiment-data-pandas>`                                                     |
+|                                                                                | * :ref:`csv <logging-experiment-data-csv>`                                                           |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Python objects <logging-experiment-data-python-objects>`                 | * :ref:`Explainers (DALEX) <logging-experiment-data-python-objects-dalex>`                           |
+|                                                                                | * :ref:`Pickled object <logging-experiment-data-python-pickle>`                                      |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+| :ref:`Logging with integrations <logging-with-integrations>`                   | * :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`                            |
+|                                                                                | * :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`                      |
+|                                                                                | * :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>` |
+|                                                                                | * :ref:`Visualization libraries <integrations-visualization-tools>`                                  |
+|                                                                                | * :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`                |
+|                                                                                | * :ref:`Other integrations <integrations-other-integrations>`                                        |
++--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
+
 .. _logging-experiment-data-metrics:
 
 Metrics
