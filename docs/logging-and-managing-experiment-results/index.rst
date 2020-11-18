@@ -4,7 +4,7 @@ Logging and managing experiment results
 =======================================
 Log and manage data in Neptune via |neptune-client-github| (Python and R clients are available).
 
-[loom-placeholder]
+|video-intro|
 
 What is neptune-client?
 -----------------------
@@ -24,7 +24,7 @@ You can :ref:`log experiments from anywhere <execution-environments-index>` (loc
 
 What you need to add to your code to start logging
 --------------------------------------------------
-[loom-placeholder]
+|video-basics|
 
 Bare minimum are one import and two methods:
 
@@ -144,3 +144,14 @@ Learn more about the :class:`~neptune.experiments.Experiment` object and how to 
 .. |neptune-client-github| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">Neptune client</a>
+
+
+.. Videos
+
+.. |video-intro| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/6bbe6d15b92845c0891accf295fd6780" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |video-basics| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/ff1a03b5f1f94ceeb4d66b770967430f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
