@@ -23,7 +23,7 @@ By doing that you can keep your experiment data safe even when the Google Colab 
 
 .. seealso::
 
-    See the :ref:`full list of things that you can log <log-to-experiments>` and how to :ref:`download this data from Neptune <guides-download_data>`.
+    See the :ref:`full list of things that you can log <what-you-can-log>` and how to :ref:`download this data from Neptune <guides-download_data>`.
 
 Introduction
 ------------
@@ -110,7 +110,7 @@ What's next
 
 Now that you know how to integrate Neptune with Google Colab, you can check:
 
-* :ref:`What can you log to experiments? <log-to-experiments>`
+* :ref:`What can you log to experiments? <what-you-can-log>`
 * :ref:`Downloading experiment data from Neptune <guides-download_data>`
 * Other :ref:`Neptune integrations <integrations-index>`
 

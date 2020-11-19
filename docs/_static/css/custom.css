@@ -267,6 +267,23 @@
     background-color: #EBEBEB;
 }
 
+.see-in-neptune button {
+    margin-left: 0px;
+    margin-right: 20px;
+    border-radius: 4px;
+    border: solid 1px #dddddd;
+    background-color: #fcfcfc;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2260ad;
+    font-family: inherit;
+}
+
+.see-in-neptune button:hover {
+    background-color: #EBEBEB;
+}
+
 .run-on-colab button {
     margin-left: 20px;
     margin-right: 20px;

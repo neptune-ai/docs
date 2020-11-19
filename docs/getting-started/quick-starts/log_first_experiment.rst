@@ -1,4 +1,4 @@
-Use Neptune API to Iog your first experiment
+Use Neptune API to log your first experiment
 ============================================
 
 |run on colab button|

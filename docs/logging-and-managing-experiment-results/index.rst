@@ -2,101 +2,156 @@
 
 Logging and managing experiment results
 =======================================
+Log and manage data in Neptune via |neptune-client-github| (Python and R clients are available).
 
-|Youtube Video|
+|video-intro|
 
-|neptune-client-github|
-is an open source Python library that lets you integrate your Python scripts with Neptune so that you can more easily track and organize your experiments in the rich Neptune |dashboard|.
+What is neptune-client?
+-----------------------
+|neptune-client-github| is an open source Python library that serves three purposes:
 
-Once you have integrated with Neptune, you can also:
+#. :ref:`log machine learning experiments <guides-logging-data-to-neptune>`,
+#. :ref:`update existing experiment <update-existing-experiment>` with new data and visualizations,
+#. :ref:`download experiment data <guides-download_data>` from Neptune to local machine.
 
-* Create experiments. |Example1|.
-* Manage running experiments. |Example2|.
-* Fetch experiment and project data. |Example3|.
+It is designed to be:
 
-**Example**
+* **lightweight**: low setup effort,
+* **generic**: capable of logging any kind of machine learning work
+* **straightforward**: user defines what to keep track of during experiment to use.
 
-The following code creates a Neptune experiment in the project |onboarding|. Name (*Python str*) and parameters (*Python dict*) are added to the experiment in the ``create_experiment()`` method. The code logs ``iteration``, ``loss`` and ``text_info`` metrics to Neptune in real time, using three dedicated methods. It also showcases a common use case for Neptune client, that is, tracking progress of machine learning experiments.
+You can :ref:`log experiments from anywhere <execution-environments-index>` (local machine, cluster, cloud, Colab, etc.) and they will be tracked in the same, standardized way. You will be able to quickly compare experiments run by you on your workstation with experiments run on AWS by your team-mate.
 
+What you need to add to your code to start logging
+--------------------------------------------------
+|video-basics|
 
-.. code-block::
+Bare minimum are one import and two methods:
+
+.. code-block:: python3
 
     import neptune
-    import numpy as np
 
-    # select project
-    neptune.init('shared/onboarding',
-                 api_token='ANONYMOUS')
+    # Set project
+    neptune.init('my_workspace/my_project')
 
-    # define parameters
-    PARAMS = {'decay_factor': 0.7,
-              'n_iterations': 117}
+    # Create experiment
+    neptune.create_experiment()
 
-    # create experiment
-    neptune.create_experiment(name='quick_start_example',
-                              params=PARAMS)
+These are usually just copy&paste into your existing project code.
 
-    # log some metrics
-    for i in range(1, PARAMS['n_iterations']):
-        neptune.log_metric('iteration', i)
-        neptune.log_metric('loss', PARAMS['decay_factor']/i**0.5)
-        neptune.log_text('text_info', 'some value {}'.format(0.95*i**2))
+.. note::
 
-    # add tag to the experiment
-    neptune.append_tag('quick_start')
+    Remember to :ref:`create project <create-project>` and :ref:`setup API token <how-to-setup-api-token>` before you create an experiment using snippet above.
 
-    # log some images
-    for j in range(5):
-        array = np.random.rand(10, 10, 3)*255
-        array = np.repeat(array, 30, 0)
-        array = np.repeat(array, 30, 1)
-        neptune.log_image('mosaics', array)
+Now, that the experiment is created you can start logging metrics, losses, images, model weights or whatever you feel relevant to keep track of in your experiment.
 
-.. note:: Save the code as ``main.py`` and run it using the command: ``python main.py``.
+Overall idea for logging is to use methods similar to this:
 
-**More info:**
+.. code-block:: python3
+
+    neptune.log_metric('acc', 0.95)
+
+Generic recipe being:
+
+.. code-block:: python3
+
+    neptune.log_X('some_name', some_value)
+
+Where ``X`` could be metric, artifact, chart, pickle, etc. Check the :ref:`logging section <what-you-can-log>` for a complete list.
+
+.. note::
+
+    If you work in Notebooks, you need to place ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`) at the very end of your experiment to make sure that everything will be closed properly.
+
+    Note that you are still able to :ref:`update an experiment <update-existing-experiment>` that was closed before.
+
+Essential Neptune client concepts
+---------------------------------
+:ref:`Project <logging_project>` and :ref:`Experiment <logging_experiment>` are two important entities in Neptune.
+
+Basic snippet below, sets project and creates new experiment in that project.
+
+.. code-block:: python3
+
+    # Set project
+    neptune.init('my_workspace/my_project')
+
+    # Create new experiment
+    neptune.create_experiment()
+
+.. _logging_project:
+
+Project
+^^^^^^^
+It is a **collection of Experiments**, created by user (or users) assigned to the project.
+
+You can log experiments to the project or fetch all experiments that satisfy some criteria.
+
+.. code-block:: python3
+
+    # Set project and get project object
+    project = neptune.init('my_workspace/my_project')
+
+    # Use project to create experiment
+    project.create_experiment()
+
+    # Use project to get experiments data from the project
+    project.get_leaderboard(state=['succeeded'])
+
+Learn more about :ref:`downloading data from Neptune <guides-download_data>`. Check also, :class:`~neptune.projects.Project` to use in your Python code.
+
+.. _logging_experiment:
+
+Experiment
+^^^^^^^^^^
+Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`).
+
+Creating experiment is easy:
+
+.. code-block:: python3
+
+    # Set project
+    neptune.init('my_workspace/my_project')
+
+    # Create new experiment
+    neptune.create_experiment()
+
+You can now log various data to the experiment including metrics, losses, model weights, images, predictions and much more. Have a look at the complete list of :ref:`what you can log <what-you-can-log>` to the experiment
+
+Besides logging data, you can also :ref:`download experiment data <guides-download_data>` to you local machine or :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
+
+.. note::
+
+    ``neptune.log_metric('some_name', some_value)`` is for tracking all numeric values to Neptune (metric, loss, score, variances, etc.). Learn, what else can be tracked to experiment from :ref:`this list <what-you-can-log>`.
+
+Learn more about the :class:`~neptune.experiments.Experiment` object and how to use it in your Python code.
+
+
+.. Local navigation
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
-   Logging experiment data <logging-experiment-data/index.rst>
-   Updating existing experiments <updating-existing-experiment/index.rst>
-   Downloading experiment data programmatically <downloading-experiment-data-programmatically/index.rst>
+   Logging experiment data <logging-experiment-data.rst>
+   Downloading experiment data <downloading-experiment-data.rst>
+   Updating existing experiment <updating-existing-experiment.rst>
+
 
 .. External links
-
-.. |Youtube Video| raw:: html
-
-    <iframe width="720" height="420" src="https://www.youtube.com/embed/w9S5srkfSI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |neptune-client-github| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">Neptune client</a>
 
-.. |Neptune| raw:: html
 
-    <a href="https://neptune.ai" target="_blank">Neptune</a>
+.. Videos
 
-.. |onboarding| raw:: html
+.. |video-intro| raw:: html
 
-    <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">shared/onboarding</a>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/6bbe6d15b92845c0891accf295fd6780" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-.. |github-issues| raw:: html
+.. |video-basics| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-client/issues" target="_blank">GitHub issues</a>
-
-.. |Example1| raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py" target="_blank">Example</a>
-
-.. |Example2| raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project/e/HELLO-48/source-code?path=.&file=classification-example.py" target="_blank">Example</a>
-
-.. |Example3| raw:: html
-
-    <a href="https://ui.neptune.ai/USERNAME/example-project/n/Experiments-analysis-with-Query-API-and-Seaborn-31510158-04e2-47a5-a823-1cd97a0d8fcd/91350522-2b98-482d-bc14-a6ff5c061b6b" target="_blank">Example</a>
-
-.. |dashboard| raw:: html
-
-    <a href="https://ui.neptune.ai/shared/onboarding/experiments" target="_blank">dashboard</a>
+    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/ff1a03b5f1f94ceeb4d66b770967430f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
