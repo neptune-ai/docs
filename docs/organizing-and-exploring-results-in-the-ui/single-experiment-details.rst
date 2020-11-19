@@ -1,3 +1,5 @@
+.. _exploring-a-single-experiment:
+
 Exploring a single experiment
 =============================
 
@@ -21,6 +23,8 @@ Inside the experiment, there are tabs in the left sidebar. Each displays specifi
 
 For more information about the experiment data that is logged, see :ref:`Logging to Neptune <guides-logging-data-to-neptune>`.
 
+.. _organizing-experiments-charts:
+
 Organizing experiments charts
 -----------------------------
 
@@ -39,6 +43,8 @@ Most common situations are:
 - you have mutliple metrics that you would like to put on a single chart. For example you want to group epoch loss and validation loss into a one learning curve.
 
 If that is the case you should create a chart set.
+
+.. _creating-custom-chart-sets:
 
 Creating custom chart sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
