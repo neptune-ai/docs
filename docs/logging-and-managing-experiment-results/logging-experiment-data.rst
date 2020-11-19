@@ -647,7 +647,7 @@ You can edit 'name' directly in the UI.
 
 .. note::
 
-    You can search for an experiment by it's name. Here is how: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
+    You can search for an experiment by it's name. Here is how: :ref:`Searching and filtering experiments <guides-searching-and-filtering-experiments>`.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -673,7 +673,7 @@ You can edit 'description' directly in the UI.
 
 .. note::
 
-    You can use info in the description to later search for an experiment in the UI. Here is how: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
+    You can use info in the description to later search for an experiment in the UI. Here is how: :ref:`Searching and filtering experiments <guides-searching-and-filtering-experiments>`.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -708,7 +708,7 @@ You can easily remove tags programmatically if you wish using :meth:`~neptune.ex
 
 .. note::
 
-    You can quickly filter by tag by clicking on it in the experiments dashboard. Check :ref:`Searching and filtering experiments <searching-and-filtering-experiments>` guide for more options.
+    You can quickly filter by tag by clicking on it in the experiments dashboard. Check :ref:`Searching and filtering experiments <guides-searching-and-filtering-experiments>` guide for more options.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -1598,12 +1598,12 @@ Few remarks:
 
 .. |video-intro| raw:: html
 
-    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/c4b7c2beddc84e1f842be32aa78dfcaf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/c4b7c2beddc84e1f842be32aa78dfcaf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 .. |video-project-experiment| raw:: html
 
-    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/56e30de6bd8f4093b8bc702c179b2b0e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/56e30de6bd8f4093b8bc702c179b2b0e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 .. |video-multiple-experiments| raw:: html
 
-    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/share/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
