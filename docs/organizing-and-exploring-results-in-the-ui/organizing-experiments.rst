@@ -14,7 +14,12 @@ Neptune is a browser-enabled app that lets you visualize and browse experiments.
 
 The **Experiments** space displays all the experiments in a specific Project in table form.
 
-There are several ways to organize your experiments.
+There are several ways to organize your experiments, by using:
+
+* tags,
+* dashboard views,
+* columns customizations,
+* experiments grouping.
 
 Using tags
 ----------
@@ -27,15 +32,13 @@ You can create tag(s), which you assign to experiments. Later, you can quickly f
 
 Using dashboard views
 ---------------------
-You can create a custom view of the experiments dashboard, that is saved setup of experiments filter and arrangement of columns.
-
-You can create many views in the project. Thanks to this you can quickly jump between different aspects of the project. For example, you can filter rows (experiments) by metric value and select a subset of useful columns that represent relevant experiments meta-data.
-
-You can quickly jump between views by selecting it from the list of views.
+Experiment dashboard view is a saved setup of columns configuration and experiment filters.
 
 .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/views-list.png
   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/views-list.png
   :alt: Views list
+
+For example, you can filter rows (experiments) by metric value and select a subset of useful columns that represent relevant experiments meta-data. You can create many views in the project. Thanks to this you can quickly jump between different aspects of the project.
 
 Notice, that one view "`keras with extra visuals`" has a pin icon |pin| next to it. Use pin to set the default view.
 
@@ -50,23 +53,22 @@ When dashboard views are useful?
 There are few situation when you may want to create custom dashboard view:
 
 * You work on separate idea or task within a project, and you want to see only relevant information.
-* Project team explores separate ideas in the project and for each idea team wants to have separate dashboard.
+* Your team explores separate ideas in the project and for each idea you want to have separate dashboard.
 * You want to create separate view that contains only your experiments.
-* You want to have separate view for experiments that serve some special purpose, for example experiments that have model pushed to production.
+* You want to have a separate view for experiments that have model weights that was pushed to production.
 
 What can be customized in view?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Generally view is a saved setup of experiments filter and arrangement of columns.
+A view is a saved setup of experiments filter and arrangement of columns.
 
-Experiments filter, either basic or advanced, can be saved in view. Learn more about it here: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
-
-Every setup of columns can be saved in view. Check section :ref:`customizing columns <customizing-columns>` below to learn more about it.
+* Experiments filter, either basic or advanced, can be saved in view. Learn more about it here: :ref:`Searching and filtering experiments <searching-and-filtering-experiments>`.
+* Every setup of columns can be saved in view. Check section :ref:`customizing columns <customizing-columns>` below to learn more about it.
 
 How to create dashboard view?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 loom-placeholder
 
-This short tutorial you will learn how to customize experiment dashboard and save it as a new view.
+In this short tutorial you will learn how to customize experiment dashboard and save it as a new view.
 
 .. note::
 
@@ -75,8 +77,6 @@ This short tutorial you will learn how to customize experiment dashboard and sav
 Step 1: Go to experiment dashboard
 """"""""""""""""""""""""""""""""""
 Open experiments dashboard in your project. In this tutorial we use |example-project|.
-
-Step 2 and 3 below can be done in any order.
 
 Step 2: Apply filter
 """"""""""""""""""""
@@ -172,7 +172,9 @@ Moreover, you can reorder columns and adjust their width.
 
 Grouping experiments
 --------------------
-You can group experiments by one or more column(s). The dashboard displays the selected columns, allowing you to make in-group and across-groups analysis of the experiments. Each group is represented by the first experiment that appears according to the sorting order. After opening it, each group shows at most 10 experiments - all experiments can be viewed by clicking **Show all**.
+You can group experiments by one or more column(s).
+
+The dashboard displays the selected columns, allowing you to make in-group and across-groups analysis of the experiments. Each group is represented by the first experiment that appears according to the sorting order. After opening it, each group shows at most 10 experiments - all experiments can be viewed by clicking **Show all**.
 
    .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/group_by.png
       :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/group_by.png
@@ -206,3 +208,9 @@ You can group experiments by one or more column(s). The dashboard displays the s
                      src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See "keras with extra visuals" view in neptune</a>
         </button>
     </div>
+
+.. Videos
+
+.. |video-view| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
