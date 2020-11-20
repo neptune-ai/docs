@@ -19,7 +19,7 @@ There are several ways to organize your experiments. Following options are avail
 * :ref:`using tags <using_tags>`,
 * :ref:`using dashboard views <using-dashboard-views>`,
 * :ref:`customizing columns <customizing-columns>`,
-* :ref:`Grouping experiments <grouping-experiments>`.
+* :ref:`grouping experiments <grouping-experiments>`.
 
 Continue reading this page to learn more about each option.
 
