@@ -66,7 +66,7 @@ A view is a saved setup of experiments filter and arrangement of columns.
 
 How to create dashboard view?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-loom-placeholder
+|video-view|
 
 In this short tutorial you will learn how to customize experiment dashboard and save it as a new view.
 
@@ -213,4 +213,4 @@ The dashboard displays the selected columns, allowing you to make in-group and a
 
 .. |video-view| raw:: html
 
-    <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/932a6bc9561c4cf4bc3bd5813eab0050" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
