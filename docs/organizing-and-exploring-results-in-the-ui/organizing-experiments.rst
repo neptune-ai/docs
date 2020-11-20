@@ -14,12 +14,16 @@ Neptune is a browser-enabled app that lets you visualize and browse experiments.
 
 The **Experiments** space displays all the experiments in a specific Project in table form.
 
-There are several ways to organize your experiments, by using:
+There are several ways to organize your experiments. Following options are available:
 
-* tags,
-* dashboard views,
-* columns customizations,
-* experiments grouping.
+* :ref:`using tags <using_tags>`,
+* :ref:`using dashboard views <using-dashboard-views>`,
+* :ref:`customizing columns <customizing-columns>`,
+* :ref:`Grouping experiments <grouping-experiments>`.
+
+Continue reading this page to learn more about each option.
+
+.. _using_tags:
 
 Using tags
 ----------
@@ -29,6 +33,8 @@ You can create tag(s), which you assign to experiments. Later, you can quickly f
       :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/tag_chooser.png
       :alt: Tag chooser
       :width: 250
+
+.. _using-dashboard-views:
 
 Using dashboard views
 ---------------------
@@ -110,13 +116,13 @@ Saved view is appended to the list of views:
    :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/s-5-access-view.png
    :alt: Access view
 
-.. _customizing-columns:
-
 Result
 """"""
 In this short tutorial you learned how to create new view that consist of experiments filter and arrangement of columns. You learned how to save new view and access it later from the list of views.
 
 Continue to the section below "`Customizing columns`" to learn more about what you can do with dashboard columns.
+
+.. _customizing-columns:
 
 Customizing columns
 -------------------
@@ -169,6 +175,8 @@ Moreover, you can reorder columns and adjust their width.
 .. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/col-order-width.gif
    :target: ../_static/images/organizing-and-exploring-results-in-the-ui/experiment-dashboard/col-order-width.gif
    :alt: columns order and width
+
+.. _grouping-experiments:
 
 Grouping experiments
 --------------------
