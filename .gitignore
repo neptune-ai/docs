@@ -9,3 +9,4 @@ docs/api-reference
 *.tar.gz
 requirements.lock
 *.swp
+.vscode/
