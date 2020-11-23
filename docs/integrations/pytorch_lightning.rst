@@ -22,7 +22,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 .. note::
 
-    This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest.
+    This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``.
 
 Where to start?
 ---------------
@@ -51,9 +51,9 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.123`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client==0.4.126`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
-* ``pytorch-lightning==1.0.0`` or newer. See |lightning-install|.
+* ``pytorch-lightning==1.0.7`` or newer. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
 
@@ -558,7 +558,7 @@ Check this experiment (|adv-go-here|) or view above code snippets as a plain Pyt
 
 Common problems
 ---------------
-This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest. Make sure that you use correct versions.
+This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``. Make sure that you use correct versions.
 
 How to ask for help?
 --------------------
