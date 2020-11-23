@@ -6,21 +6,27 @@ When in Neptune, simply look for the download icon. It's located in multiple pla
 
 Download model checkpoints
 --------------------------
-.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-artifact.png
-   :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-artifact.png
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-artifact.png
+   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-artifact.png
    :alt: Download model checkpoint
 
 Download experiments dashboard as csv
 -------------------------------------
-.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-dashboard.png
-   :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-dashboard.png
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-dashboard.png
+   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-dashboard.png
    :alt: Download experiments dashboard as csv
 
 Download notebook checkpoint
 ----------------------------
-.. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-notebook.png
-   :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-notebook.png
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-notebook.png
+   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-notebook.png
    :alt: Download notebook checkpoint
+
+Download experiment source code
+-------------------------------
+.. image:: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-source-code.png
+   :target: ../_static/images/organizing-and-exploring-results-in-the-ui/download-from-ui/download-source-code.png
+   :alt: Download source code
 
 Download images in full size
 ----------------------------
