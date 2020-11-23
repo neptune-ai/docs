@@ -430,10 +430,6 @@ You can log interactive charts and they will be rendered interactively in the |a
 
 .. note::
 
-    You need to install plotly to log any type of interactive chart. See: |plotly-installation-guide|.
-
-.. note::
-
     For a full screen view, you can open visualization in the new browser tab, by clicking on the *"arrow-pointing-top-right"* icon, located right above your visualisation:
 
     .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/full-screen-icon.png
@@ -471,6 +467,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 .. note::
 
+    You need to install plotly to log Matplotlib as interactive chart. See: |plotly-installation-guide|.
+
+.. note::
+
     Check :ref:`images logging <logging-experiment-data-images-matplotlib>` to see how to log matplotlib figure as an image.
 
 :ref:`back to top <what-you-can-log>`
@@ -502,6 +502,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 |example-interactive-charts-altair|
 
+.. note::
+
+    You need to install plotly to log Altair as interactive chart. See: |plotly-installation-guide|.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-bokeh:
@@ -531,6 +535,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 |example-interactive-charts-bokeh|
 
+.. note::
+
+    You need to install plotly to log bokeh as interactive chart. See: |plotly-installation-guide|.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-plotly:
@@ -559,6 +567,10 @@ Log plotly chart as an interactive chart, by using :meth:`~neptunecontrib.api.ch
 Interactive plotly chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/plotly-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-plotly|
+
+.. note::
+
+    You need to install plotly to enable to feature. See: |plotly-installation-guide|.
 
 :ref:`back to top <what-you-can-log>`
 
