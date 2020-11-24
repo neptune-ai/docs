@@ -1,3 +1,5 @@
+.. _installation-neptune-contrib:
+
 Install neptune-contrib: Neptune extensions contributed by the community (3 min)
 ================================================================================
 

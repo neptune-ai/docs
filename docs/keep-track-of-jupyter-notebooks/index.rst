@@ -26,20 +26,20 @@ Key Features
 
 * In Neptune, each Notebook consists of a collection of checkpoints that you upload directly from the Jupyter user interface.
 * In any project, an unlimited number of Notebooks and checkpoints is allowed.
-* You can browse checkpoints history across all `Notebooks in the project <https://ui.neptune.ai/shared/onboarding/notebooks>`_.
-* You can `share <https://ui.neptune.ai/shared/onboarding/n/neural-style-tutorial-c96dce51-409a-4b1b-8dbf-c47d52868d9b/9a7f6736-8794-44f0-9060-cf1b451d92d9>`_ a Notebook as a link.
-* You can `compare <https://ui.neptune.ai/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb>`_ two Notebooks side-by-side, like source code.
+* You can browse checkpoints history across all |Notebooks in the project|.
+* You can |share a Notebook| as a link.
+* You can |compare two Notebooks| side-by-side, like source code.
 
 
 Quick Start
 -----------
 
-To start working with Notebooks in Neptune, `install <installation.html>`_ and `configure <configuration.html>`_ the open
+To start working with Notebooks in Neptune, :ref:`Install and configure <installation-notebook-extension>` the open
 source extension for Jupyter or JupyterLab. When you are done, you can start working with Notebooks immediately.
 
-To try it now, without registering to Neptune, look at the sample Notebooks in the public project `onboarding <https://ui.neptune.ai/shared/onboarding/notebooks>`_.
+To try it now, without registering to Neptune, look at the sample Notebooks in the public |project onboarding|.
 Use the public user's API token that appears below, and the username *neptuner* to upload some snapshots to this project.
-You still need to `install <installation.html>`_ and `configure <configuration.html>`_ Jupyter extension.
+You still need to :ref:`Install and configure <installation-notebook-extension>` Jupyter extension.
 
 **Public user’s API token**:
 
@@ -49,7 +49,7 @@ You still need to `install <installation.html>`_ and `configure <configuration.h
 
 Notebook UI
 -----------
-The `Notebooks tab <https://ui.neptune.ai/shared/onboarding/notebooks>`_ in the Neptune UI provides a table of all the Notebooks in the current project.
+The Notebooks tab in the Neptune UI provides a table of all the Notebooks in the current project.
 
 .. image:: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-11.png
     :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-11.png
@@ -67,8 +67,7 @@ The Notebook data is arranged in the following columns:
 
 In addition, for each Notebook, there are buttons for downloading the Notebook, comparing it with another Notebook, or for sharing a link to it.
 
-A **Compare** button at the top right displays a Notebooks Comparison pane. See `Compare Notebooks <introduction.html#id3>`_.
-
+A **Compare** button at the top right displays a Notebooks Comparison pane. See :ref:`Compare Notebooks <compare_notebooks>`.
 
 Notebook contents
 ~~~~~~~~~~~~~~~~~
@@ -85,6 +84,8 @@ You can also view snapshots of the work with the Notebook, as well as download, 
     :target: ../_static/images/keep-track-of-jupyter-notebooks/nb-view-22.png
     :alt: image
 
+.. _compare_notebooks:
+
 Compare Notebooks
 ~~~~~~~~~~~~~~~~~
 
@@ -97,11 +98,6 @@ You display the pane by clicking the **Compare** button anywhere it is visible i
     :alt: image
 
 In the Notebooks Comparison pane, select two Notebook checkpoints, then click **Compare** to see a side-by-side comparison, just like source code.
-
-
-.. Commented out. Doesn't seem to be working.
-.. `Compare view <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_ let you look at the difference between checkpoints of the same Notebook, or two entirely different Notebooks (Try yourself `here <https://ui.neptune.ai/shared/onboarding/compare-notebooks>`_).
-
 
 * Differences in code, markdown, output and execution count are highlighted.
 * Summary information about the differences is displayed at the top of the pane.
@@ -173,6 +169,8 @@ You can upload Notebook checkpoints from Jupyter to Neptune.
 
 A confirmation message is displayed. You can click the link in the message to open the Notebook in Neptune.
 
+.. _download-notebook:
+
 Downloading a Notebook
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -202,7 +200,7 @@ Managing Notebooks in Neptune using the CLI
 
 You can create Notebooks and update Notebook checkpoints in Neptune from the command line, using Neptune's `notebook sync` command.
 
-Using CLI commands is an alternative if you prefer not to use the `neptune-notebooks extensions <installation.html>`_ in Jupyter or JupyterLab.
+Using CLI commands is an alternative if you prefer not to use the neptune-notebooks extensions in Jupyter or JupyterLab.
 
 .. tip:: Syncing Notebook checkpoints using the neptune-notebooks extension is highly recommended!
 
@@ -272,3 +270,19 @@ OR
 .. |Youtube Video| raw:: html
 
     <iframe width="720" height="420" src="https://www.youtube.com/embed/8qmz2yIndOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.. |Notebooks in the project| raw:: html
+
+    <a href="https://ui.neptune.ai/shared/onboarding/notebooks" target="_blank">Notebooks in the project</a>
+
+.. |share a Notebook| raw:: html
+
+    <a href="https://ui.neptune.ai/shared/onboarding/n/Multitask-GP-Regression-e11f2bd6-6bb5-4269-b3d7-84453ad19ddb/60911a35-6ee2-40c7-af10-8a7c8a79e6cb" target="_blank">share a Notebook</a>
+
+.. |compare two Notebooks| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/onboarding/compare-notebooks?sourceNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&sourceCheckpointId=a4ed1ff3-0d5d-4d59-b1d7-60edc4f140b6&targetNotebookId=e11f2bd6-6bb5-4269-b3d7-84453ad19ddb&targetCheckpointId=60911a35-6ee2-40c7-af10-8a7c8a79e6cb" target="_blank">compare two Notebooks</a>
+
+.. |project onboarding| raw:: html
+
+    <a href="https://ui.neptune.ai/shared/onboarding/notebooks" target="_blank">project "onboarding"</a>

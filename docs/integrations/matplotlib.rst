@@ -39,7 +39,6 @@ Follow these steps:
       axs[0, 0].hist(data[0])
       axs[1, 0].scatter(data[0], data[1])
       axs[0, 1].plot(data[0], data[1])
-      axs[1, 1].hist2d(data[0], data[1])
 
 2. Log figure into Neptune:
 
@@ -57,6 +56,13 @@ Follow these steps:
 
     log_chart(name='matplotlib_figure', chart=figure)
 
+.. note::
+
+    The :code:`log_chart` function required that `plotly` is installed
+    as a Python package in the active environment (e.g. with :code:`pip install plotly`).
+    In the absence of `plotly`, :code:`log_chart` silently falls back on 
+    logging the chart as a static image.
+
 3. Explore the results in the Neptune dashboard:
 
 Static image is logged into the logs section:
@@ -71,6 +77,12 @@ Check out |this experiment| in the app.
 .. image:: ../_static/images/integrations/matplotlib.gif
    :target: ../_static/images/integrations/matplotlib.gif
    :alt: image
+   
+.. note::
+
+    Not all `matplotlib` charts can be converted to interactive `plotly` charts.
+    If conversion is not possible, `neptune-client` will emit a warning
+    and fall back on logging the chart as an image.
 
 .. External Links
 
