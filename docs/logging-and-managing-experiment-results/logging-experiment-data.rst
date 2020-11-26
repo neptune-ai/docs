@@ -250,6 +250,10 @@ You will have all sources in the |source-code| section of the experiment. Neptun
 
 |example-code-snapshot|
 
+.. warning::
+
+    When using pattern expansion, such as ``'*.py'``, make sure that your expression does not log too many files or non-source code files. For example, using ``'*'`` as a pattern will upload all files and directories from the cwd. It may result in logging files that you did not want to upload and to clutter your storage.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code-notebook-snapshot:
@@ -813,12 +817,15 @@ If your data is on AWS S3, use :meth:`~neptunecontrib.versioning.data.log_s3_dat
 
 Files
 ^^^^^
-Log any file you want, by using :meth:`~neptune.experiments.Experiment.log_artifact`. This include model_checkpoint, csv, binaries, or anything else.
+Log any file or directory you want by using :meth:`~neptune.experiments.Experiment.log_artifact`. This includes model_checkpoint, csv, binaries, or anything else.
 
 .. code-block:: python3
 
     # Log file
     neptune.log_artifact('/data/auxiliary-data.zip')
+
+    # Log directory
+    neptune.log_artifact('cv-models')
 
 .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
    :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
@@ -831,6 +838,10 @@ You can browse and download files in the |artifacts| section of the experiment.
 .. note::
 
     Keep an eye on your artifacts as they may consume a lot of storage. You can always remove some by using :meth:`~neptune.experiments.Experiment.delete_artifacts`.
+
+.. warning::
+
+    Make sure that you define the correct path to files that you want to upload. If you pass the directory, then all its content is uploaded, resulting in unintended logging of a large amount of data and cluttering your storage.
 
 :ref:`back to top <what-you-can-log>`
 
