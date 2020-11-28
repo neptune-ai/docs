@@ -52,8 +52,8 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.125``, and ``neptune-contrib==0.24.7``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``optuna==2.3.0``. See |optuna-install|.
+* ``neptune-client``, and ``neptune-contrib==0.24.7``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``optuna``. See |optuna-install|.
 
 .. note::
 
@@ -144,6 +144,10 @@ You can log the ``optuna.study`` object and charts after the sweep has completed
 Check out this |advance experiment| with advanced logging.
 
 |optuna-advanced-logs|
+
+How to ask for help?
+--------------------
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
 
 What's next
 -----------
