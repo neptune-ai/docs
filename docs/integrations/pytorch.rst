@@ -169,31 +169,14 @@ TODO screenshot
 Log model weights
 ^^^^^^^^^^^^^^^^^
 You can log model weights to Neptune both during and after training.
-There are two options to do that:
 
-**Log a model weights file that was saved on disk**
-
-.. code-block:: python3
-
-    neptune.log_artifact('model.ckpt`)
-
-
-**Use a logging helper on model object directly**
-
-The helper function is available in the neptunecontrib library.
-You need to install it first:
-
-.. code-block:: bash
-
-    pip install neptunecontrib['monitoring']
-
-And now you cna just log your model during or after training with:
+To do that just use a ``neptune.log_artifact`` method on the saved model file.
 
 .. code-block:: python3
 
-    from neptunecontrib.monitoring import pytorch as npt_pytorch
+    torch.save(model.state_dict(), 'model_dict.ckpt')
+    neptune.log_artifact('model_dict.ckpt')
 
-    npt_pytorch.log_model(net)
 
 TODO screenshot
 
