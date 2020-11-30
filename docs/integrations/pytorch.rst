@@ -3,20 +3,25 @@
 Neptune-PyTorch Integration
 ===========================
 
-Apart from pure PyTorch integration Neptune integrates with many libraries from the PyTorch Ecosystem.
+.. note::
 
-- :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
-- :ref:`Fastai and Fastai2 <integrations-fastai>`
-- :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
-- :ref:`Catalyst <integrations-catalyst>`
-- :ref:`Skorch <integrations-skorch>`
+    Neptune integrates with both pure PyTorch and many libraries from the PyTorch Ecosystem.
+    You may want to check out the following integrations:
 
-|Colab and script buttons|
+    - :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
+    - :ref:`Fastai and Fastai2 <integrations-fastai>`
+    - :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
+    - :ref:`Catalyst <integrations-catalyst>`
+    - :ref:`Skorch <integrations-skorch>`
+
+    For pure PyTorch integration, read on.
+
+|colab-script-neptune|
 
 What will you get with this integration?
 ----------------------------------------
 
-|pytorch-tour|
+|pytorch-tour-loom|
 
 |Pytorch| is an open source machine learning framework commonly used for building deep neural network models.
 Neptune helps with keeping track of model training metadata.
@@ -31,7 +36,7 @@ With Neptune + PyTorch integration you can:
 - log model weights
 - log torch tensors as images
 
-.. note::
+.. tip::
     You can log many other experiment metadata like interactive charts, video, audio and more.
     See a :ref:`full list <what-you-can-log>`.
 
@@ -46,7 +51,7 @@ You can also skip the basics and take a look at how to log model weights and pre
 
 If you want to try things out and focus only on the code you can either:
 
-|Colab and script buttons|
+|colab-script-neptune|
 
 .. _pytorch-quickstart:
 
@@ -68,7 +73,7 @@ You have ``Python 3.x`` and following libraries installed:
 * ``neptune-client``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``torch``. See |pytorch-install|.
 
-You also need minimal familiarity with torch. Have a look at the |torch-guide| to get started.
+You also need minimal familiarity with torch. Have a look at this |pytorch-guide| to get started.
 
 .. code-block:: bash
 
@@ -94,26 +99,29 @@ Run the code below to create a Neptune experiment:
 
 .. code-block:: python3
 
-    neptune.create_experiment('pytorch-training')
+    neptune.create_experiment('pytorch-quickstart')
 
 This also creates a link to the experiment. Open the link in a new tab.
 The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
-Step 3: Add metric logging into your training loop
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 3: Add logging into your training loop
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Log your loss after every batch by adding ``neptune.log_metric`` inside of the loop.
 
 .. code-block:: python3
 
-    for i, data in enumerate(trainloader, 0):
-        inputs, labels = data
+    for batch_idx, (data, target) in enumerate(train_loader):
         optimizer.zero_grad()
-        outputs = net(inputs)
-        loss = criterion(outputs, labels)
+        outputs = model(data)
+        loss = F.nll_loss(outputs, target)
+
+        # log loss
+        neptune.log_metric('batch_loss', loss)
+
         loss.backward()
         optimizer.step()
-
-        neptune.log_metric('batch_loss', loss)
+        if batch_idx == 100:
+            break
 
 You can log epoch metric and losses by calling ``neptune.log_metric`` at the epoch level.
 
@@ -129,9 +137,11 @@ Step 5: Monitor your PyTorch training in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now you can switch to the Neptune tab which you had opened previously to watch the training live!
 
-Check out this |example experiment|.
+.. image:: ../_static/images/integrations/pytorch-charts.png
+   :target: ../_static/images/integrations/pytorch-charts.png
+   :alt: PyTorch learning curve charts
 
-|pytorch-basic-logs|
+|example-charts|
 
 .. _pytorch-advanced-options:
 
@@ -147,9 +157,11 @@ To do that you just need to install psutil.
 
     pip install psutil
 
-TODO screenshot
+.. image:: ../_static/images/integrations/pytorch-hardware.png
+   :target: ../_static/images/integrations/pytorch-hardware.png
+   :alt: PyTorch hardware consumption charts
 
-|example hardware|
+|example-hardware|
 
 Log hyperparameters
 ^^^^^^^^^^^^^^^^^^^
@@ -158,13 +170,20 @@ To do that just pass the parameter dictionary to ``neptune.create_experiment`` m
 
 .. code-block:: python3
 
-    PARAMS = {'lr':}
+    PARAMS = {'lr':0.005,
+               'momentum':0.9,
+               'iterations':100}
 
-    neptune.create_experiment('pytorch-training', params=PARAMS)
+    optimizer = optim.SGD(model.parameters(), PARAMS['lr'], PARAMS['momentum'])
 
-TODO screenshot
+    # log params
+    neptune.create_experiment('pytorch-advanced', params=PARAMS)
 
-|example hyperparameters|
+.. image:: ../_static/images/integrations/pytorch-parameters.png
+   :target: ../_static/images/integrations/pytorch-parameters.png
+   :alt: PyTorch hyperparameter logging
+
+|example-hyperparameters|
 
 Log model weights
 ^^^^^^^^^^^^^^^^^
@@ -175,31 +194,57 @@ To do that just use a ``neptune.log_artifact`` method on the saved model file.
 .. code-block:: python3
 
     torch.save(model.state_dict(), 'model_dict.ckpt')
+
+    # log model
     neptune.log_artifact('model_dict.ckpt')
 
+.. image:: ../_static/images/integrations/pytorch-artifacts.png
+   :target: ../_static/images/integrations/pytorch-artifacts.png
+   :alt: PyTorch checkpoints logging
 
-TODO screenshot
-
-|example model weights|
+|example-weights|
 
 Log image predictions
 ^^^^^^^^^^^^^^^^^^^^^
-You can log tensors as images to Neptune.
+You can log tensors as images to Neptune with some additional descriptions.
 
 .. code-block:: python3
 
-    for i, data in enumerate(trainloader, 0):
-        inputs, labels = data
+    for batch_idx, (data, target) in enumerate(train_loader):
+
         optimizer.zero_grad()
-        outputs = net(inputs)
+        outputs = model(data)
+        loss = F.nll_loss(outputs, target)
 
-        if i % 2000 == 1999:
-            for output in outputs:
-                neptune.log_image('image predictions`, output)
+        loss.backward()
+        optimizer.step()
 
-TODO screenshot
+        # log loss
+        neptune.log_metric('batch_loss', loss)
 
-|example predictions|
+        # log predicted images
+        if batch_idx % 50 == 1:
+            for image, prediction in zip(data, outputs):
+                description = '\n'.join(['class {}: {}'.format(i, pred)
+                                         for i, pred in enumerate(F.softmax(prediction))])
+                neptune.log_image('predictions',
+                                  image.squeeze().detach().numpy() * 255,
+                                  description=description)
+
+        if batch_idx == PARAMS['iterations']:
+            break
+
+.. image:: ../_static/images/integrations/pytorch-images.png
+   :target: ../_static/images/integrations/pytorch-images.png
+   :alt: PyTorch logging images
+
+|example-images|
+
+.. note::
+
+    Remember that you can try it out with zero setup:
+
+    |colab-script-neptune|
 
 How to ask for help?
 --------------------
@@ -225,3 +270,115 @@ You may also like these two integrations:
 .. |pytorch-integration| raw:: html
 
     <a href="https://ui.neptune.ai/shared/pytorch-integration/experiments" target="_blank">pytorch-integration</a>
+
+.. |PyTorch| raw:: html
+
+    <a href="https://pytorch.org/" target="_blank">PyTorch</a>
+
+.. |pytorch-install| raw:: html
+
+    <a href="https://pytorch.org/get-started/locally/" target="_blank">PyTorch installation guide</a>
+
+.. |pytorch-guide| raw:: html
+
+    <a href="https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html" target="_blank">PyTorch guide</a>
+
+.. |example quickstart experiment| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts" target="_blank">PyTorch guide</a>
+
+.. |example-project| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-charts| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-hardware| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/monitoring">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-hyperparameters| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/parameters">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-images| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/logs">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+.. |example-weights| raw:: html
+
+    <div class="see-in-neptune">
+        <button><a target="_blank"
+                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/artifacts">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+        </button>
+    </div>
+
+
+.. |colab-script-neptune| raw:: html
+
+    <div class="run-on-colab">
+        <button><a target="_blank"
+                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.ipynb"><img
+                width="50" height="50" style="margin-right:10px"
+                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in Google Colab</a>
+        </button>
+
+        <button>
+            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.py">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+                View source on GitHub
+            </a>
+        </button>
+
+        <button>
+            <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+                <img width="50" height="50" style="margin-right:10px"
+                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                See example in Neptune
+            </a>
+        </button>
+
+    </div>
+
+
+.. |pytorch-tour-loom| raw:: html
+
+	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
+		<iframe src="https://www.loom.com/embed/e3116bbadf2b41b48edc44559441f95c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		</iframe>
+	</div>
