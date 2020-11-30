@@ -42,6 +42,7 @@ List of all integrations
 * :ref:`Pytorch Ignite <integrations-pytorch-ignite>`
 * :ref:`Pytorch Lightning <integrations-pytorch-lightning>`
 * :ref:`Sacred <integrations-sacred>`
+* :ref:`Scikit-learn <integrations-scikit-learn>`
 * :ref:`Scikit Optimize <integrations-scikit-optimize>`
 * :ref:`Skorch <integrations-skorch>`
 * :ref:`Telegram <integrations-telegram>`
