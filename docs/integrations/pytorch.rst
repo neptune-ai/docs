@@ -240,11 +240,9 @@ You can log tensors as images to Neptune with some additional descriptions.
 
 |example-images|
 
-.. note::
+Remember that you can try it out with zero setup:
 
-    Remember that you can try it out with zero setup:
-
-    |colab-script-neptune|
+|colab-script-neptune|
 
 How to ask for help?
 --------------------
@@ -290,91 +288,81 @@ You may also like these two integrations:
 .. |example-project| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-charts| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-hardware| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/monitoring">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/monitoring">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-hyperparameters| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/parameters">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/parameters">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-images| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/logs">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-weights| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/artifacts">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/artifacts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
-
 
 .. |colab-script-neptune| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in Google Colab</a>
-        </button>
 
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
 
-        <button>
-            <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
-                See example in Neptune
-            </a>
-        </button>
-
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
-
 
 .. |pytorch-tour-loom| raw:: html
 
