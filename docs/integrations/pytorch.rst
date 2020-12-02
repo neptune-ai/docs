@@ -10,8 +10,8 @@ Neptune-PyTorch Integration
 
     - :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
     - :ref:`Fastai and Fastai2 <integrations-fastai>`
-    - :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
     - :ref:`Catalyst <integrations-catalyst>`
+    - :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
     - :ref:`Skorch <integrations-skorch>`
 
     For pure PyTorch integration, read on.
@@ -23,18 +23,17 @@ What will you get with this integration?
 
 |pytorch-tour-loom|
 
-|Pytorch| is an open source machine learning framework commonly used for building deep neural network models.
+|Pytorch| is an open source deep learning framework commonly used for building neural network models.
 Neptune helps with keeping track of model training metadata.
 
 With Neptune + PyTorch integration you can:
 
 - log hyperparameters
 - see learning curves for losses and metrics during training
-- see hardware consumption during training
-- log stdout and stderr
-- log training code and .git information
-- log model weights
+- see hardware consumption and stdout/stderr output during training
 - log torch tensors as images
+- log training code and git commit information
+- log model weights
 
 .. tip::
     You can log many other experiment metadata like interactive charts, video, audio and more.
@@ -47,7 +46,7 @@ With Neptune + PyTorch integration you can:
 Where to start?
 ---------------
 To get started with this integration, follow the :ref:`quickstart <pytorch-quickstart>` below.
-You can also skip the basics and take a look at how to log model weights and prediction images in the :ref:`advanced options <pytorch-advanced-options>` section.
+You can also skip the basics and take a look at how to log model weights and prediction images in the :ref:`more options <pytorch-advanced-options>` section.
 
 If you want to try things out and focus only on the code you can either:
 
@@ -59,10 +58,10 @@ Quickstart
 ----------
 This quickstart will show you how to:
 
-* Install the necessary neptune packages
-* Connect Neptune to your Optuna hyperparameter tuning code and create the first experiment
-* Log metrics, figures, and artifacts from your first Optuna sweep to Neptune, and
-* Explore them in the Neptune UI.
+* Install the necessary Neptune package
+* Connect Neptune to your PyTorch model training code and create the first experiment
+* Log metrics, training scripts and .git info to Neptune
+* Explore learning curves in the Neptune UI
 
 .. _pytorch-before-you-start-basic:
 
@@ -71,17 +70,18 @@ Before you start
 You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
+
+    .. code-block:: bash
+
+        pip install neptune-client
+
 * ``torch``. See |pytorch-install|.
 
 You also need minimal familiarity with torch. Have a look at this |pytorch-guide| to get started.
 
-.. code-block:: bash
-
-   pip install --quiet torch neptune-client
-
 Step 1: Initialize Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-Run the code below:
+Add the following snippet at the top of your script.
 
 .. code-block:: python3
 
@@ -93,8 +93,8 @@ Run the code below:
 
     You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
-Step 2: Create an Experiment and log parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Create an experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Run the code below to create a Neptune experiment:
 
 .. code-block:: python3
@@ -104,9 +104,13 @@ Run the code below to create a Neptune experiment:
 This also creates a link to the experiment. Open the link in a new tab.
 The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
+.. note::
+
+    When you create experiment neptune will look for the .git directory in your project and get the last commit information saved.
+
 Step 3: Add logging into your training loop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Log your loss after every batch by adding ``neptune.log_metric`` inside of the loop.
+Log your loss after every batch by adding :meth:`~neptune.experiments.Experiment.log_metric` inside of the training loop.
 
 .. code-block:: python3
 
@@ -123,11 +127,13 @@ Log your loss after every batch by adding ``neptune.log_metric`` inside of the l
         if batch_idx == 100:
             break
 
-You can log epoch metric and losses by calling ``neptune.log_metric`` at the epoch level.
+.. note::
+
+    You can log epoch metric and losses by calling :meth:`~neptune.experiments.Experiment.log_metric` at the epoch level.
 
 Step 4: Run your training script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Run your script as you normally do:
+Run your script as you normally would:
 
 .. code-block:: bash
 
@@ -145,13 +151,13 @@ Now you can switch to the Neptune tab which you had opened previously to watch t
 
 .. _pytorch-advanced-options:
 
-Advanced Options
-----------------
+More Options
+------------
 
-Log hardware consumption
-^^^^^^^^^^^^^^^^^^^^^^^^
+Log hardware consumption and stderr/stdout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Neptune can automatically log your CPU and GPU consumption during training as well as stderr and stdout from your console.
-To do that you just need to install psutil.
+To do that you just need to install |psutil|.
 
 .. code-block:: bash
 
@@ -166,13 +172,13 @@ To do that you just need to install psutil.
 Log hyperparameters
 ^^^^^^^^^^^^^^^^^^^
 You can log training and model hyperparameters.
-To do that just pass the parameter dictionary to ``neptune.create_experiment`` method:
+To do that just pass the parameter dictionary to :meth:`~neptune.projects.Project.create_experiment` method:
 
 .. code-block:: python3
 
     PARAMS = {'lr':0.005,
-               'momentum':0.9,
-               'iterations':100}
+              'momentum':0.9,
+              'iterations':100}
 
     optimizer = optim.SGD(model.parameters(), PARAMS['lr'], PARAMS['momentum'])
 
@@ -189,7 +195,7 @@ Log model weights
 ^^^^^^^^^^^^^^^^^
 You can log model weights to Neptune both during and after training.
 
-To do that just use a ``neptune.log_artifact`` method on the saved model file.
+To do that just use a :meth:`~neptune.experiments.Experiment.log_artifact` method on the saved model file.
 
 .. code-block:: python3
 
@@ -370,3 +376,7 @@ You may also like these two integrations:
 		<iframe src="https://www.loom.com/embed/e3116bbadf2b41b48edc44559441f95c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 		</iframe>
 	</div>
+
+.. |psutil| raw:: html
+
+    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">PyTorch</a>
