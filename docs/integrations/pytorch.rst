@@ -37,7 +37,7 @@ With Neptune + PyTorch integration you can:
 
 .. tip::
     You can log many other experiment metadata like interactive charts, video, audio and more.
-    See a :ref:`full list <what-you-can-log>`.
+    See the :ref:`full list <what-you-can-log>`.
 
 .. note::
 
@@ -104,9 +104,11 @@ Run the code below to create a Neptune experiment:
 This also creates a link to the experiment. Open the link in a new tab.
 The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
+When you create an experiment Neptune will look for the .git directory in your project and get the last commit information saved.
+
 .. note::
 
-    When you create experiment neptune will look for the .git directory in your project and get the last commit information saved.
+    If you are using .py scripts for training Neptune will also log your training script automatically.
 
 Step 3: Add logging into your training loop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -245,6 +247,11 @@ You can log tensors as images to Neptune with some additional descriptions.
    :alt: PyTorch logging images
 
 |example-images|
+
+.. note::
+
+    You can log many other experiment metadata like interactive charts, video, audio and more.
+    See the :ref:`full list <what-you-can-log>`.
 
 Remember that you can try it out with zero setup:
 
