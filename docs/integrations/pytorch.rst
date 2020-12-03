@@ -41,7 +41,7 @@ With Neptune + PyTorch integration you can:
 
 .. note::
 
-    This integration is tested with ``torch==1.7.0``, ``neptune-client==0.4.126``.
+    This integration is tested with ``torch==1.7.0``, ``neptune-client==0.4.128``.
 
 Where to start?
 ---------------
@@ -236,10 +236,10 @@ You can log tensors as images to Neptune with some additional descriptions.
                 description = '\n'.join(['class {}: {}'.format(i, pred)
                                          for i, pred in enumerate(F.softmax(prediction))])
                 neptune.log_image('predictions',
-                                  image.squeeze().detach().numpy() * 255,
+                                  image.squeeze(),
                                   description=description)
 
-        if batch_idx == PARAMS['iterations']:
+        if batch_idx == 100:
             break
 
 .. image:: ../_static/images/integrations/pytorch-images.png
