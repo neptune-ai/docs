@@ -23,5 +23,3 @@ To see how it works in detail read our **"Neptune installation guide"**.
     </a>
 
     </div>
-
-___
