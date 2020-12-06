@@ -129,8 +129,10 @@ What's next
 Now that you know how to create experiments and log metrics you can learn:
 
 - :ref:`Create a new project <create-project>`
-- See |how to log other objects and monitor training in Neptune|
 - See :ref:`how to connect Neptune to your codebase <how-to-connect-neptune-to-your-codebase>`
+- See :ref:`what objects you can log to Neptune <what-you-can-log>`
+- See :ref:`integrations with ML frameworks <integrations-index>`
+- See |how to log other objects and monitor training in Neptune|
 
 .. External links
 
@@ -141,18 +143,16 @@ Now that you know how to create experiments and log metrics you can learn:
 .. |run on colab button| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
-            Google Colab</a></button>
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/quick-starts/first-experiment/docs/Use-Neptune-API-to-log-your-first-experiment.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
     </div>
 
 .. |Explore experiment| raw:: html
