@@ -23,8 +23,8 @@ Team
 ^^^^
 
 * A team workspace comes in handy when an entire team needs to be managed centrally.
-* You can `request free Team trial <https://neptune-team-trial.paperform.co>`_ and we will create a Team workspace for you
-* Once created, a team workspace can be managed by the :ref:`workspace Admin <administration-user-roles-workspace>`. The admin can manage users and subscription settings.
+* You can `try team workspace for free <https://neptune-team-trial.paperform.co>`_, for details check our pricing page.
+* Team workspace can be managed by the :ref:`workspace Admin <administration-user-roles-workspace>`. The admin can manage users and subscription settings.
 * Only users who joined team workspace can browse its content, subject to the assigned :ref:`role <administration-user-roles-project>` in the workspace or project.
 
 Learn more about :ref:`project types <administration-project-types>` and :ref:`user roles <administration-user-roles>`.
