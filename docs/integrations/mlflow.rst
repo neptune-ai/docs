@@ -112,6 +112,10 @@ Alternatively, you can point to the MLflow project directory:
    :target: ../_static/images/integrations/mlflow.png
    :alt: Organize MLflow experiments in Neptune
 
+Remember that you can try it out with zero setup:
+
+|Run on Colab|
+
 .. External links
 
 .. |Run on Colab| raw:: html
@@ -159,7 +163,3 @@ Alternatively, you can point to the MLflow project directory:
 .. |mlflow-guide| raw:: html
 
     <a href="https://mlflow.org/docs/latest/quickstart.html" target="_blank">MLflow Quickstart</a>
-
-.. |mlflow-integration| raw:: html
-
-    <a href="https://ui.neptune.ai/jakub-czakon/mlflow-integration/experiments" target="_blank">example experiment</a>
