@@ -44,7 +44,7 @@ This quickstart will show you how to:
 
 Before you start
 ^^^^^^^^^^^^^^^^
-#. This integration needs you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already
+#. This integration requires you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already
 
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
@@ -108,9 +108,6 @@ Alternatively, you can point to the MLflow project directory:
 
 **That's it! You can now browse and collaborate on your MLflow runs in Neptune.**
 
-Organize and share your MLflow experiments
-------------------------------------------
-
 .. image:: ../_static/images/integrations/mlflow.png
    :target: ../_static/images/integrations/mlflow.png
    :alt: Organize MLflow experiments in Neptune
@@ -120,18 +117,20 @@ Organize and share your MLflow experiments
 .. |Run on Colab| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-Mlflow.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
-            Google Colab</a></button>
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-MLflow.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-Mlflow.ipynb>
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-MLflow.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/mlflow-integration/experiments?viewId=standard-view">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |mlflow-tour| raw:: html
