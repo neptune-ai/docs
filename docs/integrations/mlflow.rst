@@ -13,15 +13,21 @@ What will you get with this integration?
 |neptune-mlflow| is an open source project curated by Neptune team that enables |mlflow| experiment runs to be hosted on Neptune.
 
 The integration lets you enjoy the best of both worlds: the tracking and reproducibility of MLflow with the organization and collaboration of Neptune.
+With Neptune, you can push the following MLrun objects to a Neptune experiment:
+
+* experiment id
+* experiment name
+* run id
+* run name
+* metrics
+* parameters
+* artifacts
+* tags
 
 .. note::
 
-    This integration is tested with ``mlflow==1.12.1``
+    This integration is tested with ``neptune-mlflow==0.1.0`` and ``mlflow==1.12.1``
 	
-.. image:: ../_static/images/integrations/mlflow_neptuneml.png
-   :target: ../_static/images/integrations/mlflow_neptuneml.png
-   :alt: organize MLflow experiments in Neptune
-
 .. _mlflow-quickstart:
 
 Quickstart
@@ -29,8 +35,8 @@ Quickstart
 
 This quickstart will show you how to:
 
-* Install the necessary neptune packages
-* Sync your MLruns with Neptune.
+* Install the necessary Neptune packages
+* Convert MLruns directory of experiment runs into Neptune experiments.
 
 |Run on Colab|
 
@@ -84,21 +90,30 @@ Alternatively, you can point to the MLflow project directory:
 
     neptune mlflow /PATH/TO/MLflow_PROJECT --project USER_NAME/PROJECT_NAME
 
-**That's it! You can now browse and collaborate on your MLflow runs in Neptune.**
+.. tip::
 
-Check out this |mlflow-integration|.
+    You can also set the project qualified name in the ``NEPTUNE_PROJECT`` environment variable and skip the ``--project`` argument
+	
+	Linux/macOS:
+
+	.. code:: bash
+
+		export NEPTUNE_PROJECT='USER_NAME/PROJECT_NAME'
+
+	Windows:
+
+	.. code-block:: bat
+
+		set NEPTUNE_PROJECT="USER_NAME/PROJECT_NAME"
+
+**That's it! You can now browse and collaborate on your MLflow runs in Neptune.**
 
 Organize and share your MLflow experiments
 ------------------------------------------
 
-.. image:: ../_static/images/integrations/mlflow_1.png
-   :target: ../_static/images/integrations/mlflow_1.png
-   :alt: organize MLflow experiments in Neptune
-
-
-.. image:: ../_static/images/integrations/mlflow_2.png
-   :target: ../_static/images/integrations/mlflow_2.png
-   :alt: share artifacts logged during MLflow run
+.. image:: ../_static/images/integrations/mlflow.png
+   :target: ../_static/images/integrations/mlflow.png
+   :alt: Organize MLflow experiments in Neptune
 
 .. External links
 
