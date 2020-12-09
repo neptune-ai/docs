@@ -12,6 +12,7 @@ Neptune UI has 3 major sections: Experiments, Notebooks and Wiki.
 - filter and search experiments
 - compare experiments
 - drill down to experiment details like charts and code
+- download data like metric values of model checkpoints
 
 **Notebooks** section is where you can:
 
@@ -32,6 +33,7 @@ In the **Wiki** section you can:
    Organizing Experiments in a Dashboard <organizing-experiments.rst>
    Searching and filtering experiments <searching-experiments.rst>
    Exploring a single experiment <single-experiment-details.rst>
+   Downloading data from the UI <downloading-from-the-ui.rst>
    Viewing and comparing Notebook checkpoints <notebooks.rst>
    Using project Wiki <wiki.rst>
 

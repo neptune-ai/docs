@@ -52,8 +52,8 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.125``, and ``neptune-contrib==0.24.7``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``optuna==2.3.0``. See |optuna-install|.
+* ``neptune-client``, and ``neptune-contrib==0.24.7``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``optuna``. See |optuna-install|.
 
 .. note::
 
@@ -145,6 +145,10 @@ Check out this |advance experiment| with advanced logging.
 
 |optuna-advanced-logs|
 
+How to ask for help?
+--------------------
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
+
 What's next
 -----------
 
@@ -158,18 +162,16 @@ Now that you know how to integrate Neptune with Optuna, you can check:
 .. |Run on Colab| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
-            Google Colab</a></button>
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
     </div>
 
 .. |optuna-tour| raw:: html

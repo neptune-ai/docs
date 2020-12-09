@@ -258,35 +258,9 @@ The result will look like this:
 
 |example-neptune-notebook|
 
-.. _download-from-neptune-ui:
-
 Downloading from Neptune UI
 ---------------------------
-When in Neptune, simply look for the download icon. It's located in multiple places in the application and allows you to download various parts of the experiments or notebook. Below are three examples:
-
-+--------------------------------------------------------------------------------------------------------------------------+
-| .. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-artifact.png   |
-|     :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-artifact.png |
-|     :alt: Download model checkpoint                                                                                      |
-+==========================================================================================================================+
-| Download model checkpoint                                                                                                |
-+--------------------------------------------------------------------------------------------------------------------------+
-
-+--------------------------------------------------------------------------------------------------------------------------+
-| .. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-dashboard.png  |
-|    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-dashboard.png |
-|    :alt: Download experiments dashboard as csv                                                                           |
-+==========================================================================================================================+
-| Download experiments dashboard as csv                                                                                    |
-+--------------------------------------------------------------------------------------------------------------------------+
-
-+-------------------------------------------------------------------------------------------------------------------------+
-| .. image:: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-notebook.png  |
-|    :target: ../_static/images/logging-and-managing-experiment-results/downloading-experiment-data/download-notebook.png |
-|    :alt: Download notebook checkpoint                                                                                   |
-+=========================================================================================================================+
-| Download notebook checkpoint                                                                                            |
-+-------------------------------------------------------------------------------------------------------------------------+
+You can download experiment data directly from the UI to your local machine. Check :ref:`downloading from the UI <download-from-neptune-ui>` documentation page for details.
 
 Downloading from Jupyter Notebook
 ---------------------------------
