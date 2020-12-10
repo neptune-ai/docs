@@ -49,7 +49,7 @@ Before you start
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
    * ``neptune-mlflow``
-   * ``mlflow==1.12.1``. See |mlflow-install|.
+   * ``mlflow==1.12.1``. See the |mlflow-install|.
    
    .. code-block:: bash
    	
@@ -114,6 +114,10 @@ Organize and share your MLflow experiments
 .. image:: ../_static/images/integrations/mlflow.png
    :target: ../_static/images/integrations/mlflow.png
    :alt: Organize MLflow experiments in Neptune
+   
+.. image:: ../_static/images/integrations/mlflow_compare.png
+   :target: ../_static/images/integrations/mlflow_compare.png
+   :alt: Compare MLflow experiments in Neptune
 
 .. External links
 
@@ -137,7 +141,7 @@ Organize and share your MLflow experiments
 .. |mlflow-tour| raw:: html
 
 	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
-		<iframe src="https://www.loom.com/embed/a2caf18b8de148a9ad56e18ad0787cb2" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		<iframe src="https://www.loom.com/embed/444799388f3e4ec695984841f36e8b9b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 		</iframe>
 	</div>
 
