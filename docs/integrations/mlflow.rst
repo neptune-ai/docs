@@ -126,7 +126,7 @@ Remember that you can try it out with zero setup:
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-Mlflow.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-MLflow.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
