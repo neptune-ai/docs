@@ -26,7 +26,7 @@ With Neptune, you can push the following MLrun objects to a Neptune experiment:
 
 .. note::
 
-    This integration is tested with ``neptune-client==0.4.128``, ``neptune-mlflow==0.2.5`` and ``mlflow==1.12.1``
+    This integration is tested with ``neptune-client==0.4.129``, ``neptune-mlflow==0.2.5`` and ``mlflow==1.12.1``
 	
 .. _mlflow-quickstart:
 
@@ -135,7 +135,7 @@ Remember that you can try it out with zero setup:
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
             <span>View source on GitHub</span>
         </a>
-        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/mlflow-integration/experiments?viewId=standard-view">
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/mlflow-integration/experiments?viewId=7608998d-4828-48c5-81cc-fb9ec625e206">
             <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
