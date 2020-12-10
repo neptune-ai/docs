@@ -250,6 +250,10 @@ You will have all sources in the |source-code| section of the experiment. Neptun
 
 |example-code-snapshot|
 
+.. warning::
+
+    When using pattern expansion, such as ``'*.py'``, make sure that your expression does not log too many files or non-source code files. For example, using ``'*'`` as a pattern will upload all files and directories from the cwd. It may result in logging files that you did not want to upload and to clutter your storage.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-code-notebook-snapshot:
@@ -430,10 +434,6 @@ You can log interactive charts and they will be rendered interactively in the |a
 
 .. note::
 
-    You need to install plotly to log any type of interactive chart. See: |plotly-installation-guide|.
-
-.. note::
-
     For a full screen view, you can open visualization in the new browser tab, by clicking on the *"arrow-pointing-top-right"* icon, located right above your visualisation:
 
     .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/full-screen-icon.png
@@ -471,6 +471,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 .. note::
 
+    You need to install plotly to log Matplotlib as interactive chart. See: |plotly-installation-guide|.
+
+.. note::
+
     Check :ref:`images logging <logging-experiment-data-images-matplotlib>` to see how to log matplotlib figure as an image.
 
 :ref:`back to top <what-you-can-log>`
@@ -502,6 +506,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 |example-interactive-charts-altair|
 
+.. note::
+
+    You need to install plotly to log Altair as interactive chart. See: |plotly-installation-guide|.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-bokeh:
@@ -531,6 +539,10 @@ Interactive chart will appear in the |artifacts| section, with path ``charts/my_
 
 |example-interactive-charts-bokeh|
 
+.. note::
+
+    You need to install plotly to log bokeh as interactive chart. See: |plotly-installation-guide|.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-interactive-charts-plotly:
@@ -559,6 +571,10 @@ Log plotly chart as an interactive chart, by using :meth:`~neptunecontrib.api.ch
 Interactive plotly chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/plotly-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-plotly|
+
+.. note::
+
+    You need to install plotly to enable to feature. See: |plotly-installation-guide|.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -801,12 +817,15 @@ If your data is on AWS S3, use :meth:`~neptunecontrib.versioning.data.log_s3_dat
 
 Files
 ^^^^^
-Log any file you want, by using :meth:`~neptune.experiments.Experiment.log_artifact`. This include model_checkpoint, csv, binaries, or anything else.
+Log any file or directory you want by using :meth:`~neptune.experiments.Experiment.log_artifact`. This includes model_checkpoint, csv, binaries, or anything else.
 
 .. code-block:: python3
 
     # Log file
     neptune.log_artifact('/data/auxiliary-data.zip')
+
+    # Log directory
+    neptune.log_artifact('cv-models')
 
 .. image:: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
    :target: ../_static/images/logging-and-managing-experiment-results/logging-experiment-data/files.png
@@ -819,6 +838,10 @@ You can browse and download files in the |artifacts| section of the experiment.
 .. note::
 
     Keep an eye on your artifacts as they may consume a lot of storage. You can always remove some by using :meth:`~neptune.experiments.Experiment.delete_artifacts`.
+
+.. warning::
+
+    Make sure that you define the correct path to files that you want to upload. If you pass the directory, then all its content is uploaded, resulting in unintended logging of a large amount of data and cluttering your storage.
 
 :ref:`back to top <what-you-can-log>`
 
@@ -1277,321 +1300,321 @@ Few remarks:
 .. |example-metrics| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-parameters| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/parameters"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/parameters">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-code-git| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-code-snapshot| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-notebook-snapshot| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/USERNAME/example-project/n/analysis-of-top-70-experiments-final-final-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/USERNAME/example-project/n/analysis-of-top-70-experiments-final-final-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-text| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-hardware-consumption| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/monitoring"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/monitoring">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-information-name| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-information-description| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-information-tags| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-properties| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-data-versions| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-files| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-model-checkpoints| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=model_checkpoints%2F"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=model_checkpoints%2F">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-html-objects| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-988/artifacts?path=html%2F&file=button_example.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-988/artifacts?path=html%2F&file=button_example.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-images| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-images-matplotlib| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2027/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2027/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-images-pil| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2038/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2038/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-images-numpy| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2039/logs"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2039/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-interactive-charts| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-interactive-charts-matplotlib| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=matplotlib_figure.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=matplotlib_figure.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-interactive-charts-altair| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-interactive-charts-bokeh| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=bokeh_figure.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=bokeh_figure.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-interactive-charts-plotly| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=plotly_figure.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=plotly_figure.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-video| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1635/artifacts?path=video%2F&file=SAC.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1635/artifacts?path=video%2F&file=SAC.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-audio| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1485/artifacts?path=audio%2F&file=sample-mp4-file.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1485/artifacts?path=audio%2F&file=sample-mp4-file.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-pandas| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=tables%2F&file=pandas_df.html">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=tables%2F&file=pandas_df.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-csv| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2040/artifacts?file=iris.csv">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2040/artifacts?file=iris.csv">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-python-objects-dalex| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/dalex-integration/e/DAL-48/artifacts">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/dalex-integration/e/DAL-48/artifacts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-advanced-exp-object| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2043/source-code?path=.&file=minimal-exp-proj.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2043/source-code?path=.&file=minimal-exp-proj.py">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-advanced-pass-exp-object| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |example-advanced-logging-to-multiple-experiments| raw:: html
 
     <div class="see-in-neptune">
-        <button><a target="_blank"
-                   href="https://ui.neptune.ai/o/shared/org/showroom/experiments?viewId=205bf909-6f8f-40f8-be64-aa19f61f9b3b">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
-        </button>
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/experiments?viewId=205bf909-6f8f-40f8-be64-aa19f61f9b3b">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. Videos

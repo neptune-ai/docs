@@ -22,7 +22,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 .. note::
 
-    This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest.
+    This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``.
 
 Where to start?
 ---------------
@@ -51,9 +51,9 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.123`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client==0.4.126`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
-* ``pytorch-lightning==1.0.0`` or newer. See |lightning-install|.
+* ``pytorch-lightning==1.0.7`` or newer. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
 
@@ -558,7 +558,7 @@ Check this experiment (|adv-go-here|) or view above code snippets as a plain Pyt
 
 Common problems
 ---------------
-This integration is tested with ``pytorch-lightning==1.0.0`` and current latest, and ``neptune-client==0.4.123`` and current latest. Make sure that you use correct versions.
+This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``. Make sure that you use correct versions.
 
 How to ask for help?
 --------------------
@@ -568,15 +568,16 @@ Other integrations you may like
 -------------------------------
 Here are other integrations with libraries from the PyTorch ecosystem:
 
-#. |PyTorch|
-#. |PyTorch Ignite|
-#. |Catalyst|
-#. |skorch|
+- :ref:`PyTorch <integrations-pytorch>`
+- :ref:`Fastai and Fastai2 <integrations-fastai>`
+- :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
+- :ref:`Catalyst <integrations-catalyst>`
+- :ref:`Skorch <integrations-skorch>`
 
 You may also like these two integrations:
 
-#. |optuna|
-#. |plotly|
+- :ref:`Optuna <integrations-optuna>`
+- :ref:`Plotly <integrations-plotly>`
 
 
 .. External links
@@ -592,18 +593,20 @@ You may also like these two integrations:
 .. |Run on Colab| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
-            Google Colab</a></button>
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |script| raw:: html
@@ -613,30 +616,6 @@ You may also like these two integrations:
 .. |forum| raw:: html
 
     <a href="https://community.neptune.ai/" target="_blank">forum</a>
-
-.. |PyTorch| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/pytorch.html" target="_blank">PyTorch</a>
-
-.. |PyTorch Ignite| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/pytorch_ignite.html" target="_blank">PyTorch Ignite</a>
-
-.. |Catalyst| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/catalyst.html" target="_blank">Catalyst</a>
-
-.. |skorch| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/skorch.html" target="_blank">skorch</a>
-
-.. |optuna| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/optuna.html" target="_blank">optuna</a>
-
-.. |plotly| raw:: html
-
-    <a href="https://docs.neptune.ai/integrations/plotly.html" target="_blank">plotly</a>
 
 .. |metrics| raw:: html
 
@@ -681,18 +660,20 @@ You may also like these two integrations:
 .. |Run on Colab Advanced| raw:: html
 
     <div class="run-on-colab">
-        <button><a target="_blank"
-                   href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb"><img
-                width="50" height="50" style="margin-right:10px"
-                src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">Run in
-            Google Colab</a></button>
-        <button>
-            <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.py">
-                <img width="50" height="50" style="margin-right:10px"
-                     src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
-                View source on GitHub
-            </a>
-        </button>
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665&tags=%5B%22advanced%22%5D&sortBy=%5B%22train_loss%22%5D&sortFieldType=%5B%22numericChannels%22%5D&sortFieldAggregationMode=%5B%22last%22%5D&sortDirection=%5B%22ascending%22%5D&trashed=false&suggestionsEnabled=true&lbViewUnpacked=true">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
     </div>
 
 .. |scikit-learn| raw:: html

@@ -15,20 +15,45 @@ Integrations are written using |neptune-client| and provide a convenient way to 
 
 Each integration, that is installation, scope and usage example are explained in detail in the documentation (see: :ref:`PyTorch Lightning <integrations-pytorch-lightning>` for example).
 
-Integrations are organized into the following categories:
-
-- :ref:`Deep learning frameworks <integrations-deep-learning-frameworks>`
-- :ref:`Machine learning frameworks <integrations-machine-learning-frameworks>`
-- :ref:`Hyperparameter optimization libraries <integrations-hyperparameter-optimization-frameworks>`
-- :ref:`Visualization libraries <integrations-visualization-tools>`
-- :ref:`Experiment tracking frameworks <integrations-experiment-tracking-frameworks>`
-- :ref:`Other integrations <integrations-other-integrations>`
-
 .. note::
 
     You can always :ref:`use neptune-client to log data to experiments <guides-logging-and-managing-experiment-results>` .
     If you need more control or explicit logging, you can always use it (all integrations use it anyway).
 
+.. _list-of-all-integrations:
+
+List of all integrations
+^^^^^^^^^^^^^^^^^^^^^^^^
+* :ref:`Altair <integrations-altair>`
+* :ref:`Bokeh <integrations-bokeh>`
+* :ref:`Catalyst <integrations-catalyst>`
+* :ref:`Dalex <integrations-dalex>`
+* :ref:`Fastai <integrations-fastai>`
+* :ref:`HiPlot <integrations-hiplot>`
+* :ref:`HTML <integrations-html>`
+* :ref:`Keras <integrations-keras>`
+* :ref:`Lightgbm <integrations-lightgbm>`
+* :ref:`Matplotlib <integrations-matplotlib>`
+* :ref:`MLflow <integrations-mlflow>`
+* :ref:`Optuna <integrations-optuna>`
+* :ref:`Pandas <integrations-pandas>`
+* :ref:`Plotly <integrations-plotly>`
+* :ref:`Pytorch <integrations-pytorch>`
+* :ref:`Pytorch Ignite <integrations-pytorch-ignite>`
+* :ref:`Pytorch Lightning <integrations-pytorch-lightning>`
+* :ref:`Sacred <integrations-sacred>`
+* :ref:`Scikit Optimize <integrations-scikit-optimize>`
+* :ref:`Skorch <integrations-skorch>`
+* :ref:`Telegram <integrations-telegram>`
+* :ref:`Tensorboard <integrations-tensorboard>`
+* :ref:`Tensorflow <integrations-tensorflow>`
+* :ref:`XGBoost <integrations-xgboost>`
+* :ref:`Scikit-learn <list-of-all-integrations>` *coming soon...*
+* :ref:`Ray/Tune <list-of-all-integrations>` *coming soon...*
+* :ref:`Hydra <list-of-all-integrations>` *coming soon...*
+* :ref:`ACME <list-of-all-integrations>` *coming soon...*
+* :ref:`Spinning up <list-of-all-integrations>` *coming soon...*
+* :ref:`Stable baselines <list-of-all-integrations>` *coming soon...*
 
 My library is not here. What now?
 ---------------------------------
