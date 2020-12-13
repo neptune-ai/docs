@@ -5,6 +5,8 @@ Neptune-R Integration
 
 You can interact freely with Neptune from R and enjoy the same functionality that is available in Python.
 
+|Logging to Neptune from R|
+
 Installation
 ------------
 
@@ -301,3 +303,22 @@ Full tracking script
 .. |Github project| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-r" target="_blank">Github project</a>
+
+.. |Logging to Neptune from R| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/r//Neptune-R.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/r/Neptune-R.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>

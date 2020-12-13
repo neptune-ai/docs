@@ -122,6 +122,7 @@ Discover Neptune
    :maxdepth: 2
    :caption: Essentials
 
+   Examples <examples/index.rst>
    Integrations <integrations/index.rst>
    Run Neptune anywhere <execution-environments/index.rst>
    API reference <api-reference/index.rst>
