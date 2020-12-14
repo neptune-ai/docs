@@ -1100,7 +1100,7 @@ Using Project and Experiment objects explicitly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 |video-project-experiment|
 
-If you work with large codebase, you may want to switch from using global ``neptune`` calls like ``neptune.create_experiment()`` or ``neptune.log_metric()`` to passing objects around, either :class:`~neptune.projects.Project` or :class:`~neptune.experiments.Experiment`.
+If you work with large codebase, you may want to switch from using global ``neptune`` calls like ``neptune.create_experiment()`` or :meth:`~neptune.experiments.Experiment.log_metric` to passing objects around, either :class:`~neptune.projects.Project` or :class:`~neptune.experiments.Experiment`.
 
 Let's revisit minimal code snippet from the :ref:`basics section <basics-of-logging>`. Modify it to use :class:`~neptune.projects.Project` and :class:`~neptune.experiments.Experiment` objects and log a bit more data.
 

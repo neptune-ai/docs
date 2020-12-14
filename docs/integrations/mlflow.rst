@@ -76,8 +76,8 @@ Windows:
 
     Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
-Step 2: Sync your MLruns with Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Convert your MLruns to Neptune experiments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Navigate to the MLflow project in your directory and run:
 
 .. code-block:: bash
