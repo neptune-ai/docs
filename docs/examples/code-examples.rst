@@ -1,27 +1,14 @@
-.. _examples-index:
+.. _examples-code-examples:
 
-Examples
-========
+Code examples
+=============
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   Code examples <code-examples.rst>
-   Articles from the Neptune blog <blog-posts.rst>
-   Video tutorials <video-tutorials.rst>
-
-Below is a curated list of Neptune examples.
+Below is a curated list of Neptune code examples.
 
 .. note::
 
     All code examples are regularly tested.
     You can find all the code examples in the |neptune-examples-repo|.
-
-    There are also use cases and examples on the Neptune blog in |neptune examples from blog|.
-
-Code examples
--------------
 
 * Use Neptune API to log your first experiment
 
@@ -71,22 +58,11 @@ Code examples
 
 |Using Neptune in Google Colab|
 
-Blog posts
-----------
-
-* |Guide to monitoring|
-* |Pytorch Lightning integration|
-* |DALEX integration|
-
 .. External links
 
 .. |neptune-examples-repo| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-examples" target="_blank">neptune-examples repository</a>
-
-.. |neptune examples from blog| raw:: html
-
-    <a href="https://neptune.ai/blog/category/neptune-examples" target="_blank">examples from the Neptune blog</a>
 
 .. |Use Neptune API to log your first experiment| raw:: html
 
