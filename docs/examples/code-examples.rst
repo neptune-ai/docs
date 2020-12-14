@@ -98,7 +98,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/organize-ml-experimentation/docs/Organize-ML-experiments.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-colab-examples/blob/master/quick-starts/organize-ml-experimentation/showcase/Organize-ML-experiments.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -131,7 +131,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch/docs/Neptune-PyTorch.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch/showcase/Neptune-PyTorch.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -150,7 +150,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/showcase/Neptune-PyTorch-Lightning-basic.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -169,7 +169,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-advanced.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/showcase/Neptune-PyTorch-Lightning-advanced.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -188,7 +188,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/xgboost/docs/Neptune-XGBoost.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/xgboost/showcase/Neptune-XGBoost.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -207,7 +207,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/optuna/showcase/Neptune-Optuna.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -215,6 +215,10 @@ Below is a curated list of Neptune code examples.
         <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.py">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
             <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/optuna-integration/experiments?viewId=standard-view">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
         </a>
     </div>
 
@@ -241,7 +245,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/docs/Neptune-MLflow.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/mlflow/showcase/Neptune-MLflow.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -260,7 +264,7 @@ Below is a curated list of Neptune code examples.
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com/github/neptune-ai/neptune-examples/blob/master/integrations/colab/docs/Basic-Colab-Example.ipynb">
+        <a target="_blank" href="https://colab.research.google.com/github/neptune-ai/neptune-examples/blob/master/integrations/colab/showcase/Basic-Colab-Example.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
