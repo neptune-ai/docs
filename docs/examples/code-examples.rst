@@ -10,51 +10,51 @@ Below is a curated list of Neptune code examples.
     All code examples are regularly tested.
     You can find all the code examples in the |neptune-examples-repo|.
 
-* Use Neptune API to log your first experiment
+**Use Neptune API to log your first experiment**
 
 |Use Neptune API to log your first experiment|
 
-* Monitor ML runs live
+**Monitor ML runs live**
 
 |Monitor ML runs live|
 
-* Organize ML experiments
+**Organize ML experiments**
 
 |Organize ML experiments|
 
-* Neptune API Tour
+**Neptune API Tour**
 
 |Neptune API Tour|
 
-* Logging to Neptune from PyTorch
+**Logging to Neptune from PyTorch**
 
 |Logging to Neptune from PyTorch|
 
-* Logging to Neptune from PyTorch Lightning Basic usage
+**Logging to Neptune from PyTorch Lightning Basic usage**
 
 |Logging to Neptune from PyTorch Lightning Basic usage|
 
-* Logging to Neptune from PyTorch Lightning Advanced usage
+**Logging to Neptune from PyTorch Lightning Advanced usage**
 
 |Logging to Neptune from PyTorch Lightning Advanced usage|
 
-* Logging to Neptune from XGBoost
+**Logging to Neptune from XGBoost**
 
 |Logging to Neptune from XGBoost|
 
-* Logging to Neptune from Optuna
+**Logging to Neptune from Optuna**
 
 |Logging to Neptune from Optuna|
 
-* Logging to Neptune from R
+**Logging to Neptune from R**
 
 |Logging to Neptune from R|
 
-* Converting MLflow runs to Neptune
+**Converting MLflow runs to Neptune**
 
 |Converting MLflow runs to Neptune|
 
-* Using Neptune in Google Colab
+**Using Neptune in Google Colab**
 
 |Using Neptune in Google Colab|
 

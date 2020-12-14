@@ -9,113 +9,111 @@ Below is a curated list of Neptune video tutorials.
 
     You can find more videos from us on the |neptune examples from youtube channel|.
 
-* Logging and managing data in Neptune
+**Logging and managing data in Neptune**
 
 |Logging and managing data in Neptune|
 
-* Basic logging of experiment data to Neptune
+**Basic logging of experiment data to Neptune**
 
 |Basic logging of experiment data to Neptune|
 
-* Introduction to Neptune logging methods
+**Introduction to Neptune logging methods**
 
 |Introduction to Neptune logging methods|
 
-* Using a project and experiment object explicitly in Neptune
+**Using a project and experiment object explicitly in Neptune**
 
 |Using a project and experiment object explicitly in Neptune|
 
-* Updating existing experiments in Neptune
+**Updating existing experiments in Neptune**
 
 |Updating existing experiments in Neptune|
 
-* Logging data to multiple experiments
+**Logging data to multiple experiments**
 
 |Logging data to multiple experiments|
 
-* How to create and save dashboard view
+**How to create and save dashboard view**
 
 |How to create and save dashboard view|
 
-* Organizing charts in chart sets
+**Organizing charts in chart sets**
 
 |Organizing charts in chart sets|
 
-* Neptune + PyTorch Lightning integration
+**Neptune + PyTorch Lightning integration**
 
 |Neptune + PyTorch Lightning integration|
 
-* Neptune - Google Colab integration
+**Neptune - Google Colab integration**
 
 |Neptune - Google Colab integration|
 
-* Neptune+Optuna: Basic Tour
+**Neptune+Optuna: Basic Tour**
 
 |Neptune+Optuna: Basic Tour|
 
-* PyTorch + Neptune integration
+**PyTorch + Neptune integration**
 
 |PyTorch + Neptune integration|
 
-* Neptune + MLflow
+**Neptune + MLflow**
 
 |Neptune + MLflow|
 
-<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;"><iframe src="https://www.loom.com/embed/444799388f3e4ec695984841f36e8b9b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-* Introduction to Neptune - your ML experiments tracking tool
+**Introduction to Neptune - your ML experiments tracking tool**
 
 |Introduction to Neptune - your ML experiments tracking tool|
 
-* Tracking experiments data with neptune-client library
+**Tracking experiments data with neptune-client library**
 
 |Tracking experiments data with neptune-client library|
 
-* Single experiment in Neptune
+**Single experiment in Neptune**
 
 |Single experiment in Neptune|
 
-* Comparing multiple experiments
+**Comparing multiple experiments**
 
 |Comparing multiple experiments|
 
-* Experiments dashboard
+**Experiments dashboard**
 
 |Experiments dashboard|
 
-* Notebook versions tracking
+**Notebook versions tracking**
 
 |Notebook versions tracking|
 
-* Associating notebook checkpoint with an experiment
+**Associating notebook checkpoint with an experiment**
 
 |Associating notebook checkpoint with an experiment|
 
-* Comparing notebook checkpoints
+**Comparing notebook checkpoints**
 
 |Comparing notebook checkpoints|
 
-* User management in Neptune
+**User management in Neptune**
 
 |User management in Neptune|
 
-* Fetching data from Neptune
+**Fetching data from Neptune**
 
 |Fetching data from Neptune|
 
-* Integrations - Keras
+**Integrations - Keras**
 
 |Integrations - Keras|
 
-* Integrations - Visualisation frameworks
+**Integrations - Visualisation frameworks***
 
 |Integrations - Visualisation frameworks|
 
-* Integrations - XGBoost
+**Integrations - XGBoost**
 
 |Integrations - XGBoost|
 
-* SaaS or On-prem?
+**SaaS or On-prem?**
 
 |SaaS or On-prem?|
 
