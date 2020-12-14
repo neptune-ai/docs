@@ -448,6 +448,10 @@ Matplotlib
 """"""""""
 Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by using :meth:`~neptunecontrib.api.chart.log_chart`.
 
+.. note::
+
+    This option is tested with ``matplotlib==3.2.0`` and ``plotly==4.12.0``. Make sure that you have correct versions installed. See: |plotly-installation-guide|.
+
 .. code-block:: python3
 
     # Import matplotlib and log_chart
@@ -468,10 +472,6 @@ Log Matplotlib figure (|matplotlib-fig-object|) as an interactive chart, by usin
 Interactive chart will appear in the |artifacts| section, with path ``charts/my_figure.html`` (in the snippet above: ``charts/matplotlib-interactive.html``) where you can explore, open in full screen and download it.
 
 |example-interactive-charts-matplotlib|
-
-.. note::
-
-    You need to install plotly to log Matplotlib as interactive chart. See: |plotly-installation-guide|.
 
 .. note::
 
