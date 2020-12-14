@@ -23,10 +23,11 @@ Neptune supports two major use cases:
 1. With :meth:`~neptune_tensorboard_plugin.__init__.py` bash command you can have your TensorBoard visualizations hosted in Neptune. See :ref:`"Convert TensorBoard logs to Neptune experiments" <tensorboard-convert-logdir>`.
 2. You can use the :meth:`~neptune_tensorboard.integrate_with_tensorflow()` method to instantly log major metrics (epoch and batch related) to Neptune. See :ref:`"Log new runs to Neptune via TensorBoard" <tensorboard-log-to-neptune-via-tensorboard>`
 
-Neptune currently supports converting and logging of the following TensorBoard objects:
+Neptune currently logs and displays the following TensorBoard objects:
 
 * Scalars (as metrics)
 * Images (as images)
+* path to the TensorBoard run (as property 'tf/run/path')
 
 You can also extend what you are currently logging via TensorBoard to objects like model checkpoints, interactive charts, video and more.
 To learn about that see the :ref:`More options <tensorboard-more-options>` section.
@@ -142,8 +143,8 @@ Remember that you can try it out with zero setup:
 
 .. _tensorboard-log-to-neptune-via-tensorboard:
 
-Log new runs to Neptune via TensorBoard callback
-------------------------------------------------
+Log new runs to Neptune via TensorBoard
+---------------------------------------
 
 Before you start
 ^^^^^^^^^^^^^^^^
@@ -253,17 +254,27 @@ You can log interactive charts to Neptune.
 
 For example, let's log an interactive ROC AUC curve.
 
-1. Install neptune-contrib library
+1. Install dependencies including neptune-contrib library
 
 .. code-block:: bash
 
-    pip install neptune-contrib
+    pip install neptune-contrib scikit-plot matplotlib==3.2.0 plotly==4.12.0
+
+.. warning::
+
+    Automatic conversion between matplotlib figures and plotly charts works only with ``matplotlib==3.2.0`` and ``plotly==4.12.0``.
 
 2. Create a ROC AUC curve
 
 .. code-block:: python3
 
+    import matplotlib.pyplot as plt
+    from scikitplot.metrics import plot_roc
+
     y_test_pred = model.predict(x_test)
+
+    fig, ax = plt.subplots()
+    plot_roc(y_test, y_test_pred, ax=ax)
 
 3. Log it to Neptune via :meth:`~neptunecontrib.api.log_chart` function.
 

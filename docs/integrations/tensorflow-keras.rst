@@ -34,7 +34,7 @@ With Neptune + TensorFlow / Keras integration you can:
 
 .. note::
 
-    This integration is tested with ``tensorflow==2.3.9``, ``neptune-client==0.4.129``, and ``neptune-contrib==0.4.129``
+    This integration is tested with ``tensorflow==2.3.1``, ``neptune-client==0.4.129``, and ``neptune-contrib==0.24.9``
 
 Where to start?
 ---------------
@@ -166,14 +166,20 @@ To do that just pass the parameter dictionary to :meth:`~neptune.projects.Projec
 
 .. code-block:: python3
 
-    PARAMS = {'lr':0.005,
-              'momentum':0.9,
-              'epochs':10}
+    PARAMS = {'lr': 0.005,
+              'momentum': 0.9,
+              'epochs': 10,
+              'batch_size': 64}
 
     optimizer = keras.optimizers.SGD(lr=PARAMS['lr'], momentum=PARAMS['momentum'])
 
     # log params
     neptune.create_experiment('keras-tensorflow-advanced', params=PARAMS)
+
+    model.fit(x_train, y_train,
+              epochs=PARAMS['epochs'],
+              batch_size=PARAMS['batch_size'],
+              callbacks=[NeptuneMonitor()])
 
 .. image:: ../_static/images/integrations/tensorflow-keras-parameters.png
    :target: ../_static/images/integrations/tensorflow-keras-parameters.png
