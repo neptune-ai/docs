@@ -20,8 +20,8 @@ What will you get with this integration?
 
 Neptune supports two major use cases:
 
-1. With :meth:`~neptune_tensorboard_plugin.__init__.py` bash command you can have your TensorBoard visualizations hosted in Neptune. See :ref:`"Convert TensorBoard logs to Neptune experiments" <tensorboard-convert-logdir>`.
-2. You can use the :meth:`~neptune_tensorboard.integrate_with_tensorflow()` method to instantly log major metrics (epoch and batch related) to Neptune. See :ref:`"Log new runs to Neptune via TensorBoard" <tensorboard-log-to-neptune-via-tensorboard>`
+1. With ``neptune tensorboard /path/to/tensorboard/logs`` bash command you can have your TensorBoard visualizations hosted in Neptune. See :ref:`Convert TensorBoard logs to Neptune experiments <tensorboard-convert-logdir>`.
+2. You can use the :meth:`~neptune_tensorboard.integrate_with_tensorflow()` method to instantly log major metrics (epoch and batch related) to Neptune. See :ref:`Log new runs to Neptune via TensorBoard <tensorboard-log-to-neptune-via-tensorboard>`
 
 Neptune currently logs and displays the following TensorBoard objects:
 
@@ -34,15 +34,15 @@ To learn about that see the :ref:`More options <tensorboard-more-options>` secti
 
 .. note::
 
-    This integration is tested with ``tensorflow==2.3``, ``tensorboard==1.7.0``, ``neptune-client==0.4.128``, and ``neptune-tensorboard==0.2``.
+    This integration is tested with ``tensorflow==2.3.1``, ``tensorboard==2.4.0``, ``neptune-client==0.4.129``, and ``neptune-tensorboard==0.5.1``.
 
 Where to start?
 ---------------
-If you have already tracked some experiments with TensorBoard and you want to convert the TensorBoard logs directory into Neptune experiments see the :ref:`"Convert TensorBoard logs to Neptune experiments" <tensorboard-convert-logdir>` section.
+If you have already tracked some experiments with TensorBoard and you want to convert the TensorBoard logs directory into Neptune experiments see the :ref:`Convert TensorBoard logs to Neptune experiments <tensorboard-convert-logdir>` section.
 
-If you want to log new experiments to Neptune via TensorBoard you should read the :ref:`"Log new runs to Neptune via TensorBoard" <tensorboard-log-to-neptune-via-tensorboard>` section.
+If you want to log new experiments to Neptune via TensorBoard you should read the :ref:`Log new runs to Neptune via TensorBoard <tensorboard-log-to-neptune-via-tensorboard>` section.
 
-To extend what you are already logging to TensorBoard with native Neptune logging read :ref:`"More options" <tensorboard-more-options>` section.
+To extend what you are already logging to TensorBoard with native Neptune logging read :ref:`More options <tensorboard-more-options>` section.
 
 If you want to try things out and focus only on the code you can either:
 
@@ -55,18 +55,16 @@ Convert TensorBoard logs to Neptune experiments
 
 Before you start
 ^^^^^^^^^^^^^^^^
-#. This integration requires you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already.
-
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
    * ``neptune-tensorboard``
-   * ``tensorboard==1.12.1``. See the |tensorboard-install|.
+   * ``tensorboard``.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      pip install --quiet tensorboard neptune-tensorboard
+  pip install --quiet tensorboard neptune-tensorboard
 
-#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-guide| guide to get started.
+#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-install|.
 
 
 Step 1: Set your ``NEPTUNE_API_TOKEN``
@@ -129,13 +127,21 @@ Browse and collaborate on your TensorBoard runs in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You can now click on one of the links from the console and go to Neptune to see your experiments.
 
+**Dashboard**
+
 .. image:: ../_static/images/integrations/tensorboard_dashboard.png
    :target: ../_static/images/integrations/tensorboard_dashboard.png
    :alt: Organize TensorBoard experiments in Neptune
 
+|example-dashboard|
+
+**Comparison**
+
 .. image:: ../_static/images/integrations/tensorboard_compare.png
    :target: ../_static/images/integrations/tensorboard_compare.png
    :alt: Compare TensorBoard experiments in Neptune
+
+|example-compare|
 
 Remember that you can try it out with zero setup:
 
@@ -148,19 +154,17 @@ Log new runs to Neptune via TensorBoard
 
 Before you start
 ^^^^^^^^^^^^^^^^
-#. This integration requires you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already.
-
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
    * ``neptune-tensorboard``
-   * ``tensorflow 2.x``
-   * ``tensorboard==1.12.1``. See the |tensorboard-install|.
+   * ``tensorflow``
+   * ``tensorboard``. See the |tensorboard-install|.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      pip install --quiet tensorflow tensorboard neptune-tensorboard
+  pip install --quiet tensorflow tensorboard neptune-tensorboard
 
-#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-guide| guide to get started.
+#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-install| guide to get started.
 
 Step 1: Initialize Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -214,13 +218,31 @@ Step 5: Monitor your TensorBoard training in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now you can switch to the Neptune tab which you had opened previously to watch the training live!
 
-.. image:: ../_static/images/integrations/tensrboard-charts.png
-   :target: ../_static/images/integrations/tensrboard-charts.png
+**Charts**
+
+.. image:: ../_static/images/integrations/tensorboard-charts.png
+   :target: ../_static/images/integrations/tensorboard-charts.png
+   :alt: TensorBoard learning curve charts
+
+|example-charts|
+
+**Charts**
+
+.. image:: ../_static/images/integrations/tensorboard-charts.png
+   :target: ../_static/images/integrations/tensorboard-charts.png
    :alt: TensorBoard learning curve charts
 
 |example-charts|
 
 .. _tensorboard-more-options:
+
+**Code**
+
+.. image:: ../_static/images/integrations/tensorboard-code.png
+   :target: ../_static/images/integrations/tensorboard-code.png
+   :alt: TensorBoard code saved
+
+|example-code|
 
 More options
 ------------
@@ -284,11 +306,11 @@ For example, let's log an interactive ROC AUC curve.
 
     log_chart(name='ROC curve', chart=fig)
 
-.. image:: ../_static/images/integrations/tensorboard-images.png
-   :target: ../_static/images/integrations/tensorboard-images.png
-   :alt: TensorBoard logging charts
+.. image:: ../_static/images/integrations/tensorboard-interactive-charts.png
+   :target: ../_static/images/integrations/tensorboard-interactive-charts.png
+   :alt: TensorBoard logging interactive html charts
 
-|example-charts|
+|example-interactive-charts|
 
 Remember that you can try it out with zero setup:
 
@@ -310,6 +332,93 @@ You may also find the following pages useful:
 
 .. External links
 
-.. |adsfdasfds| raw:: html
+.. |TensorBoard| raw:: html
 
-    <a href="https://keras.io" target="_blank">Keras</a>
+    <a href="https://www.tensorflow.org/tensorboard" target="_blank">TensorBoard</a>
+
+.. |tensorboard-install| raw:: html
+
+    <a href="https://www.tensorflow.org/tensorboard/get_started" target="_blank">TensorBoard get started guide</a>
+
+.. |neptune-tensorboard| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-tensorboard" target="_blank">neptune-tensorboard</a>
+
+.. |tensorboard-code-example| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/tensorboard/docs/Neptune-TensorBoard.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/tensorboard/docs/Neptune-TensorBoard.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/experiments?viewId=standard-view">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-dashboard| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/experiments?viewId=def2c858-3510-4bf9-9e52-8720fadecb11">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-compare| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/compare?shortId=%5B%22IN-22%22%2C%22IN-21%22%2C%22IN-20%22%2C%22IN-18%22%2C%22IN-16%22%5D&viewId=def2c858-3510-4bf9-9e52-8720fadecb11">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-charts| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/e/IN-23/charts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-artifacts| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/e/IN-24/artifacts?path=my_model%2F">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-interactive-charts| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/e/IN-24/artifacts?path=charts%2F&file=ROC%20curve.html">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-code| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/e/IN-23/source-code?path=.&file=log-via-tb.py">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>

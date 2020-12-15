@@ -51,12 +51,10 @@ Quickstart
 ----------
 This quickstart will show you how to:
 
-* Install the necessary Neptune package
+* Install the necessary Neptune packages
 * Connect Neptune to your TensorFlow / Keras model training code and create the first experiment
 * Log metrics, training scripts and .git info to Neptune
 * Explore learning curves in the Neptune UI
-
-.. _keras-tensorflow-more-options:
 
 Before you start
 ^^^^^^^^^^^^^^^^
@@ -64,17 +62,13 @@ You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
 
-    .. code-block:: bash
-
-        pip install neptune-client
-
 * ``neptune-contrib``. See :ref:`neptune-contrib installation guide <installation-neptune-contrib>`.
 
-    .. code-block:: bash
-
-        pip install neptune-contrib
-
 * ``tensorflow==2.x``. See |tensorflow-install|.
+
+.. code-block:: bash
+
+    pip install --quiet tensorflow neptune-contrib neptune-client
 
 You also need minimal familiarity with TensorFlow / Keras. Have a look at this |tensorflow-guide| to get started.
 
@@ -111,7 +105,7 @@ When you create an experiment Neptune will look for the .git directory in your p
 
 Step 3: Add NeptuneMonitor Callback to model.fit()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Import :meth:`~neptunecontrib.monitoring.keras.NeptuneMonitor `callback from the ``neptunecontrib`` package and pass it to the callbacks attribute of ``model.fit()``.
+Import :meth:`~neptunecontrib.monitoring.keras.NeptuneMonitor` callback from the ``neptunecontrib`` package and pass it to the callbacks attribute of ``model.fit()``.
 
 .. code-block:: python3
 
@@ -139,7 +133,7 @@ Now you can switch to the Neptune tab which you had opened previously to watch t
 
 |example-charts|
 
-.. _tensorflow-keras-more-options:
+.. _keras-tensorflow-more-options:
 
 More Options
 ------------
@@ -174,7 +168,7 @@ To do that just pass the parameter dictionary to :meth:`~neptune.projects.Projec
     optimizer = keras.optimizers.SGD(lr=PARAMS['lr'], momentum=PARAMS['momentum'])
 
     # log params
-    neptune.create_experiment('keras-tensorflow-advanced', params=PARAMS)
+    neptune.create_experiment('keras-tensorflow-more-options', params=PARAMS)
 
     model.fit(x_train, y_train,
               epochs=PARAMS['epochs'],
@@ -215,11 +209,11 @@ You can log tensors as images to Neptune with some additional descriptions via :
     x_test_sample = x_test[:100]
     y_test_sample_pred = model.predict(x_test_sample)
 
-    for x, y_pred in zip(x_test_sample, y_test_sample_pred):
+    for image, y_pred in zip(x_test_sample, y_test_sample_pred):
         description = '\n'.join(['class {}: {}'.format(i, pred)
-                                    for i, pred in enumerate(F.softmax(prediction))])
+                                    for i, pred in enumerate(y_pred)])
         neptune.log_image('predictions',
-                          image.squeeze(),
+                          image,
                           description=description)
 
 .. image:: ../_static/images/integrations/tensorflow-keras-images.png
@@ -246,6 +240,7 @@ Other pages you may like
 
 You may also find the following pages useful:
 
+- :ref:`TensorBoard integration <integrations-tensorboard>`
 - :ref:`Full list of objects you can log and display in Neptune <what-you-can-log>`
 - :ref:`Optuna integration <integrations-optuna>`
 - :ref:`Logging Plotly/Bokeh/Altair/Matplotlib charts to Neptune <integrations-visualization-tools>`
@@ -256,6 +251,87 @@ You may also find the following pages useful:
 
     <a href="https://keras.io" target="_blank">Keras</a>
 
+.. |TensorFlow| raw:: html
+
+    <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a>
+
 .. |tensorflow-install| raw:: html
 
     <a href="https://www.tensorflow.org/install" target="_blank">TensorFlow installation</a>
+
+.. |tensorflow-guide| raw:: html
+
+    <a href="https://www.tensorflow.org/tutorials/keras/classification" target="_blank">TensorFlow tutorial</a>
+
+.. |psutil| raw:: html
+
+    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">psutil</a>
+
+.. |tensorflow-keras-code-example| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/tensorflow-keras/docs/Neptune-TensorFlow-Keras.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/tensorflow-keras/docs/Neptune-TensorFlow-Keras.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/experiments?viewId=f550f42f-ea9f-4b0a-95b3-19ae47f89a65">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-charts| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-12/charts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-hardware| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-11/monitoring">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-hyperparameters| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/parameters">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-weights| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/artifacts?path=my_model%2F">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-images| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>

@@ -44,8 +44,6 @@ This quickstart will show you how to:
 
 Before you start
 ^^^^^^^^^^^^^^^^
-#. This integration requires you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already
-
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
    * ``neptune-mlflow``
