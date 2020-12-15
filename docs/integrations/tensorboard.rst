@@ -27,6 +27,7 @@ Neptune currently logs and displays the following TensorBoard objects:
 
 * Scalars (as metrics)
 * Images (as images)
+* String Tensors (as text)
 * path to the TensorBoard run (as property 'tf/run/path')
 
 You can also extend what you are currently logging via TensorBoard to objects like model checkpoints, interactive charts, video and more.
