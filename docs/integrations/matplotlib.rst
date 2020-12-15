@@ -58,10 +58,8 @@ Follow these steps:
 
 .. note::
 
-    The :code:`log_chart` function required that `plotly` is installed
-    as a Python package in the active environment (e.g. with :code:`pip install plotly`).
-    In the absence of `plotly`, :code:`log_chart` silently falls back on 
-    logging the chart as a static image.
+    This option is tested with ``matplotlib==3.2.0`` and ``plotly==4.12.0``. Make sure that you have correct versions installed.
+    In the absence of `plotly`, :code:`log_chart` silently falls back on logging the chart as a static image.
 
 3. Explore the results in the Neptune dashboard:
 
