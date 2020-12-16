@@ -8,7 +8,7 @@ Neptune provides integrations with the following deep learning frameworks:
 .. toctree::
    :maxdepth: 1
 
-   TensorfFlow / Keras <tensorflow-keras.rst>
+   TensorFlow / Keras <tensorflow-keras.rst>
    PyTorch <pytorch.rst>
    PyTorch Lightning <pytorch_lightning.rst>
    PyTorch Ignite <pytorch_ignite.rst>

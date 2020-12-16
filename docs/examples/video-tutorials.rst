@@ -57,7 +57,7 @@ Below is a curated list of Neptune video tutorials.
 
 |PyTorch + Neptune integration|
 
-**Neptune + TensorFlow / Keras**
+**Neptune + TensorFlow / Keras integration**
 
 |Neptune + TensorFlow / Keras|
 
@@ -108,10 +108,6 @@ Below is a curated list of Neptune video tutorials.
 **Fetching data from Neptune**
 
 |Fetching data from Neptune|
-
-**Integrations - Keras**
-
-|Integrations - Keras|
 
 **Integrations - Visualisation frameworks***
 
@@ -170,10 +166,6 @@ Below is a curated list of Neptune video tutorials.
 .. |Fetching data from Neptune| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ILnM4owoJqw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-.. |Integrations - Keras| raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/EwRGVThAvMM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Integrations - Visualisation frameworks| raw:: html
 

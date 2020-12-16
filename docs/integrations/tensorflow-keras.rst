@@ -56,6 +56,11 @@ This quickstart will show you how to:
 * Log metrics, training scripts and .git info to Neptune
 * Explore learning curves in the Neptune UI
 
+.. note::
+
+    This quickstart shows only Neptune-specific code snippets. You can see the full code example in Colab/Github or Neptune.
+    Click on one of the buttons at the top or bottom of this page.
+
 Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
@@ -68,7 +73,7 @@ You have ``Python 3.x`` and following libraries installed:
 
 .. code-block:: bash
 
-    pip install --quiet tensorflow neptune-contrib neptune-client
+    pip install --quiet tensorflow==2.3.1 neptune-contrib==0.4.129 neptune-client==0.25.0
 
 You also need minimal familiarity with TensorFlow / Keras. Have a look at this |tensorflow-guide| to get started.
 
@@ -105,7 +110,7 @@ When you create an experiment Neptune will look for the .git directory in your p
 
 Step 3: Add NeptuneMonitor Callback to model.fit()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Import :meth:`~neptunecontrib.monitoring.keras.NeptuneMonitor` callback from the ``neptunecontrib`` package and pass it to the callbacks attribute of ``model.fit()``.
+Import :meth:`~neptunecontrib.monitoring.keras.NeptuneMonitor` callback from the ``neptunecontrib`` package and pass it to the callbacks argument of ``model.fit()``.
 
 .. code-block:: python3
 
@@ -165,15 +170,8 @@ To do that just pass the parameter dictionary to :meth:`~neptune.projects.Projec
               'epochs': 10,
               'batch_size': 64}
 
-    optimizer = keras.optimizers.SGD(lr=PARAMS['lr'], momentum=PARAMS['momentum'])
-
     # log params
     neptune.create_experiment('keras-tensorflow-more-options', params=PARAMS)
-
-    model.fit(x_train, y_train,
-              epochs=PARAMS['epochs'],
-              batch_size=PARAMS['batch_size'],
-              callbacks=[NeptuneMonitor()])
 
 .. image:: ../_static/images/integrations/tensorflow-keras-parameters.png
    :target: ../_static/images/integrations/tensorflow-keras-parameters.png
