@@ -63,7 +63,7 @@ Before you start
 
 .. code-block:: bash
 
-  pip install --quiet tensorboard neptune-tensorboard
+  pip install tensorboard==2.4.0 neptune-tensorboard==0.5.1
 
 #. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-install|.
 
@@ -87,11 +87,6 @@ Windows:
 
     Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
-Point Neptune to your TensorBoard logs directory:
-
-.. code-block:: bash
-
-    neptune tensorboard /PATH/TO/TensorBoard_logdir --project USER_NAME/PROJECT_NAME
 
 Step 2: Convert your TensorBoard logs directory with Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,9 +158,9 @@ Before you start
 
 .. code-block:: bash
 
-  pip install --quiet tensorflow tensorboard neptune-tensorboard
+  pip install tensorflow==2.3.1 tensorboard==2.4.0 neptune-tensorboard==0.5.1
 
-#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-install| guide to get started.
+#. You also need minimal familiarity with TensorBoard. Have a look at the |tensorboard-install| to get started.
 
 Step 1: Initialize Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -198,9 +193,9 @@ When you create an experiment Neptune will look for the .git directory in your p
 
     If you are using .py scripts for training Neptune will also log your training script automatically.
 
-Step 3: Run ``neptune_tensorboard.integrate_with_tensorflow()``
----------------------------------------------------------------
-Import and run :meth:`~neptune_tensorboard.integrate_with_tensorflow()` function from the ``neptune-tensorboard`` package.
+Step 3: Add ``neptune_tensorboard.integrate_with_tensorflow()`` to your script
+-----------------------------------------------------------
+Import and add :meth:`~neptune_tensorboard.integrate_with_tensorflow()` function from the ``neptune-tensorboard`` package at the top of your script.
 
 .. code-block:: python3
 
