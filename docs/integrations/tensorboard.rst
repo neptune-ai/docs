@@ -423,3 +423,7 @@ You may also find the following pages useful:
             <span>See example in Neptune</span>
         </a>
     </div>
+
+.. |tensorboard-tour-loom| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.9620253164557%; height: 0;"><iframe src="https://www.loom.com/embed/4c1f3c0546ac48df8fced27d711bda8c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>

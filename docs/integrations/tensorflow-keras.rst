@@ -335,3 +335,7 @@ You may also find the following pages useful:
             <span>See example in Neptune</span>
         </a>
     </div>
+
+.. |tensorflow keras tour loom| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.9620253164557%; height: 0;"><iframe src="https://www.loom.com/embed/2ba258b06a0947b8bf5fd08b7b34eb61" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
