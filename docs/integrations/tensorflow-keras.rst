@@ -73,7 +73,7 @@ You have ``Python 3.x`` and following libraries installed:
 
 .. code-block:: bash
 
-    pip install --quiet tensorflow==2.3.1 neptune-contrib==0.4.129 neptune-client==0.25.0
+    pip install tensorflow==2.3.1 neptune-contrib==0.4.129 neptune-client==0.25.0
 
 You also need minimal familiarity with TensorFlow / Keras. Have a look at this |tensorflow-guide| to get started.
 
