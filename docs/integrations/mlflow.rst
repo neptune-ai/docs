@@ -44,8 +44,6 @@ This quickstart will show you how to:
 
 Before you start
 ^^^^^^^^^^^^^^^^
-#. This integration requires you to have your Personal API token. You need a Neptune account to have this. Create one for free |neptune-register| if you haven't already
-
 #. Ensure that you have ``Python 3.x`` and following libraries installed:
 
    * ``neptune-mlflow``
@@ -76,8 +74,8 @@ Windows:
 
     Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
-Step 2: Sync your MLruns with Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Convert your MLruns to Neptune experiments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Navigate to the MLflow project in your directory and run:
 
 .. code-block:: bash

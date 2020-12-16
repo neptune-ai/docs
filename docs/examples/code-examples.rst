@@ -30,6 +30,10 @@ Below is a curated list of Neptune code examples.
 
 |Logging to Neptune from PyTorch|
 
+**Logging to Neptune from TensorFlow / Keras**
+
+|Logging to Neptune from TensorFlow / Keras|
+
 **Logging to Neptune from PyTorch Lightning Basic usage**
 
 |Logging to Neptune from PyTorch Lightning Basic usage|
@@ -49,6 +53,10 @@ Below is a curated list of Neptune code examples.
 **Logging to Neptune from R**
 
 |Logging to Neptune from R|
+
+**Working with Neptune and TensorBoard**
+
+|Working with Neptune and TensorBoard|
 
 **Converting MLflow runs to Neptune**
 
@@ -141,6 +149,44 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |Logging to Neptune from TensorFlow / Keras| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/tensorflow-keras/docs/Neptune-TensorFlow-Keras.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/tensorflow-keras/docs/Neptune-TensorFlow-Keras.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/experiments?viewId=f550f42f-ea9f-4b0a-95b3-19ae47f89a65">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |Working with Neptune and TensorBoard| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/tensorboard/docs/Neptune-TensorBoard.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/tensorboard/docs/Neptune-TensorBoard.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/experiments?viewId=standard-view">
             <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>

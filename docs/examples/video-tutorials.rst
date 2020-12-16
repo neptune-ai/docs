@@ -49,7 +49,7 @@ Below is a curated list of Neptune video tutorials.
 
 |Neptune - Google Colab integration|
 
-**Neptune+Optuna: Basic Tour**
+**Neptune + Optuna: Basic Tour**
 
 |Neptune+Optuna: Basic Tour|
 
@@ -57,9 +57,17 @@ Below is a curated list of Neptune video tutorials.
 
 |PyTorch + Neptune integration|
 
+**Neptune + TensorFlow / Keras integration**
+
+|Neptune + TensorFlow / Keras|
+
 **Neptune + MLflow**
 
 |Neptune + MLflow|
+
+**Neptune + TensorBoard**
+
+|Neptune + TensorBoard|
 
 **Introduction to Neptune - your ML experiments tracking tool**
 
@@ -100,10 +108,6 @@ Below is a curated list of Neptune video tutorials.
 **Fetching data from Neptune**
 
 |Fetching data from Neptune|
-
-**Integrations - Keras**
-
-|Integrations - Keras|
 
 **Integrations - Visualisation frameworks***
 
@@ -162,10 +166,6 @@ Below is a curated list of Neptune video tutorials.
 .. |Fetching data from Neptune| raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ILnM4owoJqw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-.. |Integrations - Keras| raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/EwRGVThAvMM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. |Integrations - Visualisation frameworks| raw:: html
 
@@ -230,3 +230,11 @@ Below is a curated list of Neptune video tutorials.
 .. |Organizing charts in chart sets| raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/bb0a7577ff294f08b21f565afc809ced" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |Neptune + TensorBoard| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.9620253164557%; height: 0;"><iframe src="https://www.loom.com/embed/4c1f3c0546ac48df8fced27d711bda8c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |Neptune + TensorFlow / Keras| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.9620253164557%; height: 0;"><iframe src="https://www.loom.com/embed/2ba258b06a0947b8bf5fd08b7b34eb61" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>

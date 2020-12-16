@@ -71,11 +71,11 @@ You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
 
-    .. code-block:: bash
-
-        pip install neptune-client
-
 * ``torch``. See |pytorch-install|.
+
+.. code-block:: bash
+
+    pip install --quiet torch neptune-client
 
 You also need minimal familiarity with torch. Have a look at this |pytorch-guide| to get started.
 
@@ -383,4 +383,4 @@ You may also like these two integrations:
 
 .. |psutil| raw:: html
 
-    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">PyTorch</a>
+    <a href="https://psutil.readthedocs.io/en/latest/" target="_blank">psutil</a>
