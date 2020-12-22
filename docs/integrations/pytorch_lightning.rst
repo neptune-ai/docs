@@ -613,9 +613,29 @@ You may also like these two integrations:
 
     <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py" target="_blank">GitHub</a>
 
-.. |forum| raw:: html
+.. |PyTorch| raw:: html
 
-    <a href="https://community.neptune.ai/" target="_blank">forum</a>
+    <a href="https://docs.neptune.ai/integrations/pytorch.html" target="_blank">PyTorch</a>
+
+.. |PyTorch Ignite| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/pytorch_ignite.html" target="_blank">PyTorch Ignite</a>
+
+.. |Catalyst| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/catalyst.html" target="_blank">Catalyst</a>
+
+.. |skorch| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/skorch.html" target="_blank">skorch</a>
+
+.. |optuna| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/optuna.html" target="_blank">optuna</a>
+
+.. |plotly| raw:: html
+
+    <a href="https://docs.neptune.ai/integrations/plotly.html" target="_blank">plotly</a>
 
 .. |metrics| raw:: html
 

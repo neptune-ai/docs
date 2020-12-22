@@ -82,7 +82,6 @@ Discover Neptune
 - |Example Project|: See how example project looks in Neptune
 - |YouTube channel|: Provides hands-on videos that showcase key Neptune features.
 - |Neptune blog|: Provides in-depth articles about best practices in machine learning experimentation (among other things)
-- |Neptune community|: Meet other Neptune users and developers and start a discussion.
 - |neptune-client|: Neptune client is an open source Python library that lets you integrate your Python scripts with Neptune.
 - |neptune-contrib|: Built on top of neptune-client, this is an open-source collection of advanced utilities that make work with Neptune easier.
 - Questions? Send an email to contact@neptune.ai by email or click the chat icon in the bottom right corner.
