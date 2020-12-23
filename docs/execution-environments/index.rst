@@ -88,13 +88,3 @@ Various Notebook flavours:
    Google Colab <google-colab.rst>
    Deepnote <deepnote.rst>
    Amazon SageMaker <amazon_sagemaker.rst>
-
-.. External links
-
-.. |forum| raw:: html
-
-    <a href="https://community.neptune.ai/c/feature-requests" target="_blank">feature request</a>
-
-.. |neptune-client| raw:: html
-
-    <a href="/api-reference/neptune/index.html" target="_blank">neptune-client</a>
