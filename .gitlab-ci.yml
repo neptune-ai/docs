@@ -137,7 +137,7 @@ stages:
   fi
 
 .setup_helm: &setup |
-  helm repo add stable https://kubernetes-charts.storage.googleapis.com
+  helm repo remove stable || true
   helm repo add neptune-charts "$CHART_REPO_URL" --username "$CHART_REPO_USER" --password "$CHART_REPO_PASS"
   helm repo update
   kubectl create namespace neptune || true
