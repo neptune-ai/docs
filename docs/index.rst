@@ -194,10 +194,6 @@ Discover Neptune
 
     <a href="https://neptune.ai/blog/category/machine-learning-model-management" target="_blank">Neptune blog</a>
 
-.. |Neptune community|  raw:: html
-
-    <a href="https://community.neptune.ai/" target="_blank">Neptune community forum</a>
-
 .. |neptune-client| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
