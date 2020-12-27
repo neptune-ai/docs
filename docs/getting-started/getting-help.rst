@@ -42,20 +42,6 @@ Preferred topics:
 - feedback about the tool
 - questions about the product
 
-Community
----------
-
-We have a Discourse community forum where you can find:
-
-- quick fixes to bugs
-- discussions around new features
-
-Preferred topics:
-
-- bugs and feature ideas (that you would like discuss too much)
-
-Go to |Neptune community forum|.
-
 GitHub
 ------
 
@@ -83,10 +69,6 @@ You can just shoot us an email at contact@neptune.ai
 .. |Neptune Blog|  raw:: html
 
     <a href="https://neptune.ai/blog/category/machine-learning-model-management" target="_blank">Neptune blog</a>
-
-.. |Neptune community forum| raw:: html
-
-    <a href="https://community.neptune.ai/" target="_blank">Neptune community forum</a>
 
 .. |neptune-client| raw:: html
 

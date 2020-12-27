@@ -613,10 +613,6 @@ You may also like these two integrations:
 
     <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/pytorch-lightning/docs/Neptune-PyTorch-Lightning-basic.py" target="_blank">GitHub</a>
 
-.. |forum| raw:: html
-
-    <a href="https://community.neptune.ai/" target="_blank">forum</a>
-
 .. |metrics| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/e/PYTOR-137883/charts" target="_blank">metrics</a>

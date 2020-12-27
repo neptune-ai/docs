@@ -59,7 +59,7 @@ My library is not here. What now?
 There are two common paths:
 
 #. You can always use  |neptune-client| , our open source Python library for logging all kinds of data and metadata to experiments.
-#. Contact us directly via mail (contact@neptune.ai), chat (that little thing in the lower right corner) or post |forum| on our forum to discuss what you need and how we can deliver it.
+#. Contact us directly via mail (contact@neptune.ai) or chat (that little thing in the lower right corner) to discuss what you need and how we can deliver it.
 
 .. toctree::
    :hidden:
@@ -73,10 +73,6 @@ There are two common paths:
    Other integrations <other-integrations.rst>
 
 .. External links
-
-.. |forum| raw:: html
-
-    <a href="https://community.neptune.ai/c/feature-requests" target="_blank">feature request</a>
 
 .. |neptune-client| raw:: html
 
