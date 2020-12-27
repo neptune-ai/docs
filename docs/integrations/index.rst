@@ -31,7 +31,7 @@ List of all integrations
 * :ref:`Fastai <integrations-fastai>`
 * :ref:`HiPlot <integrations-hiplot>`
 * :ref:`HTML <integrations-html>`
-* :ref:`Keras <integrations-keras>`
+* :ref:`TensorFlow / Keras <integrations-tensorflow-keras>`
 * :ref:`Lightgbm <integrations-lightgbm>`
 * :ref:`Matplotlib <integrations-matplotlib>`
 * :ref:`MLflow <integrations-mlflow>`
@@ -46,7 +46,6 @@ List of all integrations
 * :ref:`Skorch <integrations-skorch>`
 * :ref:`Telegram <integrations-telegram>`
 * :ref:`Tensorboard <integrations-tensorboard>`
-* :ref:`Tensorflow <integrations-tensorflow>`
 * :ref:`XGBoost <integrations-xgboost>`
 * :ref:`Scikit-learn <list-of-all-integrations>` *coming soon...*
 * :ref:`Ray/Tune <list-of-all-integrations>` *coming soon...*

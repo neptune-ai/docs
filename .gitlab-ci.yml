@@ -98,7 +98,7 @@ stages:
   <<: *base_stage
   stage: stage
   tags:
-    - deploy-stage
+    - deploy-stage-2
   except:
     - tags
     - web
@@ -109,7 +109,7 @@ stages:
   <<: *base_stage
   stage: stage
   tags:
-    - deploy-stage
+    - deploy-stage-2
   except:
     - tags
     - web
