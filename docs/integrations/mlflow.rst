@@ -27,7 +27,7 @@ With Neptune, you can push the following MLrun objects to a Neptune experiment:
 .. note::
 
     This integration is tested with ``neptune-client==0.4.129``, ``neptune-mlflow==0.2.5`` and ``mlflow==1.12.1``
-	
+
 .. _mlflow-quickstart:
 
 Quickstart
@@ -48,9 +48,9 @@ Before you start
 
    * ``neptune-mlflow``
    * ``mlflow==1.12.1``. See the |mlflow-install|.
-   
+
    .. code-block:: bash
-   	
+
       pip install --quiet mlflow neptune-mlflow
 
 #. You also need minimal familiarity with Mlflow. Have a look at the |mlflow-guide| guide to get started.
@@ -91,7 +91,7 @@ Alternatively, you can point to the MLflow project directory:
 .. tip::
 
     You can also set the project qualified name in the ``NEPTUNE_PROJECT`` environment variable and skip the ``--project`` argument
-	
+
 	Linux/macOS:
 
 	.. code:: bash
@@ -109,7 +109,7 @@ Alternatively, you can point to the MLflow project directory:
 .. image:: ../_static/images/integrations/mlflow.png
    :target: ../_static/images/integrations/mlflow.png
    :alt: Organize MLflow experiments in Neptune
-   
+
 .. image:: ../_static/images/integrations/mlflow_compare.png
    :target: ../_static/images/integrations/mlflow_compare.png
    :alt: Compare MLflow experiments in Neptune
@@ -153,7 +153,7 @@ Remember that you can try it out with zero setup:
 .. |mlflow| raw:: html
 
     <a href="https://mlflow.org" target="_blank">MLflow</a>
-	
+
 .. |neptune-register| raw:: html
 
     <a href="https://neptune.ai/register" target="_blank">here</a>
