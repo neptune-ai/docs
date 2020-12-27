@@ -26,7 +26,7 @@ With the Neptune + LightGBM integration, you can:
 .. note::
 
     This integration is tested with ``neptune-client==0.4.129``, ``neptune-contrib==0.25.0``, and ``lightgbm==2.2.3``
-	
+
 .. _lightgbm-quickstart:
 
 Quickstart
@@ -106,7 +106,7 @@ Now you can switch to the Neptune tab which you had opened previously to watch t
 	   
 |Run on Colab|
 
-.. _pytorch-advanced-options:
+.. _lightgbm-advanced-options:
 
 More Options
 ------------
