@@ -119,12 +119,12 @@ To do that just pass the parameter dictionary to :meth:`~neptune.projects.Projec
 .. code-block:: python3
 
 	params = {'boosting_type': 'gbdt',
-				  'objective': 'multiclass',
-				  'num_class': 3,
-				  'num_leaves': 31,
-				  'learning_rate': 0.05,
-				  'feature_fraction': 0.9
-				  }
+              'objective': 'multiclass',
+              'num_class': 3,
+              'num_leaves': 31,
+              'learning_rate': 0.05,
+              'feature_fraction': 0.9
+              }
 
 	neptune.create_experiment(name='LightGBM-training', params=params)
 
@@ -204,7 +204,6 @@ Other pages you may like
 
 You may also find the following pages useful:
 
-- :ref:`TensorBoard integration <integrations-tensorboard>`
 - :ref:`Full list of objects you can log and display in Neptune <what-you-can-log>`
 - :ref:`Optuna integration <integrations-optuna>`
 - :ref:`Logging Plotly/Bokeh/Altair/Matplotlib charts to Neptune <integrations-visualization-tools>`
