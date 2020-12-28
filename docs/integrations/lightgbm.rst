@@ -214,12 +214,12 @@ You may also find the following pages useful:
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/lightgbm/docs/Neptune-LightGBM.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/lightgbm/docs/Neptune_lightGBM.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
 
-        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/lightgbm/docs/Neptune-LightGBM.py">
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/lightgbm/docs/Neptune_lightGBM.py">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
             <span>View source on GitHub</span>
         </a>
