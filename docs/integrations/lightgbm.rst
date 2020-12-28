@@ -232,7 +232,7 @@ You may also find the following pages useful:
 .. |lightgbm-tour| raw:: html
 
 	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
-		<iframe src="https://www.loom.com/embed/0ab27ecd5c584cdf9802c820c965358b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		<iframe src="https://www.loom.com/embed/54861bb7166e417289025afff49b86d7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 		</iframe>
 	</div>
 	
