@@ -22,7 +22,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 .. note::
 
-    This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``.
+    This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.130``.
 
 Where to start?
 ---------------

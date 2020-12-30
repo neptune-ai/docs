@@ -25,7 +25,7 @@ The integration is implemented as XGBoost callback and provides the following ca
 
 .. note::
 
-    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.124``.
+    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.130``.
 
 Where to start?
 ---------------
