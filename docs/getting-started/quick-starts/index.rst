@@ -3,27 +3,37 @@
 Quick starts
 ============
 
-Quick starts are minimal examples that will get you started in minutes.
-
-Right now we have:
-
-Basics
-------
-
 .. toctree::
    :maxdepth: 1
 
-   Use Neptune API to log your first experiment (2 min) <log_first_experiment.rst>
-   Use Neptune Jupyter extension to log your first notebook checkpoint (2 min) <log_first_notebook_checkpoint.rst>
-
-Common Use Cases
-----------------
-
-.. toctree::
-   :maxdepth: 1
-
+   Hello World (1 min) <hello-world.rst>
    How to monitor experiments live (2 min) <how-to-monitor-live.rst>
-   How to organize ML experiments (5 min) <how-to-organize-experiments.rst>
-   How to compare and debug experiments and models (1 min) <how-to-compare-experiments.rst>
-   How to share ML results with your team (1 min) <how-to-share-results.rst>
-   How to clean up Jupyter workflow (1 min) <how-to-clean-up-jupyter.rst>
+   How to version and organize experiments (5 min) <how-to-organize-experiments.rst>
+   How to version Jupyter notebooks (2 min) <how-to-version-notebooks.rst>
+
+Using Neptune in 30 seconds
+---------------------------
+
+Step 1: Install client
+**********************
+
+.. code:: bash
+
+    pip install neptune-client
+
+Step 2: Create a Neptune experiment
+***********************************
+
+.. code:: python
+
+    import neptune
+
+    neptune.init(project_qualified_name='', api_token='') # add your credentials
+    neptune.create_experiment()
+
+Step 3: Log whatever you want
+*****************************
+
+.. code:: python
+
+    neptune.log_metric('accuracy', 0.83)

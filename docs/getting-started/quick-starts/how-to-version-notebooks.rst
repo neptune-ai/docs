@@ -1,5 +1,5 @@
-Use Neptune Jupyter extension to log your first notebook checkpoint
-===================================================================
+How to version Jupyter notebooks
+================================
 
 Introduction
 ------------

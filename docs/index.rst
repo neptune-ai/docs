@@ -101,9 +101,10 @@ Discover Neptune
    :maxdepth: 2
    :caption: Getting started
 
+   Hello World <getting-started/quick-starts/hello-world.rst>
    Installation <getting-started/installation/index.rst>
    Quick starts <getting-started/quick-starts/index.rst>
-   Integrating Neptune into your codebase <getting-started/integrate-neptune-into-your-codebase/index.rst>
+   Integrating Neptune into your codebase <getting-started/integrate-neptune-into-your-codebase.rst>
    Getting help <getting-started/getting-help.rst>
 
 .. toctree::
@@ -112,9 +113,9 @@ Discover Neptune
    :caption: User Guides
 
    Logging and managing experiment results <logging-and-managing-experiment-results/index.rst>
-   Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
    Organizing and exploring results in the UI <organizing-and-exploring-results-in-the-ui/index.rst>
    Sharing results and models with the team <sharing-results-and-models-with-the-team/index.rst>
+   Keeping track of Jupyter notebooks <keep-track-of-jupyter-notebooks/index.rst>
 
 .. toctree::
    :hidden:
