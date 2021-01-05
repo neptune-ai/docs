@@ -1,3 +1,5 @@
+.. _installation-neptune-r:
+
 Install neptune-r: Neptune client for R (1 min)
 ===============================================
 

@@ -1,71 +1,277 @@
 .. _integrations-r:
 
-Neptune-R Integration
-=====================
+Neptune client for R
+====================
 
-You can interact freely with Neptune from R and enjoy the same functionality that is available in Python.
+|colab-script-neptune|
 
-|Logging to Neptune from R|
+What will you get with Neptune client for R?
+--------------------------------------------
 
-Installation
+|r-tour-loom|
+
+You can interact with Neptune from R and enjoy almost the same functionality that is available in Python.
+The Neptune integration with R is available as a |CRAN package| and a |Github project|.
+
+With Neptune client for R you can:
+
+- save model hyperparameters for every experiment you run
+- see learning curves for losses and metrics during training
+- see hardware consumption and stdout/stderr output during training
+- log performance charts
+- log data versions and other properties
+- log model weights and other artifacts
+- organize experiments by using tags
+
+.. note::
+
+    This integration is tested with ``R version 3.6.3``, ``neptune_0.1.0``.
+
+.. warning::
+
+    Even if you are using R you still need to have Python installed on your system.
+
+Where to start?
+---------------
+To get started with using Neptune client for R, follow the :ref:`quickstart <r-quickstart>` below.
+You can also skip the basics and take a look at how to log model weights and performance charts in the :ref:`more options <r-more-options>` section.
+
+If you want to try things out right away you can either:
+
+|colab-script-neptune|
+
+.. _r-quickstart:
+
+Quickstart
+----------
+This quickstart will show you how to:
+
+* Install the necessary Neptune package from CRAN
+* Connect Neptune to your training code and create the first experiment
+* Log metrics and hardware consumption to Neptune
+* Explore learning curves in the Neptune UI
+
+.. _r-before-you-start:
+
+Before you start
+^^^^^^^^^^^^^^^^
+To log experiments to Neptune from R you need to satisfy the following prerequisites:
+
+* Have ``Python 3.x`` installed. The easiest way to |install Python environment is with Conda|.
+
+.. tip::
+
+    If you are using R studio you can just follow along and you will be prompted by the console to install miniconda.
+
+Step 1: Instlal Neptune package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install ``neptune`` package for R from CRAN.
+
+.. code-block:: R
+
+    install.packages('neptune', dependencies = TRUE)
+
+.. note::
+
+    See :ref:`neptune client for R installation guide <installation-neptune-r>`.
+
+Step 2: Import neptune package and initialize Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following snippet at the top of your script.
+
+.. code-block:: R
+
+    library(neptune)
+
+    init_neptune(project_name = 'shared/r-integration', api_token = 'ANONYMOUS')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`find your Neptune API token <how-to-setup-api-token>`.
+
+.. note::
+
+    This will use your default Python. If you want to use some other Python version you have on your system :ref:`jump to this section and read how<r-non-default-python>`.
+
+Step 3: Create an experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run the code below to create a Neptune experiment:
+
+.. code-block:: R
+
+    create_experiment(name='minimal example')
+
+This also creates a link to the experiment. Open the link in a new tab.
+The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
+
+.. note::
+
+    Neptune logs your hardware consumption and console outputs automatically.
+
+    .. image:: ../_static/images/integrations/r-hardware.png
+       :target: ../_static/images/integrations/r-hardware.png
+       :alt: R logging hardware consumption
+
+    |example-hardware|
+
+Step 4: Log metrics
+^^^^^^^^^^^^^^^^^^^
+Log your performance metrics during or after training with the ``log_metric`` function.
+
+.. code-block:: R
+
+    log_metric('accuracy', 0.92)
+
+    for (i in 0:100){
+      log_metric('random_training_metric', i * 0.6)
+    }
+
+Step 5: Stop experiment
+^^^^^^^^^^^^^^^^^^^^^^^
+When you are finished logging you should stop your current Neptune experiment.
+
+.. code-block:: R
+
+    stop_experiment()
+
+Step 6: Run your training script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run your script as you normally would. Neptune works with Rstudio, R notebooks or R scripts.
+
+For example:
+
+.. code-block:: bash
+
+    Rscript train.R
+
+Step 7: See your training in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Now you can switch to the Neptune tab which you had opened previously to watch the training live!
+
+.. image:: ../_static/images/integrations/r-charts.png
+   :target: ../_static/images/integrations/r-charts.png
+   :alt: R learning curves
+
+|example-charts|
+
+.. _r-more-options:
+
+More Options
 ------------
 
-The Neptune integration with R is available as a |CRAN package| and a |Github project|.
-You can install it by running:
+Log hyperparameters
+^^^^^^^^^^^^^^^^^^^
+You can log training and model hyperparameters.
+To do that just pass the parameter list to the ``params`` argument of the ``create_experiment`` function:
+
+.. code-block:: R
+
+    params = list(ntree=625,
+                  mtry=13,
+                  maxnodes=50
+                  )
+
+    create_experiment(name='training on Sonar',
+                      params = params
+    )
+
+.. image:: ../_static/images/integrations/r-parameters.png
+   :target: ../_static/images/integrations/r-parameters.png
+   :alt: R hyperparameter logging
+
+|example-hyperparameters|
+
+Log data versions and other properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Keeping track of your data is an important part of the job. With Neptune, you can log a fingerprint (hash) of your data for every experiment.
+
+Add a property to your experiment:
 
 .. code:: R
 
-    install.packages('neptune')
+    library(digest)
+    set_property(property = 'data-version', value = digest(dataset))
 
-**Python environment setup**
+    SEED=1234
+    set.seed(SEED)
+    set_property(property = 'seed', value = SEED)
 
-Under the hood, Neptune uses reticulate, which in turn calls Python.
-That means you must:
+.. image:: ../_static/images/integrations/r-data-versioning.png
+   :target: ../_static/images/integrations/r-data-versioning.png
+   :alt: R data versioning
 
-* Install Python in your environment (venv, conda, miniconda and pure Python environments are supported).
-* Point to that environment when you initialize Neptune, as shown below.
+|example-data-versions|
 
-Initialize Neptune
-------------------
-Toward the top of your script, you must import the ``neptune`` library and initialize the connection with Neptune.
+Log model weights and other files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can also save your model files, PDF report files or other objects in Neptune.
 
-Specify:
-
-* ``project_name``: the name of your project in Neptune
-* ``api_token``: a key associated with your Neptune account
+All you need to do is pass the filepath to the ``log_artifact()`` method and it will be logged to your experiment.
 
 .. code:: R
 
-    library('neptune')
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS')
+    save(model, file="model.Rdata")
+    log_artifact('model.Rdata')
 
-Once this is added, you can start logging your experiment data to Neptune.
+.. image:: ../_static/images/integrations/r-model-files.png
+   :target: ../_static/images/integrations/r-model-files.png
+   :alt: R saving models
 
-.. note:: As an example, we are using the 'ANONYMOUS' user token and a public project named 'shared/r-integration'.
+|example-model-files|
 
-.. warning:: The suggested way to pass in your ``api_token`` is to store your key in an environment variable and pass it using ``Sys.getenv('MY_NEPTUNE_KEY')``.
+Log images and charts
+^^^^^^^^^^^^^^^^^^^^^
+Logging images and charts to Neptune is very simple, as well.
 
-    .. code:: R
+Just use the ``log_image()`` method that takes the name of the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things - just send another image to the same channel.
 
-        Sys.setenv('NEPTUNE_API_TOKEN'='eyJhcGlfYWRkcmVzcyI6Imh0dHBz')
+.. code:: R
 
-    .. code:: R
+    for (t in c(1,2)){
+      jpeg('importance_plot.jpeg')
+      varImpPlot(model,type=t)
+      dev.off()
+      log_image('feature_importance', 'importance_plot.jpeg')
+    }
 
-        init_neptune(project_name = 'my_workspace/my_project',
-                     api_token = Sys.getenv('NEPTUNE_API_TOKEN')
-                     )
+.. image:: ../_static/images/integrations/r-images.png
+   :target: ../_static/images/integrations/r-images.png
+   :alt: R logging images and charts
 
-**Specifying Python environment**
+|example-images|
+
+Tag your experiment
+^^^^^^^^^^^^^^^^^^^
+You can add tags to your experiments to organize them.
+To do that just pass an array of tags to the ``tags`` argument of the ``create_experiment`` function:
+
+.. code-block:: R
+
+    create_experiment(name='training on Sonar',
+                      tags=c('random-forest','sonar')
+    )
+
+.. image:: ../_static/images/integrations/r-tags.png
+   :target: ../_static/images/integrations/r-tags.png
+   :alt: R experiment tags
+
+|example-tags|
+
+.. _r-non-default-python:
+
+Use a non default Python path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you don't want to use default Python you can customize it with ``python`` and ``python_path`` arguments.
 
 * Python
 
-    .. code:: R
+.. code:: R
 
-        init_neptune(project_name = 'shared/r-integration',
-                     api_token = 'ANONYMOUS'
-                     python='python',
-                     python_path='/usr/bin/python3')
+    init_neptune(project_name = 'shared/r-integration',
+                 api_token = 'ANONYMOUS'
+                 python='python',
+                 python_path='/usr/bin/python3')
 
 * venv
 
@@ -94,221 +300,90 @@ Once this is added, you can start logging your experiment data to Neptune.
                      python='miniconda',
                      python_path='my_miniconda_env')
 
-Create experiment
------------------
+Remember that you can try it out with zero setup:
 
-To start tracking, you must create an experiment.
+|colab-script-neptune|
 
-You can:
-
-* Name your experiments
-* Tag them to keep your work organized
-* Specify params to keep track of hyperparameters of your experiments
-
-For example:
-
-.. code:: R
-
-    create_experiment(name='training on Sonar',
-                      tags=c('random-forest','sonar'),
-                      params = list(ntree=100,
-                                    mtry=10,
-                                    maxnodes=20)
-                      )
-
-Track data versions and other properties
-----------------------------------------
-
-Keeping track of your data is an important part of the job. With Neptune, you can log a fingerprint (hash) of your data for every experiment.
-By doing so, you will make sure that you are "comparing apples to apples."
-
-Add a property to your experiment:
-
-.. code:: R
-
-    library(digest)
-
-    # Load data
-    data(Sonar)
-    dataset <- Sonar
-
-    set_property(property = 'data-version', value = digest(dataset))
-
-Track metrics
--------------
-Tracking evaluation metrics is as simple as logging.
-You can track a single metric by using the ``log_metric()`` method.
-Just define your logging channel name and metric value.
-
-For example:
-
-.. code:: R
-
-    log_metric('mean OOB error', mean(model$err.rate[,1]))
-    log_metric('error class M', model$confusion[1,3])
-    log_metric('error class R', model$confusion[2,3])
-
-If you want to log multiple values to a single logging channel, just call the ``log_metric()`` method multiple times for the same channel name.
-Neptune will automatically create charts for you!
-
-.. code:: R
-
-    for (err in (model$err.rate[,1])) {
-      log_metric('OOB errors', err)
-    }
-
-You can sort your experiments by the metrics you care about and take a look at the charts in the application.
-
-Track artifacts
----------------
-You can also save your model weights, PDF report files or other objects in Neptune. All you need to do is pass the filepath to the ``neptune$send_artifact()`` method and it will be attached to your experiment.
-
-.. code:: R
-
-    save(model, file="model.Rdata")
-    log_artifact('model.Rdata')
-
-Once it is logged, `sharing it <../learn-about-neptune/collaborate.html#experiment-charts-and-other-resources>`_ with your colleagues or collaborators is super easy.
-
-Track images and charts
------------------------
-Logging images and charts to Neptune is very simple, as well. Just use the ``neptune$send_image()`` method that takes the name of the logging channel and a path to image as arguments. You can log more than one chart to the same channel to organize things - just send another image to the same channel.
-
-.. code:: R
-
-    for (t in c(1,2)){
-      jpeg('importance_plot.jpeg')
-      varImpPlot(model,type=t)
-      dev.off()
-      log_image('feature_importance', 'importance_plot.jpeg')
-    }
-
-Once it is logged, you can view it in the app.
-
-Stop experiment
----------------
-
-Once you are finished tracking, you should stop the experiment
-
-.. code:: R
-
-   stop_experiment()
-
-Explore your experiment in Neptune
-----------------------------------
-
-Thanks to all the logging you've done, you can now see all your experiments in the Neptune app.
-
-Explore the |shared/r-integration public project| to see how it looks.
-
-.. image:: ../_static/images/integrations/r-integration-tour.gif
-   :target: ../_static/images/integrations/r-integration-tour.gif
-   :alt: Experiment Tracking in R
-
-Full tracking script
+How to ask for help?
 --------------------
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
 
-**Install dependencies**
+Other pages you may like
+------------------------
+You may also find the following pages useful:
 
-.. code:: R
+- :ref:`Comparing experiments in the UI <guides-compare-experiments-ui>`
+- :ref:`Organizing experiments in the experiment table <guides-experiment-dashboard>`
+- :ref:`Organizing charts of a single experiment <organizing-experiments-charts>`
+- :ref:`Sharing results with your team <guides-share-results-with-team>`
 
-    # install neptune
-    install.packages('neptune', dependencies = TRUE)
+.. External links
 
-    # install other packages for this tutorial
-    install.packages(c('digest', 'mlbench', 'randomForest'), dependencies = TRUE)
+.. |example-project| raw:: html
 
-**Run experiment with tracking script**
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-.. code:: R
+.. |example-charts| raw:: html
 
-    # load libraries,
-    library(neptune)
-    library(digest)
-    library(mlbench)
-    library(randomForest)
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-    SEED=1234
-    set.seed(SEED)
+.. |example-hardware| raw:: html
 
-    # load dataset
-    data(Sonar)
-    dataset <- Sonar
-    x <- dataset[,1:60]   # predictors
-    y <- dataset[,61]     # labels
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/monitoring">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-    # Initialize Neptune
-    init_neptune(project_name = 'shared/r-integration',
-                 api_token = 'ANONYMOUS',
-                 python='miniconda',
-                 python_path='py_37'
-                 )
+.. |example-hyperparameters| raw:: html
 
-    # Start an experiment and track hyperparameters
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/parameters">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-    params = list(ntree=625,
-                  mtry=13,
-                  maxnodes=50
-                  )
+.. |example-images| raw:: html
 
-    create_experiment(name='training on Sonar',
-                      tags=c('random-forest','sonar'),
-                      params = params
-    )
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/logs">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-    # track data version and SEED
-    set_property(property = 'data-version', value = digest(dataset))
-    set_property(property = 'seed', value = SEED)
+.. |example-weights| raw:: html
 
-    # train your model
-    model <- randomForest(x = x, y = y,
-      ntree=params$ntree, mtry = params$mtry, maxnodes = params$maxnodes,
-      importance = TRUE
-      )
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/artifacts">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
-    # Log metrics
-
-    log_metric('mean OOB error', mean(model$err.rate[,1]))
-    log_metric('error class M', model$confusion[1,3])
-    log_metric('error class R', model$confusion[2,3])
-
-    for (err in (model$err.rate[,1])) {
-      log_metric('OOB errors', err)
-    }
-
-    # Log artifact
-    save(model, file="model.Rdata")
-    log_artifact('model.Rdata')
-
-    # Log image
-    for (t in c(1,2)){
-      jpeg('importance_plot.jpeg')
-      varImpPlot(model,type=t)
-      dev.off()
-      log_image('feature_importance', 'importance_plot.jpeg')
-    }
-
-    # Stop Experiment
-    stop_experiment()
-
-
-.. |shared/r-integration public project| raw:: html
-
-    <a href="https://ui.neptune.ai/o/shared/org/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d" target="_blank">shared/r-integration public project</a>
-
-.. |CRAN package| raw:: html
-
-    <a href="https://cran.r-project.org/web/packages/neptune/index.html" target="_blank">CRAN package</a>
-
-.. |Github project| raw:: html
-
-    <a href="https://github.com/neptune-ai/neptune-r" target="_blank">Github project</a>
-
-.. |Logging to Neptune from R| raw:: html
+.. |colab-script-neptune| raw:: html
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/r//Neptune-R.ipynb">
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/r/Neptune-R.ipynb">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
             <span>Run in Google Colab</span>
         </a>
@@ -322,3 +397,19 @@ Full tracking script
             <span>See example in Neptune</span>
         </a>
     </div>
+
+.. |install Python environment is with Conda| raw:: html
+
+    <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">install Python environment is with Conda</a>
+
+.. |CRAN package| raw:: html
+
+    <a href="https://cran.r-project.org/web/packages/neptune/index.html" target="_blank">CRAN package</a>
+
+.. |Github project| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-r" target="_blank">Github project</a>
+
+.. |r-tour-loom| raw:: html
+
+    TODO
