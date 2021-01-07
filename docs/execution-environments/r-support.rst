@@ -11,29 +11,28 @@ What will you get with Neptune client for R?
 |r-tour-loom|
 
 You can interact with Neptune from R and enjoy almost the same functionality that is available in Python.
-The Neptune integration with R is available as a |CRAN package| and a |Github project|.
+The Neptune client for R is available as a |CRAN package| and a |Github project|.
 
 With Neptune client for R you can:
 
 - save model hyperparameters for every experiment you run
 - see learning curves for losses and metrics during training
 - see hardware consumption and stdout/stderr output during training
-- log performance charts
 - log data versions and other properties
 - log model weights and other artifacts
-- organize experiments by using tags
+- log performance charts
+- tage experiments to organize them
 
 .. note::
 
-    This integration is tested with ``R version 3.6.3``, ``neptune_0.1.0``.
+    This integration is tested with ``R version 3.6.3``, ``neptune_0.1.0``, and ``Python 3.6.12``.
 
-.. warning::
-
-    Even if you are using R you still need to have Python installed on your system.
+    Remember that even if you are using R you still need to have Python installed on your system.
 
 Where to start?
 ---------------
 To get started with using Neptune client for R, follow the :ref:`quickstart <r-quickstart>` below.
+
 You can also skip the basics and take a look at how to log model weights and performance charts in the :ref:`more options <r-more-options>` section.
 
 If you want to try things out right away you can either:
@@ -63,7 +62,7 @@ To log experiments to Neptune from R you need to satisfy the following prerequis
 
     If you are using R studio you can just follow along and you will be prompted by the console to install miniconda.
 
-Step 1: Instlal Neptune package
+Step 1: Install Neptune package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Install ``neptune`` package for R from CRAN.
 
@@ -91,7 +90,7 @@ Add the following snippet at the top of your script.
 
 .. note::
 
-    This will use your default Python. If you want to use some other Python version you have on your system :ref:`jump to this section and read how<r-non-default-python>`.
+    This will use your default Python. If you are hitting ``Error: could not find a Python environment`` error or you want to use some other Python version you have on your system :ref:`jump to this section and read how<r-non-default-python>`.
 
 Step 3: Create an experiment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -107,6 +106,8 @@ The charts will currently be empty, but keep the window open. You will be able t
 .. note::
 
     Neptune logs your hardware consumption and console outputs automatically.
+
+    Go to the ``Monitoring`` in your Neptune experiment to see it.
 
     .. image:: ../_static/images/integrations/r-hardware.png
        :target: ../_static/images/integrations/r-hardware.png
@@ -126,6 +127,12 @@ Log your performance metrics during or after training with the ``log_metric`` fu
       log_metric('random_training_metric', i * 0.6)
     }
 
+.. image:: ../_static/images/integrations/r-charts.png
+   :target: ../_static/images/integrations/r-charts.png
+   :alt: R learning curves
+
+|example-charts|
+
 Step 5: Stop experiment
 ^^^^^^^^^^^^^^^^^^^^^^^
 When you are finished logging you should stop your current Neptune experiment.
@@ -144,20 +151,30 @@ For example:
 
     Rscript train.R
 
-Step 7: See your training in Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Now you can switch to the Neptune tab which you had opened previously to watch the training live!
+Step 7: Go to Neptune see your training live and compare experiment runs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../_static/images/integrations/r-charts.png
-   :target: ../_static/images/integrations/r-charts.png
-   :alt: R learning curves
+.. image:: ../_static/images/integrations/r-compare-experiments.png
+   :target: ../_static/images/integrations/r-compare-experiments.png
+   :alt: R compare experiments
 
-|example-charts|
+|example-compare|
 
 .. _r-more-options:
 
 More Options
 ------------
+
+In this section you will see how to:
+
+- :ref:`Log hyperparameters <r-more-options-log-hyperparameters>`
+- :ref:`Tag your experiment <r-more-options-tag-experiment>`
+- :ref:`Log data versions and other properties <r-more-options-log-data-versions>`
+- :ref:`Log model weights and other files <r-more-options-log-artifacts>`
+- :ref:`Log performance charts and images <r-more-options-log-images>`
+- :ref:`Use a non default Python path <r-non-default-python>`
+
+.. _r-more-options-log-hyperparameters:
 
 Log hyperparameters
 ^^^^^^^^^^^^^^^^^^^
@@ -181,6 +198,34 @@ To do that just pass the parameter list to the ``params`` argument of the ``crea
 
 |example-hyperparameters|
 
+.. _r-more-options-tag-experiment:
+
+Tag your experiment
+^^^^^^^^^^^^^^^^^^^
+You can add tags to your experiments to organize them.
+
+To do that just pass an array of tags to the ``tags`` argument of the ``create_experiment`` function:
+
+.. code-block:: R
+
+    create_experiment(name='training on Sonar',
+                      tags = c('random-forest','sonar')
+    )
+
+or use the ``append_tag`` function:
+
+.. code-block:: R
+
+    append_tag(c('random-forest','sonar'))
+
+.. image:: ../_static/images/integrations/r-tags.png
+   :target: ../_static/images/integrations/r-tags.png
+   :alt: R experiment tags
+
+|example-details|
+
+.. _r-more-options-log-data-versions:
+
 Log data versions and other properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Keeping track of your data is an important part of the job. With Neptune, you can log a fingerprint (hash) of your data for every experiment.
@@ -196,11 +241,13 @@ Add a property to your experiment:
     set.seed(SEED)
     set_property(property = 'seed', value = SEED)
 
-.. image:: ../_static/images/integrations/r-data-versioning.png
-   :target: ../_static/images/integrations/r-data-versioning.png
+.. image:: ../_static/images/integrations/r-data-versions.png
+   :target: ../_static/images/integrations/r-data-versions.png
    :alt: R data versioning
 
-|example-data-versions|
+|example-details|
+
+.. _r-more-options-log-artifacts:
 
 Log model weights and other files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -213,11 +260,13 @@ All you need to do is pass the filepath to the ``log_artifact()`` method and it 
     save(model, file="model.Rdata")
     log_artifact('model.Rdata')
 
-.. image:: ../_static/images/integrations/r-model-files.png
-   :target: ../_static/images/integrations/r-model-files.png
+.. image:: ../_static/images/integrations/r-artifacts.png
+   :target: ../_static/images/integrations/r-artifacts.png
    :alt: R saving models
 
 |example-model-files|
+
+.. _r-more-options-log-images:
 
 Log images and charts
 ^^^^^^^^^^^^^^^^^^^^^
@@ -239,23 +288,6 @@ Just use the ``log_image()`` method that takes the name of the logging channel a
    :alt: R logging images and charts
 
 |example-images|
-
-Tag your experiment
-^^^^^^^^^^^^^^^^^^^
-You can add tags to your experiments to organize them.
-To do that just pass an array of tags to the ``tags`` argument of the ``create_experiment`` function:
-
-.. code-block:: R
-
-    create_experiment(name='training on Sonar',
-                      tags=c('random-forest','sonar')
-    )
-
-.. image:: ../_static/images/integrations/r-tags.png
-   :target: ../_static/images/integrations/r-tags.png
-   :alt: R experiment tags
-
-|example-tags|
 
 .. _r-non-default-python:
 
@@ -329,10 +361,20 @@ You may also find the following pages useful:
         </a>
     </div>
 
+.. |example-compare| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/compare?shortId=%5B%22RIN-168%22%2C%22RIN-173%22%2C%22RIN-174%22%2C%22RIN-161%22%2C%22RIN-163%22%5D&viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d&chartFilter=errors">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
 .. |example-charts| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-16/charts">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-187/charts">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
@@ -342,7 +384,7 @@ You may also find the following pages useful:
 .. |example-hardware| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/monitoring">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-187/monitoring">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
@@ -352,7 +394,17 @@ You may also find the following pages useful:
 .. |example-hyperparameters| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/parameters">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-188/parameters">
+            <img width="50" height="50"
+                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-details| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-188/details">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
@@ -362,17 +414,17 @@ You may also find the following pages useful:
 .. |example-images| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/logs">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-188/logs">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
 
-.. |example-weights| raw:: html
+.. |example-model-files| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/pytorch-integration/e/PYTORCH-17/artifacts">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-188/artifacts">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
@@ -383,16 +435,11 @@ You may also find the following pages useful:
 
     <div class="run-on-colab">
 
-        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/r/Neptune-R.ipynb">
-            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
-            <span>Run in Google Colab</span>
-        </a>
-
-        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/r/Neptune-R.ipynb">
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/r/Neptune-R.r">
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
             <span>View source on GitHub</span>
         </a>
-        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d">
+        <a target="_blank" href="https://ui.neptune.ai/shared/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d">
             <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
@@ -412,4 +459,4 @@ You may also find the following pages useful:
 
 .. |r-tour-loom| raw:: html
 
-    TODO
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/b3b2a519f4b2443faa86745a83d8fadd" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
