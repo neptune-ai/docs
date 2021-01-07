@@ -10,3 +10,4 @@ Neptune provides integrations with the following machine learning frameworks:
 
    LightGBM <lightgbm.rst>
    XGBoost <xgboost.rst>
+   Scikit-learn <sklearn.rst>

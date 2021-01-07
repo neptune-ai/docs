@@ -194,7 +194,7 @@ When you create an experiment Neptune will look for the .git directory in your p
     If you are using .py scripts for training Neptune will also log your training script automatically.
 
 Step 3: Add ``neptune_tensorboard.integrate_with_tensorflow()`` to your script
------------------------------------------------------------
+------------------------------------------------------------------------------
 Import and add :meth:`~neptune_tensorboard.integrate_with_tensorflow()` function from the ``neptune-tensorboard`` package at the top of your script.
 
 .. code-block:: python3
