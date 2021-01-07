@@ -64,7 +64,7 @@ To log experiments to Neptune from R you need to satisfy the following prerequis
 
 Step 1: Install Neptune package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Install ``neptune`` package for R from CRAN.
+Install ``neptune`` package for R from CRAN by running the following code in your R console or script.
 
 .. code-block:: R
 
@@ -102,18 +102,6 @@ Run the code below to create a Neptune experiment:
 
 This also creates a link to the experiment. Open the link in a new tab.
 The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
-
-.. note::
-
-    Neptune logs your hardware consumption and console outputs automatically.
-
-    Go to the ``Monitoring`` in your Neptune experiment to see it.
-
-    .. image:: ../_static/images/integrations/r-hardware.png
-       :target: ../_static/images/integrations/r-hardware.png
-       :alt: R logging hardware consumption
-
-    |example-hardware|
 
 Step 4: Log metrics
 ^^^^^^^^^^^^^^^^^^^
@@ -168,6 +156,7 @@ More Options
 In this section you will see how to:
 
 - :ref:`Log hyperparameters <r-more-options-log-hyperparameters>`
+- :ref:`Log hardware consumption and console outputs <r-more-options-log-hardware>`
 - :ref:`Tag your experiment <r-more-options-tag-experiment>`
 - :ref:`Log data versions and other properties <r-more-options-log-data-versions>`
 - :ref:`Log model weights and other files <r-more-options-log-artifacts>`
@@ -197,6 +186,28 @@ To do that just pass the parameter list to the ``params`` argument of the ``crea
    :alt: R hyperparameter logging
 
 |example-hyperparameters|
+
+.. _r-more-options-log-hardware:
+
+Log hardware consumption and console outputs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Neptune logs your hardware consumption and console outputs automatically if the python package ``psutil`` is installed on your system.
+
+.. note::
+
+    ``psutil`` should be installed automatically when you install the ``neptune`` package but you can always do it manually with:
+
+    .. code-block:: R
+
+        reticulate::py_install(packages = 'psutil')
+
+Go to the ``Monitoring`` in your Neptune experiment to see it.
+
+.. image:: ../_static/images/integrations/r-hardware.png
+   :target: ../_static/images/integrations/r-hardware.png
+   :alt: R logging hardware consumption
+
+|example-hardware|
 
 .. _r-more-options-tag-experiment:
 
@@ -384,7 +395,7 @@ You may also find the following pages useful:
 .. |example-hardware| raw:: html
 
     <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-187/monitoring">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/r-integration/e/RIN-188/monitoring">
             <img width="50" height="50"
                 src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
