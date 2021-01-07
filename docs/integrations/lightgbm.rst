@@ -224,7 +224,7 @@ You may also find the following pages useful:
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/shared/LightGBM-integration/e/LGBM-71">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -265,7 +265,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/shared/LightGBM-integration/e/LGBM-71/parameters">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -275,7 +275,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/shared/LightGBM-integration/e/LGBM-71/artifacts?path=.&file=lightgbm.pkl">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -285,7 +285,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/shared/LightGBM-integration/e/LGBM-71/artifacts?path=charts%2F&file=ROC%20curve.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>

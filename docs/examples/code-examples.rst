@@ -130,7 +130,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/neptune-ai/org/credit-default-prediction/experiments?viewId=a261e2d2-a558-468e-bf16-9fc9d0394abc">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -149,7 +149,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-integration/experiments?viewId=5bf0532a-c0f3-454e-be97-fa24899a82fe">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -168,7 +168,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/experiments?viewId=f550f42f-ea9f-4b0a-95b3-19ae47f89a65">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -187,7 +187,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorboard-integration/experiments?viewId=standard-view">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -206,7 +206,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -225,7 +225,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665&tags=%5B%22advanced%22%5D&sortBy=%5B%22train_loss%22%5D&sortFieldType=%5B%22numericChannels%22%5D&sortFieldAggregationMode=%5B%22last%22%5D&sortDirection=%5B%22ascending%22%5D&trashed=false&suggestionsEnabled=true&lbViewUnpacked=true">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -244,7 +244,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/XGBoost-integration/experiments?viewId=31c28c69-b3fe-48cc-8b8e-8063970844a0">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -263,7 +263,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/optuna-integration/experiments?viewId=standard-view">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -282,7 +282,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/r-integration/experiments?viewId=fa3b57a5-77fb-4edb-83fc-505014d3649d">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -301,7 +301,7 @@ Below is a curated list of Neptune code examples.
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/mlflow-integration/experiments?viewId=7608998d-4828-48c5-81cc-fb9ec625e206">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>

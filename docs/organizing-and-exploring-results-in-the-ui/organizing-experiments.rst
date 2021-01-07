@@ -213,7 +213,7 @@ The dashboard displays the selected columns, allowing you to make in-group and a
         <button><a target="_blank"
                    href="https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=b845e2e9-0369-41da-954e-3f936e81c192">
                 <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See "keras with extra visuals" view in neptune</a>
+                     src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">See "keras with extra visuals" view in neptune</a>
         </button>
     </div>
 

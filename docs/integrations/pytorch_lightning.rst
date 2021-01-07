@@ -604,7 +604,7 @@ You may also like these two integrations:
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -667,7 +667,7 @@ You may also like these two integrations:
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/pytorch-lightning-integration/experiments?viewId=202dcc88-c213-4da2-9720-7edc49b31665&tags=%5B%22advanced%22%5D&sortBy=%5B%22train_loss%22%5D&sortFieldType=%5B%22numericChannels%22%5D&sortFieldAggregationMode=%5B%22last%22%5D&sortDirection=%5B%22ascending%22%5D&trashed=false&suggestionsEnabled=true&lbViewUnpacked=true">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>

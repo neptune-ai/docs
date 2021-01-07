@@ -285,6 +285,6 @@ You can download notebook checkpoint directly from Neptune to the Jupyter or Jup
         <button><a target="_blank"
                    href="https://ui.neptune.ai/USERNAME/example-project/n/analysis-v1-final-final-31510158-04e2-47a5-a823-1cd97a0d8fcd/fa835a93-9d8d-40a4-a043-36879d5f7471">
                 <img width="50" height="50" style="margin-right:10px"
-                     src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">See example in Neptune</a>
+                     src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">See example in Neptune</a>
         </button>
     </div>
