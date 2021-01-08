@@ -1,48 +1,103 @@
 .. _integrations-scikit-optimize:
 
-Neptune-Scikit-Optimize Integration
-===================================
+Neptune - Scikit-Optimize Integration
+=====================================
 
-This integration lets you monitor |Scikit-Optimize| (skopt) hyperparameter optimization in Neptune.
+|Run on Colab|
 
-.. image:: ../_static/images/integrations/skopt_neptuneai.png
-   :target: ../_static/images/integrations/skopt_neptuneai.png
-   :alt: Scikit Optimize Neptune integration
+What will you get with this integration?
+----------------------------------------
 
-Requirements
-------------
+|skopt-tour|
 
-To use Neptune + Scikit-Optimize integration you need to have installed is |neptune-client| and |neptune-contrib|.
+|Scikit-Optimize|, or skopt, is a simple and efficient library to minimize (very) expensive and noisy black-box functions. 
+With Neptune integration, you can:
+
+- visualize the runs as they are running,
+- see charts of logged run scores,
+- log the parameters tried at every run,
+- log figures from plots module: plot_evaluations, plot_convergence, plot_objective, and plot_regret,
+- monitor hardware consumption during the run,
+- save the pickled results object.
+
+.. tip::
+    You can log many other experiment metadata like interactive charts, video, audio, and more.
+    See the :ref:`full list <what-you-can-log>`.
+	
+.. note::
+
+    This integration is tested with ``neptune-client==0.4.130``, ``neptune-contrib==0.25.0``, and ``scikit-optimize==0.8.1``
+	
+Where to start?
+---------------
+To get started with this integration, follow the :ref:`quickstart <skopt-quickstart>` below. 
+You can also skip the basics and take a look at how to change what you want to log after training in the :ref:`advanced options <skopt-advanced-options>` section.
+
+If you want to try things out and focus only on the code you can either:
+
+#. Open the Colab notebook (badge-link below) with quickstart code and run it as an anonymous user "`neptuner`" - zero setup, it just works,
+#. View quickstart code as a plain Python script on GitHub.
+
+|Run on Colab|
+
+.. _skopt-quickstart:
+
+Quickstart
+----------
+This quickstart will show you how to:
+
+* Install the necessary neptune packages
+* Connect Neptune to your Skopt hyperparameter tuning code and create the first experiment
+* Log metrics, figures, and artifacts from your tuning job to Neptune, and 
+* Explore them in the Neptune UI.
+
+.. _skopt-before-you-start-basic:
+
+Before you start
+^^^^^^^^^^^^^^^^
+You have ``Python 3.x`` and following libraries installed:
+
+* ``neptune-client``, and ``neptune-contrib``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``scikit-optimize==0.8.1``. See |skopt-install|.
+
+You also need minimal familiarity with skopt. Have a look at the |skopt-guide| guide to get started.
 
 .. code-block:: bash
+	
+   pip install --quiet scikit-optimize==0.8.1 neptune-client neptune-contrib['monitoring']
 
-    pip install neptune-client neptune-contrib['monitoring']
-
-
-Initialize Neptune and create an experiment
--------------------------------------------
-
+Step 1: Initialize Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. code-block:: python3
 
     import neptune
 
     neptune.init(api_token='ANONYMOUS',
-                 project_qualified_name='shared/showroom')
+                 project_qualified_name='shared/scikit-optimize-integration')
+				 
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+	
+Step 2: Create an Experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: python3
+
     neptune.create_experiment(name='skopt sweep')
 
+This also creates a link to the experiment. Open the link in a new tab. 
+The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
-Create **NeptuneCallback**
---------------------------
-Pass the experiment object as the first argument.
-
+Step 3: Create the Neptune Callback
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. code-block:: python3
 
     import neptunecontrib.monitoring.skopt as skopt_utils
 
     neptune_callback = skopt_utils.NeptuneCallback()
 
-Pass **neptune_callback** to **skopt.forest_minimize** or others
-----------------------------------------------------------------
+Step 4: Run skopt with the Neptune Callback
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This causes the metrics, parameters and results pickle logged after every iteration.
 Everything can be inspected live.
 
@@ -51,96 +106,81 @@ Everything can be inspected live.
     results = skopt.forest_minimize(objective, space, callback=[neptune_callback],
                                     base_estimator='ET', n_calls=100, n_random_starts=10)
 
-Log all results
----------------
-You can log additional information from skopt results after the sweep has completed.
-By running:
+Step 5: Monitor your Skopt tuning in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Now you can switch to the Neptune tab which you had opened previously to watch the tuning live!
+
+|Run on Colab|
+
+.. _skopt-advanced-options:
+
+More Options
+------------
+
+You can log additional information from skopt results after the tuning has completed.
 
 .. code-block:: python3
 
     skopt_utils.log_results(results)
 
-You log the following things to Neptune:
+You can change the Neptune experiment to which the results are logged with the ``experiment`` parameter, and choose whether or not you want to log plots and the pickle objects with the ``log_plots`` and ``log_pickle`` parameters. 
 
-* Best score
-* Best parameters
-* Figures from plots module: plot_evaluations, plot_convergence, plot_objective, and plot_regret
-* Pickled results object
+More information about the ``log_results()`` method |log_results|.
 
-.. code-block:: python3
+|Run on Colab|
 
-    skopt_utils.log_results(results)
+How to ask for help?
+--------------------
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
 
-Monitor your Scikit-Optimize training in Neptune
-------------------------------------------------
-Now you can watch your Scikit-Optimize hyperparameter optimization in Neptune!
+Other pages you may like
+------------------------
 
-Check out this |example experiment|.
+You may also find the following pages useful:
 
-.. image:: ../_static/images/integrations/skopt_monitoring.gif
-   :target: ../_static/images/integrations/skopt_monitoring.gif
-   :alt: Scikit-Optimize monitoring in Neptune
-
-Full script
------------
-
-.. code-block:: python3
-
-    import lightgbm as lgb
-    import skopt
-    from sklearn.datasets import load_breast_cancer
-    from sklearn.metrics import roc_auc_score
-    from sklearn.model_selection import train_test_split
-
-    import neptune
-    import neptunecontrib.monitoring.skopt as skopt_utils
-
-    neptune.init(api_token='ANONYMOUS',
-                 project_qualified_name='shared/showroom')
-
-    neptune.create_experiment('skopt-sweep')
-    neptune_callback = skopt_utils.NeptuneCallback()
-
-    space = [skopt.space.Real(0.01, 0.5, name='learning_rate', prior='log-uniform'),
-             skopt.space.Integer(1, 30, name='max_depth'),
-             skopt.space.Integer(2, 100, name='num_leaves'),
-             skopt.space.Integer(10, 1000, name='min_data_in_leaf'),
-             skopt.space.Real(0.1, 1.0, name='feature_fraction', prior='uniform'),
-             skopt.space.Real(0.1, 1.0, name='subsample', prior='uniform'),
-             ]
-
-    @skopt.utils.use_named_args(space)
-    def objective(**params):
-        data, target = load_breast_cancer(return_X_y=True)
-        train_x, test_x, train_y, test_y = train_test_split(data, target, test_size=0.25)
-        dtrain = lgb.Dataset(train_x, label=train_y)
-
-        param = {
-            'objective': 'binary',
-            'metric': 'binary_logloss',
-            **params
-        }
-
-        gbm = lgb.train(param, dtrain)
-        preds = gbm.predict(test_x)
-        accuracy = roc_auc_score(test_y, preds)
-        return -1.0 * accuracy
-
-    results = skopt.forest_minimize(objective, space, n_calls=100, n_random_starts=10,
-                                    callback=[neptune_callback])
-
-    skopt_utils.log_results(results)
-
+- :ref:`Full list of objects you can log and display in Neptune <what-you-can-log>`
+- :ref:`Optuna integration <integrations-optuna>`
+- :ref:`Logging Plotly/Bokeh/Altair/Matplotlib charts to Neptune <integrations-visualization-tools>`
 
 .. External links
+
+.. |Run on Colab| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/skopt/docs/Neptune-Skopt.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/skopt/docs/Neptune-Skopt.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/shared/scikit-optimize-integration/e/SCIK-5">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |skopt-tour| raw:: html
+
+	<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+		<iframe src="https://www.loom.com/embed/ad4da76064b34f54833fbc820d5994f0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		</iframe>
+	</div>
 
 .. |Scikit-Optimize| raw:: html
 
     <a href="https://scikit-optimize.github.io/stable/" target="_blank">Scikit-Optimize</a>
 
-.. |example experiment| raw:: html
+.. |skopt-install| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1068/logs" target="_blank">example experiment</a>
+	<a href="https://pypi.org/project/scikit-optimize/" target="_blank">skopt installation guide</a>
+
+.. |skopt-guide| raw:: html
+
+	<a href="https://scikit-optimize.github.io/stable/getting_started.html" target="_blank">skopt</a>
 
 .. |neptune-client| raw:: html
 
@@ -149,3 +189,7 @@ Full script
 .. |neptune-contrib| raw:: html
 
     <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
+	
+.. |log_results| raw:: html
+
+    <a href="https://docs.neptune.ai/api-reference/neptunecontrib/monitoring/skopt/index.html?highlight=skopt#neptunecontrib.monitoring.skopt.log_results" target="_blank">here</a>
