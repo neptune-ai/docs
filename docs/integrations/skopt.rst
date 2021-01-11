@@ -10,7 +10,7 @@ What will you get with this integration?
 
 |skopt-tour|
 
-|Scikit-Optimize|, or skopt, is a simple and efficient library to minimize (very) expensive and noisy black-box functions. 
+|Scikit-Optimize|, or skopt, is a simple and efficient library to minimize (very) expensive and noisy black-box functions. It is often used to Machine Learning model hyperparameter optimization.
 With Neptune integration, you can:
 
 - visualize the runs as they are running,
@@ -31,12 +31,7 @@ With Neptune integration, you can:
 Where to start?
 ---------------
 To get started with this integration, follow the :ref:`quickstart <skopt-quickstart>` below. 
-You can also skip the basics and take a look at how to change what you want to log after training in the :ref:`advanced options <skopt-advanced-options>` section.
-
-If you want to try things out and focus only on the code you can either:
-
-#. Open the Colab notebook (badge-link below) with quickstart code and run it as an anonymous user "`neptuner`" - zero setup, it just works,
-#. View quickstart code as a plain Python script on GitHub.
+You can also skip the basics and take a look at how to change what you want to log after training in the :ref:`more options <skopt-advanced-options>` section.
 
 |Run on Colab|
 
@@ -88,27 +83,32 @@ Step 2: Create an Experiment
 This also creates a link to the experiment. Open the link in a new tab. 
 The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
 
-Step 3: Create the Neptune Callback
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: python3
-
-    import neptunecontrib.monitoring.skopt as skopt_utils
-
-    neptune_callback = skopt_utils.NeptuneCallback()
-
-Step 4: Run skopt with the Neptune Callback
+Step 3: Run skopt with the Neptune Callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This causes the metrics, parameters and results pickle logged after every iteration.
 Everything can be inspected live.
 
 .. code-block:: python3
+	
+    # Create Neptune Callback
+    import neptunecontrib.monitoring.skopt as skopt_utils
+    neptune_callback = skopt_utils.NeptuneCallback()
+	
+    # Run the skopt minimize function with the Neptune Callback
+    results = skopt.forest_minimize(objective,
+                                    space,
+                                    base_estimator='ET',
+                                    n_calls=100,
+                                    n_random_starts=10,
+                                    callback=[neptune_callback],)
 
-    results = skopt.forest_minimize(objective, space, callback=[neptune_callback],
-                                    base_estimator='ET', n_calls=100, n_random_starts=10)
-
-Step 5: Monitor your Skopt tuning in Neptune
+Step 4: Monitor your Skopt tuning in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now you can switch to the Neptune tab which you had opened previously to watch the tuning live!
+
+.. image:: ../_static/images/integrations/skopt.gif
+   :target: ../_static/images/integrations/skopt.gif
+   :alt: Neptune-Skopt Integration
 
 |Run on Colab|
 
@@ -123,9 +123,11 @@ You can log additional information from skopt results after the tuning has compl
 
     skopt_utils.log_results(results)
 
-You can change the Neptune experiment to which the results are logged with the ``experiment`` parameter, and choose whether or not you want to log plots and the pickle objects with the ``log_plots`` and ``log_pickle`` parameters. 
+.. note::
 
-More information about the ``log_results()`` method |log_results|.
+	You can change the Neptune experiment to which the results are logged with the ``experiment`` parameter, and choose whether or not you want to log plots and the pickle objects with the ``log_plots`` and ``log_pickle`` parameters. 
+
+Learn more about :meth:`~neptunecontrib.monitoring.skopt.log_results`.
 
 |Run on Colab|
 
