@@ -142,7 +142,18 @@ More Options
 Use Neptune with BayesSearchCV
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Step 1: Initialize BayesSearchCV
+Step 1: Create an experiment
+****************************
+
+.. code-block:: python3
+
+    neptune.create_experiment(name='skopt sweep')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Initialize BayesSearchCV
 ********************************
 
 .. code-block:: python3
