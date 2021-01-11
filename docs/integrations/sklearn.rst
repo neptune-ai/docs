@@ -60,7 +60,7 @@ You also need minimal familiarity with scikit-learn. Have a look at this |scikit
 
 Quickstart: classifier and regressor
 ------------------------------------
-This quickstart will show you how to:
+This quickstart will show you how to use this integration for classification and regression tasks:
 
 * Install the necessary Neptune and scikit-learn packages,
 * Create the first experiment in project,
@@ -75,7 +75,12 @@ Prepare fitted regressor or classifier that will be further used in this quickst
 
 .. code-block:: python3
 
-    gbc = GradientBoostingClassifier()
+    parameters = {'n_estimators': 120,
+                  'learning_rate': 0.12,
+                  'min_samples_split': 3,
+                  'min_samples_leaf': 2}
+
+    gbc = GradientBoostingClassifier(**parameters)
 
     X, y = load_digits(return_X_y=True)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
@@ -86,7 +91,11 @@ Prepare fitted regressor or classifier that will be further used in this quickst
 
 .. code-block:: python3
 
-    rfr = RandomForestRegressor()
+    parameters = {'n_estimators': 70,
+                  'max_depth': 7,
+                  'min_samples_split': 3}
+
+    rfr = RandomForestRegressor(**parameters)
 
     X, y = load_boston(return_X_y=True)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
@@ -119,10 +128,12 @@ Run the code below to create a Neptune experiment:
 
 .. code-block:: python3
 
-    neptune.create_experiment('sklearn-quickstart')
+    neptune.create_experiment(params=parameters,
+                              name='sklearn-quickstart')
 
-This also creates a link to the experiment. Open the link in a new tab.
-The experiment will currently be empty, but keep the window open. You will be able to see estimator summary there.
+* This creates a link to the experiment. Open the link in a new tab.
+* The experiment will currently be empty, but keep the window open. You will be able to see estimator summary there.
+* This is how experiment's parameters are logged. You pass them to the :meth:`~neptune.projects.Project.create_experiment` method. You can later use them to :ref:`filter and compare experiments <guides-compare-experiments-ui>`.
 
 When you create an experiment Neptune will look for the ``.git`` directory in your project and get the last commit information saved.
 
@@ -156,6 +167,7 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 
 **Classifier**
 
+* |cls-npt-parameters| logged at the experiment creation,
 * |cls-parameters|,
 * |cls-model|,
 * |cls-test-preds|,
@@ -168,6 +180,7 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 
 **Regressor**
 
+* |reg-npt-parameters| logged at the experiment creation,
 * |reg-parameters| as properties,
 * |reg-model|,
 * |reg-test-preds|,
@@ -185,27 +198,141 @@ You can go to the |reference-documentation| to learn more. Remember that you can
 
 Quickstart: K-Means
 -------------------
+This quickstart will show you how to use this integration with K-Means clustering task:
 
+* Install the necessary Neptune and scikit-learn packages,
+* Create experiment in project,
+* Log clustering summary info to Neptune,
+* Explore results in the Neptune UI.
 
+Step 0: Create K-Means clustering object and example data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prepare K-Means object and example data. These will be later used in this quickstart. Below snippet show the idea:
 
+.. code-block:: python3
 
+    parameters = {'n_init': 11,
+                  'max_iter': 270}
 
+    km = KMeans(**parameters)
+
+    X, y = make_blobs(n_samples=579, n_features=17, centers=7, random_state=28743)
+
+Step 1: Initialize Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add the following snippet at the top of your script.
+
+.. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/sklearn-integration')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Create an experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run the code below to create a Neptune experiment:
+
+.. code-block:: python3
+
+    neptune.create_experiment(params=parameters,
+                              name='clustering-example')
+
+* This also creates a link to the experiment. Open the link in a new tab.
+* The experiment will currently be empty, but keep the window open. You will be able to see estimator summary there.
+* This is how experiment's parameters are logged. You pass them to the create_experiment method. You can later use them to filter and compare experiments.
+
+When you create an experiment Neptune will look for the ``.git`` directory in your project and get the last commit information saved.
+
+.. note::
+
+    If you are using ``.py`` scripts for training Neptune will also log your training script automatically.
+
+Step 3: Log KMeans clustering summary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Log K-Means clustering summary to Neptune, by using :meth:`~neptunecontrib.monitoring.sklearn.log_kmeans_clustering_summary`.
+
+.. code-block:: python3
+
+    from neptunecontrib.monitoring.sklearn import log_kmeans_clustering_summary
+
+    log_kmeans_clustering_summary(km, X, n_clusters=17)
+
+Step 4: See results in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Once data is logged you can switch to the Neptune tab which you had opened previously to explore results. You can check:
+
+* |kmeans-npt-parameters| logged at the experiment creation,
+* |kmeans-params| as properties,
+* |kmeans-cluster-labels|,
+* |kmeans-cluster-visuals|,
+* |kmeans-metadata| including git summary info.
+
+|example-charts-kmeans|
+
+You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
+
+|colab-script-neptune|
 
 .. _sklearn-more-options:
 
 More Options
 ------------
+Neptune-Sklearn integration also lets you log only specific metadata of your choice, by using additional methods.
 
+Below are few examples, visit sklearn's |reference-documentation| for full list of functions.
 
+Log estimator parameters
+^^^^^^^^^^^^^^^^^^^^^^^^
+You can choose to only log estimator parameters.
 
+.. code-block:: python3
 
+    from neptunecontrib.monitoring.sklearn import log_estimator_params
 
+    neptune.create_experiment(name='estimator-params')
 
+    log_estimator_params(my_estimator) # log estimator parameters here
 
+This methods logs all parameters of the 'my_estimator' as Neptune's properties. For example see |cls-npt-parameters|.
 
+Log model
+^^^^^^^^^
+You can choose to log fitted model as pickle file.
 
+.. code-block:: python3
 
-Remember that you can try it out with zero setup:
+    from neptunecontrib.monitoring.sklearn import log_pickled_model
+
+    neptune.create_experiment(name='pickled-model')
+
+    log_pickled_model(my_estimator, 'my_model') # log pickled model parameters here.
+
+* This methods logs 'my_estimator' to Neptune's artifacts.
+* Path to file in the Neptune artifacts is ``model/<my_model>``. For example check this |cls-model|.
+
+Log confusion matrix
+^^^^^^^^^^^^^^^^^^^^
+You can choose to log confusion matrix chart.
+
+.. code-block:: python3
+
+    from neptunecontrib.monitoring.sklearn import log_confusion_matrix_chart
+
+    neptune.create_experiment(name='confusion-matrix-chart')
+
+    log_confusion_matrix_chart(my_estimator, X_train, X_test, y_train, y_test) # log confusion matrix chart
+
+* This methods logs confusion matrix chart as image.
+
+.. tip::
+
+    Check |reference-documentation| for full list of available charts, including: learning curve, feature importance, ROC-AUC, precision-recall, silhouette chart and much more.
+
+You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
 
 |colab-script-neptune|
 
@@ -235,9 +362,13 @@ You may also like these two integrations:
 
     <a href="https://scikit-learn.org/stable/user_guide.html" target="_blank">scikit-learn guide</a>
 
+.. |cls-npt-parameters| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-660/parameters" target="_blank">classifier parameters</a>
+
 .. |cls-parameters| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-312/details" target="_blank">logged classifier parameters</a>
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-312/details" target="_blank">all classifier parameters</a>
 
 .. |cls-model| raw:: html
 
@@ -263,19 +394,13 @@ You may also like these two integrations:
 
     <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-312/details" target="_blank">logged metadata</a>
 
-.. |example-charts-classification| raw:: html
+.. |reg-npt-parameters| raw:: html
 
-    <div class="see-in-neptune">
-        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-312/artifacts?path=csv%2F">
-            <img width="50" height="50"
-                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
-            <span>See example in Neptune</span>
-        </a>
-    </div>
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-659/parameters" target="_blank">regressor parameters</a>
 
 .. |reg-parameters| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-311/details" target="_blank">logged regressor parameters</a>
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-311/details" target="_blank">all regressor parameters</a>
 
 .. |reg-model| raw:: html
 
@@ -297,10 +422,56 @@ You may also like these two integrations:
 
     <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-311/details" target="_blank">logged metadata</a>
 
+.. |reference-documentation| raw:: html
+
+    <a href="https://docs.neptune.ai/api-reference/neptunecontrib/monitoring/sklearn/index.html" target="_blank">reference documentation</a>
+
+.. |kmeans-npt-parameters| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-661/parameters">KMeans parameters</a>
+
+.. |kmeans-params| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-313/details">all KMeans parameters</a>
+
+.. |kmeans-cluster-labels| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-313/artifacts?path=csv%2F&file=cluster_labels.csv" target="_blank">logged cluster labels</a>
+
+.. |kmeans-cluster-visuals| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-313/logs" target="_blank">logged KMeans clustering visualizations</a>
+
+.. |kmeans-metadata| raw:: html
+
+    <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-313/details" target="_blank">logged metadata</a>
+
+.. Buttons
+
+.. |example-charts-classification| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-312/artifacts?path=csv%2F">
+            <img width="50" height="50"
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
 .. |example-charts-regression| raw:: html
 
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-311/logs">
+            <img width="50" height="50"
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |example-charts-kmeans| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-661/logs">
             <img width="50" height="50"
                 src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
@@ -326,10 +497,8 @@ You may also like these two integrations:
         </a>
     </div>
 
+.. Videos
+
 .. |sklearn-tour-loom| raw:: html
 
     <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/3b2b03255f174223b4f3c55549892401" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-.. |reference-documentation| raw:: html
-
-    <a href="https://docs.neptune.ai/api-reference/neptunecontrib/monitoring/sklearn/index.html" target="_blank">reference documentation</a>
