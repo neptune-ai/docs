@@ -176,6 +176,10 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 * |cls-visualizations| - look for "charts_sklearn",
 * |cls-metadata| including git summary info.
 
+.. image:: ../_static/images/integrations/sklearn-cls-1.png
+   :target: ../_static/images/integrations/sklearn-cls-1.png
+   :alt: Sklearn integration, classification example
+
 |example-charts-classification|
 
 **Regressor**
@@ -187,6 +191,10 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 * |reg-test-scores|,
 * |reg-visualizations| - look for "charts_sklearn",
 * |reg-metadata| including git summary info.
+
+.. image:: ../_static/images/integrations/sklearn-reg-1.png
+   :target: ../_static/images/integrations/sklearn-reg-1.png
+   :alt: Sklearn integration, regression example
 
 |example-charts-regression|
 
@@ -271,6 +279,10 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 * |kmeans-cluster-visuals|,
 * |kmeans-metadata| including git summary info.
 
+.. image:: ../_static/images/integrations/sklearn-kmeans-1.png
+   :target: ../_static/images/integrations/sklearn-kmeans-1.png
+   :alt: Sklearn integration, kmeans example
+
 |example-charts-kmeans|
 
 You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
@@ -299,6 +311,10 @@ You can choose to only log estimator parameters.
 
 This methods logs all parameters of the 'my_estimator' as Neptune's properties. For example see |cls-npt-parameters|.
 
+.. image:: ../_static/images/integrations/sklearn-params.png
+   :target: ../_static/images/integrations/sklearn-params.png
+   :alt: Sklearn integration, estimator params
+
 Log model
 ^^^^^^^^^
 You can choose to log fitted model as pickle file.
@@ -313,6 +329,10 @@ You can choose to log fitted model as pickle file.
 
 * This methods logs 'my_estimator' to Neptune's artifacts.
 * Path to file in the Neptune artifacts is ``model/<my_model>``. For example check this |cls-model|.
+
+.. image:: ../_static/images/integrations/sklearn-model.png
+   :target: ../_static/images/integrations/sklearn-model.png
+   :alt: Sklearn integration, model
 
 Log confusion matrix
 ^^^^^^^^^^^^^^^^^^^^
@@ -331,6 +351,10 @@ You can choose to log confusion matrix chart.
 .. tip::
 
     Check |reference-documentation| for full list of available charts, including: learning curve, feature importance, ROC-AUC, precision-recall, silhouette chart and much more.
+
+.. image:: ../_static/images/integrations/sklearn-confusion-matrix.png
+   :target: ../_static/images/integrations/sklearn-confusion-matrix.png
+   :alt: Sklearn integration, confusion matrix chart
 
 You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
 
