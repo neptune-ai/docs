@@ -81,7 +81,7 @@ The charts will currently be empty, but keep the window open. You will be able t
 
 Step 3: Run skopt with the Neptune Callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This causes the run metrics, run parameters and results pickle logged after every iteration.
+:meth:`~neptunecontrib.monitoring.skopt.NeptuneCallback` will log the run metrics, run parameters and results pickle after every iteration.
 Everything can be inspected live.
 
 .. code-block:: python3
