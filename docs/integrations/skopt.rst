@@ -11,6 +11,7 @@ What will you get with this integration?
 |skopt-tour|
 
 |Scikit-Optimize|, or skopt, is a simple and efficient library to minimize (very) expensive and noisy black-box functions. It is often used to Machine Learning model hyperparameter optimization.
+
 With Neptune integration, you can:
 
 - visualize the runs as they are running,
@@ -27,13 +28,6 @@ With Neptune integration, you can:
 .. note::
 
     This integration is tested with ``neptune-client==0.4.130``, ``neptune-contrib==0.25.0``, and ``scikit-optimize==0.8.1``
-	
-Where to start?
----------------
-To get started with this integration, follow the :ref:`quickstart <skopt-quickstart>` below. 
-You can also skip the basics and take a look at how to change what you want to log after training in the :ref:`more options <skopt-advanced-options>` section.
-
-|Run on Colab|
 
 .. _skopt-quickstart:
 
@@ -43,7 +37,9 @@ This quickstart will show you how to:
 
 * Install the necessary neptune packages
 * Connect Neptune to your Skopt hyperparameter tuning code and create the first experiment
-* Log metrics, figures, and artifacts from your tuning job to Neptune, and 
+* Log run metrics and parameters for every search configuration
+* Log best metric and best parameter configuration
+* Log diagnostic plots: convergence plot, evaluations plot, and objective plot from ``skopt.plotting``
 * Explore them in the Neptune UI.
 
 .. _skopt-before-you-start-basic:
@@ -85,7 +81,7 @@ The charts will currently be empty, but keep the window open. You will be able t
 
 Step 3: Run skopt with the Neptune Callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This causes the metrics, parameters and results pickle logged after every iteration.
+This causes the run metrics, run parameters and results pickle logged after every iteration.
 Everything can be inspected live.
 
 .. code-block:: python3
@@ -102,22 +98,15 @@ Everything can be inspected live.
                                     n_random_starts=10,
                                     callback=[neptune_callback],)
 
-Step 4: Monitor your Skopt tuning in Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Now you can switch to the Neptune tab which you had opened previously to watch the tuning live!
+Step 4: Log best parameter configuration, best score and diagnostic plots
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can log additional information from skopt results after the tuning has completed with the :meth:`~neptunecontrib.monitoring.skopt.log_results` function.
 
-.. image:: ../_static/images/integrations/skopt.gif
-   :target: ../_static/images/integrations/skopt.gif
-   :alt: Neptune-Skopt Integration
+This will log:
 
-|Run on Colab|
-
-.. _skopt-advanced-options:
-
-More Options
-------------
-
-You can log additional information from skopt results after the tuning has completed.
+- Best score for the sweep as 'best_score' metric
+- Best parameter set as 'best_parameters' property
+- Fog figures from plots module: plot_evaluations, plot_convergence, plot_objective, and plot_regret to the 'diagnostics' log.
 
 .. code-block:: python3
 
@@ -125,9 +114,17 @@ You can log additional information from skopt results after the tuning has compl
 
 .. note::
 
-	You can change the Neptune experiment to which the results are logged with the ``experiment`` parameter, and choose whether or not you want to log plots and the pickle objects with the ``log_plots`` and ``log_pickle`` parameters. 
+	You can change the Neptune experiment to which the results are logged with the ``experiment`` parameter, and choose whether or not you want to log plots and the pickle objects with the ``log_plots`` and ``log_pickle`` parameters.
 
-Learn more about :meth:`~neptunecontrib.monitoring.skopt.log_results`.
+Step 5: See your Skopt tuning in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Now you can switch to the Neptune tab which you had opened previously to watch the tuning live!
+
+.. image:: ../_static/images/integrations/skopt.gif
+   :target: ../_static/images/integrations/skopt.gif
+   :alt: Neptune-Skopt Integration
+
+Remember that you can try it out with zero setup:
 
 |Run on Colab|
 
