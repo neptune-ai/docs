@@ -1,43 +1,40 @@
-.. _how-to-connect-neptune-to-your-codebase:
+Integrating Neptune into your codebase
+======================================
 
-How to connect Neptune to your codebase step by step
-====================================================
+Adding Neptune to your workflow is a really simple and quick process.
+We describe major logging features in the step by step guide below.
 
-Adding Neptune is a simple process that only takes a few steps.
-We'll go through those one by one.
+To make things even easier we have created integrations with most major ML frameworks and open-source experiment tracking tools.
 
-Introduction
-------------
+Jump to the relevant section:
 
-This guide will show you how to:
+- :ref:`Using integrations with ML frameworks <integrating-with-my-framework>`
+- :ref:`Migrating from other experiment tracking tools <migrating-from-other-experiment-tracking-tools>`
+- :ref:`Not using Python <not-using-python>`
+- :ref:`How to connect Neptune to your codebase step by step <how-to-connect-neptune-to-your-codebase>`
 
-- Connect Neptune to your script from scratch
-- Find ML framework integrations to start tracking your runs with even less work
-- Find tracking tool integrations to sync/convert experiment information from your current tool to Neptune experiments
+.. _integrating-with-my-framework:
 
-By the end of it, you will have experiments from your project logged and versioned in Neptune!
+Using integrations with ML frameworks
+-------------------------------------
 
-Before you start
-----------------
+Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started faster.
 
-Make sure you meet the following prerequisites before starting:
+Popular integrations include:
 
-- Have Python 3.x installed
-- :ref:`Have Neptune installed<installation-neptune-client>`
-- :ref:`Create a project <create-project>`
-- :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
+- :ref:`TensorFlow / Keras <integrations-tensorflow-keras>`
+- :ref:`PyTorch <integrations-pytorch>`
+- :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
+- :ref:`XGBoost <integrations-xgboost>`
+- :ref:`lightGBM <integrations-lightgbm>`
+- :ref:`Optuna <integrations-optuna>`
 
-Step 1: Are you using Python? Choose your client library
---------------------------------------------------------
+Check out the :ref:`full list of integrations <list-of-all-integrations>`.
 
-Neptune was built for Python first and if this is your language of choice jump to the next Step!
+.. _migrating-from-other-experiment-tracking-tools:
 
-If you are not using Python, no worries, Neptune plays nicely with other languages as well.
-
-Read :ref:`how to use Neptune with other languages <integrations-any-language>` here.
-
-Step 2: See if Neptune integrates with your current experiment tracking tool (Optional)
----------------------------------------------------------------------------------------
+Migrating from other experiment tracking tools
+----------------------------------------------
 
 Neptune has utilities that let you use other open-source experiment tracking tools together with Neptune
 They also make the migration from those tools easy and quick.
@@ -48,44 +45,39 @@ Neptune integrates with the following experiment tracking frameworks:
 - :ref:`TensorBoard <integrations-tensorboard>`
 - :ref:`Sacred <integrations-sacred>`
 
-Step 3: See if Neptune integrates with your ML framework (Optional)
--------------------------------------------------------------------
+.. _not-using-python:
 
-Neptune supports any machine learning framework but there are a lot of integrations with particular frameworks that will get you started faster.
+Not using Python
+----------------
 
-Deep learning frameworks:
-^^^^^^^^^^^^^^^^^^^^^^^^^
+If you are not using Python no worries, you can still log experiments to Neptune.
 
-- :ref:`Keras <integrations-keras>`
-- :ref:`PyTorch <integrations-pytorch>`
-- :ref:`PyTorch Lightning <integrations-pytorch-lightning>`
-- :ref:`PyTorch Ignite <integrations-pytorch-ignite>`
-- :ref:`Catalyst <integrations-catalyst>`
-- :ref:`Fastai <integrations-fastai>`
-- :ref:`Skorch <integrations-skorch>`
+Read our guides on:
 
-Machine learning frameworks:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- How to use :ref:`Neptune client for R <integrations-r>`
+- How to log experiments for :ref:`any other language <integrations-any-language>`
 
-- :ref:`lightGBM <integrations-lightgbm>`
-- :ref:`XGBoost <integrations-xgboost>`
+.. _how-to-connect-neptune-to-your-codebase:
 
-Hyperparameter Optimization frameworks:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to connect Neptune to your codebase step by step
+----------------------------------------------------
 
-- :ref:`Optuna <integrations-optuna>`
-- :ref:`Scikit-Optimize <integrations-scikit-optimize>`
+Adding Neptune is a simple process that only takes a few steps.
+We'll go through those one by one.
 
-Check out the :ref:`full list of integrations <integrations-index>`.
+Before you start
+^^^^^^^^^^^^^^^^
 
-Step 4: Add Neptune logging explicitly
---------------------------------------
+Make sure you meet the following prerequisites before starting:
 
-You can always add Neptune logging into your codebase explicitly.
+- Have Python 3.x installed
+- :ref:`Have Neptune installed<installation-neptune-client>`
+- :ref:`Create a project <create-project>`
+- :ref:`Configure Neptune API token on your system <how-to-setup-api-token>`
 
-Let me show you how to do that step by step.
 
-1. Connect Neptune to your script
+Step 1: Connect Neptune client to your script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -115,7 +107,8 @@ To do that you should specify:
 
         neptune.init(project_qualified_name='USERNAME/PROJECT_NAME')
 
-2. Create an experiment and log parameters
+Step 2. Create an experiment and log parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -135,7 +128,8 @@ It also logs your ``PARAMS`` dictionary with all the parameters that you want to
 
     - See |how to track hyperparameters of ML models|
 
-3. Add logging of training metrics
+Step 3. Add logging of training metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -170,7 +164,8 @@ You can simply call ``neptune.log_metric`` multiple times on the same log name t
     - See |how to track metrics and losses|
     - See |how to monitor ML/DL experiments|
 
-4. Add logging of test metrics
+Step 4. Add logging of test metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -184,7 +179,8 @@ You can log metrics in the same way after the training loop is done.
 
     Read about :ref:`updating existing experiments <update-existing-experiment>`.
 
-5. Add logging of performance charts
+Step 5: Add logging of performance charts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -198,7 +194,8 @@ You can log metrics in the same way after the training loop is done.
 
     - See |how to log other objects and monitor training in Neptune|
 
-6. Add logging of model binary
+Step 6: Add logging of model binary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -218,19 +215,17 @@ You save your model to a file and log that file to Neptune.
 
         log_pickle(model)
 
-Run your script and see your experiment in Neptune UI
------------------------------------------------------
+Step 7: Run your script and see your experiment in Neptune UI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |Logging video|
 
 What is next?
 -------------
 
-- See |how to log other objects and monitor training in Neptune|
-- See |how to track hyperparameters of ML models|
-- See |how to track metrics and losses|
-- See |how to monitor ML/DL experiments|
-- Check out the :ref:`full list of integrations <integrations-index>`
+- See :ref:`Full list of what you can log <what-you-can-log>`
+- Check out the :ref:`full list of integrations <list-of-all-integrations>`
+- Read |how to log other objects and monitor training in Neptune|
 
 .. External links
 

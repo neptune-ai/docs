@@ -21,7 +21,7 @@ What will you get with this integration?
    
 .. note::
 
-    This integration is tested with ``optuna==2.3.0``, ``neptune-client==0.4.125``, and ``neptune-contrib==0.24.7``.
+    This integration is tested with ``optuna==2.3.0``, ``neptune-client==0.4.130``, and ``neptune-contrib==0.25.0``.
 
 Where to start?
 ---------------

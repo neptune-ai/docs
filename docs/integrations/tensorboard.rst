@@ -35,7 +35,7 @@ To learn about that see the :ref:`More options <tensorboard-more-options>` secti
 
 .. note::
 
-    This integration is tested with ``tensorflow==2.3.1``, ``tensorboard==2.4.0``, ``neptune-client==0.4.129``, and ``neptune-tensorboard==0.5.1``.
+    This integration is tested with ``tensorflow==2.3.1``, ``tensorboard==2.4.0``, ``neptune-client==0.4.130``, and ``neptune-tensorboard==0.5.1``.
 
 Where to start?
 ---------------

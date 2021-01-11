@@ -195,7 +195,7 @@ Now that you know all this.
     You don't actually have to implement this callback yourself and can use the Callback that we created for Keras.
     It is one of many integrations with ML frameworks that Neptune has.
 
-    - Check our :ref:`Keras integration <integrations-keras>`
+    - Check our :ref:`TensorFlow / Keras integration <integrations-tensorflow-keras>`
 
 .. tip::
 
