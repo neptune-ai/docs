@@ -29,6 +29,16 @@ With Neptune integration, you can:
 
     This integration is tested with ``neptune-client==0.4.130``, ``neptune-contrib==0.25.0``, and ``scikit-optimize==0.8.1``
 
+Where to start?
+---------------
+To get started with this integration, follow the :ref:`quickstart <skopt-quickstart>` below.
+
+You can also see how to log ``BayesSearchCV`` parameter sweeps in the :ref:`more options <skopt-more-options>` section.
+
+If you want to try things out and focus only on the code you can either:
+
+|Run on Colab|
+
 .. _skopt-quickstart:
 
 Quickstart
@@ -123,6 +133,66 @@ Now you can switch to the Neptune tab which you had opened previously to watch t
 .. image:: ../_static/images/integrations/skopt.gif
    :target: ../_static/images/integrations/skopt.gif
    :alt: Neptune-Skopt Integration
+
+.. _skopt-more-options:
+
+More Options
+------------
+
+Use Neptune with BayesSearchCV
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Step 1: Initialize Neptune and create an experiment
+***************************************************
+
+.. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/scikit-optimize-integration')
+
+    neptune.create_experiment(name='skopt sweep')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Initialize BayesSearchCV
+********************************
+
+.. code-block:: python3
+
+    opt = BayesSearchCV(
+        SVC(),
+        {
+            'C': Real(1e-6, 1e+6, prior='log-uniform'),
+            'gamma': Real(1e-6, 1e+1, prior='log-uniform'),
+            'degree': Integer(1,8),
+            'kernel': Categorical(['linear', 'poly', 'rbf']),
+        },
+        n_iter=32,
+        random_state=0
+    )
+
+Step 2: Pass Neptune callback to the ``.fit`` method
+****************************************************
+
+.. code-block:: python3
+
+    import neptunecontrib.monitoring.skopt as skopt_utils
+
+    opt.fit(X_train, y_train,
+            callback=skopt_utils.NeptuneCallback())
+
+Step 3: Log best parameter set and diagnostic plots to Neptune
+**************************************************************
+You can log best parameter, diagnostic plots and results pickle to Neptune with the :meth:`~neptunecontrib.monitoring.skopt.log_results` function.
+To access the optimization results object you should use the ``._optim_results`` attribute of the ``BayesSearchCV`` object.
+
+.. code-block:: python3
+
+    skopt_utils.log_results(opt._optim_results[0])
 
 Remember that you can try it out with zero setup:
 
