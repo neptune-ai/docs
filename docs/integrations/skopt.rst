@@ -142,10 +142,15 @@ More Options
 Use Neptune with BayesSearchCV
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Step 1: Create an experiment
-****************************
+Step 1: Initialize Neptune and create an experiment
+***************************************************
 
 .. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS',
+                 project_qualified_name='shared/scikit-optimize-integration')
 
     neptune.create_experiment(name='skopt sweep')
 
