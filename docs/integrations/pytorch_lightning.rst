@@ -51,7 +51,7 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.126`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
 * ``pytorch-lightning==1.0.7`` or newer. See |lightning-install|.
 
@@ -555,10 +555,6 @@ In particular check:
 Check this experiment (|adv-go-here|) or view above code snippets as a plain Python script on |script-advanced|.
 
 |Run on Colab Advanced|
-
-Common problems
----------------
-This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.126``. Make sure that you use correct versions.
 
 How to ask for help?
 --------------------

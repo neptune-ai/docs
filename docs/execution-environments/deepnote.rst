@@ -11,7 +11,7 @@ Step 1: Install neptune-client
 
     .. code:: bash
 
-        ! pip install neptune-client==0.4.123
+        ! pip install neptune-client
 
 Step 2: Set up an environment variable for the API token
 --------------------------------------------------------
