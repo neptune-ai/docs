@@ -25,7 +25,7 @@ With the Neptune + LightGBM integration, you can:
    
 .. note::
 
-    This integration is tested with ``neptune-client==0.4.130``, ``neptune-contrib==0.25.0``, and ``lightgbm==2.2.3``
+    This integration is tested with ``neptune-client==0.4.131``, ``neptune-contrib==0.25.0``, and ``lightgbm==2.2.3``
 
 .. _lightgbm-quickstart:
 

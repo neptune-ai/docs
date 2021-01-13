@@ -34,7 +34,7 @@ With Neptune + TensorFlow / Keras integration you can:
 
 .. note::
 
-    This integration is tested with ``tensorflow==2.3.1``, ``neptune-client==0.4.130``, and ``neptune-contrib==0.25.0``
+    This integration is tested with ``tensorflow==2.3.1``, ``neptune-client==0.4.131``, and ``neptune-contrib==0.25.0``
 
 Where to start?
 ---------------
