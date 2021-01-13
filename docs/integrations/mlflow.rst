@@ -26,7 +26,7 @@ With Neptune, you can push the following MLrun objects to a Neptune experiment:
 
 .. note::
 
-    This integration is tested with ``neptune-client==0.4.131``, ``neptune-mlflow==0.2.5`` and ``mlflow==1.12.1``
+    This integration is tested with ``neptune-client==0.4.132``, ``neptune-mlflow==0.2.5`` and ``mlflow==1.12.1``
 
 .. _mlflow-quickstart:
 

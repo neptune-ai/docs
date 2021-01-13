@@ -41,7 +41,7 @@ With Neptune + PyTorch integration you can:
 
 .. note::
 
-    This integration is tested with ``torch==1.7.0``, ``neptune-client==0.4.131``.
+    This integration is tested with ``torch==1.7.0``, ``neptune-client==0.4.132``.
 
 Where to start?
 ---------------
