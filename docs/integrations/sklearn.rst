@@ -27,16 +27,23 @@ With Neptune + Sklearn integration you can track your **classifiers**, **regress
 
 .. note::
 
-    This integration is tested with ``scikit-learn==0.23.2``, ``neptune-client==0.4.130``.
+    This integration is tested with ``scikit-learn==0.23.2``, ``neptune-client==0.4.132``.
 
 Where to start?
 ---------------
-To get started with this integration:
+To get started with this integration follow the :ref:`quickstart <sklearn_quickstart>` below (recommended as a first step).
 
-* for classifier and regressor cases, follow the :ref:`Quickstart: classifier and regressor <sklearn-quickstart-reg-cls>`,
-* for k-means clustering case, go here: :ref:`Quickstart: k-means <sklearn-quickstart-k-means>`.
+You can also go to the :ref:`demonstration of the functions <sklearn-more-options>` that log regressor, classifier or K-Means summary information to Neptune. Such summary includes parameters, pickled model, visualizations and much more:
 
-You can also go to the demonstration of the selected convenience functions available in the :ref:`more options <sklearn-more-options>` section.
+* :ref:`classifier summary <sklearn-cls>`,
+* :ref:`regressor summary <sklearn-reg>`,
+* :ref:`k-means clustering summary <sklearn-k-means>`.
+
+Finally if you want to log only specific information to Neptune you can make use of the convenience functions listed in the |reference-documentation|. Below are few examples:
+
+* :ref:`log estimator parameters <sklearn-log-estimator-params>`,
+* :ref:`log model <sklearn-log-model>`,
+* :ref:`log confusion matrix <sklearn-log-confusion-matrix>`.
 
 If you want to try things out and focus only on the code you can either:
 
@@ -56,22 +63,19 @@ You have ``Python 3.x`` and following libraries installed:
 
 You also need minimal familiarity with scikit-learn. Have a look at this |scikit-guide| to get started.
 
-.. _sklearn-quickstart-reg-cls:
+.. _sklearn_quickstart:
 
-Quickstart: classifier and regressor
-------------------------------------
-This quickstart will show you how to use this integration for classification and regression tasks:
+Quickstart
+----------
+This quickstart will show you how to use Neptune with sklearn:
 
-* Install the necessary Neptune and scikit-learn packages,
 * Create the first experiment in project,
-* Log trained regressor or classifier summary info to Neptune,
+* Log estimator parameters and scores,
 * Explore results in the Neptune UI.
 
-Step 0: Create and fit example regressor or classifier
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Prepare fitted regressor or classifier that will be further used in this quickstart. Below snippets show the idea:
-
-**Classifier**
+Step 0: Create and fit example estimator
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prepare fitted estimator that will be further used to log it's summary. Below snippet shows the idea:
 
 .. code-block:: python3
 
@@ -87,27 +91,6 @@ Prepare fitted regressor or classifier that will be further used in this quickst
 
     gbc.fit(X_train, y_train)
 
-**Regressor**
-
-.. code-block:: python3
-
-    parameters = {'n_estimators': 70,
-                  'max_depth': 7,
-                  'min_samples_split': 3}
-
-    rfr = RandomForestRegressor(**parameters)
-
-    X, y = load_boston(return_X_y=True)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-    rfr.fit(X_train, y_train)
-
-Both ``gbc`` (classification) and ``rfr`` (regression) objects will be later used to log various metadata to the experiment.
-
-.. note::
-
-    For this quickstart pick just one: classifier or regressor. In this way you will log only classifier/regressor results to the experiment. We do not want to mix results from these two :)
-
 Step 1: Initialize Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Add the following snippet at the top of your script.
@@ -122,8 +105,8 @@ Add the following snippet at the top of your script.
 
     You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
-Step 2: Create an experiment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step 2: Create an experiment and log parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Run the code below to create a Neptune experiment:
 
 .. code-block:: python3
@@ -141,11 +124,123 @@ When you create an experiment Neptune will look for the ``.git`` directory in yo
 
     If you are using ``.py`` scripts for training Neptune will also log your training script automatically.
 
-Step 3: Log estimator summary
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Log classifier or regressor summary to Neptune, by using :meth:`~neptunecontrib.monitoring.sklearn.log_regressor_summary` or :meth:`~neptunecontrib.monitoring.sklearn.log_classifier_summary`.
+Step 3: Log estimator scores
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Log scores on the test data.
 
-**Classification**
+.. code-block:: python3
+
+    y_pred = estimator.predict(X_test)
+
+    neptune.log_metric('max_error', max_error(y_test, y_pred))
+    neptune.log_metric('mean_absolute_error', mean_absolute_error(y_test, y_pred))
+    neptune.log_metric('r2_score', r2_score(y_test, y_pred))
+
+Here we use the :meth:`~neptune.experiments.Experiment.log_metric` method to log scores to the experiment.
+
+Step 4: See results in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Switch to the Neptune tab which you had opened previously to explore results.
+
+.. image:: ../_static/images/integrations/sklearn-quickstart-1.png
+   :target: ../_static/images/integrations/sklearn-quickstart-1.png
+   :alt: Sklearn integration - quickstart
+
+|example-quickstart|
+
+You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
+
+|colab-script-neptune|
+
+.. _sklearn-more-options:
+
+More Options
+------------
+Neptune-Scikit-learn integration also lets you log regressor, classifier or K-Means summary information to Neptune. Such summary includes parameters, pickled model, visualizations and much more:
+
+* :ref:`classifier summary <sklearn-cls>`,
+* :ref:`regressor summary <sklearn-reg>`,
+* :ref:`k-means clustering summary <sklearn-k-means>`.
+
+You can choose to log only specific information to Neptune. In such case use convenience functions listed in the |reference-documentation|. Below are few examples:
+
+* :ref:`log estimator parameters <sklearn-log-estimator-params>`,
+* :ref:`log model <sklearn-log-model>`,
+* :ref:`log confusion matrix <sklearn-log-confusion-matrix>`.
+
+.. _sklearn-cls:
+
+Log classification summary
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can log classification summary that includes:
+
+* |cls-npt-parameters| logged at the experiment creation,
+* |cls-parameters|,
+* |cls-model|,
+* |cls-test-preds|,
+* |cls-test-preds-proba|,
+* |cls-test-scores|,
+* |cls-visualizations| - look for "charts_sklearn",
+* |cls-metadata| including git summary info.
+
+|example-charts-classification|
+
+Step 0: Create and fit example classifier
++++++++++++++++++++++++++++++++++++++++++
+Prepare fitted classifier that will be further used to log it's summary. Below snippet shows the idea:
+
+.. code-block:: python3
+
+    parameters = {'n_estimators': 120,
+                  'learning_rate': 0.12,
+                  'min_samples_split': 3,
+                  'min_samples_leaf': 2}
+
+    gbc = GradientBoostingClassifier(**parameters)
+
+    X, y = load_digits(return_X_y=True)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+    gbc.fit(X_train, y_train)
+
+``gbc`` object will be later used to log various metadata to the experiment.
+
+Step 1: Initialize Neptune
+++++++++++++++++++++++++++
+Add the following snippet at the top of your script.
+
+.. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/sklearn-integration')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Create an experiment
+++++++++++++++++++++++++++++
+Run the code below to create a Neptune experiment:
+
+.. code-block:: python3
+
+    neptune.create_experiment(params=parameters,
+                              name='sklearn-quickstart')
+
+* This creates a link to the experiment. Open the link in a new tab.
+* The experiment will currently be empty, but keep the window open. You will be able to see estimator summary there.
+* This is how experiment's parameters are logged. You pass them to the :meth:`~neptune.projects.Project.create_experiment` method. You can later use them to :ref:`filter and compare experiments <guides-compare-experiments-ui>`.
+
+When you create an experiment Neptune will look for the ``.git`` directory in your project and get the last commit information saved.
+
+.. note::
+
+    If you are using ``.py`` scripts for training Neptune will also log your training script automatically.
+
+Step 3: Log classifier summary
+++++++++++++++++++++++++++++++
+Log classifier summary to Neptune, by using :meth:`~neptunecontrib.monitoring.sklearn.log_classifier_summary`.
 
 .. code-block:: python3
 
@@ -153,19 +248,9 @@ Log classifier or regressor summary to Neptune, by using :meth:`~neptunecontrib.
 
     log_classifier_summary(gbc, X_train, X_test, y_train, y_test)
 
-**Regression**
-
-.. code-block:: python3
-
-    from neptunecontrib.monitoring.sklearn import log_regressor_summary
-
-    log_regressor_summary(rfr, X_train, X_test, y_train, y_test)
-
 Step 4: See results in Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Once data is logged you can switch to the Neptune tab which you had opened previously to explore results. Depending on your choice (classifier/regressor), you can check:
-
-**Classifier**
+++++++++++++++++++++++++++++++
+Once data is logged you can switch to the Neptune tab which you had opened previously to explore results. You can check:
 
 * |cls-npt-parameters| logged at the experiment creation,
 * |cls-parameters|,
@@ -182,7 +267,91 @@ Once data is logged you can switch to the Neptune tab which you had opened previ
 
 |example-charts-classification|
 
-**Regressor**
+You can go to the |reference-documentation| to learn more. Remember that you can try it out with zero setup:
+
+|colab-script-neptune|
+
+.. _sklearn-reg:
+
+Log regression summary
+^^^^^^^^^^^^^^^^^^^^^^
+You can log regression summary that includes:
+
+* |reg-npt-parameters| logged at the experiment creation,
+* |reg-parameters| as properties,
+* |reg-model|,
+* |reg-test-preds|,
+* |reg-test-scores|,
+* |reg-visualizations| - look for "charts_sklearn",
+* |reg-metadata| including git summary info.
+
+|example-charts-regression|
+
+Step 0: Create and fit example regressor
+++++++++++++++++++++++++++++++++++++++++
+Prepare fitted regressor that will be further used to log it's summary. Below snippet shows the idea:
+
+.. code-block:: python3
+
+    parameters = {'n_estimators': 70,
+                  'max_depth': 7,
+                  'min_samples_split': 3}
+
+    rfr = RandomForestRegressor(**parameters)
+
+    X, y = load_boston(return_X_y=True)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+    rfr.fit(X_train, y_train)
+
+``rfr`` object will be later used to log various metadata to the experiment.
+
+Step 1: Initialize Neptune
+++++++++++++++++++++++++++
+Add the following snippet at the top of your script.
+
+.. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/sklearn-integration')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Create an experiment
+++++++++++++++++++++++++++++
+Run the code below to create a Neptune experiment:
+
+.. code-block:: python3
+
+    neptune.create_experiment(params=parameters,
+                              name='sklearn-quickstart')
+
+* This creates a link to the experiment. Open the link in a new tab.
+* The experiment will currently be empty, but keep the window open. You will be able to see estimator summary there.
+* This is how experiment's parameters are logged. You pass them to the :meth:`~neptune.projects.Project.create_experiment` method. You can later use them to :ref:`filter and compare experiments <guides-compare-experiments-ui>`.
+
+When you create an experiment Neptune will look for the ``.git`` directory in your project and get the last commit information saved.
+
+.. note::
+
+    If you are using ``.py`` scripts for training Neptune will also log your training script automatically.
+
+Step 3: Log regressor summary
++++++++++++++++++++++++++++++
+Log regressor summary to Neptune, by using :meth:`~neptunecontrib.monitoring.sklearn.log_regressor_summary`.
+
+.. code-block:: python3
+
+    from neptunecontrib.monitoring.sklearn import log_regressor_summary
+
+    log_regressor_summary(rfr, X_train, X_test, y_train, y_test)
+
+Step 4: See results in Neptune
+++++++++++++++++++++++++++++++
+Once data is logged you can switch to the Neptune tab which you had opened previously to explore results. You can check:
 
 * |reg-npt-parameters| logged at the experiment creation,
 * |reg-parameters| as properties,
@@ -202,19 +371,22 @@ You can go to the |reference-documentation| to learn more. Remember that you can
 
 |colab-script-neptune|
 
-.. _sklearn-quickstart-k-means:
+.. _sklearn-k-means:
 
-Quickstart: K-Means
--------------------
-This quickstart will show you how to use this integration with K-Means clustering task:
+Log K-Means clustering summary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can log K-Means clustering summary that includes:
 
-* Install the necessary Neptune and scikit-learn packages,
-* Create experiment in project,
-* Log clustering summary info to Neptune,
-* Explore results in the Neptune UI.
+* |kmeans-npt-parameters| logged at the experiment creation,
+* |kmeans-params| as properties,
+* |kmeans-cluster-labels|,
+* |kmeans-cluster-visuals|,
+* |kmeans-metadata| including git summary info.
+
+|example-charts-kmeans|
 
 Step 0: Create K-Means clustering object and example data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Prepare K-Means object and example data. These will be later used in this quickstart. Below snippet show the idea:
 
 .. code-block:: python3
@@ -227,7 +399,7 @@ Prepare K-Means object and example data. These will be later used in this quicks
     X, y = make_blobs(n_samples=579, n_features=17, centers=7, random_state=28743)
 
 Step 1: Initialize Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++
 Add the following snippet at the top of your script.
 
 .. code-block:: python3
@@ -241,7 +413,7 @@ Add the following snippet at the top of your script.
     You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
 
 Step 2: Create an experiment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++
 Run the code below to create a Neptune experiment:
 
 .. code-block:: python3
@@ -260,7 +432,7 @@ When you create an experiment Neptune will look for the ``.git`` directory in yo
     If you are using ``.py`` scripts for training Neptune will also log your training script automatically.
 
 Step 3: Log KMeans clustering summary
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++
 Log K-Means clustering summary to Neptune, by using :meth:`~neptunecontrib.monitoring.sklearn.log_kmeans_clustering_summary`.
 
 .. code-block:: python3
@@ -270,7 +442,7 @@ Log K-Means clustering summary to Neptune, by using :meth:`~neptunecontrib.monit
     log_kmeans_clustering_summary(km, X, n_clusters=17)
 
 Step 4: See results in Neptune
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++
 Once data is logged you can switch to the Neptune tab which you had opened previously to explore results. You can check:
 
 * |kmeans-npt-parameters| logged at the experiment creation,
@@ -289,13 +461,7 @@ You can go to the |reference-documentation| to learn more. Remember that you can
 
 |colab-script-neptune|
 
-.. _sklearn-more-options:
-
-More Options
-------------
-Neptune-Sklearn integration also lets you log only specific metadata of your choice, by using additional methods.
-
-Below are few examples, visit sklearn's |reference-documentation| for full list of functions.
+.. _sklearn-log-estimator-params:
 
 Log estimator parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -315,6 +481,8 @@ This methods logs all parameters of the 'my_estimator' as Neptune's properties. 
    :target: ../_static/images/integrations/sklearn-params.png
    :alt: Sklearn integration, estimator params
 
+.. _sklearn-log-model:
+
 Log model
 ^^^^^^^^^
 You can choose to log fitted model as pickle file.
@@ -333,6 +501,8 @@ You can choose to log fitted model as pickle file.
 .. image:: ../_static/images/integrations/sklearn-model.png
    :target: ../_static/images/integrations/sklearn-model.png
    :alt: Sklearn integration, model
+
+.. _sklearn-log-confusion-matrix:
 
 Log confusion matrix
 ^^^^^^^^^^^^^^^^^^^^
@@ -368,8 +538,8 @@ Other integrations you may like
 -------------------------------
 You may also like these two integrations:
 
-- :ref:`Optuna <integrations-optuna>`
-- :ref:`Plotly <integrations-plotly>`
+* :ref:`Optuna <integrations-optuna>`
+* :ref:`Plotly <integrations-plotly>`
 
 
 .. External links
@@ -471,6 +641,16 @@ You may also like these two integrations:
     <a href="https://ui.neptune.ai/o/shared/org/sklearn-integration/e/SKLEARN-313/details" target="_blank">logged metadata</a>
 
 .. Buttons
+
+.. |example-quickstart| raw:: html
+
+    <div class="see-in-neptune">
+        <a target="_blank"  href="https://ui.neptune.ai/shared/sklearn-integration/e/SKLEARN-960">
+            <img width="50" height="50"
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
 
 .. |example-charts-classification| raw:: html
 
