@@ -51,7 +51,7 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-client``: See :ref:`neptune-client installation guide <installation-neptune-client>`.
 * ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
 * ``pytorch-lightning==1.0.7`` or newer. See |lightning-install|.
 
