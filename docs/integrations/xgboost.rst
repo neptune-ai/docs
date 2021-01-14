@@ -25,7 +25,7 @@ The integration is implemented as XGBoost callback and provides the following ca
 
 .. note::
 
-    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.130``.
+    This integration is tested with ``xgboost==1.2.0``, and ``neptune-client==0.4.132``.
 
 Where to start?
 ---------------
@@ -53,8 +53,8 @@ Before you start
 ^^^^^^^^^^^^^^^^
 You have ``Python 3.x`` and following libraries installed:
 
-* ``neptune-client==0.4.124`` or newer: See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``neptune-contrib[monitoring]==0.24.3`` or newer: See :ref:`neptune-contrib installation guide <installation-neptune-contrib>`.
+* ``neptune-client``: See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``neptune-contrib[monitoring]``: See :ref:`neptune-contrib installation guide <installation-neptune-contrib>`.
 * ``xgboost==1.2.0``. See |xgboost-install|.
 * ``pandas==1.0.5`` and ``scikit-learn==0.23.1``. See |pandas-install| and |scikit-learn-install|.
 

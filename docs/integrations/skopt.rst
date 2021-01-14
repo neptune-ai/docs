@@ -27,7 +27,7 @@ With Neptune integration, you can:
 	
 .. note::
 
-    This integration is tested with ``neptune-client==0.4.130``, ``neptune-contrib==0.25.0``, and ``scikit-optimize==0.8.1``
+    This integration is tested with ``neptune-client==0.4.132``, ``neptune-contrib==0.25.0``, and ``scikit-optimize==0.8.1``
 
 Where to start?
 ---------------
