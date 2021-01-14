@@ -42,12 +42,12 @@ List of all integrations
 * :ref:`Pytorch Ignite <integrations-pytorch-ignite>`
 * :ref:`Pytorch Lightning <integrations-pytorch-lightning>`
 * :ref:`Sacred <integrations-sacred>`
+* :ref:`Scikit-learn <integrations-sklearn>`
 * :ref:`Scikit Optimize <integrations-scikit-optimize>`
 * :ref:`Skorch <integrations-skorch>`
 * :ref:`Telegram <integrations-telegram>`
 * :ref:`Tensorboard <integrations-tensorboard>`
 * :ref:`XGBoost <integrations-xgboost>`
-* :ref:`Scikit-learn <list-of-all-integrations>` *coming soon...*
 * :ref:`Ray/Tune <list-of-all-integrations>` *coming soon...*
 * :ref:`Hydra <list-of-all-integrations>` *coming soon...*
 * :ref:`ACME <list-of-all-integrations>` *coming soon...*

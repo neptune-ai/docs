@@ -279,7 +279,7 @@ You may also find the following pages useful:
             <span>View source on GitHub</span>
         </a>
         <a target="_blank" href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/experiments?viewId=f550f42f-ea9f-4b0a-95b3-19ae47f89a65">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -289,7 +289,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-12/charts">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -299,7 +299,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-11/monitoring">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -309,7 +309,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/parameters">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -319,7 +319,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/artifacts?path=my_model%2F">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -329,7 +329,7 @@ You may also find the following pages useful:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/tensorflow-keras-integration/e/TEN-13/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>

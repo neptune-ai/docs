@@ -56,7 +56,7 @@ Neptune supports logging many different types of data. Here, you can find all of
     Remember to set project using :meth:`~neptune.init` and :meth:`~neptune.projects.Project.create_experiment` before you start logging.
 
 +--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| Type od data                                                                   | More options                                                                                         |
+| Type of data                                                                   | More options                                                                                         |
 +================================================================================+======================================================================================================+
 | :ref:`Metrics <logging-experiment-data-metrics>`                               | n.a.                                                                                                 |
 +--------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+
@@ -1302,7 +1302,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1312,7 +1312,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/parameters">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1322,7 +1322,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1332,7 +1332,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/source-code">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1342,7 +1342,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/USERNAME/example-project/n/analysis-of-top-70-experiments-final-final-82bf08ed-c442-4d62-8f41-bc39fcc6c272/d1d4ad24-25f5-4286-974c-c0b08450d5e1">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1352,7 +1352,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1362,7 +1362,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/monitoring">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1372,7 +1372,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1382,7 +1382,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1392,7 +1392,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/experiments?viewId=6013ecbc-416d-4e5c-973e-871e5e9010e9">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1402,7 +1402,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1412,7 +1412,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/details">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1422,7 +1422,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1432,7 +1432,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=model_checkpoints%2F">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1442,7 +1442,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-988/artifacts?path=html%2F&file=button_example.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1452,7 +1452,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1462,7 +1462,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2027/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1472,7 +1472,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2038/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1482,7 +1482,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2039/logs">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1492,7 +1492,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1502,7 +1502,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=matplotlib_figure.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1512,7 +1512,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=altair_chart.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1522,7 +1522,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=bokeh_figure.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1532,7 +1532,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=charts%2F&file=plotly_figure.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1542,7 +1542,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1635/artifacts?path=video%2F&file=SAC.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1552,7 +1552,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-1485/artifacts?path=audio%2F&file=sample-mp4-file.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1562,7 +1562,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/USERNAME/org/example-project/e/HELLO-325/artifacts?path=tables%2F&file=pandas_df.html">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1572,7 +1572,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2040/artifacts?file=iris.csv">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1582,7 +1582,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/dalex-integration/e/DAL-48/artifacts">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1592,7 +1592,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2043/source-code?path=.&file=minimal-exp-proj.py">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1602,7 +1602,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/e/SHOW-2045/source-code?path=.&file=main.py">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -1612,7 +1612,7 @@ Few remarks:
     <div class="see-in-neptune">
         <a target="_blank"  href="https://ui.neptune.ai/o/shared/org/showroom/experiments?viewId=205bf909-6f8f-40f8-be64-aa19f61f9b3b">
             <img width="50" height="50"
-                src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+                src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
