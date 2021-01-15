@@ -631,6 +631,26 @@ As a result hardware consumption is not being tracked.
 
     To enable this feature you need to install ``psutil``. Check our :ref:`installation guide <installation-neptune-client>` for more info. It will take like 1 minute to install.
 
+.. warning::
+
+    If you see the ``NVML Error: NVML Shared Library Not Found - GPU usage metrics may not be reported.`` your GPU consumption is not being logged.
+
+    It means that either:
+
+        - there are no GPUs on your machine
+        - your NVIDIA NVML library is not installed or configured properly. See how to |install and configure NVML|.
+
+    **Logging GPU on Windows**
+
+    On Windows, Neptune searches for the ``nvml.dll`` file in the standard locations:
+
+        - ``C:\Program Files\NVIDIA Corporation\NVSMI\nvml.dll``
+        - ``C:\Windows\System32\nvml.dll``
+
+    If you are having trouble logging GPU metrics on Windows, please check that your NVML installation is correct and that you have the ``nvml.dll`` file in either of those locations.
+
+    Alternatively, you can set a custom location of ``nvml.dll`` on Windows by setting the ``NVML_DLL_PATH``  environment variable.
+
 :ref:`back to top <what-you-can-log>`
 
 .. _logging-experiment-data-experiment-information:
@@ -1630,3 +1650,7 @@ Few remarks:
 .. |video-multiple-experiments| raw:: html
 
     <div style="position: relative; padding-bottom: 56.872037914691944%; height: 0;"><iframe src="https://www.loom.com/embed/b07ffb868c784cd58b7b90e133a44187" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+.. |install and configure NVML| raw:: html
+
+    <a href="https://developer.nvidia.com/nvidia-management-library-nvml" target="_blank">install and configure NVML</a>
