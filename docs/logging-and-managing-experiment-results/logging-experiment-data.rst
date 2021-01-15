@@ -633,7 +633,7 @@ As a result hardware consumption is not being tracked.
 
 .. warning::
 
-    If you see the ``NVML Error: NVML Shared Library Not Found - GPU usage metrics may not be reported.`` your GPU consumption is not being logged.
+    If you see the ``Info (NVML): NVML Error: NVML Shared Library Not Found - GPU usage metrics may not be reported.`` your GPU consumption is not being logged.
 
     It means that either:
 
