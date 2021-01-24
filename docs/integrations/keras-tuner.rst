@@ -102,6 +102,10 @@ This will log the following after every trial:
 - loss and all the metrics defined when compiling Keras model
 - hardware consumption with CPU, GPU and Memory during search
 
+.. note::
+
+    You can use :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` with all Keras Tuners: ``BayesianOptimization``, ``Hyperband``, ``RandomSearch``, and ``Sklearn``.
+
 Step 4: Run the search and monitor it in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now you can switch to the Neptune tab which you had opened previously to watch the optimization live!
