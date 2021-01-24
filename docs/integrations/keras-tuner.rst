@@ -19,7 +19,7 @@ With Neptune integration, you can:
 * see hardware consumption during search,
 * log the best parameters after training,
 * log hyperparameter search space
-* log Keras Tuner project directory with all the trial information
+* log Keras Tuner project directory with information for all the trials
    
 .. note::
 
@@ -33,7 +33,8 @@ This quickstart will show you how to:
 
 * Install the necessary neptune packages
 * Connect Neptune to your Keras Tuner hyperparameter search code and create the first experiment
-* Log metrics, parameters, and artifacts from your Keras Tuner sweep to Neptune, and
+* Log metrics, parameters, and artifacts from your Keras Tuner sweep to Neptune
+* Monitor hardware consumption and search performance during a sweep
 * Explore them in the Neptune UI.
 
 |Run on Colab|
@@ -45,9 +46,9 @@ Before you start
 You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client``, and ``neptune-contrib``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``keras-tuner``. See |keras-tuner-install|.
+* ``keras-tuner``. See how to |install Keras Tuner|.
 
-You also need minimal familiarity with Keras Tuner. Have a look at the |keras-tuner-guide| guide to get started.
+You also need minimal familiarity with Keras Tuner. Have a look at the |Keras Tuner guide| to get started.
 
 .. code-block:: bash
 	
@@ -80,7 +81,7 @@ The charts will currently be empty, but keep the window open. You will be able t
 
 Step 3: Pass Neptune Logger to Keras Tuner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from neptunecontrib and pass it to Tuner.
+Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from :meth:`~neptunecontrib` and pass it to the Tuner.
 
 .. code-block:: python3
 
@@ -98,16 +99,24 @@ Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from neptunec
 This will log the following after every trial:
 
 - run parameters under 'hyperparameters/values' text log
-- loss
-- all the metrics defined
+- loss and all the metrics defined when compiling Keras model
+- hardware consumption with CPU, GPU and Memory during search
 
 Step 4: Run the search and monitor it in Neptune
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Now you can switch to the Neptune tab which you had opened previously to watch the optimization live!
 
+.. code-block:: python3
+
+    tuner.search(x=x, y=y,
+                 epochs=5,
+                 validation_data=(val_x, val_y))
+
 Check out this |example experiment|.
 
-|keras-tuner-callback-logs|
+.. image:: ../_static/images/integrations/keras-tuner-logger.png
+   :target: ../_static/images/integrations/keras-tuner-logger.png
+   :alt: Neptune-Keras Tuner Integration
 
 Step 5: Log additional sweep information after the sweep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,7 +138,9 @@ This will log:
 
 Check out this |example experiment|.
 
-|keras-tuner-tuner-info-logs|
+.. image:: ../_static/images/integrations/keras-tuner-more-info.png
+   :target: ../_static/images/integrations/skeras-tuner-more-info.png
+   :alt: Neptune-Keras Tuner Integration
 
 Remember that you can try it out with zero setup:
 
@@ -170,28 +181,17 @@ You may also find the following pages useful:
         </a>
     </div>
 
-.. |optuna-tour| raw:: html
+.. |install Keras Tuner| raw:: html
 
-	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
-		<iframe src="https://www.loom.com/embed/42dfe0ca96674051aaf4c8b9bc6a2ced" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-		</iframe>
-	</div>
+    <a href="https://keras-team.github.io/keras-tuner/#installation" target="_blank">install Keras Tuner</a>
 
-.. |Optuna| raw:: html
+.. |Keras Tuner| raw:: html
 
-    <a href="https://optuna.org/" target="_blank">Optuna</a>
+    <a href="https://keras-team.github.io/keras-tuner/" target="_blank">Keras Tuner</a>
 
-.. |script| raw:: html
+.. |Keras Tuner guide| raw:: html
 
-    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.py" target="_blank">GitHub</a>
-
-.. |optuna-install| raw:: html
-
-    <a href="https://optuna.readthedocs.io/en/stable/installation.html" target="_blank">Optuna installation guide</a>
-
-.. |optuna-guide| raw:: html
-
-   <a href="https://optuna.readthedocs.io/en/stable/tutorial/index.html" target="_blank">Optuna tutorial</a>
+    <a href="https://keras-team.github.io/keras-tuner/#usage-the-basics" target="_blank">Keras Tuner guide</a>
    	
 .. |neptune-client| raw:: html
 
@@ -207,22 +207,4 @@ You may also find the following pages useful:
 	
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/shared/showroom/e/SHOW-2081/logs" target="_blank">example experiment</a>
-	
-.. |optuna-basic-logs| raw:: html
-
-	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
-		<iframe src="https://www.loom.com/embed/23eb837b8b284eaa85827c472044e95f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-		</iframe>
-	</div>
-
-.. |advance experiment| raw:: html
-
-	<a href="https://ui.neptune.ai/shared/showroom/e/SHOW-2084/artifacts" target="_blank">example experiment</a>
-	
-.. |optuna-advanced-logs| raw:: html
-	
-	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
-		<iframe src="https://www.loom.com/embed/e3116bbadf2b41b48edc44559441f95c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-		</iframe>
-	</div>
+    <a href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-16" target="_blank">example experiment</a>
