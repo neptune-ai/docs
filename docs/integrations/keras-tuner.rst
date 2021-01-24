@@ -81,7 +81,7 @@ The charts will currently be empty, but keep the window open. You will be able t
 
 Step 3: Pass Neptune Logger to Keras Tuner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from :meth:`~neptunecontrib` and pass it to the Tuner.
+Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from ``neptunecontrib`` and pass it to the Tuner.
 
 .. code-block:: python3
 
@@ -138,8 +138,8 @@ This will log:
 
 Check out this |example experiment|.
 
-.. image:: ../_static/images/integrations/keras-tuner-more-info.png
-   :target: ../_static/images/integrations/skeras-tuner-more-info.png
+.. image:: ../_static/images/integrations/keras-tuner-more-information.png
+   :target: ../_static/images/integrations/skeras-tuner-more-information.png
    :alt: Neptune-Keras Tuner Integration
 
 Remember that you can try it out with zero setup:
