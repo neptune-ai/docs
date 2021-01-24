@@ -1,0 +1,228 @@
+.. _integrations-keras-tuner:
+
+Neptune-Keras Tuner Integration
+===============================
+
+|Run on Colab|
+
+What will you get with this integration?
+----------------------------------------
+
+|Keras Tuner-tour|
+
+|Keras Tuner| is an open source hyperparameter optimization framework enables hyperparameter search on Keras Models.
+
+With Neptune integration, you can:
+
+* see charts of logged metrics for every trial
+* see the parameters tried at every trial,
+* see hardware consumption during search,
+* log the best parameters after training,
+* log hyperparameter search space
+* log Keras Tuner project directory with all the trial information
+   
+.. note::
+
+    This integration is tested with ``keras-tuner==1.0.2``, ``neptune-client==0.4.133``, and ``neptune-contrib==0.25.1``.
+
+.. _keras-tuner-quickstart:
+
+Quickstart
+----------
+This quickstart will show you how to:
+
+* Install the necessary neptune packages
+* Connect Neptune to your Keras Tuner hyperparameter search code and create the first experiment
+* Log metrics, parameters, and artifacts from your Keras Tuner sweep to Neptune, and
+* Explore them in the Neptune UI.
+
+|Run on Colab|
+
+.. _kerastuner-before-you-start:
+
+Before you start
+^^^^^^^^^^^^^^^^
+You have ``Python 3.x`` and following libraries installed:
+
+* ``neptune-client``, and ``neptune-contrib``. See :ref:`neptune-client installation guide <installation-neptune-client>`.
+* ``keras-tuner``. See |keras-tuner-install|.
+
+You also need minimal familiarity with Keras Tuner. Have a look at the |keras-tuner-guide| guide to get started.
+
+.. code-block:: bash
+	
+   pip install --quiet keras-tuner neptune-client neptune-contrib['monitoring']
+
+Step 1: Initialize Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run the code below:
+
+.. code-block:: python3
+
+    import neptune
+
+    neptune.init(api_token='ANONYMOUS', project_qualified_name='shared/keras-tuner-integration')
+
+.. tip::
+
+    You can also use your personal API token. Read more about how to :ref:`securely set the Neptune API token <how-to-setup-api-token>`.
+
+Step 2: Create an Experiment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run the code below to create a Neptune experiment:
+
+.. code-block:: python3
+
+    neptune.create_experiment('bayesian-sweep')
+
+This also creates a link to the experiment. Open the link in a new tab. 
+The charts will currently be empty, but keep the window open. You will be able to see live metrics once logging starts.
+
+Step 3: Pass Neptune Logger to Keras Tuner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Import :meth:`~neptunecontrib.monitoring.kerastuner.NeptuneLogger` from neptunecontrib and pass it to Tuner.
+
+.. code-block:: python3
+
+    import neptunecontrib.monitoring.kerastuner as npt_utils
+
+    tuner =  BayesianOptimization(
+        build_model,
+        objective='val_accuracy',
+        max_trials=10,
+        num_initial_points=3,
+        executions_per_trial=3,
+        project_name='bayesian-sweep',
+        logger=npt_utils.NeptuneLogger())
+
+This will log the following after every trial:
+
+- run parameters under 'hyperparameters/values' text log
+- loss
+- all the metrics defined
+
+Step 4: Run the search and monitor it in Neptune
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Now you can switch to the Neptune tab which you had opened previously to watch the optimization live!
+
+Check out this |example experiment|.
+
+|keras-tuner-callback-logs|
+
+Step 5: Log additional sweep information after the sweep
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Log more information from Keras Tuner object to Neptune with :meth:`~neptunecontrib.monitoring.kerastuner.log_tuner_info`
+
+.. code-block:: python3
+
+    npt_utils.log_tuner_info(tuner)
+
+This will log:
+
+- best score ('best_score' metric),
+- best parameters ('best_parameters' property),
+- score for every run ('run_score', metric),
+- tuner project directory ('TUNER_PROJECT_NAME' artifact),
+- parameter space ('hyperparameters/space' text log),
+- name of the metric/loss used as objective ('objective/name' property),
+- direction of the metric/loss used as objective ('objective/direction' property).
+
+Check out this |example experiment|.
+
+|keras-tuner-tuner-info-logs|
+
+Remember that you can try it out with zero setup:
+
+|Run on Colab|
+
+How to ask for help?
+--------------------
+Please visit the :ref:`Getting help <getting-help>` page. Everything regarding support is there.
+
+Other pages you may like
+------------------------
+
+You may also find the following pages useful:
+
+- :ref:`Tensorflow / Keras integration <integrations-tensorflow-keras>`
+- :ref:`TensorBoard integration <integrations-tensorboard>`
+- :ref:`Full list of objects you can log and display in Neptune <what-you-can-log>`
+- :ref:`Optuna integration <integrations-optuna>`
+
+.. External links
+
+.. |Run on Colab| raw:: html
+
+    <div class="run-on-colab">
+
+        <a target="_blank" href="https://colab.research.google.com//github/neptune-ai/neptune-examples/blob/master/integrations/kerastuner/docs/Neptune-Keras-Tuner.ipynb">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/colab_logo_120.png">
+            <span>Run in Google Colab</span>
+        </a>
+
+        <a target="_blank" href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/kerastuner/docs/Neptune-Keras-Tuner.py">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
+            <span>View source on GitHub</span>
+        </a>
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-15/charts">
+            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+            <span>See example in Neptune</span>
+        </a>
+    </div>
+
+.. |optuna-tour| raw:: html
+
+	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
+		<iframe src="https://www.loom.com/embed/42dfe0ca96674051aaf4c8b9bc6a2ced" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		</iframe>
+	</div>
+
+.. |Optuna| raw:: html
+
+    <a href="https://optuna.org/" target="_blank">Optuna</a>
+
+.. |script| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-examples/blob/master/integrations/optuna/docs/Neptune-Optuna.py" target="_blank">GitHub</a>
+
+.. |optuna-install| raw:: html
+
+    <a href="https://optuna.readthedocs.io/en/stable/installation.html" target="_blank">Optuna installation guide</a>
+
+.. |optuna-guide| raw:: html
+
+   <a href="https://optuna.readthedocs.io/en/stable/tutorial/index.html" target="_blank">Optuna tutorial</a>
+   	
+.. |neptune-client| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-client" target="_blank">neptune-client</a>
+
+.. |neptune-contrib| raw:: html
+
+    <a href="https://github.com/neptune-ai/neptune-contrib" target="_blank">neptune-contrib</a>
+
+.. |Neptune| raw:: html
+
+    <a href="https://neptune.ai/register" target="_blank">Neptune</a>
+	
+.. |example experiment| raw:: html
+
+    <a href="https://ui.neptune.ai/shared/showroom/e/SHOW-2081/logs" target="_blank">example experiment</a>
+	
+.. |optuna-basic-logs| raw:: html
+
+	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
+		<iframe src="https://www.loom.com/embed/23eb837b8b284eaa85827c472044e95f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		</iframe>
+	</div>
+
+.. |advance experiment| raw:: html
+
+	<a href="https://ui.neptune.ai/shared/showroom/e/SHOW-2084/artifacts" target="_blank">example experiment</a>
+	
+.. |optuna-advanced-logs| raw:: html
+	
+	<div style="position: relative; padding-bottom: 53.65126676602087%; height: 0;">
+		<iframe src="https://www.loom.com/embed/e3116bbadf2b41b48edc44559441f95c" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+		</iframe>
+	</div>
