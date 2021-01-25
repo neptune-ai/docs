@@ -181,8 +181,8 @@ You may also find the following pages useful:
             <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/GitHub-Mark-120px-plus.png">
             <span>View source on GitHub</span>
         </a>
-        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-15/charts">
-            <img width="50" height="50" src="https://gist.githubusercontent.com/kamil-kaczmarek/7ac1e54c3b28a38346c4217dd08a7850/raw/8880e99a434cd91613aefb315ff5904ec0516a20/neptune-ai-blue-vertical.png">
+        <a target="_blank" href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-19/charts">
+            <img width="50" height="50" src="https://neptune.ai/wp-content/uploads/neptune-ai-blue-vertical.png">
             <span>See example in Neptune</span>
         </a>
     </div>
@@ -214,3 +214,7 @@ You may also find the following pages useful:
 .. |example experiment| raw:: html
 
     <a href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-19" target="_blank">example experiment</a>
+
+.. |Keras Tuner-tour| raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/089eac8375054169a4b46548c7a6ea1a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
