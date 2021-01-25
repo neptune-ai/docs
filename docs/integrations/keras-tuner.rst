@@ -23,7 +23,7 @@ With Neptune integration, you can:
    
 .. note::
 
-    This integration is tested with ``keras-tuner==1.0.2``, ``neptune-client==0.4.133``, and ``neptune-contrib==0.25.1``.
+    This integration is tested with ``keras-tuner==1.0.2``, ``neptune-client==0.4.133``, and ``neptune-contrib==0.26.0``.
 
 .. _keras-tuner-quickstart:
 
