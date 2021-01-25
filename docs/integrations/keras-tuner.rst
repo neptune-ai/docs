@@ -138,7 +138,9 @@ This will log:
 - tuner project directory ('TUNER_PROJECT_NAME' artifact),
 - parameter space ('hyperparameters/space' text log),
 - name of the metric/loss used as objective ('objective/name' property),
-- direction of the metric/loss used as objective ('objective/direction' property).
+- direction of the metric/loss used as objective ('objective/direction' property),
+- tuner id ('tuner_id' property),
+- best trial id ('best_trial_id' property).
 
 Check out this |example experiment|.
 
@@ -211,4 +213,4 @@ You may also find the following pages useful:
 	
 .. |example experiment| raw:: html
 
-    <a href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-16" target="_blank">example experiment</a>
+    <a href="https://ui.neptune.ai/o/shared/org/keras-tuner-integration/e/KER-19" target="_blank">example experiment</a>
