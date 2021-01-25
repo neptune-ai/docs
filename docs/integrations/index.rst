@@ -32,6 +32,7 @@ List of all integrations
 * :ref:`HiPlot <integrations-hiplot>`
 * :ref:`HTML <integrations-html>`
 * :ref:`TensorFlow / Keras <integrations-tensorflow-keras>`
+* :ref:`Keras Tuner <integrations-keras-tuner>`
 * :ref:`Lightgbm <integrations-lightgbm>`
 * :ref:`Matplotlib <integrations-matplotlib>`
 * :ref:`MLflow <integrations-mlflow>`

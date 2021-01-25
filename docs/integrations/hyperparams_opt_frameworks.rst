@@ -10,3 +10,4 @@ Neptune provides integrations with the following hyperparameter optimization fra
 
    Optuna <optuna.rst>
    Scikit-Optimize <skopt.rst>
+   Keras Tuner <keras-tuner.rst>
