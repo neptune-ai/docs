@@ -12,6 +12,12 @@
    :target: ../../../../_static/images/api_references/Neptune_Object_Hierarchy_V1.jpg
    :alt: Neptune object hierarchy
    
+``neptune.init()`` connects to Neptune and sets a global project context. ``neptune.create_experiment()`` creates experiments within the current global project context.
+
+.. note::
+
+   You can also explicitly create projects by ``project = neptune.init()``, and then explitly create experiments under those projects by ``exp = project.create_experiment()``.
+
 The following are the main classes in the Neptune client Python library:
 
 .. csv-table::
@@ -45,23 +51,40 @@ This library supports packages and functions for Neptune's integration with Tens
 
 An Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`).
 
-Creating experiments is easy:
-
 .. code-block:: python3
 
     # Set project
     neptune.init('my_workspace/my_project')
 
     # Create new experiment
-    neptune.create_experiment()
+    exp = neptune.create_experiment()
+	
+    # log metadata
+    exp.log_metric()
+    exp.log_image()
+    exp.log_artifact()
+    
+    # Log whatever else you want
+    ...
+    
+    # Close the experiment namespace
+    exp.stop()
 
-You can now log various data to the experiment including metrics, losses, model weights, images, predictions and much more. Have a look at the complete list of :ref:`what you can log <what-you-can-log>` to the experiment.
+You can now log various data to the experiment, including
 
-Besides logging data, you can also :ref:`download experiment data <guides-download_data>` to you local machine or :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
+* metrics, 
+* losses, 
+* model weights, 
+* images, 
+* predictions 
+* and much more.  
+  
+Have a look at the complete list of :ref:`what you can log <what-you-can-log>` to the experiment.
 
-.. note::
+Besides logging data, you can also 
 
-    ``neptune.log_metric('some_name', some_value)`` is for tracking all numeric values to Neptune (metric, loss, score, variances, etc.). Learn, what else can be tracked to experiment from :ref:`this list <what-you-can-log>`.
+* :ref:`download experiment data <guides-download_data>` to you local machine, or 
+* :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
 
 {% endif %}
 
@@ -71,16 +94,11 @@ A Project is a **collection of Experiments**, created by user (or users) assigne
 
 You can log experiments to the project or fetch all experiments that satisfy some criteria.
 
-.. code-block:: python3
+``neptune.init()`` sets a global project, but a project can also be initialized explicitly by ``project = neptune.init()``.  
+  
+Similarly, experiments can either be created under the global context by ``neptune.create_experiment()``, or you can explicitly create them within a project ``project.create_experiment()``.  
 
-    # Set project and get project object
-    project = neptune.init('my_workspace/my_project')
-
-    # Use project to create experiment
-    project.create_experiment()
-
-    # Use project to get experiments data from the project
-    project.get_leaderboard(state=['succeeded'])
+Experiments within a project can be accessed by ``project.get_experiment()``, and the project leaderboard dataframe can be accessed by ``project.get_leaderboard()``
 
 Learn more about :ref:`downloading data from Neptune <guides-download_data>`.
 
