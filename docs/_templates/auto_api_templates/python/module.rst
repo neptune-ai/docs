@@ -8,15 +8,30 @@
 
 {% if 'neptune' == obj.name %}
 
+``neptune`` is global object that provides the convenience of doing most of the logging using a single global variable.
+
+With global ``neptune`` object you can:
+
+- connect to Neptune and sets a global project context with ``neptune.init()`` (ref: :meth:`~neptune.init`)
+- create experiments within the current global project context with ``neptune.create_experiment()`` (ref: :meth:`~neptune.create_experiment`)
+
 .. image:: ../../../../_static/images/api_references/Neptune_Object_Hierarchy_V1.jpg
    :target: ../../../../_static/images/api_references/Neptune_Object_Hierarchy_V1.jpg
    :alt: Neptune object hierarchy
-   
-``neptune.init()`` connects to Neptune and sets a global project context. ``neptune.create_experiment()`` creates experiments within the current global project context.
 
 .. note::
 
-   You can also explicitly create projects by ``project = neptune.init()``, and then explitly create experiments under those projects by ``exp = project.create_experiment()``.
+    You can also explicitly create projects by:
+
+    .. code-block::
+
+        project = neptune.init()
+
+    and then explicitly create experiments under those projects by:
+
+    .. code-block::
+
+        exp = project.create_experiment()
 
 The following are the main classes in the Neptune client Python library:
 
@@ -49,7 +64,9 @@ This library supports packages and functions for Neptune's integration with Tens
 
 {% if 'neptune.experiments' == obj.name %}
 
-An Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (reference docs: :meth:`~neptune.experiments.Experiment.stop`).
+.. _api-reference-experiments:
+
+An Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` (ref: :meth:`~neptune.create_experiment`) and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (ref: :meth:`~neptune.experiments.Experiment.stop`).
 
 .. code-block:: python3
 
@@ -70,37 +87,41 @@ An Experiment is everything that you log to Neptune, beginning at ``neptune.crea
     # Close the experiment namespace
     exp.stop()
 
-You can now log various data to the experiment, including
+You can log many ML metadata types to the experiment, including:
 
-* metrics, 
-* losses, 
-* model weights, 
-* images, 
-* predictions 
-* and much more.  
+- metrics,
+- losses,
+- model weights,
+- images,
+- interactive charts,
+- predictions,
+- and much more.
   
-Have a look at the complete list of :ref:`what you can log <what-you-can-log>` to the experiment.
+Have a look at the complete list of :ref:`metadata types you can log <what-you-can-log>` to the experiment.
 
 Besides logging data, you can also 
 
-* :ref:`download experiment data <guides-download_data>` to you local machine, or 
-* :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
+- :ref:`download experiment data <guides-download_data>` to you local machine, or
+- :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
 
 {% endif %}
 
 {% if 'neptune.projects' == obj.name %}
 
-A Project is a **collection of Experiments**, created by user (or users) assigned to the project.
+A ``Project`` (ref: :meth:`~neptune.projects.Project`) is a **collection of Experiments**, created by user (or users) assigned to the project.
+It is also a Python object to which you can log experiments or query experiments from.
 
-You can log experiments to the project or fetch all experiments that satisfy some criteria.
+**Set project**
 
-``neptune.init()`` sets a global project, but a project can also be initialized explicitly by ``project = neptune.init()``.  
-  
-Similarly, experiments can either be created under the global context by ``neptune.create_experiment()``, or you can explicitly create them within a project ``project.create_experiment()``.  
+``neptune.init()`` sets a global project, but a project can also be initialized explicitly by ``project = neptune.init()`` (ref: :meth:`~neptune.init`).
 
-Experiments within a project can be accessed by ``project.get_experiment()``, and the project leaderboard dataframe can be accessed by ``project.get_leaderboard()``
+**Create experiments in a project**
 
-Learn more about :ref:`downloading data from Neptune <guides-download_data>`.
+Experiments can either be created under the global context by ``neptune.create_experiment()``, or you can explicitly create them within a project ``project.create_experiment()`` (ref: :meth:`~neptune.create_experiment`).
+
+**Querying experiments from a project**
+
+Experiments within a project can be queried by ``project.get_experiments()`` (ref: :meth:`~neptune.projects.Project.get_experiments`), and the project leaderboard dataframe can be queried by ``project.get_leaderboard()`` (ref: :meth:`~neptune.projects.Project.get_leaderboard`)
 
 {% endif %}
 
