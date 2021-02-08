@@ -3,7 +3,35 @@
 
 {% endif %}
 
+:mod:`{{ obj.name }}`
+======={{ "=" * obj.name|length }}
+
 {% if 'neptune' == obj.name %}
+
+``neptune`` is global object that provides the convenience of doing most of the logging using a single global variable.
+
+With global ``neptune`` object you can:
+
+- connect to Neptune and sets a global project context with ``neptune.init()`` (ref: :meth:`~neptune.init`)
+- create experiments within the current global project context with ``neptune.create_experiment()`` (ref: :meth:`~neptune.create_experiment`)
+
+.. image:: ../../../../_static/images/api_references/Neptune_Object_Hierarchy_V1.jpg
+   :target: ../../../../_static/images/api_references/Neptune_Object_Hierarchy_V1.jpg
+   :alt: Neptune object hierarchy
+
+.. note::
+
+    You can also explicitly create projects by:
+
+    .. code-block::
+
+        project = neptune.init()
+
+    and then explicitly create experiments under those projects by:
+
+    .. code-block::
+
+        exp = project.create_experiment()
 
 The following are the main classes in the Neptune client Python library:
 
@@ -12,17 +40,90 @@ The following are the main classes in the Neptune client Python library:
    :widths: 10, 40
    :delim: #
 
-   |Neptune| #A global object that provides the convenience of doing most of the logging using a single neptune global variable, similar to Numpy’s ``import numpy as np`` statement - in Neptune, write ``import neptune``.
-   |Session| #When you are creating a Neptune session, you identify yourself with an API token so that the client knows which projects you have access to.
+   |Neptune| #A global object that provides the convenience of doing most of the logging using a single neptune global variable, similar to Numpy's ``import numpy as np`` statement. In Neptune, you write ``import neptune``.
    |Project| #This is the Neptune project to which you want to log things. You need to create it in the application. This is a place where you can create experiments. You can create new ones and update or download information from the existing one.
-   |Experiment| #This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a Singleton dictionary object. Neptune gives you all the freedom: You simply log metrics, images, text and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can re-instantiate the experiments you have created in the past and update them.
+   |Experiment| #This is an object to which you log any piece of information you consider to be important during your run. Interaction with the experiment feels similar to interacting with a singleton dictionary object. Neptune gives you all the freedom - you simply log metrics, images, text, and everything else to particular names and those objects are sent to the application. You can have one or multiple experiments in one script. You can re-instantiate the experiments you have created in the past and update them.
    |Notebook| #Contains all the information about a Neptune Jupyter Notebook.
    |Git Info| #Keeps information about the Git repository in an experiment.
 
+Learn how to get started with logging and managing experiment data using Neptune :ref:`here <guides-logging-and-managing-experiment-results>`.
+
 {% endif %}
 
-:mod:`{{ obj.name }}`
-======={{ "=" * obj.name|length }}
+{% if 'neptunecontrib' == obj.name %}
+
+This library contains community extensions. This is what you use to integrate Neptune with other frameworks. Check all the integrations Neptune supports :ref:`here <integrations-index>`.
+
+{% endif %}
+
+{% if 'neptune_tensorboard' == obj.name %}
+
+This library supports packages and functions for Neptune's integration with TensorBoard. Read how to integrate Neptune with TensorBoard :ref:`here <integrations-tensorboard>`.
+
+{% endif %}
+
+{% if 'neptune.experiments' == obj.name %}
+
+.. _api-reference-experiments:
+
+An Experiment is everything that you log to Neptune, beginning at ``neptune.create_experiment()`` (ref: :meth:`~neptune.create_experiment`) and ending when script finishes or when you explicitly stop the experiment with ``neptune.stop`` (ref: :meth:`~neptune.experiments.Experiment.stop`).
+
+.. code-block:: python3
+
+    # Set project
+    neptune.init('my_workspace/my_project')
+
+    # Create new experiment
+    exp = neptune.create_experiment()
+	
+    # log metadata
+    exp.log_metric()
+    exp.log_image()
+    exp.log_artifact()
+    
+    # Log whatever else you want
+    ...
+    
+    # Close the experiment namespace
+    exp.stop()
+
+You can log many ML metadata types to the experiment, including:
+
+- metrics,
+- losses,
+- model weights,
+- images,
+- interactive charts,
+- predictions,
+- and much more.
+  
+Have a look at the complete list of :ref:`metadata types you can log <what-you-can-log>` to the experiment.
+
+Besides logging data, you can also 
+
+- :ref:`download experiment data <guides-download_data>` to you local machine, or
+- :ref:`update an existing experiment <update-existing-experiment>` even when it's closed.
+
+{% endif %}
+
+{% if 'neptune.projects' == obj.name %}
+
+A ``Project`` (ref: :meth:`~neptune.projects.Project`) is a **collection of Experiments**, created by user (or users) assigned to the project.
+It is also a Python object to which you can log experiments or query experiments from.
+
+**Set project**
+
+``neptune.init()`` sets a global project, but a project can also be initialized explicitly by ``project = neptune.init()`` (ref: :meth:`~neptune.init`).
+
+**Create experiments in a project**
+
+Experiments can either be created under the global context by ``neptune.create_experiment()``, or you can explicitly create them within a project ``project.create_experiment()`` (ref: :meth:`~neptune.create_experiment`).
+
+**Querying experiments from a project**
+
+Experiments within a project can be queried by ``project.get_experiments()`` (ref: :meth:`~neptune.projects.Project.get_experiments`), and the project leaderboard dataframe can be queried by ``project.get_leaderboard()`` (ref: :meth:`~neptune.projects.Project.get_leaderboard`)
+
+{% endif %}
 
 .. py:module:: {{ obj.name }}
 
