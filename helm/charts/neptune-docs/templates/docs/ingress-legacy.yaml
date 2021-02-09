@@ -1,0 +1,27 @@
+{{ if .Values.ingress.legacyEnabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "chart.fullname" . }}-docs
+  labels:
+    app: {{ template "chart.name" . }}
+    chart:  {{ template "chart.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+    ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
+spec:
+  rules:
+  - host: {{ .Values.docs.legacyDomain }}.{{ .Values.global.domain }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "chart.fullname" . }}-docs
+          servicePort: {{ .Values.docs.port }}
+      - path: /api/athena
+        backend:
+          serviceName: {{ template "chart.fullname" . }}-analytics
+          servicePort: {{ .Values.global.analytics.port }}
+{{ end }}
