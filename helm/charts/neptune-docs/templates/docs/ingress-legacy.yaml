@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "chart.fullname" . }}-docs
+  name: {{ template "chart.fullname" . }}-docs-legacy
   labels:
     app: {{ template "chart.name" . }}
     chart:  {{ template "chart.chart" . }}
@@ -13,7 +13,7 @@ metadata:
     ingress.kubernetes.io/force-ssl-redirect: '{{ .Values.global.force_ssl_redirect }}'
 spec:
   rules:
-  - host: {{ .Values.docs.legacyDomain }}.{{ .Values.global.domain }}
+  - host: {{ .Values.ingress.legacyDomain }}.{{ .Values.global.domain }}
     http:
       paths:
       - path: /
