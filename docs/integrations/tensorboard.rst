@@ -71,7 +71,7 @@ Before you start
 Step 1: Set your ``NEPTUNE_API_TOKEN``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Linux/iOS:
+Linux/macOS:
 
 .. code:: bash
 
