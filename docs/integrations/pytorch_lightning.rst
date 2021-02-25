@@ -22,7 +22,7 @@ PyTorch Lightning is a lightweight PyTorch wrapper for high-performance AI resea
 
 .. note::
 
-    This integration is tested with ``pytorch-lightning==1.0.7``, and ``neptune-client==0.4.132``.
+    This integration is tested with ``pytorch-lightning==1.2.1``, and ``neptune-client==0.5.1``.
 
 Where to start?
 ---------------
@@ -52,7 +52,7 @@ Before you start
 You have ``Python 3.x`` and following libraries installed:
 
 * ``neptune-client``: See :ref:`neptune-client installation guide <installation-neptune-client>`.
-* ``pytorch==1.6.0`` and ``torchvision==0.7.0``. See |pytorch-install|.
+* ``pytorch==1.7.1`` and ``torchvision==0.8.2``. See |pytorch-install|.
 * ``pytorch-lightning==1.0.7`` or newer. See |lightning-install|.
 
 You also need minimal familiarity with the PyTorch Lightning. Have a look at the "|lightning-guide|" guide to get started.
@@ -442,7 +442,7 @@ Use ``ModelCheckpoint`` to make checkpoint during training, then log saved check
     from pytorch_lightning.callbacks import ModelCheckpoint
 
     # Instantiate ModelCheckpoint
-    model_checkpoint = ModelCheckpoint(filepath='my_model/checkpoints/{epoch:02d}-{val_loss:.2f}',
+    model_checkpoint = ModelCheckpoint(filename='my_model/checkpoints/{epoch:02d}-{val_loss:.2f}',
                                        save_weights_only=True,
                                        save_top_k=3,
                                        monitor='val_loss',
@@ -635,11 +635,11 @@ You may also like these two integrations:
 
 .. |lightning-install| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html#step-0-install-pytorch-lightning" target="_blank">PyTorch Lightning installation guide</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/stable/starter/new-project.html" target="_blank">PyTorch Lightning installation guide</a>
 
 .. |lightning-guide| raw:: html
 
-    <a href="https://pytorch-lightning.readthedocs.io/en/latest/new-project.html" target="_blank">Lightning in 2 steps</a>
+    <a href="https://pytorch-lightning.readthedocs.io/en/latest/" target="_blank">Lightning in 2 steps</a>
 
 .. |pytorch-install| raw:: html
 
