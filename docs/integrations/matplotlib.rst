@@ -46,7 +46,7 @@ Follow these steps:
 
    .. code-block::
 
-      experiment.log_image('diagrams', figure)
+      neptune.log_image('diagrams', figure)
 
 **Log as interactive plotly chart**
 
