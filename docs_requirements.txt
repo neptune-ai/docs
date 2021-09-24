@@ -15,7 +15,7 @@ neptune-client
 neptune-contrib
 neptune-tensorboard
 packaging==19.0
-Pygments==2.4.2
+Pygments==2.7.4
 pyparsing==2.4.0
 pytz==2019.1
 recommonmark==0.5.0
