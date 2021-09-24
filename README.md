@@ -1,4 +1,5 @@
-# Neptune documentation
+# Neptune legacy-docs
 
-1. [Neptune documentation](https://docs.neptune.ai)
-2. [Neptune contrib documentation](https://neptune-contrib.readthedocs.io)
+See [neptune docs-legacy](https://docs-legacy.neptune.ai/index.html)
+
+New docs: https://docs.neptune.ai/
