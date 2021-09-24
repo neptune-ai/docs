@@ -23,7 +23,7 @@ Create the **NeptuneLogger**
 ----------------------------
 .. code-block:: python3
 
-    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
+    from catalyst.dl import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
                         api_token='ANONYMOUS',  # your Neptune token
@@ -141,7 +141,7 @@ Remember to change your credentials in the ``NeptuneLogger``:
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters())
 
-    from catalyst.contrib.dl.callbacks.neptune import NeptuneLogger
+    from catalyst.dl import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
         api_token='ANONYMOUS',  # your Neptune token
