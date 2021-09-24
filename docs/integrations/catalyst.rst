@@ -23,7 +23,7 @@ Create the **NeptuneLogger**
 ----------------------------
 .. code-block:: python3
 
-    from catalyst.contrib.callbacks import NeptuneLogger
+    from catalyst.dl import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
                         api_token='ANONYMOUS',  # your Neptune token
