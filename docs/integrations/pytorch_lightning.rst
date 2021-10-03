@@ -68,7 +68,7 @@ Pass your Neptune _Project_ name and API token to ``NeptuneLogger``.
     * find and set your `Neptune API token <https://docs.neptune.ai/getting-started/installation#setting-the-project-name>`_
 
 Pass neptune_logger to Trainer
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Pass ``neptune_logger`` instance to lightning ``Trainer`` to log model training metadata to Neptune:
 
 .. code-block:: python3
