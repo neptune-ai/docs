@@ -53,10 +53,10 @@ Create NeptuneLogger
     from neptunecontrib.monitoring.pytorch_lightning import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
-                api_key='<YOUR_API_TOKEN>',
-                project='<YOUR_WORKSPACE/YOUR_PROJECT>',
-                name='lightning-run',  # Optional
-            )
+        api_key='<YOUR_API_TOKEN>',
+        project='<YOUR_WORKSPACE/YOUR_PROJECT>',
+        name='lightning-run',  # Optional
+        )
 
 Pass your Neptune _Project_ name and API token to ``NeptuneLogger``.
 
@@ -108,28 +108,37 @@ To do that you need to:
 
 .. code-block:: python3
 
-    from neptune.new.types import File
-
     class LitModel(LightningModule):
         def training_step(self, batch, batch_idx):
             # log metrics
             acc = ...
-            self.logger.experiment['train/acc'].log(acc)
+            self.logger.experiment.log_metric(acc)
+
             # log images
             img = ...
-            self.logger.experiment['train/misclassified_images'].log(File.as_image(img))
+            self.logger.experiment.log_image(img)
 
         def any_lightning_module_function_or_hook(self):
             # log model checkpoint
             ...
-            self.logger.experiment['checkpoints/epoch37'].upload('epoch=37.ckpt')
+            self.logger.experiment.log_artifact(k, model_name)
+
             # generic recipe
             metadata = ...
-            self.logger.experiment['your/metadata/structure'].log(metadata)
+            self.logger.experiment.ABC(metadata)
 
+.. tip::
+
+    Use ``neptune_logger.experiment.ABC`` to call methods that you would use, when working with neptune client, for example:
+
+        * ``neptune_logger.experiment.log_metric``
+        * ``neptune_logger.experiment.log_image``
+        * ``neptune_logger.experiment.set_property``
+        * ``neptune_logger.experiment.log_artifact``
 
 .. note::
-    You can log other model-building metadata like metrics, images, video, audio, interactive visualizations, and more. See `What can you log and display? <https://docs.neptune.ai/you-should-know/what-can-you-log-and-display>`_.
+    You can log model-building metadata like metrics, images, video, audio, interactive visualizations, and more.
+    See `What objects can you log to Neptune? <https://docs-legacy.neptune.ai/logging-and-managing-experiment-results/logging-experiment-data.html#what-objects-can-you-log-to-neptune>`_.
 
 Log after training is finished
 ------------------------------
@@ -138,23 +147,24 @@ If you want to log objects after the training is finished, use ``close_after_fit
 .. code-block:: python3
 
     from neptunecontrib.monitoring.pytorch_lightning import NeptuneLogger
+    from pytorch_lightning import Trainer
 
     neptune_logger = NeptuneLogger(
         api_key='<YOUR_API_TOKEN>',
         project='<YOUR_WORKSPACE/YOUR_PROJECT>',
         close_after_fit=False,
     )
+
     trainer = Trainer(logger=neptune_logger)
     trainer.fit(model)
 
     # Log confusion matrix after training
-    from neptune.new.types import File
     from scikitplot.metrics import plot_confusion_matrix
     import matplotlib.pyplot as plt
 
     fig, ax = plt.subplots(figsize=(16, 12))
     plot_confusion_matrix(y_true, y_pred, ax=ax)
-    neptune_logger.experiment['test/confusion_matrix'].upload(File.as_image(fig))
+    neptune_logger.experiment.log_image(fig)
 
     # Stop logging
     neptune_logger.experiment.stop()
@@ -181,8 +191,3 @@ You can also pass ``kwargs`` to specify the ``Experiment`` in greater detail, li
     Please visit
     `integration docs <https://docs.neptune.ai/integrations-and-supported-tools/model-training/pytorch-lightning>`_
     to learn about the latest, fully supported version.
-
-External resources
-------------------
-
-* LegacyLogger `reference docs <https://neptune-contrib.readthedocs.io/>`_
