@@ -121,7 +121,7 @@ To do that you need to:
         def any_lightning_module_function_or_hook(self):
             # log model checkpoint
             ...
-            self.logger.experiment.log_artifact(k, model_name)
+            self.logger.experiment.log_artifact(artifact, destination)
 
             # generic recipe
             metadata = ...
