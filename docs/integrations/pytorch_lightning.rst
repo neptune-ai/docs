@@ -32,13 +32,13 @@ Before you start, make sure that:
 * You are already `registered user <https://neptune.ai/register>`_, so that you can log metadata to your `private projects <https://docs.neptune.ai/administration/workspace-project-and-user-management/projects>`_.
 * You have your ``NEPTUNE_API_TOKEN`` set to the environment variable: `check this docs page <https://docs.neptune.ai/getting-started/installation#authentication-neptune-api-token>`_.
 
-**Install neptune-client\[pytorch-lightning\]**
+**Install neptune-contrib**
 
 Depending on your operating system open a terminal or CMD and run this command.
 
 .. code-block:: bash
 
-    pip install 'neptune-client[pytorch-lightning]'
+    pip install 'neptune-contrib[monitoring]'
 
 This logger works with ``1.0.7<=pytorch-lightning<=1.4``.
 
@@ -50,7 +50,7 @@ Create NeptuneLogger
 
 .. code-block:: python3
 
-    from neptune.new.integrations.pytorch_lightning import NeptuneLogger
+    from neptunecontrib.monitoring.pytorch_lightning import NeptuneLogger
 
     neptune_logger = NeptuneLogger(
                 api_key='<YOUR_API_TOKEN>',
@@ -61,6 +61,7 @@ Create NeptuneLogger
 Pass your Neptune _Project_ name and API token to ``NeptuneLogger``.
 
 .. note::
+
     See how to:
 
     * get `your full project name <https://docs.neptune.ai/getting-started/installation#authentication-neptune-api-token>`_
@@ -102,8 +103,8 @@ You can use log Images, model checkpoints, and other ML metadata from inside you
 
 To do that you need to:
 
-* access the _Run_ object at ``self.logger.experiment``
-* use one of the `Neptune logging methods <https://docs.neptune.ai/you-should-know/logging-metadata#essential-logging-methods>`_
+* access the ``Experiment`` object at ``self.logger.experiment``
+* use one of the `logging methods <https://docs-legacy.neptune.ai/api-reference/neptune/experiments/index.html#neptune-experiments>`_ that ``Experiment`` object exposes.
 
 .. code-block:: python3
 
@@ -136,8 +137,13 @@ If you want to log objects after the training is finished, use ``close_after_fit
 
 .. code-block:: python3
 
-    neptune_logger = NeptuneLogger(...,
-                                   close_after_fit=False)
+    from neptunecontrib.monitoring.pytorch_lightning import NeptuneLogger
+
+    neptune_logger = NeptuneLogger(
+        api_key='<YOUR_API_TOKEN>',
+        project='<YOUR_WORKSPACE/YOUR_PROJECT>',
+        close_after_fit=False,
+    )
     trainer = Trainer(logger=neptune_logger)
     trainer.fit(model)
 
@@ -155,20 +161,18 @@ If you want to log objects after the training is finished, use ``close_after_fit
 
 Pass additional parameters to NeptuneLogger
 -------------------------------------------
-You can also pass ``kwargs`` to specify the ``Run`` in greater detail, like `tags` and `description`:
+You can also pass ``kwargs`` to specify the ``Experiment`` in greater detail, like `tags` and `description`:
 
 .. code-block:: python3
 
     neptune_logger = NeptuneLogger(
-        project='common/new-pytorch-lightning-integration',
+        api_key='<YOUR_API_TOKEN>',
+        project='<YOUR_WORKSPACE/YOUR_PROJECT>',
         name='lightning-run',
         description='mlp quick run with pytorch-lightning',
         tags=['mlp', 'quick-run'],
     )
     trainer = Trainer(max_epochs=3, logger=neptune_logger)
-
-.. note::
-    For more information about the Neptune `Run`, see `Core Concepts <https://docs.neptune.ai/you-should-know/core-concepts#run>`_.
 
 .. warning::
     This is ``LegacyLogger`` implementation that is under maintenance support only.
