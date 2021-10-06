@@ -152,7 +152,7 @@ stages:
 
   helm plugin install https://github.com/chartmuseum/helm-push
 
-  helm push cicd-release/neptune-docs-$version.tgz neptune-charts
+  helm cm-push cicd-release/neptune-docs-$version.tgz neptune-charts
 
 .release_prod: &release_prod |
   version=$CI_COMMIT_TAG
