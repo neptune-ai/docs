@@ -15,6 +15,39 @@ import sys
 
 sys.path.insert(0, os.path.abspath('./neptune-client/'))
 
+# -- Imports mock -----------------------------------------------------]
+autodoc_mock_imports = ['aif360',
+                        'altair',
+                        'boto3',
+                        'joblib',
+                        'fastai',
+                        'fastai.basic_train',
+                        'hiplot',
+                        'keras',
+                        'tensorflow',
+                        'tensorflow.keras',
+                        'telegram',
+                        'numpy',
+                        'pandas',
+                        'neptune',
+                        'neptunecontrib',
+                        'matplotlib',
+                        'sacred',
+                        'sacred.dependencies',
+                        'sacred.observers',
+                        'scipy',
+                        'seaborn',
+                        'sklearn',
+                        'sklearn.metrics',
+                        'skopt',
+                        'optuna',
+                        'scikitplot',
+                        'scikitplot.metrics',
+                        'xgboost',
+                        'yellowbrick',
+                        'torch',
+                        'pytorch_lightning']
+
 # -- Project information -----------------------------------------------------
 
 project = 'Neptune docs'
