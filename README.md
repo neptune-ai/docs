@@ -1,4 +1,4 @@
-# Neptune legacy-docs
+# Neptune legacy documentation
 
 See [neptune docs-legacy](https://docs-legacy.neptune.ai/index.html)
 
