@@ -3,6 +3,14 @@
 Neptune-HiPlot Integration
 ==========================
 
+.. warning::
+    This is the documentation of the legacy client which is under the maintenance support only.
+    No new updates will be made to this documentation and legacy client.
+
+    It is **highly recommended** to go the to `new documentation <https://docs.neptune.ai/>`_ for the latest documentation and full support of the new, improved Neptune.
+
+    `Read new documentation <https://docs.neptune.ai/>`_
+
 This integration lets you analyze multiple experiments in Neptune using |HiPlot| visualization. HiPlot is a lightweight interactive visualization tool published by
 the Facebook AI group.
 
