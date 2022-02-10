@@ -249,6 +249,12 @@
     text-align: center;
 }
 
+.legacy-box {
+    color:#4e566d;
+    background-color: #ffaa00;
+    text-align: center;
+}
+
 .let-us-know {
     display: block;
     margin-left: auto;
